@@ -5728,7 +5728,6 @@ __inline static void writel(unsigned int val , void volatile   *addr )
 }
 }
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -14700,16 +14699,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void ldv_free_irq_24(unsigned int ldv_func_arg1 , void *ldv_func_arg2 ) 
 { 
 
@@ -14910,7 +14899,6 @@ __inline static void init_completion(struct completion *x )
 }
 }
 int ldv_del_timer_sync_77(struct timer_list *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_69(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void activate_suitable_timer_6(struct timer_list *timer , unsigned long data ) ;
@@ -18843,16 +18831,6 @@ void activate_pending_timer_6(struct timer_list *timer , unsigned long data , in
   return;
 }
 }
-void *ldv_kmem_cache_alloc_69(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_dma_pool_alloc_73(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_addr_t *ldv_func_arg3 ) 
 { 
   void *tmp ;
@@ -18955,7 +18933,6 @@ int ldv_mod_timer_102(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_
 int ldv_mod_timer_104(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 int ldv_mod_timer_105(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 int ldv_mod_timer_106(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
-void *ldv_kmem_cache_alloc_98(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern struct scatterlist *sg_next(struct scatterlist * ) ;
 extern int ___ratelimit(struct ratelimit_state * , char const   * ) ;
 __inline static int usb_urb_dir_in(struct urb *urb ) 
@@ -24322,16 +24299,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_98(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_del_timer_101(struct timer_list *ldv_func_arg1 ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -24418,7 +24385,6 @@ __inline static int variable_test_bit(long nr , unsigned long const volatile   *
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern unsigned long wait_for_completion_timeout(struct completion * , unsigned long  ) ;
 int ldv_del_timer_sync_135(struct timer_list *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_132(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void put_unaligned_le16(u16 val , void *p ) 
 { 
 
@@ -26202,16 +26168,6 @@ int xhci_bus_resume(struct usb_hcd *hcd )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_132(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_del_timer_sync_135(struct timer_list *ldv_func_arg1 ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -26227,7 +26183,6 @@ int ldv_del_timer_sync_135(struct timer_list *ldv_func_arg1 )
 void ldv__builtin_va_end(__builtin_va_list * ) ;
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 void ldv__builtin_va_start(__builtin_va_list * ) ;
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void xhci_debug_trb(struct xhci_hcd *xhci , union xhci_trb *trb ) ;
 void xhci_dbg_ep_rings(struct xhci_hcd *xhci , unsigned int slot_id , unsigned int ep_index ,
                        struct xhci_virt_ep *ep ) ;
@@ -28306,17 +28261,6 @@ static char const   __kstrtab_xhci_dbg_trace[15U]  =
         'c',      'e',      '\000'};
 struct kernel_symbol  const  __ksymtab_xhci_dbg_trace ;
 struct kernel_symbol  const  __ksymtab_xhci_dbg_trace  =    {(unsigned long )(& xhci_dbg_trace), (char const   *)(& __kstrtab_xhci_dbg_trace)};
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_178(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static char const   __tpstrtab_xhci_dbg_address[17U]  = 
   {      'x',      'h',      'c',      'i', 
         '_',      'd',      'b',      'g', 
@@ -28859,16 +28803,6 @@ void ldv_main_exported_12(void)
   }
   ldv_36755: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_178(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void) 

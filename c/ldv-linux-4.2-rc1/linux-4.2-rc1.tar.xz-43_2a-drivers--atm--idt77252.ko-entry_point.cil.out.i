@@ -6679,7 +6679,6 @@ __inline static char const *kobject_name(struct kobject const *kobj )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
@@ -12281,15 +12280,6 @@ bool ldv_queue_delayed_work_on_19(int ldv_func_arg1 , struct workqueue_struct *l
   ldv_func_res = tmp;
   activate_work_2(& ldv_func_arg3->work, 2);
   return (ldv_func_res);
-}
-}
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )

@@ -7988,7 +7988,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 }
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
@@ -12502,16 +12501,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -12619,7 +12608,6 @@ struct sk_buff *ldv_skb_clone_32(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct i2c_adapter *cx231xx_algo_group0 ;
 int ldv_state_variable_7 ;
 void ldv_initialize_i2c_algorithm_7(void) ;
@@ -13572,16 +13560,6 @@ void ldv_main_exported_7(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_64(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags ) 
 { 
@@ -13758,7 +13736,6 @@ void *__kmalloc(size_t size, gfp_t t)
 {
 	return ldv_malloc(size);
 }
-void *ldv_kmem_cache_alloc_100(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_96(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -15170,16 +15147,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_100(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_106(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -15383,7 +15350,6 @@ __inline static void ldv_spin_unlock_135(spinlock_t *lock )
 }
 }
 __inline static void spin_unlock(spinlock_t *lock ) ;
-void *ldv_kmem_cache_alloc_146(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void usb_fill_bulk_urb(struct urb *urb , struct usb_device *dev ,
                                        unsigned int pipe , void *transfer_buffer ,
@@ -17646,16 +17612,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_146(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_152(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -17834,7 +17790,6 @@ int ldv_usb_submit_urb_170(struct urb *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_212(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_220(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_214(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -22956,16 +22911,6 @@ int cx231xx_gpio_i2c_write(struct cx231xx *dev , u8 dev_addr , u8 *buf , u8 len 
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_210(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -23155,7 +23100,6 @@ extern void *vmalloc(unsigned long  ) ;
 void *ldv_vmalloc_263(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_264(unsigned long ldv_func_arg1 ) ;
 extern void vfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_246(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
@@ -26172,16 +26116,6 @@ void ldv_main_exported_5(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_246(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_252(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -26298,7 +26232,6 @@ void *ldv_vmalloc_264(unsigned long ldv_func_arg1 )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_292(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_300(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_308(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_302(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -26568,16 +26501,6 @@ u32 initialize_cx231xx(struct cx231xx *dev )
   return (0U);
 }
 }
-void *ldv_kmem_cache_alloc_292(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_298(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -26677,7 +26600,6 @@ struct sk_buff *ldv_skb_clone_308(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_334(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 struct urb *ldv_usb_alloc_urb_352(int ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_351(struct urb *ldv_func_arg1 , gfp_t flags ) ;
@@ -27533,16 +27455,6 @@ void ldv_main_exported_1(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_334(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_340(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -27671,7 +27583,6 @@ int ldv_usb_submit_urb_353(struct urb *ldv_func_arg1 , gfp_t flags )
 }
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
-void *ldv_kmem_cache_alloc_382(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern struct i2c_client *i2c_new_device(struct i2c_adapter * , struct i2c_board_info  const  * ) ;
 extern void i2c_unregister_device(struct i2c_client * ) ;
 extern struct rc_dev *rc_allocate_device(void) ;
@@ -27826,16 +27737,6 @@ void cx231xx_ir_exit(struct cx231xx *dev )
   }
   dev->ir_i2c_client = (struct i2c_client *)0;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_382(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 int ldv_pskb_expand_head_388(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

@@ -6063,7 +6063,6 @@ __inline static void insl(int port , void *addr , unsigned long count )
 }
 }
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int LDV_IN_INTERRUPT  =    1;
 int ldv_timer_1_0  ;
@@ -8203,16 +8202,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   ldv_spin_unlock();
   ldv_spin_unlock_irqrestore_12(lock, flags);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_pskb_expand_head_26(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

@@ -4471,7 +4471,6 @@ unsigned long ldv_undef_ulong(void)
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_irq_1_3  =    0;
 int LDV_IN_INTERRUPT  =    1;
@@ -4690,16 +4689,6 @@ static char const   __kstrtab_synth_buffer_clear[19U]  =
         'a',      'r',      '\000'};
 struct kernel_symbol  const  __ksymtab_synth_buffer_clear ;
 struct kernel_symbol  const  __ksymtab_synth_buffer_clear  =    {(unsigned long )(& synth_buffer_clear), (char const   *)(& __kstrtab_synth_buffer_clear)};
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void __might_fault(char const   * , int  ) ;
@@ -4734,7 +4723,6 @@ __inline static void ldv_spin_unlock_irqrestore_34(spinlock_t *lock , unsigned l
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct file *synth_fops_group2 ;
 int ref_cnt ;
 int ldv_state_variable_39 ;
@@ -5019,16 +5007,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_misc_register_45(struct miscdevice *misc ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -5060,7 +5038,6 @@ extern int strcmp(char const   * , char const   * ) ;
 extern char *strchr(char const   * , int  ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_68(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern unsigned char const   _ctype[] ;
 char *spk_msg_get(enum msg_index_t index ) ;
@@ -5519,16 +5496,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_68(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void __set_bit(long nr , unsigned long volatile   *addr ) 
@@ -5774,7 +5741,6 @@ __inline static void __preempt_count_sub(int val )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void *calloc(size_t nmemb, size_t msize);
 static void *kzalloc(size_t size, gfp_t flags) {
        return calloc(1UL, size);
@@ -6141,16 +6107,6 @@ bool speakup_fake_key_pressed(void)
   return (pscr_ret__);
 }
 }
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 bool ldv_is_err(void const   *ptr ) ;
@@ -6177,7 +6133,6 @@ extern int del_timer(struct timer_list * ) ;
 extern int mod_timer(struct timer_list * , unsigned long  ) ;
 extern void set_user_nice(struct task_struct * , long  ) ;
 extern int wake_up_process(struct task_struct * ) ;
-void *ldv_kmem_cache_alloc_112(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 struct kobject *key_echo_attribute_group0  ;
 struct kobject *chartab_attribute_group0  ;
@@ -10771,17 +10726,6 @@ __inline static bool IS_ERR(void const   *ptr )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_112(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_134(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static int const   num_key_names  =    180;
 static u_short key_offsets[130U]  ;
 static u_short key_data[256U]  ;
@@ -11173,16 +11117,6 @@ int spk_handle_help(struct vc_data *vc , u_char type , u_char ch , u_short key )
   return (1);
 }
 }
-void *ldv_kmem_cache_alloc_134(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int kstrtoll(char const   * , unsigned int  , long long * ) ;
 __inline static int kstrtol(char const   *s , unsigned int base , long *res ) 
@@ -11204,7 +11138,6 @@ extern int sysfs_create_group(struct kobject * , struct attribute_group  const  
 extern void sysfs_remove_group(struct kobject * , struct attribute_group  const  * ) ;
 extern struct kobject *kobject_create_and_add(char const   * , struct kobject * ) ;
 extern void kobject_put(struct kobject * ) ;
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern int string_unescape(char * , char * , size_t  , unsigned int  ) ;
 __inline static int string_unescape_any(char *src , char *dst , size_t size ) 
@@ -14249,16 +14182,6 @@ void ldv_main_exported_5(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile   *addr ) 
 { 
@@ -14378,7 +14301,6 @@ __inline static void kref_get(struct kref *kref )
 }
 }
 extern void schedule(void) ;
-void *ldv_kmem_cache_alloc_178(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern void dev_warn(struct device  const  * , char const   *  , ...) ;
 extern u16 screen_glyph(struct vc_data * , int  ) ;
@@ -14810,16 +14732,6 @@ void ldv_main_exported_3(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_178(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 extern struct pv_cpu_ops pv_cpu_ops ;
 __inline static void slow_down_io(void) 
 { 
@@ -14873,7 +14785,6 @@ __inline static unsigned char inb_p(int port )
   return (value);
 }
 }
-void *ldv_kmem_cache_alloc_200(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int reg_check_1(irqreturn_t (*handler)(int  , void * ) ) ;
 void disable_suitable_irq_1(int line , void *data ) ;
 void activate_suitable_irq_1(int line , void *data ) ;
@@ -15378,16 +15289,6 @@ int ldv_irq_1(int state , int line , void *data )
   return (state);
 }
 }
-void *ldv_kmem_cache_alloc_200(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static int ldv_request_irq_203(unsigned int irq , irqreturn_t (*handler)(int  ,
                                                                                   void * ) ,
                                         unsigned long flags , char const   *name ,
@@ -15435,7 +15336,6 @@ __inline static int timer_pending(struct timer_list  const  *timer )
 extern int request_resource(struct resource * , struct resource * ) ;
 extern int release_resource(struct resource * ) ;
 extern long schedule_timeout(long  ) ;
-void *ldv_kmem_cache_alloc_226(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern bool kthread_should_stop(void) ;
 int spk_serial_synth_probe(struct spk_synth *synth___0 ) ;
 char const   *spk_synth_immediate(struct spk_synth *synth___0 , char const   *buff ) ;
@@ -16354,21 +16254,10 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_226(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern void prepare_to_wait(wait_queue_head_t * , wait_queue_t * , int  ) ;
 extern void finish_wait(wait_queue_head_t * , wait_queue_t * ) ;
 extern int autoremove_wake_function(wait_queue_t * , unsigned int  , int  , void * ) ;
-void *ldv_kmem_cache_alloc_248(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void kd_mksound(unsigned int  , unsigned int  ) ;
 wait_queue_head_t speakup_event  =    {{{{{{0}}, 3735899821U, 4294967295U, (void *)-1, {0, {0, 0}, "speakup_event.lock",
                                                      0, 0UL}}}}, {& speakup_event.task_list,
@@ -16463,20 +16352,9 @@ int speakup_thread(void *data )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_248(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *skip_spaces(char const   * ) ;
-void *ldv_kmem_cache_alloc_270(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static unsigned char __tolower(unsigned char c ) 
 { 
 
@@ -17098,16 +16976,6 @@ char *spk_s2uchar(char *start , char *dest )
   }
   *dest = (char )val;
   return (start);
-}
-}
-void *ldv_kmem_cache_alloc_270(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void) 

@@ -4326,7 +4326,6 @@ __inline static unsigned char inb_p(int port )
 }
 extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
@@ -8647,14 +8646,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -8766,7 +8757,6 @@ void ldv_platform_driver_unregister_27(struct platform_driver *drv )
 }
 }
 extern char *strstr(char const * , char const * ) ;
-void *ldv_kmem_cache_alloc_53(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *dev_get_drvdata(struct device const *dev )
 {
   {
@@ -9365,14 +9355,6 @@ void ldv_main_exported_3(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_53(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
 {
@@ -9432,7 +9414,6 @@ __inline static int arch_irqs_disabled_flags(unsigned long flags )
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int tty_insert_flip_string_fixed_flag(struct tty_port * , unsigned char const * ,
                                              char , size_t ) ;
 __inline static int tty_insert_flip_string(struct tty_port *port , unsigned char const *chars ,
@@ -10156,14 +10137,6 @@ static char const __kstrtab_serial8250_release_dma[23U] =
         'm', 'a', '\000'};
 struct kernel_symbol const __ksymtab_serial8250_release_dma ;
 struct kernel_symbol const __ksymtab_serial8250_release_dma = {(unsigned long )(& serial8250_release_dma), (char const *)(& __kstrtab_serial8250_release_dma)};
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void ldv_error(void);
 int ldv_spin = 0;
 void ldv_check_alloc_flags(gfp_t flags )

@@ -4008,7 +4008,6 @@ __inline static void outb(unsigned char value , int port )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int LDV_IN_INTERRUPT = 1;
@@ -4688,15 +4687,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -4780,7 +4770,6 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   return;
 }
 }
-void *ldv_kmem_cache_alloc_47(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void __const_udelay(unsigned long ) ;
 extern void uart_write_wakeup(struct uart_port * ) ;
 extern void uart_handle_dcd_change(struct uart_port * , unsigned int ) ;
@@ -6661,15 +6650,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_47(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
 {
@@ -6704,7 +6684,6 @@ __inline static int waitqueue_active(wait_queue_head_t *q )
 }
 }
 extern void __wake_up(wait_queue_head_t * , unsigned int , int , void * ) ;
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static unsigned char *char_buf_ptr(struct tty_buffer *b , int ofs )
 {
@@ -8413,18 +8392,8 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static struct __anonstruct_baud_rates_254 baud_rates[19U] =
   { {921600U, 4103U},
         {460800U, 4100U},
@@ -9543,15 +9512,6 @@ void ldv_main_exported_1(void)
   }
   ldv_34089: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void)

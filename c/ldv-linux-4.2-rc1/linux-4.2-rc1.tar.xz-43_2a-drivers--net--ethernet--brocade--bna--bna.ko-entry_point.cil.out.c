@@ -9066,8 +9066,6 @@ extern void *ioremap_nocache(resource_size_t  , unsigned long  ) ;
 extern void iounmap(void volatile   * ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -17899,16 +17897,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -18008,16 +17996,6 @@ struct sk_buff *ldv_skb_clone_41(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   ldv_check_alloc_flags(flags);
   tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
-}
-}
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_mod_timer_43(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) 
@@ -18397,8 +18375,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   return ((char const   *)kobj->name);
 }
 }
-void *ldv_kmem_cache_alloc_124(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_141(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static char const   *dev_name(struct device  const  *dev ) 
 { 
@@ -20209,16 +20185,6 @@ bool ldv_queue_delayed_work_on_118(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_124(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_130(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -20309,16 +20275,6 @@ struct sk_buff *ldv_skb_clone_140(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
-void *ldv_kmem_cache_alloc_141(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_del_timer_sync_142(struct timer_list *ldv_func_arg1 ) 
 { 
   ldv_func_ret_type___6 ldv_func_res ;
@@ -20375,8 +20331,6 @@ bool ldv_queue_delayed_work_on_164(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_167(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_166(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_173(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_190(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern loff_t fixed_size_llseek(struct file * , loff_t  , int  , loff_t  ) ;
 extern ssize_t simple_read_from_buffer(void * , size_t  , loff_t * , void const   * ,
@@ -21504,16 +21458,6 @@ bool ldv_queue_delayed_work_on_167(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_173(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_179(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -21604,16 +21548,6 @@ struct sk_buff *ldv_skb_clone_189(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
-void *ldv_kmem_cache_alloc_190(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static int list_empty(struct list_head  const  *head ) 
 { 
 
@@ -21631,7 +21565,6 @@ bool ldv_queue_delayed_work_on_211(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_214(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_213(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_220(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_228(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_236(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_230(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -24550,16 +24483,6 @@ bool ldv_queue_delayed_work_on_214(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_220(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_226(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -24698,7 +24621,6 @@ bool ldv_queue_delayed_work_on_257(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_260(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_259(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_266(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_274(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_282(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_276(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -29819,16 +29741,6 @@ bool ldv_queue_delayed_work_on_260(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_266(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_272(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -29929,7 +29841,6 @@ bool ldv_queue_delayed_work_on_303(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_306(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_305(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_312(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_320(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_328(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_322(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -30892,16 +30803,6 @@ bool ldv_queue_delayed_work_on_306(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_312(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_318(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -31027,7 +30928,6 @@ bool ldv_queue_delayed_work_on_349(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_352(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_351(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_358(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void __const_udelay(unsigned long  ) ;
 struct sk_buff *ldv_skb_clone_366(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_374(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -34867,16 +34767,6 @@ bool ldv_queue_delayed_work_on_352(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_358(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_364(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -35253,7 +35143,6 @@ bool ldv_queue_delayed_work_on_441(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_444(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_443(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_450(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_458(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_466(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_460(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -36644,16 +36533,6 @@ bool ldv_queue_delayed_work_on_444(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_450(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_456(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -36754,7 +36633,6 @@ bool ldv_queue_delayed_work_on_487(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_490(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_489(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_496(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_504(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_512(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_506(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -37150,16 +37028,6 @@ bool ldv_queue_delayed_work_on_490(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_496(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_502(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -37259,8 +37127,6 @@ bool ldv_queue_delayed_work_on_533(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_536(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_535(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_542(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_559(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void dev_alert(struct device  const  * , char const   *  , ...) ;
 struct sk_buff *ldv_skb_clone_550(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_558(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -37435,16 +37301,6 @@ bool ldv_queue_delayed_work_on_536(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_542(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_548(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -37533,16 +37389,6 @@ struct sk_buff *ldv_skb_clone_558(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   ldv_check_alloc_flags(flags);
   tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
-}
-}
-void *ldv_kmem_cache_alloc_559(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 bool ldv_is_err(void const   *ptr ) 

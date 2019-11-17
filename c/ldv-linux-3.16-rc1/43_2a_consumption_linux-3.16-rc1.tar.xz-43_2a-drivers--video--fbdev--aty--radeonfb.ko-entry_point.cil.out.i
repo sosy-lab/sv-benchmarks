@@ -4226,7 +4226,6 @@ void *__kmalloc(size_t size, gfp_t t)
  return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -7588,14 +7587,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_del_timer_sync_20(struct timer_list *ldv_func_arg1 )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -7642,7 +7633,6 @@ int ldv_del_timer_sync_23(struct timer_list *ldv_func_arg1 )
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 int ldv_del_timer_sync_48(struct timer_list *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_44(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int pci_bus_read_config_word(struct pci_bus * , unsigned int , int , u16 * ) ;
 extern int pci_bus_write_config_word(struct pci_bus * , unsigned int , int , u16 ) ;
 __inline static int pci_read_config_word(struct pci_dev const *dev , int where ,
@@ -10298,14 +10288,6 @@ void radeonfb_pm_exit(struct radeonfb_info *rinfo )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_44(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_del_timer_sync_48(struct timer_list *ldv_func_arg1 )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -10326,7 +10308,6 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern int strcmp(char const * , char const * ) ;
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int fb_validate_mode(struct fb_var_screeninfo const * , struct fb_info * ) ;
 extern int fb_parse_edid(unsigned char * , struct fb_var_screeninfo * ) ;
 extern void fb_edid_to_monspecs(unsigned char * , struct fb_monspecs * ) ;
@@ -11724,16 +11705,7 @@ int radeon_match_mode(struct radeonfb_info *rinfo , struct fb_var_screeninfo *de
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_86(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void cfb_fillrect(struct fb_info * , struct fb_fillrect const * ) ;
 extern void cfb_copyarea(struct fb_info * , struct fb_copyarea const * ) ;
 extern void cfb_imageblit(struct fb_info * , struct fb_image const * ) ;
@@ -12123,17 +12095,8 @@ void radeonfb_engine_init(struct radeonfb_info *rinfo )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_86(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device const * , char const *
                              , ...) ;
-void *ldv_kmem_cache_alloc_106(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int dev_warn(struct device const * , char const * , ...) ;
 __inline static void i2c_set_adapdata(struct i2c_adapter *dev , void *data )
 {
@@ -12385,14 +12348,6 @@ int radeon_probe_i2c_connector(struct radeonfb_info *rinfo , int conn , u8 **out
   return (1);
 }
 }
-void *ldv_kmem_cache_alloc_106(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static bool IS_ERR(void const *ptr )
 {
   long tmp ;
@@ -12407,7 +12362,6 @@ extern void mutex_unlock(struct mutex * ) ;
 int ldv_mod_timer_131(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 int ldv_mod_timer_132(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 int ldv_del_timer_sync_130(struct timer_list *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void backlight_update_status(struct backlight_device *bd )
 {
@@ -12807,14 +12761,6 @@ void ldv_main_exported_2(void)
   }
   ldv_31460: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 int ldv_del_timer_sync_130(struct timer_list *ldv_func_arg1 )

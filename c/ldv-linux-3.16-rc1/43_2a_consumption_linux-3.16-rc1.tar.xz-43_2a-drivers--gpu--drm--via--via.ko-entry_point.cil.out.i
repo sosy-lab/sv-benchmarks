@@ -4539,7 +4539,6 @@ __inline static void writel(unsigned int val , void volatile *addr )
 }
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
@@ -5126,14 +5125,6 @@ int via_wait_irq(struct drm_device *dev , void *data , struct drm_file *file_pri
   return (ret);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern struct module __this_module ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
@@ -5149,7 +5140,6 @@ void *__kmalloc(size_t size, gfp_t t)
 {
  return ldv_malloc(size);
 }
-void *ldv_kmem_cache_alloc_36(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_32(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -5727,17 +5717,8 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_36(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern void idr_destroy(struct idr * ) ;
 extern void idr_init(struct idr * ) ;
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void pci_set_master(struct pci_dev * ) ;
 extern int drm_vblank_init(struct drm_device * , int ) ;
@@ -5887,14 +5868,6 @@ int via_driver_unload(struct drm_device *dev )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -6006,7 +5979,6 @@ __inline static void *idr_find(struct idr *idr , int id )
   return (tmp___1);
 }
 }
-void *ldv_kmem_cache_alloc_76(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern int drm_mm_insert_node_generic(struct drm_mm * , struct drm_mm_node * , unsigned long ,
                                       unsigned int , unsigned long , enum drm_mm_search_flags ,
@@ -6274,16 +6246,7 @@ void via_reclaim_buffers_locked(struct drm_device *dev , struct drm_file *file )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_76(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern void might_fault(void) ;
-void *ldv_kmem_cache_alloc_96(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern bool capable(int ) ;
 extern unsigned long _copy_from_user(void * , void const * , unsigned int ) ;
 extern void __copy_from_user_overflow(void) ;
@@ -7130,15 +7093,6 @@ struct drm_ioctl_desc const via_ioctls[16U] =
         {14U, 1, & via_dma_blit, 1076913230U, "VIA_DMA_BLIT"},
         {15U, 1, & via_dma_blit_sync, 1074291791U, "VIA_BLIT_SYNC"}};
 int via_max_ioctl = 16;
-void *ldv_kmem_cache_alloc_96(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_116(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static drm_via_sequence_t seqs[25U] =
   { 0, 0, 0, 0,
         0, 0, 1, 1,
@@ -8449,15 +8403,6 @@ void via_init_command_verifier(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_116(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_136(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void via_init_futex(drm_via_private_t *dev_priv )
 {
   unsigned int i ;
@@ -8597,14 +8542,6 @@ int via_decoder_futex(struct drm_device *dev , void *data , struct drm_file *fil
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_136(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
@@ -8695,7 +8632,6 @@ extern void vfree(void const * ) ;
 extern unsigned long __get_free_pages(gfp_t , unsigned int ) ;
 unsigned long ldv___get_free_pages_161(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 extern void free_pages(unsigned long , unsigned int ) ;
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags )
 {
@@ -9974,15 +9910,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_160(unsigned long ldv_func_arg1 )
 {
   {

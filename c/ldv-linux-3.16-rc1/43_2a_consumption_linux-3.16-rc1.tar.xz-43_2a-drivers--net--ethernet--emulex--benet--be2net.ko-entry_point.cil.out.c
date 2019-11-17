@@ -8157,8 +8157,6 @@ void *__kmalloc(size_t size, gfp_t t)
 	return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_33(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -19317,16 +19315,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) 
 { 
@@ -19443,16 +19431,6 @@ struct sk_buff *ldv_skb_clone_32(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   ldv_check_alloc_flags(flags);
   tmp = skb_clone(ldv_func_arg1, flags);
   return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_33(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 void *ldv_vmalloc_34(unsigned long ldv_func_arg1 ) 
@@ -19609,8 +19587,6 @@ extern void wait_for_completion(struct completion * ) ;
 extern unsigned long wait_for_completion_timeout(struct completion * , unsigned long  ) ;
 extern void complete(struct completion * ) ;
 void *ldv_vmalloc_98(unsigned long ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_80(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_97(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *pci_alloc_consistent(struct pci_dev *hwdev , size_t size , dma_addr_t *dma_handle ) 
 { 
   void *tmp ;
@@ -25000,16 +24976,6 @@ static char const   __kstrtab_be_roce_mcc_cmd[16U]  =
         'c',      'm',      'd',      '\000'};
 struct kernel_symbol  const  __ksymtab_be_roce_mcc_cmd ;
 struct kernel_symbol  const  __ksymtab_be_roce_mcc_cmd  =    {(unsigned long )(& be_roce_mcc_cmd), (char const   *)(& __kstrtab_be_roce_mcc_cmd)};
-void *ldv_kmem_cache_alloc_80(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_86(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags ) 
 { 
@@ -25106,16 +25072,6 @@ struct sk_buff *ldv_skb_clone_96(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_97(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_vmalloc_98(unsigned long ldv_func_arg1 ) 
 { 
 
@@ -25137,8 +25093,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   return ((char const   *)kobj->name);
 }
 }
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_143(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static char const   *dev_name(struct device  const  *dev ) 
 { 
   char const   *tmp ;
@@ -27279,16 +27233,6 @@ void ldv_main_exported_3(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_132(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -27385,16 +27329,6 @@ struct sk_buff *ldv_skb_clone_142(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_143(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_vmalloc_144(unsigned long ldv_func_arg1 ) 
 { 
 
@@ -27418,8 +27352,6 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 extern void list_del(struct list_head * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 void *ldv_vmalloc_190(unsigned long ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_172(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_189(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_180(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_188(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_182(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -27731,16 +27663,6 @@ static char const   __kstrtab_be_roce_unregister_driver[26U]  =
         'r',      '\000'};
 struct kernel_symbol  const  __ksymtab_be_roce_unregister_driver ;
 struct kernel_symbol  const  __ksymtab_be_roce_unregister_driver  =    {(unsigned long )(& be_roce_unregister_driver), (char const   *)(& __kstrtab_be_roce_unregister_driver)};
-void *ldv_kmem_cache_alloc_172(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_178(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags ) 
 { 
@@ -27835,16 +27757,6 @@ struct sk_buff *ldv_skb_clone_188(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   ldv_check_alloc_flags(flags);
   tmp = skb_clone(ldv_func_arg1, flags);
   return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_189(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 void *ldv_vmalloc_190(unsigned long ldv_func_arg1 ) 

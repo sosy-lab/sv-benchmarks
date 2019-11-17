@@ -7497,7 +7497,6 @@ extern unsigned long volatile jiffies ;
 extern unsigned long get_seconds(void) ;
 extern long schedule_timeout(long ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
@@ -13137,15 +13136,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_26(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -13301,7 +13291,6 @@ extern long prepare_to_wait_event(wait_queue_head_t * , wait_queue_t * , int ) ;
 extern void finish_wait(wait_queue_head_t * , wait_queue_t * ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) ;
 extern void __free_pages(struct page * , unsigned int ) ;
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *lowmem_page_address(struct page const *page )
 {
@@ -16168,15 +16157,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_64(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -16268,7 +16248,6 @@ void *ldv_vmalloc_75(unsigned long ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_95(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void *ldv_vmalloc_112(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_113(unsigned long ldv_func_arg1 ) ;
@@ -20298,15 +20277,6 @@ static char const __kstrtab_lstcon_ioctl_entry[19U] =
         'r', 'y', '\000'};
 struct kernel_symbol const __ksymtab_lstcon_ioctl_entry ;
 struct kernel_symbol const __ksymtab_lstcon_ioctl_entry = {(unsigned long )(& lstcon_ioctl_entry), (char const *)(& __kstrtab_lstcon_ioctl_entry)};
-void *ldv_kmem_cache_alloc_95(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_101(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -20644,7 +20614,6 @@ __inline static void __swab64s(__u64 *p )
 extern size_t strlcpy(char * , char const * , size_t ) ;
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
-void *ldv_kmem_cache_alloc_150(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void *ldv_vmalloc_167(unsigned long ldv_func_arg1 ) ;
 struct sk_buff *ldv_skb_clone_158(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -25351,15 +25320,6 @@ void sfw_shutdown(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_150(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_156(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -25458,7 +25418,6 @@ __inline static bool IS_ERR(void const *ptr ) ;
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 extern int wake_up_process(struct task_struct * ) ;
-void *ldv_kmem_cache_alloc_187(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern struct task_struct *kthread_create_on_node(int (*)(void * ) , void * , int ,
                                                   char const * , ...) ;
 void *ldv_vmalloc_204(unsigned long ldv_func_arg1 ) ;
@@ -25986,15 +25945,6 @@ __inline static bool IS_ERR(void const *ptr )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_187(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_193(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -26235,7 +26185,6 @@ __inline static struct page *alloc_pages_node(int nid , gfp_t gfp_mask , unsigne
 }
 }
 extern void schedule(void) ;
-void *ldv_kmem_cache_alloc_224(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc_node(size_t size , gfp_t flags , int node ) ;
 void *ldv_vmalloc_241(unsigned long ldv_func_arg1 ) ;
@@ -30049,15 +29998,6 @@ __inline static void *kmalloc_node(size_t size , gfp_t flags , int node )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_224(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_230(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -30167,7 +30107,6 @@ void *ldv_vmalloc_243(unsigned long ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_263(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 int ldv_state_variable_1 ;
 int ref_cnt ;
@@ -30585,15 +30524,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_263(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_269(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -30697,7 +30627,6 @@ __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 extern struct timespec current_kernel_time(void) ;
-void *ldv_kmem_cache_alloc_301(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_vmalloc_318(unsigned long ldv_func_arg1 ) ;
 struct sk_buff *ldv_skb_clone_309(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_317(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -31210,15 +31139,6 @@ void ping_init_test_service(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_301(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_307(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -31311,7 +31231,6 @@ void *ldv_vmalloc_318(unsigned long ldv_func_arg1 )
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern void do_gettimeofday(struct timeval * ) ;
-void *ldv_kmem_cache_alloc_338(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_vmalloc_355(unsigned long ldv_func_arg1 ) ;
 struct sk_buff *ldv_skb_clone_346(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_354(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -32208,15 +32127,6 @@ void brw_init_test_service(void)
   brw_test_service.sv_bulk_ready = & brw_bulk_ready;
   brw_test_service.sv_wi_total = brw_srv_workitems;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_338(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_pskb_expand_head_344(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

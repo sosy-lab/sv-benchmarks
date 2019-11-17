@@ -5210,7 +5210,6 @@ __inline static int signal_pending(struct task_struct *p )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int LDV_IN_INTERRUPT = 1;
 struct v4l2_event_subscription const *cpia2_ioctl_ops_group2 ;
@@ -7287,15 +7286,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static int list_empty(struct list_head const *head )
 {
   {
@@ -7311,7 +7301,6 @@ __inline static int waitqueue_active(wait_queue_head_t *q )
 }
 }
 extern void __wake_up(wait_queue_head_t * , unsigned int , int , void * ) ;
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_usb_driver_1(void) ;
 extern void _dev_info(struct device const * , char const * , ...) ;
@@ -8361,15 +8350,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_usb_submit_urb_45(struct urb *ldv_func_arg1 , gfp_t flags )
 {
   {
@@ -8444,7 +8424,6 @@ __inline static unsigned long msecs_to_jiffies(unsigned int const m )
 }
 }
 extern long schedule_timeout_interruptible(long ) ;
-void *ldv_kmem_cache_alloc_71(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
@@ -10507,15 +10486,6 @@ int cpia2_remap_buffer(struct camera_data *cam , struct vm_area_struct *vma )
   }
   cam->mmapped = 1U;
   return (0);
-}
-}
-void *ldv_kmem_cache_alloc_71(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 void *ldv_vmalloc_32_74(unsigned long ldv_func_arg1 )

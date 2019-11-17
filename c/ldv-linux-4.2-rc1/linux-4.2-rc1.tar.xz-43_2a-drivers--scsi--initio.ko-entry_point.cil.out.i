@@ -4700,7 +4700,6 @@ __inline static unsigned int inl(int port )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_irq_1_2 = 0;
@@ -8427,15 +8426,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   ldv_spin_unlock();
   ldv_spin_unlock_irqrestore_12(lock, flags);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 void *ldv_zalloc(size_t size ) ;

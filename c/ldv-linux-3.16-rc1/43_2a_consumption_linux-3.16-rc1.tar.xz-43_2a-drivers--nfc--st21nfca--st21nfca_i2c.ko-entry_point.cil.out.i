@@ -2791,7 +2791,6 @@ extern void __mutex_init(struct mutex * , char const * , struct lock_class_key *
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
@@ -4240,14 +4239,6 @@ int main(void)
   ldv_final:
   ldv_check_final_state();
   return 0;
-}
-}
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 int ldv_devm_request_threaded_irq_19(struct device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,

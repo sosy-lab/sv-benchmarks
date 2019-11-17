@@ -4738,7 +4738,6 @@ __inline static unsigned char inb(int port )
 }
 }
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -8734,18 +8733,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 extern size_t strlen(char const   * ) ;
-void *ldv_kmem_cache_alloc_43(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int seq_putc(struct seq_file * , char  ) ;
 extern int seq_puts(struct seq_file * , char const   * ) ;
 __inline static void via_write_reg(u16 port , u8 index , u8 data ) 
@@ -11077,16 +11065,6 @@ void viafb_fill_var_timing_info(struct fb_var_screeninfo *var , struct fb_videom
   return;
 }
 }
-void *ldv_kmem_cache_alloc_43(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 extern int sprintf(char * , char const   *  , ...) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
@@ -11101,7 +11079,6 @@ __inline static void ldv_spin_unlock_irqrestore_58(spinlock_t *lock , unsigned l
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct platform_device *via_i2c_driver_group1 ;
 int ldv_state_variable_6 ;
 int ldv_state_variable_2 ;
@@ -11575,16 +11552,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv___platform_driver_register_70(struct platform_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -11608,7 +11575,6 @@ void ldv_platform_driver_unregister_71(struct platform_driver *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct fb_videomode  const  *viafb_get_best_rb_mode(int hres , int vres , int refresh ) ;
 int viafb_dvi_sense(void) ;
 static void tmds_register_write(int index , u8 data ) ;
@@ -12051,16 +12017,6 @@ void viafb_dvi_enable(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static unsigned char readb(void const volatile   *addr ) 
 { 
   unsigned char ret ;
@@ -12090,7 +12046,6 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 }
 }
 extern void iounmap(void volatile   * ) ;
-void *ldv_kmem_cache_alloc_116(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void __udelay(unsigned long  ) ;
 void viafb_disable_lvds_vt1636(struct lvds_setting_information *plvds_setting_info ,
                                struct lvds_chip_information *plvds_chip_info ) ;
@@ -13054,18 +13009,7 @@ bool viafb_lcd_get_mobile_state(bool *mobile )
   }
 }
 }
-void *ldv_kmem_cache_alloc_116(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_139(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int viafb_ioctl_get_viafb_info(u_long arg ) 
 { 
   struct viafb_ioctl_info viainfo ;
@@ -13156,16 +13100,6 @@ int viafb_ioctl_hotplug(int hres , int vres , int bpp )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_139(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static void rep_nop(void) 
 { 
 
@@ -13184,7 +13118,6 @@ __inline static void cpu_relax(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_162(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static int viafb_set_bpp(void *engine , u8 bpp ) 
 { 
   u32 gemode ;
@@ -13797,17 +13730,6 @@ void viafb_wait_engine_idle(struct fb_info *info )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_162(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_185(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void viafb_get_device_support_state(u32 *support_state ) 
 { 
 
@@ -14108,17 +14030,6 @@ void viafb_get_gamma_support_state(int bpp , unsigned int *support_state )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_185(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_208(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct GFX_DPA_SETTING GFX_DPA_SETTING_TBL_VT3324[6U] ;
 struct GFX_DPA_SETTING GFX_DPA_SETTING_TBL_VT3327[6U] ;
 struct GFX_DPA_SETTING GFX_DPA_SETTING_TBL_VT3364[6U] ;
@@ -14340,17 +14251,6 @@ void viafb_vt1636_patch_skew_on_vt3364(struct lvds_setting_information *plvds_se
   return;
 }
 }
-void *ldv_kmem_cache_alloc_208(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_231(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int viafb_LCD_ON  ;
 int viafb_DVI_ON  ;
 int viafb_SAMM_ON  ;
@@ -14379,17 +14279,6 @@ int viafb_hotplug_bpp  =    32;
 int viafb_hotplug_refresh  =    60;
 int viafb_primary_dev  =    0;
 int viafb_lcd_panel_id  =    24;
-void *ldv_kmem_cache_alloc_231(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_254(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct GFX_DPA_SETTING GFX_DPA_SETTING_TBL_VT3324[6U]  = {      {0, 0U, 0U, 0U, 0U, 0U, 3U, 0U, 0U, 0U}, 
         {1, 0U, 0U, 0U, 0U, 0U, 3U, 0U, 0U, 0U}, 
         {2, 0U, 0U, 0U, 0U, 0U, 2U, 0U, 0U, 0U}, 
@@ -14408,17 +14297,6 @@ struct GFX_DPA_SETTING GFX_DPA_SETTING_TBL_VT3364[6U]  = {      {0, 7U, 0U, 0U, 
         {3, 7U, 0U, 0U, 0U, 0U, 3U, 0U, 0U, 8U}, 
         {4, 3U, 0U, 2U, 0U, 0U, 3U, 0U, 0U, 8U}, 
         {5, 1U, 0U, 2U, 16U, 0U, 3U, 0U, 0U, 8U}};
-void *ldv_kmem_cache_alloc_254(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_277(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int NUM_TOTAL_PATCH_MODE ;
 struct io_reg PM1024x768[2U] ;
 struct io_reg CN400_ModeXregs[29U]  = 
@@ -14838,16 +14716,6 @@ struct fb_videomode  const  *viafb_get_best_rb_mode(int hres , int vres , int re
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_277(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
 
@@ -14919,7 +14787,6 @@ extern void complete(struct completion * ) ;
 extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
 extern void *ioremap_wc(resource_size_t  , unsigned long  ) ;
-void *ldv_kmem_cache_alloc_300(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_state_variable_8  ;
 int ldv_state_variable_15  ;
 int pci_counter  ;
@@ -16335,16 +16202,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_300(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static int ldv_request_irq_304(unsigned int irq , irqreturn_t (*handler)(int  ,
                                                                                   void * ) ,
                                         unsigned long flags , char const   *name___8 ,
@@ -16401,7 +16258,6 @@ void ldv_pci_unregister_driver_307(struct pci_driver *ldv_func_arg1 )
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_331(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_platform_probe_2(int (*probe___4)(struct platform_device * ) ) ;
 extern int gpiochip_add(struct gpio_chip * ) ;
 extern void gpiochip_remove(struct gpio_chip * ) ;
@@ -16929,16 +16785,6 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_331(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv___platform_driver_register_335(struct platform_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -16962,7 +16808,6 @@ void ldv_platform_driver_unregister_336(struct platform_driver *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_358(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void via_set_primary_timing(struct via_display_timing  const  *timing ) 
 { 
   struct via_display_timing raw ;
@@ -17149,17 +16994,6 @@ void via_set_secondary_color_depth(u8 depth )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_358(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_381(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static char const   *via_slap  =    "Please slap VIA Technologies to motivate them releasing full documentation for your platform!\n";
 __inline static u32 cle266_encode_pll(struct via_pll_config pll ) 
 { 
@@ -17595,17 +17429,6 @@ void via_clock_init(struct via_clock *clock___0 , int gfx_chip )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_381(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_404(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void via_aux_ch7301_probe(struct via_aux_bus *bus ) ;
 void via_aux_edid_probe(struct via_aux_bus *bus ) ;
@@ -17724,17 +17547,6 @@ struct fb_videomode  const  *via_aux_get_preferred_mode(struct via_aux_bus *bus 
   return (mode);
 }
 }
-void *ldv_kmem_cache_alloc_404(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_426(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern void fb_edid_to_monspecs(unsigned char * , struct fb_monspecs * ) ;
 extern void fb_destroy_modedb(struct fb_videomode * ) ;
@@ -17881,19 +17693,8 @@ void via_aux_edid_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_426(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *__builtin_alloca(unsigned long  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
-void *ldv_kmem_cache_alloc_448(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___0(struct via_aux_drv *drv ) 
 { 
@@ -17966,17 +17767,6 @@ void via_aux_vt1636_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_448(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_470(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___1(struct via_aux_drv *drv ) 
 { 
@@ -18069,17 +17859,6 @@ void via_aux_vt1632_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_470(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_492(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___2(struct via_aux_drv *drv ) 
 { 
@@ -18152,17 +17931,6 @@ void via_aux_vt1631_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_492(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_514(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___3(struct via_aux_drv *drv ) 
 { 
@@ -18225,17 +17993,6 @@ void via_aux_vt1625_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_514(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_536(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___4(struct via_aux_drv *drv ) 
 { 
@@ -18298,17 +18055,6 @@ void via_aux_vt1622_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_536(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_558(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___5(struct via_aux_drv *drv ) 
 { 
@@ -18361,17 +18107,6 @@ void via_aux_vt1621_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_558(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_580(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___6(struct via_aux_drv *drv ) 
 { 
@@ -18464,17 +18199,6 @@ void via_aux_sii164_probe(struct via_aux_bus *bus )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_580(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_602(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static bool via_aux_add___7(struct via_aux_drv *drv ) 
 { 
@@ -18535,16 +18259,6 @@ void via_aux_ch7301_probe(struct via_aux_bus *bus )
   probe___3(bus, 117);
   probe___3(bus, 118);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_602(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void) 

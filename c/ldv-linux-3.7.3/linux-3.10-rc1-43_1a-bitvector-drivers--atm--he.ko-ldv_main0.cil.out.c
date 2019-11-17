@@ -5815,7 +5815,6 @@ extern unsigned long __get_free_pages(gfp_t  , unsigned int  ) ;
 unsigned long ldv___get_free_pages_12(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_17(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -9761,16 +9760,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   {
   ldv_check_alloc_flags(flags);
   ldv_kmalloc_13(size, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_17(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
   return ((void *)0);
 }
 }

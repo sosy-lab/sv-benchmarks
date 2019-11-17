@@ -5812,7 +5812,6 @@ unsigned long ldv_undef_ulong(void)
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_irq_1_3  =    0;
 int ldv_irq_1_0  =    0;
@@ -5843,16 +5842,6 @@ void lmc_trace(struct net_device *dev , char *msg )
 
   {
   return;
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_pskb_expand_head_26(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
@@ -5965,7 +5954,6 @@ __inline static unsigned int inl(int port )
   return (value);
 }
 }
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_64(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_72(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_66(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -7068,16 +7056,6 @@ static void lmc_set_protocol(lmc_softc_t * const  sc , lmc_ctl_t *ctl )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_62(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags ) 
 { 
@@ -7286,7 +7264,6 @@ __inline static phys_addr_t virt_to_phys(void volatile   *address )
 }
 extern bool capable(int  ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void *ldv_irq_data_1_1  ;
@@ -9999,16 +9976,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_98(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags ) 
 { 
@@ -10199,7 +10166,6 @@ void ldv_pci_unregister_driver_116(struct pci_driver *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_144(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_152(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_160(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_154(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
@@ -10348,16 +10314,6 @@ void lmc_proto_netif(lmc_softc_t *sc , struct sk_buff *skb )
   ldv_44585: 
   lmc_trace(sc->lmc_device, (char *)"lmc_proto_netif out");
   return;
-}
-}
-void *ldv_kmem_cache_alloc_144(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_pskb_expand_head_150(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

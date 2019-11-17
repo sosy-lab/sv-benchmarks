@@ -6353,7 +6353,6 @@ void *__kmalloc(size_t size, gfp_t t)
  return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -11643,14 +11642,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -11856,7 +11847,6 @@ __inline static long atomic_long_inc_return(atomic_long_t *l )
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 extern long prepare_to_wait_event(wait_queue_head_t * , wait_queue_t * , int ) ;
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static struct inode *file_inode(struct file *f )
 {
   {
@@ -12396,14 +12386,6 @@ void unix_gc(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_pskb_expand_head_64(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -12494,7 +12476,6 @@ struct sk_buff *ldv_skb_clone_74(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 extern void *kmemdup(void const * , size_t , gfp_t ) ;
 extern struct user_namespace init_user_ns ;
 extern int proc_dointvec(struct ctl_table * , int , void * , size_t * , loff_t * ) ;
-void *ldv_kmem_cache_alloc_100(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_108(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_116(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_110(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -12552,14 +12533,6 @@ void unix_sysctl_unregister(struct net *net )
   unregister_net_sysctl_table(net->unx.ctl);
   kfree((void const *)table);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_100(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 int ldv_pskb_expand_head_106(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

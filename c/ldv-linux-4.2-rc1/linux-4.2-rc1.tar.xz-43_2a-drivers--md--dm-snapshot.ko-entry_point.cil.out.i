@@ -4443,7 +4443,6 @@ extern struct kmem_cache *kmem_cache_create(char const * , size_t , size_t , uns
                                             void (*)(void * ) ) ;
 extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_23(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_24(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
@@ -8093,21 +8092,12 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_kmem_cache_alloc_23(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 {
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(32UL);
   return (tmp);
 }
 }
@@ -8116,7 +8106,7 @@ void *ldv_kmem_cache_alloc_24(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(32UL);
   return (tmp);
 }
 }
@@ -8152,7 +8142,6 @@ __inline static void spin_unlock(spinlock_t *lock ) ;
 extern int __request_module(bool , char const * , ...) ;
 extern bool try_module_get(struct module * ) ;
 extern void module_put(struct module * ) ;
-void *ldv_kmem_cache_alloc_45(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static unsigned short queue_logical_block_size(struct request_queue *q )
 {
@@ -8564,16 +8553,6 @@ void dm_exception_store_exit(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_45(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_67(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 static void transient_dtr(struct dm_exception_store *store )
 {
@@ -9032,15 +9011,6 @@ void ldv_main_exported_3(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_67(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
@@ -9073,7 +9043,6 @@ __inline static bool queue_work(struct workqueue_struct *wq , struct work_struct
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_89(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
 void *ldv_vmalloc_92(unsigned long ldv_func_arg1 ) ;
@@ -10341,15 +10310,6 @@ void ldv_main_exported_2(void)
   }
   ldv_33597: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_89(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 void *ldv_vmalloc_92(unsigned long ldv_func_arg1 )

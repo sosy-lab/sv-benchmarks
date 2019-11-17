@@ -6170,7 +6170,6 @@ void *__kmalloc(size_t size, gfp_t t)
 	return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -14634,16 +14633,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -14827,7 +14816,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
 int ldv_del_timer_sync_67(struct timer_list *ldv_func_arg1 ) ;
 extern int cpu_number ;
 extern void __bad_size_call_parameter(void) ;
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void *ldv_dma_pool_alloc_63(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_addr_t *ldv_func_arg3 ) ;
@@ -17684,16 +17672,6 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 int ldv_scsi_add_host_with_dma_62(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -17763,7 +17741,6 @@ int ldv_del_timer_sync_67(struct timer_list *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_94(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) ;
 void mr_update_load_balance_params(struct MR_FW_RAID_MAP_ALL *map , struct LD_LOAD_BALANCE_INFO *lbInfo ) ;
 static void mr_update_span_set(struct MR_FW_RAID_MAP_ALL *map , PLD_SPAN_INFO ldSpanInfo ) ;
@@ -18984,16 +18961,6 @@ u16 get_updated_dev_handle(struct LD_LOAD_BALANCE_INFO *lbInfo , struct IO_REQUE
   devHandle = lbInfo->raid1DevHandle[(int )arm];
   atomic_inc((atomic_t *)(& lbInfo->scsi_pending_cmds) + (unsigned long )arm);
   return (devHandle);
-}
-}
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 int ldv_scsi_add_host_with_dma_94(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) 

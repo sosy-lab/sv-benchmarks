@@ -6338,7 +6338,6 @@ extern struct kmem_cache *kmem_cache_create(char const   * , size_t  , size_t  ,
                                             void (*)(void * ) ) ;
 extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -23098,16 +23097,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 }
 }
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
 { 
   void *tmp ;
 

@@ -9187,8 +9187,6 @@ extern void __free_pages(struct page * , unsigned int  ) ;
 extern bool capable(int  ) ;
 extern long schedule_timeout(long  ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_kmem_cache_alloc_37(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_38(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_39(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_40(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
@@ -16740,16 +16738,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -16851,23 +16839,13 @@ struct sk_buff *ldv_skb_clone_36(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
-void *ldv_kmem_cache_alloc_37(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_kmem_cache_alloc_38(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(0UL); // no call to kmem_cache_create for echo_lock_kmem
   return (tmp);
 }
 }
@@ -16877,7 +16855,7 @@ void *ldv_kmem_cache_alloc_39(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(0UL); // no call to kmem_cache_create for echo_object_kmem
   return (tmp);
 }
 }
@@ -16887,7 +16865,7 @@ void *ldv_kmem_cache_alloc_40(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(0UL); // no call to kmem_cache_create for echo_thread_kmem
   return (tmp);
 }
 }
@@ -16897,7 +16875,7 @@ void *ldv_kmem_cache_alloc_41(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(0UL); // no call to kmem_cache_create for echo_session_kmem
   return (tmp);
 }
 }

@@ -8279,7 +8279,6 @@ __inline static int preempt_count(void)
   return (pfo_ret__ & 2147483647);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int LDV_IN_INTERRUPT = 1;
 struct sk_buff *ldv_skb_clone_28(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -9346,15 +9345,6 @@ void rtl8723e_dm_bt_coexist(struct ieee80211_hw *hw )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_26(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -9478,7 +9468,6 @@ __inline static void ldv_spin_unlock_irqrestore_48(spinlock_t *lock , unsigned l
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_64(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_72(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_66(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -10582,15 +10571,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_56(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_62(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -10676,7 +10656,6 @@ __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int memcmp(void const * , void const * , size_t ) ;
 extern unsigned long volatile jiffies ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_100(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_108(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -14142,15 +14121,6 @@ void rtl_8723e_c2h_command_handle(struct ieee80211_hw *hw )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -14243,7 +14213,6 @@ struct sk_buff *ldv_skb_clone_108(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_128(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_136(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_144(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_138(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -15098,15 +15067,6 @@ bool rtl8723e_dm_bt_is_wifi_up_link(struct ieee80211_hw *hw )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_128(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_134(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -15305,7 +15265,6 @@ __inline static void ldv_spin_unlock_153(spinlock_t *lock )
 }
 }
 __inline static void spin_unlock(spinlock_t *lock ) ;
-void *ldv_kmem_cache_alloc_164(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_172(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_180(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_174(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -18757,15 +18716,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_164(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_170(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -18848,7 +18798,6 @@ struct sk_buff *ldv_skb_clone_180(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_200(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_208(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_216(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_210(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -19047,15 +18996,6 @@ void rtl8723e_led_control(struct ieee80211_hw *hw , enum led_ctl_mode ledaction 
   return;
 }
 }
-void *ldv_kmem_cache_alloc_200(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_206(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -19140,7 +19080,6 @@ struct sk_buff *ldv_skb_clone_216(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern unsigned int jiffies_to_msecs(unsigned long const ) ;
-void *ldv_kmem_cache_alloc_236(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_244(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_252(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_246(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -21991,15 +21930,6 @@ bool rtl8723e_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pwrstate 
   return (bresult);
 }
 }
-void *ldv_kmem_cache_alloc_236(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_242(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -22081,7 +22011,6 @@ struct sk_buff *ldv_skb_clone_252(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
-void *ldv_kmem_cache_alloc_272(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_280(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_288(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_282(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -22197,15 +22126,6 @@ struct wlan_pwr_cfg rtl8723A_leave_lps_flow[16U] =
         {2U, 255U, 15U, 15U, 0U, 1U, 3U, 3U},
         {1314U, 255U, 15U, 15U, 0U, 1U, 255U, 0U},
         {65535U, 255U, 15U, 15U, 0U, 4U, 0U, 0U}};
-void *ldv_kmem_cache_alloc_272(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc(sizeof(struct sk_buff));
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_278(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -22288,7 +22208,6 @@ struct sk_buff *ldv_skb_clone_288(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_308(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_316(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_324(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 struct sk_buff *ldv_skb_copy_318(struct sk_buff const *ldv_func_arg1 , gfp_t flags ) ;
@@ -22947,15 +22866,6 @@ static bool _rtl8723e_phy_rf6052_config_parafile(struct ieee80211_hw *hw )
   return (rtstatus);
 }
 }
-void *ldv_kmem_cache_alloc_308(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_314(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -23046,7 +22956,6 @@ __inline static void ldv_stop(void)
   goto LDV_STOP;
 }
 }
-void *ldv_kmem_cache_alloc_344(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
 struct sk_buff *rtl8723e_hal_ops_group2 ;
 struct pci_dev *rtl8723e_driver_group1 ;
@@ -24446,15 +24355,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_344(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_350(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
@@ -24567,7 +24467,6 @@ void ldv_pci_unregister_driver_363(struct pci_driver *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_385(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 u32 RTL8723EPHY_REG_1TARRAY[372U] =
   { 2048U, 2147745792U, 2052U, 3U,
         2056U, 64512U, 2060U, 10U,
@@ -24945,18 +24844,8 @@ u32 RTL8723EAGCTAB_1TARRAY[320U] =
         3192U, 1645871134U, 3192U, 1645936670U,
         3192U, 1646002206U, 3192U, 1646067742U,
         3192U, 1646133278U, 3192U, 1646198814U};
-void *ldv_kmem_cache_alloc_385(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long __phys_addr(unsigned long ) ;
-void *ldv_kmem_cache_alloc_407(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void kmemcheck_mark_initialized(void *address , unsigned int n )
 {
   {
@@ -26020,15 +25909,6 @@ u32 rtl8723e_rx_command_packet(struct ieee80211_hw *hw , struct rtl_stats status
 {
   {
   return (0U);
-}
-}
-void *ldv_kmem_cache_alloc_407(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_pskb_expand_head_413(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,

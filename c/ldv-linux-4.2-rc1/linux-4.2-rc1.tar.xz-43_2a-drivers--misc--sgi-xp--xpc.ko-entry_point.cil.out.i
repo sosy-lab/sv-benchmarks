@@ -4168,7 +4168,6 @@ extern void schedule(void) ;
 extern int set_cpus_allowed_ptr(struct task_struct * , struct cpumask const * ) ;
 extern int wake_up_process(struct task_struct * ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 struct xpc_rsvd_page *xpc_arch_ops_uv_group2 ;
@@ -6159,15 +6158,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -6198,7 +6188,6 @@ extern int autoremove_wake_function(wait_queue_t * , unsigned int , int , void *
 extern int mutex_trylock(struct mutex * ) ;
 extern void mutex_unlock(struct mutex * ) ;
 extern long schedule_timeout(long ) ;
-void *ldv_kmem_cache_alloc_44(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern struct xpc_registration xpc_registrations[] ;
 enum xp_retval xpc_allocate_msg_wait(struct xpc_channel *ch ) ;
 void xpc_partition_going_down(struct xpc_partition *part , enum xp_retval reason ) ;
@@ -7127,15 +7116,6 @@ void xpc_initiate_received(short partid , int ch_number , void *payload )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_44(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(long nr , unsigned long const volatile *addr )
 {
@@ -7282,7 +7262,6 @@ __inline static void __preempt_count_sub(int val )
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 int ldv_del_timer_sync_69(struct timer_list *ldv_func_arg1 ) ;
 extern int cpu_number ;
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern u8 xp_region_size ;
@@ -7999,15 +7978,6 @@ enum xp_retval xpc_initiate_partid_to_nasids(short partid , void *nasid_mask )
   return (tmp___0);
 }
 }
-void *ldv_kmem_cache_alloc_66(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_del_timer_sync_69(struct timer_list *ldv_func_arg1 )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -8204,7 +8174,6 @@ __inline static struct page *alloc_pages_exact_node(int nid , gfp_t gfp_mask , u
 }
 }
 extern void free_pages(unsigned long , unsigned int ) ;
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *lowmem_page_address(struct page const *page )
@@ -10843,15 +10812,6 @@ __inline static long PTR_ERR(void const *ptr )
   long tmp ;
   {
   tmp = ldv_ptr_err(ptr);
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
   return (tmp);
 }
 }

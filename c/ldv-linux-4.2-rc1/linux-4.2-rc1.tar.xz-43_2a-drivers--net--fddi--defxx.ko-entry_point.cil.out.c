@@ -6482,7 +6482,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   return ((char const   *)kobj->name);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_irq_1_2  =    0;
 int LDV_IN_INTERRUPT  =    1;
@@ -9473,16 +9472,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   ldv_spin_unlock();
   ldv_spin_unlock_irqrestore_12(lock, flags);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,

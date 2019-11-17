@@ -3920,7 +3920,6 @@ void *__kmalloc(size_t size, gfp_t t)
 	return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -6778,16 +6777,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   {
   ldv_check_alloc_flags(flags);
   ldv_kmalloc_12(size, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
   return ((void *)0);
 }
 }

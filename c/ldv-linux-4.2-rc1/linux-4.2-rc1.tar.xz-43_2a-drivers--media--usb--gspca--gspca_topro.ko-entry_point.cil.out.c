@@ -4705,7 +4705,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 struct usb_interface *sd_driver_group1  ;
 int LDV_IN_INTERRUPT  =    1;
@@ -26684,16 +26683,6 @@ int main(void)
   ldv_final: 
   ldv_check_final_state();
   return 0;
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_usb_register_driver_23(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,

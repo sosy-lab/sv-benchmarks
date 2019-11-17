@@ -5744,6 +5744,7 @@ static void self_vtbl_check(struct ubi_device  const  *ubi )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
 { 
 
@@ -7344,7 +7345,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

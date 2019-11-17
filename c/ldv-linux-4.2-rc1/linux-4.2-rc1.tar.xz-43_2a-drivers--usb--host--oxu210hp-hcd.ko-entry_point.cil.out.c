@@ -4352,7 +4352,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 extern long schedule_timeout_uninterruptible(long  ) ;
 extern void schedule(void) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 struct usb_hcd *oxu_hc_driver_group1  ;
@@ -10475,16 +10474,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   {
   ldv_check_alloc_flags(flags);
   tmp = ldv_calloc(n, size);
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
   return (tmp);
 }
 }
