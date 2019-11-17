@@ -10418,7 +10418,7 @@ static void *ldv_kmem_cache_alloc_132(struct kmem_cache *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(56UL);
   }
   return (tmp);
 }
@@ -17514,7 +17514,7 @@ static void *ldv_kmem_cache_alloc_121(struct kmem_cache *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(40UL);
   }
   return (tmp);
 }

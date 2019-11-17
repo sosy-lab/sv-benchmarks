@@ -10365,13 +10365,14 @@ static int ldv_mod_timer_96(struct timer_list *ldv_func_arg1 , unsigned long ldv
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_kmem_cache_alloc_97(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(64UL);
   }
   return (tmp);
 }
@@ -11123,7 +11124,7 @@ static void *ldv_kmem_cache_alloc_96(struct kmem_cache *ldv_func_arg1 , gfp_t fl
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(24UL);
   }
   return (tmp);
 }
@@ -13425,7 +13426,7 @@ static void *ldv_kmem_cache_alloc_124(struct kmem_cache *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(72UL);
   }
   return (tmp);
 }
@@ -13436,12 +13437,11 @@ static void *ldv_kmem_cache_alloc_125(struct kmem_cache *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(72UL);
   }
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_128(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
