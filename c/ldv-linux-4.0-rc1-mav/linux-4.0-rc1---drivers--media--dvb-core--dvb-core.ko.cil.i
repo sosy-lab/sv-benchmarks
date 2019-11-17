@@ -6958,6 +6958,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void)
 {
   void *res1 ;
@@ -8861,7 +8862,6 @@ __inline static long PTR_ERR(void const *ptr )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -12086,7 +12086,6 @@ static void ldv_mutex_unlock_124___0(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_125(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -23949,7 +23948,6 @@ __inline static void skb_reset_mac_header(struct sk_buff *skb )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_103(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length )
@@ -28083,7 +28081,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   long tmp ;
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const *)is_got);
   }

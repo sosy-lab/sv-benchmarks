@@ -6903,6 +6903,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -14601,7 +14602,6 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static void atomic_add(int i , atomic_t *v ) ;
 extern void consume_skb(struct sk_buff * ) ;
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_clone_126(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void skb_orphan(struct sk_buff *skb ) 
 { 
@@ -16013,7 +16013,6 @@ void rose_transmit_link(struct sk_buff *skb , struct rose_neigh *neigh )
 }
 }
 extern int ldv_del_timer(int  , struct timer_list * ) ;
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -20275,7 +20274,6 @@ __inline static void rcu_read_unlock(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -22682,7 +22680,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }

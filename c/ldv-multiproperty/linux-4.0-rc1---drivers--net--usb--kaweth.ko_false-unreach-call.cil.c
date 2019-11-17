@@ -6329,6 +6329,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -6637,7 +6638,6 @@ extern void __const_udelay(unsigned long  ) ;
 extern long schedule_timeout(long  ) ;
 extern void kfree(void const   * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_copy_expand_128(struct sk_buff  const  *ldv_func_arg1 ,
                                                int ldv_func_arg2 , int ldv_func_arg3 ,
                                                gfp_t flags ) ;
@@ -6701,7 +6701,6 @@ __inline static void skb_reserve(struct sk_buff *skb , int len )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_103(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length ) 
@@ -6984,7 +6983,6 @@ static int ldv_usb_submit_urb_130(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 static int ldv_usb_submit_urb_158(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 extern int usb_unlink_urb(struct urb * ) ;
 extern void usb_kill_urb(struct urb * ) ;
-void *ldv_malloc(size_t size ) ;
 static void *ldv_usb_alloc_coherent_142(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                         gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 static void *ldv_usb_alloc_coherent_143(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
@@ -9983,7 +9981,6 @@ void ldv_usb_usb_instance_3(void *arg0 )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -10189,7 +10186,6 @@ static void ldv_free_netdev_138(struct net_device *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_139(int ldv_func_arg1 , gfp_t flags ) 
 { 
   struct urb *res ;
@@ -11158,7 +11154,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }

@@ -4713,6 +4713,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void)
 {
   void *res1 ;
@@ -5231,7 +5232,6 @@ static struct urb *ldv_usb_alloc_urb_112(int ldv_func_arg1 , gfp_t flags ) ;
 static void ldv_usb_free_urb_111(struct urb *urb ) ;
 static void ldv_usb_free_urb_114(struct urb *urb ) ;
 static int ldv_usb_submit_urb_117(struct urb *ldv_func_arg1 , gfp_t flags ) ;
-void *ldv_malloc(size_t size ) ;
 static void *ldv_usb_alloc_coherent_113(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                         gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 static void ldv_usb_free_coherent_110(struct usb_device *dev , size_t size , void *addr ,
@@ -9574,7 +9574,6 @@ __inline static int atomic_add_return(int i , atomic_t *v )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -9612,7 +9611,6 @@ static int ldv_unregister_framebuffer_98(struct fb_info *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_99(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -9744,7 +9742,6 @@ static void ldv_usb_free_urb_111(struct urb *urb )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_112(int ldv_func_arg1 , gfp_t flags )
 {
   struct urb *res ;
@@ -10356,7 +10353,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   long tmp ;
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const *)is_got);
   }

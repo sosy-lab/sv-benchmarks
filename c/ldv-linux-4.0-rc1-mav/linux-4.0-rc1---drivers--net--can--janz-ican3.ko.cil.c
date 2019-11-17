@@ -6589,6 +6589,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -6835,7 +6836,6 @@ extern void _dev_info(struct device  const  * , char const   *  , ...) ;
 extern void msleep(unsigned int  ) ;
 extern void kfree_skb(struct sk_buff * ) ;
 extern void consume_skb(struct sk_buff * ) ;
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_clone_125(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 __inline static int skb_shared(struct sk_buff  const  *skb ) 
 { 
@@ -11876,7 +11876,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
