@@ -23457,57 +23457,25 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
 }
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_2_resource_dev = (struct pci_dev *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_container_struct_device_driver_ptr = (struct device_driver *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_ldv_param_3_1_default = (char *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_ldv_param_9_1_default = (char *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_container_struct_ipw2100_priv_ptr = (struct ipw2100_priv *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_5_container_struct_ipw2100_priv_ptr = (struct ipw2100_priv *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_6_container_struct_ipw2100_priv_ptr = (struct ipw2100_priv *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_7_container_struct_ipw2100_priv_ptr = (struct ipw2100_priv *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_8_container_struct_ipw2100_priv_ptr = (struct ipw2100_priv *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_9_container_struct_net_device_ptr = (struct net_device *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_10_container_timer_list = (struct timer_list *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_11_container_timer_list = (struct timer_list *)tmp___14;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))0;
+  ldv_1_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_1_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_dev = ldv_malloc(sizeof(struct pci_dev));
+  ldv_3_container_struct_device_driver_ptr = ldv_malloc(sizeof(struct device_driver));
+  ldv_3_ldv_param_3_1_default = ldv_malloc(sizeof(char));
+  ldv_3_ldv_param_9_1_default = ldv_malloc(sizeof(char));
+  ldv_4_container_struct_ipw2100_priv_ptr = ldv_malloc(sizeof(struct ipw2100_priv));
+  ldv_5_container_struct_ipw2100_priv_ptr = ldv_malloc(sizeof(struct ipw2100_priv));
+  ldv_6_container_struct_ipw2100_priv_ptr = ldv_malloc(sizeof(struct ipw2100_priv));
+  ldv_7_container_struct_ipw2100_priv_ptr = ldv_malloc(sizeof(struct ipw2100_priv));
+  ldv_8_container_struct_ipw2100_priv_ptr = ldv_malloc(sizeof(struct ipw2100_priv));
+  ldv_9_container_struct_net_device_ptr = ldv_malloc(sizeof(struct net_device));
+  ldv_10_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_11_container_timer_list = ldv_malloc(sizeof(struct timer_list));
   }
   return;
 }

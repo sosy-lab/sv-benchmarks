@@ -9375,79 +9375,36 @@ int ldv___platform_driver_register(int arg0 , struct platform_driver *arg1 , str
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_resource_struct_file_ptr = (struct file *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_resource_struct_poll_table_struct_ptr = (struct poll_table_struct *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_resource_struct_soc_camera_device_ptr = (struct soc_camera_device *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_resource_struct_soc_camera_format_xlate_ptr = (struct soc_camera_format_xlate *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_resource_struct_soc_camera_host_ptr = (struct soc_camera_host *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_0_resource_struct_v4l2_capability_ptr = (struct v4l2_capability *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_0_resource_struct_v4l2_crop_ptr = (struct v4l2_crop *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_0_resource_struct_v4l2_format_ptr = (struct v4l2_format *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_0_resource_struct_vb2_queue_ptr = (struct vb2_queue *)tmp___7;
-  ldv_1_data_data = external_allocated_data();
-  tmp___8 = external_allocated_data();
-  ldv_1_dev_dev = (struct iio_dev *)tmp___8;
-  ldv_2_data_data = external_allocated_data();
-  tmp___9 = external_allocated_data();
-  ldv_3_resource_platform_device = (struct platform_device *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_4_device_device = (struct device *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_5_device_device = (struct device *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_5_rtc_class_ops_rtc_class_ops = (struct rtc_class_ops *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_5_rtc_device_rtc_device = (struct rtc_device *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_6_container_struct_v4l2_ctrl_ptr = (struct v4l2_ctrl *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_7_container_struct_v4l2_format_ptr = (struct v4l2_format *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_7_container_struct_vb2_buffer_ptr = (struct vb2_buffer *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_7_container_struct_vb2_queue_ptr = (struct vb2_queue *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_7_container_void_ptr_ptr = (void **)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_7_ldv_param_10_3_default = (unsigned int *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_7_ldv_param_10_4_default = (unsigned int *)tmp___20;
+  ldv_0_resource_struct_file_ptr = ldv_malloc(sizeof(struct file));
+  ldv_0_resource_struct_poll_table_struct_ptr = ldv_malloc(sizeof(struct poll_table_struct));
+  ldv_0_resource_struct_soc_camera_device_ptr = ldv_malloc(sizeof(struct soc_camera_device));
+  ldv_0_resource_struct_soc_camera_format_xlate_ptr = ldv_malloc(sizeof(struct soc_camera_format_xlate));
+  ldv_0_resource_struct_soc_camera_host_ptr = ldv_malloc(sizeof(struct soc_camera_host));
+  ldv_0_resource_struct_v4l2_capability_ptr = ldv_malloc(sizeof(struct v4l2_capability));
+  ldv_0_resource_struct_v4l2_crop_ptr = ldv_malloc(sizeof(struct v4l2_crop));
+  ldv_0_resource_struct_v4l2_format_ptr = ldv_malloc(sizeof(struct v4l2_format));
+  ldv_0_resource_struct_vb2_queue_ptr = ldv_malloc(sizeof(struct vb2_queue));
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_1_dev_dev = ldv_malloc(sizeof(struct iio_dev));
+  ldv_2_data_data = ldv_malloc(0UL);
+  ldv_3_resource_platform_device = ldv_malloc(sizeof(struct platform_device));
+  ldv_4_device_device = ldv_malloc(sizeof(struct device));
+  ldv_5_device_device = ldv_malloc(sizeof(struct device));
+  ldv_5_rtc_class_ops_rtc_class_ops = ldv_malloc(sizeof(struct rtc_class_ops));
+  ldv_5_rtc_device_rtc_device = ldv_malloc(sizeof(struct rtc_device));
+  ldv_6_container_struct_v4l2_ctrl_ptr = ldv_malloc(sizeof(struct v4l2_ctrl));
+  ldv_7_container_struct_v4l2_format_ptr = ldv_malloc(sizeof(struct v4l2_format));
+  ldv_7_container_struct_vb2_buffer_ptr = ldv_malloc(sizeof(struct vb2_buffer));
+  ldv_7_container_struct_vb2_queue_ptr = ldv_malloc(sizeof(struct vb2_queue));
+  ldv_7_container_void_ptr_ptr = ldv_malloc(sizeof(void *));
+  ldv_7_ldv_param_10_3_default = ldv_malloc(sizeof(unsigned int));
+  ldv_7_ldv_param_10_4_default = ldv_malloc(sizeof(unsigned int));
   }
   return;
 }
@@ -12833,7 +12790,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

@@ -13280,49 +13280,23 @@ struct net_device *ldv_alloc_etherdev_mqs(struct net_device *arg0 , int arg1 , u
 }
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
 
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_container_struct_ethtool_wolinfo_ptr = (struct ethtool_wolinfo *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_1_container_struct_ifreq_ptr = (struct ifreq *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_2_resource_dev = (struct pci_dev *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_container_struct_work_struct_ptr = (struct work_struct *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_container_struct_work_struct_ptr = (struct work_struct *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_5_container_struct_work_struct_ptr = (struct work_struct *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_6_container_struct_work_struct_ptr = (struct work_struct *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_7_container_struct_work_struct_ptr = (struct work_struct *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_8_container_timer_list = (struct timer_list *)tmp___11;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_1_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_1_container_struct_ethtool_wolinfo_ptr = ldv_malloc(sizeof(struct ethtool_wolinfo));
+  ldv_1_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_dev = ldv_malloc(sizeof(struct pci_dev));
+  ldv_3_container_struct_work_struct_ptr = ldv_malloc(sizeof(struct work_struct));
+  ldv_4_container_struct_work_struct_ptr = ldv_malloc(sizeof(struct work_struct));
+  ldv_5_container_struct_work_struct_ptr = ldv_malloc(sizeof(struct work_struct));
+  ldv_6_container_struct_work_struct_ptr = ldv_malloc(sizeof(struct work_struct));
+  ldv_7_container_struct_work_struct_ptr = ldv_malloc(sizeof(struct work_struct));
+  ldv_8_container_timer_list = ldv_malloc(sizeof(struct timer_list));
   }
   return;
 }

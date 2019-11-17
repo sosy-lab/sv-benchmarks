@@ -6170,93 +6170,40 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
-  void *tmp___24 ;
-  void *tmp___25 ;
 
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_resource_dev = (struct pci_dev *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_2_container_struct_i2c_adapter_ptr = (struct i2c_adapter *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_container_union_i2c_smbus_data_ptr = (union i2c_smbus_data *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_container_struct_v4l2_format_ptr = (struct v4l2_format *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_container_struct_vb2_buffer_ptr = (struct vb2_buffer *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_container_struct_vb2_queue_ptr = (struct vb2_queue *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_container_void_ptr_ptr = (void **)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_3_ldv_param_11_3_default = (unsigned int *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_3_ldv_param_11_4_default = (unsigned int *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_4_ldv_param_19_1_default = (char *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_4_ldv_param_19_3_default = (long long *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_4_ldv_param_31_2_default = (unsigned int *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_4_ldv_param_36_2_default = (unsigned long long *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_4_resource_file = (struct file *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_4_resource_struct_poll_table_struct_ptr = (struct poll_table_struct *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_buffer_ptr = (struct v4l2_buffer *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_capability_ptr = (struct v4l2_capability *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_dbg_register_ptr = (struct v4l2_dbg_register *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_fmtdesc_ptr = (struct v4l2_fmtdesc *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_format_ptr = (struct v4l2_format *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_frmivalenum_ptr = (struct v4l2_frmivalenum *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_frmsizeenum_ptr = (struct v4l2_frmsizeenum *)tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_input_ptr = (struct v4l2_input *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_requestbuffers_ptr = (struct v4l2_requestbuffers *)tmp___23;
-  tmp___24 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_streamparm_ptr = (struct v4l2_streamparm *)tmp___24;
-  tmp___25 = external_allocated_data();
-  ldv_4_resource_struct_vm_area_struct_ptr = (struct vm_area_struct *)tmp___25;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_resource_dev = ldv_malloc(sizeof(struct pci_dev));
+  ldv_2_container_struct_i2c_adapter_ptr = ldv_malloc(sizeof(struct i2c_adapter));
+  ldv_2_container_union_i2c_smbus_data_ptr = ldv_malloc(sizeof(union i2c_smbus_data));
+  ldv_3_container_struct_v4l2_format_ptr = ldv_malloc(sizeof(struct v4l2_format));
+  ldv_3_container_struct_vb2_buffer_ptr = ldv_malloc(sizeof(struct vb2_buffer));
+  ldv_3_container_struct_vb2_queue_ptr = ldv_malloc(sizeof(struct vb2_queue));
+  ldv_3_container_void_ptr_ptr = ldv_malloc(sizeof(void *));
+  ldv_3_ldv_param_11_3_default = ldv_malloc(sizeof(unsigned int));
+  ldv_3_ldv_param_11_4_default = ldv_malloc(sizeof(unsigned int));
+  ldv_4_ldv_param_19_1_default = ldv_malloc(sizeof(char));
+  ldv_4_ldv_param_19_3_default = ldv_malloc(sizeof(long long));
+  ldv_4_ldv_param_31_2_default = ldv_malloc(sizeof(unsigned int));
+  ldv_4_ldv_param_36_2_default = ldv_malloc(sizeof(unsigned long long));
+  ldv_4_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_4_resource_struct_poll_table_struct_ptr = ldv_malloc(sizeof(struct poll_table_struct));
+  ldv_4_resource_struct_v4l2_buffer_ptr = ldv_malloc(sizeof(struct v4l2_buffer));
+  ldv_4_resource_struct_v4l2_capability_ptr = ldv_malloc(sizeof(struct v4l2_capability));
+  ldv_4_resource_struct_v4l2_dbg_register_ptr = ldv_malloc(sizeof(struct v4l2_dbg_register));
+  ldv_4_resource_struct_v4l2_fmtdesc_ptr = ldv_malloc(sizeof(struct v4l2_fmtdesc));
+  ldv_4_resource_struct_v4l2_format_ptr = ldv_malloc(sizeof(struct v4l2_format));
+  ldv_4_resource_struct_v4l2_frmivalenum_ptr = ldv_malloc(sizeof(struct v4l2_frmivalenum));
+  ldv_4_resource_struct_v4l2_frmsizeenum_ptr = ldv_malloc(sizeof(struct v4l2_frmsizeenum));
+  ldv_4_resource_struct_v4l2_input_ptr = ldv_malloc(sizeof(struct v4l2_input));
+  ldv_4_resource_struct_v4l2_requestbuffers_ptr = ldv_malloc(sizeof(struct v4l2_requestbuffers));
+  ldv_4_resource_struct_v4l2_streamparm_ptr = ldv_malloc(sizeof(struct v4l2_streamparm));
+  ldv_4_resource_struct_vm_area_struct_ptr = ldv_malloc(sizeof(struct vm_area_struct));
   }
   return;
 }
@@ -13052,7 +12999,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

@@ -10148,37 +10148,19 @@ struct net_device *ldv_alloc_etherdev_mqs(struct net_device *arg0 , int arg1 , u
 }
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_dev_dev = (struct iio_dev *)tmp;
-  ldv_1_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_2_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_2_container_struct_ethtool_cmd_ptr = (struct ethtool_cmd *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_container_struct_ethtool_regs_ptr = (struct ethtool_regs *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_2_container_struct_ethtool_ts_info_ptr = (struct ethtool_ts_info *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_2_container_struct_ifreq_ptr = (struct ifreq *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_2_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_resource_platform_device = (struct platform_device *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_device_device = (struct device *)tmp___7;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_dev_dev = ldv_malloc(sizeof(struct iio_dev));
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_2_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_2_container_struct_ethtool_cmd_ptr = ldv_malloc(sizeof(struct ethtool_cmd));
+  ldv_2_container_struct_ethtool_regs_ptr = ldv_malloc(sizeof(struct ethtool_regs));
+  ldv_2_container_struct_ethtool_ts_info_ptr = ldv_malloc(sizeof(struct ethtool_ts_info));
+  ldv_2_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_2_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_3_resource_platform_device = ldv_malloc(sizeof(struct platform_device));
+  ldv_4_device_device = ldv_malloc(sizeof(struct device));
   }
   return;
 }

@@ -9674,65 +9674,30 @@ int ldv_EMGentry_init_smsc95xx_driver_init_6_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_ethtool_cmd_ptr = (struct ethtool_cmd *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_container_struct_ethtool_eeprom_ptr = (struct ethtool_eeprom *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_container_struct_ethtool_regs_ptr = (struct ethtool_regs *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_0_container_struct_ethtool_wolinfo_ptr = (struct ethtool_wolinfo *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_0_container_struct_ifreq_ptr = (struct ifreq *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_0_ldv_param_34_2_default = (unsigned char *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_0_ldv_param_7_2_default = (unsigned char *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_1_container_struct_urb_ptr = (struct urb *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_1_container_struct_usb_interface_ptr = (struct usb_interface *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_1_container_struct_usbnet_ptr = (struct usbnet *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_2_ldv_param_13_1_default = (struct usb_device_id *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_2_ldv_param_8_1_default = (struct pm_message *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_2_resource_usb_interface = (struct usb_interface *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_2_usb_device_usb_device = (struct usb_device *)tmp___16;
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_ethtool_cmd_ptr = ldv_malloc(sizeof(struct ethtool_cmd));
+  ldv_0_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_0_container_struct_ethtool_eeprom_ptr = ldv_malloc(sizeof(struct ethtool_eeprom));
+  ldv_0_container_struct_ethtool_regs_ptr = ldv_malloc(sizeof(struct ethtool_regs));
+  ldv_0_container_struct_ethtool_wolinfo_ptr = ldv_malloc(sizeof(struct ethtool_wolinfo));
+  ldv_0_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_0_ldv_param_34_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_0_ldv_param_7_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_container_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_1_container_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_1_container_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_2_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_2_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_2_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_2_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -12001,7 +11966,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

@@ -7669,137 +7669,54 @@ int ldv_EMGentry_init_asix_driver_init_10_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
-  void *tmp___24 ;
-  void *tmp___25 ;
-  void *tmp___26 ;
-  void *tmp___27 ;
-  void *tmp___28 ;
-  void *tmp___29 ;
-  void *tmp___30 ;
-  void *tmp___31 ;
-  void *tmp___32 ;
-  void *tmp___33 ;
-  void *tmp___34 ;
-  void *tmp___35 ;
-  void *tmp___36 ;
-  void *tmp___37 ;
-  void *tmp___38 ;
-  void *tmp___39 ;
-  void *tmp___40 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_ethtool_cmd_ptr = (struct ethtool_cmd *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_container_struct_ethtool_eeprom_ptr = (struct ethtool_eeprom *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_container_struct_ethtool_wolinfo_ptr = (struct ethtool_wolinfo *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_0_container_struct_ifreq_ptr = (struct ifreq *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_0_ldv_param_29_2_default = (unsigned char *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_0_ldv_param_7_2_default = (unsigned char *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_1_container_net_device = (struct net_device *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_1_container_struct_ethtool_cmd_ptr = (struct ethtool_cmd *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_1_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_1_container_struct_ethtool_eeprom_ptr = (struct ethtool_eeprom *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_1_container_struct_ethtool_wolinfo_ptr = (struct ethtool_wolinfo *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_1_container_struct_ifreq_ptr = (struct ifreq *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_1_ldv_param_29_2_default = (unsigned char *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_1_ldv_param_7_2_default = (unsigned char *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_2_callback_link_reset = (int (*)(struct usbnet * ))tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_2_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_2_resource_struct_urb_ptr = (struct urb *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_2_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_2_resource_struct_usbnet_ptr = (struct usbnet *)tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_3_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_3_resource_struct_urb_ptr = (struct urb *)tmp___23;
-  tmp___24 = external_allocated_data();
-  ldv_3_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___24;
-  tmp___25 = external_allocated_data();
-  ldv_3_resource_struct_usbnet_ptr = (struct usbnet *)tmp___25;
-  tmp___26 = external_allocated_data();
-  ldv_4_callback_rx_fixup = (int (*)(struct usbnet * , struct sk_buff * ))tmp___26;
-  tmp___27 = external_allocated_data();
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_ethtool_cmd_ptr = ldv_malloc(sizeof(struct ethtool_cmd));
+  ldv_0_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_0_container_struct_ethtool_eeprom_ptr = ldv_malloc(sizeof(struct ethtool_eeprom));
+  ldv_0_container_struct_ethtool_wolinfo_ptr = ldv_malloc(sizeof(struct ethtool_wolinfo));
+  ldv_0_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_0_ldv_param_29_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_0_ldv_param_7_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_1_container_struct_ethtool_cmd_ptr = ldv_malloc(sizeof(struct ethtool_cmd));
+  ldv_1_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_1_container_struct_ethtool_eeprom_ptr = ldv_malloc(sizeof(struct ethtool_eeprom));
+  ldv_1_container_struct_ethtool_wolinfo_ptr = ldv_malloc(sizeof(struct ethtool_wolinfo));
+  ldv_1_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_ldv_param_29_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_ldv_param_7_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_2_callback_link_reset = (int (*)(struct usbnet * ))0;
+  ldv_2_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_2_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_2_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_3_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_3_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_3_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_3_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_4_callback_rx_fixup = (int (*)(struct usbnet * , struct sk_buff * ))0;
   ldv_4_callback_tx_fixup = (struct sk_buff *(*)(struct usbnet * , struct sk_buff * ,
-                                                 unsigned int ))tmp___27;
-  tmp___28 = external_allocated_data();
-  ldv_4_callback_unbind = (void (*)(struct usbnet * , struct usb_interface * ))tmp___28;
-  tmp___29 = external_allocated_data();
-  ldv_4_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___29;
-  tmp___30 = external_allocated_data();
-  ldv_4_resource_struct_urb_ptr = (struct urb *)tmp___30;
-  tmp___31 = external_allocated_data();
-  ldv_4_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___31;
-  tmp___32 = external_allocated_data();
-  ldv_4_resource_struct_usbnet_ptr = (struct usbnet *)tmp___32;
-  tmp___33 = external_allocated_data();
-  ldv_5_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___33;
-  tmp___34 = external_allocated_data();
-  ldv_5_resource_struct_urb_ptr = (struct urb *)tmp___34;
-  tmp___35 = external_allocated_data();
-  ldv_5_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___35;
-  tmp___36 = external_allocated_data();
-  ldv_5_resource_struct_usbnet_ptr = (struct usbnet *)tmp___36;
-  tmp___37 = external_allocated_data();
-  ldv_6_ldv_param_13_1_default = (struct usb_device_id *)tmp___37;
-  tmp___38 = external_allocated_data();
-  ldv_6_ldv_param_8_1_default = (struct pm_message *)tmp___38;
-  tmp___39 = external_allocated_data();
-  ldv_6_resource_usb_interface = (struct usb_interface *)tmp___39;
-  tmp___40 = external_allocated_data();
-  ldv_6_usb_device_usb_device = (struct usb_device *)tmp___40;
+                                                 unsigned int ))0;
+  ldv_4_callback_unbind = (void (*)(struct usbnet * , struct usb_interface * ))0;
+  ldv_4_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_4_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_4_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_4_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_5_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_5_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_5_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_5_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_6_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_6_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_6_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_6_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -9787,7 +9704,6 @@ extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern void kfree_skb(struct sk_buff * ) ;
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_copy_expand_83(struct sk_buff const *ldv_func_arg1 ,
                                               int ldv_func_arg2 , int ldv_func_arg3 ,
                                               gfp_t flags ) ;
@@ -9883,7 +9799,6 @@ __inline static int skb_tailroom(struct sk_buff const *skb )
   return ((int )tmp ? 0 : (int )((unsigned int )skb->end - (unsigned int )skb->tail));
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg1 ,
                                                  unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *__netdev_alloc_skb_ip_align(struct net_device *dev ,
@@ -10932,7 +10847,6 @@ int asix_set_mac_address(struct net_device *net , void *p )
   return (0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;

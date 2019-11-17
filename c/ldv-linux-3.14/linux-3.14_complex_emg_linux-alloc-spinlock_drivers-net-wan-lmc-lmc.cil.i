@@ -10210,57 +10210,25 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
 }
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_struct_ifreq_ptr = (struct ifreq *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_2_resource_dev = (struct pci_dev *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_callback_set_link_status = (void (*)(struct lmc___softc * , int ))tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_container_struct_lmc___ctl_ptr = (struct lmc___ctl *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_container_struct_lmc___softc_ptr = (struct lmc___softc *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_container_struct_lmc___ctl_ptr = (struct lmc___ctl *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_4_container_struct_lmc___softc_ptr = (struct lmc___softc *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_5_container_struct_lmc___ctl_ptr = (struct lmc___ctl *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_5_container_struct_lmc___softc_ptr = (struct lmc___softc *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_6_container_struct_lmc___ctl_ptr = (struct lmc___ctl *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_6_container_struct_lmc___softc_ptr = (struct lmc___softc *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_7_container_timer_list = (struct timer_list *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_8_container_timer_list = (struct timer_list *)tmp___14;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))0;
+  ldv_1_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_1_container_struct_ifreq_ptr = ldv_malloc(sizeof(struct ifreq));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_dev = ldv_malloc(sizeof(struct pci_dev));
+  ldv_3_callback_set_link_status = (void (*)(struct lmc___softc * , int ))0;
+  ldv_3_container_struct_lmc___ctl_ptr = ldv_malloc(sizeof(struct lmc___ctl));
+  ldv_3_container_struct_lmc___softc_ptr = ldv_malloc(sizeof(struct lmc___softc));
+  ldv_4_container_struct_lmc___ctl_ptr = ldv_malloc(sizeof(struct lmc___ctl));
+  ldv_4_container_struct_lmc___softc_ptr = ldv_malloc(sizeof(struct lmc___softc));
+  ldv_5_container_struct_lmc___ctl_ptr = ldv_malloc(sizeof(struct lmc___ctl));
+  ldv_5_container_struct_lmc___softc_ptr = ldv_malloc(sizeof(struct lmc___softc));
+  ldv_6_container_struct_lmc___ctl_ptr = ldv_malloc(sizeof(struct lmc___ctl));
+  ldv_6_container_struct_lmc___softc_ptr = ldv_malloc(sizeof(struct lmc___softc));
+  ldv_7_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_8_container_timer_list = ldv_malloc(sizeof(struct timer_list));
   }
   return;
 }

@@ -26917,41 +26917,22 @@ int ldv_EMGentry_init_sd_driver_init_6_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_struct_gspca_dev_ptr = (struct gspca_dev *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_usb_device_id_ptr = (struct usb_device_id *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_container_struct_v4l2_jpegcompression_ptr = (struct v4l2_jpegcompression *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_container_struct_v4l2_streamparm_ptr = (struct v4l2_streamparm *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_ldv_param_13_1_default = (unsigned char *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_container_struct_v4l2_ctrl_ptr = (struct v4l2_ctrl *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_2_ldv_param_13_1_default = (struct usb_device_id *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_2_ldv_param_8_1_default = (struct pm_message *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_2_resource_usb_interface = (struct usb_interface *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_2_usb_device_usb_device = (struct usb_device *)tmp___8;
+  ldv_0_container_struct_gspca_dev_ptr = ldv_malloc(sizeof(struct gspca_dev));
+  ldv_0_container_struct_usb_device_id_ptr = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_0_container_struct_v4l2_jpegcompression_ptr = ldv_malloc(sizeof(struct v4l2_jpegcompression));
+  ldv_0_container_struct_v4l2_streamparm_ptr = ldv_malloc(sizeof(struct v4l2_streamparm));
+  ldv_0_ldv_param_13_1_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_container_struct_v4l2_ctrl_ptr = ldv_malloc(sizeof(struct v4l2_ctrl));
+  ldv_2_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_2_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_2_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_2_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -28505,7 +28486,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

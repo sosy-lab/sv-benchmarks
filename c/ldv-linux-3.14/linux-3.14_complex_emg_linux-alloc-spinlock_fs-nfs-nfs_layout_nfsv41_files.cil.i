@@ -10987,94 +10987,45 @@ int ldv_EMGentry_init_nfs4filelayout_init_5_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_struct_rpc_task_ptr = (struct rpc_task *)tmp;
-  ldv_0_ldv_param_12_1_default = external_allocated_data();
-  ldv_0_ldv_param_3_1_default = external_allocated_data();
-  ldv_0_ldv_param_9_1_default = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_1_container_struct_rpc_task_ptr = (struct rpc_task *)tmp___0;
-  ldv_1_ldv_param_12_1_default = external_allocated_data();
-  ldv_1_ldv_param_3_1_default = external_allocated_data();
-  ldv_1_ldv_param_9_1_default = external_allocated_data();
-  tmp___1 = external_allocated_data();
-  ldv_2_container_struct_rpc_task_ptr = (struct rpc_task *)tmp___1;
-  ldv_2_ldv_param_12_1_default = external_allocated_data();
-  ldv_2_ldv_param_3_1_default = external_allocated_data();
-  ldv_2_ldv_param_9_1_default = external_allocated_data();
-  tmp___2 = external_allocated_data();
-  ldv_3_container_struct_inode_ptr = (struct inode *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_container_struct_nfs4_deviceid_node_ptr = (struct nfs4_deviceid_node *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_container_struct_nfs4_layoutget_res_ptr = (struct nfs4_layoutget_res *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_container_struct_nfs_commit_info_ptr = (struct nfs_commit_info *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_container_struct_nfs_page_ptr = (struct nfs_page *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_3_container_struct_nfs_pageio_descriptor_ptr = (struct nfs_pageio_descriptor *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_3_container_struct_nfs_read_data_ptr = (struct nfs_read_data *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_3_container_struct_nfs_write_data_ptr = (struct nfs_write_data *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_3_container_struct_pnfs_layout_hdr_ptr = (struct pnfs_layout_hdr *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_3_container_struct_pnfs_layout_segment_ptr = (struct pnfs_layout_segment *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_3_ldv_param_23_2_default = (struct nfs_page *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_4_container_struct_inode_ptr = (struct inode *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_4_container_struct_nfs4_deviceid_node_ptr = (struct nfs4_deviceid_node *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_4_container_struct_nfs4_layoutget_res_ptr = (struct nfs4_layoutget_res *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_4_container_struct_nfs_commit_info_ptr = (struct nfs_commit_info *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_4_container_struct_nfs_page_ptr = (struct nfs_page *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_4_container_struct_nfs_pageio_descriptor_ptr = (struct nfs_pageio_descriptor *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_4_container_struct_nfs_read_data_ptr = (struct nfs_read_data *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_4_container_struct_nfs_write_data_ptr = (struct nfs_write_data *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_4_container_struct_pnfs_layout_hdr_ptr = (struct pnfs_layout_hdr *)tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_4_container_struct_pnfs_layout_segment_ptr = (struct pnfs_layout_segment *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_4_ldv_param_23_2_default = (struct nfs_page *)tmp___23;
+  ldv_0_container_struct_rpc_task_ptr = ldv_malloc(sizeof(struct rpc_task));
+  ldv_0_ldv_param_12_1_default = ldv_malloc(0UL);
+  ldv_0_ldv_param_3_1_default = ldv_malloc(0UL);
+  ldv_0_ldv_param_9_1_default = ldv_malloc(0UL);
+  ldv_1_container_struct_rpc_task_ptr = ldv_malloc(sizeof(struct rpc_task));
+  ldv_1_ldv_param_12_1_default = ldv_malloc(0UL);
+  ldv_1_ldv_param_3_1_default = ldv_malloc(0UL);
+  ldv_1_ldv_param_9_1_default = ldv_malloc(0UL);
+  ldv_2_container_struct_rpc_task_ptr = ldv_malloc(sizeof(struct rpc_task));
+  ldv_2_ldv_param_12_1_default = ldv_malloc(0UL);
+  ldv_2_ldv_param_3_1_default = ldv_malloc(0UL);
+  ldv_2_ldv_param_9_1_default = ldv_malloc(0UL);
+  ldv_3_container_struct_inode_ptr = ldv_malloc(sizeof(struct inode));
+  ldv_3_container_struct_nfs4_deviceid_node_ptr = ldv_malloc(sizeof(struct nfs4_deviceid_node));
+  ldv_3_container_struct_nfs4_layoutget_res_ptr = ldv_malloc(sizeof(struct nfs4_layoutget_res));
+  ldv_3_container_struct_nfs_commit_info_ptr = ldv_malloc(sizeof(struct nfs_commit_info));
+  ldv_3_container_struct_nfs_page_ptr = ldv_malloc(sizeof(struct nfs_page));
+  ldv_3_container_struct_nfs_pageio_descriptor_ptr = ldv_malloc(sizeof(struct nfs_pageio_descriptor));
+  ldv_3_container_struct_nfs_read_data_ptr = ldv_malloc(sizeof(struct nfs_read_data));
+  ldv_3_container_struct_nfs_write_data_ptr = ldv_malloc(sizeof(struct nfs_write_data));
+  ldv_3_container_struct_pnfs_layout_hdr_ptr = ldv_malloc(sizeof(struct pnfs_layout_hdr));
+  ldv_3_container_struct_pnfs_layout_segment_ptr = ldv_malloc(sizeof(struct pnfs_layout_segment));
+  ldv_3_ldv_param_23_2_default = ldv_malloc(sizeof(struct nfs_page));
+  ldv_4_container_struct_inode_ptr = ldv_malloc(sizeof(struct inode));
+  ldv_4_container_struct_nfs4_deviceid_node_ptr = ldv_malloc(sizeof(struct nfs4_deviceid_node));
+  ldv_4_container_struct_nfs4_layoutget_res_ptr = ldv_malloc(sizeof(struct nfs4_layoutget_res));
+  ldv_4_container_struct_nfs_commit_info_ptr = ldv_malloc(sizeof(struct nfs_commit_info));
+  ldv_4_container_struct_nfs_page_ptr = ldv_malloc(sizeof(struct nfs_page));
+  ldv_4_container_struct_nfs_pageio_descriptor_ptr = ldv_malloc(sizeof(struct nfs_pageio_descriptor));
+  ldv_4_container_struct_nfs_read_data_ptr = ldv_malloc(sizeof(struct nfs_read_data));
+  ldv_4_container_struct_nfs_write_data_ptr = ldv_malloc(sizeof(struct nfs_write_data));
+  ldv_4_container_struct_pnfs_layout_hdr_ptr = ldv_malloc(sizeof(struct pnfs_layout_hdr));
+  ldv_4_container_struct_pnfs_layout_segment_ptr = ldv_malloc(sizeof(struct pnfs_layout_segment));
+  ldv_4_ldv_param_23_2_default = ldv_malloc(sizeof(struct nfs_page));
   }
   return;
 }
@@ -12374,7 +12325,6 @@ __inline static long IS_ERR(void const *ptr )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   void *tmp ;
@@ -12386,7 +12336,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
