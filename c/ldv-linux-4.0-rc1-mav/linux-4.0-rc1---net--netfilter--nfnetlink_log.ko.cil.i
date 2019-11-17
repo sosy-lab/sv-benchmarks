@@ -6960,7 +6960,6 @@ static void ldv_ldv_check_final_state_159(void) ;
 static void ldv_ldv_check_final_state_160(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-void *ldv_malloc_unknown_size(void) ;
 void ldv_linux_kernel_rcu_update_lock_bh_rcu_read_lock_bh(void) ;
 void ldv_linux_kernel_rcu_update_lock_bh_rcu_read_unlock_bh(void) ;
 void ldv_linux_kernel_rcu_update_lock_rcu_read_lock(void) ;
@@ -12520,30 +12519,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 int ldv_undef_int_negative(void) ;

@@ -4992,7 +4992,6 @@ int ldv_register_class(void)
 }
 void *ldv_linux_arch_io_io_mem_remap(void) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
-void *ldv_malloc_unknown_size(void) ;
 __inline static int test_and_set_bit(long nr , unsigned long volatile *addr )
 {
   {
@@ -23547,30 +23546,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 int ldv_undef_int_negative(void) ;

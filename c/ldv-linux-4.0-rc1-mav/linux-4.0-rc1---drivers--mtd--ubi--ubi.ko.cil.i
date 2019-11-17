@@ -4977,7 +4977,6 @@ int ldv_register_class(void)
 void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const *ptr ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
-void *ldv_malloc_unknown_size(void) ;
 __inline static __u16 __fswab16(__u16 val )
 {
   {
@@ -35520,30 +35519,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 int ldv_undef_int_negative(void) ;
