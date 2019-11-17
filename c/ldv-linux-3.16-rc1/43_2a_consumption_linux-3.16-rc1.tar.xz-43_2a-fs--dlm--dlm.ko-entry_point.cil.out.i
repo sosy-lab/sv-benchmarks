@@ -10525,6 +10525,7 @@ int ldv_pskb_expand_head_41(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv_skb_clone_43(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 {
   struct sk_buff *tmp ;
@@ -11166,7 +11167,6 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   {
@@ -22712,7 +22712,6 @@ void *ldv_kmem_cache_alloc_214(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
 {
   struct sk_buff *tmp ;
@@ -25120,7 +25119,6 @@ void dlm_lowcomms_exit(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   struct page *tmp ;

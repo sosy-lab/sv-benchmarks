@@ -16220,7 +16220,7 @@ struct sk_buff *ldv_skb_clone_33(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -16229,7 +16229,7 @@ struct sk_buff *ldv_skb_copy_35(struct sk_buff const *ldv_func_arg1 , gfp_t flag
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -16284,7 +16284,7 @@ struct sk_buff *ldv_skb_clone_41(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -18263,7 +18263,7 @@ struct sk_buff *ldv_skb_clone_115(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -18272,7 +18272,7 @@ struct sk_buff *ldv_skb_copy_117(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -18327,7 +18327,7 @@ struct sk_buff *ldv_skb_clone_123(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -19031,7 +19031,7 @@ struct sk_buff *ldv_skb_clone_161(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -19040,7 +19040,7 @@ struct sk_buff *ldv_skb_copy_163(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -19095,7 +19095,7 @@ struct sk_buff *ldv_skb_clone_169(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -23901,7 +23901,7 @@ struct sk_buff *ldv_skb_clone_207(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -23910,7 +23910,7 @@ struct sk_buff *ldv_skb_copy_209(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -23965,7 +23965,7 @@ struct sk_buff *ldv_skb_clone_215(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -24473,7 +24473,7 @@ struct sk_buff *ldv_skb_clone_253(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -24482,7 +24482,7 @@ struct sk_buff *ldv_skb_copy_255(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -24537,7 +24537,7 @@ struct sk_buff *ldv_skb_clone_261(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -25455,7 +25455,7 @@ struct sk_buff *ldv_skb_clone_299(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -25464,7 +25464,7 @@ struct sk_buff *ldv_skb_copy_301(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -25519,7 +25519,7 @@ struct sk_buff *ldv_skb_clone_307(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -30575,7 +30575,7 @@ struct sk_buff *ldv_skb_clone_345(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -30584,7 +30584,7 @@ struct sk_buff *ldv_skb_copy_347(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -30639,7 +30639,7 @@ struct sk_buff *ldv_skb_clone_353(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -31875,7 +31875,7 @@ struct sk_buff *ldv_skb_clone_404(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -31884,7 +31884,7 @@ struct sk_buff *ldv_skb_copy_406(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -31939,7 +31939,7 @@ struct sk_buff *ldv_skb_clone_412(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -34493,7 +34493,7 @@ struct sk_buff *ldv_skb_clone_451(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -34502,7 +34502,7 @@ struct sk_buff *ldv_skb_copy_453(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -34557,7 +34557,7 @@ struct sk_buff *ldv_skb_clone_459(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -35122,7 +35122,7 @@ struct sk_buff *ldv_skb_clone_499(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -35131,7 +35131,7 @@ struct sk_buff *ldv_skb_copy_501(struct sk_buff const *ldv_func_arg1 , gfp_t fla
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -35186,7 +35186,7 @@ struct sk_buff *ldv_skb_clone_507(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }

@@ -8398,6 +8398,7 @@ int ldv_pskb_expand_head_22(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv_skb_clone_24(struct sk_buff *ldv_func_arg1 , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;
@@ -10699,7 +10700,6 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb , struct net_device *dev )
   return (0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 
@@ -13358,7 +13358,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   struct page *tmp ;
