@@ -11023,7 +11023,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void ldv_linux_lib_idr_idr_init_release_idr_of_qxl_device(void) ;
 void ldv_linux_lib_idr_idr_init_surf_id_idr_of_qxl_device(void) ;
-void *ldv_linux_arch_io_io_mem_remap(void) ;
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 extern void ldv_after_alloc(void * ) ;
 extern int printk(char const   *  , ...) ;
@@ -11539,7 +11539,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(size);
   }
   return (tmp);
 }
@@ -25964,14 +25964,14 @@ int ldv_linux_usb_dev_atomic_inc_short(short *v )
 void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 int ldv_linux_arch_io_iomem  =    0;
-void *ldv_linux_arch_io_io_mem_remap(void) 
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
   void *ptr ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {

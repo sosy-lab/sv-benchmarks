@@ -5758,7 +5758,7 @@ void ldv_linux_kernel_sched_completion_wait_for_completion_wait(void) ;
 unsigned long ldv_linux_lib_find_bit_find_next_bit(unsigned long size , unsigned long offset ) ;
 unsigned long ldv_linux_lib_find_bit_find_first_bit(unsigned long size ) ;
 int ldv_undef_int(void) ;
-void *ldv_linux_arch_io_io_mem_remap(void) ;
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 static void ldv_ldv_initialize_183(void) ;
 int ldv_post_init(int init_ret_val ) ;
@@ -23698,7 +23698,7 @@ static void *ldv_ioremap_nocache_134(resource_size_t ldv_func_arg1 , unsigned lo
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(ldv_func_arg2);
   }
   return (tmp);
 }
@@ -24527,14 +24527,14 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem  =    0;
-void *ldv_linux_arch_io_io_mem_remap(void) 
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
   void *ptr ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {

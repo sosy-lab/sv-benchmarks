@@ -5289,7 +5289,7 @@ void ldv_linux_block_genhd_add_disk(void) ;
 void ldv_linux_block_genhd_del_gendisk(void) ;
 void ldv_linux_block_genhd_put_disk(struct gendisk *disk ) ;
 int ldv_undef_int(void) ;
-void *ldv_linux_arch_io_io_mem_remap(void) ;
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 static void ldv_ldv_initialize_167(void) ;
 int ldv_post_init(int init_ret_val ) ;
@@ -14553,7 +14553,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   void *tmp ;
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(size);
   }
   return (tmp);
 }
@@ -19086,13 +19086,13 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem = 0;
-void *ldv_linux_arch_io_io_mem_remap(void)
+void *ldv_linux_arch_io_io_mem_remap(size_t size )
 {
   void *ptr ;
   void *tmp ;
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {
