@@ -8305,26 +8305,6 @@ void ldv_assert_linux_block_genhd__free_before_allocation(int expr ) ;
 void ldv_assert_linux_block_genhd__more_initial_at_exit(int expr ) ;
 void ldv_assert_linux_block_genhd__use_before_allocation(int expr ) ;
 static int ldv_linux_block_genhd_disk_state  =    0;
-struct gendisk *ldv_linux_block_genhd_alloc_disk(void) 
-{ 
-  struct gendisk *res ;
-  void *tmp ;
-
-  {
-  {
-  tmp = ldv_undef_ptr();
-  res = (struct gendisk *)tmp;
-  ldv_assert_linux_block_genhd__double_allocation(ldv_linux_block_genhd_disk_state == 0);
-  }
-  if ((unsigned long )res != (unsigned long )((struct gendisk *)0)) {
-    ldv_linux_block_genhd_disk_state = 1;
-    return (res);
-  } else {
-
-  }
-  return (res);
-}
-}
 void ldv_linux_block_genhd_add_disk(void) 
 { 
 
