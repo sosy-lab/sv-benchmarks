@@ -8293,9 +8293,10 @@ int __VERIFIER_nondet_int(void);
 int send_sig(int arg0, struct task_struct *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;

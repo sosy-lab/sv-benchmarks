@@ -1396,10 +1396,13 @@ unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  // a more precise implementation of skb_put would actually re-allocate memory
+  // here
+  arg0->tail += arg1;
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ret_val;
 }
 
 // Skip function: snprintf
