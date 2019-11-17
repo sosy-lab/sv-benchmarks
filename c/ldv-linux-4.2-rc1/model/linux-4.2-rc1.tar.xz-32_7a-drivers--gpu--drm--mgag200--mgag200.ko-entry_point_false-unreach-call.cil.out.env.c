@@ -925,10 +925,9 @@ int pci_bus_write_config_dword(struct pci_bus *arg0, unsigned int arg1, int arg2
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 
 // Function: pci_iounmap

@@ -49562,9 +49562,8 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_sriov(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 int __VERIFIER_nondet_int(void);
 int pci_num_vf(struct pci_dev *arg0) {

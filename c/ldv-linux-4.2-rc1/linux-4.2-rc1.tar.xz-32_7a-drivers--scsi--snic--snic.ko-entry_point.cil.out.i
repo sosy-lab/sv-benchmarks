@@ -23022,9 +23022,8 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_msix(struct pci_dev *arg0, struct msix_entry *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;

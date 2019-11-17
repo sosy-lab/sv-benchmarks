@@ -969,10 +969,9 @@ struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 
 // Function: pci_iounmap
