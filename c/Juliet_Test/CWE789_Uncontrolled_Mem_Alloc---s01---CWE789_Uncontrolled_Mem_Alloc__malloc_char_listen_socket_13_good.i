@@ -1595,7 +1595,6 @@ void *ldv_malloc_unknown_size(void);
 void *ldv_calloc_unknown_size(void);
 
 
-void *ldv_zalloc_unknown_size(void);
 
 
 void *ldv_reference_malloc(size_t size);
@@ -1625,7 +1624,6 @@ void *ldv_reference_malloc_unknown_size(void);
 void *ldv_reference_calloc_unknown_size(void);
 
 
-void *ldv_reference_zalloc_unknown_size(void);
 
 
 
@@ -1709,14 +1707,6 @@ void *ldv_calloc_unknown_size(void)
 }
 
 
-void *ldv_zalloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_zalloc_unknown_size();
-  
-  return tmp;
-}
 
 
 
@@ -2099,14 +2089,6 @@ void *ldv_reference_calloc_unknown_size(void)
 }
 
 
-void *ldv_reference_zalloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_calloc_unknown_size();
-  
-  return tmp;
-}
 
 
 
