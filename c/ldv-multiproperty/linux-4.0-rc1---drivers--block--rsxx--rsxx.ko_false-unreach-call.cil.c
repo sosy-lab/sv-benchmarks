@@ -4752,18 +4752,6 @@ int ldv_register_class(void)
 }
 }
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 __inline static __u32 __fswab32(__u32 val ) 
 { 
   int tmp ;

@@ -4993,17 +4993,6 @@ int ldv_register_class(void)
 void *ldv_linux_arch_io_io_mem_remap(void) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 __inline static int test_and_set_bit(long nr , unsigned long volatile *addr )
 {
   {

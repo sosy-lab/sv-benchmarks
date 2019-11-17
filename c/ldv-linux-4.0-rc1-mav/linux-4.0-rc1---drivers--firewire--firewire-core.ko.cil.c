@@ -4503,18 +4503,6 @@ int ldv_linux_usb_dev_atomic_add_return(int i , atomic_t *v ) ;
 void ldv_linux_kernel_sched_completion_init_completion_done_of_fw_card(void) ;
 void ldv_linux_kernel_sched_completion_wait_for_completion_done_of_fw_card(void) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 static void ldv_mutex_lock_96(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_98(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_110(struct mutex *ldv_func_arg1 ) ;
