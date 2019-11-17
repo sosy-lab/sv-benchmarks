@@ -13949,13 +13949,14 @@ void *ldv_usb_alloc_coherent_132(struct usb_device *ldv_func_arg1 , size_t ldv_f
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct urb *ldv_usb_alloc_urb_133(int ldv_func_arg1 , gfp_t flags ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
@@ -15825,7 +15826,7 @@ struct urb *ldv_usb_alloc_urb_202(int ldv_func_arg1 , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }

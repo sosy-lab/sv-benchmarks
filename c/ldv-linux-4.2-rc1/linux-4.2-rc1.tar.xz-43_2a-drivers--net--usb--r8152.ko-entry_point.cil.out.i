@@ -13611,7 +13611,7 @@ struct urb *ldv_usb_alloc_urb_44(int ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
@@ -13620,7 +13620,7 @@ struct urb *ldv_usb_alloc_urb_45(int ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
@@ -13629,7 +13629,7 @@ struct urb *ldv_usb_alloc_urb_46(int ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
