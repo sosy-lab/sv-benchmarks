@@ -1476,7 +1476,6 @@ void *ldv_realloc(void *ptr, size_t size);
 void *ldv_xzalloc(size_t size);
 
 
-void *ldv_malloc_unknown_size(void);
 
 
 
@@ -1504,7 +1503,6 @@ void *ldv_reference_xmalloc(size_t size);
 void *ldv_reference_xzalloc(size_t size);
 
 
-void *ldv_reference_malloc_unknown_size(void);
 
 
 
@@ -1572,14 +1570,6 @@ void *ldv_xzalloc(size_t size)
 }
 
 
-void *ldv_malloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_malloc_unknown_size();
-  
-  return tmp;
-}
 
 
 
@@ -1906,33 +1896,6 @@ void *ldv_reference_xzalloc(size_t size)
 }
 
 
-void *ldv_reference_malloc_unknown_size(void)
-{
-  void *__retres;
-  void *res;
-  int tmp;
-  
-  tmp = ldv_undef_int();
-  
-  if (tmp != 0) {
-    
-    res = external_allocated_data();
-    
-    __VERIFIER_assume(res != (void *)0);
-    
-    __retres = res;
-    
-    goto return_label;
-  }
-  else {
-    
-    __retres = (void *)0;
-    
-    goto return_label;
-  }
-  return_label: 
-                return __retres;
-}
 
 
 
