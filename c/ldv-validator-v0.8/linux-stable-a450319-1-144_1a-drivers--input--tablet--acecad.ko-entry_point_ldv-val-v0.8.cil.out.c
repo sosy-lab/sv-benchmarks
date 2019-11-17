@@ -4218,12 +4218,10 @@ void ldv_free_urb(struct urb *arg )
 void ldv_fill_int_urb(void (*complete_fn)(struct urb * ) ) 
 { 
   struct urb *value ;
-  void *tmp ;
   int tmp___0 ;
 
   {
-  tmp = ldv_undef_ptr();
-  value = (struct urb *)tmp;
+  value = ldv_malloc(sizeof(struct urb));
   if ((unsigned long )value == (unsigned long )((struct urb *)0)) {
     ldv_stop();
   } else {
@@ -4246,12 +4244,10 @@ void ldv_fill_int_urb(void (*complete_fn)(struct urb * ) )
 void ldv_fill_bulk_urb(void (*complete_fn)(struct urb * ) ) 
 { 
   struct urb *value ;
-  void *tmp ;
   int tmp___0 ;
 
   {
-  tmp = ldv_undef_ptr();
-  value = (struct urb *)tmp;
+  value = ldv_malloc(sizeof(struct urb));
   if ((unsigned long )value == (unsigned long )((struct urb *)0)) {
     ldv_stop();
   } else {
@@ -4309,7 +4305,7 @@ struct usb_device *ldv_interface_to_usbdev(void)
   goto ldv_1805;
   ldv_1804: ;
   ldv_1805: 
-  result = ldv_undef_ptr();
+  result = ldv_malloc(sizeof(struct usb_device));
   if ((unsigned long )result == (unsigned long )((void *)0)) {
     goto ldv_1804;
   } else {

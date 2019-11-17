@@ -12673,7 +12673,7 @@ void *ldv_dma_pool_alloc_25(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_a
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(96UL);
   return (tmp);
 }
 }
@@ -12683,7 +12683,7 @@ void *ldv_dma_pool_alloc_26(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_a
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(96UL);
   return (tmp);
 }
 }
@@ -12693,7 +12693,7 @@ void *ldv_dma_pool_alloc_27(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_a
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(192UL);
   return (tmp);
 }
 }

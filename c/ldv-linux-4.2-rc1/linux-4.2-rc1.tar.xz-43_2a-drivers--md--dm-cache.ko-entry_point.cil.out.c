@@ -11677,7 +11677,7 @@ void *ldv_mempool_alloc_29(mempool_t *ldv_func_arg1 , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(72UL);
   return (tmp);
 }
 }

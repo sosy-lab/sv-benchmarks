@@ -4515,14 +4515,12 @@ int ldv_blk_rq = 0;
 struct request *ldv_blk_get_request(gfp_t mask )
 {
   struct request *res ;
-  void *tmp ;
   {
   if (ldv_blk_rq == 0) {
   } else {
     ldv_error();
   }
-  tmp = ldv_undef_ptr();
-  res = (struct request *)tmp;
+  res = ldv_malloc(sizeof(struct request));
   if ((mask == 16U || mask == 208U) || mask == 16U) {
     if ((unsigned long )res != (unsigned long )((void *)0)) {
     } else {
@@ -4540,15 +4538,13 @@ struct request *ldv_blk_get_request(gfp_t mask )
 struct request *ldv_blk_make_request(gfp_t mask )
 {
   struct request *res ;
-  void *tmp ;
   long tmp___0 ;
   {
   if (ldv_blk_rq == 0) {
   } else {
     ldv_error();
   }
-  tmp = ldv_undef_ptr();
-  res = (struct request *)tmp;
+  res = ldv_malloc(sizeof(struct request));
   if ((unsigned long )res != (unsigned long )((void *)0)) {
   } else {
     ldv_stop___0();

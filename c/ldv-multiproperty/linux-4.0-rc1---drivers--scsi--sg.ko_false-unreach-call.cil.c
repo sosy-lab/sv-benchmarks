@@ -18017,7 +18017,7 @@ __inline static void *ldv_idr_find_128(struct idr *idr , int id )
   {
   {
   ldv_linux_lib_idr_idr_find_sg_index_idr();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(Sg_device));
   }
   return (tmp);
 }

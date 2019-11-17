@@ -11444,19 +11444,17 @@ Set LDV_PCI_DMA_PAGE_BUFS  ;
 dma_addr_t ldv_pci_dma_map_page(struct pci_dev *hwdev , struct page *page , unsigned long offset ,
                                 size_t size , int direction ) 
 { 
-  int nonedetermined ;
   void *tmp ;
 
   {
-  tmp = ldv_undef_ptr();
-  nonedetermined = (int )((long )tmp);
-  if (nonedetermined == 0) {
+  tmp = ldv_malloc(size);
+  if (tmp == 0) {
     return (0ULL);
   } else {
 
   }
   LDV_PCI_DMA_PAGE_BUFS = LDV_PCI_DMA_PAGE_BUFS + 1;
-  return ((dma_addr_t )nonedetermined);
+  return tmp;
 }
 }
 void ldv_pci_dma_unmap_page(struct pci_dev *hwdev , dma_addr_t dma_address , size_t size ,
@@ -11477,20 +11475,18 @@ void ldv_pci_dma_unmap_page(struct pci_dev *hwdev , dma_addr_t dma_address , siz
 dma_addr_t ldv_pci_dma_map(struct pci_dev *hwdev , void *ptr , size_t size , int direction ) 
 { 
   dma_addr_t dma_buf ;
-  int nonedetermined ;
   void *tmp ;
 
   {
   dma_buf = (dma_addr_t )ptr;
-  tmp = ldv_undef_ptr();
-  nonedetermined = (int )((long )tmp);
-  if (nonedetermined == 0) {
+  tmp = ldv_malloc(size);
+  if (tmp == 0) {
     return (0ULL);
   } else {
 
   }
   LDV_PCI_DMA_BUFS = LDV_PCI_DMA_BUFS + 1;
-  return ((dma_addr_t )nonedetermined);
+  return tmp;
 }
 }
 void ldv_pci_dma_unmap(struct pci_dev *hwdev , dma_addr_t dma_addr , size_t size ,

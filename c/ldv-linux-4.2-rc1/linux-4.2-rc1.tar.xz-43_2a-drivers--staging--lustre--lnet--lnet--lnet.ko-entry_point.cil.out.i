@@ -12184,7 +12184,7 @@ void *ldv_vmalloc_node_39(unsigned long ldv_func_arg1 , int ldv_func_arg2 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -17204,7 +17204,7 @@ __inline static void *kmalloc_node(size_t size , gfp_t flags , int node )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   return (tmp);
 }
 }
@@ -17303,7 +17303,7 @@ void *ldv_vmalloc_node_157(unsigned long ldv_func_arg1 , int ldv_func_arg2 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -33834,7 +33834,7 @@ void *ldv_vmalloc_node_457(unsigned long ldv_func_arg1 , int ldv_func_arg2 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }

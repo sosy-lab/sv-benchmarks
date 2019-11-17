@@ -14221,12 +14221,13 @@ struct sk_buff *ldv_skb_clone_41(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
+extern void *realloc(void * , size_t ) ;
 void *ldv_krealloc_42(void const *ldv_func_arg1 , size_t ldv_func_arg2 , gfp_t flags )
 {
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = realloc(ldv_func_arg1, ldv_func_arg2);
   return (tmp);
 }
 }

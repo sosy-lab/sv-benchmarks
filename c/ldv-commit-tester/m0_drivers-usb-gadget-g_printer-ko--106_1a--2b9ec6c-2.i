@@ -5902,10 +5902,6 @@ void ldv_handler_precall() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
-void *ldv_undef_ptr() {
-  return (void *)external_alloc();
-}
 void list_del(struct list_head *arg0) {
   return;
 }

@@ -5292,10 +5292,8 @@ __inline static void ldv_stop___0(void)
 struct tty_struct___0 *ldv_latest_tty ;
 void ldv_initialize(void)
 {
-  void *tmp ;
   {
-  tmp = ldv_undef_ptr();
-  ldv_latest_tty = (struct tty_struct___0 *)tmp;
+  ldv_latest_tty = ldv_malloc(sizeof(struct tty_struct___0));
   if ((unsigned long )ldv_latest_tty != (unsigned long )((void *)0)) {
   } else {
     ldv_stop___0();
@@ -5305,10 +5303,8 @@ void ldv_initialize(void)
 }
 void ldv_handler_precall(void)
 {
-  void *tmp ;
   {
-  tmp = ldv_undef_ptr();
-  ldv_latest_tty = (struct tty_struct___0 *)tmp;
+  ldv_latest_tty = ldv_malloc(sizeof(struct tty_struct___0));
   if ((unsigned long )ldv_latest_tty != (unsigned long )((void *)0)) {
   } else {
     ldv_stop___0();
