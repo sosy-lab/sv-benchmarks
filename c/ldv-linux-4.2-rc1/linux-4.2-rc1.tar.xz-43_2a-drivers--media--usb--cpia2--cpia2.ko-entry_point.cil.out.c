@@ -8709,12 +8709,10 @@ void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_45(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_46(int ldv_func_arg1 , gfp_t flags ) 
@@ -8729,12 +8727,10 @@ struct urb *ldv_usb_alloc_urb_46(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_47(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_register_driver_48(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,

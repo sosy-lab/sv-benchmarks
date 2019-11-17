@@ -8954,11 +8954,9 @@ void *ldv_usb_alloc_coherent_32(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 }
 int ldv_usb_submit_urb_33(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_34(int ldv_func_arg1 , gfp_t flags )
@@ -8982,11 +8980,9 @@ void *ldv_usb_alloc_coherent_35(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 }
 int ldv_usb_submit_urb_36(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_37(int ldv_func_arg1 , gfp_t flags )
@@ -9010,11 +9006,9 @@ void *ldv_usb_alloc_coherent_38(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 }
 int ldv_usb_submit_urb_39(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_40(int ldv_func_arg1 , gfp_t flags )
@@ -9038,11 +9032,9 @@ void *ldv_usb_alloc_coherent_41(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 }
 int ldv_usb_submit_urb_42(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 void ldv_flush_workqueue_43(struct workqueue_struct *ldv_func_arg1 )
