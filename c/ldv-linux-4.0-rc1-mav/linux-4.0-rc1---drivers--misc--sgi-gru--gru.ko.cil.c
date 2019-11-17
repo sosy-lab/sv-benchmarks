@@ -33990,7 +33990,6 @@ int ldv_linux_usb_dev_atomic_inc_short(short *v )
 }
 void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
-void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem  =    0;
 void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
@@ -35752,17 +35751,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

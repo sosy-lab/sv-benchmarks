@@ -18970,7 +18970,6 @@ static void ldv_mutex_unlock_113(struct mutex *ldv_func_arg1 )
 }
 void ldv__builtin_va_end(__builtin_va_list  ) ;
 void ldv__builtin_va_start(__builtin_va_list  ) ;
-void *ldv_undef_ptr(void) ;
 void ldv_linux_lib_idr_idr_alloc_surf_id_idr_of_qxl_device(void) ;
 void ldv_linux_lib_idr_idr_find_surf_id_idr_of_qxl_device(void) ;
 void ldv_linux_lib_idr_idr_remove_surf_id_idr_of_qxl_device(void) ;
@@ -27726,17 +27725,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

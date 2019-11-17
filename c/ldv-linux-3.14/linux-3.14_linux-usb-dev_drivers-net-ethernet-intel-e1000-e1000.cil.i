@@ -33222,7 +33222,6 @@ void *ldv_xzalloc(size_t size )
   return (res);
 }
 }
-void *ldv_undef_ptr(void) ;
 unsigned long ldv_undef_ulong(void) ;
 int ldv_undef_int_negative(void) ;
 int ldv_undef_int_nonpositive(void) ;
@@ -33235,16 +33234,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void)
-{
-  void *tmp ;
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

@@ -5935,7 +5935,6 @@ __inline static void ldv_stop(void)
 }
 }
 extern int __VERIFIER_nondet_int(void) ;
-extern void *ldv_undef_ptr(void) ;
 __inline static int ldv_nonpositive_int(void) 
 { 
   int ret ;

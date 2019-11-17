@@ -5094,7 +5094,6 @@ int ldv_linux_usb_dev_atomic_add_return(int i , atomic_t *v ) ;
 unsigned long ldv_linux_lib_find_bit_find_next_bit(unsigned long size , unsigned long offset ) ;
 unsigned long ldv_linux_lib_find_bit_find_first_bit(unsigned long size ) ;
 int ldv_undef_int(void) ;
-void *ldv_undef_ptr(void) ;
 static void ldv_ldv_initialize_210(void) ;
 int ldv_post_init(int init_ret_val ) ;
 static int ldv_ldv_post_init_207(int ldv_func_arg1 ) ;
@@ -29308,17 +29307,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

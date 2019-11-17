@@ -6295,7 +6295,6 @@ void ldv_stop(void) ;
 long ldv_ptr_err(void const   *ptr ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 int ldv_undef_int(void) ;
-void *ldv_undef_ptr(void) ;
 void ldv_linux_lib_idr_idr_init_resource_idr_of_client(void) ;
 void ldv_linux_lib_idr_idr_alloc_resource_idr_of_client(void) ;
 void ldv_linux_lib_idr_idr_find_resource_idr_of_client(void) ;
@@ -22152,17 +22151,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

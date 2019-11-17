@@ -5120,7 +5120,6 @@ int ldv_linux_usb_dev_atomic_add_return(int i , atomic_t *v ) ;
 struct gendisk *ldv_linux_block_genhd_alloc_disk(void) ;
 void ldv_linux_block_genhd_put_disk(struct gendisk *disk ) ;
 int ldv_undef_int(void) ;
-void *ldv_undef_ptr(void) ;
 void ldv_linux_lib_idr_idr_alloc_sg_index_idr(void) ;
 void ldv_linux_lib_idr_idr_find_sg_index_idr(void) ;
 void ldv_linux_lib_idr_idr_remove_sg_index_idr(void) ;
@@ -20272,17 +20271,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }

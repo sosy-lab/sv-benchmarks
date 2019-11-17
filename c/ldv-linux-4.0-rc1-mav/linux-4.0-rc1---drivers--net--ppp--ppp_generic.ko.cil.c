@@ -6790,7 +6790,6 @@ void ldv_linux_usb_dev_atomic_inc(atomic_t *v ) ;
 void ldv_linux_usb_dev_atomic_dec(atomic_t *v ) ;
 int ldv_linux_usb_dev_atomic_dec_and_test(atomic_t *v ) ;
 int ldv_undef_int(void) ;
-void *ldv_undef_ptr(void) ;
 void ldv_linux_lib_idr_idr_alloc_p(void) ;
 void ldv_linux_lib_idr_idr_find_p(void) ;
 void ldv_linux_lib_idr_idr_remove_p(void) ;
@@ -16684,17 +16683,6 @@ int ldv_undef_int(void)
   {
   {
   tmp = __VERIFIER_nondet_int();
-  }
-  return (tmp);
-}
-}
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = __VERIFIER_nondet_pointer();
   }
   return (tmp);
 }
