@@ -21918,6 +21918,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -22112,7 +22113,6 @@ static void ldv_free_irq_116(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
   return;
 }
 }
-void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_117(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -34982,7 +34982,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc_node(size_t size , gfp_t flags , int node )
 {
   void *res ;

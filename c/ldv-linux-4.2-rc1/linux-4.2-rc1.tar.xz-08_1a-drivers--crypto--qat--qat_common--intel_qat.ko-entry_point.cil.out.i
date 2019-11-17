@@ -4745,6 +4745,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp___2);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -10135,7 +10136,6 @@ __inline static int dma_mapping_error(struct device *dev , dma_addr_t dma_addr )
   return (dma_addr == 0ULL);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag )
 {

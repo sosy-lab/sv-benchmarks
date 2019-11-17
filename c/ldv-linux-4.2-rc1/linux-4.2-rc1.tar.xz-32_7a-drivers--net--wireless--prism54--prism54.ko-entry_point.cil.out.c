@@ -8727,6 +8727,7 @@ extern void down_read(struct rw_semaphore * ) ;
 extern void down_write(struct rw_semaphore * ) ;
 extern void up_read(struct rw_semaphore * ) ;
 extern void up_write(struct rw_semaphore * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

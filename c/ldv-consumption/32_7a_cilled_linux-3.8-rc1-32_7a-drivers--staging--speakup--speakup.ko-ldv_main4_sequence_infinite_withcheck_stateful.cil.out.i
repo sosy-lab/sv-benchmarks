@@ -5710,6 +5710,7 @@ extern struct task_struct *kthread_create_on_node(int (*)(void * ) , void * , in
 extern int kthread_stop(struct task_struct * ) ;
 extern int register_keyboard_notifier(struct notifier_block * ) ;
 extern int unregister_keyboard_notifier(struct notifier_block * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

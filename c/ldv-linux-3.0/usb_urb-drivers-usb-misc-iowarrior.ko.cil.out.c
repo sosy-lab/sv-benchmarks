@@ -3801,6 +3801,7 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___10);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp___7 ;
 

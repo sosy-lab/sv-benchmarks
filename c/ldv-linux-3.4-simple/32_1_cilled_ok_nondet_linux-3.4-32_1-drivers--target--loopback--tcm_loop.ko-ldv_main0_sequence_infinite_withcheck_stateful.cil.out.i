@@ -7055,6 +7055,7 @@ __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags )
 }
 }
 __inline static void *kzalloc(size_t size , gfp_t flags ) __attribute__((__no_instrument_function__)) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   unsigned int __cil_tmp4 ;

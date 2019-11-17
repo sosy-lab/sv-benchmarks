@@ -7526,6 +7526,7 @@ extern void up_write(struct rw_semaphore * ) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern int mutex_trylock(struct mutex * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

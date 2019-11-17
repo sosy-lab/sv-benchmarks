@@ -8371,6 +8371,7 @@ bool ldv_queue_delayed_work_on_34(int ldv_func_arg1 , struct workqueue_struct *l
                                   struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_33(struct workqueue_struct *ldv_func_arg1 ) ;
 extern struct edid_info edid_info ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

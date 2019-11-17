@@ -7908,6 +7908,7 @@ extern void add_wait_queue(wait_queue_head_t * , wait_queue_t * ) ;
 extern void remove_wait_queue(wait_queue_head_t * , wait_queue_t * ) ;
 extern void __wake_up(wait_queue_head_t * , unsigned int , int , void * ) ;
 extern void schedule(void) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

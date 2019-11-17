@@ -1324,6 +1324,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 }
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
   unsigned int __cil_tmp4 ;

@@ -8418,6 +8418,7 @@ extern bool queue_work(struct workqueue_struct * , struct work_struct * ) ;
 extern bool flush_work(struct work_struct * ) ;
 extern void *vmalloc(unsigned long  ) ;
 extern void *vzalloc(unsigned long  ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
 

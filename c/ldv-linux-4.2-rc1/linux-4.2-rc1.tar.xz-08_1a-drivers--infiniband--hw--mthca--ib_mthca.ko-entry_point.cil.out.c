@@ -12320,6 +12320,7 @@ bool ldv_queue_delayed_work_on_38(int ldv_func_arg1 , struct workqueue_struct *l
 bool ldv_queue_delayed_work_on_41(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                   struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_40(struct workqueue_struct *ldv_func_arg1 ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

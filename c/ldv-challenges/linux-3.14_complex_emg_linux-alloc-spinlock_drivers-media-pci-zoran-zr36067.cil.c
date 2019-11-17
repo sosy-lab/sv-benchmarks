@@ -21352,6 +21352,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

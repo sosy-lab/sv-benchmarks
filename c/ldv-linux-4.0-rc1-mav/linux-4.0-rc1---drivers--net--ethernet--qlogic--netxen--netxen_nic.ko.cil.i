@@ -11805,6 +11805,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -11882,7 +11883,6 @@ static void ldv_iounmap_130(void volatile *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_143(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -26883,7 +26883,6 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
 }
 }
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 __inline static void *pci_zalloc_consistent(struct pci_dev *hwdev , size_t size ,

@@ -8296,6 +8296,7 @@ extern void add_timer(struct timer_list * ) ;
 extern void __init_work(struct work_struct * , int  ) ;
 extern bool schedule_work(struct work_struct * ) ;
 extern bool flush_work(struct work_struct * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
 

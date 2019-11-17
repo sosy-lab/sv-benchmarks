@@ -16474,6 +16474,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -16506,7 +16507,6 @@ static int ldv_pskb_expand_head_106(struct sk_buff *ldv_func_arg1 , int ldv_func
   return __VERIFIER_nondet_int();
 }
 }
-void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_126(unsigned long ldv_func_arg1 )
 {
   void *tmp ;

@@ -14716,6 +14716,7 @@ static unsigned long ldv_find_next_bit_47(unsigned long const *addr , unsigned l
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -14726,7 +14727,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc_node(size_t size , gfp_t flags , int node )
 {
   void *res ;

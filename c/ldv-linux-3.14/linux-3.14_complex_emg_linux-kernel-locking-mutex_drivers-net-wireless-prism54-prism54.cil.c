@@ -12267,6 +12267,7 @@ void ldv_dummy_resourceless_instance_callback_3_3(struct iw_statistics *(*arg0)(
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

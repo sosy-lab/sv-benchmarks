@@ -4728,6 +4728,7 @@ __inline static struct page *read_mapping_page(struct address_space *mapping , u
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

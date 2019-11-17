@@ -9901,6 +9901,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -13352,7 +13353,6 @@ static void ldv_mutex_unlock_101(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_102(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;

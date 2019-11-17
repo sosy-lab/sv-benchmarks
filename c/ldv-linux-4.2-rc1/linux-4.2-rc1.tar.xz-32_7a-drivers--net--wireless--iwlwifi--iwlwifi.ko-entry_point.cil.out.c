@@ -9738,6 +9738,7 @@ bool ldv_queue_delayed_work_on_39(int ldv_func_arg1 , struct workqueue_struct *l
                                   struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_38(struct workqueue_struct *ldv_func_arg1 ) ;
 extern void kfree(void const   * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -19823,7 +19824,6 @@ __inline static int dma_mapping_error(struct device *dev , dma_addr_t dma_addr )
 }
 extern void *dma_alloc_attrs(struct device * , size_t  , dma_addr_t * , gfp_t  , struct dma_attrs * ) ;
 extern void dma_free_attrs(struct device * , size_t  , void * , dma_addr_t  , struct dma_attrs * ) ;
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag ) 
 { 
