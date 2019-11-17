@@ -12649,11 +12649,9 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 int ldv_pskb_expand_head_31(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_33(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -12707,21 +12705,17 @@ struct sk_buff *ldv___netdev_alloc_skb_38(struct net_device *ldv_func_arg1 , uns
 int ldv_pskb_expand_head_39(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_40(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_41(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -13638,11 +13632,9 @@ void *ldv_kmem_cache_alloc_71(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_77(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_79(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -13696,21 +13688,17 @@ struct sk_buff *ldv___netdev_alloc_skb_84(struct net_device *ldv_func_arg1 , uns
 int ldv_pskb_expand_head_85(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_86(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_87(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -15698,11 +15686,9 @@ void *ldv_kmem_cache_alloc_117(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_123(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_125(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -15756,21 +15742,17 @@ struct sk_buff *ldv___netdev_alloc_skb_130(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_131(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_132(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_133(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -18033,11 +18015,9 @@ void *ldv_kmem_cache_alloc_169(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_175(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_177(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -18091,21 +18071,17 @@ struct sk_buff *ldv___netdev_alloc_skb_182(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_183(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_184(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_185(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -23590,11 +23566,9 @@ void *ldv_kmem_cache_alloc_223(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_229(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_231(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -23648,21 +23622,17 @@ struct sk_buff *ldv___netdev_alloc_skb_236(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_237(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_238(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_239(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -26568,11 +26538,9 @@ void *ldv_kmem_cache_alloc_269(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_275(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_277(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -26626,21 +26594,17 @@ struct sk_buff *ldv___netdev_alloc_skb_282(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_283(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_284(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_285(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -27011,11 +26975,9 @@ void *ldv_kmem_cache_alloc_317(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_323(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_325(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -27069,21 +27031,17 @@ struct sk_buff *ldv___netdev_alloc_skb_330(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_331(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_332(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_333(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -27980,11 +27938,9 @@ void *ldv_kmem_cache_alloc_363(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_369(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_371(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -28038,21 +27994,17 @@ struct sk_buff *ldv___netdev_alloc_skb_376(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_377(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_378(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_379(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -28325,11 +28277,9 @@ void *ldv_kmem_cache_alloc_412(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 int ldv_pskb_expand_head_418(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_420(struct sk_buff *ldv_func_arg1 , gfp_t flags )
@@ -28383,21 +28333,17 @@ struct sk_buff *ldv___netdev_alloc_skb_425(struct net_device *ldv_func_arg1 , un
 int ldv_pskb_expand_head_426(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_pskb_expand_head_427(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct sk_buff *ldv_skb_clone_428(struct sk_buff *ldv_func_arg1 , gfp_t flags )
