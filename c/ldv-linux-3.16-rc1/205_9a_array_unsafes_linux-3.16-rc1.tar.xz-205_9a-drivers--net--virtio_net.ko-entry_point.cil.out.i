@@ -10191,9 +10191,8 @@ bool __VERIFIER_nondet_bool(void);
 bool __virt_addr_valid(unsigned long arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {

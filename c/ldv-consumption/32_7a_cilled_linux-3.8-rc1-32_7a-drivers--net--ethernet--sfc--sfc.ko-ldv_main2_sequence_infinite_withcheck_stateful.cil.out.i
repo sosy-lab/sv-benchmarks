@@ -41730,9 +41730,8 @@ void *external_alloc(void);
 struct cpu_rmap *alloc_cpu_rmap(unsigned int arg0, gfp_t arg1) {
   return (struct cpu_rmap *)external_alloc();
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {

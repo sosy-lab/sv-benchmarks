@@ -20949,9 +20949,8 @@ void add_timer(struct timer_list *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {

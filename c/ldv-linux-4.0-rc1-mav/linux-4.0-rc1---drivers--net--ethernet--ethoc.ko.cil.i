@@ -15241,9 +15241,8 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void clk_disable(struct clk *arg0) {
   return;

@@ -9112,9 +9112,8 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;

@@ -24444,9 +24444,8 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void clk_disable(struct clk *arg0) {
   return;

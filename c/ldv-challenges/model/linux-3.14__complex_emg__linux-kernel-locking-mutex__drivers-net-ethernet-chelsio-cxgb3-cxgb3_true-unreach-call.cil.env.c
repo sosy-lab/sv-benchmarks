@@ -370,10 +370,9 @@ void _raw_write_unlock_bh(rwlock_t *arg0) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: alloc_pages_current

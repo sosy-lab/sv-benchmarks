@@ -21458,9 +21458,8 @@ void *external_alloc(void);
 struct cpu_rmap *alloc_cpu_rmap(unsigned int arg0, gfp_t arg1) {
   return (struct cpu_rmap *)external_alloc();
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int call_netdevice_notifiers(unsigned long arg0, struct net_device *arg1) {

@@ -25752,9 +25752,8 @@ int __pm_runtime_resume(struct device *arg0, int arg1) {
 void __udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 bitrev32(u32 arg0) {

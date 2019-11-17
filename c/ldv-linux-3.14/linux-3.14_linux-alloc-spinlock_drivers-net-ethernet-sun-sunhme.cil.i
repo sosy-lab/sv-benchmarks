@@ -12832,9 +12832,8 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
