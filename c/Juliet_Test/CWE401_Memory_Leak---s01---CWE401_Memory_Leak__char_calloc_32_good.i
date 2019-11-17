@@ -1472,7 +1472,6 @@ void *ldv_undef_ptr_non_null(void)
 }
 
 
-void *external_allocated_data(void);
 
 
 void *memset(void *, int, size_t);

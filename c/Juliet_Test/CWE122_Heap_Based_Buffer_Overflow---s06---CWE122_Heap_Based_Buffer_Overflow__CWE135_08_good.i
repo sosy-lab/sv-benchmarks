@@ -1745,7 +1745,6 @@ void *ldv_undef_ptr_non_null(void)
 }
 
 
-void *external_allocated_data(void);
 
 
 void *ldv_reference_malloc(size_t size)

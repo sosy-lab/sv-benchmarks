@@ -1443,7 +1443,6 @@ void *ldv_undef_ptr_non_null(void)
 }
 
 
-void *external_allocated_data(void);
 
 
 void *calloc(size_t, size_t);
