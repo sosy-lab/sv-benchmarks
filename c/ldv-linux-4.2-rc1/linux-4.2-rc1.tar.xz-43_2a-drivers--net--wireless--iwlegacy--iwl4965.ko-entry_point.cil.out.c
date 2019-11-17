@@ -25723,7 +25723,7 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct page));
   return ((struct page *)tmp);
 }
 }
