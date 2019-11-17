@@ -19,7 +19,7 @@ int main()
 	if(N <= 0) return 1;
 	__VERIFIER_assume(N <= 2147483647/sizeof(int));
 
-	int i;
+	long long i;
 	long long *a = malloc(sizeof(int)*N);
 
 	for(i=0;i<N;i++)
