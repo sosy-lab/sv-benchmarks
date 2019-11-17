@@ -33411,9 +33411,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 acpi_handle acpi_get_child(acpi_handle arg0, u64 arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_get_physical_device_location(acpi_handle arg0, struct acpi_pld_info **arg1) {

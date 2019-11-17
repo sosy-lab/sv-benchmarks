@@ -214,12 +214,11 @@ acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi
 // Function: acpi_get_child
 // with type: acpi_handle acpi_get_child(acpi_handle , u64 )
 // with return type: acpi_handle 
-void *external_alloc(void);
 acpi_handle acpi_get_child(acpi_handle arg0, u64 arg1) {
   // Typedef type
   // Real type: (void)*
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: acpi_install_notify_handler
@@ -917,10 +916,9 @@ int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
 // Function: pcim_iomap_table
 // with type: void * const *pcim_iomap_table(struct pci_dev *)
 // with return type: (const (void)*)*
-void *external_alloc(void);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
   // Pointer type
-  return (void * const *)external_alloc();
+  return ldv_malloc(sizeof(void *));
 }
 
 // Function: pcim_pin_device

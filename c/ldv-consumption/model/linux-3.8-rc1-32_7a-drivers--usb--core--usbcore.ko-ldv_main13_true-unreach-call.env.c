@@ -353,12 +353,11 @@ acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi
 // Function: acpi_get_child
 // with type: acpi_handle acpi_get_child(acpi_handle , u64 )
 // with return type: acpi_handle 
-void *external_alloc(void);
 acpi_handle acpi_get_child(acpi_handle arg0, u64 arg1) {
   // Typedef type
   // Real type: (void)*
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: acpi_get_physical_device_location
