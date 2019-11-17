@@ -89,6 +89,8 @@ void task(struct node *t) {
     int i;
     for(i=0; i<m; i++)
         __VERIFIER_assert(x[i+1] == y[i]);
+    free(x);
+    free(y);
 }
 
 int main() {

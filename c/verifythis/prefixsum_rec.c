@@ -1,4 +1,5 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 
@@ -57,4 +58,8 @@ int main() {
     a[n-1] = 0;
     downsweep(a, n/2-1, n-1);
     check(a0, a, n);
+
+    free(a);
+    free(a0);
+    return 0;
 }

@@ -1,4 +1,5 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void free(void *);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
@@ -38,6 +39,7 @@ int main() {
     for(i=0; i<n; i++) {
         __VERIFIER_assert(a[i] <= a[x]);
     }
+    free(a);
 
     return x;
 }
