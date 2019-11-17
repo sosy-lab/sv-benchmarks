@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __request_module
 // with type: int __request_module(bool , const char *, ...)
 // with return type: int

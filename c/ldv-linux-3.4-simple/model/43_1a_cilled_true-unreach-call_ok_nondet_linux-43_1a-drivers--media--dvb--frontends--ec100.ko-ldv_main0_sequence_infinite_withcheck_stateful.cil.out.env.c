@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: i2c_transfer
 // with type: int i2c_transfer(struct i2c_adapter *, struct i2c_msg *, int)
 // with return type: int

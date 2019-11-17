@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: bcd2bin
 // with type: unsigned int bcd2bin(unsigned char)
 // with return type: unsigned int

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __const_udelay
 // with type: void __const_udelay(unsigned long)
 // with return type: void

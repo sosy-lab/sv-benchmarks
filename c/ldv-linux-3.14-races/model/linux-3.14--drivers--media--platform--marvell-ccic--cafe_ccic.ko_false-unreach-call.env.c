@@ -191,8 +191,6 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2){
   return __VERIFIER_nondet_ulong();
 }
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: vb2_dma_contig_cleanup_ctx
 // with type: void vb2_dma_contig_cleanup_ctx(void *)
 // with return type: void

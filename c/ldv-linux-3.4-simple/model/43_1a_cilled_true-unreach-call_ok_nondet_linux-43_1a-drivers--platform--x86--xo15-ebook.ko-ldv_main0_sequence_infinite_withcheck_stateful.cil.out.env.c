@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: acpi_bus_register_driver
 // with type: int acpi_bus_register_driver(struct acpi_driver *)
 // with return type: int

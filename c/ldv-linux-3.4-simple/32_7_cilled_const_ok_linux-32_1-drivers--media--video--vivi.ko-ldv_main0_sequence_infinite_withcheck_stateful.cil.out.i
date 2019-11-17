@@ -1,5 +1,4 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void *__VERIFIER_nondet_pointer(void) ;
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -10575,7 +10574,6 @@ extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int LDV_IN_INTERRUPT ;
 void main(void)
 { struct vb2_buffer *var_group1 = ldv_malloc(sizeof(struct vb2_buffer));

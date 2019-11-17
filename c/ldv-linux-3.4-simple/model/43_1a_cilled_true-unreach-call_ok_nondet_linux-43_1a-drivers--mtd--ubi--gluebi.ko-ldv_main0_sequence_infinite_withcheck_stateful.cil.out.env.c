@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __list_add
 // with type: void __list_add(struct list_head *, struct list_head *, struct list_head *)
 // with return type: void

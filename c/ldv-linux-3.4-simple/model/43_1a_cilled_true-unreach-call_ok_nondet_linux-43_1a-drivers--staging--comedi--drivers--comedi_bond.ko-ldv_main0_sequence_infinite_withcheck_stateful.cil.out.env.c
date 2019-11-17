@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __raw_spin_lock_init
 // with type: void __raw_spin_lock_init(raw_spinlock_t *, const char *, struct lock_class_key *)
 // with return type: void

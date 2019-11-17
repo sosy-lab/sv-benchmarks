@@ -5697,7 +5697,6 @@ __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags )
 }
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
 struct page *ldv_check_alloc_flags_and_return_some_page(gfp_t flags ) ;

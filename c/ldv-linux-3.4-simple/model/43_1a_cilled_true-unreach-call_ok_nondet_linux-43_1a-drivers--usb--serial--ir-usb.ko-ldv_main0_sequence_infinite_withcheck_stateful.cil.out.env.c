@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __kfifo_out
 // with type: unsigned int __kfifo_out(struct __kfifo *, void *, unsigned int)
 // with return type: unsigned int

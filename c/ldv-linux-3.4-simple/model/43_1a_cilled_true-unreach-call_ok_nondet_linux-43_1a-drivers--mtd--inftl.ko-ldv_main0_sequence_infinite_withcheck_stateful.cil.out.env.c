@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __dynamic_pr_debug
 // with type: int __dynamic_pr_debug(struct _ddebug *, const char *, ...)
 // with return type: int

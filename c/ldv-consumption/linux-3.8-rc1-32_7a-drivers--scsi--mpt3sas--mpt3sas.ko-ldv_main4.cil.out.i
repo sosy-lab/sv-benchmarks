@@ -21441,7 +21441,6 @@ extern void ldv_check_return_value_probe(int ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void * __VERIFIER_nondet_pointer(void);
 int LDV_IN_INTERRUPT ;
 void ldv_main2_sequence_infinite_withcheck_stateful(void)
 {

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __release_region
 // with type: void __release_region(struct resource *, resource_size_t , resource_size_t )
 // with return type: void

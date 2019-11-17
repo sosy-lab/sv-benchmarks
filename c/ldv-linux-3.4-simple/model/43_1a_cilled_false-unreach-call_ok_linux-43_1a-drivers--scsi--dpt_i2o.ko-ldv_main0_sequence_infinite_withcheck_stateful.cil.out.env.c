@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, char *, struct lock_class_key *)
 // with return type: (struct class)*

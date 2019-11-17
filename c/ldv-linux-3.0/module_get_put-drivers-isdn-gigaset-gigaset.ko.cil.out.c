@@ -7251,7 +7251,6 @@ static void gigaset_exit_module(void)
 void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void * __VERIFIER_nondet_pointer(void);
 int LDV_IN_INTERRUPT ;
 void ldv_blast_assert(void)
 {

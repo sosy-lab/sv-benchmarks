@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __mutex_init
 // with type: void __mutex_init(struct mutex *, const char *, struct lock_class_key *)
 // with return type: void

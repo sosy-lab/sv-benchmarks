@@ -10,8 +10,6 @@ void NS8390_init(struct net_device *arg0, int arg1) {
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_ulong
 
 // Function: __alloc_ei_netdev

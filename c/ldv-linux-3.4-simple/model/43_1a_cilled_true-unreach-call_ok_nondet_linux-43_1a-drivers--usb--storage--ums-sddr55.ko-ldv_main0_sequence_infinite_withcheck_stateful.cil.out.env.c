@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: fill_inquiry_response
 // with type: void fill_inquiry_response(struct us_data *, unsigned char *, unsigned int)
 // with return type: void

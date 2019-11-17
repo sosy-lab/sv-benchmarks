@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __gpio_set_value
 // with type: void __gpio_set_value(unsigned int, int)
 // with return type: void

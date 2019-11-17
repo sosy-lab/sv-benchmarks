@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __phys_addr
 // with type: unsigned long int __phys_addr(unsigned long)
 // with return type: unsigned long int

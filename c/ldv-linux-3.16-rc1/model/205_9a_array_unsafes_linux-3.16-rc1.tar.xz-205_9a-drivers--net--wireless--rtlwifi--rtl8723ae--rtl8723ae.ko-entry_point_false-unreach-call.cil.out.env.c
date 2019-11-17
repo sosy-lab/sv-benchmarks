@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_u32
 
 // Skip function: __VERIFIER_nondet_u8

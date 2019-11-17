@@ -89,8 +89,6 @@ void debug_dma_sync_single_for_cpu(struct device *arg0, dma_addr_t arg1, size_t 
   return;
 }
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: clk_enable
 // with type: int clk_enable(struct clk *)
 // with return type: int
