@@ -10322,6 +10322,7 @@ int ldv_usb_submit_urb_131(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_134(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 extern int usb_unlink_urb(struct urb * ) ;
 extern void usb_kill_urb(struct urb * ) ;
+void *ldv_malloc(size_t size ) ;
 void *ldv_usb_alloc_coherent_132(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                  gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 extern void usb_free_coherent(struct usb_device * , size_t  , void * , dma_addr_t  ) ;
@@ -13945,7 +13946,7 @@ void *ldv_usb_alloc_coherent_132(struct usb_device *ldv_func_arg1 , size_t ldv_f
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }
