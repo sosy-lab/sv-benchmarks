@@ -5482,6 +5482,7 @@ __inline static unsigned char *skb_network_header(struct sk_buff const *skb )
 }
 }
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_3(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                          gfp_t ldv_func_arg3 ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length )

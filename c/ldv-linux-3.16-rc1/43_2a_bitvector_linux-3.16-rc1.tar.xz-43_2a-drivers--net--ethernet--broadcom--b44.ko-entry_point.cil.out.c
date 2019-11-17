@@ -6841,6 +6841,7 @@ int ldv_pskb_expand_head_31(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 extern unsigned char *skb_put(struct sk_buff * , unsigned int  ) ;
 extern unsigned char *skb_pull(struct sk_buff * , unsigned int  ) ;
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_27(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv___netdev_alloc_skb_28(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
@@ -11974,7 +11975,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 
@@ -12004,7 +12004,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;

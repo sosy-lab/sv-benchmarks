@@ -6174,6 +6174,7 @@ __inline static void skb_reserve(struct sk_buff *skb , int len )
 }
 }
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_28(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv___netdev_alloc_skb_29(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
@@ -9753,7 +9754,6 @@ unsigned long ldv___get_free_pages_12(gfp_t flags , unsigned int ldv_func_arg2 )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

@@ -3095,6 +3095,7 @@ extern unsigned char *skb_push(struct sk_buff * , unsigned int ) ;
 extern unsigned char *skb_pull(struct sk_buff * , unsigned int ) ;
 extern void skb_trim(struct sk_buff * , unsigned int ) ;
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_28(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv___netdev_alloc_skb_29(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
@@ -4270,7 +4271,6 @@ int ldv_devm_request_threaded_irq_19(struct device *ldv_func_arg1 , unsigned int
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
 {
   struct sk_buff *tmp ;

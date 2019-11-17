@@ -6065,6 +6065,7 @@ __inline static void skb_reserve(struct sk_buff *skb , int len )
 }
 extern void skb_queue_purge(struct sk_buff_head * ) ;
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_27(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv___netdev_alloc_skb_28(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
@@ -7839,7 +7840,6 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;
@@ -14323,7 +14323,6 @@ void dsp_pipeline_process_rx(struct dsp_pipeline *pipeline , u8 *data , int len 
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 
