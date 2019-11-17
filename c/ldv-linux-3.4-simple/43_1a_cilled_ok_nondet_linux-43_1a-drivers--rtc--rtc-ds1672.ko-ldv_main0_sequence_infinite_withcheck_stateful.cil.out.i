@@ -3473,10 +3473,6 @@ struct page *ldv_some_page() {
 void rtc_time_to_tm(unsigned long arg0, struct rtc_time *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

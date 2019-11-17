@@ -1537,10 +1537,6 @@ int led_classdev_register(struct device *arg0, struct led_classdev *arg1) {
 void led_classdev_unregister(struct led_classdev *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

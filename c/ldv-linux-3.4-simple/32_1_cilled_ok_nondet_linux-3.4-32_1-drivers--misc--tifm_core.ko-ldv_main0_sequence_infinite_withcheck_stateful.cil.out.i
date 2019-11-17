@@ -3819,10 +3819,6 @@ int queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   return ldv_malloc(sizeof(struct scatterlist));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

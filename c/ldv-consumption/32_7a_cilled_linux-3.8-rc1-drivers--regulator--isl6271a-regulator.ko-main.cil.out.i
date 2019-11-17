@@ -3190,10 +3190,6 @@ struct regulator_dev *regulator_register(const struct regulator_desc *arg0, cons
 void regulator_unregister(struct regulator_dev *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

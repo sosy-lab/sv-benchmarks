@@ -6542,10 +6542,6 @@ int __VERIFIER_nondet_int(void);
 int vid_from_reg(int arg0, u8 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

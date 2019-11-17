@@ -16477,10 +16477,6 @@ int vm_insert_page(struct vm_area_struct *arg0, unsigned long arg1, struct page 
 struct page *vmalloc_to_page(const void *arg0) {
   return ldv_malloc(sizeof(struct page));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

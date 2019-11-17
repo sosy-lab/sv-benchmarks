@@ -5655,10 +5655,6 @@ long int schedule_timeout_interruptible(long arg0) {
 void unregister_blkdev(unsigned int arg0, const char *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

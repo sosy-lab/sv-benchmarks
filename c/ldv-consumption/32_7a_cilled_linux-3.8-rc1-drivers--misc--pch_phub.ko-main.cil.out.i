@@ -3812,10 +3812,6 @@ void sysfs_remove_bin_file(struct kobject *arg0, const struct bin_attribute *arg
 void sysfs_remove_file(struct kobject *arg0, const struct attribute *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

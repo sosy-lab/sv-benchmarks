@@ -21335,10 +21335,6 @@ int __VERIFIER_nondet_int(void);
 int vm_iomap_memory(struct vm_area_struct *arg0, phys_addr_t arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

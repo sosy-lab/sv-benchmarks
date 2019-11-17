@@ -14891,10 +14891,6 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int work_busy(struct work_struct *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -7401,10 +7401,6 @@ struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
 struct wl12xx_platform_data *wl12xx_get_platform_data() {
   return ldv_malloc(sizeof(struct wl12xx_platform_data));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

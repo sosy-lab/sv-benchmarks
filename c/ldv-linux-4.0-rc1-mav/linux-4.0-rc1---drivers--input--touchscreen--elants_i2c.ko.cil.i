@@ -12279,10 +12279,6 @@ long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_long();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

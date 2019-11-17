@@ -13226,10 +13226,6 @@ void pm_runtime_set_autosuspend_delay(struct device *arg0, int arg1) {
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -2537,10 +2537,6 @@ struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
 void platform_device_put(struct platform_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

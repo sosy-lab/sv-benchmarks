@@ -1768,10 +1768,6 @@ int printk(const char *arg0, ...) {
 char *strsep(char **arg0, const char *arg1) {
   return ldv_malloc(sizeof(char));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

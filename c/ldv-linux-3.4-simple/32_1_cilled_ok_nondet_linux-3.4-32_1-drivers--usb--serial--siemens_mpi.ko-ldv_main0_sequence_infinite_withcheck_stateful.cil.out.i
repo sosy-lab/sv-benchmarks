@@ -3767,10 +3767,6 @@ int __VERIFIER_nondet_int(void);
 int usb_serial_register_drivers(struct usb_driver *arg0, struct usb_serial_driver * const *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

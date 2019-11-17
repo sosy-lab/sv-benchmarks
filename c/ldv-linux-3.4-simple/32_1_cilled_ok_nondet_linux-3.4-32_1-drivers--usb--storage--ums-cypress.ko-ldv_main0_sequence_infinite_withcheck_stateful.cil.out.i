@@ -5242,10 +5242,6 @@ int usb_stor_probe2(struct us_data *arg0) {
 void usb_stor_transparent_scsi_command(struct scsi_cmnd *arg0, struct us_data *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

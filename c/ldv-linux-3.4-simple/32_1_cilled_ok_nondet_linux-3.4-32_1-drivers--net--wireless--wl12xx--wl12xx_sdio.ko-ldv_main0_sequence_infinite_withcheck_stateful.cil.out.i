@@ -7845,10 +7845,6 @@ int sdio_writesb(struct sdio_func *arg0, unsigned int arg1, void *arg2, int arg3
 struct wl12xx_platform_data *wl12xx_get_platform_data() {
   return ldv_malloc(sizeof(struct wl12xx_platform_data));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

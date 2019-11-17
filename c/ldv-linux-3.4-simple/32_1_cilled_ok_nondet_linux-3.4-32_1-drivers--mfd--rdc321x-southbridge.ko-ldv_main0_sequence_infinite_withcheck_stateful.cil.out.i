@@ -1701,10 +1701,6 @@ int pci_enable_device(struct pci_dev *arg0) {
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

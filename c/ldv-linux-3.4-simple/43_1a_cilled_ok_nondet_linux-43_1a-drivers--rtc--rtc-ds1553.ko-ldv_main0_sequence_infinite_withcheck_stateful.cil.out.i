@@ -3864,10 +3864,6 @@ int __VERIFIER_nondet_int(void);
 int sysfs_create_bin_file(struct kobject *arg0, const struct bin_attribute *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

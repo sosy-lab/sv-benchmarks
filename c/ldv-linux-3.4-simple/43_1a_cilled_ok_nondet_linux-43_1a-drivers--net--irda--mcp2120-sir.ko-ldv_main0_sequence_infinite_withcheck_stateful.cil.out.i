@@ -5421,10 +5421,6 @@ struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   return ldv_malloc(sizeof(struct sk_buff));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

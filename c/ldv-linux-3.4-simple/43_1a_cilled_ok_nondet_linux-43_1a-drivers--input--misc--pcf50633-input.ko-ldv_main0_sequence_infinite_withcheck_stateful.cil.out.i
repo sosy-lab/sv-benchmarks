@@ -3583,10 +3583,6 @@ int __VERIFIER_nondet_int(void);
 int pcf50633_register_irq(struct pcf50633 *arg0, int arg1, void (*arg2)(int, void *), void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -5977,10 +5977,6 @@ void up_read(struct rw_semaphore *arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -3330,10 +3330,6 @@ void videobuf_queue_core_init(struct videobuf_queue *arg0, const struct videobuf
 void *vmalloc_user(unsigned long arg0) {
   return ldv_malloc(0UL);
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

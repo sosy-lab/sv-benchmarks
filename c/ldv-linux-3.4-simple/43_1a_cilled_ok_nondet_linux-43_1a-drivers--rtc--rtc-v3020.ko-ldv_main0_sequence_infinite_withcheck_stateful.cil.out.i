@@ -4165,10 +4165,6 @@ struct rtc_device *rtc_device_register(const char *arg0, struct device *arg1, co
 void rtc_device_unregister(struct rtc_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

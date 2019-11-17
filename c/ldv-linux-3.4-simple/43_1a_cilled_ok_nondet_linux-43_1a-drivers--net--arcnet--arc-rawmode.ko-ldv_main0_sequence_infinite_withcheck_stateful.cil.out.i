@@ -5247,10 +5247,6 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   arg0->tail += arg1;
   return ret_val;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);
