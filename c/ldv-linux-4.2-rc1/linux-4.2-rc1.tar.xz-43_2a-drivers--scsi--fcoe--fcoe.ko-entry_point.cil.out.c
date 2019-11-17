@@ -14725,7 +14725,7 @@ __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t flag
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = __VERIFIER_nondet_bool() ? skb : ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
