@@ -17585,7 +17585,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_calloc(n, size);
   return (tmp);
 }
 }
