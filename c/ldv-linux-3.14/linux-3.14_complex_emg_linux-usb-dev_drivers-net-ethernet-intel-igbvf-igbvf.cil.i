@@ -16561,9 +16561,8 @@ int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {

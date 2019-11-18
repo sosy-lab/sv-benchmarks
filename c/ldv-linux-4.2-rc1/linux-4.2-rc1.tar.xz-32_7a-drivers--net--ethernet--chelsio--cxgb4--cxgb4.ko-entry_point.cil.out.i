@@ -46903,9 +46903,8 @@ void _raw_write_lock_bh(rwlock_t *arg0) {
 void _raw_write_unlock_bh(rwlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int bitmap_find_free_region(unsigned long *arg0, unsigned int arg1, int arg2) {
