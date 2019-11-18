@@ -17608,14 +17608,14 @@ void ldv_linux_net_sock_check_final_state(void)
 void ldv_assert_linux_usb_coherent__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_usb_coherent__more_initial_at_exit(int expr ) ;
 int ldv_linux_usb_coherent_coherent_state  =    0;
-void *ldv_linux_usb_coherent_usb_alloc_coherent(void) 
+void *ldv_linux_usb_coherent_usb_alloc_coherent(size_t size ) 
 { 
   void *arbitrary_memory ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   arbitrary_memory = tmp;
   }
   if ((unsigned long )arbitrary_memory == (unsigned long )((void *)0)) {
