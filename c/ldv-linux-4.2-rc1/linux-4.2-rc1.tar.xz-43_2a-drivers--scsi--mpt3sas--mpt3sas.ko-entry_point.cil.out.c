@@ -13796,13 +13796,14 @@ void *ldv_dma_pool_alloc_35(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_a
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 unsigned long ldv___get_free_pages_36(gfp_t flags , unsigned int ldv_func_arg2 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -13812,7 +13813,7 @@ unsigned long ldv___get_free_pages_37(gfp_t flags , unsigned int ldv_func_arg2 )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }

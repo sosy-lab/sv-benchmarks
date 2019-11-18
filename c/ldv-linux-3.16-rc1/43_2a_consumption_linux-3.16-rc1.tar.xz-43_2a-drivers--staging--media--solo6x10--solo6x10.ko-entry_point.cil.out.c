@@ -9071,6 +9071,7 @@ void *ldv_kmem_cache_alloc_60(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 unsigned long ldv___get_free_pages_64(gfp_t flags , unsigned int ldv_func_arg2 ) 
 { 
   unsigned long tmp ;
@@ -12805,7 +12806,6 @@ void solo_disp_exit(struct solo_dev *solo_dev )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

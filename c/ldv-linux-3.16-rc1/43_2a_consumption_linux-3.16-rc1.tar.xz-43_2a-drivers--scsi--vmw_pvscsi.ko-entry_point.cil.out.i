@@ -7470,6 +7470,7 @@ void ldv_free_irq_21(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 unsigned long ldv___get_free_pages_22(gfp_t flags , unsigned int ldv_func_arg2 )
 {
   unsigned long tmp ;
