@@ -4,8 +4,10 @@ Benchmarks from Amazon AWS C commons library
 You can find the original sources here:
 https://github.com/awslabs/aws-c-common
 
-Prepared by Gidon Ernst <gidonernst@gmail.com> (LMU Munich)
-with help from Daniel Schwartz-Narbonne (AWS).
+Prepared by
+- Gidon Ernst <gidonernst@gmail.com> (LMU Munich)
+- Daniel Schwartz-Narbonne
+- Michael Tautschnig
 
 The benchmark files are under the same license as AWS C commons (Apache 2.0).
 
@@ -20,8 +22,15 @@ If necessary, make modifications there.
 Steps to re-create these files
 ------------------------------
 
-Based on commit `816ec134472c4d0d5ad0d949bae3417617f1e63d` from 
-`https://github.com/awslabs/aws-c-common`.
+Platform:
+- Ubuntu 18:04
+- gcc-multilib
+
+The provided Dockerfile initializes a container with freshly generated benchmark files.
+Note that in order to push the repository, additional steps to authenticate from within the container may be necessary
+(e.g. by creating a temporary ssh key in the container and registering it on github).
+
+Based on commit `816ec134472c4d0d5ad0d949bae3417617f1e63d` from `https://github.com/awslabs/aws-c-common`.
 
 - Check out the sv-benchmarks into some directory $SV
 - Check out AWS C commons into some directory $AWS and apply `patch.diff`.
@@ -30,3 +39,4 @@ Based on commit `816ec134472c4d0d5ad0d949bae3417617f1e63d` from
 - Finally, create all the files with:
 
     $SV/c/aws-c-common/makeall $AWS $SV
+
