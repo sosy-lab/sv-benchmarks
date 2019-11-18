@@ -10913,12 +10913,13 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_28(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -12879,7 +12880,7 @@ void *ldv_vzalloc_68(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -13251,7 +13252,7 @@ void *ldv_vzalloc_101(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

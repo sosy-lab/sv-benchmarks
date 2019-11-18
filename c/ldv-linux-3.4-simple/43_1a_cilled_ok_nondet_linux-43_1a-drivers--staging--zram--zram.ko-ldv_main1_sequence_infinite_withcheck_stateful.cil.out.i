@@ -6906,6 +6906,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_19(unsigned long ldv_func_arg1 )
 {
   {

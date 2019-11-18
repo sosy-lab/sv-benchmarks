@@ -10942,12 +10942,13 @@ int ldv_scsi_add_host_with_dma_65(struct Scsi_Host *shost , struct device *dev ,
   return (ldv_func_res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_66(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -10956,7 +10957,7 @@ void *ldv_vzalloc_67(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -36752,7 +36753,7 @@ void *ldv_vzalloc_262(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

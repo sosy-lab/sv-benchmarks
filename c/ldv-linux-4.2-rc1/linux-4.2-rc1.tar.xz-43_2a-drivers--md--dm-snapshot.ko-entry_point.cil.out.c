@@ -11107,13 +11107,14 @@ void *ldv_vmalloc_92(unsigned long ldv_func_arg1 )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_93(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

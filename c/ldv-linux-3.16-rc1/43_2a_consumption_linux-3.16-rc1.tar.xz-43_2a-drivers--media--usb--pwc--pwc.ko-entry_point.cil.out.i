@@ -7730,6 +7730,7 @@ int ldv_usb_submit_urb_23(struct urb *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_24(unsigned long ldv_func_arg1 )
 {
   {

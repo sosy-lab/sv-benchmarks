@@ -7704,6 +7704,7 @@ int ldv_del_timer_34(struct timer_list *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_35(unsigned long ldv_func_arg1 )
 {
   {
