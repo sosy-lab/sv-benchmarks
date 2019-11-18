@@ -8110,6 +8110,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -10362,7 +10363,6 @@ extern void *dma_pool_alloc(struct dma_pool * , gfp_t , dma_addr_t * ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t ) ;
 extern void *dma_alloc_attrs(struct device * , size_t , dma_addr_t * , gfp_t , struct dma_attrs * ) ;
 extern void dma_free_attrs(struct device * , size_t , void * , dma_addr_t , struct dma_attrs * ) ;
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag )
 {

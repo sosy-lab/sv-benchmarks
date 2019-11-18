@@ -10363,6 +10363,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -18384,7 +18385,6 @@ int oz_are_elts_available(struct oz_elt_buf *buf )
   return (tmp == 0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags ) 
 { 
   void *tmp ;

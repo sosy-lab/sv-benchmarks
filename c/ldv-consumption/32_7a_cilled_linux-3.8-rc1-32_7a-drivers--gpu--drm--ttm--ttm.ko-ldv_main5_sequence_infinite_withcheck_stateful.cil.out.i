@@ -3916,6 +3916,7 @@ int ttm_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages ) ;
 void ttm_page_alloc_fini(void) ;
 int ttm_dma_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages ) ;
 void ttm_dma_page_alloc_fini(void) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

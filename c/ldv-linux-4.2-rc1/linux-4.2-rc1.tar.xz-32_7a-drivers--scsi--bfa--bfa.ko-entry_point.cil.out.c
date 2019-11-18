@@ -10798,6 +10798,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp___2);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -21456,7 +21457,6 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
 extern size_t sg_copy_from_buffer(struct scatterlist * , unsigned int  , void const   * ,
                                   size_t  ) ;
 extern size_t sg_copy_to_buffer(struct scatterlist * , unsigned int  , void * , size_t  ) ;
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag ) 
 { 

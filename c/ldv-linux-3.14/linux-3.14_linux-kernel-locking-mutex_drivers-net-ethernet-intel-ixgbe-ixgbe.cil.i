@@ -50684,6 +50684,7 @@ void ldv_interrupt_interrupt_instance_5(void *arg0 )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -74810,7 +74811,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size )
 {
   struct spi_master *master ;

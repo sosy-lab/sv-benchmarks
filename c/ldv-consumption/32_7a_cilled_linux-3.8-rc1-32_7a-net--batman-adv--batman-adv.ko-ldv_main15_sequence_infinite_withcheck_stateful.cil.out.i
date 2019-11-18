@@ -8348,6 +8348,7 @@ __inline static void hlist_del_rcu(struct hlist_node *n )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

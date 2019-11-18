@@ -11766,6 +11766,7 @@ extern void vfree(void const * ) ;
 extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

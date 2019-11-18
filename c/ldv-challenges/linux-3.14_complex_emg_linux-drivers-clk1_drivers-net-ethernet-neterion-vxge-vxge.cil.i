@@ -14301,6 +14301,7 @@ int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 )
   return (arg0);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

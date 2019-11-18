@@ -4631,6 +4631,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   return ((unsigned int )(dev->devnum << 8) | (endpoint << 15));
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp___7 ;
 

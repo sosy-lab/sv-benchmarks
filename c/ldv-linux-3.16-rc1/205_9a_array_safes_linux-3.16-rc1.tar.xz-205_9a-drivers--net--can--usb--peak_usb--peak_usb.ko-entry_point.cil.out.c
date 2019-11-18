@@ -8982,6 +8982,7 @@ int ldv_netif_rx_31(struct sk_buff *ldv_func_arg1 )
 void ldv__builtin_va_end(__builtin_va_list  ) ;
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 void ldv__builtin_va_start(__builtin_va_list  ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

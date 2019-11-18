@@ -9533,6 +9533,7 @@ int ldv_get_interface(struct usb_interface *intf ) ;
 void ldv_put_interface(void) ;
 void *ldv_usb_get_intfdata(void) ;
 void ldv_usb_set_intfdata(void *data ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

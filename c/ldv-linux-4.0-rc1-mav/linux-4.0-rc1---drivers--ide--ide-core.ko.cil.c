@@ -10754,6 +10754,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -16524,7 +16525,6 @@ int ldv_request_irq(int arg0 , unsigned int arg1 , enum irqreturn (*arg2)(int  ,
   return (arg0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc_node(size_t size , gfp_t flags , int node ) 
 { 
   void *res ;

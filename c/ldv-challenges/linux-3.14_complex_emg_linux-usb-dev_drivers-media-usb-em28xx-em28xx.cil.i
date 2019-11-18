@@ -7936,6 +7936,7 @@ void em28xx_close_extension(struct em28xx *dev )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

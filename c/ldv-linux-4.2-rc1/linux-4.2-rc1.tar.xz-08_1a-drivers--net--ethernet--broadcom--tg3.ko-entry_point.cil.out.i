@@ -7408,6 +7408,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp___2);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -8091,7 +8092,6 @@ __inline static int dma_set_coherent_mask(struct device *dev , u64 mask )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag )
 {

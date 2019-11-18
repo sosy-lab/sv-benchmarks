@@ -9201,6 +9201,7 @@ __inline static unsigned long msecs_to_jiffies(unsigned int const   m )
 }
 }
 extern long schedule_timeout_interruptible(long  ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

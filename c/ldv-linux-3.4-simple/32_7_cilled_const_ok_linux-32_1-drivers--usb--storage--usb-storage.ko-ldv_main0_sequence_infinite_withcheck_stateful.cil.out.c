@@ -17844,6 +17844,7 @@ int sierra_ms_init(struct us_data *us )
 }
 extern int memcmp(void    *cs , void    *ct , unsigned long count ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp___7 ;
   unsigned int __cil_tmp4 ;

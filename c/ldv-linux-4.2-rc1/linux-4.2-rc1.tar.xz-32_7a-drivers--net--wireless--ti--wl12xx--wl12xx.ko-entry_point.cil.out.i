@@ -11429,6 +11429,7 @@ void ldv_mutex_unlock_40(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_35(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_37(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_41(struct mutex *ldv_func_arg1 ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

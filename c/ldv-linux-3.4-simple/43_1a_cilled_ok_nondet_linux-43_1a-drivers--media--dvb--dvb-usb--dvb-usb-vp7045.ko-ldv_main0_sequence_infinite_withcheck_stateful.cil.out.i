@@ -7962,6 +7962,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
