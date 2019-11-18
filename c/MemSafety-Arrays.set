@@ -1,3 +1,9 @@
 array-memsafety/*.yml
 array-examples/*.yml
 array-memsafety-realloc/*.yml
+verifythis/duplets.yml
+verifythis/elimination_max.yml
+verifythis/lcp.yml
+verifythis/prefixsum_iter.yml
+verifythis/elimination_max_rec.yml
+verifythis/elimination_max_rec_onepoint.yml

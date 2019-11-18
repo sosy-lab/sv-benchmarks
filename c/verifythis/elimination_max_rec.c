@@ -1,4 +1,5 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void free(void *);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
@@ -37,6 +38,8 @@ int main() {
     __VERIFIER_assume(n >= 0);
     int *a = calloc(n, sizeof(int));
     int x = check(0, n-1, a, n);
+
+    free(a);
     return x;
 }
 

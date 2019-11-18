@@ -2,6 +2,7 @@
  * only a single pair of duplicates here. */
 
 extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void free(void *);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
@@ -54,4 +55,6 @@ int main() {
     __VERIFIER_assert(0 <= j && j < n);
     __VERIFIER_assert(i != j);
     __VERIFIER_assert(a[i] == a[j]);
+    free(a);
+    return 0;
 }

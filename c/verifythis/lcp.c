@@ -1,4 +1,5 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 
@@ -36,4 +37,7 @@ int main() {
     __VERIFIER_assume(x >= 0 && y >= 0);
     int l = lcp(a, n, x, y);
     check(a, n, x, y, l);
+
+    free(a);
+    return 0;
 }
