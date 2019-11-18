@@ -5639,12 +5639,11 @@ void ldv_platform_instance_release_3_3(int (*arg0)(struct platform_device * ) , 
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_pm_ops_scenario_4(void *arg0 ) 
 { 
   struct device *ldv_4_device_device ;
   struct dev_pm_ops *ldv_4_pm_ops_dev_pm_ops ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
@@ -5653,10 +5652,8 @@ void *ldv_pm_ops_scenario_4(void *arg0 )
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_4_device_device = (struct device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_4_pm_ops_dev_pm_ops = (struct dev_pm_ops *)tmp___0;
+  ldv_4_device_device = ldv_malloc(sizeof(struct device));
+  ldv_4_pm_ops_dev_pm_ops = ldv_malloc(sizeof(struct dev_pm_ops));
   ldv_free(arg0);
   }
   goto ldv_do_4;
@@ -6249,7 +6246,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
