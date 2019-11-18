@@ -10269,9 +10269,10 @@ void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   return (struct sk_buff *)external_alloc();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void unregister_netdev(struct net_device *arg0) {
   return;

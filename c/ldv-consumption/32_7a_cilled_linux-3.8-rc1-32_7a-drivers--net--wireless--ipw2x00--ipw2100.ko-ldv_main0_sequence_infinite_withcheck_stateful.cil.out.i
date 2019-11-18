@@ -21988,9 +21988,10 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {

@@ -12718,9 +12718,10 @@ bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0){
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1){
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void do_gettimeofday(struct timeval *arg0){
   return;

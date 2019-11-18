@@ -33692,9 +33692,10 @@ void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   return (unsigned char *)external_alloc();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void sort(void *arg0, size_t arg1, size_t arg2, int (*arg3)(const void *, const void *), void (*arg4)(void *, void *, int)) {
   return;

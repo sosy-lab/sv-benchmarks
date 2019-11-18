@@ -10382,9 +10382,10 @@ bool __VERIFIER_nondet_bool(void);
 bool skb_partial_csum_set(struct sk_buff *arg0, u16 arg1, u16 arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 int __VERIFIER_nondet_int(void);
 int skb_to_sgvec(struct sk_buff *arg0, struct scatterlist *arg1, int arg2, int arg3) {

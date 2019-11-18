@@ -11985,9 +11985,10 @@ void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   return (unsigned char *)external_alloc();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 int __VERIFIER_nondet_int(void);
 int ssb_bus_may_powerdown(struct ssb_bus *arg0) {

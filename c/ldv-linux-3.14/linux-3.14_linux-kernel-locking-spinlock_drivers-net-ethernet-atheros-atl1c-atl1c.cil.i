@@ -19459,9 +19459,10 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {

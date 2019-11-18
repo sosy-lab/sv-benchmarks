@@ -49550,9 +49550,10 @@ int __VERIFIER_nondet_int(void);
 int skb_pad(struct sk_buff *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void skb_tstamp_tx(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
   return;

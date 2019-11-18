@@ -12577,9 +12577,10 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout_uninterruptible(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 bool __VERIFIER_nondet_bool(void);
 bool try_module_get(struct module *arg0) {

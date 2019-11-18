@@ -27885,9 +27885,10 @@ int __VERIFIER_nondet_int(void);
 int rtlwifi_rate_mapping(struct ieee80211_hw *arg0, bool arg1, u8 arg2, bool arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  unsigned char *ret_val = arg0->data + arg0->tail;
+  arg0->tail += arg1;
+  return ret_val;
 }
 void synchronize_irq(unsigned int arg0) {
   return;
