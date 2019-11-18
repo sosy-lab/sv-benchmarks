@@ -72269,9 +72269,8 @@ void *external_alloc(void);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
   return (struct pci_dev *)external_alloc();
 }
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;

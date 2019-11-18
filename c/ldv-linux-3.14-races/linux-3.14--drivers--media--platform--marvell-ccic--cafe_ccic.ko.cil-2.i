@@ -12141,9 +12141,8 @@ int __VERIFIER_nondet_int(void);
 int vb2_dqbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1, bool arg2){
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2){
-  return (void *)external_alloc();
+  return ldv_malloc(arg2);
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1){
   return;
