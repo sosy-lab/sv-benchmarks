@@ -55230,12 +55230,8 @@ int __VERIFIER_nondet_int(void);
 int mtrr_del(int arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void pci_disable_device(struct pci_dev *arg0) {
   return;

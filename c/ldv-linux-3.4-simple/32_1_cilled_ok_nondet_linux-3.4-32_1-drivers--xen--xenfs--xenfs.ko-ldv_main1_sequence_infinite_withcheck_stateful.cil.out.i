@@ -2407,12 +2407,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void *external_alloc(void);
 struct dentry *d_alloc_name(struct dentry *arg0, const char *arg1) {

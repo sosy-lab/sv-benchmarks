@@ -32995,12 +32995,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int copy_in_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void *external_alloc(void);
 struct dentry *d_alloc_root(struct inode *arg0) {

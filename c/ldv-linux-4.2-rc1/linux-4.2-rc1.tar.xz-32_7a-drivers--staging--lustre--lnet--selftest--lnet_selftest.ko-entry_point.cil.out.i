@@ -32639,12 +32639,8 @@ void cfs_wi_sched_destroy(struct cfs_wi_sched *arg0) {
 void cfs_wi_schedule(struct cfs_wi_sched *arg0, cfs_workitem_t *arg1) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;

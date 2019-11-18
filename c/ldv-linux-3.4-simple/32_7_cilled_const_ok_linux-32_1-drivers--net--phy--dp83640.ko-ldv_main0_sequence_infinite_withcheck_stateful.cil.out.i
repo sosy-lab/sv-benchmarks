@@ -10237,12 +10237,8 @@ int __VERIFIER_nondet_int(void);
 int netif_rx_ni(struct sk_buff *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 int __VERIFIER_nondet_int(void);
 int phy_driver_register(struct phy_driver *arg0) {

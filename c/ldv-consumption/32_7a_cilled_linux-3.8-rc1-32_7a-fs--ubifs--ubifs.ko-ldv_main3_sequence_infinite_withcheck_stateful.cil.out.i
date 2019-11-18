@@ -54714,12 +54714,8 @@ void *external_alloc(void);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
   return (struct crypto_tfm *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
@@ -55035,12 +55031,8 @@ int __VERIFIER_nondet_int(void);
 int test_set_page_writeback(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec timespec_trunc(struct timespec arg0, unsigned int arg1) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void truncate_inode_pages(struct address_space *arg0, loff_t arg1) {
   return;

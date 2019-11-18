@@ -15489,12 +15489,8 @@ void clear_nlink(struct inode *arg0) {
 void complete_all(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void d_drop(struct dentry *arg0) {
   return;
