@@ -18638,13 +18638,13 @@ int main(void)
   int tmp ;
   int tmp___0 ;
 
-  debug___0 = __VERIFIER_nondet_pointer ();
-  debug___1 = __VERIFIER_nondet_pointer ();
-  debug___2 = __VERIFIER_nondet_pointer ();
-  debug___3 = __VERIFIER_nondet_pointer ();
-  debug___4 = __VERIFIER_nondet_pointer ();
-  debug___5 = __VERIFIER_nondet_pointer ();
-  debug___6 = __VERIFIER_nondet_pointer ();
+  debug___0 = ldv_malloc(sizeof(u_int));
+  debug___1 = ldv_malloc(sizeof(u_int));
+  debug___2 = ldv_malloc(sizeof(u_int));
+  debug___3 = ldv_malloc(sizeof(u_int));
+  debug___4 = ldv_malloc(sizeof(u_int));
+  debug___5 = ldv_malloc(sizeof(u_int));
+  debug___6 = ldv_malloc(sizeof(u_int));
 
   {
   {

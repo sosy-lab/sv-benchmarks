@@ -27,7 +27,10 @@ int main()
   i = __VERIFIER_nondet_int();
   for (int j = 0; j < 10; j++) {
       a[j] = __VERIFIER_nondet_int();
-      dummies[j] = __VERIFIER_nondet_pointer();
+      // this task is not memory safe as the access in lin 38 is off by one
+      // compared to the initialized element of line 36, thus we might as well
+      // use NULL here
+      dummies[j] = 0;
   }
   if (i >= 0 && i < 9) {
     a[i] = i;

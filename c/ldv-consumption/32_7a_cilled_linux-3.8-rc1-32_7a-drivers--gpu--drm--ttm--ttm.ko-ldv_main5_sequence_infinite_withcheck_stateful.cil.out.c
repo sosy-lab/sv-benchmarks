@@ -3771,7 +3771,7 @@ extern void *__VERIFIER_nondet_pointer(void) ;
 
 struct ttm_tt *ttm_tt_create_dummy(struct ttm_bo_device *p0, unsigned long p1, uint32_t p2,
                                    struct page *p3) {
-  return (struct ttm_tt *)__VERIFIER_nondet_pointer();
+  return ldv_malloc(sizeof(struct ttm_tt));
 }
 int ttm_tt_populate_dummy(struct ttm_tt *p0)  {
   return __VERIFIER_nondet_int();
@@ -3804,7 +3804,7 @@ int sync_obj_flush_dummy(void *p0) {
 void sync_obj_unref_dummy(void **p0) {
 }
 void *sync_obj_ref_dummy(void *p0) {
-  return __VERIFIER_nondet_pointer();
+  return ldv_malloc(0UL);
 }
 void move_notify_dummy(struct ttm_buffer_object *p0, struct ttm_mem_reg *p1) {
 }

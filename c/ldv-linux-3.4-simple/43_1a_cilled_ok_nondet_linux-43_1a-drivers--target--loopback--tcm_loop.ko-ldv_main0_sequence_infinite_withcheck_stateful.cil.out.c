@@ -11887,13 +11887,16 @@ int ldv_spin_trylock(void)
   }
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags ) 
 { void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  // the kmem_cache_create call in tcm_loop_fabric_init uses 1104 as the element
+  // size of the cache
+  tmp = ldv_zalloc(1104UL);
   }
   return (tmp);
 }
@@ -11909,7 +11912,6 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
   return ((void *)0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
 

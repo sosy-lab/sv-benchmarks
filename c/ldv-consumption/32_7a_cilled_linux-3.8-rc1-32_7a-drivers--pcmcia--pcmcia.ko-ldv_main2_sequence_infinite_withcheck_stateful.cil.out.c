@@ -8823,7 +8823,6 @@ int pcmcia_validate_mem(struct pcmcia_socket *s )
 struct resource *pcmcia_find_mem_region(u_long base , u_long num , u_long align ,
                                         int low , struct pcmcia_socket *s ) 
 { 
-  struct resource *tmp ;
 
   {
   if ((unsigned long )(s->resource_ops)->find_mem != (unsigned long )((struct resource *(*)(unsigned long  ,
@@ -8832,8 +8831,7 @@ struct resource *pcmcia_find_mem_region(u_long base , u_long num , u_long align 
                                                                                             int  ,
                                                                                             struct pcmcia_socket * ))0)) {
     //tmp = (*((s->resource_ops)->find_mem))(base, num, align, low, s);
-    tmp = __VERIFIER_nondet_pointer();
-    return (tmp);
+    return ldv_malloc(sizeof(struct resource));
   } else {
 
   }
