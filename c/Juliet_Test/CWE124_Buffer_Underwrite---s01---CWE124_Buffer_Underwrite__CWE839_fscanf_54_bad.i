@@ -988,7 +988,7 @@ void CWE124_Buffer_Underwrite__CWE839_fscanf_54c_badSink(int data)
 }
 
 
-void *ldv_xmalloc_unknown_size(size_t size);
+void *ldv_xmalloc(size_t size);
 
 
 int ldv_undef_int(void);
@@ -1011,7 +1011,7 @@ int ldv_asprintf(char **ptr)
   if (tmp_1 != 0) {
     int tmp_0;
     
-    new = (char *)ldv_xmalloc_unknown_size(1UL);
+    new = (char *)ldv_xmalloc(1UL);
     
     *ptr = new;
     
@@ -1249,7 +1249,6 @@ void *ldv_reference_calloc_unknown_size(void);
 void *ldv_reference_zalloc_unknown_size(void);
 
 
-void *ldv_reference_xmalloc_unknown_size(size_t size);
 
 
 void *ldv_malloc(size_t size)
@@ -1341,14 +1340,6 @@ void *ldv_zalloc_unknown_size(void)
 }
 
 
-void *ldv_xmalloc_unknown_size(size_t size)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_xmalloc_unknown_size(size);
-  
-  return tmp;
-}
 
 
 void *ldv_realloc(void *ptr, size_t size)
@@ -1742,15 +1733,5 @@ void *ldv_reference_zalloc_unknown_size(void)
 }
 
 
-void *ldv_reference_xmalloc_unknown_size(size_t size)
-{
-  void *res;
-  
-  res = external_allocated_data();
-  
-  __VERIFIER_assume(res != (void *)0);
-  
-  return res;
-}
 
 
