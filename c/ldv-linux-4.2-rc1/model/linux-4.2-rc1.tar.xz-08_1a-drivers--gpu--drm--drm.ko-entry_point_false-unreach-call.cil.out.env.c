@@ -1519,13 +1519,9 @@ loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: ns_to_timeval
 // with type: struct timeval ns_to_timeval(const s64 )
 // with return type: struct timeval
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
   // Composite type
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 
 // Function: of_get_videomode

@@ -16392,12 +16392,8 @@ unsigned long int msecs_to_jiffies(const unsigned int arg0) {
 void msleep(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
