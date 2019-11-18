@@ -12785,7 +12785,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(size);
   return (tmp);
 }
 }
