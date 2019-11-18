@@ -7249,12 +7249,13 @@ int ldv_scsi_add_host_with_dma_29(struct Scsi_Host *shost , struct device *dev ,
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct urb *ldv_usb_alloc_urb_30(int ldv_func_arg1 , gfp_t flags )
 {
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
@@ -7263,7 +7264,7 @@ struct urb *ldv_usb_alloc_urb_31(int ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
@@ -7272,7 +7273,7 @@ struct urb *ldv_usb_alloc_urb_32(int ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   return ((struct urb *)tmp);
 }
 }
