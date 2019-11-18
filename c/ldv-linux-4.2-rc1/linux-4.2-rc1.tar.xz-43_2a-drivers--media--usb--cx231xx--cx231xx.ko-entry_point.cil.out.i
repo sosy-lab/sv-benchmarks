@@ -18098,20 +18098,16 @@ struct sk_buff *ldv_skb_clone_185(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_186(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_187(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_188(int ldv_func_arg1 , gfp_t flags )
@@ -18135,11 +18131,9 @@ void *ldv_usb_alloc_coherent_189(struct usb_device *ldv_func_arg1 , size_t ldv_f
 }
 int ldv_usb_submit_urb_190(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_191(int ldv_func_arg1 , gfp_t flags )
@@ -18163,11 +18157,9 @@ void *ldv_usb_alloc_coherent_192(struct usb_device *ldv_func_arg1 , size_t ldv_f
 }
 int ldv_usb_submit_urb_193(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
@@ -28022,11 +28014,9 @@ struct sk_buff *ldv_skb_clone_379(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_380(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_381(int ldv_func_arg1 , gfp_t flags )
@@ -28040,11 +28030,9 @@ struct urb *ldv_usb_alloc_urb_381(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_382(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;

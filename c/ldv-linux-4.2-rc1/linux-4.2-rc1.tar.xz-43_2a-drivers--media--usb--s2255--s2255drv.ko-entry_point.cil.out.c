@@ -10111,22 +10111,18 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 int ldv_usb_submit_urb_24(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_25(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_del_timer_sync_26(struct timer_list *ldv_func_arg1 ) 
@@ -10154,12 +10150,10 @@ void *ldv_vmalloc_27(unsigned long ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_28(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_29(int ldv_func_arg1 , gfp_t flags ) 
@@ -10174,12 +10168,10 @@ struct urb *ldv_usb_alloc_urb_29(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_30(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_mod_timer_31(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) 

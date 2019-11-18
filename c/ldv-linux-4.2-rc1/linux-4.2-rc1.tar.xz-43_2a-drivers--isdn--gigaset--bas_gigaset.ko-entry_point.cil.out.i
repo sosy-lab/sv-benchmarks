@@ -11281,11 +11281,9 @@ int ldv_del_timer_43(struct timer_list *ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_44(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_mod_timer_45(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 )
@@ -11301,20 +11299,16 @@ int ldv_mod_timer_45(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_a
 }
 int ldv_usb_submit_urb_46(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_47(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_mod_timer_48(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 )
@@ -11341,56 +11335,44 @@ int ldv_del_timer_49(struct timer_list *ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_50(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_51(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_52(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_53(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_54(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_55(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_del_timer_56(struct timer_list *ldv_func_arg1 )
@@ -11406,11 +11388,9 @@ int ldv_del_timer_56(struct timer_list *ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_57(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_del_timer_58(struct timer_list *ldv_func_arg1 )
@@ -11426,11 +11406,9 @@ int ldv_del_timer_58(struct timer_list *ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_59(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_mod_timer_60(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 )
@@ -11446,11 +11424,9 @@ int ldv_mod_timer_60(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_a
 }
 int ldv_usb_submit_urb_61(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_mod_timer_62(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 )
@@ -11520,11 +11496,9 @@ struct urb *ldv_usb_alloc_urb_68(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_69(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_del_timer_sync_70(struct timer_list *ldv_func_arg1 )
@@ -11639,11 +11613,9 @@ bool ldv_cancel_work_sync_79(struct work_struct *ldv_func_arg1 )
 }
 int ldv_usb_submit_urb_80(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_register_driver_81(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,

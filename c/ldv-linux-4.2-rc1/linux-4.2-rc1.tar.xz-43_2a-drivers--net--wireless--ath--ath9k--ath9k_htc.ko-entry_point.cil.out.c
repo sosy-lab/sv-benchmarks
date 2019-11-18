@@ -12618,12 +12618,10 @@ struct urb *ldv_usb_alloc_urb_88(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_89(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_90(int ldv_func_arg1 , gfp_t flags ) 
@@ -12638,42 +12636,34 @@ struct urb *ldv_usb_alloc_urb_90(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_91(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_92(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_93(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_submit_urb_94(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_95(int ldv_func_arg1 , gfp_t flags ) 
@@ -12698,12 +12688,10 @@ struct urb *ldv_usb_alloc_urb_96(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_97(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 struct urb *ldv_usb_alloc_urb_98(int ldv_func_arg1 , gfp_t flags ) 
@@ -12718,12 +12706,10 @@ struct urb *ldv_usb_alloc_urb_98(int ldv_func_arg1 , gfp_t flags )
 }
 int ldv_usb_submit_urb_99(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 int ldv_usb_register_driver_100(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,
