@@ -3913,7 +3913,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 extern bool try_module_get(struct module * ) ;
 extern void module_put(struct module * ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -6149,16 +6148,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -6220,7 +6209,6 @@ __inline static void ldv_spin_unlock_irqrestore_39(spinlock_t *lock , unsigned l
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_47(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void choose_interrupt_2(void) ;
 void disable_suitable_irq_2(int line , void *data ) ;
@@ -7479,16 +7467,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_47(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void ldv_free_irq_51(unsigned int ldv_func_arg1 , void *ldv_func_arg2 ) 
 { 
 
@@ -7562,7 +7540,6 @@ extern void iowrite16(u16  , void * ) ;
 extern void iowrite32(u32  , void * ) ;
 extern void *ioport_map(unsigned long  , unsigned int  ) ;
 extern void ioport_unmap(void * ) ;
-void *ldv_kmem_cache_alloc_78(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int vga_get(struct pci_dev * , unsigned int  , int  ) ;
 __inline static int vga_get_interruptible(struct pci_dev *pdev , unsigned int rsrc ) 
 { 
@@ -138998,20 +138975,9 @@ ssize_t vfio_pci_vga_rw(struct vfio_pci_device *vdev , char *buf , size_t count 
   return (done);
 }
 }
-void *ldv_kmem_cache_alloc_78(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-void *ldv_kmem_cache_alloc_101(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static int pcibios_err_to_errno(int err ) 
@@ -140948,16 +140914,6 @@ void ldv_main_exported_3(void)
   }
   ldv_33217: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_101(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void) 

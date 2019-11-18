@@ -3932,7 +3932,6 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 }
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
@@ -4636,16 +4635,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern struct pv_cpu_ops pv_cpu_ops ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
@@ -5008,7 +4997,6 @@ void *__kmalloc(size_t size, gfp_t t)
 {
 	return ldv_malloc(size);
 }
-void *ldv_kmem_cache_alloc_35(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_31(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -6707,16 +6695,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_35(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern struct module __this_module ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile   *addr ) 
 { 
@@ -6913,7 +6891,6 @@ __inline static void __this_cpu_preempt_check(char const   *op )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_54(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void sched_clock_idle_sleep_event(void) ;
 extern void sched_clock_idle_wakeup_event(u64  ) ;
@@ -9131,16 +9108,6 @@ void ldv_main_exported_4(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_54(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -9151,7 +9118,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int cpufreq_get_policy(struct cpufreq_policy * , unsigned int  ) ;
 extern int cpufreq_update_policy(unsigned int  ) ;
 __inline static void cpufreq_verify_within_limits(struct cpufreq_policy *policy ,
@@ -9600,22 +9566,11 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
 extern bool try_module_get(struct module * ) ;
 extern void module_put(struct module * ) ;
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern acpi_status acpi_evaluate_ost(acpi_handle  , u32  , u32  , struct acpi_buffer * ) ;
 extern bool acpi_has_method(acpi_handle  , char * ) ;
@@ -10758,16 +10713,6 @@ void ldv_main_exported_1(void)
   }
   ldv_29010: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 __inline static void ldv_error(void);

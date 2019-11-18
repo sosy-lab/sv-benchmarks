@@ -6280,7 +6280,6 @@ extern bool try_module_get(struct module * ) ;
 extern void module_put(struct module * ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
@@ -9597,16 +9596,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   ldv_spin_unlock();
   ldv_spin_unlock_irqrestore_8(lock, flags);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-
-
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 void *ldv_zalloc(size_t size ) ;

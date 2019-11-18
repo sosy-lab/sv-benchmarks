@@ -6208,7 +6208,6 @@ extern int add_uevent_var(struct kobj_uevent_env * , char const * , ...) ;
 extern bool try_module_get(struct module * ) ;
 extern void module_put(struct module * ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -9417,15 +9416,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern struct resource iomem_resource ;
 extern int request_resource(struct resource * , struct resource * ) ;
@@ -9436,7 +9426,6 @@ __inline static resource_size_t resource_size(struct resource const *res )
   return (((unsigned long long )res->end - (unsigned long long )res->start) + 1ULL);
 }
 }
-void *ldv_kmem_cache_alloc_43(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int request_threaded_irq(unsigned int , irqreturn_t (*)(int , void * ) ,
                                 irqreturn_t (*)(int , void * ) , unsigned long ,
                                 char const * , void * ) ;
@@ -10861,15 +10850,6 @@ static char const __kstrtab_pcmcia_disable_device[22U] =
         'e', '\000'};
 struct kernel_symbol const __ksymtab_pcmcia_disable_device ;
 struct kernel_symbol const __ksymtab_pcmcia_disable_device = {(unsigned long )(& pcmcia_disable_device), (char const *)(& __kstrtab_pcmcia_disable_device)};
-void *ldv_kmem_cache_alloc_43(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_49(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                             gfp_t flags )
 {
@@ -10991,7 +10971,6 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 }
 }
 extern void iounmap(void volatile * ) ;
-void *ldv_kmem_cache_alloc_79(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static u16 get_unaligned_le16(void const *p )
 {
@@ -13303,17 +13282,7 @@ void ldv_main_exported_1(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_79(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_102(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_110(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -13755,15 +13724,6 @@ static char const __kstrtab_pcmcia_get_mac_from_cis[24U] =
         'c', 'i', 's', '\000'};
 struct kernel_symbol const __ksymtab_pcmcia_get_mac_from_cis ;
 struct kernel_symbol const __ksymtab_pcmcia_get_mac_from_cis = {(unsigned long )(& pcmcia_get_mac_from_cis), (char const *)(& __kstrtab_pcmcia_get_mac_from_cis)};
-void *ldv_kmem_cache_alloc_102(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_pskb_expand_head_108(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , int ldv_func_arg3 ,
                              gfp_t flags )
 {

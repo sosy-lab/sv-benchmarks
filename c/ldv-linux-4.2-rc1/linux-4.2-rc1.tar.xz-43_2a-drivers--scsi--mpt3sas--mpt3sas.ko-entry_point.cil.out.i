@@ -7360,7 +7360,6 @@ extern int param_get_int(char * , struct kernel_param const * ) ;
 extern long schedule_timeout(long ) ;
 extern int wake_up_process(struct task_struct * ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -12979,15 +12978,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -13140,7 +13130,6 @@ bool ldv_queue_delayed_work_on_68(int ldv_func_arg1 , struct workqueue_struct *l
 bool ldv_queue_delayed_work_on_71(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                   struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_70(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_77(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_81(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) ;
 __inline static void _debug_dump_mf___0(void *mpi_request , int sz )
@@ -14485,15 +14474,6 @@ bool ldv_queue_delayed_work_on_71(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_77(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_81(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev )
 {
   ldv_func_ret_type___6 ldv_func_res ;
@@ -14630,7 +14610,6 @@ __inline static void flush_scheduled_work(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_112(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 int ldv_state_variable_20 ;
@@ -23648,15 +23627,6 @@ bool ldv_queue_delayed_work_on_106(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_112(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_116(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev )
 {
@@ -23766,7 +23736,6 @@ bool ldv_queue_delayed_work_on_154(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_157(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_156(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_163(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *lowmem_page_address(struct page const *page )
 {
@@ -26173,15 +26142,6 @@ bool ldv_queue_delayed_work_on_157(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_163(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_167(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev )
 {
@@ -26214,7 +26174,6 @@ bool ldv_queue_delayed_work_on_189(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_192(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_191(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_198(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_file_operations_4(void) ;
@@ -30548,15 +30507,6 @@ bool ldv_queue_delayed_work_on_192(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_198(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_202(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev )
 {
@@ -30606,7 +30556,6 @@ bool ldv_queue_delayed_work_on_228(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_231(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_230(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_237(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_241(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
@@ -31038,15 +30987,6 @@ bool ldv_queue_delayed_work_on_231(int ldv_func_arg1 , struct workqueue_struct *
   ldv_func_res = tmp;
   activate_work_2(& ldv_func_arg3->work, 2);
   return (ldv_func_res);
-}
-}
-void *ldv_kmem_cache_alloc_237(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_scsi_add_host_with_dma_241(struct Scsi_Host *shost , struct device *dev ,

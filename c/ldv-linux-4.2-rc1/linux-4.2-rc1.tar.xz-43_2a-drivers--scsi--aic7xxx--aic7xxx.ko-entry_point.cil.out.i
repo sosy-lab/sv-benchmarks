@@ -5203,7 +5203,6 @@ unsigned long ldv_undef_ulong(void)
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -13107,15 +13106,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_24(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -13131,7 +13121,6 @@ int ldv_scsi_add_host_with_dma_24(struct Scsi_Host *shost , struct device *dev ,
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_45(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_49(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) ;
 __inline static void ahc_flush_device_writes(struct ahc_softc *ahc ) ;
 int ahc_read_seeprom(struct seeprom_descriptor *sd , uint16_t *buf , u_int start_addr ,
@@ -13555,15 +13544,6 @@ int ahc_verify_cksum(struct seeprom_config *sc )
   }
 }
 }
-void *ldv_kmem_cache_alloc_45(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_49(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -13579,7 +13559,6 @@ int ldv_scsi_add_host_with_dma_49(struct Scsi_Host *shost , struct device *dev ,
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int pci_set_power_state(struct pci_dev * , pci_power_t ) ;
 int ldv_scsi_add_host_with_dma_74(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) ;
 struct ahc_pci_identity const *ahc_find_pci_device(ahc_dev_softc_t pci ) ;
@@ -15521,15 +15500,6 @@ static int ahc_aha494XX_setup(struct ahc_softc *ahc )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_74(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -15545,7 +15515,6 @@ int ldv_scsi_add_host_with_dma_74(struct Scsi_Host *shost , struct device *dev ,
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_95(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_99(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) ;
 int ahc_sram_base_print(u_int regvalue , u_int *cur_col , u_int wrap ) ;
 int ahc_scb_base_print(u_int regvalue , u_int *cur_col , u_int wrap ) ;
@@ -15954,15 +15923,6 @@ int ahc_scb_tag_print(u_int regvalue , u_int *cur_col , u_int wrap )
   return (tmp);
 }
 }
-void *ldv_kmem_cache_alloc_95(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_99(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev )
 {
   ldv_func_ret_type___2 ldv_func_res ;
@@ -16066,7 +16026,6 @@ __inline static unsigned char inb(int port )
   return (value);
 }
 }
-void *ldv_kmem_cache_alloc_120(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void *ldv_irq_data_1_1 ;
@@ -18785,15 +18744,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_120(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_124(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev )
 {
@@ -18834,7 +18784,6 @@ void ldv_free_irq_126(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
 }
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_149(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern int seq_putc(struct seq_file * , char ) ;
 extern int seq_puts(struct seq_file * , char const * ) ;
@@ -19142,15 +19091,6 @@ int ahc_linux_show_info(struct seq_file *m , struct Scsi_Host *shost )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_149(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_153(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev )
 {
@@ -19172,7 +19112,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
 extern struct resource *__request_region(struct resource * , resource_size_t , resource_size_t ,
                                          char const * , int ) ;
 extern void *ioremap_nocache(resource_size_t , unsigned long ) ;
-void *ldv_kmem_cache_alloc_174(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int reg_check_1(irqreturn_t (*handler)(int , void * ) ) ;
 void activate_suitable_irq_1(int line , void *data ) ;
 int ldv_irq_1(int state , int line , void *data ) ;
@@ -20115,15 +20054,6 @@ void ldv_main_exported_2(void)
   }
   ldv_38407: ;
   return;
-}
-}
-void *ldv_kmem_cache_alloc_174(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_scsi_add_host_with_dma_178(struct Scsi_Host *shost , struct device *dev ,

@@ -4992,7 +4992,6 @@ extern void iounmap(void volatile   * ) ;
 extern long schedule_timeout(long  ) ;
 extern int wake_up_process(struct task_struct * ) ;
 extern void kfree(void const   * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_irq_1_2  =    0;
@@ -6959,16 +6958,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { 
@@ -7125,7 +7114,6 @@ __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
-void *ldv_kmem_cache_alloc_61(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
 void *ldv_vmalloc_68(unsigned long ldv_func_arg1 ) ;
 void *ldv_vzalloc_66(unsigned long ldv_func_arg1 ) ;
@@ -11610,16 +11598,6 @@ int rtsx_force_power_down(struct rtsx_chip *chip , u8 ctl )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_61(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_65(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -11674,7 +11652,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 __inline static void spin_lock_irq(spinlock_t *lock ) ;
 __inline static void spin_unlock_irq(spinlock_t *lock ) ;
 extern long wait_for_completion_interruptible_timeout(struct completion * , unsigned long  ) ;
-void *ldv_kmem_cache_alloc_89(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *lowmem_page_address(struct page  const  *page ) 
 { 
 
@@ -13098,16 +13075,6 @@ int rtsx_transfer_data(struct rtsx_chip *chip , u8 card , void *buf , size_t len
   return (err);
 }
 }
-void *ldv_kmem_cache_alloc_89(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_93(struct Scsi_Host *shost , struct device *dev , struct device *dma_dev ) 
 { 
   ldv_func_ret_type___2 ldv_func_res ;
@@ -13126,7 +13093,6 @@ int ldv_scsi_add_host_with_dma_93(struct Scsi_Host *shost , struct device *dev ,
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_114(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void *ldv_vmalloc_119(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_120(unsigned long ldv_func_arg1 ) ;
@@ -18751,16 +18717,6 @@ int rtsx_scsi_handler(struct scsi_cmnd *srb , struct rtsx_chip *chip )
   return (result);
 }
 }
-void *ldv_kmem_cache_alloc_114(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_118(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -18931,7 +18887,6 @@ void *ldv_vmalloc_133(unsigned long ldv_func_arg1 )
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
-void *ldv_kmem_cache_alloc_154(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_158(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
 int reset_sd_card(struct rtsx_chip *chip ) ;
@@ -20878,16 +20833,6 @@ void eject_card(struct rtsx_chip *chip , unsigned int lun )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_154(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_158(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -20906,7 +20851,6 @@ int ldv_scsi_add_host_with_dma_158(struct Scsi_Host *shost , struct device *dev 
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_179(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_183(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
 int bit1cnt_long(u32 data ) ;
@@ -20937,16 +20881,6 @@ int bit1cnt_long(u32 data )
   return (cnt);
 }
 }
-void *ldv_kmem_cache_alloc_179(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_183(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -20966,7 +20900,6 @@ int ldv_scsi_add_host_with_dma_183(struct Scsi_Host *shost , struct device *dev 
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_208(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
@@ -29042,16 +28975,6 @@ int release_sd_card(struct rtsx_chip *chip )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_208(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -29071,7 +28994,6 @@ int ldv_scsi_add_host_with_dma_208(struct Scsi_Host *shost , struct device *dev 
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_229(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_vmalloc_234(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_235(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_236(unsigned long ldv_func_arg1 ) ;
@@ -32727,16 +32649,6 @@ int release_xd_card(struct rtsx_chip *chip )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_229(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_233(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -32786,7 +32698,6 @@ void *ldv_vmalloc_236(unsigned long ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_257(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void *ldv_vmalloc_263(unsigned long ldv_func_arg1 ) ;
 void *ldv_vmalloc_264(unsigned long ldv_func_arg1 ) ;
@@ -39772,16 +39683,6 @@ int release_ms_card(struct rtsx_chip *chip )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_257(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_261(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -39831,7 +39732,6 @@ void *ldv_vmalloc_264(unsigned long ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-void *ldv_kmem_cache_alloc_285(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_289(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
@@ -41087,16 +40987,6 @@ int spi_write_flash_status(struct scsi_cmnd *srb , struct rtsx_chip *chip )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_285(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 int ldv_scsi_add_host_with_dma_289(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) 
 { 
@@ -41130,7 +41020,6 @@ __inline static char const   *kbasename(char const   *path )
 }
 }
 extern void getnstimeofday64(struct timespec * ) ;
-void *ldv_kmem_cache_alloc_310(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_scsi_add_host_with_dma_314(struct Scsi_Host *shost , struct device *dev ,
                                    struct device *dma_dev ) ;
 __inline static void get_current_time(u8 *timeval_buf , int buf_len ) 
@@ -41194,16 +41083,6 @@ void _rtsx_trace(struct rtsx_chip *chip , char const   *file , char const   *fun
 
   }
   return;
-}
-}
-void *ldv_kmem_cache_alloc_310(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 int ldv_scsi_add_host_with_dma_314(struct Scsi_Host *shost , struct device *dev ,

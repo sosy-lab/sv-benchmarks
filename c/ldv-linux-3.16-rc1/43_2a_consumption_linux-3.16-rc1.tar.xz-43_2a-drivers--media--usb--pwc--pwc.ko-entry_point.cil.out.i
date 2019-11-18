@@ -5466,7 +5466,6 @@ void *__kmalloc(size_t size, gfp_t t)
  return ldv_malloc(size);
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -7679,14 +7678,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -7762,7 +7753,6 @@ void ldv_usb_deregister_26(struct usb_driver *arg )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_50(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 int const pwc_image_sizes[6U][2U] = { { 128, 96},
    { 160, 120},
    { 176, 144},
@@ -7833,15 +7823,6 @@ void pwc_construct(struct pwc_device *pdev )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_50(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int usb_control_msg(struct usb_device * , unsigned int , __u8 , __u8 , __u16 ,
                            __u16 , void * , __u16 , int ) ;
 void pwc_dec1_init(struct pwc_device *pdev , unsigned char const *cmd ) ;
@@ -8539,17 +8520,8 @@ int pwc_get_cmos_sensor(struct pwc_device *pdev , int *sensor )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_70(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern size_t strlcpy(char * , char const * , size_t ) ;
 extern unsigned long volatile jiffies ;
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *video_get_drvdata(struct video_device *vdev )
 {
   void *tmp ;
@@ -9907,16 +9879,7 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern void *memcpy(void * , void const * , size_t ) ;
-void *ldv_kmem_cache_alloc_110(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void *vb2_plane_vaddr(struct vb2_buffer * , unsigned int ) ;
 __inline static void vb2_set_plane_payload(struct vb2_buffer *vb , unsigned int plane_no ,
                                            unsigned long size )
@@ -10035,15 +9998,6 @@ int pwc_decompress(struct pwc_device *pdev , struct pwc_frame_buf *fbuf )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_110(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_130(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void pwc_dec1_init(struct pwc_device *pdev , unsigned char const *cmd )
 {
   struct pwc_dec1_private *pdec ;
@@ -10053,15 +10007,6 @@ void pwc_dec1_init(struct pwc_device *pdev , unsigned char const *cmd )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_130(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_150(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 unsigned int const TimonRomTable[16U][2U][16U][8U] ;
 unsigned int const KiaraRomTable[8U][2U][16U][8U] ;
 static void build_subblock_pattern(struct pwc_dec23_private *pdec )
@@ -10903,15 +10848,6 @@ void pwc_dec23_decompress(struct pwc_device *pdev , void const *src , void *dst 
   return;
 }
 }
-void *ldv_kmem_cache_alloc_150(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_170(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 unsigned int const Kiara_fps_vector[6U] = { 5U, 10U, 15U, 20U,
         25U, 30U};
 struct Kiara_table_entry const Kiara_table[6U][6U][4U] = { { { {0, (unsigned short)0, (unsigned short)0, {(unsigned char)0, (unsigned char)0,
@@ -12168,15 +12104,6 @@ unsigned int const KiaraRomTable[8U][2U][16U][8U] =
                     117028U, 112420U, 79588U, 75484U},
        { 0U, 0U, 0U, 0U,
                     0U, 0U, 0U, 0U}}}};
-void *ldv_kmem_cache_alloc_170(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_190(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 unsigned int const Timon_fps_vector[6U] = { 5U, 10U, 15U, 20U,
         25U, 30U};
 struct Timon_table_entry const Timon_table[6U][6U][4U] = { { { {1, 140U, 0U, {5U, 244U, 4U, 0U, 0U, 0U, 0U, 19U, 0U, 140U, 252U, 128U, 2U}},
@@ -13618,14 +13545,6 @@ unsigned int const TimonRomTable[16U][2U][16U][8U] =
                     149796U, 149869U, 112941U, 112933U},
        { 0U, 0U, 0U, 0U,
                     0U, 0U, 0U, 0U}}}};
-void *ldv_kmem_cache_alloc_190(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void ldv_error(void);
 int ldv_spin = 0;
 void ldv_check_alloc_flags(gfp_t flags )

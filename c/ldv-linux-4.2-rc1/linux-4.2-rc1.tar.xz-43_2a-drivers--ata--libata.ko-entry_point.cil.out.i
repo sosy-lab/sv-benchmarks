@@ -6699,7 +6699,6 @@ __inline static char const *kobject_name(struct kobject const *kobj )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_state_variable_47 ;
@@ -18107,15 +18106,6 @@ bool ldv_queue_delayed_work_on_19(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -18245,7 +18235,6 @@ __inline static bool queue_delayed_work(struct workqueue_struct *wq , struct del
 }
 }
 extern bool capable(int ) ;
-void *ldv_kmem_cache_alloc_60(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern unsigned long _copy_from_user(void * , void const * , unsigned int ) ;
@@ -23246,15 +23235,6 @@ bool ldv_queue_delayed_work_on_54(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_60(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int vscnprintf(char * , size_t , char const * , va_list * ) ;
 __inline static int list_empty(struct list_head const *head )
@@ -23393,7 +23373,6 @@ __inline static bool schedule_delayed_work(struct delayed_work *dwork , unsigned
 }
 extern long schedule_timeout_uninterruptible(long ) ;
 extern void schedule(void) ;
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void blk_abort_request(struct request * ) ;
 __inline static int scsi_host_in_recovery(struct Scsi_Host *shost )
 {
@@ -28070,15 +28049,6 @@ bool ldv_queue_delayed_work_on_87(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_93(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern int sprintf(char * , char const * , ...) ;
 extern void jiffies_to_timespec(unsigned long const , struct timespec * ) ;
@@ -28091,7 +28061,6 @@ bool ldv_queue_delayed_work_on_117(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_120(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_119(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern int dev_set_name(struct device * , char const * , ...) ;
 __inline static void device_enable_async_suspend(struct device *dev )
@@ -29667,15 +29636,6 @@ bool ldv_queue_delayed_work_on_120(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_126(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 bool ldv_queue_work_on_149(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_151(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -29685,7 +29645,6 @@ bool ldv_queue_delayed_work_on_150(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_153(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_152(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_159(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static unsigned int seq_buf_used(struct seq_buf *s )
 {
   size_t _min1 ;
@@ -29963,15 +29922,6 @@ bool ldv_queue_delayed_work_on_153(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_159(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile *addr )
 {
@@ -30114,7 +30064,6 @@ __inline static unsigned char inb(int port )
   return (value);
 }
 }
-void *ldv_kmem_cache_alloc_192(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void activate_work_3(struct work_struct *work , int state ) ;
 void call_and_disable_work_3(struct work_struct *work ) ;
 void disable_work_3(struct work_struct *work ) ;
@@ -34846,15 +34795,6 @@ bool ldv_queue_delayed_work_on_186(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_192(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 bool ldv_cancel_delayed_work_sync_196(struct delayed_work *ldv_func_arg1 )
 {
   ldv_func_ret_type___6 ldv_func_res ;
@@ -34885,7 +34825,6 @@ bool ldv_queue_delayed_work_on_220(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_223(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_222(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_229(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static int ata_link_active(struct ata_link *link )
 {
@@ -36150,15 +36089,6 @@ bool ldv_queue_delayed_work_on_223(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_229(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 bool ldv_queue_work_on_252(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
@@ -36170,7 +36100,6 @@ bool ldv_queue_delayed_work_on_256(int ldv_func_arg1 , struct workqueue_struct *
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_255(struct workqueue_struct *ldv_func_arg1 ) ;
 extern int kobject_uevent_env(struct kobject * , enum kobject_action , char ** ) ;
-void *ldv_kmem_cache_alloc_262(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void set_primary_fwnode(struct device * , struct fwnode_handle * ) ;
 extern acpi_status acpi_evaluate_object(acpi_handle , acpi_string , struct acpi_object_list * ,
@@ -37341,15 +37270,6 @@ bool ldv_queue_delayed_work_on_256(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_kmem_cache_alloc_262(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
-}
-}
 bool ldv_queue_work_on_285(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_287(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -37359,7 +37279,6 @@ bool ldv_queue_delayed_work_on_286(int ldv_func_arg1 , struct workqueue_struct *
 bool ldv_queue_delayed_work_on_289(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                                    struct delayed_work *ldv_func_arg3 , unsigned long ldv_func_arg4 ) ;
 void ldv_flush_workqueue_288(struct workqueue_struct *ldv_func_arg1 ) ;
-void *ldv_kmem_cache_alloc_295(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern acpi_status acpi_install_notify_handler(acpi_handle , u32 , void (*)(acpi_handle ,
                                                                               u32 ,
@@ -37755,15 +37674,6 @@ bool ldv_queue_delayed_work_on_289(int ldv_func_arg1 , struct workqueue_struct *
   ldv_func_res = tmp;
   activate_work_2(& ldv_func_arg3->work, 2);
   return (ldv_func_res);
-}
-}
-void *ldv_kmem_cache_alloc_295(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
-  return (tmp);
 }
 }
 __inline static void ldv_error(void)

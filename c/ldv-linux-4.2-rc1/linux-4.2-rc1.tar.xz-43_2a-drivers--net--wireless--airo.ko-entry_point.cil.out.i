@@ -7287,7 +7287,6 @@ extern long schedule_timeout_uninterruptible(long ) ;
 extern void schedule(void) ;
 extern int wake_up_process(struct task_struct * ) ;
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
@@ -18031,15 +18030,6 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   {
   ldv_check_alloc_flags(flags);
   tmp = ldv_calloc(n, size);
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
   return (tmp);
 }
 }

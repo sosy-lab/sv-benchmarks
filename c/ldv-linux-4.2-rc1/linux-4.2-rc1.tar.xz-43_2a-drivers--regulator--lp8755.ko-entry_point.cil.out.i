@@ -3711,7 +3711,6 @@ __inline static void ldv_stop(void)
 }
 __inline static long PTR_ERR(void const *ptr ) ;
 __inline static bool IS_ERR(void const *ptr ) ;
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void *ldv_irq_data_2_1 ;
 struct device *ldv_irq_dev_1_1 ;
@@ -34956,15 +34955,6 @@ __inline static bool IS_ERR(void const *ptr )
   bool tmp ;
   {
   tmp = ldv_is_err(ptr);
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_20(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
   return (tmp);
 }
 }

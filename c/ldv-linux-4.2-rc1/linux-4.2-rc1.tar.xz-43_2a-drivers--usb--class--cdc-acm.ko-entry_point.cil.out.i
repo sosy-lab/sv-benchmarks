@@ -4322,7 +4322,6 @@ __inline static int signal_pending(struct task_struct *p )
 }
 }
 extern void kfree(void const * ) ;
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -8153,15 +8152,6 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   {
   ldv_check_alloc_flags(flags);
   tmp = ldv_malloc(size);
-  return (tmp);
-}
-}
-void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  void *tmp ;
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
   return (tmp);
 }
 }

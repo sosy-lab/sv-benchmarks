@@ -4427,7 +4427,6 @@ __inline static bool queue_work(struct workqueue_struct *wq , struct work_struct
 }
 }
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
@@ -10865,15 +10864,6 @@ int main(void)
   return 0;
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_35(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static int cx25840_set_audclk_freq(struct i2c_client *client , u32 freq )
 {
   struct cx25840_state *state ;
@@ -11325,15 +11315,6 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_35(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_54(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int request_firmware(struct firmware const ** , char const * , struct device * ) ;
 extern void release_firmware(struct firmware const * ) ;
 static char *firmware = (char *)"";
@@ -11530,15 +11511,6 @@ int cx25840_loadfw(struct i2c_client *client )
   return (tmp___10);
 }
 }
-void *ldv_kmem_cache_alloc_54(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 static int odd_parity(u8 c )
 {
   {
@@ -12149,14 +12121,6 @@ int cx25840_decode_vbi_line(struct v4l2_subdev *sd , struct v4l2_decode_vbi_line
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
@@ -12192,7 +12156,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static unsigned int __kfifo_uint_must_check_helper(unsigned int val )
 {
   {
@@ -13679,14 +13642,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   ldv_spin_unlock();
   ldv_spin_unlock_irqrestore_84(lock, flags);
   return;
-}
-}
-void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 __inline static void ldv_error(void);

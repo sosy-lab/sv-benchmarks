@@ -5847,7 +5847,6 @@ __inline static void writel(unsigned int val , void volatile *addr )
 extern void pci_iounmap(struct pci_dev * , void * ) ;
 extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void *malloc(size_t size ) ;
@@ -7385,14 +7384,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags )
 {
@@ -7481,7 +7472,6 @@ extern int autoremove_wake_function(wait_queue_t * , unsigned int , int , void *
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
-void *ldv_kmem_cache_alloc_40(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern long schedule_timeout(long ) ;
 __inline static int test_tsk_thread_flag(struct task_struct *tsk , int flag )
 {
@@ -7941,14 +7931,6 @@ void ldv_main_exported_14(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_40(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static int fls64(__u64 x )
 {
   int bitpos ;
@@ -8025,7 +8007,6 @@ extern unsigned long __get_free_pages(gfp_t , unsigned int ) ;
 unsigned long ldv___get_free_pages_64(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 unsigned long ldv___get_free_pages_65(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 extern void free_pages(unsigned long , unsigned int ) ;
-void *ldv_kmem_cache_alloc_60(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int dev_err(struct device const * , char const * , ...) ;
 __inline static int valid_dma_direction(int dma_direction )
 {
@@ -8744,14 +8725,6 @@ int solo_p2m_init(struct solo_dev *solo_dev )
   return (0);
 }
 }
-void *ldv_kmem_cache_alloc_60(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 void *ldv_malloc(size_t size ) ;
 unsigned long ldv___get_free_pages_64(gfp_t flags , unsigned int ldv_func_arg2 )
 {
@@ -8861,7 +8834,6 @@ __inline static char const *kobject_name(struct kobject const *kobj )
   return ((char const *)kobj->name);
 }
 }
-void *ldv_kmem_cache_alloc_84(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern size_t __VERIFIER_nondet_size_t(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern long schedule_timeout_interruptible(long ) ;
@@ -10576,16 +10548,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_84(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern void *memcpy(void * , void const * , size_t ) ;
-void *ldv_kmem_cache_alloc_104(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern unsigned long msleep_interruptible(unsigned int ) ;
 int tw28_set_ctrl_val(struct solo_dev *solo_dev , u32 ctrl , u8 ch , s32 val ) ;
 int tw28_get_ctrl_val(struct solo_dev *solo_dev , u32 ctrl , u8 ch , s32 *val ) ;
@@ -11752,16 +11715,7 @@ void tw28_set_audio_gain(struct solo_dev *solo_dev , u8 ch , u8 val )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_104(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_124(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static u32 solo_reg_read___3(struct solo_dev *solo_dev , int reg )
 {
   unsigned long flags ;
@@ -11885,21 +11839,12 @@ void solo_gpio_exit(struct solo_dev *solo_dev )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_124(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern void *ldv_malloc(size_t);
 void *__kmalloc(size_t size, gfp_t t)
 {
  return ldv_malloc(size);
 }
-void *ldv_kmem_cache_alloc_144(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_140(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -12202,16 +12147,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
-void *ldv_kmem_cache_alloc_144(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_164(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern struct font_desc const *find_font(char const * ) ;
 extern u8 const byte_rev_table[256U] ;
@@ -12645,14 +12581,6 @@ void solo_enc_exit(struct solo_dev *solo_dev )
   return;
 }
 }
-void *ldv_kmem_cache_alloc_164(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static unsigned long arch_local_save_flags(void)
 {
@@ -12700,7 +12628,6 @@ __inline static int arch_irqs_disabled_flags(unsigned long flags )
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_184(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void *lowmem_page_address(struct page const *page )
 {
@@ -15628,14 +15555,6 @@ void ldv_main_exported_5(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_184(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 extern void might_fault(void) ;
 __inline static void atomic_set(atomic_t *v , int i )
 {
@@ -15655,7 +15574,6 @@ __inline static int atomic_sub_return(int i , atomic_t *v )
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern unsigned long _copy_to_user(void * , void const * , unsigned int ) ;
 extern void __copy_to_user_overflow(void) ;
@@ -16331,16 +16249,7 @@ void ldv_main_exported_2(void)
   return;
 }
 }
-void *ldv_kmem_cache_alloc_204(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
-}
-}
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
-void *ldv_kmem_cache_alloc_224(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static u32 solo_reg_read___7(struct solo_dev *solo_dev , int reg )
 {
   unsigned long flags ;
@@ -16506,14 +16415,6 @@ int solo_eeprom_write(struct solo_dev *solo_dev , int loc , unsigned short data 
   }
   solo_eeprom_reg_write(solo_dev, 4294967287U);
   return (retval == 0U);
-}
-}
-void *ldv_kmem_cache_alloc_224(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
-{
-  {
-  ldv_check_alloc_flags(flags);
-  kmem_cache_alloc(ldv_func_arg1, flags);
-  return ((void *)0);
 }
 }
 __inline static void ldv_error(void);
