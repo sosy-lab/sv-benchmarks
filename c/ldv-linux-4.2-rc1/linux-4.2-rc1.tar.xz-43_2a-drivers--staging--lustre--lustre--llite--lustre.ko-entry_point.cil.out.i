@@ -68837,12 +68837,8 @@ bool capable(int arg0) {
 void ccc_inode_lsm_put(struct inode *arg0, struct lov_stripe_md *arg1) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 sigset_t cfs_block_sigsinv(unsigned long arg0) {
-  struct __anonstruct_sigset_t_180 *tmp = (struct __anonstruct_sigset_t_180*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_sigset_t_180 *)ldv_xmalloc(sizeof(struct __anonstruct_sigset_t_180));
 }
 void cfs_clear_sigpending() {
   return;

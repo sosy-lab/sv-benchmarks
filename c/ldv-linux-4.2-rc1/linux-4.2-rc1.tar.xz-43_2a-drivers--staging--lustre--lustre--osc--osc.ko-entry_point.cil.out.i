@@ -40850,12 +40850,8 @@ bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 sigset_t cfs_block_sigsinv(unsigned long arg0) {
-  struct __anonstruct_sigset_t_180 *tmp = (struct __anonstruct_sigset_t_180*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_sigset_t_180 *)ldv_xmalloc(sizeof(struct __anonstruct_sigset_t_180));
 }
 void cfs_clear_sigpending() {
   return;
