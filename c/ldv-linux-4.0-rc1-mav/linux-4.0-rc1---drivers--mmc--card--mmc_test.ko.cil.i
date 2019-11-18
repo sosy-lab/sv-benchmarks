@@ -13932,24 +13932,6 @@ void ldv_assert_linux_block_queue__double_allocation(int expr ) ;
 void ldv_assert_linux_block_queue__more_initial_at_exit(int expr ) ;
 void ldv_assert_linux_block_queue__use_before_allocation(int expr ) ;
 static int ldv_linux_block_queue_queue_state = 0;
-struct request_queue *ldv_linux_block_queue_request_queue(void)
-{
-  struct request_queue *res ;
-  void *tmp ;
-  {
-  {
-  tmp = ldv_undef_ptr();
-  res = (struct request_queue *)tmp;
-  ldv_assert_linux_block_queue__double_allocation(ldv_linux_block_queue_queue_state == 0);
-  }
-  if ((unsigned long )res != (unsigned long )((struct request_queue *)0)) {
-    ldv_linux_block_queue_queue_state = 1;
-    return (res);
-  } else {
-  }
-  return (res);
-}
-}
 void ldv_linux_block_queue_blk_cleanup_queue(void)
 {
   {
