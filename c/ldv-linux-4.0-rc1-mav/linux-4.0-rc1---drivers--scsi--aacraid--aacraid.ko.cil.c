@@ -22299,7 +22299,7 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_118___0(spinlock_t
   return;
 }
 }
-void *ldv_linux_arch_io_io_mem_remap(void) ;
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 extern unsigned int reset_devices ;
 extern int hex_to_bin(char  ) ;
@@ -23406,7 +23406,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(size);
   }
   return (tmp);
 }
@@ -25651,14 +25651,14 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem  =    0;
-void *ldv_linux_arch_io_io_mem_remap(void) 
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
   void *ptr ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {

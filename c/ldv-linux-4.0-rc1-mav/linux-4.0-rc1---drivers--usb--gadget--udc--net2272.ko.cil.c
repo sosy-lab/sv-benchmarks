@@ -4298,7 +4298,7 @@ void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const   *ptr ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 int ldv_undef_int(void) ;
-void *ldv_linux_arch_io_io_mem_remap(void) ;
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 static void ldv_ldv_initialize_148(void) ;
 int ldv_post_init(int init_ret_val ) ;
@@ -11119,7 +11119,7 @@ static void *ldv_ioremap_nocache_132(resource_size_t ldv_func_arg1 , unsigned lo
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(ldv_func_arg2);
   }
   return (tmp);
 }
@@ -11141,7 +11141,7 @@ static void *ldv_ioremap_nocache_134(resource_size_t ldv_func_arg1 , unsigned lo
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(ldv_func_arg2);
   }
   return (tmp);
 }
@@ -11226,7 +11226,7 @@ static void *ldv_ioremap_nocache_141(resource_size_t ldv_func_arg1 , unsigned lo
 
   {
   {
-  tmp = ldv_linux_arch_io_io_mem_remap();
+  tmp = ldv_linux_arch_io_io_mem_remap(ldv_func_arg2);
   }
   return (tmp);
 }
@@ -11701,14 +11701,14 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem  =    0;
-void *ldv_linux_arch_io_io_mem_remap(void) 
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
   void *ptr ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {

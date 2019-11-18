@@ -16301,14 +16301,14 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_arch_io__more_initial_at_exit(int expr ) ;
 void *ldv_undef_ptr(void) ;
 int ldv_linux_arch_io_iomem  =    0;
-void *ldv_linux_arch_io_io_mem_remap(void) 
+void *ldv_linux_arch_io_io_mem_remap(size_t size ) 
 { 
   void *ptr ;
   void *tmp ;
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   ptr = tmp;
   }
   if ((unsigned long )ptr != (unsigned long )((void *)0)) {
