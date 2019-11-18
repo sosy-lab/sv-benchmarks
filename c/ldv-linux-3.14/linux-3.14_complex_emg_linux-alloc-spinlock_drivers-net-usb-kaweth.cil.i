@@ -8041,32 +8041,16 @@ struct net_device *ldv_alloc_etherdev_mqs(struct net_device *arg0 , int arg1 , u
 }
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_timer_list = (struct timer_list *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_container_timer_list = (struct timer_list *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_ldv_param_13_1_default = (struct usb_device_id *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_ldv_param_8_1_default = (struct pm_message *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_resource_usb_interface = (struct usb_interface *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_usb_device_usb_device = (struct usb_device *)tmp___6;
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_2_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_3_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_3_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_3_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_3_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }

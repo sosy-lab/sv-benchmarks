@@ -10448,39 +10448,19 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
 }
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_ldv_param_24_2_default = (unsigned int *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_resource_ieee80211_hw = (struct ieee80211_hw *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_resource_struct_ieee80211_bss_conf_ptr = (struct ieee80211_bss_conf *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_resource_struct_ieee80211_low_level_stats_ptr = (struct ieee80211_low_level_stats *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_resource_struct_ieee80211_tx_control_ptr = (struct ieee80211_tx_control *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_0_resource_struct_ieee80211_vif_ptr = (struct ieee80211_vif *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_0_resource_struct_netdev_hw_addr_list_ptr = (struct netdev_hw_addr_list *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_0_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___6;
-  ldv_1_data_data = external_allocated_data();
-  tmp___7 = external_allocated_data();
-  ldv_1_thread_thread = (enum irqreturn (*)(int , void * ))tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_2_resource_dev = (struct pci_dev *)tmp___8;
+  ldv_0_ldv_param_24_2_default = ldv_malloc(sizeof(unsigned int));
+  ldv_0_resource_ieee80211_hw = ldv_malloc(sizeof(struct ieee80211_hw));
+  ldv_0_resource_struct_ieee80211_bss_conf_ptr = ldv_malloc(sizeof(struct ieee80211_bss_conf));
+  ldv_0_resource_struct_ieee80211_low_level_stats_ptr = ldv_malloc(sizeof(struct ieee80211_low_level_stats));
+  ldv_0_resource_struct_ieee80211_tx_control_ptr = ldv_malloc(sizeof(struct ieee80211_tx_control));
+  ldv_0_resource_struct_ieee80211_vif_ptr = ldv_malloc(sizeof(struct ieee80211_vif));
+  ldv_0_resource_struct_netdev_hw_addr_list_ptr = ldv_malloc(sizeof(struct netdev_hw_addr_list));
+  ldv_0_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_1_thread_thread = (enum irqreturn (*)(int , void * ))0;
+  ldv_2_resource_dev = ldv_malloc(sizeof(struct pci_dev));
   }
   return;
 }

@@ -12077,58 +12077,28 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
 }
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
 
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))tmp;
-  ldv_1_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_1_thread_thread = (enum irqreturn (*)(int  , void * ))tmp___0;
-  ldv_2_data_data = external_allocated_data();
-  tmp___1 = external_allocated_data();
-  ldv_2_thread_thread = (enum irqreturn (*)(int  , void * ))tmp___1;
-  ldv_3_data_data = external_allocated_data();
-  tmp___2 = external_allocated_data();
-  ldv_3_thread_thread = (enum irqreturn (*)(int  , void * ))tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_4_resource_dev = (struct pci_dev *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_5_ldv_param_24_1_default = (unsigned char *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_5_ldv_param_24_2_default = (unsigned char *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_5_ldv_param_30_2_default = (unsigned char *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_5_ldv_param_30_3_default = (unsigned char *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_5_ldv_param_30_4_default = (int *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_5_ldv_param_30_5_default = (int *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_5_ldv_param_9_4_default = (unsigned int *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_5_resource_struct_ath10k_hif_cb_ptr = (struct ath10k_hif_cb *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_5_resource_struct_ath10k_ptr = (struct ath10k *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_5_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___13;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_1_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_2_data_data = ldv_malloc(0UL);
+  ldv_2_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_3_data_data = ldv_malloc(0UL);
+  ldv_3_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_4_resource_dev = ldv_malloc(sizeof(struct pci_dev));
+  ldv_5_ldv_param_24_1_default = ldv_malloc(sizeof(unsigned char));
+  ldv_5_ldv_param_24_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_5_ldv_param_30_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_5_ldv_param_30_3_default = ldv_malloc(sizeof(unsigned char));
+  ldv_5_ldv_param_30_4_default = ldv_malloc(sizeof(int));
+  ldv_5_ldv_param_30_5_default = ldv_malloc(sizeof(int));
+  ldv_5_ldv_param_9_4_default = ldv_malloc(sizeof(unsigned int));
+  ldv_5_resource_struct_ath10k_hif_cb_ptr = ldv_malloc(sizeof(struct ath10k_hif_cb));
+  ldv_5_resource_struct_ath10k_ptr = ldv_malloc(sizeof(struct ath10k));
+  ldv_5_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
   }
   return;
 }

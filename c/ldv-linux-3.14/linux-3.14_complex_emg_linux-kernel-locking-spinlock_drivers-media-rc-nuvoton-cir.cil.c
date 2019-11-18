@@ -5565,22 +5565,17 @@ int ldv_EMGentry_init_nvt_init_8_7(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
 
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))tmp;
-  ldv_1_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_1_thread_thread = (enum irqreturn (*)(int  , void * ))tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_2_resource_struct_pnp_dev_ptr = (struct pnp_dev *)tmp___1;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_1_thread_thread = (enum irqreturn (*)(int  , void * ))0;
+  ldv_2_resource_struct_pnp_dev_ptr = ldv_malloc(sizeof(struct pnp_dev));
   }
   return;
 }
@@ -6990,7 +6985,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

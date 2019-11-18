@@ -7748,45 +7748,24 @@ int ldv_EMGentry_init_mcp251x_can_driver_init_12_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_resource_struct_spi_device_ptr = (struct spi_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_callback_handler = (enum irqreturn (*)(int  , void * ))tmp___0;
-  ldv_1_data_data = external_allocated_data();
-  tmp___1 = external_allocated_data();
-  ldv_2_container_net_device = (struct net_device *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_device_device = (struct device *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_4_container_platform_driver = (struct platform_driver *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_4_ldv_param_14_0_default = (struct platform_device *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_4_ldv_param_3_0_default = (struct platform_device *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_5_device_device = (struct device *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_5_rtc_class_ops_rtc_class_ops = (struct rtc_class_ops *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_5_rtc_device_rtc_device = (struct rtc_device *)tmp___9;
+  ldv_0_resource_struct_spi_device_ptr = ldv_malloc(sizeof(struct spi_device));
+  ldv_1_callback_handler = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_2_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_2_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_3_device_device = ldv_malloc(sizeof(struct device));
+  ldv_4_container_platform_driver = ldv_malloc(sizeof(struct platform_driver));
+  ldv_4_ldv_param_14_0_default = ldv_malloc(sizeof(struct platform_device));
+  ldv_4_ldv_param_3_0_default = ldv_malloc(sizeof(struct platform_device));
+  ldv_5_device_device = ldv_malloc(sizeof(struct device));
+  ldv_5_rtc_class_ops_rtc_class_ops = ldv_malloc(sizeof(struct rtc_class_ops));
+  ldv_5_rtc_device_rtc_device = ldv_malloc(sizeof(struct rtc_device));
   }
   return;
 }
@@ -10590,7 +10569,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

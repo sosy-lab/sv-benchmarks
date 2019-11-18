@@ -14029,141 +14029,56 @@ int ldv_EMGentry_init_team_module_init_24_13(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
-  void *tmp___24 ;
-  void *tmp___25 ;
-  void *tmp___26 ;
-  void *tmp___27 ;
-  void *tmp___28 ;
-  void *tmp___29 ;
-  void *tmp___30 ;
-  void *tmp___31 ;
-  void *tmp___32 ;
-  void *tmp___33 ;
-  void *tmp___34 ;
-  void *tmp___35 ;
-  void *tmp___36 ;
-  void *tmp___37 ;
-  void *tmp___38 ;
-  void *tmp___39 ;
-  void *tmp___40 ;
-  void *tmp___41 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_func_2_ptr = (unsigned short (*)(struct net_device * , struct sk_buff * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_container_struct_ethtool_drvinfo_ptr = (struct ethtool_drvinfo *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_container_struct_net_ptr = (struct net *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_container_struct_netpoll_info_ptr = (struct netpoll_info *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_0_container_struct_nlattr_ptr_ptr = (struct nlattr **)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_0_container_struct_rtnl_link_stats64_ptr = (struct rtnl_link_stats64 *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_0_ldv_param_11_1_default = (struct net_device *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_0_ldv_param_23_1_default = (struct net_device *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_0_ldv_param_37_3_default = (unsigned short (*)(struct net_device * , struct sk_buff * ))tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_0_ldv_param_51_3_default = (struct nlattr **)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_0_ldv_param_54_1_default = (struct nlattr **)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_1_container_struct_genl_info_ptr = (struct genl_info *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_2_container_struct_genl_info_ptr = (struct genl_info *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_2_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_3_container_struct_genl_info_ptr = (struct genl_info *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_3_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_4_container_struct_genl_info_ptr = (struct genl_info *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_4_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___19;
-  ldv_5_ldv_param_3_2_default = external_allocated_data();
-  tmp___20 = external_allocated_data();
-  ldv_6_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_6_container_struct_team_ptr = (struct team *)tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_7_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_7_container_struct_team_ptr = (struct team *)tmp___23;
-  tmp___24 = external_allocated_data();
-  ldv_8_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___24;
-  tmp___25 = external_allocated_data();
-  ldv_8_container_struct_team_ptr = (struct team *)tmp___25;
-  tmp___26 = external_allocated_data();
-  ldv_9_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___26;
-  tmp___27 = external_allocated_data();
-  ldv_9_container_struct_team_ptr = (struct team *)tmp___27;
-  tmp___28 = external_allocated_data();
-  ldv_10_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___28;
-  tmp___29 = external_allocated_data();
-  ldv_10_container_struct_team_ptr = (struct team *)tmp___29;
-  tmp___30 = external_allocated_data();
-  ldv_11_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___30;
-  tmp___31 = external_allocated_data();
-  ldv_11_container_struct_team_ptr = (struct team *)tmp___31;
-  tmp___32 = external_allocated_data();
-  ldv_12_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___32;
-  tmp___33 = external_allocated_data();
-  ldv_12_container_struct_team_ptr = (struct team *)tmp___33;
-  tmp___34 = external_allocated_data();
-  ldv_13_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___34;
-  tmp___35 = external_allocated_data();
-  ldv_13_container_struct_team_ptr = (struct team *)tmp___35;
-  tmp___36 = external_allocated_data();
-  ldv_14_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___36;
-  tmp___37 = external_allocated_data();
-  ldv_14_container_struct_team_ptr = (struct team *)tmp___37;
-  tmp___38 = external_allocated_data();
-  ldv_15_container_struct_team_gsetter_ctx_ptr = (struct team_gsetter_ctx *)tmp___38;
-  tmp___39 = external_allocated_data();
-  ldv_15_container_struct_team_ptr = (struct team *)tmp___39;
-  tmp___40 = external_allocated_data();
-  ldv_16_container_timer_list = (struct timer_list *)tmp___40;
-  tmp___41 = external_allocated_data();
-  ldv_17_container_timer_list = (struct timer_list *)tmp___41;
+  ldv_0_container_func_2_ptr = (unsigned short (*)(struct net_device * , struct sk_buff * ))0;
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_ethtool_drvinfo_ptr = ldv_malloc(sizeof(struct ethtool_drvinfo));
+  ldv_0_container_struct_net_ptr = ldv_malloc(sizeof(struct net));
+  ldv_0_container_struct_netpoll_info_ptr = ldv_malloc(sizeof(struct netpoll_info));
+  ldv_0_container_struct_nlattr_ptr_ptr = ldv_malloc(sizeof(struct nlattr *));
+  ldv_0_container_struct_rtnl_link_stats64_ptr = ldv_malloc(sizeof(struct rtnl_link_stats64));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_0_ldv_param_11_1_default = ldv_malloc(sizeof(struct net_device));
+  ldv_0_ldv_param_23_1_default = ldv_malloc(sizeof(struct net_device));
+  ldv_0_ldv_param_37_3_default = (unsigned short (*)(struct net_device * , struct sk_buff * ))0;
+  ldv_0_ldv_param_51_3_default = ldv_malloc(sizeof(struct nlattr *));
+  ldv_0_ldv_param_54_1_default = ldv_malloc(sizeof(struct nlattr *));
+  ldv_1_container_struct_genl_info_ptr = ldv_malloc(sizeof(struct genl_info));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_container_struct_genl_info_ptr = ldv_malloc(sizeof(struct genl_info));
+  ldv_2_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_3_container_struct_genl_info_ptr = ldv_malloc(sizeof(struct genl_info));
+  ldv_3_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_4_container_struct_genl_info_ptr = ldv_malloc(sizeof(struct genl_info));
+  ldv_4_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_5_ldv_param_3_2_default = ldv_malloc(0UL);
+  ldv_6_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_6_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_7_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_7_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_8_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_8_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_9_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_9_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_10_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_10_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_11_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_11_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_12_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_12_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_13_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_13_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_14_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_14_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_15_container_struct_team_gsetter_ctx_ptr = ldv_malloc(sizeof(struct team_gsetter_ctx));
+  ldv_15_container_struct_team_ptr = ldv_malloc(sizeof(struct team));
+  ldv_16_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_17_container_timer_list = ldv_malloc(sizeof(struct timer_list));
   }
   return;
 }
@@ -17377,7 +17292,6 @@ int ldv_unregister_netdevice_notifier(int arg0 , struct notifier_block *arg1 )
   return (arg0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -17402,7 +17316,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   void *tmp ;

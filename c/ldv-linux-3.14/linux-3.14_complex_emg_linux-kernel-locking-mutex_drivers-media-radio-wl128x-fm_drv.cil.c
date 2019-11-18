@@ -7456,68 +7456,31 @@ int ldv_EMGentry_init_fm_drv_init_6_13(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_file_operations = (struct file_operations *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_ldv_param_4_1_default = (char *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_ldv_param_4_3_default = (long long *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_resource_file = (struct file *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_resource_inode = (struct inode *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_container_struct_v4l2_ctrl_ptr = (struct v4l2_ctrl *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_2_container_timer_list = (struct timer_list *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_ldv_param_18_1_default = (char *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_3_ldv_param_18_3_default = (long long *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_3_ldv_param_34_1_default = (char *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_3_ldv_param_34_3_default = (long long *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_3_resource_file = (struct file *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_3_resource_struct_poll_table_struct_ptr = (struct poll_table_struct *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_audio_ptr = (struct v4l2_audio *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_capability_ptr = (struct v4l2_capability *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_frequency_ptr = (struct v4l2_frequency *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_hw_freq_seek_ptr = (struct v4l2_hw_freq_seek *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_modulator_ptr = (struct v4l2_modulator *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_3_resource_struct_v4l2_tuner_ptr = (struct v4l2_tuner *)tmp___17;
+  ldv_0_container_file_operations = ldv_malloc(sizeof(struct file_operations));
+  ldv_0_ldv_param_4_1_default = ldv_malloc(sizeof(char));
+  ldv_0_ldv_param_4_3_default = ldv_malloc(sizeof(long long));
+  ldv_0_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_0_resource_inode = ldv_malloc(sizeof(struct inode));
+  ldv_1_container_struct_v4l2_ctrl_ptr = ldv_malloc(sizeof(struct v4l2_ctrl));
+  ldv_2_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_3_ldv_param_18_1_default = ldv_malloc(sizeof(char));
+  ldv_3_ldv_param_18_3_default = ldv_malloc(sizeof(long long));
+  ldv_3_ldv_param_34_1_default = ldv_malloc(sizeof(char));
+  ldv_3_ldv_param_34_3_default = ldv_malloc(sizeof(long long));
+  ldv_3_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_3_resource_struct_poll_table_struct_ptr = ldv_malloc(sizeof(struct poll_table_struct));
+  ldv_3_resource_struct_v4l2_audio_ptr = ldv_malloc(sizeof(struct v4l2_audio));
+  ldv_3_resource_struct_v4l2_capability_ptr = ldv_malloc(sizeof(struct v4l2_capability));
+  ldv_3_resource_struct_v4l2_frequency_ptr = ldv_malloc(sizeof(struct v4l2_frequency));
+  ldv_3_resource_struct_v4l2_hw_freq_seek_ptr = ldv_malloc(sizeof(struct v4l2_hw_freq_seek));
+  ldv_3_resource_struct_v4l2_modulator_ptr = ldv_malloc(sizeof(struct v4l2_modulator));
+  ldv_3_resource_struct_v4l2_tuner_ptr = ldv_malloc(sizeof(struct v4l2_tuner));
   }
   return;
 }
@@ -12075,7 +12038,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

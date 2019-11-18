@@ -8126,68 +8126,31 @@ int ldv_EMGentry_init_imon_driver_init_11_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_ldv_param_4_1_default = (char *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_ldv_param_4_3_default = (long long *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_resource_file = (struct file *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_resource_inode = (struct inode *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_1_ldv_param_4_1_default = (char *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_ldv_param_4_3_default = (long long *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_1_resource_file = (struct file *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_1_resource_inode = (struct inode *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_2_container_struct_device_ptr = (struct device *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_2_ldv_param_3_2_default = (char *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_2_ldv_param_9_2_default = (char *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_3_container_struct_device_ptr = (struct device *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_3_ldv_param_3_2_default = (char *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_3_ldv_param_9_2_default = (char *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_4_container_timer_list = (struct timer_list *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_5_ldv_param_13_1_default = (struct usb_device_id *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_5_ldv_param_8_1_default = (struct pm_message *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_5_resource_usb_interface = (struct usb_interface *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_5_usb_device_usb_device = (struct usb_device *)tmp___17;
+  ldv_0_ldv_param_4_1_default = ldv_malloc(sizeof(char));
+  ldv_0_ldv_param_4_3_default = ldv_malloc(sizeof(long long));
+  ldv_0_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_0_resource_inode = ldv_malloc(sizeof(struct inode));
+  ldv_1_ldv_param_4_1_default = ldv_malloc(sizeof(char));
+  ldv_1_ldv_param_4_3_default = ldv_malloc(sizeof(long long));
+  ldv_1_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_1_resource_inode = ldv_malloc(sizeof(struct inode));
+  ldv_2_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_2_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_2_ldv_param_9_2_default = ldv_malloc(sizeof(char));
+  ldv_3_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_3_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_3_ldv_param_9_2_default = ldv_malloc(sizeof(char));
+  ldv_4_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_5_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_5_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_5_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_5_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -9979,7 +9942,6 @@ static int ldv_dev_set_drvdata_40(struct device *dev , void *data )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -10237,7 +10199,6 @@ static int ldv_usb_submit_urb_82(struct urb *ldv_func_arg1 , gfp_t flags )
   return __VERIFIER_nondet_int();
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_83(int ldv_func_arg1 , gfp_t flags ) 
 { 
   void *tmp ;

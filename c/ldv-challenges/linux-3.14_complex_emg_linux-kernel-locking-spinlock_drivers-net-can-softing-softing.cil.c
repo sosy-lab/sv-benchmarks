@@ -7766,169 +7766,72 @@ int ldv___platform_driver_register(int arg0 , struct platform_driver *arg1 , str
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
-  void *tmp___24 ;
-  void *tmp___25 ;
-  void *tmp___26 ;
-  void *tmp___27 ;
-  void *tmp___28 ;
-  void *tmp___29 ;
-  void *tmp___30 ;
-  void *tmp___31 ;
-  void *tmp___32 ;
-  void *tmp___33 ;
-  void *tmp___34 ;
-  void *tmp___35 ;
-  void *tmp___36 ;
-  void *tmp___37 ;
-  void *tmp___38 ;
-  void *tmp___39 ;
-  void *tmp___40 ;
-  void *tmp___41 ;
-  void *tmp___42 ;
-  void *tmp___43 ;
-  void *tmp___44 ;
-  void *tmp___45 ;
-  void *tmp___46 ;
-  void *tmp___47 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_callback_handler = (enum irqreturn (*)(int  , void * ))tmp;
-  ldv_0_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_1_container_net_device = (struct net_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_resource_platform_device = (struct platform_device *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_device_device = (struct device *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_pm_ops_dev_pm_ops = (struct dev_pm_ops *)tmp___4;
-  tmp___5 = external_allocated_data();
+  ldv_0_callback_handler = (enum irqreturn (*)(int  , void * ))0;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_1_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_1_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_platform_device = ldv_malloc(sizeof(struct platform_device));
+  ldv_3_device_device = ldv_malloc(sizeof(struct device));
+  ldv_3_pm_ops_dev_pm_ops = ldv_malloc(sizeof(struct dev_pm_ops));
   ldv_4_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_4_container_struct_device_ptr = (struct device *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_ldv_param_3_2_default = (char *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_4_ldv_param_9_2_default = (char *)tmp___8;
-  tmp___9 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_4_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_4_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_4_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_5_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_5_container_struct_device_ptr = (struct device *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_5_ldv_param_3_2_default = (char *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_5_ldv_param_9_2_default = (char *)tmp___12;
-  tmp___13 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_5_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_5_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_5_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_6_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_6_container_struct_device_ptr = (struct device *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_6_ldv_param_3_2_default = (char *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_6_ldv_param_9_2_default = (char *)tmp___16;
-  tmp___17 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_6_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_6_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_6_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_7_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_7_container_struct_device_ptr = (struct device *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_7_ldv_param_3_2_default = (char *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_7_ldv_param_9_2_default = (char *)tmp___20;
-  tmp___21 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_7_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_7_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_7_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_8_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_8_container_struct_device_ptr = (struct device *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_8_ldv_param_3_2_default = (char *)tmp___23;
-  tmp___24 = external_allocated_data();
-  ldv_8_ldv_param_9_2_default = (char *)tmp___24;
-  tmp___25 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_8_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_8_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_8_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_9_callback_store = (long (*)(struct device * , struct device_attribute * , char * ,
-                                   unsigned long  ))tmp___25;
-  tmp___26 = external_allocated_data();
-  ldv_9_container_struct_device_ptr = (struct device *)tmp___26;
-  tmp___27 = external_allocated_data();
-  ldv_9_ldv_param_3_2_default = (char *)tmp___27;
-  tmp___28 = external_allocated_data();
-  ldv_9_ldv_param_9_2_default = (char *)tmp___28;
-  tmp___29 = external_allocated_data();
+                                   unsigned long  ))0;
+  ldv_9_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_9_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_9_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_10_callback_store = (long (*)(struct device * , struct device_attribute * ,
-                                    char * , unsigned long  ))tmp___29;
-  tmp___30 = external_allocated_data();
-  ldv_10_container_struct_device_ptr = (struct device *)tmp___30;
-  tmp___31 = external_allocated_data();
-  ldv_10_ldv_param_3_2_default = (char *)tmp___31;
-  tmp___32 = external_allocated_data();
-  ldv_10_ldv_param_9_2_default = (char *)tmp___32;
-  tmp___33 = external_allocated_data();
+                                    char * , unsigned long  ))0;
+  ldv_10_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_10_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_10_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_11_callback_store = (long (*)(struct device * , struct device_attribute * ,
-                                    char * , unsigned long  ))tmp___33;
-  tmp___34 = external_allocated_data();
-  ldv_11_container_struct_device_ptr = (struct device *)tmp___34;
-  tmp___35 = external_allocated_data();
-  ldv_11_ldv_param_3_2_default = (char *)tmp___35;
-  tmp___36 = external_allocated_data();
-  ldv_11_ldv_param_9_2_default = (char *)tmp___36;
-  tmp___37 = external_allocated_data();
-  ldv_12_container_struct_device_ptr = (struct device *)tmp___37;
-  tmp___38 = external_allocated_data();
-  ldv_12_ldv_param_3_2_default = (char *)tmp___38;
-  tmp___39 = external_allocated_data();
-  ldv_12_ldv_param_9_2_default = (char *)tmp___39;
-  tmp___40 = external_allocated_data();
+                                    char * , unsigned long  ))0;
+  ldv_11_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_11_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_11_ldv_param_9_2_default = ldv_malloc(sizeof(char));
+  ldv_12_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_12_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_12_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_13_callback_store = (long (*)(struct device * , struct device_attribute * ,
-                                    char * , unsigned long  ))tmp___40;
-  tmp___41 = external_allocated_data();
-  ldv_13_container_struct_device_ptr = (struct device *)tmp___41;
-  tmp___42 = external_allocated_data();
-  ldv_13_ldv_param_3_2_default = (char *)tmp___42;
-  tmp___43 = external_allocated_data();
-  ldv_13_ldv_param_9_2_default = (char *)tmp___43;
-  tmp___44 = external_allocated_data();
+                                    char * , unsigned long  ))0;
+  ldv_13_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_13_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_13_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   ldv_14_callback_store = (long (*)(struct device * , struct device_attribute * ,
-                                    char * , unsigned long  ))tmp___44;
-  tmp___45 = external_allocated_data();
-  ldv_14_container_struct_device_ptr = (struct device *)tmp___45;
-  tmp___46 = external_allocated_data();
-  ldv_14_ldv_param_3_2_default = (char *)tmp___46;
-  tmp___47 = external_allocated_data();
-  ldv_14_ldv_param_9_2_default = (char *)tmp___47;
+                                    char * , unsigned long  ))0;
+  ldv_14_container_struct_device_ptr = ldv_malloc(sizeof(struct device));
+  ldv_14_ldv_param_3_2_default = ldv_malloc(sizeof(char));
+  ldv_14_ldv_param_9_2_default = ldv_malloc(sizeof(char));
   }
   return;
 }
@@ -13310,7 +13213,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

@@ -9395,55 +9395,26 @@ int ldv_EMGentry_init_orinoco_driver_init_10_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_container_struct_hermes_ptr = (struct hermes *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_container_struct_hermes_response_ptr = (struct hermes_response *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_1_container_struct_spinlock_ptr = (struct spinlock *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_ldv_param_20_1_default = (unsigned long *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_1_ldv_param_23_1_default = (char *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_1_ldv_param_30_4_default = (unsigned short *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_1_ldv_param_33_1_default = (unsigned short *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_1_ldv_param_37_1_default = (unsigned long *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_1_ldv_param_3_2_default = (unsigned short *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_2_container_timer_list = (struct timer_list *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_3_ldv_param_13_1_default = (struct usb_device_id *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_3_resource_usb_interface = (struct usb_interface *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_3_usb_device_usb_device = (struct usb_device *)tmp___13;
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_container_struct_hermes_ptr = ldv_malloc(sizeof(struct hermes));
+  ldv_1_container_struct_hermes_response_ptr = ldv_malloc(sizeof(struct hermes_response));
+  ldv_1_container_struct_spinlock_ptr = ldv_malloc(sizeof(struct spinlock));
+  ldv_1_ldv_param_20_1_default = ldv_malloc(sizeof(unsigned long));
+  ldv_1_ldv_param_23_1_default = ldv_malloc(sizeof(char));
+  ldv_1_ldv_param_30_4_default = ldv_malloc(sizeof(unsigned short));
+  ldv_1_ldv_param_33_1_default = ldv_malloc(sizeof(unsigned short));
+  ldv_1_ldv_param_37_1_default = ldv_malloc(sizeof(unsigned long));
+  ldv_1_ldv_param_3_2_default = ldv_malloc(sizeof(unsigned short));
+  ldv_2_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_3_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_3_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_3_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -11141,7 +11112,6 @@ void ldv_usb_usb_instance_3(void *arg0 )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -11199,7 +11169,6 @@ static int ldv_mod_timer_84(struct timer_list *ldv_func_arg1 , unsigned long ldv
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_85(int ldv_func_arg1 , gfp_t flags )
 {
   void *tmp ;

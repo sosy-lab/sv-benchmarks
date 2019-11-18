@@ -9708,81 +9708,36 @@ int ldv___platform_driver_register(int arg0 , struct platform_driver *arg1 , str
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_file_operations = (struct file_operations *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_ldv_param_4_1_default = (char *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_0_ldv_param_4_3_default = (long long *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_0_resource_file = (struct file *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_0_resource_inode = (struct inode *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_callback_handler = (enum irqreturn (*)(int  , void * ))tmp___4;
-  ldv_1_data_data = external_allocated_data();
-  tmp___5 = external_allocated_data();
-  ldv_2_resource_platform_device = (struct platform_device *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_device_device = (struct device *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_3_pm_ops_dev_pm_ops = (struct dev_pm_ops *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_4_container_struct_v4l2_ctrl_ptr = (struct v4l2_ctrl *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_5_ldv_param_18_1_default = (char *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_5_ldv_param_18_3_default = (long long *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_5_ldv_param_26_2_default = (unsigned int *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_5_ldv_param_41_1_default = (char *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_5_ldv_param_41_3_default = (long long *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_5_resource_file = (struct file *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_5_resource_struct_poll_table_struct_ptr = (struct poll_table_struct *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_audio_ptr = (struct v4l2_audio *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_capability_ptr = (struct v4l2_capability *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_frequency_ptr = (struct v4l2_frequency *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_hw_freq_seek_ptr = (struct v4l2_hw_freq_seek *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_modulator_ptr = (struct v4l2_modulator *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_5_resource_struct_v4l2_tuner_ptr = (struct v4l2_tuner *)tmp___21;
+  ldv_0_container_file_operations = ldv_malloc(sizeof(struct file_operations));
+  ldv_0_ldv_param_4_1_default = ldv_malloc(sizeof(char));
+  ldv_0_ldv_param_4_3_default = ldv_malloc(sizeof(long long));
+  ldv_0_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_0_resource_inode = ldv_malloc(sizeof(struct inode));
+  ldv_1_callback_handler = (enum irqreturn (*)(int  , void * ))0;
+  ldv_1_data_data = ldv_malloc(0UL);
+  ldv_2_resource_platform_device = ldv_malloc(sizeof(struct platform_device));
+  ldv_3_device_device = ldv_malloc(sizeof(struct device));
+  ldv_3_pm_ops_dev_pm_ops = ldv_malloc(sizeof(struct dev_pm_ops));
+  ldv_4_container_struct_v4l2_ctrl_ptr = ldv_malloc(sizeof(struct v4l2_ctrl));
+  ldv_5_ldv_param_18_1_default = ldv_malloc(sizeof(char));
+  ldv_5_ldv_param_18_3_default = ldv_malloc(sizeof(long long));
+  ldv_5_ldv_param_26_2_default = ldv_malloc(sizeof(unsigned int));
+  ldv_5_ldv_param_41_1_default = ldv_malloc(sizeof(char));
+  ldv_5_ldv_param_41_3_default = ldv_malloc(sizeof(long long));
+  ldv_5_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_5_resource_struct_poll_table_struct_ptr = ldv_malloc(sizeof(struct poll_table_struct));
+  ldv_5_resource_struct_v4l2_audio_ptr = ldv_malloc(sizeof(struct v4l2_audio));
+  ldv_5_resource_struct_v4l2_capability_ptr = ldv_malloc(sizeof(struct v4l2_capability));
+  ldv_5_resource_struct_v4l2_frequency_ptr = ldv_malloc(sizeof(struct v4l2_frequency));
+  ldv_5_resource_struct_v4l2_hw_freq_seek_ptr = ldv_malloc(sizeof(struct v4l2_hw_freq_seek));
+  ldv_5_resource_struct_v4l2_modulator_ptr = ldv_malloc(sizeof(struct v4l2_modulator));
+  ldv_5_resource_struct_v4l2_tuner_ptr = ldv_malloc(sizeof(struct v4l2_tuner));
   }
   return;
 }
@@ -13344,7 +13299,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;

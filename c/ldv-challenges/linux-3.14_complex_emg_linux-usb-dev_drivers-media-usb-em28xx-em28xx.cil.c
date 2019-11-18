@@ -12888,21 +12888,13 @@ int ldv_EMGentry_init_em28xx_usb_driver_init_5_9(int (*arg0)(void) )
 }
 void ldv_allocate_external_0(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_struct_i2c_msg_ptr = (struct i2c_msg *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_ldv_param_13_1_default = (struct usb_device_id *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_resource_usb_interface = (struct usb_interface *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_usb_device_usb_device = (struct usb_device *)tmp___2;
+  ldv_0_container_struct_i2c_msg_ptr = ldv_malloc(sizeof(struct i2c_msg));
+  ldv_1_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_1_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_1_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }

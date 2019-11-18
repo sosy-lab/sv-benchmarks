@@ -12868,118 +12868,47 @@ int ldv_EMGentry_init_rndis_wlan_driver_init_11_15(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
-  void *tmp___18 ;
-  void *tmp___19 ;
-  void *tmp___20 ;
-  void *tmp___21 ;
-  void *tmp___22 ;
-  void *tmp___23 ;
-  void *tmp___24 ;
-  void *tmp___25 ;
-  void *tmp___26 ;
-  void *tmp___27 ;
-  void *tmp___28 ;
-  void *tmp___29 ;
-  void *tmp___30 ;
-  void *tmp___31 ;
-  void *tmp___32 ;
-  void *tmp___33 ;
-  void *tmp___34 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_0_container_net_device = (struct net_device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_0_container_struct_sk_buff_ptr = (struct sk_buff *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_1_ldv_param_21_3_default = (unsigned int *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_1_ldv_param_24_4_default = (unsigned char *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_1_ldv_param_28_3_default = (unsigned char *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_1_ldv_param_32_2_default = (unsigned char *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_1_ldv_param_35_2_default = (int *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_1_ldv_param_4_4_default = (unsigned char *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_1_resource_struct_cfg80211_connect_params_ptr = (struct cfg80211_connect_params *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_1_resource_struct_cfg80211_ibss_params_ptr = (struct cfg80211_ibss_params *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_1_resource_struct_cfg80211_pmksa_ptr = (struct cfg80211_pmksa *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_1_resource_struct_cfg80211_scan_request_ptr = (struct cfg80211_scan_request *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_1_resource_struct_key_params_ptr = (struct key_params *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_1_resource_struct_net_device_ptr = (struct net_device *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_1_resource_struct_station_info_ptr = (struct station_info *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_1_resource_struct_vif_params_ptr = (struct vif_params *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_1_resource_struct_wiphy_ptr = (struct wiphy *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_1_resource_struct_wireless_dev_ptr = (struct wireless_dev *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_2_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___17;
-  tmp___18 = external_allocated_data();
-  ldv_2_resource_struct_urb_ptr = (struct urb *)tmp___18;
-  tmp___19 = external_allocated_data();
-  ldv_2_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___19;
-  tmp___20 = external_allocated_data();
-  ldv_2_resource_struct_usbnet_ptr = (struct usbnet *)tmp___20;
-  tmp___21 = external_allocated_data();
-  ldv_3_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___21;
-  tmp___22 = external_allocated_data();
-  ldv_3_resource_struct_urb_ptr = (struct urb *)tmp___22;
-  tmp___23 = external_allocated_data();
-  ldv_3_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___23;
-  tmp___24 = external_allocated_data();
-  ldv_3_resource_struct_usbnet_ptr = (struct usbnet *)tmp___24;
-  tmp___25 = external_allocated_data();
-  ldv_4_resource_struct_sk_buff_ptr = (struct sk_buff *)tmp___25;
-  tmp___26 = external_allocated_data();
-  ldv_4_resource_struct_urb_ptr = (struct urb *)tmp___26;
-  tmp___27 = external_allocated_data();
-  ldv_4_resource_struct_usb_interface_ptr = (struct usb_interface *)tmp___27;
-  tmp___28 = external_allocated_data();
-  ldv_4_resource_struct_usbnet_ptr = (struct usbnet *)tmp___28;
-  tmp___29 = external_allocated_data();
-  ldv_5_container_timer_list = (struct timer_list *)tmp___29;
-  tmp___30 = external_allocated_data();
-  ldv_6_container_timer_list = (struct timer_list *)tmp___30;
-  tmp___31 = external_allocated_data();
-  ldv_7_ldv_param_13_1_default = (struct usb_device_id *)tmp___31;
-  tmp___32 = external_allocated_data();
-  ldv_7_ldv_param_8_1_default = (struct pm_message *)tmp___32;
-  tmp___33 = external_allocated_data();
-  ldv_7_resource_usb_interface = (struct usb_interface *)tmp___33;
-  tmp___34 = external_allocated_data();
-  ldv_7_usb_device_usb_device = (struct usb_device *)tmp___34;
+  ldv_0_container_net_device = ldv_malloc(sizeof(struct net_device));
+  ldv_0_container_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_1_ldv_param_21_3_default = ldv_malloc(sizeof(unsigned int));
+  ldv_1_ldv_param_24_4_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_ldv_param_28_3_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_ldv_param_32_2_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_ldv_param_35_2_default = ldv_malloc(sizeof(int));
+  ldv_1_ldv_param_4_4_default = ldv_malloc(sizeof(unsigned char));
+  ldv_1_resource_struct_cfg80211_connect_params_ptr = ldv_malloc(sizeof(struct cfg80211_connect_params));
+  ldv_1_resource_struct_cfg80211_ibss_params_ptr = ldv_malloc(sizeof(struct cfg80211_ibss_params));
+  ldv_1_resource_struct_cfg80211_pmksa_ptr = ldv_malloc(sizeof(struct cfg80211_pmksa));
+  ldv_1_resource_struct_cfg80211_scan_request_ptr = ldv_malloc(sizeof(struct cfg80211_scan_request));
+  ldv_1_resource_struct_key_params_ptr = ldv_malloc(sizeof(struct key_params));
+  ldv_1_resource_struct_net_device_ptr = ldv_malloc(sizeof(struct net_device));
+  ldv_1_resource_struct_station_info_ptr = ldv_malloc(sizeof(struct station_info));
+  ldv_1_resource_struct_vif_params_ptr = ldv_malloc(sizeof(struct vif_params));
+  ldv_1_resource_struct_wiphy_ptr = ldv_malloc(sizeof(struct wiphy));
+  ldv_1_resource_struct_wireless_dev_ptr = ldv_malloc(sizeof(struct wireless_dev));
+  ldv_2_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_2_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_2_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_2_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_3_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_3_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_3_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_3_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_4_resource_struct_sk_buff_ptr = ldv_malloc(sizeof(struct sk_buff));
+  ldv_4_resource_struct_urb_ptr = ldv_malloc(sizeof(struct urb));
+  ldv_4_resource_struct_usb_interface_ptr = ldv_malloc(sizeof(struct usb_interface));
+  ldv_4_resource_struct_usbnet_ptr = ldv_malloc(sizeof(struct usbnet));
+  ldv_5_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_6_container_timer_list = ldv_malloc(sizeof(struct timer_list));
+  ldv_7_ldv_param_13_1_default = ldv_malloc(sizeof(struct usb_device_id));
+  ldv_7_ldv_param_8_1_default = ldv_malloc(sizeof(struct pm_message));
+  ldv_7_resource_usb_interface = ldv_malloc(sizeof(struct usb_interface));
+  ldv_7_usb_device_usb_device = ldv_malloc(sizeof(struct usb_device));
   }
   return;
 }
@@ -16001,7 +15930,6 @@ __inline static long IS_ERR(void const *ptr )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -16044,7 +15972,6 @@ __inline static void ldv_spin_unlock_bh_80(spinlock_t *lock )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *ldv_kmalloc_array_83(size_t n , size_t size , gfp_t flags )
 {
   void *res ;

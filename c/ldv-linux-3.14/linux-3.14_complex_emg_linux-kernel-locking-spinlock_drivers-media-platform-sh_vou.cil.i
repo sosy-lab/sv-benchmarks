@@ -7857,68 +7857,31 @@ int ldv_EMGentry_init_sh_vou_init_9_11(int (*arg0)(void) )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void ldv_allocate_external_0(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
-  void *tmp___9 ;
-  void *tmp___10 ;
-  void *tmp___11 ;
-  void *tmp___12 ;
-  void *tmp___13 ;
-  void *tmp___14 ;
-  void *tmp___15 ;
-  void *tmp___16 ;
-  void *tmp___17 ;
   {
   {
-  ldv_0_data_data = external_allocated_data();
-  tmp = external_allocated_data();
-  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_1_resource_platform_device = (struct platform_device *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_2_device_device = (struct device *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_pm_ops_dev_pm_ops = (struct dev_pm_ops *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_container_struct_videobuf_buffer_ptr = (struct videobuf_buffer *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_3_container_struct_videobuf_queue_ptr = (struct videobuf_queue *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_3_ldv_param_9_1_default = (unsigned int *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_3_ldv_param_9_2_default = (unsigned int *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_ldv_param_26_2_default = (unsigned long long *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_4_resource_file = (struct file *)tmp___8;
-  tmp___9 = external_allocated_data();
-  ldv_4_resource_struct_poll_table_struct_ptr = (struct poll_table_struct *)tmp___9;
-  tmp___10 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_buffer_ptr = (struct v4l2_buffer *)tmp___10;
-  tmp___11 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_capability_ptr = (struct v4l2_capability *)tmp___11;
-  tmp___12 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_crop_ptr = (struct v4l2_crop *)tmp___12;
-  tmp___13 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_cropcap_ptr = (struct v4l2_cropcap *)tmp___13;
-  tmp___14 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_fmtdesc_ptr = (struct v4l2_fmtdesc *)tmp___14;
-  tmp___15 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_format_ptr = (struct v4l2_format *)tmp___15;
-  tmp___16 = external_allocated_data();
-  ldv_4_resource_struct_v4l2_requestbuffers_ptr = (struct v4l2_requestbuffers *)tmp___16;
-  tmp___17 = external_allocated_data();
-  ldv_4_resource_struct_vm_area_struct_ptr = (struct vm_area_struct *)tmp___17;
+  ldv_0_data_data = ldv_malloc(0UL);
+  ldv_0_thread_thread = (enum irqreturn (*)(int , void * ))0;
+  ldv_1_resource_platform_device = ldv_malloc(sizeof(struct platform_device));
+  ldv_2_device_device = ldv_malloc(sizeof(struct device));
+  ldv_2_pm_ops_dev_pm_ops = ldv_malloc(sizeof(struct dev_pm_ops));
+  ldv_3_container_struct_videobuf_buffer_ptr = ldv_malloc(sizeof(struct videobuf_buffer));
+  ldv_3_container_struct_videobuf_queue_ptr = ldv_malloc(sizeof(struct videobuf_queue));
+  ldv_3_ldv_param_9_1_default = ldv_malloc(sizeof(unsigned int));
+  ldv_3_ldv_param_9_2_default = ldv_malloc(sizeof(unsigned int));
+  ldv_4_ldv_param_26_2_default = ldv_malloc(sizeof(unsigned long long));
+  ldv_4_resource_file = ldv_malloc(sizeof(struct file));
+  ldv_4_resource_struct_poll_table_struct_ptr = ldv_malloc(sizeof(struct poll_table_struct));
+  ldv_4_resource_struct_v4l2_buffer_ptr = ldv_malloc(sizeof(struct v4l2_buffer));
+  ldv_4_resource_struct_v4l2_capability_ptr = ldv_malloc(sizeof(struct v4l2_capability));
+  ldv_4_resource_struct_v4l2_crop_ptr = ldv_malloc(sizeof(struct v4l2_crop));
+  ldv_4_resource_struct_v4l2_cropcap_ptr = ldv_malloc(sizeof(struct v4l2_cropcap));
+  ldv_4_resource_struct_v4l2_fmtdesc_ptr = ldv_malloc(sizeof(struct v4l2_fmtdesc));
+  ldv_4_resource_struct_v4l2_format_ptr = ldv_malloc(sizeof(struct v4l2_format));
+  ldv_4_resource_struct_v4l2_requestbuffers_ptr = ldv_malloc(sizeof(struct v4l2_requestbuffers));
+  ldv_4_resource_struct_vm_area_struct_ptr = ldv_malloc(sizeof(struct vm_area_struct));
   }
   return;
 }
@@ -10614,7 +10577,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
