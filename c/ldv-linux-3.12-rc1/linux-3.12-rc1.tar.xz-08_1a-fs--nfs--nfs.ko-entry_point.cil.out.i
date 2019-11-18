@@ -44027,19 +44027,11 @@ void *external_alloc(void);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
   return (struct dentry *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_37 *tmp = (struct __anonstruct_kgid_t_37*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_37 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_37));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_36 *tmp = (struct __anonstruct_kuid_t_36*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_36 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_36));
 }
 void mark_mounts_for_expiry(struct list_head *arg0) {
   return;

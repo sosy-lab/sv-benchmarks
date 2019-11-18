@@ -82,29 +82,21 @@ void ldv_assert(const char *arg0, int arg1) {
 // Function: make_kgid
 // with type: kgid_t make_kgid(struct user_namespace *, gid_t )
 // with return type: kgid_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kgid_t_52
   // Composite type
-  struct __anonstruct_kgid_t_52 *tmp = (struct __anonstruct_kgid_t_52*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_52 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_52));
 }
 
 // Function: make_kuid
 // with type: kuid_t make_kuid(struct user_namespace *, uid_t )
 // with return type: kuid_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kuid_t_51
   // Composite type
-  struct __anonstruct_kuid_t_51 *tmp = (struct __anonstruct_kuid_t_51*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_51 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_51));
 }
 
 // Skip function: malloc

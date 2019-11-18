@@ -34697,19 +34697,11 @@ void ldv_after_alloc(void *arg0) {
 void ldv_assert(const char *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_52 *tmp = (struct __anonstruct_kgid_t_52*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_52 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_52));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_51 *tmp = (struct __anonstruct_kuid_t_51*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_51 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_51));
 }
 void *external_alloc(void);
 struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *arg0) {

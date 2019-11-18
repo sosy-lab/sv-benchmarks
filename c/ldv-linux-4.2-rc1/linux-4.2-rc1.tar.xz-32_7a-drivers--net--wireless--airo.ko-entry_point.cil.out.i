@@ -18968,19 +18968,11 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_162 *tmp = (struct __anonstruct_kgid_t_162*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_162 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_162));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_161 *tmp = (struct __anonstruct_kuid_t_161*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_161 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_161));
 }
 void msleep(unsigned int arg0) {
   return;

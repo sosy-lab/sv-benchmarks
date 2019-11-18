@@ -2720,29 +2720,21 @@ void make_bad_inode(struct inode *arg0) {
 // Function: make_kgid
 // with type: kgid_t make_kgid(struct user_namespace *, gid_t )
 // with return type: kgid_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kgid_t_47
   // Composite type
-  struct __anonstruct_kgid_t_47 *tmp = (struct __anonstruct_kgid_t_47*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_47 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_47));
 }
 
 // Function: make_kuid
 // with type: kuid_t make_kuid(struct user_namespace *, uid_t )
 // with return type: kuid_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kuid_t_46
   // Composite type
-  struct __anonstruct_kuid_t_46 *tmp = (struct __anonstruct_kuid_t_46*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_46 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_46));
 }
 
 // Skip function: malloc
