@@ -4231,6 +4231,7 @@ int ldv_usb_submit_urb_33(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_36(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_39(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_42(struct urb *ldv_func_arg1 , gfp_t flags ) ;
+void *ldv_malloc(size_t size ) ;
 void *ldv_usb_alloc_coherent_32(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                 gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 void *ldv_usb_alloc_coherent_35(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
@@ -9339,7 +9340,6 @@ bool ldv_queue_delayed_work_on_19(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -9413,7 +9413,7 @@ void *ldv_usb_alloc_coherent_32(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }
@@ -9442,7 +9442,7 @@ void *ldv_usb_alloc_coherent_35(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }
@@ -9471,7 +9471,7 @@ void *ldv_usb_alloc_coherent_38(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }
@@ -9500,7 +9500,7 @@ void *ldv_usb_alloc_coherent_41(struct usb_device *ldv_func_arg1 , size_t ldv_fu
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }

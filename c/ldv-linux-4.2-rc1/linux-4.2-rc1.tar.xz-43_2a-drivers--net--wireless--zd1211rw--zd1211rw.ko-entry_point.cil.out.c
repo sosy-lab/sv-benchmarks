@@ -22420,7 +22420,7 @@ void *ldv_usb_alloc_coherent_378(struct usb_device *ldv_func_arg1 , size_t ldv_f
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }
@@ -22457,7 +22457,7 @@ void *ldv_usb_alloc_coherent_382(struct usb_device *ldv_func_arg1 , size_t ldv_f
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg2);
   return (tmp);
 }
 }

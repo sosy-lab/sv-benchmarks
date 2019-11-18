@@ -3456,6 +3456,7 @@ extern int usb_submit_urb(struct urb * , gfp_t  ) ;
 int ldv_usb_submit_urb_21(struct urb *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 int ldv_usb_submit_urb_22(struct urb *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern void *usb_alloc_coherent(struct usb_device * , size_t  , gfp_t  , dma_addr_t * ) ;
+void *ldv_malloc(size_t size ) ;
 void *ldv_usb_alloc_coherent_20(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                 gfp_t ldv_func_arg3 , dma_addr_t *ldv_func_arg4 ) ;
 extern int usb_control_msg(struct usb_device * , unsigned int  , __u8  , __u8  , __u16  ,

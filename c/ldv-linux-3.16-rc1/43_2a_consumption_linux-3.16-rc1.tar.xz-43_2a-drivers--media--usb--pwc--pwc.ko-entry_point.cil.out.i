@@ -5663,6 +5663,7 @@ int ldv_usb_submit_urb_20(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 int ldv_usb_submit_urb_23(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 extern void usb_kill_urb(struct urb * ) ;
 extern void *usb_alloc_coherent(struct usb_device * , size_t , gfp_t , dma_addr_t * ) ;
+void *ldv_malloc(size_t size ) ;
 void *ldv_usb_alloc_coherent_22(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                 gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 extern void usb_free_coherent(struct usb_device * , size_t , void * , dma_addr_t ) ;
@@ -7670,7 +7671,6 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   {
