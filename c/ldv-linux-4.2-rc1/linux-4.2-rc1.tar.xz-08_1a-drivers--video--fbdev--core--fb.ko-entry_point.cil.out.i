@@ -14103,12 +14103,8 @@ unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg
 void unlock_page(struct page *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 int __VERIFIER_nondet_int(void);
 int vm_iomap_memory(struct vm_area_struct *arg0, phys_addr_t arg1, unsigned long arg2) {

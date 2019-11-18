@@ -15698,12 +15698,8 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 void prepare_to_wait(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
   return;
@@ -15795,12 +15791,8 @@ void unregister_shrinker(struct shrinker *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 int __VERIFIER_nondet_int(void);
 int vm_insert_mixed(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2) {

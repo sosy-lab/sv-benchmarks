@@ -29358,12 +29358,8 @@ void mutex_unlock(struct mutex *arg0) {
 void neigh_destroy(struct neighbour *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 prandom_u32() {
