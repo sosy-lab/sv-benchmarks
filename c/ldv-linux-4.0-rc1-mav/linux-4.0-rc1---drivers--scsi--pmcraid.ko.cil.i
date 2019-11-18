@@ -20517,23 +20517,6 @@ void ldv_linux_usb_register_check_return_value_probe(int retval )
 void ldv_assert_linux_usb_urb__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_usb_urb__more_initial_at_exit(int expr ) ;
 int ldv_linux_usb_urb_urb_state = 0;
-struct urb *ldv_linux_usb_urb_usb_alloc_urb(void)
-{
-  void *arbitrary_memory ;
-  void *tmp ;
-  {
-  {
-  tmp = ldv_undef_ptr();
-  arbitrary_memory = tmp;
-  }
-  if ((unsigned long )arbitrary_memory == (unsigned long )((void *)0)) {
-    return ((struct urb *)arbitrary_memory);
-  } else {
-  }
-  ldv_linux_usb_urb_urb_state = ldv_linux_usb_urb_urb_state + 1;
-  return ((struct urb *)arbitrary_memory);
-}
-}
 void ldv_linux_usb_urb_usb_free_urb(struct urb *urb )
 {
   {
