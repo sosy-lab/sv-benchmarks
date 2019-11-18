@@ -17574,7 +17574,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   return (tmp);
 }
 }
