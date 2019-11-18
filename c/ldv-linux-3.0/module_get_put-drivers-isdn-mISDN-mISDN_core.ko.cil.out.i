@@ -17926,12 +17926,8 @@ void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   return (struct task_struct *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get_real() {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_check_return_value(int arg0) {
   return;

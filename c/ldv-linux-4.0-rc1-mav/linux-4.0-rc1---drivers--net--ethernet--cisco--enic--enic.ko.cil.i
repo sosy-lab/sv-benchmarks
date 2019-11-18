@@ -28281,12 +28281,8 @@ int __VERIFIER_nondet_int(void);
 int irq_cpu_rmap_add(struct cpu_rmap *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_after_alloc(void *arg0) {
   return;

@@ -35014,12 +35014,8 @@ int __VERIFIER_nondet_int(void);
 int irq_set_affinity_hint(unsigned int arg0, const struct cpumask *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void kvfree(const void *arg0) {
   return;

@@ -25989,12 +25989,8 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsigned long long *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_check_return_value(int arg0) {
   return;
