@@ -13757,7 +13757,7 @@ void *ldv_vmalloc_37(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -13767,7 +13767,7 @@ void *ldv_vmalloc_38(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -17061,7 +17061,7 @@ void *ldv_vmalloc_75(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21496,7 +21496,7 @@ void *ldv_vmalloc_112(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21506,7 +21506,7 @@ void *ldv_vmalloc_113(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21516,7 +21516,7 @@ void *ldv_vmalloc_114(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21526,7 +21526,7 @@ void *ldv_vmalloc_115(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21536,7 +21536,7 @@ void *ldv_vmalloc_116(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21546,7 +21546,7 @@ void *ldv_vmalloc_117(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21556,7 +21556,7 @@ void *ldv_vmalloc_118(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21566,7 +21566,7 @@ void *ldv_vmalloc_119(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21576,7 +21576,7 @@ void *ldv_vmalloc_120(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21586,7 +21586,7 @@ void *ldv_vmalloc_121(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21596,7 +21596,7 @@ void *ldv_vmalloc_122(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21606,7 +21606,7 @@ void *ldv_vmalloc_123(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21616,7 +21616,7 @@ void *ldv_vmalloc_124(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21626,7 +21626,7 @@ void *ldv_vmalloc_125(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21636,7 +21636,7 @@ void *ldv_vmalloc_126(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21646,7 +21646,7 @@ void *ldv_vmalloc_127(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21656,7 +21656,7 @@ void *ldv_vmalloc_128(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21666,7 +21666,7 @@ void *ldv_vmalloc_129(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -21676,7 +21676,7 @@ void *ldv_vmalloc_130(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -26961,7 +26961,7 @@ void *ldv_vmalloc_167(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -27647,7 +27647,7 @@ void *ldv_vmalloc_204(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -32016,7 +32016,7 @@ void *ldv_vmalloc_241(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -32036,7 +32036,7 @@ void *ldv_vmalloc_243(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -32595,7 +32595,7 @@ void *ldv_vmalloc_280(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -32605,7 +32605,7 @@ void *ldv_vmalloc_281(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -33274,7 +33274,7 @@ void *ldv_vmalloc_318(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -34373,7 +34373,7 @@ void *ldv_vmalloc_355(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }

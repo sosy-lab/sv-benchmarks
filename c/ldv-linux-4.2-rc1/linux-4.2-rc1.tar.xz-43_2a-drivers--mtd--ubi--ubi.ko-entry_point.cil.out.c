@@ -8178,13 +8178,14 @@ void *ldv_kmem_cache_alloc_103(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_vmalloc_106(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -8194,7 +8195,7 @@ void *ldv_vmalloc_107(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -10895,7 +10896,7 @@ void *ldv_vmalloc_143(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -13119,7 +13120,7 @@ void *ldv_vmalloc_186(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -13129,7 +13130,7 @@ void *ldv_vmalloc_187(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -24801,7 +24802,7 @@ void *ldv_vmalloc_390(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -25672,7 +25673,7 @@ void *ldv_vmalloc_423(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }

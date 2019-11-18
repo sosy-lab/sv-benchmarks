@@ -4494,6 +4494,7 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
   return ((void *)0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_vmalloc_19(unsigned long ldv_func_arg1 ) 
 { 
 

@@ -10527,7 +10527,7 @@ void *ldv_vmalloc_32_74(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }

@@ -11806,13 +11806,14 @@ void *ldv_kmem_cache_alloc_92(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_vmalloc_93(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -14745,7 +14746,6 @@ bool ldv_queue_delayed_work_on_117(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   void *tmp ;
@@ -14882,7 +14882,7 @@ void *ldv_vmalloc_142(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(ldv_func_arg1);
   return (tmp);
 }
 }
