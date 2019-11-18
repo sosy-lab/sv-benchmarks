@@ -13771,7 +13771,7 @@ __inline static void *kzalloc_node(size_t size , gfp_t flags , int node )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(size);
   return (tmp);
 }
 }
