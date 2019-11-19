@@ -13222,12 +13222,8 @@ int __VERIFIER_nondet_int(void);
 int iio_triggered_buffer_setup(struct iio_dev *arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), const struct iio_buffer_setup_ops *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_after_alloc(void *arg0) {
   return;

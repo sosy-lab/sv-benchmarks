@@ -44320,12 +44320,8 @@ void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   return (char *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_complete_20() {

@@ -12761,12 +12761,8 @@ void idr_preload(gfp_t arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_initialize() {
   return;

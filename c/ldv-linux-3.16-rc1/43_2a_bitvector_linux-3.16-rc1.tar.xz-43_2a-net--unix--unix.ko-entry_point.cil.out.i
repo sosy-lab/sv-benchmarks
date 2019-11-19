@@ -12825,12 +12825,8 @@ void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   return (void *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get_real() {
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 void ldv_check_final_state() {
   return;

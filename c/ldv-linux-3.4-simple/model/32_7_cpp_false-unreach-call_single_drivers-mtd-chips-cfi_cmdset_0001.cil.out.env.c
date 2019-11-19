@@ -1268,15 +1268,11 @@ int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsign
 // Function: ktime_add_safe
 // with type: ktime_t ktime_add_safe(const ktime_t lhs, const ktime_t rhs)
 // with return type: ktime_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 
 // Function: ldv_initialize

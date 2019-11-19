@@ -160,15 +160,11 @@ void free_candev(struct net_device *arg0) {
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
 
 // Function: ldv__builtin_va_arg
