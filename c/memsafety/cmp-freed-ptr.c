@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdint.h>
 
 int main() {
 
@@ -10,12 +11,14 @@ int main() {
     struct T* y = NULL;
 
     y = malloc(sizeof(*y));
+    intptr_t adressY = (intptr_t) y;
 
     free(y);
 
     x = malloc(sizeof(*x));
+    intptr_t adressX = (intptr_t) x;
 
-    if (x == y)
+    if (adressX == adressY)
     { // if the second malloc returns the same value as the first, I should get here
         free(x);
     }
