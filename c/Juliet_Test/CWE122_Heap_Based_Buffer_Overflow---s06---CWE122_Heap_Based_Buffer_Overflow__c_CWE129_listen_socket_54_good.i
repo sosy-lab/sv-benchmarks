@@ -1222,7 +1222,7 @@ void stdThreadLockDestroy(stdThreadLock lock)
 }
 
 
-void *ldv_xmalloc_unknown_size(size_t size);
+void *ldv_xmalloc(size_t size);
 
 
 int ldv_undef_int(void);
@@ -1245,7 +1245,7 @@ int ldv_asprintf(char **ptr)
   if (tmp_1 != 0) {
     int tmp_0;
     
-    new = (char *)ldv_xmalloc_unknown_size(1UL);
+    new = (char *)ldv_xmalloc(1UL);
     
     *ptr = new;
     
@@ -1441,13 +1441,10 @@ void *ldv_realloc(void *ptr, size_t size);
 void *ldv_xzalloc(size_t size);
 
 
-void *ldv_malloc_unknown_size(void);
 
 
-void *ldv_calloc_unknown_size(void);
 
 
-void *ldv_zalloc_unknown_size(void);
 
 
 void *ldv_reference_malloc(size_t size);
@@ -1471,16 +1468,12 @@ void *ldv_reference_xmalloc(size_t size);
 void *ldv_reference_xzalloc(size_t size);
 
 
-void *ldv_reference_malloc_unknown_size(void);
 
 
-void *ldv_reference_calloc_unknown_size(void);
 
 
-void *ldv_reference_zalloc_unknown_size(void);
 
 
-void *ldv_reference_xmalloc_unknown_size(size_t size);
 
 
 void *ldv_malloc(size_t size)
@@ -1542,44 +1535,12 @@ void *ldv_xzalloc(size_t size)
 }
 
 
-void *ldv_malloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_malloc_unknown_size();
-  
-  return tmp;
-}
 
 
-void *ldv_calloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_calloc_unknown_size();
-  
-  return tmp;
-}
 
 
-void *ldv_zalloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_zalloc_unknown_size();
-  
-  return tmp;
-}
 
 
-void *ldv_xmalloc_unknown_size(size_t size)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_xmalloc_unknown_size(size);
-  
-  return tmp;
-}
 
 
 void *ldv_realloc(void *ptr, size_t size)
@@ -1759,7 +1720,6 @@ void *ldv_undef_ptr_non_null(void)
 }
 
 
-void *external_allocated_data(void);
 
 
 void *calloc(size_t, size_t);
@@ -1900,85 +1860,11 @@ void *ldv_reference_xzalloc(size_t size)
 }
 
 
-void *ldv_reference_malloc_unknown_size(void)
-{
-  void *__retres;
-  void *res;
-  int tmp;
-  
-  tmp = ldv_undef_int();
-  
-  if (tmp != 0) {
-    
-    res = external_allocated_data();
-    
-    __VERIFIER_assume(res != (void *)0);
-    
-    __retres = res;
-    
-    goto return_label;
-  }
-  else {
-    
-    __retres = (void *)0;
-    
-    goto return_label;
-  }
-  return_label: 
-                return __retres;
-}
 
 
-void *ldv_reference_calloc_unknown_size(void)
-{
-  void *__retres;
-  void *res;
-  int tmp;
-  
-  tmp = ldv_undef_int();
-  
-  if (tmp != 0) {
-    
-    res = external_allocated_data();
-    
-    memset(res,0,8UL);
-    
-    __VERIFIER_assume(res != (void *)0);
-    
-    __retres = res;
-    
-    goto return_label;
-  }
-  else {
-    
-    __retres = (void *)0;
-    
-    goto return_label;
-  }
-  return_label: 
-                return __retres;
-}
 
 
-void *ldv_reference_zalloc_unknown_size(void)
-{
-  void *tmp;
-  
-  tmp = ldv_reference_calloc_unknown_size();
-  
-  return tmp;
-}
 
 
-void *ldv_reference_xmalloc_unknown_size(size_t size)
-{
-  void *res;
-  
-  res = external_allocated_data();
-  
-  __VERIFIER_assume(res != (void *)0);
-  
-  return res;
-}
 
 
