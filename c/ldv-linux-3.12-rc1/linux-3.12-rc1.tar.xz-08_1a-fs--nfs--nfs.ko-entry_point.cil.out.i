@@ -43633,12 +43633,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 int __VERIFIER_nondet_int(void);
 int current_umask() {

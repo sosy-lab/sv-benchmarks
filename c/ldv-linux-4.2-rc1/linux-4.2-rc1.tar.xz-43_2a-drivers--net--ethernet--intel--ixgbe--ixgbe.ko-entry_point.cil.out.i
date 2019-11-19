@@ -60552,12 +60552,8 @@ void *external_alloc(void);
 struct nlattr *nla_find(const struct nlattr *arg0, int arg1, int arg2) {
   return (struct nlattr *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void *external_alloc(void);
 const void *of_get_mac_address(struct device_node *arg0) {

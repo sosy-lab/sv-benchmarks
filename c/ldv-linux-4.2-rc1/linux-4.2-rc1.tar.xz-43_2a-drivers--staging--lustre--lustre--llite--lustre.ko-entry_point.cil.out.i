@@ -69204,12 +69204,8 @@ int clear_page_dirty_for_io(struct page *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 int __VERIFIER_nondet_int(void);
 int current_umask() {

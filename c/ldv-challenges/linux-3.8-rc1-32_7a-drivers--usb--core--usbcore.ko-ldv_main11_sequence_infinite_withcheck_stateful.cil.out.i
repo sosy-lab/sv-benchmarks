@@ -33496,12 +33496,8 @@ bool __VERIFIER_nondet_bool(void);
 bool creds_are_invalid(const struct cred *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3) {
   return;

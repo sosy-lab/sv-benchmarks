@@ -24714,12 +24714,8 @@ void netif_tx_stop_all_queues(struct net_device *arg0) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void *external_alloc(void);
 struct platform_device *of_find_device_by_node(struct device_node *arg0) {

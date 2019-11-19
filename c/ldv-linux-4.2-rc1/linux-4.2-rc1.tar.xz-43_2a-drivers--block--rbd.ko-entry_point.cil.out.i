@@ -15715,12 +15715,8 @@ void ceph_release_page_vector(struct page **arg0, int arg1) {
 void complete_all(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void del_gendisk(struct gendisk *arg0) {
   return;

@@ -36085,12 +36085,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32c(u32 arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;

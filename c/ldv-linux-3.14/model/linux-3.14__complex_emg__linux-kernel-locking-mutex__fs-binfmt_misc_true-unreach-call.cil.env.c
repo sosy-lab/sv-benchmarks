@@ -119,13 +119,9 @@ int copy_strings_kernel(int arg0, const char * const *arg1, struct linux_binprm 
 // Function: current_fs_time
 // with type: struct timespec current_fs_time(struct super_block *)
 // with return type: struct timespec
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 
 // Function: d_drop

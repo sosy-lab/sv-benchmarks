@@ -266,13 +266,9 @@ struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
 // Function: current_fs_time
 // with type: struct timespec current_fs_time(struct super_block *)
 // with return type: struct timespec
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 
 // Function: d_instantiate
@@ -1089,13 +1085,9 @@ int test_set_page_writeback(struct page *arg0) {
 // Function: timespec_trunc
 // with type: struct timespec timespec_trunc(struct timespec , unsigned int)
 // with return type: struct timespec
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timespec timespec_trunc(struct timespec arg0, unsigned int arg1) {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
 
 // Function: truncate_inode_pages
