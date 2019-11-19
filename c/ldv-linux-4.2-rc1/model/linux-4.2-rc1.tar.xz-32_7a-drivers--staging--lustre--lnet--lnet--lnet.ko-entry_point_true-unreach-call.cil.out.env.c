@@ -168,15 +168,11 @@ void cfs_array_free(void *arg0) {
 // Function: cfs_block_allsigs
 // with type: sigset_t cfs_block_allsigs()
 // with return type: sigset_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 sigset_t cfs_block_allsigs() {
   // Typedef type
   // Real type: struct __anonstruct_sigset_t_163
   // Composite type
-  struct __anonstruct_sigset_t_163 *tmp = (struct __anonstruct_sigset_t_163*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_sigset_t_163 *)ldv_xmalloc(sizeof(struct __anonstruct_sigset_t_163));
 }
 
 // Function: cfs_cpt_current

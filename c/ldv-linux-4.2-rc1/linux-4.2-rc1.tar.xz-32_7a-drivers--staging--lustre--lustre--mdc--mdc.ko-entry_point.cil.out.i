@@ -24417,12 +24417,8 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void capa_cpy(void *arg0, struct obd_capa *arg1) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 sigset_t cfs_block_sigsinv(unsigned long arg0) {
-  struct __anonstruct_sigset_t_163 *tmp = (struct __anonstruct_sigset_t_163*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_sigset_t_163 *)ldv_xmalloc(sizeof(struct __anonstruct_sigset_t_163));
 }
 void cfs_clear_sigpending() {
   return;

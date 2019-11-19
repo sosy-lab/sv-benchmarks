@@ -31235,12 +31235,8 @@ void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   return (struct page *)external_alloc();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 sigset_t cfs_block_allsigs() {
-  struct __anonstruct_sigset_t_180 *tmp = (struct __anonstruct_sigset_t_180*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_sigset_t_180 *)ldv_xmalloc(sizeof(struct __anonstruct_sigset_t_180));
 }
 int __VERIFIER_nondet_int(void);
 int cfs_cpt_number(struct cfs_cpt_table *arg0) {
