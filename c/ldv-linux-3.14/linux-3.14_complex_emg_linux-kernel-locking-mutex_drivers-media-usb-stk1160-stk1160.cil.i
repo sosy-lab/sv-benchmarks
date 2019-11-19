@@ -5792,7 +5792,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static int usb_endpoint_dir_in(struct usb_endpoint_descriptor const *epd )
 {
   {
@@ -12831,10 +12830,6 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_add_adapter(struct i2c_adapter *arg0) {

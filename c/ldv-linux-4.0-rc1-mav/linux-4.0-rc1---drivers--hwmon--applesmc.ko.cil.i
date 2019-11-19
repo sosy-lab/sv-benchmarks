@@ -9325,7 +9325,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_malloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -11805,10 +11804,6 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 int __VERIFIER_nondet_int(void);
 int dmi_check_system(const struct dmi_system_id *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 struct device *hwmon_device_register(struct device *arg0) {

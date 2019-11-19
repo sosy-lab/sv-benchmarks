@@ -23385,7 +23385,6 @@ extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 extern struct task_struct *current_task ;
 __inline static struct task_struct *get_current(void) 
 { 

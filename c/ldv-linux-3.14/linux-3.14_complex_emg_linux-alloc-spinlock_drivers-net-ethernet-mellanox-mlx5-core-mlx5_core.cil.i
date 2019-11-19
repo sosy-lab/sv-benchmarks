@@ -4514,7 +4514,6 @@ int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
@@ -19960,10 +19959,6 @@ int dma_supported(struct device *arg0, u64 arg1) {
 }
 void down(struct semaphore *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {

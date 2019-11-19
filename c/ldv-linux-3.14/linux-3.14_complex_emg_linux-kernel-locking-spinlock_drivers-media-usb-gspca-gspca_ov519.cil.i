@@ -4812,7 +4812,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __const_udelay(unsigned long ) ;
 extern void msleep(unsigned int ) ;
 extern struct usb_interface *usb_ifnum_to_if(struct usb_device const * , unsigned int ) ;
@@ -14412,10 +14411,6 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_locked_at_exit(int exp
 }
 void __const_udelay(unsigned long arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int gspca_dev_probe(struct usb_interface *arg0, const struct usb_device_id *arg1, const struct sd_desc *arg2, int arg3, struct module *arg4) {

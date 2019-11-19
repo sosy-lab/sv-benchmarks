@@ -4519,7 +4519,6 @@ int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;

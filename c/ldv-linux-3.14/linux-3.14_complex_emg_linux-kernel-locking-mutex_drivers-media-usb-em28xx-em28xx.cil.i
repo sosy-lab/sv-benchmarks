@@ -9673,7 +9673,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static int usb_endpoint_dir_in(struct usb_endpoint_descriptor const *epd )
 {
   {
@@ -15138,10 +15137,6 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 }
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_zero_bit(const unsigned long *arg0, unsigned long arg1) {

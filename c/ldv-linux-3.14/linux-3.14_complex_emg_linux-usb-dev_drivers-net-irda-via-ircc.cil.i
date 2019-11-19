@@ -5753,7 +5753,6 @@ extern void ldv_switch_to_process_context(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
@@ -11203,10 +11202,6 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_dma(unsigned int arg0) {
   return;

@@ -8672,7 +8672,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -11095,10 +11094,6 @@ int deregister_mtd_blktrans(struct mtd_blktrans_ops *arg0) {
 }
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void get_random_bytes(void *arg0, int arg1) {
   return;

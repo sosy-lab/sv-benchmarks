@@ -30254,7 +30254,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *vmalloc(unsigned long ) ;
 extern void vfree(void const * ) ;
 extern int __pci_register_driver(struct pci_driver * , struct module * , char const * ) ;
@@ -37825,10 +37824,6 @@ int debug_lockdep_rcu_enabled() {
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
   return __VERIFIER_nondet_uchar();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {

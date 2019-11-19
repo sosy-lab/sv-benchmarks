@@ -39436,7 +39436,6 @@ static int ldv_ldv_post_probe_48(int ldv_func_arg1 ) ;
 static int ldv_ldv_post_probe_49(int ldv_func_arg1 ) ;
 extern int ldv_pre_register_netdev(void) ;
 void ldv_check_final_state(void) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern unsigned long find_next_bit(unsigned long const * , unsigned long , unsigned long ) ;
 extern unsigned long find_first_bit(unsigned long const * , unsigned long ) ;
@@ -57751,10 +57750,6 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {

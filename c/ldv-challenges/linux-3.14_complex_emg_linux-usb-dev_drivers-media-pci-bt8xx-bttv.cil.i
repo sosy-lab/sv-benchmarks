@@ -5575,7 +5575,6 @@ extern void ldv_switch_to_process_context(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct resource iomem_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t , resource_size_t ,
                                          char const * , int ) ;
@@ -32481,10 +32480,6 @@ void driver_unregister(struct device_driver *arg0) {
 }
 void dump_stack() {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

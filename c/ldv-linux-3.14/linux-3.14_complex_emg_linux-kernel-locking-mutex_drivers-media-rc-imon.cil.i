@@ -3854,7 +3854,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 __inline static void __set_bit(long nr , unsigned long volatile *addr )
 {
@@ -10885,10 +10884,6 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;

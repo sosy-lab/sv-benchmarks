@@ -24670,7 +24670,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -27861,10 +27860,6 @@ struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void getnstimeofday64(struct timespec *arg0) {
   return;

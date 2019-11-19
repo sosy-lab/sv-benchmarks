@@ -13141,7 +13141,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
@@ -32461,10 +32460,6 @@ int del_timer_sync(struct timer_list *arg0) {
 int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {

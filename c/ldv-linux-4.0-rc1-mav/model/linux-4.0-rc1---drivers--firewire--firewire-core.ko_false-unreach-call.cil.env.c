@@ -419,15 +419,6 @@ void down_write(struct rw_semaphore *arg0) {
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: finish_wait
 // with type: void finish_wait(wait_queue_head_t *, wait_queue_t *)
 // with return type: void

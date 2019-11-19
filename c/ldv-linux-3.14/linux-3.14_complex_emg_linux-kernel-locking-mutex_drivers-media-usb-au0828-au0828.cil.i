@@ -7988,7 +7988,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern int printk(char const * , ...) ;
 extern void *memcpy(void * , void const * , size_t ) ;
@@ -19155,10 +19154,6 @@ int dvb_unregister_adapter(struct dvb_adapter *arg0) {
 int __VERIFIER_nondet_int(void);
 int dvb_unregister_frontend(struct dvb_frontend *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_add_adapter(struct i2c_adapter *arg0) {

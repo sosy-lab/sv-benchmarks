@@ -264,15 +264,6 @@ void down_write(struct rw_semaphore *arg0) {
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: fasync_helper
 // with type: int fasync_helper(int, struct file *, int, struct fasync_struct **)
 // with return type: int

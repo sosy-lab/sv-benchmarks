@@ -21336,7 +21336,6 @@ static int ldv_ldv_post_probe_34(int ldv_func_arg1 ) ;
 void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
-extern void *external_allocated_data(void) ;
 __inline static struct task_struct *get_current___1(void) 
 { 
   struct task_struct *pfo_ret__ ;

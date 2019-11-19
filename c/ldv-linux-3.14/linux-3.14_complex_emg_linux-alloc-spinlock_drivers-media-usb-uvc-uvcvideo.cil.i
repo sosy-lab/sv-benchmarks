@@ -5662,7 +5662,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
@@ -22247,10 +22246,6 @@ struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void getnstimeofday(struct timespec *arg0) {
   return;

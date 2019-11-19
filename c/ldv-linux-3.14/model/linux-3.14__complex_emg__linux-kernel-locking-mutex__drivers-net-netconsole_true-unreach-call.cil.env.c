@@ -99,15 +99,6 @@ void configfs_unregister_subsystem(struct configfs_subsystem *arg0) {
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: in6_pton

@@ -703,15 +703,6 @@ bool drm_vma_node_is_allowed(struct drm_vma_offset_node *arg0, struct file *arg1
   return __VERIFIER_nondet_bool();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: fb_alloc_cmap
 // with type: int fb_alloc_cmap(struct fb_cmap *, int, int)
 // with return type: int

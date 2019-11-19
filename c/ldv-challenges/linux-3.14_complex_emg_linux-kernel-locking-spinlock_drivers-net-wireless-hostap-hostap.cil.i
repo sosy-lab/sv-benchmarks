@@ -23088,7 +23088,6 @@ int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
-extern void *external_allocated_data(void) ;
 extern unsigned long _raw_write_lock_irqsave(rwlock_t * ) ;
 extern void _raw_write_unlock_irqrestore(rwlock_t * , unsigned long ) ;
 __inline static void ldv_spin_unlock_irqrestore_60(spinlock_t *lock , unsigned long flags ) ;
@@ -33378,10 +33377,6 @@ int eth_validate_addr(struct net_device *arg0) {
 }
 void ether_setup(struct net_device *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {

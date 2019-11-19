@@ -19804,7 +19804,6 @@ static int ldv_ldv_post_probe_34(int ldv_func_arg1 ) ;
 void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
-extern void *external_allocated_data(void) ;
 __inline static struct task_struct *get_current___1(void)
 {
   struct task_struct *pfo_ret__ ;
@@ -24785,10 +24784,6 @@ bool capable(int arg0) {
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

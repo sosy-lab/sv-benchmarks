@@ -8208,7 +8208,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 extern void ldv_after_alloc(void * ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;

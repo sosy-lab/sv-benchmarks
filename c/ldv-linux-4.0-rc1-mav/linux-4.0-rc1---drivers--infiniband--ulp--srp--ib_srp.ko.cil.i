@@ -19240,7 +19240,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -22512,10 +22511,6 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 }
 void device_unregister(struct device *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;

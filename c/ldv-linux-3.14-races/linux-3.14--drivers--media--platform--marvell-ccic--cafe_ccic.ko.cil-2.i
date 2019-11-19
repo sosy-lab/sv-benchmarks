@@ -5082,7 +5082,6 @@ int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
 extern void _raw_spin_unlock(raw_spinlock_t * ) ;
@@ -12187,10 +12186,6 @@ void v4l2_device_unregister(struct v4l2_device *arg0){
 void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0){
   return (struct scatterlist *)external_alloc();
-}
-void *external_alloc(void);
-void *external_allocated_data(){
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1){

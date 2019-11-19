@@ -5096,7 +5096,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 __inline static int mutex_is_locked(struct mutex *lock ) 
 { 

@@ -330,15 +330,6 @@ int request_dma(unsigned int arg0, const char *arg1){
 
 // Skip function: free
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data(){
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: malloc
 
 // Function: irlap_close

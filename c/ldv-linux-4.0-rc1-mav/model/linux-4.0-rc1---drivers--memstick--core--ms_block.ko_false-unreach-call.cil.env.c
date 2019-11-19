@@ -234,15 +234,6 @@ int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: flush_workqueue
 // with type: void flush_workqueue(struct workqueue_struct *)
 // with return type: void

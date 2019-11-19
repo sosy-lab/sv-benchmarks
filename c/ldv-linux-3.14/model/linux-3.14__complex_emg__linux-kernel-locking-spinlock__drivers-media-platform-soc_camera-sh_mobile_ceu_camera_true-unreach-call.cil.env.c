@@ -213,15 +213,6 @@ int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: ioread32

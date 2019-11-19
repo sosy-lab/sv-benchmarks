@@ -4593,7 +4593,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void msleep(unsigned int  ) ;
 extern int usb_register_driver(struct usb_driver * , struct module * , char const   * ) ;
 static int ldv_usb_register_driver_47(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,

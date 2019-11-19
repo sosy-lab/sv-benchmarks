@@ -13537,7 +13537,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct resource iomem_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t  , resource_size_t  ,
                                          char const   * , int  ) ;

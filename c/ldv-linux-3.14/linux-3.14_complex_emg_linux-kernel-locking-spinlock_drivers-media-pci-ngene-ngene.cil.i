@@ -9980,7 +9980,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern int __pci_register_driver(struct pci_driver * , struct module * , char const * ) ;
 static int ldv___pci_register_driver_66(struct pci_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,
                                         char const *ldv_func_arg3 ) ;
@@ -15501,10 +15500,6 @@ void dvb_unregister_device(struct dvb_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int dvb_unregister_frontend(struct dvb_frontend *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

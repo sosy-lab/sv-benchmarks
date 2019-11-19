@@ -9085,7 +9085,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -11911,10 +11910,6 @@ struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void kobject_put(struct kobject *arg0) {
   return;

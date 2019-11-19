@@ -181,15 +181,6 @@ void dma_pool_free(struct dma_pool *arg0, void *arg1, dma_addr_t arg2) {
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: free_irq

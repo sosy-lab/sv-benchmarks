@@ -23123,7 +23123,6 @@ int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
-extern void *external_allocated_data(void) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 extern struct task_struct *current_task ;
 __inline static struct task_struct *get_current(void) 

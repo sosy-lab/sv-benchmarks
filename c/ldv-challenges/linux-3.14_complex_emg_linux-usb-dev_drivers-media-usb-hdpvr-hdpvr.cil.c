@@ -5453,7 +5453,6 @@ void ldv_check_final_state(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static __u64 __le64_to_cpup(__le64 const   *p ) 
 { 
 

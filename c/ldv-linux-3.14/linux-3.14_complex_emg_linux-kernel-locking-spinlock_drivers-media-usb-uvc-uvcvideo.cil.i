@@ -5751,7 +5751,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -22169,10 +22168,6 @@ struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void getnstimeofday(struct timespec *arg0) {
   return;

@@ -138,15 +138,6 @@ void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   return (void *)external_alloc();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: finish_wait
 // with type: void finish_wait(wait_queue_head_t *, wait_queue_t *)
 // with return type: void

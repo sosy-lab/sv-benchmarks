@@ -3704,7 +3704,6 @@ int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 static void ldv_mutex_unlock_60(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_62(struct mutex *ldv_func_arg1 ) ;
@@ -8081,10 +8080,6 @@ loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2){
 }
 void __copy_to_user_overflow(){
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data(){
-  return (void *)external_alloc();
 }
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1){
   return;

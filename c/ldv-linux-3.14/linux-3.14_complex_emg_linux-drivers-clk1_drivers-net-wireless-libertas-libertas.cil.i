@@ -21754,7 +21754,6 @@ void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 __inline static long IS_ERR(void const *ptr ) ;
 extern struct task_struct *current_task ;
 __inline static struct task_struct *get_current(void)
@@ -31160,10 +31159,6 @@ int eth_validate_addr(struct net_device *arg0) {
 }
 void ether_setup(struct net_device *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

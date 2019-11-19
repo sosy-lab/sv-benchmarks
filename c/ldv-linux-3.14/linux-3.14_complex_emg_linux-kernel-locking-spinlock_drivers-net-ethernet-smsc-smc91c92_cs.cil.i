@@ -5938,7 +5938,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static resource_size_t resource_size(struct resource const *res )
 {
   {
@@ -13068,10 +13067,6 @@ __be16 eth_type_trans(struct sk_buff *arg0, struct net_device *arg1) {
 int __VERIFIER_nondet_int(void);
 int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_netdev(struct net_device *arg0) {
   return;

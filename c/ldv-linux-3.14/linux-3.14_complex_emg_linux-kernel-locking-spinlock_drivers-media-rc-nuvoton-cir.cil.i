@@ -3559,7 +3559,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
@@ -7859,10 +7858,6 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 int __VERIFIER_nondet_int(void);
 int device_init_wakeup(struct device *arg0, bool arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

@@ -9348,7 +9348,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -11837,10 +11836,6 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 }
 void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
   return (void *)external_alloc();
 }
 void kfree_skb(struct sk_buff *arg0) {

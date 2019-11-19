@@ -20689,7 +20689,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -24125,10 +24124,6 @@ void drm_ut_debug_printk(const char *arg0, const char *arg1, ...) {
 bool __VERIFIER_nondet_bool(void);
 bool drm_vma_node_is_allowed(struct drm_vma_offset_node *arg0, struct file *arg1) {
   return __VERIFIER_nondet_bool();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int fb_alloc_cmap(struct fb_cmap *arg0, int arg1, int arg2) {

@@ -451,15 +451,6 @@ struct scatterlist *sg_next(struct scatterlist *arg0){
   return (struct scatterlist *)external_alloc();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data(){
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: malloc
 
 // Function: vb2_plane_cookie

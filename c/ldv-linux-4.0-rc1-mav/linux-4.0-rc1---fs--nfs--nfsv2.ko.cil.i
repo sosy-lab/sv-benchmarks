@@ -31651,7 +31651,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -34678,10 +34677,6 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 }
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned int __VERIFIER_nondet_uint(void);
 gid_t from_kgid(struct user_namespace *arg0, kgid_t arg1) {

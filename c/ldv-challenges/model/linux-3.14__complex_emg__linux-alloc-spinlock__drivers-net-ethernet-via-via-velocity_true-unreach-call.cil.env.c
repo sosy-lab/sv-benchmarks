@@ -318,15 +318,6 @@ int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: find_first_bit
 // with type: unsigned long int find_first_bit(const unsigned long *, unsigned long)
 // with return type: unsigned long int

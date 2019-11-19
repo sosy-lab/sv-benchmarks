@@ -27320,7 +27320,6 @@ extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock ) 
 { 

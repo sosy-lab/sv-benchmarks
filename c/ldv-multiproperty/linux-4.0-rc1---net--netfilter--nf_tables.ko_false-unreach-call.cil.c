@@ -30063,7 +30063,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void ldv_free(void *s ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void free(void * ) ;

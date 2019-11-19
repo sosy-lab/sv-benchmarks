@@ -2774,7 +2774,6 @@ int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
@@ -7075,10 +7074,6 @@ int spi_master_resume(struct spi_master *arg0){
 }
 void pm_runtime_enable(struct device *arg0){
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data(){
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1){
