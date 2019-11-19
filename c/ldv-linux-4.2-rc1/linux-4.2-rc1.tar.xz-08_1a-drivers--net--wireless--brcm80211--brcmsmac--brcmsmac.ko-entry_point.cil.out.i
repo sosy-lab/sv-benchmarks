@@ -68491,12 +68491,8 @@ bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct cordic_iq cordic_calc_iq(s32 arg0) {
-  struct cordic_iq *tmp = (struct cordic_iq*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct cordic_iq *)ldv_xmalloc(sizeof(struct cordic_iq));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;

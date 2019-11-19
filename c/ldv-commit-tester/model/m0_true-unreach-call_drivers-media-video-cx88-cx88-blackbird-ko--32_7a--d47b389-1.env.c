@@ -13,10 +13,9 @@ void __const_udelay(unsigned long arg0) {
 // Function: cx2341x_ctrl_get_menu
 // with type: const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *, u32 )
 // with return type: (const (const char)*)*
-void *external_alloc(void);
 const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *arg0, u32 arg1) {
   // Pointer type
-  return (const char * const *)external_alloc();
+  return ldv_malloc(sizeof(char *));
 }
 
 // Function: cx2341x_ctrl_query

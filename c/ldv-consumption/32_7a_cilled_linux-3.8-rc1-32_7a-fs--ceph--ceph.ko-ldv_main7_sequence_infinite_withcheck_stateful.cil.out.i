@@ -38834,9 +38834,8 @@ bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 void *external_alloc(void);
 struct ceph_buffer *ceph_buffer_new(size_t arg0, gfp_t arg1) {
@@ -38907,9 +38906,8 @@ int __VERIFIER_nondet_int(void);
 int ceph_flags_to_mode(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page **ceph_get_direct_page_vector(const char *arg0, int arg1, bool arg2) {
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 int __VERIFIER_nondet_int(void);
 int ceph_monc_do_statfs(struct ceph_mon_client *arg0, struct ceph_statfs *arg1) {

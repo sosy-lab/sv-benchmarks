@@ -303,10 +303,9 @@ void bus_unregister(struct bus_type *arg0) {
 // Function: ceph_alloc_page_vector
 // with type: struct page **ceph_alloc_page_vector(int, gfp_t )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 
 // Function: ceph_client_id

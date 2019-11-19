@@ -273,10 +273,9 @@ bool cancel_delayed_work_sync(struct delayed_work *arg0) {
 // Function: ceph_alloc_page_vector
 // with type: struct page **ceph_alloc_page_vector(int, gfp_t )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 
 // Function: ceph_buffer_new
@@ -446,10 +445,9 @@ int ceph_flags_to_mode(int arg0) {
 // Function: ceph_get_direct_page_vector
 // with type: struct page **ceph_get_direct_page_vector(const char *, int, bool )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
 struct page **ceph_get_direct_page_vector(const char *arg0, int arg1, bool arg2) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 
 // Function: ceph_monc_do_statfs

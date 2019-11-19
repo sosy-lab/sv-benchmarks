@@ -15702,9 +15702,8 @@ int __VERIFIER_nondet_int(void);
 int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
-  return (void * const *)external_alloc();
+  return ldv_malloc(sizeof(void *));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {

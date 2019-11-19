@@ -568,10 +568,9 @@ void drm_gem_free_mmap_offset(struct drm_gem_object *arg0) {
 // Function: drm_gem_get_pages
 // with type: struct page **drm_gem_get_pages(struct drm_gem_object *, gfp_t )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
 struct page **drm_gem_get_pages(struct drm_gem_object *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 
 // Function: drm_gem_handle_create

@@ -15608,9 +15608,8 @@ int bus_register(struct bus_type *arg0) {
 void bus_unregister(struct bus_type *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 u64 ceph_client_id(struct ceph_client *arg0) {

@@ -8242,9 +8242,8 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *arg0, u32 arg1) {
-  return (const char * const *)external_alloc();
+  return ldv_malloc(sizeof(char *));
 }
 int __VERIFIER_nondet_int(void);
 int cx2341x_ctrl_query(const struct cx2341x_mpeg_params *arg0, struct v4l2_queryctrl *arg1) {

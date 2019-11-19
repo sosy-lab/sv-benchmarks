@@ -35956,9 +35956,8 @@ int drm_gem_dumb_destroy(struct drm_file *arg0, struct drm_device *arg1, uint32_
 void drm_gem_free_mmap_offset(struct drm_gem_object *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page **drm_gem_get_pages(struct drm_gem_object *arg0, gfp_t arg1) {
-  return (struct page **)external_alloc();
+  return ldv_malloc(sizeof(struct page *));
 }
 int __VERIFIER_nondet_int(void);
 int drm_gem_handle_create(struct drm_file *arg0, struct drm_gem_object *arg1, u32 *arg2) {
