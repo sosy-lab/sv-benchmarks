@@ -28,6 +28,7 @@ int main() {
    */
   a = (List) malloc(sizeof(struct node));
   if (a == 0) myexit(1);
+  a->n = 0;
   p = a;
   
   int i = 0;
@@ -71,13 +72,24 @@ int main() {
 
   /* free memory */
   p = a;
-  while (p->n != 0) {
-    t = p->n;
+  // is list empty?
+  if (p == 0) {
+    myexit(1);
+  } 
+  // has list one element?
+  else if (p->n == 0) {
     free(p);
-    p = t;
+    p = NULL;    
   }
-  free(p);
-
+  // list has more than one element
+  else {
+    while (p->n != 0) {
+      t = p->n;
+      free(p);
+      p = t;
+    }
+    free(p);
+  }
   return 0;
 
   ERROR: __VERIFIER_error();
