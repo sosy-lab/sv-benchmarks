@@ -6,8 +6,6 @@ input_files: 's3_clnt_1.BV.c.cil-1a.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
