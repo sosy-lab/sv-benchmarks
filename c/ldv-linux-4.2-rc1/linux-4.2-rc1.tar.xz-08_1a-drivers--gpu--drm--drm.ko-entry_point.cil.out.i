@@ -55499,12 +55499,8 @@ int __VERIFIER_nondet_int(void);
 int pcie_capability_read_dword(struct pci_dev *arg0, int arg1, u32 *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 void *external_alloc(void);
 struct task_struct *pid_task(struct pid *arg0, enum pid_type arg1) {
@@ -55685,12 +55681,8 @@ int __VERIFIER_nondet_int(void);
 int vga_client_register(struct pci_dev *arg0, void *arg1, void (*arg2)(void *, bool ), unsigned int (*arg3)(void *, bool )) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int vm_mmap(struct file *arg0, unsigned long arg1, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5) {

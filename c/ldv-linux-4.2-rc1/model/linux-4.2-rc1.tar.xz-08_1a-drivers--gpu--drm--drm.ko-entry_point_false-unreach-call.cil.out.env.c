@@ -1611,15 +1611,11 @@ int pcie_capability_read_dword(struct pci_dev *arg0, int arg1, u32 *arg2) {
 // Function: pgprot_writecombine
 // with type: pgprot_t pgprot_writecombine(pgprot_t )
 // with return type: pgprot_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 
 // Function: pid_task
@@ -2088,15 +2084,11 @@ int vga_client_register(struct pci_dev *arg0, void *arg1, void (*arg2)(void *, b
 // Function: vm_get_page_prot
 // with type: pgprot_t vm_get_page_prot(unsigned long)
 // with return type: pgprot_t 
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
 
 // Function: vm_mmap
