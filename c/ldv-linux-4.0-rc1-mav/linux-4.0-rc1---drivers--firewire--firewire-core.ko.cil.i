@@ -10005,7 +10005,7 @@ __inline static void *ldv_idr_find_114(struct idr *idr , int id )
   {
   {
   ldv_linux_lib_idr_idr_find_resource_idr_of_client();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct client_resource));
   }
   return (tmp);
 }
@@ -12543,7 +12543,7 @@ __inline static void *ldv_idr_find_96(struct idr *idr , int id )
   {
   {
   ldv_linux_lib_idr_idr_find_fw_device_idr();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct fw_device));
   }
   return (tmp);
 }

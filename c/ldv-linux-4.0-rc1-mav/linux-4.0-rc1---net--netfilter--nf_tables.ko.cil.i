@@ -10680,8 +10680,6 @@ static void nft_chain_stats_replace(struct nft_base_chain *chain , struct nft_st
   bool __warned ;
   int tmp ;
   int tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
   {
   if ((unsigned long )newstats == (unsigned long )((struct nft_stats *)0)) {
     return;
@@ -10707,16 +10705,14 @@ static void nft_chain_stats_replace(struct nft_base_chain *chain , struct nft_st
     {
     oldstats = chain->stats;
     ldv_check_for_read_section();
-    tmp___1 = ldv_undef_ptr();
-    chain->stats = (struct nft_stats *)tmp___1;
+    chain->stats = ldv_malloc(sizeof(struct nft_stats));
     synchronize_rcu();
     free_percpu((void *)oldstats);
     }
   } else {
     {
     ldv_check_for_read_section();
-    tmp___2 = ldv_undef_ptr();
-    chain->stats = (struct nft_stats *)tmp___2;
+    chain->stats = ldv_malloc(sizeof(struct nft_stats));
     }
   }
   return;
@@ -10821,7 +10817,6 @@ static int nf_tables_newchain(struct sock *nlsk , struct sk_buff *skb , struct n
   void const *__vpp_verify ;
   unsigned long __ptr ;
   unsigned int tmp___31 ;
-  void *tmp___32 ;
   void *tmp___33 ;
   struct nft_base_chain *tmp___34 ;
   {
@@ -11126,8 +11121,7 @@ static int nf_tables_newchain(struct sock *nlsk , struct sk_buff *skb , struct n
       }
       {
       ldv_check_for_read_section();
-      tmp___32 = ldv_undef_ptr();
-      basechain->stats = (struct nft_stats *)tmp___32;
+      basechain->stats = ldv_malloc(sizeof(struct nft_stats));
       }
     }
     basechain->type = type;

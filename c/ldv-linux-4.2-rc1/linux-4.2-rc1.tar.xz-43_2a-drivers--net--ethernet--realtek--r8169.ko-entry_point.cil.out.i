@@ -19175,7 +19175,7 @@ __inline static void *kmalloc_node(size_t size , gfp_t flags , int node )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   return (tmp);
 }
 }

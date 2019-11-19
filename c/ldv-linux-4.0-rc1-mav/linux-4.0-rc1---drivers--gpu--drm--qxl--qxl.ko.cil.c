@@ -21251,7 +21251,7 @@ __inline static void *ldv_idr_find_150(struct idr *idr , int id )
   {
   {
   ldv_linux_lib_idr_idr_find_surf_id_idr_of_qxl_device();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct qxl_bo));
   }
   return (tmp);
 }
@@ -25371,7 +25371,7 @@ __inline static void *ldv_idr_find_123(struct idr *idr , int id )
   {
   {
   ldv_linux_lib_idr_idr_find_release_idr_of_qxl_device();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct qxl_release));
   }
   return (tmp);
 }

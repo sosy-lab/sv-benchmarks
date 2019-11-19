@@ -35545,7 +35545,7 @@ __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(48UL);
   return (tmp);
 }
 }

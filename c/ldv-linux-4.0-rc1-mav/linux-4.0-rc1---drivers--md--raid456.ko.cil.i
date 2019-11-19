@@ -20934,8 +20934,6 @@ static int raid5_add_disk(struct mddev *mddev , struct md_rdev *rdev )
   int first ;
   int last ;
   int tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
   int tmp___2 ;
   {
   conf = (struct r5conf *)mddev->private;
@@ -20981,8 +20979,7 @@ static int raid5_add_disk(struct mddev *mddev , struct md_rdev *rdev )
     }
     {
     ldv_check_for_read_section();
-    tmp___0 = ldv_undef_ptr();
-    p->rdev = (struct md_rdev *)tmp___0;
+    p->rdev = ldv_malloc(sizeof(struct md_rdev));
     }
     goto out;
   } else {
@@ -21008,8 +21005,7 @@ static int raid5_add_disk(struct mddev *mddev , struct md_rdev *rdev )
     err = 0;
     conf->fullsync = 1;
     ldv_check_for_read_section();
-    tmp___1 = ldv_undef_ptr();
-    p->replacement = (struct md_rdev *)tmp___1;
+    p->replacement = ldv_malloc(sizeof(struct md_rdev));
     }
     goto ldv_41839;
   } else {

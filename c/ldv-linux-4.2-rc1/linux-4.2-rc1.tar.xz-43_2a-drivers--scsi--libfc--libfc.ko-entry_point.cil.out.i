@@ -12147,7 +12147,7 @@ void *ldv_mempool_alloc_137(mempool_t *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(576UL);
   return (tmp);
 }
 }
@@ -13289,7 +13289,7 @@ __inline static struct sk_buff *alloc_skb_fclone(unsigned int size , gfp_t flags
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   return ((struct sk_buff *)tmp);
 }
 }
@@ -23154,7 +23154,7 @@ void *ldv_mempool_alloc_386(mempool_t *ldv_func_arg1 , gfp_t flags )
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(448UL);
   return (tmp);
 }
 }

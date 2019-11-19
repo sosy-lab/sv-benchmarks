@@ -20569,7 +20569,7 @@ void *ldv_dma_pool_alloc_92(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_a
   void *tmp ;
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(324UL);
   return (tmp);
 }
 }
