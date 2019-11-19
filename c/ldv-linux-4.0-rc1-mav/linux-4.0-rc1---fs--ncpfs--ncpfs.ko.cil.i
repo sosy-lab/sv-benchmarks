@@ -26027,19 +26027,11 @@ int lockref_get_not_dead(struct lockref *arg0) {
 void make_bad_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_49 *tmp = (struct __anonstruct_kgid_t_49*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_49 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_49));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_48 *tmp = (struct __anonstruct_kuid_t_48*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_48 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_48));
 }
 void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {

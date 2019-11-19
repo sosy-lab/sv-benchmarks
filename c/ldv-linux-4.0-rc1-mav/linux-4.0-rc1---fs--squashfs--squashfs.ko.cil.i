@@ -18301,19 +18301,11 @@ int lzo1x_decompress_safe(const unsigned char *arg0, size_t arg1, unsigned char 
 void make_bad_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_49 *tmp = (struct __anonstruct_kgid_t_49*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_49 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_49));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_48 *tmp = (struct __anonstruct_kuid_t_48*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_48 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_48));
 }
 void *external_alloc(void);
 struct dentry *mount_bdev(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3, int (*arg4)(struct super_block *, void *, int)) {

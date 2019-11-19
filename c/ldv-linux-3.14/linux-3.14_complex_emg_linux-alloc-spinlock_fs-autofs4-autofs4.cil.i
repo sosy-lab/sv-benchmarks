@@ -15647,19 +15647,11 @@ void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) 
 void lockref_get(struct lockref *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_39 *tmp = (struct __anonstruct_kgid_t_39*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kgid_t_39 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_39));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_38 *tmp = (struct __anonstruct_kuid_t_38*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct __anonstruct_kuid_t_38 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_38));
 }
 int __VERIFIER_nondet_int(void);
 int match_int(substring_t *arg0, int *arg1) {
