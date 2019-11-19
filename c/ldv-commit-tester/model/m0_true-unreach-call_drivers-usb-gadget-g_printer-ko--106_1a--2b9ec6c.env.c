@@ -239,15 +239,6 @@ void ldv_initialize() {
   return;
 }
 
-// Function: ldv_undef_ptr
-// with type: void *ldv_undef_ptr()
-// with return type: (void)*
-void *external_alloc(void);
-void *ldv_undef_ptr() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: list_del
 // with type: void list_del(struct list_head *)
 // with return type: void

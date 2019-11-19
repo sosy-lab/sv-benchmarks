@@ -6409,15 +6409,6 @@ int ldv_undef_int(void)
   return (tmp);
 }
 }
-void *ldv_undef_ptr(void) 
-{ 
-  void *tmp ;
-
-  {
-  tmp = __VERIFIER_nondet_pointer();
-  return (tmp);
-}
-}
 unsigned long ldv_undef_ulong(void) 
 { 
   unsigned long tmp ;
