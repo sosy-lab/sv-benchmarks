@@ -32208,12 +32208,8 @@ long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 int __VERIFIER_nondet_int(void);
 int posix_lock_file(struct file *arg0, struct file_lock *arg1, struct file_lock *arg2) {

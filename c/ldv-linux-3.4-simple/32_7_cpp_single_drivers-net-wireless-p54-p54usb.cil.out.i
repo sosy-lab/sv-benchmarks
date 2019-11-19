@@ -36169,12 +36169,8 @@ int nf_hook_slow(u_int8_t arg0, unsigned int arg1, struct sk_buff *arg2, struct 
 struct timespec ns_to_timespec(const s64 arg0) {
   return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 int __VERIFIER_nondet_int(void);
 int out_of_line_wait_on_bit(void *arg0, int arg1, int (*arg2)(void *), unsigned arg3) {

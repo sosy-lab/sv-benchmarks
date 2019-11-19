@@ -6718,12 +6718,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_thaw_noirq_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {

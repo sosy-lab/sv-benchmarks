@@ -10155,12 +10155,8 @@ int netdev_warn(const struct net_device *arg0, const char *arg1, ...) {
 void netif_device_detach(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
-void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
-  return *tmp;
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
 }
 int __VERIFIER_nondet_int(void);
 int open_candev(struct net_device *arg0) {
