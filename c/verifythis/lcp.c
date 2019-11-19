@@ -29,7 +29,8 @@ void check(int *a, int n, int x, int y, int l) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n >= 0);
+    /* 1 << 30 will make sure n * sizeof(int) does not overflow */
+    __VERIFIER_assume(n >= 0 && n < (1 << 30));
     int *a = calloc(n, sizeof(int));
 
     int x = __VERIFIER_nondet_int();
