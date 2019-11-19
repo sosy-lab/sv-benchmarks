@@ -14598,9 +14598,8 @@ void __dev_kfree_skb_any(struct sk_buff *arg0, enum skb_free_reason arg1) {
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -14614,20 +14613,17 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__skb_gso_segment(struct sk_buff *arg0, netdev_features_t arg1, bool arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -14705,9 +14701,8 @@ void get_random_bytes(void *arg0, int arg1) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_initialize() {
   return;
@@ -14836,9 +14831,8 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 void unregister_netdev(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_autopm_get_interface(struct usb_interface *arg0) {

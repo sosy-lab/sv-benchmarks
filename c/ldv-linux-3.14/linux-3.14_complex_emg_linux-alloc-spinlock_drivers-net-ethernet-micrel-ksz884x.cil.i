@@ -17568,9 +17568,8 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __tasklet_schedule(struct tasklet_struct *arg0) {
   return;
@@ -17674,9 +17673,8 @@ int hex_to_bin(char arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -17771,9 +17769,8 @@ int __VERIFIER_nondet_int(void);
 pci_power_t pci_choose_state(struct pci_dev *arg0, pm_message_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;

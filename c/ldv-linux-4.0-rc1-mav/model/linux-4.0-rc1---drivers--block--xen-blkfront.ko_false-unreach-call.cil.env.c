@@ -220,19 +220,17 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 
 // Function: bdget_disk
 // with type: struct block_device *bdget_disk(struct gendisk *, int)
 // with return type: (struct block_device)*
-void *external_alloc(void);
 struct block_device *bdget_disk(struct gendisk *arg0, int arg1) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return ldv_malloc(sizeof(struct block_device));
 }
 
 // Function: bdput
@@ -255,10 +253,9 @@ int bind_evtchn_to_irqhandler(unsigned int arg0, irqreturn_t (*arg1)(int, void *
 // Function: bio_clone_bioset
 // with type: struct bio *bio_clone_bioset(struct bio *, gfp_t , struct bio_set *)
 // with return type: (struct bio)*
-void *external_alloc(void);
 struct bio *bio_clone_bioset(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 
 // Function: bio_endio
@@ -320,28 +317,25 @@ void blk_end_request_all(struct request *arg0, int arg1) {
 // Function: blk_fetch_request
 // with type: struct request *blk_fetch_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
 struct request *blk_fetch_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(void (*)(struct request_queue *), spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 
 // Function: blk_peek_request
 // with type: struct request *blk_peek_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
 struct request *blk_peek_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 
 // Function: blk_queue_bounce_limit
@@ -585,10 +579,9 @@ void gnttab_request_free_callback(struct gnttab_free_callback *arg0, void (*arg1
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_after_alloc
@@ -719,10 +712,9 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul
@@ -868,10 +860,9 @@ int xenbus_printf(struct xenbus_transaction arg0, const char *arg1, const char *
 // Function: xenbus_read
 // with type: void *xenbus_read(struct xenbus_transaction , const char *, const char *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
 void *xenbus_read(struct xenbus_transaction arg0, const char *arg1, const char *arg2, unsigned int *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: xenbus_scanf

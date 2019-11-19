@@ -4886,16 +4886,14 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct backlight_device *backlight_device_register(const char *arg0, struct device *arg1, void *arg2, const struct backlight_ops *arg3, const struct backlight_properties *arg4) {
-  return (struct backlight_device *)external_alloc();
+  return ldv_malloc(sizeof(struct backlight_device));
 }
 void backlight_device_unregister(struct backlight_device *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void input_free_device(struct input_dev *arg0) {
   return;
@@ -4907,9 +4905,8 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4917,9 +4914,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void sparse_keymap_free(struct input_dev *arg0) {
   return;

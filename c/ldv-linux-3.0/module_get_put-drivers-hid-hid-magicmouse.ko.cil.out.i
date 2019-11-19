@@ -4148,17 +4148,15 @@ int __VERIFIER_nondet_int(void);
 int __hid_register_driver(struct hid_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -4171,9 +4169,8 @@ int hid_connect(struct hid_device *arg0, unsigned int arg1) {
 void hid_disconnect(struct hid_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct hid_report *hid_register_report(struct hid_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct hid_report *)external_alloc();
+  return ldv_malloc(sizeof(struct hid_report));
 }
 void hid_unregister_driver(struct hid_driver *arg0) {
   return;

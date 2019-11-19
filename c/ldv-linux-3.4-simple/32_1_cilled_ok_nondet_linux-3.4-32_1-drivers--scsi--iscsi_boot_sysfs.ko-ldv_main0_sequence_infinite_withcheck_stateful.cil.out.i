@@ -2295,9 +2295,8 @@ bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kobject_init_and_add(struct kobject *arg0, struct kobj_type *arg1, struct kobject *arg2, const char *arg3, ...) {
@@ -2310,9 +2309,8 @@ int __VERIFIER_nondet_int(void);
 int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct kset *kset_create_and_add(const char *arg0, const struct kset_uevent_ops *arg1, struct kobject *arg2) {
-  return (struct kset *)external_alloc();
+  return ldv_malloc(sizeof(struct kset));
 }
 void kset_unregister(struct kset *arg0) {
   return;

@@ -333,10 +333,9 @@ void netif_tx_wake_queue(struct netdev_queue *arg0) {
 // Function: pcmcia_dev_present
 // with type: struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *)
 // with return type: (struct pcmcia_device)*
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
   // Pointer type
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 
 // Function: pcmcia_disable_device

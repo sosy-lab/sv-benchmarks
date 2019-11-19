@@ -30,10 +30,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __napi_schedule
@@ -231,10 +230,9 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_alloc_skb
 // with type: struct sk_buff *dev_alloc_skb(unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: dev_err
@@ -249,10 +247,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_kfree_skb_any
@@ -389,10 +386,9 @@ void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap

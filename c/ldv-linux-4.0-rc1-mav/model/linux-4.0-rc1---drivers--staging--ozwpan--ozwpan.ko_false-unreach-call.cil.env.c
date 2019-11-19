@@ -216,10 +216,9 @@ void dev_add_pack(struct packet_type *arg0) {
 // Function: dev_get_by_name
 // with type: struct net_device *dev_get_by_name(struct net *, const char *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *dev_get_by_name(struct net *arg0, const char *arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: dev_queue_xmit
@@ -242,10 +241,9 @@ void dev_remove_pack(struct packet_type *arg0) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: device_destroy
@@ -342,10 +340,9 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -438,10 +435,9 @@ int platform_device_add(struct platform_device *arg0) {
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put
@@ -537,10 +533,9 @@ int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_disabled
@@ -555,10 +550,9 @@ int usb_disabled() {
 // Function: usb_get_hcd
 // with type: struct usb_hcd *usb_get_hcd(struct usb_hcd *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_get_hcd(struct usb_hcd *arg0) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_hcd_check_unlink_urb

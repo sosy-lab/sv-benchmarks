@@ -12233,9 +12233,8 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __symbol_put(const char *arg0) {
   return;
@@ -12279,9 +12278,8 @@ void rc_keyup(struct rc_dev *arg0) {
 void rc_repeat(struct rc_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
-  return (struct usb_host_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_host_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {
@@ -12290,9 +12288,8 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_deregister(struct usb_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {

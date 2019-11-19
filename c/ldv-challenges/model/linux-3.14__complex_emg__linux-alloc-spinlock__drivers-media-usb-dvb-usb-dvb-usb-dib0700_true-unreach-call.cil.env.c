@@ -18,10 +18,9 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __symbol_put
@@ -118,10 +117,9 @@ int dib0090_set_tune_state(struct dvb_frontend *arg0, enum frontend_tune_state a
 // Function: dib3000mc_get_tuner_i2c_master
 // with type: struct i2c_adapter *dib3000mc_get_tuner_i2c_master(struct dvb_frontend *, int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib3000mc_get_tuner_i2c_master(struct dvb_frontend *arg0, int arg1) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib3000mc_i2c_enumeration
@@ -136,10 +134,9 @@ int dib3000mc_i2c_enumeration(struct i2c_adapter *arg0, int arg1, u8 arg2, struc
 // Function: dib7000m_get_i2c_master
 // with type: struct i2c_adapter *dib7000m_get_i2c_master(struct dvb_frontend *, enum dibx000_i2c_interface , int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib7000m_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib7000m_pid_filter
@@ -174,10 +171,9 @@ u32 dib7000p_ctrl_timf(struct dvb_frontend *arg0, u8 arg1, u32 arg2) {
 // Function: dib7000p_get_i2c_master
 // with type: struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *, enum dibx000_i2c_interface , int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib7000p_i2c_enumeration
@@ -264,10 +260,9 @@ int dib7090_get_adc_power(struct dvb_frontend *arg0) {
 // Function: dib7090_get_i2c_tuner
 // with type: struct i2c_adapter *dib7090_get_i2c_tuner(struct dvb_frontend *)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib7090_get_i2c_tuner(struct dvb_frontend *arg0) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib7090_slave_reset
@@ -313,19 +308,17 @@ s32 dib8000_get_adc_power(struct dvb_frontend *arg0, u8 arg1) {
 // Function: dib8000_get_i2c_master
 // with type: struct i2c_adapter *dib8000_get_i2c_master(struct dvb_frontend *, enum dibx000_i2c_interface , int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib8000_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib8000_get_slave_frontend
 // with type: struct dvb_frontend *dib8000_get_slave_frontend(struct dvb_frontend *, int)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
 struct dvb_frontend *dib8000_get_slave_frontend(struct dvb_frontend *arg0, int arg1) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
 
 // Function: dib8000_i2c_enumeration
@@ -411,10 +404,9 @@ int dib8000_update_pll(struct dvb_frontend *arg0, struct dibx000_bandwidth_confi
 // Function: dib8096p_get_i2c_tuner
 // with type: struct i2c_adapter *dib8096p_get_i2c_tuner(struct dvb_frontend *)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib8096p_get_i2c_tuner(struct dvb_frontend *arg0) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib8096p_tuner_sleep

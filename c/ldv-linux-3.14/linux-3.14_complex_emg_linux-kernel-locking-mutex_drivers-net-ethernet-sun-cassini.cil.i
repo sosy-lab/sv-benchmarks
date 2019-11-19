@@ -17120,9 +17120,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -17154,9 +17153,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
@@ -17409,9 +17407,8 @@ void unregister_netdev(struct net_device *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

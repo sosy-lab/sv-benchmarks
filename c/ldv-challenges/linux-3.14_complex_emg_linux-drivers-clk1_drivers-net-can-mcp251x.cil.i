@@ -10331,9 +10331,8 @@ void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -10358,17 +10357,14 @@ int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *alloc_can_err_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *alloc_can_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct net_device *alloc_candev(int arg0, unsigned int arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void can_bus_off(struct net_device *arg0) {
   return;
@@ -10416,17 +10412,14 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 void devm_can_led_init(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct regulator *devm_regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void disable_irq(unsigned int arg0) {
   return;
@@ -10525,9 +10518,8 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 void schedule() {
   return;
 }
-void *external_alloc(void);
 const struct spi_device_id *spi_get_device_id(const struct spi_device *arg0) {
-  return (const struct spi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct spi_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int spi_register_driver(struct spi_driver *arg0) {

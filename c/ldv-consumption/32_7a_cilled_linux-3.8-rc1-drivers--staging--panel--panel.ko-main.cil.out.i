@@ -6120,9 +6120,8 @@ int __VERIFIER_nondet_int(void);
 int parport_claim(struct pardevice *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
-  return (struct pardevice *)external_alloc();
+  return ldv_malloc(sizeof(struct pardevice));
 }
 int __VERIFIER_nondet_int(void);
 int parport_register_driver(struct parport_driver *arg0) {

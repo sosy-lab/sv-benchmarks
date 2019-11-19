@@ -125,10 +125,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Skip function: kfree

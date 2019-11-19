@@ -412,10 +412,9 @@ int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, si
 // Function: drm_gem_object_lookup
 // with type: struct drm_gem_object *drm_gem_object_lookup(struct drm_device *, struct drm_file *, u32 )
 // with return type: (struct drm_gem_object)*
-void *external_alloc(void);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
   // Pointer type
-  return (struct drm_gem_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_gem_object));
 }
 
 // Function: drm_gem_object_release
@@ -429,10 +428,9 @@ void drm_gem_object_release(struct drm_gem_object *arg0) {
 // Function: drm_get_edid
 // with type: struct edid *drm_get_edid(struct drm_connector *, struct i2c_adapter *)
 // with return type: (struct edid)*
-void *external_alloc(void);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: drm_get_pci_dev
@@ -594,10 +592,9 @@ uint32_t drm_mode_legacy_fb_format(uint32_t arg0, uint32_t arg1) {
 // Function: drm_mode_object_find
 // with type: struct drm_mode_object *drm_mode_object_find(struct drm_device *, uint32_t , uint32_t )
 // with return type: (struct drm_mode_object)*
-void *external_alloc(void);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
   // Pointer type
-  return (struct drm_mode_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mode_object));
 }
 
 // Function: drm_mode_vrefresh
@@ -732,10 +729,9 @@ void fb_set_suspend(struct fb_info *arg0, int arg1) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -1402,10 +1398,9 @@ bool vgacon_text_force() {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: warn_slowpath_null

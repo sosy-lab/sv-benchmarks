@@ -2161,9 +2161,8 @@ int _dev_info(const struct device *arg0, const char *arg1, ...) {
 void hid_unregister_driver(struct hid_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -2171,9 +2170,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

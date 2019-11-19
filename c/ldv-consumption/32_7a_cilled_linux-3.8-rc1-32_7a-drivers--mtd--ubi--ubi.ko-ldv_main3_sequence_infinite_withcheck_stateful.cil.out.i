@@ -24692,9 +24692,8 @@ bool __VERIFIER_nondet_bool(void);
 bool __refrigerator(bool arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -24757,13 +24756,11 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -24809,13 +24806,11 @@ bool __VERIFIER_nondet_bool(void);
 bool freezing_slow_path(struct task_struct *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
-void *external_alloc(void);
 struct mtd_info *get_mtd_device(struct mtd_info *arg0, int arg1) {
-  return (struct mtd_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mtd_info));
 }
 void get_random_bytes(void *arg0, int arg1) {
   return;
@@ -24824,13 +24819,11 @@ int __VERIFIER_nondet_int(void);
 int kern_path(const char *arg0, unsigned int arg1, struct path *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -24838,9 +24831,8 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -24932,20 +24924,17 @@ void put_mtd_device(struct mtd_info *arg0) {
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_last(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
-void *external_alloc(void);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 void schedule() {
   return;
@@ -24982,13 +24971,11 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {

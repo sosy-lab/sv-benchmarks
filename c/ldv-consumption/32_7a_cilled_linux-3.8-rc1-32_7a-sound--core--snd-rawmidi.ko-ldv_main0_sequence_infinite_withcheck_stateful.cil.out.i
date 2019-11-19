@@ -7276,9 +7276,8 @@ bool cancel_work_sync(struct work_struct *arg0) {
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -7370,9 +7369,8 @@ int __VERIFIER_nondet_int(void);
 int snd_device_register(struct snd_card *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
-  return (struct snd_info_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_info_entry));
 }
 void snd_info_free_entry(struct snd_info_entry *arg0) {
   return;
@@ -7385,13 +7383,11 @@ int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *snd_lookup_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int snd_oss_info_register(int arg0, int arg1, char *arg2) {

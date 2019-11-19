@@ -27966,13 +27966,11 @@ void ldv_check_final_state(void)
 void ___might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 const char *__bdevname(dev_t arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -28066,17 +28064,14 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
 struct buffer_head *alloc_page_buffers(struct page *arg0, unsigned long arg1, int arg2) {
-  return (struct buffer_head *)external_alloc();
+  return ldv_malloc(sizeof(struct buffer_head));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bd_link_disk_holder(struct block_device *arg0, struct gendisk *arg1) {
@@ -28085,21 +28080,18 @@ int bd_link_disk_holder(struct block_device *arg0, struct gendisk *arg1) {
 void bd_unlink_disk_holder(struct block_device *arg0, struct gendisk *arg1) {
   return;
 }
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct bio *bio_alloc_bioset(gfp_t arg0, int arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
-void *external_alloc(void);
 struct bio *bio_clone_bioset(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -28107,9 +28099,8 @@ void bio_endio(struct bio *arg0, int arg1) {
 void bio_put(struct bio *arg0) {
   return;
 }
-void *external_alloc(void);
 struct bio_set *bioset_create(unsigned int arg0, unsigned int arg1) {
-  return (struct bio_set *)external_alloc();
+  return ldv_malloc(sizeof(struct bio_set));
 }
 void bioset_free(struct bio_set *arg0) {
   return;
@@ -28118,9 +28109,8 @@ int __VERIFIER_nondet_int(void);
 int bioset_integrity_create(struct bio_set *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -28163,9 +28153,8 @@ void blk_sync_queue(struct request_queue *arg0) {
 void blk_unregister_region(dev_t arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct block_device *blkdev_get_by_dev(dev_t arg0, fmode_t arg1, void *arg2) {
-  return (struct block_device *)external_alloc();
+  return ldv_malloc(sizeof(struct block_device));
 }
 void blkdev_put(struct block_device *arg0, fmode_t arg1) {
   return;
@@ -28199,13 +28188,11 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void dump_page(struct page *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
-void *external_alloc(void);
 char *file_path(struct file *arg0, char *arg1, int arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
@@ -28247,9 +28234,8 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 void kernel_sigaction(int arg0, __sighandler_t arg1) {
   return;
 }
-void *external_alloc(void);
 struct kernfs_node *kernfs_find_and_get_ns(struct kernfs_node *arg0, const char *arg1, const void *arg2) {
-  return (struct kernfs_node *)external_alloc();
+  return ldv_malloc(sizeof(struct kernfs_node));
 }
 void kernfs_notify(struct kernfs_node *arg0) {
   return;
@@ -28264,9 +28250,8 @@ int kobject_add(struct kobject *arg0, struct kobject *arg1, const char *arg2, ..
 void kobject_del(struct kobject *arg0) {
   return;
 }
-void *external_alloc(void);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 void kobject_init(struct kobject *arg0, struct kobj_type *arg1) {
   return;
@@ -28294,9 +28279,8 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -28364,9 +28348,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void put_disk(struct gendisk *arg0) {
   return;
@@ -28394,9 +28377,8 @@ int __VERIFIER_nondet_int(void);
 int register_reboot_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 void remove_proc_entry(const char *arg0, struct proc_dir_entry *arg1) {
   return;
@@ -28443,17 +28425,15 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *skip_spaces(const char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *strreplace(char *arg0, char arg1, char arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int submit_bh(int arg0, struct buffer_head *arg1) {

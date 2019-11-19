@@ -1880,17 +1880,15 @@ void __const_udelay(unsigned long arg0) {
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int attach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 avmcard *b1_alloc_card(int arg0) {
-  return (avmcard *)external_alloc();
+  return ldv_malloc(sizeof(avmcard));
 }
 int __VERIFIER_nondet_int(void);
 int b1_detect(unsigned int arg0, enum avmcardtype arg1) {
@@ -1909,9 +1907,8 @@ int detach_capi_ctr(struct capi_ctr *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -1919,9 +1916,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -1938,13 +1934,11 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {

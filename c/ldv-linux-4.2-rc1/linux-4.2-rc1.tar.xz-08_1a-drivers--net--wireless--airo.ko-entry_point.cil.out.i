@@ -18278,9 +18278,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 void *PDE_DATA(const struct inode *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -18312,9 +18311,8 @@ void __might_fault(const char *arg0, int arg1) {
 void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_enable_wake(struct pci_dev *arg0, pci_power_t arg1, bool arg2, bool arg3) {
@@ -18334,9 +18332,8 @@ bool __refrigerator(bool arg0) {
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -18359,9 +18356,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
@@ -18370,9 +18366,8 @@ bool capable(int arg0) {
 void consume_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return ldv_malloc(sizeof(struct crypto_tfm));
 }
 void debug_check_no_locks_held() {
   return;
@@ -18381,9 +18376,8 @@ long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -18426,16 +18420,14 @@ int __VERIFIER_nondet_int(void);
 int ieee80211_frequency_to_channel(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -18544,13 +18536,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir_mode(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void proc_set_user(struct proc_dir_entry *arg0, kuid_t arg1, kgid_t arg2) {
   return;
@@ -18596,9 +18586,8 @@ long __VERIFIER_nondet_long(void);
 ssize_t simple_write_to_buffer(void *arg0, size_t arg1, loff_t *arg2, const void *arg3, size_t arg4) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

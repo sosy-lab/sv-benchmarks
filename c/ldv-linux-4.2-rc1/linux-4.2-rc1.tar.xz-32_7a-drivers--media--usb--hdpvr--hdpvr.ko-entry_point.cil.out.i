@@ -11576,9 +11576,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __copy_to_user_overflow() {
   return;
@@ -11634,9 +11633,8 @@ int i2c_add_adapter(struct i2c_adapter *arg0) {
 void i2c_del_adapter(struct i2c_adapter *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_client));
 }
 void ldv_initialize() {
   return;
@@ -11683,13 +11681,11 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 void schedule() {
   return;
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {
@@ -11708,9 +11704,8 @@ void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_add
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -11747,13 +11742,11 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_log_status(struct file *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s64 arg3, s64 arg4, u64 arg5, s64 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_ctrl));
 }
-void *external_alloc(void);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, u8 arg3, u64 arg4, u8 arg5) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_ctrl));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int v4l2_ctrl_poll(struct file *arg0, struct poll_table_struct *arg1) {
@@ -11791,9 +11784,8 @@ bool __VERIFIER_nondet_bool(void);
 bool v4l2_match_dv_timings(const struct v4l2_dv_timings *arg0, const struct v4l2_dv_timings *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) {

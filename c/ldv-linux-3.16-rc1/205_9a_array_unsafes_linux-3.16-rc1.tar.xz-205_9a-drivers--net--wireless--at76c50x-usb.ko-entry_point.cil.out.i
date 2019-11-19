@@ -11193,9 +11193,8 @@ bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 const u8 *cfg80211_find_ie(u8 arg0, const u8 *arg1, int arg2) {
-  return (const u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
 int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
@@ -11209,9 +11208,8 @@ int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ieee80211_hw *ieee80211_alloc_hw(size_t arg0, const struct ieee80211_ops *arg1) {
-  return (struct ieee80211_hw *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_hw));
 }
 int __VERIFIER_nondet_int(void);
 int ieee80211_channel_to_frequency(int arg0, enum ieee80211_band arg1) {
@@ -11295,13 +11293,11 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout_interruptible(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -11317,9 +11313,8 @@ void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsi
 void tasklet_kill(struct tasklet_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {
@@ -11331,9 +11326,8 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;

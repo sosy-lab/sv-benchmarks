@@ -7480,9 +7480,8 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
@@ -7492,9 +7491,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
@@ -7504,16 +7502,14 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread8(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -7529,9 +7525,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_2() {
@@ -7570,9 +7565,8 @@ int pci_enable_device(struct pci_dev *arg0) {
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   return ldv_malloc(arg2);
 }
-void *external_alloc(void);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;

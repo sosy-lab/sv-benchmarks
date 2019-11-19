@@ -24528,9 +24528,8 @@ int del_timer(struct timer_list *arg0) {
 void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
 }
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -24620,9 +24619,8 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sas_task *sas_alloc_slow_task(gfp_t arg0) {
-  return (struct sas_task *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_task));
 }
 int __VERIFIER_nondet_int(void);
 int sas_bios_param(struct scsi_device *arg0, struct block_device *arg1, sector_t arg2, int *arg3) {
@@ -24632,9 +24630,8 @@ int __VERIFIER_nondet_int(void);
 int sas_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct scsi_transport_template *sas_domain_attach_transport(struct sas_domain_function_template *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int sas_drain_work(struct sas_ha_struct *arg0) {
@@ -24651,9 +24648,8 @@ int sas_eh_device_reset_handler(struct scsi_cmnd *arg0) {
 void sas_free_task(struct sas_task *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sas_phy *sas_get_local_phy(struct domain_device *arg0) {
-  return (struct sas_phy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_phy));
 }
 int __VERIFIER_nondet_int(void);
 int sas_ioctl(struct scsi_device *arg0, int arg1, void *arg2) {
@@ -24699,9 +24695,8 @@ int __VERIFIER_nondet_int(void);
 int scsi_add_host_with_dma(struct Scsi_Host *arg0, struct device *arg1, struct device *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -24712,9 +24707,8 @@ void scsi_remove_host(struct Scsi_Host *arg0) {
 void scsi_scan_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsigned long arg2) {
   return;

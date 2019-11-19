@@ -133,10 +133,9 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_hdlcdev
 // with type: struct net_device *alloc_hdlcdev(void *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_hdlcdev(void *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc

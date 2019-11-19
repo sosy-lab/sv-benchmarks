@@ -40043,13 +40043,11 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -40125,9 +40123,8 @@ void __tasklet_schedule(struct tasklet_struct *arg0) {
 void __udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *__vlan_find_dev_deep(struct net_device *arg0, __be16 arg1, u16 arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2) {
@@ -40188,9 +40185,8 @@ void _raw_write_unlock_bh(rwlock_t *arg0) {
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void arp_send(int arg0, int arg1, __be32 arg2, struct net_device *arg3, __be32 arg4, const unsigned char *arg5, const unsigned char *arg6, const unsigned char *arg7) {
   return;
@@ -40299,9 +40295,8 @@ int hex_to_bin(char arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -40366,9 +40361,8 @@ int __VERIFIER_nondet_int(void);
 int mdio_set_flag(const struct mdio_if_info *arg0, int arg1, int arg2, u16 arg3, int arg4, bool arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void might_fault() {
   return;
@@ -40389,9 +40383,8 @@ void mutex_unlock(struct mutex *arg0) {
 void napi_complete(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *napi_get_frags(struct napi_struct *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 gro_result_t napi_gro_frags(struct napi_struct *arg0) {
@@ -40408,9 +40401,8 @@ int __VERIFIER_nondet_int(void);
 int netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct net_device *netdev_master_upper_dev_get_rcu(struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void netdev_update_features(struct net_device *arg0) {
   return;
@@ -40581,9 +40573,8 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -40631,9 +40622,8 @@ unsigned short __VERIFIER_nondet_ushort(void);
 u16 vlan_dev_vlan_id(const struct net_device *arg0) {
   return __VERIFIER_nondet_ushort();
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

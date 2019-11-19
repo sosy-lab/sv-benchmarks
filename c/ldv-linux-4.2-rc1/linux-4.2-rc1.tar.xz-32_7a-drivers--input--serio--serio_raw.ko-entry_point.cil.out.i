@@ -5278,9 +5278,8 @@ int fasync_helper(int arg0, struct file *arg1, int arg2, struct fasync_struct **
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void kill_fasync(struct fasync_struct **arg0, int arg1, int arg2) {
   return;

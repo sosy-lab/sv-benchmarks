@@ -6317,17 +6317,14 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
-void *external_alloc(void);
 struct net_device *alloc_trdev(int arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

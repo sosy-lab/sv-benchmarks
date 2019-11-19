@@ -1582,9 +1582,8 @@ int hwrng_register(struct hwrng *arg0) {
 void hwrng_unregister(struct hwrng *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -1595,9 +1594,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int register_virtio_driver(struct virtio_driver *arg0) {
@@ -1613,9 +1611,8 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_buf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void virtqueue_kick(struct virtqueue *arg0) {
   return;

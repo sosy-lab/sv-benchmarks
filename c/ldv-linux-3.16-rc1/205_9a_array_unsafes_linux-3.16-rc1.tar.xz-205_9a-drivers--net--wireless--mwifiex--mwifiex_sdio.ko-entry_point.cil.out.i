@@ -10837,9 +10837,8 @@ int __VERIFIER_nondet_int(void);
 int sdio_writesb(struct sdio_func *arg0, unsigned int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

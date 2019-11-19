@@ -8801,9 +8801,8 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -8871,13 +8870,11 @@ int __VERIFIER_nondet_int(void);
 int del_timer(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dev_kfree_skb_irq(struct sk_buff *arg0) {
   return;
@@ -8981,9 +8978,8 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;

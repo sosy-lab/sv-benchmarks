@@ -50,10 +50,9 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -491,10 +490,9 @@ int regulator_enable(struct regulator *arg0) {
 // Function: regulator_get_optional
 // with type: struct regulator *regulator_get_optional(struct device *, const char *)
 // with return type: (struct regulator)*
-void *external_alloc(void);
 struct regulator *regulator_get_optional(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: regulator_put
@@ -517,10 +515,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_put

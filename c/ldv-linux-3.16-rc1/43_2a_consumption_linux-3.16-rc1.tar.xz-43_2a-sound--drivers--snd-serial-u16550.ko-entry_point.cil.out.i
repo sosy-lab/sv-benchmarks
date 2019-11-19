@@ -4389,9 +4389,8 @@ int __platform_driver_register(struct platform_driver *arg0, struct module *arg1
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __snd_printk(unsigned int arg0, const char *arg1, int arg2, const char *arg3, ...) {
   return;
@@ -4415,9 +4414,8 @@ int del_timer(struct timer_list *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4425,13 +4423,11 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
-void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;

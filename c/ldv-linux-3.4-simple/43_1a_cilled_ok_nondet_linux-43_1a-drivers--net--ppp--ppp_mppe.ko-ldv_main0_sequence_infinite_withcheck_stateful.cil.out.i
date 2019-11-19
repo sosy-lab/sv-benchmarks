@@ -3778,17 +3778,15 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return ldv_malloc(sizeof(struct crypto_tfm));
 }
 int __VERIFIER_nondet_int(void);
 int crypto_has_alg(const char *arg0, u32 arg1, u32 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -3796,9 +3794,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ppp_register_compressor(struct compressor *arg0) {

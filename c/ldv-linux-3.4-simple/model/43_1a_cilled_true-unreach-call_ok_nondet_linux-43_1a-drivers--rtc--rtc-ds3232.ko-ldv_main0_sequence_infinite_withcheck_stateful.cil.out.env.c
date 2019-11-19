@@ -50,10 +50,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -147,10 +146,9 @@ s32 i2c_smbus_write_i2c_block_data(const struct i2c_client *arg0, u8 arg1, u8 ar
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -180,10 +178,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -222,10 +219,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: rtc_device_register
 // with type: struct rtc_device *rtc_device_register(const char *, struct device *, const struct rtc_class_ops *, struct module *)
 // with return type: (struct rtc_device)*
-void *external_alloc(void);
 struct rtc_device *rtc_device_register(const char *arg0, struct device *arg1, const struct rtc_class_ops *arg2, struct module *arg3) {
   // Pointer type
-  return (struct rtc_device *)external_alloc();
+  return ldv_malloc(sizeof(struct rtc_device));
 }
 
 // Function: rtc_update_irq

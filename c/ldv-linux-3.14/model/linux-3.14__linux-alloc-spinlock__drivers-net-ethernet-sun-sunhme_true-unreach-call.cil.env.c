@@ -259,10 +259,9 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -368,10 +367,9 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_map_rom
 // with type: void *pci_map_rom(struct pci_dev *, size_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_release_regions

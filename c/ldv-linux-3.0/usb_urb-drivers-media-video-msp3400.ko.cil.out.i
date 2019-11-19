@@ -9584,9 +9584,8 @@ int msp_detect_stereo(struct i2c_client *client )
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -9594,9 +9593,8 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -9613,9 +9611,8 @@ int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -9631,9 +9628,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int msecs_to_jiffies(const unsigned int arg0) {
@@ -9687,9 +9683,8 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_ctrl));
 }
 void v4l2_device_unregister_subdev(struct v4l2_subdev *arg0) {
   return;

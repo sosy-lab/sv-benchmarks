@@ -24,10 +24,9 @@ void clockevents_register_device(struct clock_event_device *arg0) {
 // Function: cs5535_mfgpt_alloc_timer
 // with type: struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int timer, int domain)
 // with return type: (struct cs5535_mfgpt_timer)*
-void *external_alloc(void);
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
   // Pointer type
-  return (struct cs5535_mfgpt_timer *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: cs5535_mfgpt_free_timer

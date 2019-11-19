@@ -4414,9 +4414,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct parport *parport_pc_probe_port(unsigned long arg0, unsigned long arg1, int arg2, int arg3, struct device *arg4, int arg5) {
-  return (struct parport *)external_alloc();
+  return ldv_malloc(sizeof(struct parport));
 }
 void parport_pc_unregister_port(struct parport *arg0) {
   return;

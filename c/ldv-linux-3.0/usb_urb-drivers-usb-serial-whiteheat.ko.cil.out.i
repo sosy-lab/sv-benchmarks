@@ -7801,9 +7801,8 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -7866,9 +7865,8 @@ int ezusb_writememory(struct usb_serial *arg0, int arg1, unsigned char *arg2, in
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kzalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -7876,9 +7874,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -7934,9 +7931,8 @@ int tty_insert_flip_string_fixed_flag(struct tty_struct *arg0, const unsigned ch
 void tty_kref_put(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {

@@ -65726,9 +65726,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -65765,9 +65764,8 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -65805,9 +65803,8 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -65823,9 +65820,8 @@ int dma_supported(struct device *arg0, u64 arg1) {
 void do_gettimeofday(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scsi_transport_template *fc_attach_transport(struct fc_function_template *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_transport_template));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 fc_get_event_number() {
@@ -65837,9 +65833,8 @@ void fc_host_post_vendor_event(struct Scsi_Host *arg0, u32 arg1, u32 arg2, char 
 void fc_release_transport(struct scsi_transport_template *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fc_rport *fc_remote_port_add(struct Scsi_Host *arg0, int arg1, struct fc_rport_identifiers *arg2) {
-  return (struct fc_rport *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_rport));
 }
 void fc_remote_port_delete(struct fc_rport *arg0) {
   return;
@@ -65850,9 +65845,8 @@ void fc_remote_port_rolechg(struct fc_rport *arg0, u32 arg1) {
 void fc_remove_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fc_vport *fc_vport_create(struct Scsi_Host *arg0, int arg1, struct fc_vport_identifiers *arg2) {
-  return (struct fc_vport *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_vport));
 }
 int __VERIFIER_nondet_int(void);
 int fc_vport_terminate(struct fc_vport *arg0) {
@@ -65881,9 +65875,8 @@ void idr_remove(struct idr *arg0, int arg1) {
 void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -65911,9 +65904,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_37() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_38() {
@@ -65925,9 +65917,8 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
@@ -66056,9 +66047,8 @@ int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, u64 arg3) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 void scsi_device_put(struct scsi_device *arg0) {
   return;
@@ -66070,9 +66060,8 @@ int scsi_dma_map(struct scsi_cmnd *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -66104,9 +66093,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2, size_t arg3) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t simple_read_from_buffer(void *arg0, size_t arg1, loff_t *arg2, const void *arg3, size_t arg4) {

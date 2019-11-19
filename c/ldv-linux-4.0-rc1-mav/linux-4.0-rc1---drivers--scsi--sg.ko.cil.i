@@ -21366,9 +21366,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 void blk_end_request_all(struct request *arg0, int arg1) {
   return;
@@ -21412,9 +21411,8 @@ int __VERIFIER_nondet_int(void);
 int cdev_add(struct cdev *arg0, dev_t arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct cdev *cdev_alloc() {
-  return (struct cdev *)external_alloc();
+  return ldv_malloc(sizeof(struct cdev));
 }
 void cdev_del(struct cdev *arg0) {
   return;
@@ -21422,9 +21420,8 @@ void cdev_del(struct cdev *arg0) {
 void class_interface_unregister(struct class_interface *arg0) {
   return;
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -21472,9 +21469,8 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void might_fault() {
   return;
@@ -21495,13 +21491,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void put_disk(struct gendisk *arg0) {
   return;

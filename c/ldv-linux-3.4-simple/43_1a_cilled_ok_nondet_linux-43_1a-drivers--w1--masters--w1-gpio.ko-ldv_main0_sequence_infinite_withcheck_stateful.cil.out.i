@@ -1479,9 +1479,8 @@ int __gpio_get_value(unsigned int arg0) {
 void __gpio_set_value(unsigned int arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -1502,9 +1501,8 @@ int __VERIFIER_nondet_int(void);
 int gpio_request(unsigned int arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -1512,9 +1510,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int platform_driver_probe(struct platform_driver *arg0, int (*arg1)(struct platform_device *)) {

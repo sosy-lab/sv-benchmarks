@@ -1819,9 +1819,8 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_driver_register(struct i2o_driver *arg0) {
@@ -1830,17 +1829,15 @@ int i2o_driver_register(struct i2o_driver *arg0) {
 void i2o_driver_unregister(struct i2o_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
-  return (struct i2o_message *)external_alloc();
+  return ldv_malloc(sizeof(struct i2o_message));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_msg_post_wait_mem(struct i2o_controller *arg0, struct i2o_message *arg1, unsigned long arg2, struct i2o_dma *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -1851,13 +1848,11 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

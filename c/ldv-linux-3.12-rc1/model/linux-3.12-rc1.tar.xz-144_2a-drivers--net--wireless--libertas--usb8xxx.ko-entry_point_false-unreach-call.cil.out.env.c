@@ -26,10 +26,9 @@ int __lbs_cmd(struct lbs_private *arg0, uint16_t arg1, struct cmd_header *arg2, 
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __wake_up
@@ -97,19 +96,17 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: lbs_add_card
 // with type: struct lbs_private *lbs_add_card(void *, struct device *)
 // with return type: (struct lbs_private)*
-void *external_alloc(void);
 struct lbs_private *lbs_add_card(void *arg0, struct device *arg1) {
   // Pointer type
-  return (struct lbs_private *)external_alloc();
+  return ldv_malloc(sizeof(struct lbs_private));
 }
 
 // Function: lbs_get_firmware_async
@@ -299,10 +296,9 @@ void schedule() {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: skb_put

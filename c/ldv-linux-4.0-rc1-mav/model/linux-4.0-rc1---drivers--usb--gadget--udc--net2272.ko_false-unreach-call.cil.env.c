@@ -85,10 +85,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: _dev_info
@@ -242,10 +241,9 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: request_threaded_irq
@@ -319,10 +317,9 @@ void usb_gadget_unmap_request(struct usb_gadget *arg0, struct usb_request *arg1,
 // Function: usb_speed_string
 // with type: const char *usb_speed_string(enum usb_device_speed )
 // with return type: (const char)*
-void *external_alloc(void);
 const char *usb_speed_string(enum usb_device_speed arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: warn_slowpath_null

@@ -14436,20 +14436,17 @@ u16 inverse_translate(struct vc_data *arg0, int arg1, int arg2) {
 void kd_mksound(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {

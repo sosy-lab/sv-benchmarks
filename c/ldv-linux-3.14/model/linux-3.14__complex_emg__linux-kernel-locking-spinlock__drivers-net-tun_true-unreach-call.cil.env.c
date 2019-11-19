@@ -41,10 +41,9 @@ void __copy_to_user_overflow() {
 // Function: __dev_get_by_name
 // with type: struct net_device *__dev_get_by_name(struct net *, const char *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: __dynamic_pr_debug
@@ -190,10 +189,9 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: bitrev32
@@ -890,10 +888,9 @@ int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
 // Function: sk_alloc
 // with type: struct sock *sk_alloc(struct net *, int, gfp_t , struct proto *)
 // with return type: (struct sock)*
-void *external_alloc(void);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
   // Pointer type
-  return (struct sock *)external_alloc();
+  return ldv_malloc(sizeof(struct sock));
 }
 
 // Function: sk_attach_filter
@@ -969,10 +966,9 @@ int skb_copy_ubufs(struct sk_buff *arg0, gfp_t arg1) {
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_flow_dissect
@@ -1044,10 +1040,9 @@ void skb_tx_error(struct sk_buff *arg0) {
 // Function: sock_alloc_send_pskb
 // with type: struct sk_buff *sock_alloc_send_pskb(struct sock *, unsigned long, unsigned long, int, int *, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *sock_alloc_send_pskb(struct sock *arg0, unsigned long arg1, unsigned long arg2, int arg3, int *arg4, int arg5) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: sock_init_data

@@ -21317,9 +21317,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -21396,9 +21395,8 @@ void ata_noop_qc_prep(struct ata_queued_cmd *arg0) {
 void ata_qc_complete(struct ata_queued_cmd *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ata_port *ata_sas_port_alloc(struct ata_host *arg0, struct ata_port_info *arg1, struct Scsi_Host *arg2) {
-  return (struct ata_port *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_port));
 }
 void ata_sas_port_destroy(struct ata_port *arg0) {
   return;
@@ -21477,16 +21475,14 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
 }
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -21559,9 +21555,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_28() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -21620,9 +21615,8 @@ int __VERIFIER_nondet_int(void);
 int pci_find_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -21718,9 +21712,8 @@ int scsi_dma_map(struct scsi_cmnd *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -21757,17 +21750,15 @@ void sdev_prefix_printk(const char *arg0, const struct scsi_device *arg1, const 
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int sysfs_create_bin_file(struct kobject *arg0, const struct bin_attribute *arg1) {

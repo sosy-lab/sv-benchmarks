@@ -5878,9 +5878,8 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 void down_read(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -5919,20 +5918,17 @@ int snd_card_file_remove(struct snd_card *arg0, struct file *arg1) {
 void snd_card_unref(struct snd_card *arg0) {
   return;
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_find_id(struct snd_card *arg0, struct snd_ctl_elem_id *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_find_numid(struct snd_card *arg0, unsigned int arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
 void snd_ctl_notify(struct snd_card *arg0, unsigned int arg1, struct snd_ctl_elem_id *arg2) {
   return;
 }
-void *external_alloc(void);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
-  return (struct snd_info_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_info_entry));
 }
 void snd_info_free_entry(struct snd_info_entry *arg0) {
   return;
@@ -5941,9 +5937,8 @@ int __VERIFIER_nondet_int(void);
 int snd_info_get_line(struct snd_info_buffer *arg0, char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *snd_info_get_str(char *arg0, const char *arg1, int arg2) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int snd_info_register(struct snd_info_entry *arg0) {
@@ -5953,9 +5948,8 @@ int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int snd_oss_info_register(int arg0, int arg1, char *arg2) {

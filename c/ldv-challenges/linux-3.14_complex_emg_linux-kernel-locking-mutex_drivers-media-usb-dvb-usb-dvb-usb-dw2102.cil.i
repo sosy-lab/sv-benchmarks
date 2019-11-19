@@ -17214,9 +17214,8 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __symbol_put(const char *arg0) {
   return;
@@ -17236,9 +17235,8 @@ int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_after_alloc(void *arg0) {
   return;

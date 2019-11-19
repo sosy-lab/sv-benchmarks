@@ -11267,9 +11267,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, int arg1) {
@@ -11298,9 +11297,8 @@ void __napi_complete(struct napi_struct *arg0) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -11309,9 +11307,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -11347,9 +11344,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bind_evtchn_to_irqhandler(unsigned int arg0, irqreturn_t (*arg1)(int, void *), unsigned long arg2, const char *arg3, void *arg4) {
@@ -11445,9 +11441,8 @@ void gnttab_release_grant_reference(grant_ref_t *arg0, grant_ref_t arg1) {
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -11459,9 +11454,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_init_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_2() {
@@ -11544,13 +11538,11 @@ int __VERIFIER_nondet_int(void);
 int skb_checksum_setup(struct sk_buff *arg0, bool arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void trace_hardirqs_off() {
   return;
@@ -11564,9 +11556,8 @@ void unbind_from_irqhandler(unsigned int arg0, void *arg1) {
 void unregister_netdev(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
@@ -11598,9 +11589,8 @@ int __VERIFIER_nondet_int(void);
 int xenbus_printf(struct xenbus_transaction arg0, const char *arg1, const char *arg2, const char *arg3, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *xenbus_read(struct xenbus_transaction arg0, const char *arg1, const char *arg2, unsigned int *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int xenbus_register_frontend(struct xenbus_driver *arg0) {
@@ -11610,9 +11600,8 @@ int __VERIFIER_nondet_int(void);
 int xenbus_scanf(struct xenbus_transaction arg0, const char *arg1, const char *arg2, const char *arg3, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *xenbus_strstate(enum xenbus_state arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int xenbus_switch_state(struct xenbus_device *arg0, enum xenbus_state arg1) {

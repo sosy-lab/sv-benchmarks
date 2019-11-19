@@ -99,37 +99,33 @@ kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
 // Function: nfs_alloc_client
 // with type: struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *)
 // with return type: (struct nfs_client)*
-void *external_alloc(void);
 struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *arg0) {
   // Pointer type
-  return (struct nfs_client *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_client));
 }
 
 // Function: nfs_alloc_fattr
 // with type: struct nfs_fattr *nfs_alloc_fattr()
 // with return type: (struct nfs_fattr)*
-void *external_alloc(void);
 struct nfs_fattr *nfs_alloc_fattr() {
   // Pointer type
-  return (struct nfs_fattr *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_fattr));
 }
 
 // Function: nfs_alloc_fhandle
 // with type: struct nfs_fh *nfs_alloc_fhandle()
 // with return type: (struct nfs_fh)*
-void *external_alloc(void);
 struct nfs_fh *nfs_alloc_fhandle() {
   // Pointer type
-  return (struct nfs_fh *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_fh));
 }
 
 // Function: nfs_clone_server
 // with type: struct nfs_server *nfs_clone_server(struct nfs_server *, struct nfs_fh *, struct nfs_fattr *, rpc_authflavor_t )
 // with return type: (struct nfs_server)*
-void *external_alloc(void);
 struct nfs_server *nfs_clone_server(struct nfs_server *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2, rpc_authflavor_t arg3) {
   // Pointer type
-  return (struct nfs_server *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_server));
 }
 
 // Function: nfs_close_context
@@ -143,10 +139,9 @@ void nfs_close_context(struct nfs_open_context *arg0, int arg1) {
 // Function: nfs_create_server
 // with type: struct nfs_server *nfs_create_server(struct nfs_mount_info *, struct nfs_subversion *)
 // with return type: (struct nfs_server)*
-void *external_alloc(void);
 struct nfs_server *nfs_create_server(struct nfs_mount_info *arg0, struct nfs_subversion *arg1) {
   // Pointer type
-  return (struct nfs_server *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_server));
 }
 
 // Function: nfs_fattr_init
@@ -168,10 +163,9 @@ void nfs_free_client(struct nfs_client *arg0) {
 // Function: nfs_init_client
 // with type: struct nfs_client *nfs_init_client(struct nfs_client *, const struct rpc_timeout *, const char *)
 // with return type: (struct nfs_client)*
-void *external_alloc(void);
 struct nfs_client *nfs_init_client(struct nfs_client *arg0, const struct rpc_timeout *arg1, const char *arg2) {
   // Pointer type
-  return (struct nfs_client *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_client));
 }
 
 // Function: nfs_instantiate
@@ -247,19 +241,17 @@ void nfs_setattr_update_inode(struct inode *arg0, struct iattr *arg1) {
 // Function: nfs_submount
 // with type: struct vfsmount *nfs_submount(struct nfs_server *, struct dentry *, struct nfs_fh *, struct nfs_fattr *)
 // with return type: (struct vfsmount)*
-void *external_alloc(void);
 struct vfsmount *nfs_submount(struct nfs_server *arg0, struct dentry *arg1, struct nfs_fh *arg2, struct nfs_fattr *arg3) {
   // Pointer type
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 
 // Function: nfs_try_mount
 // with type: struct dentry *nfs_try_mount(int, const char *, struct nfs_mount_info *, struct nfs_subversion *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *nfs_try_mount(int arg0, const char *arg1, struct nfs_mount_info *arg2, struct nfs_subversion *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: nfs_wb_all
@@ -333,19 +325,17 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 // Function: xdr_encode_opaque
 // with type: __be32 *xdr_encode_opaque(__be32 *, const void *, unsigned int)
 // with return type: (__be32 )*
-void *external_alloc(void);
 __be32 *xdr_encode_opaque(__be32 *arg0, const void *arg1, unsigned int arg2) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 
 // Function: xdr_inline_decode
 // with type: __be32 *xdr_inline_decode(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 
 // Function: xdr_inline_pages
@@ -368,10 +358,9 @@ unsigned int xdr_read_pages(struct xdr_stream *arg0, unsigned int arg1) {
 // Function: xdr_reserve_space
 // with type: __be32 *xdr_reserve_space(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 
 // Function: xdr_terminate_string

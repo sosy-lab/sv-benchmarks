@@ -11883,9 +11883,8 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __symbol_put(const char *arg0) {
   return;
@@ -11897,9 +11896,8 @@ int cx8802_buf_prepare(struct videobuf_queue *arg0, struct cx8802_dev *arg1, str
 void cx8802_buf_queue(struct cx8802_dev *arg0, struct cx88_buffer *arg1) {
   return;
 }
-void *external_alloc(void);
 struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *arg0, enum cx88_board_type arg1) {
-  return (struct cx8802_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct cx8802_driver));
 }
 int __VERIFIER_nondet_int(void);
 int cx8802_register_driver(struct cx8802_driver *arg0) {
@@ -11952,9 +11950,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct videobuf_dvb_frontend *videobuf_dvb_alloc_frontend(struct videobuf_dvb_frontends *arg0, int arg1) {
-  return (struct videobuf_dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct videobuf_dvb_frontend));
 }
 void videobuf_dvb_dealloc_frontends(struct videobuf_dvb_frontends *arg0) {
   return;
@@ -11963,9 +11960,8 @@ int __VERIFIER_nondet_int(void);
 int videobuf_dvb_find_frontend(struct videobuf_dvb_frontends *arg0, struct dvb_frontend *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct videobuf_dvb_frontend *videobuf_dvb_get_frontend(struct videobuf_dvb_frontends *arg0, int arg1) {
-  return (struct videobuf_dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct videobuf_dvb_frontend));
 }
 int __VERIFIER_nondet_int(void);
 int videobuf_dvb_register_bus(struct videobuf_dvb_frontends *arg0, struct module *arg1, void *arg2, struct device *arg3, short *arg4, int arg5, int (*arg6)(struct dvb_frontend *, unsigned int, void *, unsigned int)) {

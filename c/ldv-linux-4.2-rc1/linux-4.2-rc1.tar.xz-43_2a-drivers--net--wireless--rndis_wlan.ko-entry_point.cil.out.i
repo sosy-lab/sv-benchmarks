@@ -14488,16 +14488,14 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, const char *arg2, ...) {
   return;
 }
-void *external_alloc(void);
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *arg0, int arg1) {
-  return (struct ieee80211_channel *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_channel));
 }
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
@@ -14535,9 +14533,8 @@ void cfg80211_disconnected(struct net_device *arg0, u16 arg1, const u8 *arg2, si
 void cfg80211_ibss_joined(struct net_device *arg0, const u8 *arg1, struct ieee80211_channel *arg2, gfp_t arg3) {
   return;
 }
-void *external_alloc(void);
 struct cfg80211_bss *cfg80211_inform_bss_width(struct wiphy *arg0, struct ieee80211_channel *arg1, enum nl80211_bss_scan_width arg2, enum cfg80211_bss_frame_type arg3, const u8 *arg4, u64 arg5, u16 arg6, u16 arg7, const u8 *arg8, size_t arg9, s32 arg10, gfp_t arg11) {
-  return (struct cfg80211_bss *)external_alloc();
+  return ldv_malloc(sizeof(struct cfg80211_bss));
 }
 void cfg80211_michael_mic_failure(struct net_device *arg0, const u8 *arg1, enum nl80211_key_type arg2, int arg3, const u8 *arg4, gfp_t arg5) {
   return;
@@ -14636,9 +14633,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_reset_resume_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_start_5() {
@@ -14698,9 +14694,8 @@ int rndis_rx_fixup(struct usbnet *arg0, struct sk_buff *arg1) {
 void rndis_status(struct usbnet *arg0, struct urb *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *rndis_tx_fixup(struct usbnet *arg0, struct sk_buff *arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void rndis_unbind(struct usbnet *arg0, struct usb_interface *arg1) {
   return;
@@ -14761,9 +14756,8 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 void wiphy_free(struct wiphy *arg0) {
   return;
 }
-void *external_alloc(void);
 struct wiphy *wiphy_new_nm(const struct cfg80211_ops *arg0, int arg1, const char *arg2) {
-  return (struct wiphy *)external_alloc();
+  return ldv_malloc(sizeof(struct wiphy));
 }
 int __VERIFIER_nondet_int(void);
 int wiphy_register(struct wiphy *arg0) {

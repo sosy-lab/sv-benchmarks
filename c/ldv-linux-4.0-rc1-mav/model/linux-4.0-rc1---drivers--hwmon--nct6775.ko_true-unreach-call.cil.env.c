@@ -9,10 +9,9 @@
 // Function: __devm_request_region
 // with type: struct resource *__devm_request_region(struct device *, struct resource *, resource_size_t , resource_size_t , const char *)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: __dynamic_dev_dbg
@@ -59,10 +58,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: _dev_info
@@ -103,19 +101,17 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_hwmon_device_register_with_groups
 // with type: struct device *devm_hwmon_device_register_with_groups(struct device *, const char *, void *, const struct attribute_group **)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *devm_hwmon_device_register_with_groups(struct device *arg0, const char *arg1, void *arg2, const struct attribute_group **arg3) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: free
@@ -196,10 +192,9 @@ int platform_device_add_resources(struct platform_device *arg0, const struct res
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put
@@ -229,10 +224,9 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk

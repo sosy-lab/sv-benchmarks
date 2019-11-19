@@ -148,10 +148,9 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 
 // Function: blk_add_request_payload
@@ -173,19 +172,17 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(void (*)(struct request_queue *), spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 
 // Function: blk_peek_request
 // with type: struct request *blk_peek_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
 struct request *blk_peek_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 
 // Function: blk_queue_flush
@@ -709,10 +706,9 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

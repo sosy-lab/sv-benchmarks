@@ -8926,9 +8926,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -8965,9 +8964,8 @@ int __VERIFIER_nondet_int(void);
 int devm_gpio_request_one(struct device *arg0, unsigned int arg1, unsigned long arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *devm_regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void driver_unregister(struct device_driver *arg0) {
   return;

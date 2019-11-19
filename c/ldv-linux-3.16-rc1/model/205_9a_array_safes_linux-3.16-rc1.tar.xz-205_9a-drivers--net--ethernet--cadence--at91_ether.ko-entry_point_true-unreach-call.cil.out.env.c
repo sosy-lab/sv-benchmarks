@@ -101,19 +101,17 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: devm_clk_get
 // with type: struct clk *devm_clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_ioremap
 // with type: void *devm_ioremap(struct device *, resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap(struct device *arg0, resource_size_t arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_request_threaded_irq
@@ -221,10 +219,9 @@ void macb_get_hwaddr(struct macb *arg0) {
 // Function: macb_get_stats
 // with type: struct net_device_stats *macb_get_stats(struct net_device *)
 // with return type: (struct net_device_stats)*
-void *external_alloc(void);
 struct net_device_stats *macb_get_stats(struct net_device *arg0) {
   // Pointer type
-  return (struct net_device_stats *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device_stats));
 }
 
 // Function: macb_ioctl
@@ -370,10 +367,9 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk

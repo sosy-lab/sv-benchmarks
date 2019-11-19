@@ -7489,20 +7489,17 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
-  return (const struct acpi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct acpi_device_id));
 }
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct iio_dev *devm_iio_device_alloc(struct device *arg0, int arg1) {
-  return (struct iio_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_dev));
 }
-void *external_alloc(void);
 struct iio_trigger *devm_iio_trigger_alloc(struct device *arg0, const char *arg1, ...) {
-  return (struct iio_trigger *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_trigger));
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -7512,13 +7509,11 @@ int __VERIFIER_nondet_int(void);
 int dmi_check_system(const struct dmi_system_id *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
-void *external_alloc(void);
 struct i2c_adapter *i2c_add_mux_adapter(struct i2c_adapter *arg0, struct device *arg1, void *arg2, u32 arg3, u32 arg4, unsigned int arg5, int (*arg6)(struct i2c_adapter *, void *, u32 ), int (*arg7)(struct i2c_adapter *, void *, u32 )) {
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -7526,9 +7521,8 @@ void i2c_del_driver(struct i2c_driver *arg0) {
 void i2c_del_mux_adapter(struct i2c_adapter *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_register_driver(struct module *arg0, struct i2c_driver *arg1) {

@@ -35155,9 +35155,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -35233,9 +35232,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __usecs_to_jiffies(const unsigned int arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct net_device *__vlan_find_dev_deep_rcu(struct net_device *arg0, __be16 arg1, u16 arg2) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2) {
@@ -35343,9 +35341,8 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -35400,9 +35397,8 @@ int hex_to_bin(char arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -35455,9 +35451,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_23() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_25() {
@@ -35486,9 +35481,8 @@ int __VERIFIER_nondet_int(void);
 int mdio_set_flag(const struct mdio_if_info *arg0, int arg1, int arg2, u16 arg3, int arg4, bool arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
@@ -35506,9 +35500,8 @@ void mutex_unlock(struct mutex *arg0) {
 void napi_disable(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *napi_get_frags(struct napi_struct *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 gro_result_t napi_gro_frags(struct napi_struct *arg0) {
@@ -35524,9 +35517,8 @@ void neigh_destroy(struct neighbour *arg0) {
 void netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct net_device *netdev_master_upper_dev_get_rcu(struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void netdev_update_features(struct net_device *arg0) {
   return;
@@ -35699,9 +35691,8 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

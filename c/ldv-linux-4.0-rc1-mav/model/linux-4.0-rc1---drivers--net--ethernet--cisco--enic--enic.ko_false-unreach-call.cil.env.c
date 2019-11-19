@@ -94,10 +94,9 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *, int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: __raw_spin_lock_init
@@ -162,10 +161,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 // Function: alloc_cpu_rmap
 // with type: struct cpu_rmap *alloc_cpu_rmap(unsigned int, gfp_t )
 // with return type: (struct cpu_rmap)*
-void *external_alloc(void);
 struct cpu_rmap *alloc_cpu_rmap(unsigned int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct cpu_rmap *)external_alloc();
+  return ldv_malloc(sizeof(struct cpu_rmap));
 }
 
 // Function: alloc_etherdev_mqs

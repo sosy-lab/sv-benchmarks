@@ -1570,9 +1570,8 @@ void mtd_erase_callback(struct erase_info *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

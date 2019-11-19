@@ -14991,9 +14991,8 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_locked_at_exit(int exp
   return;
 }
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -15013,9 +15012,8 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -15152,9 +15150,8 @@ void ldv_switch_to_interrupt_context() {
 void ldv_switch_to_process_context() {
   return;
 }
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 void mdiobus_free(struct mii_bus *arg0) {
   return;
@@ -15230,9 +15227,8 @@ int pci_set_power_state(struct pci_dev *arg0, pci_power_t arg1) {
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 void phy_disconnect(struct phy_device *arg0) {
   return;
@@ -15274,9 +15270,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int round_jiffies(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

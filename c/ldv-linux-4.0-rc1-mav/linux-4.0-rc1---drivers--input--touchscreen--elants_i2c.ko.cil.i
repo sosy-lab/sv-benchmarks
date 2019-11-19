@@ -12186,13 +12186,11 @@ int __VERIFIER_nondet_int(void);
 int devm_add_action(struct device *arg0, void (*arg1)(void *), void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct input_dev *devm_input_allocate_device(struct device *arg0) {
-  return (struct input_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_dev));
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {

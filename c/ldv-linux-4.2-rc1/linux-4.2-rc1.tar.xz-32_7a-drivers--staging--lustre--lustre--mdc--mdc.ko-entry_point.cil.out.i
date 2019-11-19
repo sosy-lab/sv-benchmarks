@@ -24351,9 +24351,8 @@ void __copy_to_user_overflow() {
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct ldlm_lock *__ldlm_handle2lock(const struct lustre_handle *arg0, __u64 arg1) {
-  return (struct ldlm_lock *)external_alloc();
+  return ldv_malloc(sizeof(struct ldlm_lock));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -24426,17 +24425,14 @@ int __VERIFIER_nondet_int(void);
 int cfs_signal_pending() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct obd_import *class_exp2cliimp(struct obd_export *arg0) {
-  return (struct obd_import *)external_alloc();
+  return ldv_malloc(sizeof(struct obd_import));
 }
-void *external_alloc(void);
 struct obd_device *class_exp2obd(struct obd_export *arg0) {
-  return (struct obd_device *)external_alloc();
+  return ldv_malloc(sizeof(struct obd_device));
 }
-void *external_alloc(void);
 struct obd_import *class_import_get(struct obd_import *arg0) {
-  return (struct obd_import *)external_alloc();
+  return ldv_malloc(sizeof(struct obd_import));
 }
 void class_import_put(struct obd_import *arg0) {
   return;
@@ -24509,9 +24505,8 @@ void down_write(struct rw_semaphore *arg0) {
 void dump_stack() {
   return;
 }
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 void fput(struct file *arg0) {
   return;
@@ -24535,9 +24530,8 @@ int in_group_p(kgid_t arg0) {
 void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_head *)) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
@@ -24546,9 +24540,8 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 void kvfree(const void *arg0) {
   return;
@@ -24580,9 +24573,8 @@ int __VERIFIER_nondet_int(void);
 int ldlm_cli_enqueue_fini(struct obd_export *arg0, struct ptlrpc_request *arg1, ldlm_type_t arg2, __u8 arg3, ldlm_mode_t arg4, __u64 *arg5, void *arg6, __u32 arg7, struct lustre_handle *arg8, int arg9) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *ldlm_it2str(int arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldlm_lock_addref(struct lustre_handle *arg0, __u32 arg1) {
   return;
@@ -24612,9 +24604,8 @@ int __VERIFIER_nondet_int(void);
 int ldlm_prep_enqueue_req(struct obd_export *arg0, struct ptlrpc_request *arg1, struct list_head *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ldlm_resource *ldlm_resource_get(struct ldlm_namespace *arg0, struct ldlm_resource *arg1, const struct ldlm_res_id *arg2, ldlm_type_t arg3, int arg4) {
-  return (struct ldlm_resource *)external_alloc();
+  return ldv_malloc(sizeof(struct ldlm_resource));
 }
 int __VERIFIER_nondet_int(void);
 int ldlm_resource_iterate(struct ldlm_namespace *arg0, const struct ldlm_res_id *arg1, int (*arg2)(struct ldlm_lock *, void *), void *arg3) {
@@ -24663,9 +24654,8 @@ int __VERIFIER_nondet_int(void);
 int libcfs_kkuc_msg_put(struct file *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *libcfs_kvzalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int llog_cat_close(const struct lu_env *arg0, struct llog_handle *arg1) {
@@ -24695,9 +24685,8 @@ int __VERIFIER_nondet_int(void);
 int llog_setup(const struct lu_env *arg0, struct obd_device *arg1, struct obd_llog_group *arg2, int arg3, struct obd_device *arg4, struct llog_operations *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ldlm_resource *lock_res_and_lock(struct ldlm_lock *arg0) {
-  return (struct ldlm_resource *)external_alloc();
+  return ldv_malloc(sizeof(struct ldlm_resource));
 }
 void lprocfs_counter_add(struct lprocfs_stats *arg0, int arg1, long arg2) {
   return;
@@ -24803,9 +24792,8 @@ int __VERIFIER_nondet_int(void);
 int obd_alloc_fail(const void *arg0, const char *arg1, const char *arg2, size_t arg3, const char *arg4, int arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct posix_acl *posix_acl_from_xattr(struct user_namespace *arg0, const void *arg1, size_t arg2) {
-  return (struct posix_acl *)external_alloc();
+  return ldv_malloc(sizeof(struct posix_acl));
 }
 int __VERIFIER_nondet_int(void);
 int posix_acl_valid(const struct posix_acl *arg0) {
@@ -24830,9 +24818,8 @@ int __VERIFIER_nondet_int(void);
 int ptlrpc_obd_ping(struct obd_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ptlrpc_bulk_desc *ptlrpc_prep_bulk_imp(struct ptlrpc_request *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4) {
-  return (struct ptlrpc_bulk_desc *)external_alloc();
+  return ldv_malloc(sizeof(struct ptlrpc_bulk_desc));
 }
 int __VERIFIER_nondet_int(void);
 int ptlrpc_queue_wait(struct ptlrpc_request *arg0) {
@@ -24845,17 +24832,14 @@ int ptlrpc_recover_import(struct obd_import *arg0, char *arg1, int arg2) {
 void ptlrpc_req_finished(struct ptlrpc_request *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ptlrpc_request *ptlrpc_request_addref(struct ptlrpc_request *arg0) {
-  return (struct ptlrpc_request *)external_alloc();
+  return ldv_malloc(sizeof(struct ptlrpc_request));
 }
-void *external_alloc(void);
 struct ptlrpc_request *ptlrpc_request_alloc(struct obd_import *arg0, const struct req_format *arg1) {
-  return (struct ptlrpc_request *)external_alloc();
+  return ldv_malloc(sizeof(struct ptlrpc_request));
 }
-void *external_alloc(void);
 struct ptlrpc_request *ptlrpc_request_alloc_pack(struct obd_import *arg0, const struct req_format *arg1, __u32 arg2, int arg3) {
-  return (struct ptlrpc_request *)external_alloc();
+  return ldv_malloc(sizeof(struct ptlrpc_request));
 }
 void ptlrpc_request_committed(struct ptlrpc_request *arg0, int arg1) {
   return;
@@ -24887,9 +24871,8 @@ void ptlrpcd_decref() {
 void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 void *req_capsule_client_get(struct req_capsule *arg0, const struct req_msg_field *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int req_capsule_get_size(const struct req_capsule *arg0, const struct req_msg_field *arg1, enum req_location arg2) {
@@ -24899,17 +24882,14 @@ int __VERIFIER_nondet_int(void);
 int req_capsule_has_field(const struct req_capsule *arg0, const struct req_msg_field *arg1, enum req_location arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *req_capsule_server_get(struct req_capsule *arg0, const struct req_msg_field *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *req_capsule_server_sized_get(struct req_capsule *arg0, const struct req_msg_field *arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *req_capsule_server_swab_get(struct req_capsule *arg0, const struct req_msg_field *arg1, void *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void req_capsule_set_size(struct req_capsule *arg0, const struct req_msg_field *arg1, enum req_location arg2, int arg3) {
   return;

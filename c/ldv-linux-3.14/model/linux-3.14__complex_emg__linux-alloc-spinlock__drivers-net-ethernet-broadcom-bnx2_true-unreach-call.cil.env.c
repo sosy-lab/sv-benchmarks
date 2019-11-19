@@ -158,10 +158,9 @@ struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int 
 // Function: build_skb
 // with type: struct sk_buff *build_skb(void *, unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *build_skb(void *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Skip function: calloc
@@ -808,10 +807,9 @@ int pci_find_capability(struct pci_dev *arg0, int arg1) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_iomap

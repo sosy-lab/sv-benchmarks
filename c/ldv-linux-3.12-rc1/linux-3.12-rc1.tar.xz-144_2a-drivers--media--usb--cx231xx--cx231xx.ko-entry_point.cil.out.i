@@ -25295,9 +25295,8 @@ int __VERIFIER_nondet_int(void);
 int cx2341x_handler_setup(struct cx2341x_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -25322,9 +25321,8 @@ int __VERIFIER_nondet_int(void);
 int i2c_master_recv(const struct i2c_client *arg0, char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_client));
 }
 void i2c_unregister_device(struct i2c_client *arg0) {
   return;
@@ -25376,9 +25374,8 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct rc_dev *rc_allocate_device() {
-  return (struct rc_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct rc_dev));
 }
 void release_firmware(const struct firmware *arg0) {
   return;
@@ -25391,9 +25388,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {
@@ -25481,9 +25477,8 @@ void v4l2_fh_init(struct v4l2_fh *arg0, struct video_device *arg1) {
 void v4l2_get_timestamp(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int *arg4, unsigned int arg5, unsigned int arg6, unsigned int arg7, unsigned int arg8) {
   return;
@@ -25491,13 +25486,11 @@ void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int a
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;
@@ -25566,9 +25559,8 @@ int __VERIFIER_nondet_int(void);
 int videobuf_streamon(struct videobuf_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *videobuf_to_vmalloc(struct videobuf_buffer *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void videobuf_vmalloc_free(struct videobuf_buffer *arg0) {
   return;
@@ -25577,9 +25569,8 @@ int __VERIFIER_nondet_int(void);
 int videobuf_waiton(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, int arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

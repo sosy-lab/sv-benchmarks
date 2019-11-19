@@ -4348,9 +4348,8 @@ unsigned long int __phys_addr(unsigned long arg0) {
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void _dev_info(const struct device *arg0, const char *arg1, ...) {
   return;
@@ -4359,17 +4358,14 @@ int __VERIFIER_nondet_int(void);
 int agp_add_bridge(struct agp_bridge_data *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct agp_bridge_data *agp_alloc_bridge() {
-  return (struct agp_bridge_data *)external_alloc();
+  return ldv_malloc(sizeof(struct agp_bridge_data));
 }
-void *external_alloc(void);
 struct agp_memory *agp_generic_alloc_by_type(size_t arg0, int arg1) {
-  return (struct agp_memory *)external_alloc();
+  return ldv_malloc(sizeof(struct agp_memory));
 }
-void *external_alloc(void);
 struct page *agp_generic_alloc_page(struct agp_bridge_data *arg0) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int agp_generic_alloc_pages(struct agp_bridge_data *arg0, struct agp_memory *arg1, size_t arg2) {
@@ -4480,9 +4476,8 @@ int __VERIFIER_nondet_int(void);
 int pci_find_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_slot(struct pci_bus *arg0, unsigned int arg1) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_restore_state(struct pci_dev *arg0) {
   return;

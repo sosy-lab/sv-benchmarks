@@ -3806,9 +3806,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 void unregister_sysctl_table(struct ctl_table_header *arg0) {
   return;

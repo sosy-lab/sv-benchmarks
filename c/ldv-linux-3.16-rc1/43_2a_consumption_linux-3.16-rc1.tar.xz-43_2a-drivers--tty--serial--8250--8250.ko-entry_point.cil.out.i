@@ -10198,9 +10198,8 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -10227,9 +10226,8 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -10284,9 +10282,8 @@ void disable_irq_nosync(unsigned int arg0) {
 void dma_release_channel(struct dma_chan *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_chan *dma_request_slave_channel(struct device *arg0, const char *arg1) {
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 void do_SAK(struct tty_struct *arg0) {
   return;
@@ -10297,16 +10294,14 @@ void enable_irq(unsigned int arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -10322,9 +10317,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_5() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -10343,9 +10337,8 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add(struct platform_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_del(struct platform_device *arg0) {
   return;
@@ -10359,9 +10352,8 @@ void platform_device_unregister(struct platform_device *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int pnp_possible_config(struct pnp_dev *arg0, int arg1, resource_size_t arg2, resource_size_t arg3) {

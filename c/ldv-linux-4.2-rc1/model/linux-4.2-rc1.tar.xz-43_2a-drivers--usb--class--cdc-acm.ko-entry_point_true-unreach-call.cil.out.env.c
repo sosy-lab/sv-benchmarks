@@ -73,10 +73,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __tty_alloc_driver
 // with type: struct tty_driver *__tty_alloc_driver(unsigned int, struct module *, unsigned long)
 // with return type: (struct tty_driver)*
-void *external_alloc(void);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
   // Pointer type
-  return (struct tty_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_driver));
 }
 
 // Function: __wake_up
@@ -247,10 +246,9 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: idr_remove
@@ -282,10 +280,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -448,19 +445,17 @@ void tty_port_put(struct tty_port *arg0) {
 // Function: tty_port_register_device
 // with type: struct device *tty_port_register_device(struct tty_port *, struct tty_driver *, unsigned int, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *tty_port_register_device(struct tty_port *arg0, struct tty_driver *arg1, unsigned int arg2, struct device *arg3) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_port_tty_hangup
@@ -653,28 +648,25 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_from_anchor
 // with type: struct urb *usb_get_from_anchor(struct usb_anchor *)
 // with return type: (struct urb)*
-void *external_alloc(void);
 struct urb *usb_get_from_anchor(struct usb_anchor *arg0) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 
 // Function: usb_get_intf
 // with type: struct usb_interface *usb_get_intf(struct usb_interface *)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
 struct usb_interface *usb_get_intf(struct usb_interface *arg0) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb

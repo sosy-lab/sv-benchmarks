@@ -8595,9 +8595,8 @@ unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -8635,9 +8634,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_etherdev_mq(int arg0, unsigned int arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;
@@ -8663,9 +8661,8 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void dev_kfree_skb_any(struct sk_buff *arg0) {
   return;
@@ -8787,9 +8784,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int round_jiffies(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -8818,9 +8814,8 @@ int __VERIFIER_nondet_int(void);
 int ssb_device_is_enabled(struct ssb_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ssb_dma_alloc_consistent(struct ssb_device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ssb_dma_free_consistent(struct ssb_device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, gfp_t arg4) {
   return;

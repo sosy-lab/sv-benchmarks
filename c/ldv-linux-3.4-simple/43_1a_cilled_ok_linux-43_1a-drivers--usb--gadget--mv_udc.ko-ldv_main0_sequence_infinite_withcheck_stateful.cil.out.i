@@ -14668,9 +14668,8 @@ void *ldv_dma_pool_alloc_19(struct dma_pool *ldv_func_arg1 , gfp_t ldv_func_arg2
 void ___udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, struct device *arg1, char *arg2, ...) {
@@ -14747,13 +14746,11 @@ int device_register(struct device *arg0) {
 void device_unregister(struct device *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -14764,16 +14761,14 @@ void dma_pool_free(struct dma_pool *arg0, void *arg1, dma_addr_t arg2) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -14784,20 +14779,17 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
-void *external_alloc(void);
 struct resource *platform_get_resource_byname(struct platform_device *arg0, unsigned int arg1, char *arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
@@ -14811,9 +14803,8 @@ int __VERIFIER_nondet_int(void);
 int usb_add_gadget_udc(struct device *arg0, struct usb_gadget *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_phy *usb_get_transceiver() {
-  return (struct usb_phy *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_phy));
 }
 void warn_slowpath_null(char *arg0, int arg1) {
   return;

@@ -8626,9 +8626,8 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -8679,13 +8678,11 @@ void v4l2_device_unregister(struct v4l2_device *arg0) {
 void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *arg0, struct vb2_buffer *arg1) {
   return;
 }
-void *external_alloc(void);
 void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *arg0, void *arg1, int (*arg2)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)) {
-  return (struct v4l2_m2m_ctx *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_m2m_ctx));
 }
 void v4l2_m2m_ctx_release(struct v4l2_m2m_ctx *arg0) {
   return;
@@ -8694,17 +8691,14 @@ int __VERIFIER_nondet_int(void);
 int v4l2_m2m_dqbuf(struct file *arg0, struct v4l2_m2m_ctx *arg1, struct v4l2_buffer *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *arg0, enum v4l2_buf_type arg1) {
-  return (struct vb2_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct vb2_queue));
 }
-void *external_alloc(void);
 struct v4l2_m2m_dev *v4l2_m2m_init(struct v4l2_m2m_ops *arg0) {
-  return (struct v4l2_m2m_dev *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void v4l2_m2m_job_finish(struct v4l2_m2m_dev *arg0, struct v4l2_m2m_ctx *arg1) {
   return;
@@ -8713,9 +8707,8 @@ int __VERIFIER_nondet_int(void);
 int v4l2_m2m_mmap(struct file *arg0, struct v4l2_m2m_ctx *arg1, struct vm_area_struct *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int v4l2_m2m_poll(struct file *arg0, struct v4l2_m2m_ctx *arg1, struct poll_table_struct *arg2) {
@@ -8747,21 +8740,18 @@ int v4l2_m2m_streamon(struct file *arg0, struct v4l2_m2m_ctx *arg1, enum v4l2_bu
 void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
   return;
 }
-void *external_alloc(void);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int vb2_queue_init(struct vb2_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;

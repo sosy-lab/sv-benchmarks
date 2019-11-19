@@ -9,10 +9,9 @@
 // Function: __devm_request_region
 // with type: struct resource *__devm_request_region(struct device *, struct resource *, resource_size_t , resource_size_t , const char *)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: __dynamic_dev_dbg
@@ -59,10 +58,9 @@ void __napi_schedule(struct napi_struct *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -201,37 +199,33 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_clk_get
 // with type: struct clk *devm_clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_ioremap_nocache
 // with type: void *devm_ioremap_nocache(struct device *, resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap_nocache(struct device *arg0, resource_size_t arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dmam_alloc_coherent
 // with type: void *dmam_alloc_coherent(struct device *, size_t , dma_addr_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: eth_type_trans
@@ -390,10 +384,9 @@ void ldv_switch_to_process_context() {
 // Function: mdiobus_alloc_size
 // with type: struct mii_bus *mdiobus_alloc_size(size_t )
 // with return type: (struct mii_bus)*
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
   // Pointer type
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 
 // Function: mdiobus_free
@@ -522,10 +515,9 @@ int phy_ethtool_sset(struct phy_device *arg0, struct ethtool_cmd *arg1) {
 // Function: phy_find_first
 // with type: struct phy_device *phy_find_first(struct mii_bus *)
 // with return type: (struct phy_device)*
-void *external_alloc(void);
 struct phy_device *phy_find_first(struct mii_bus *arg0) {
   // Pointer type
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 
 // Function: phy_mii_ioctl
@@ -564,10 +556,9 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk

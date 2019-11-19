@@ -13206,9 +13206,8 @@ int atm_charge(struct atm_vcc *arg0, int arg1) {
 void atm_dev_deregister(struct atm_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
-  return (struct atm_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct atm_dev));
 }
 void atm_dev_signal_change(struct atm_dev *arg0, char arg1) {
   return;
@@ -13266,9 +13265,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -13333,17 +13331,14 @@ long __VERIFIER_nondet_long(void);
 long int simple_strtol(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

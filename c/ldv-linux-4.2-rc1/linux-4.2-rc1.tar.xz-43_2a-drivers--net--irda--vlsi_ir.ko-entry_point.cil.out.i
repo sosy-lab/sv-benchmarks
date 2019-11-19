@@ -10057,9 +10057,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 void *PDE_DATA(const struct inode *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -10090,9 +10089,8 @@ void __udelay(unsigned long arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_irdadev(int arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int async_wrap_skb(struct sk_buff *arg0, __u8 *arg1, int arg2) {
@@ -10146,9 +10144,8 @@ void irda_qos_bits_to_value(struct qos_info *arg0) {
 void irlap_close(struct irlap_cb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2) {
-  return (struct irlap_cb *)external_alloc();
+  return ldv_malloc(0UL);
 }
 ktime_t ktime_get() {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
@@ -10175,9 +10172,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_2() {
@@ -10257,13 +10253,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void proc_set_size(struct proc_dir_entry *arg0, loff_t arg1) {
   return;

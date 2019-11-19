@@ -19270,9 +19270,8 @@ void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_add
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -19301,28 +19300,24 @@ void v4l2_device_unregister(struct v4l2_device *arg0) {
 void v4l2_get_timestamp(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 unsigned short int v4l2_i2c_subdev_addr(struct v4l2_subdev *arg0) {
   return __VERIFIER_nondet_ushort();
 }
-void *external_alloc(void);
 const unsigned short *v4l2_i2c_tuner_addrs(enum v4l2_i2c_tuner_type arg0) {
-  return (const unsigned short *)external_alloc();
+  return ldv_malloc(sizeof(unsigned short));
 }
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;
@@ -19338,9 +19333,8 @@ int __VERIFIER_nondet_int(void);
 int vm_insert_page(struct vm_area_struct *arg0, unsigned long arg1, struct page *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *vmalloc_to_page(const void *arg0) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

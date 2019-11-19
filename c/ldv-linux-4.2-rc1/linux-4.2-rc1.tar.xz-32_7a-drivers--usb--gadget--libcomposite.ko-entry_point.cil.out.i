@@ -15065,13 +15065,11 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtou16(const char *arg0, unsigned int arg1, u16 *arg2) {
@@ -15151,9 +15149,8 @@ int __VERIFIER_nondet_int(void);
 int usb_gadget_unregister_driver(struct usb_gadget_driver *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *usb_speed_string(enum usb_device_speed arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int usb_udc_attach_driver(const char *arg0, struct usb_gadget_driver *arg1) {

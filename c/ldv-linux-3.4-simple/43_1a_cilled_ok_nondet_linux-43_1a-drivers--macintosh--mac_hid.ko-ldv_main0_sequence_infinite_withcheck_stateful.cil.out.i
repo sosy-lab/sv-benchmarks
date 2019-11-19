@@ -2526,9 +2526,8 @@ void input_unregister_handle(struct input_handle *arg0) {
 void input_unregister_handler(struct input_handler *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -2539,9 +2538,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -2561,9 +2559,8 @@ int __VERIFIER_nondet_int(void);
 int proc_dointvec(struct ctl_table *arg0, int arg1, void *arg2, size_t *arg3, loff_t *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 void unregister_sysctl_table(struct ctl_table_header *arg0) {
   return;

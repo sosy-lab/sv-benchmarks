@@ -4689,9 +4689,8 @@ int __serio_register_driver(struct serio_driver *arg0, struct module *arg1, cons
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

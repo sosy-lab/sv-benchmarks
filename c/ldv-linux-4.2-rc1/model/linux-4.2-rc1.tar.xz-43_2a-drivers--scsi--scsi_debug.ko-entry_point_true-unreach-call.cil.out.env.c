@@ -17,10 +17,9 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: __root_device_register
 // with type: struct device *__root_device_register(const char *, struct module *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *__root_device_register(const char *arg0, struct module *arg1) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: __tasklet_hi_schedule
@@ -328,10 +327,9 @@ int ldv_release_3() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -405,10 +403,9 @@ int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put

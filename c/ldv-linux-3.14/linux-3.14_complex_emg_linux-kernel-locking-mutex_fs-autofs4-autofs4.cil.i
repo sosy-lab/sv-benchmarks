@@ -15029,13 +15029,11 @@ int __VERIFIER_nondet_int(void);
 int d_invalidate(struct dentry *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *d_lookup(const struct dentry *arg0, const struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -15060,9 +15058,8 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct file *dentry_open(const struct path *arg0, int arg1, const struct cred *arg2) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 void dput(struct dentry *arg0) {
   return;
@@ -15073,13 +15070,11 @@ void drop_nlink(struct inode *arg0) {
 void fd_install(unsigned int arg0, struct file *arg1) {
   return;
 }
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
-void *external_alloc(void);
 struct pid *find_get_pid(int arg0) {
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -15119,9 +15114,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int get_next_ino() {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct pid *get_task_pid(struct task_struct *arg0, enum pid_type arg1) {
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 int __VERIFIER_nondet_int(void);
 int get_unused_fd_flags(unsigned int arg0) {
@@ -15193,9 +15187,8 @@ int __VERIFIER_nondet_int(void);
 int may_umount_tree(struct vfsmount *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void might_fault() {
   return;
@@ -15208,13 +15201,11 @@ int __VERIFIER_nondet_int(void);
 int misc_register(struct miscdevice *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -15277,9 +15268,8 @@ int __VERIFIER_nondet_int(void);
 int simple_statfs(struct dentry *arg0, struct kstatfs *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 long __VERIFIER_nondet_long(void);
 long int sys_close(unsigned int arg0) {

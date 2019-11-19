@@ -22,19 +22,17 @@ void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
 // Function: __alloc_pages_nodemask
 // with type: struct page *__alloc_pages_nodemask(gfp_t gfp_mask, unsigned int order, struct zonelist *zonelist, nodemask_t *nodemask)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int size, gfp_t priority, int fclone, int node)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __bitmap_and
@@ -237,10 +235,9 @@ unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
 // Function: __get_locked_pte
 // with type: pte_t *__get_locked_pte(struct mm_struct *mm, unsigned long addr, spinlock_t **ptl)
 // with return type: (pte_t )*
-void *external_alloc(void);
 pte_t *__get_locked_pte(struct mm_struct *arg0, unsigned long arg1, spinlock_t **arg2) {
   // Pointer type
-  return (pte_t *)external_alloc();
+  return ldv_malloc(sizeof(pte_t));
 }
 
 // Function: __get_page_tail
@@ -257,55 +254,49 @@ bool __get_page_tail(struct page *arg0) {
 // Function: __ieee80211_create_tpt_led_trigger
 // with type: char *__ieee80211_create_tpt_led_trigger(struct ieee80211_hw *hw, unsigned int flags, const struct ieee80211_tpt_blink *blink_table, unsigned int blink_table_len)
 // with return type: (char)*
-void *external_alloc(void);
 char *__ieee80211_create_tpt_led_trigger(struct ieee80211_hw *arg0, unsigned int arg1, const struct ieee80211_tpt_blink *arg2, unsigned int arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_assoc_led_name
 // with type: char *__ieee80211_get_assoc_led_name(struct ieee80211_hw *hw)
 // with return type: (char)*
-void *external_alloc(void);
 char *__ieee80211_get_assoc_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_channel
 // with type: struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *wiphy, int freq)
 // with return type: (struct ieee80211_channel)*
-void *external_alloc(void);
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *arg0, int arg1) {
   // Pointer type
-  return (struct ieee80211_channel *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_channel));
 }
 
 // Function: __ieee80211_get_radio_led_name
 // with type: char *__ieee80211_get_radio_led_name(struct ieee80211_hw *hw)
 // with return type: (char)*
-void *external_alloc(void);
 char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_rx_led_name
 // with type: char *__ieee80211_get_rx_led_name(struct ieee80211_hw *hw)
 // with return type: (char)*
-void *external_alloc(void);
 char *__ieee80211_get_rx_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_tx_led_name
 // with type: char *__ieee80211_get_tx_led_name(struct ieee80211_hw *hw)
 // with return type: (char)*
-void *external_alloc(void);
 char *__ieee80211_get_tx_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: __init_waitqueue_head
@@ -351,10 +342,9 @@ void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, con
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t size, gfp_t flags, int node)
 // with return type: (void)*
-void *external_alloc(void);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __list_add
@@ -376,10 +366,9 @@ void __list_del_entry(struct list_head *arg0) {
 // Function: __lock_task_sighand
 // with type: struct sighand_struct *__lock_task_sighand(struct task_struct *tsk, unsigned long *flags)
 // with return type: (struct sighand_struct)*
-void *external_alloc(void);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
   // Pointer type
-  return (struct sighand_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct sighand_struct));
 }
 
 // Function: __mark_inode_dirty
@@ -417,10 +406,9 @@ void __napi_schedule(struct napi_struct *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *dev, unsigned int length, gfp_t gfp_mask)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -566,19 +554,17 @@ void __prop_inc_single(struct prop_descriptor *arg0, struct prop_local_single *a
 // Function: __pskb_copy
 // with type: struct sk_buff *__pskb_copy(struct sk_buff *skb, int headroom, gfp_t gfp_mask)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__pskb_copy(struct sk_buff *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *skb, int delta)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: __pud_alloc
@@ -912,10 +898,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t gfp_mask, unsigned order)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: bitmap_bitremap
@@ -1016,19 +1001,17 @@ void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct
 // Function: call_usermodehelper_setup
 // with type: struct subprocess_info *call_usermodehelper_setup(char *path, char **argv, char **envp, gfp_t gfp_mask)
 // with return type: (struct subprocess_info)*
-void *external_alloc(void);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
   // Pointer type
-  return (struct subprocess_info *)external_alloc();
+  return ldv_malloc(sizeof(struct subprocess_info));
 }
 
 // Function: cfg80211_get_bss
 // with type: struct cfg80211_bss *cfg80211_get_bss(struct wiphy *wiphy, struct ieee80211_channel *channel, const u8 *bssid, const u8 *ssid, size_t ssid_len, u16 capa_mask, u16 capa_val)
 // with return type: (struct cfg80211_bss)*
-void *external_alloc(void);
 struct cfg80211_bss *cfg80211_get_bss(struct wiphy *arg0, struct ieee80211_channel *arg1, const u8 *arg2, const u8 *arg3, size_t arg4, u16 arg5, u16 arg6) {
   // Pointer type
-  return (struct cfg80211_bss *)external_alloc();
+  return ldv_malloc(sizeof(struct cfg80211_bss));
 }
 
 // Function: clear_page
@@ -1050,10 +1033,9 @@ void copy_page(void *arg0, void *arg1) {
 // Function: cpumask_of_node
 // with type: const struct cpumask *cpumask_of_node(int node)
 // with return type: (struct cpumask)*
-void *external_alloc(void);
 const struct cpumask *cpumask_of_node(int arg0) {
   // Pointer type
-  return (const struct cpumask *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: crc32_le
@@ -1070,10 +1052,9 @@ u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
 // Function: create_proc_entry
 // with type: struct proc_dir_entry *create_proc_entry(const char *name, umode_t mode, struct proc_dir_entry *parent)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
 struct proc_dir_entry *create_proc_entry(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: creds_are_invalid
@@ -1124,10 +1105,9 @@ void d_instantiate(struct dentry *arg0, struct inode *arg1) {
 // Function: d_instantiate_unique
 // with type: struct dentry *d_instantiate_unique(struct dentry *, struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_instantiate_unique(struct dentry *arg0, struct inode *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_rehash
@@ -1272,10 +1252,9 @@ int dequeue_signal(struct task_struct *arg0, sigset_t *arg1, siginfo_t *arg2) {
 // Function: dev_alloc_skb
 // with type: struct sk_buff *dev_alloc_skb(unsigned int length)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: dev_err
@@ -1290,10 +1269,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_kfree_skb_irq
@@ -1526,10 +1504,9 @@ unsigned long int find_next_zero_bit(const unsigned long *arg0, unsigned long ar
 // Function: find_vma
 // with type: struct vm_area_struct *find_vma(struct mm_struct *mm, unsigned long addr)
 // with return type: (struct vm_area_struct)*
-void *external_alloc(void);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct vm_area_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct vm_area_struct));
 }
 
 // Function: flush_scheduled_work
@@ -1598,10 +1575,9 @@ int hrtimer_start_range_ns(struct hrtimer *arg0, ktime_t arg1, unsigned long arg
 // Function: ieee80211_beacon_get_tim
 // with type: struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *hw, struct ieee80211_vif *vif, u16 *tim_offset, u16 *tim_length)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: ieee80211_get_tkip_p1k_iv
@@ -1714,10 +1690,9 @@ unsigned long int invalidate_mapping_pages(struct address_space *arg0, unsigned 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iov_iter_advance
@@ -1739,10 +1714,9 @@ void irq_free_descs(unsigned int arg0, unsigned int arg1) {
 // Function: irq_get_irq_data
 // with type: struct irq_data *irq_get_irq_data(unsigned int irq)
 // with return type: (struct irq_data)*
-void *external_alloc(void);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
   // Pointer type
-  return (struct irq_data *)external_alloc();
+  return ldv_malloc(sizeof(struct irq_data));
 }
 
 // Function: irq_modify_status
@@ -1782,10 +1756,9 @@ int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
 // Function: irq_to_desc
 // with type: struct irq_desc *irq_to_desc(unsigned int irq)
 // with return type: (struct irq_desc)*
-void *external_alloc(void);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
   // Pointer type
-  return (struct irq_desc *)external_alloc();
+  return ldv_malloc(sizeof(struct irq_desc));
 }
 
 // Function: key_put
@@ -1826,28 +1799,25 @@ int kill_pid(struct pid *arg0, int arg1, int arg2) {
 // Function: kmalloc_order_trace
 // with type: void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
 // with return type: (void)*
-void *external_alloc(void);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmemdup
 // with type: void *kmemdup(const void *src, size_t len, gfp_t gfp)
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmemleak_alloc
@@ -1869,10 +1839,9 @@ void kmemleak_free(const void *arg0) {
 // Function: kobject_get
 // with type: struct kobject *kobject_get(struct kobject *kobj)
 // with return type: (struct kobject)*
-void *external_alloc(void);
 struct kobject *kobject_get(struct kobject *arg0) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 
 // Function: kobject_put
@@ -2106,10 +2075,9 @@ int netpoll_trap() {
 // Function: next_zones_zonelist
 // with type: struct zoneref *next_zones_zonelist(struct zoneref *z, enum zone_type highest_zoneidx, nodemask_t *nodes, struct zone **zone)
 // with return type: (struct zoneref)*
-void *external_alloc(void);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
   // Pointer type
-  return (struct zoneref *)external_alloc();
+  return ldv_malloc(sizeof(struct zoneref));
 }
 
 // Function: nf_conntrack_destroy
@@ -2182,10 +2150,9 @@ void p54_free_skb(struct ieee80211_hw *arg0, struct sk_buff *arg1) {
 // Function: p54_init_common
 // with type: struct ieee80211_hw *p54_init_common(size_t priv_data_len)
 // with return type: (struct ieee80211_hw)*
-void *external_alloc(void);
 struct ieee80211_hw *p54_init_common(size_t arg0) {
   // Pointer type
-  return (struct ieee80211_hw *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_hw));
 }
 
 // Function: p54_parse_firmware
@@ -2289,10 +2256,9 @@ int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2,
 // Function: pci_get_domain_bus_and_slot
 // with type: struct pci_dev *pci_get_domain_bus_and_slot(int domain, unsigned int bus, unsigned int devfn)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: percpu_counter_destroy
@@ -2344,10 +2310,9 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *name, umode_t mode, struct proc_dir_entry *parent, const struct file_operations *proc_fops, void *data)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: profile_hits
@@ -2463,10 +2428,9 @@ void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) 
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Function: show_state_filter
@@ -2480,10 +2444,9 @@ void show_state_filter(unsigned long arg0) {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *skb, gfp_t priority)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_clone_tx_timestamp
@@ -2497,10 +2460,9 @@ void skb_clone_tx_timestamp(struct sk_buff *arg0) {
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *skb, gfp_t priority)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy_bits
@@ -2524,19 +2486,17 @@ int skb_pad(struct sk_buff *arg0, int arg1) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *skb, unsigned int len)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *skb, unsigned int len)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
@@ -2592,10 +2552,9 @@ void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: strlen
@@ -2694,10 +2653,9 @@ void up_write(struct rw_semaphore *arg0) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int iso_packets, gfp_t mem_flags)
 // with return type: (struct urb)*
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 
 // Function: usb_anchor_urb
@@ -2736,19 +2694,17 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *dev)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *dev, unsigned ifnum)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_interrupt_msg

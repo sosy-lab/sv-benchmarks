@@ -14718,9 +14718,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -14840,9 +14839,8 @@ int generic_mii_ioctl(struct mii_if_info *arg0, struct mii_ioctl_data *arg1, int
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *ioport_map(unsigned long arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread16(void *arg0) {

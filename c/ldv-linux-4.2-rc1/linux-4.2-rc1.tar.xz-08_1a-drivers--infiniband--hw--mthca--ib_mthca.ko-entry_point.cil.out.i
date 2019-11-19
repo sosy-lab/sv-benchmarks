@@ -26084,9 +26084,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __copy_from_user_overflow() {
   return;
@@ -26180,9 +26179,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void clear_page(void *arg0) {
   return;
@@ -26231,20 +26229,17 @@ int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
 }
-void *external_alloc(void);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -26295,17 +26290,14 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_zeroed_page(gfp_t arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct ib_device *ib_alloc_device(size_t arg0) {
-  return (struct ib_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_device));
 }
-void *external_alloc(void);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
-  return (struct ib_ah *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_ah));
 }
-void *external_alloc(void);
 struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *arg0, u32 arg1, u16 arg2, int arg3, int arg4, int arg5, gfp_t arg6, u8 arg7) {
-  return (struct ib_mad_send_buf *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mad_send_buf));
 }
 void ib_dealloc_device(struct ib_device *arg0) {
   return;
@@ -26348,9 +26340,8 @@ int __VERIFIER_nondet_int(void);
 int ib_register_device(struct ib_device *arg0, int (*arg1)(struct ib_device *, u8 , struct kobject *)) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_mad_agent *ib_register_mad_agent(struct ib_device *arg0, u8 arg1, enum ib_qp_type arg2, struct ib_mad_reg_req *arg3, u8 arg4, void (*arg5)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*arg6)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *arg7, u32 arg8) {
-  return (struct ib_mad_agent *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mad_agent));
 }
 void ib_ud_header_init(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, struct ib_ud_header *arg6) {
   return;
@@ -26359,9 +26350,8 @@ int __VERIFIER_nondet_int(void);
 int ib_ud_header_pack(struct ib_ud_header *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
-  return (struct ib_umem *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_umem));
 }
 void ib_umem_release(struct ib_umem *arg0) {
   return;
@@ -26373,9 +26363,8 @@ int __VERIFIER_nondet_int(void);
 int ib_unregister_mad_agent(struct ib_mad_agent *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -26443,9 +26432,8 @@ int __VERIFIER_nondet_int(void);
 int pci_find_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -26513,9 +26501,8 @@ void schedule() {
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {

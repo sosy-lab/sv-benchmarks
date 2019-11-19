@@ -21805,13 +21805,11 @@ bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work(struct delayed_work *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 loff_t generic_file_llseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -22221,9 +22219,8 @@ int __VERIFIER_nondet_int(void);
 int wl12xx_cmd_build_probe_req(struct wl1271 *arg0, struct wl12xx_vif *arg1, u8 arg2, u8 arg3, const u8 *arg4, size_t arg5, const u8 *arg6, size_t arg7, const u8 *arg8, size_t arg9, bool arg10) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ieee80211_hw *wlcore_alloc_hw(size_t arg0, u32 arg1, u32 arg2) {
-  return (struct ieee80211_hw *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_hw));
 }
 int __VERIFIER_nondet_int(void);
 int wlcore_boot_run_firmware(struct wl1271 *arg0) {

@@ -153,10 +153,9 @@ int gpio_request(unsigned int arg0, const char *arg1) {
 // Function: gpio_to_desc
 // with type: struct gpio_desc *gpio_to_desc(unsigned int)
 // with return type: (struct gpio_desc)*
-void *external_alloc(void);
 struct gpio_desc *gpio_to_desc(unsigned int arg0) {
   // Pointer type
-  return (struct gpio_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: gpiod_direction_output

@@ -6306,9 +6306,8 @@ void __const_udelay(unsigned long arg0) {
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
@@ -6325,9 +6324,8 @@ unsigned short __VERIFIER_nondet_ushort(void);
 u16 ide_pio_cycle_time(ide_drive_t *arg0, u8 arg1) {
   return __VERIFIER_nondet_ushort();
 }
-void *external_alloc(void);
 struct ide_timing *ide_timing_find_mode(u8 arg0) {
-  return (struct ide_timing *)external_alloc();
+  return ldv_malloc(sizeof(struct ide_timing));
 }
 void ldv_initialize() {
   return;

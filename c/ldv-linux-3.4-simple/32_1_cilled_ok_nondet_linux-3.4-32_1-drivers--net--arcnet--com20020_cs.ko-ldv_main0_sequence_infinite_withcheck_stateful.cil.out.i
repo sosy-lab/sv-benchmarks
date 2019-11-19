@@ -6669,9 +6669,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct net_device *alloc_arcdev(const char *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int com20020_check(struct net_device *arg0) {

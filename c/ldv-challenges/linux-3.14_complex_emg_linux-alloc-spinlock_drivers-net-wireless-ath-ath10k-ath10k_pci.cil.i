@@ -17213,9 +17213,8 @@ void _raw_spin_lock_bh(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ath10k *ath10k_core_create(void *arg0, struct device *arg1, const struct ath10k_hif_ops *arg2) {
-  return (struct ath10k *)external_alloc();
+  return ldv_malloc(sizeof(struct ath10k));
 }
 void ath10k_core_destroy(struct ath10k *arg0) {
   return;
@@ -17288,9 +17287,8 @@ unsigned int ioread32(void *arg0) {
 void iowrite32(u32 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_after_alloc(void *arg0) {
   return;

@@ -173,19 +173,17 @@ int ldv_ni_660x_driver_release_2() {
 // Function: mite_alloc
 // with type: struct mite_struct *mite_alloc(struct pci_dev *)
 // with return type: (struct mite_struct)*
-void *external_alloc(void);
 struct mite_struct *mite_alloc(struct pci_dev *arg0) {
   // Pointer type
-  return (struct mite_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct mite_struct));
 }
 
 // Function: mite_alloc_ring
 // with type: struct mite_dma_descriptor_ring *mite_alloc_ring(struct mite_struct *)
 // with return type: (struct mite_dma_descriptor_ring)*
-void *external_alloc(void);
 struct mite_dma_descriptor_ring *mite_alloc_ring(struct mite_struct *arg0) {
   // Pointer type
-  return (struct mite_dma_descriptor_ring *)external_alloc();
+  return ldv_malloc(sizeof(struct mite_dma_descriptor_ring));
 }
 
 // Function: mite_buf_change
@@ -216,10 +214,9 @@ void mite_release_channel(struct mite_channel *arg0) {
 // Function: mite_request_channel_in_range
 // with type: struct mite_channel *mite_request_channel_in_range(struct mite_struct *, struct mite_dma_descriptor_ring *, unsigned int, unsigned int)
 // with return type: (struct mite_channel)*
-void *external_alloc(void);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
   // Pointer type
-  return (struct mite_channel *)external_alloc();
+  return ldv_malloc(sizeof(struct mite_channel));
 }
 
 // Function: mite_setup2
@@ -276,10 +273,9 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: ni_gpct_device_construct
 // with type: struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *, void (*)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant , unsigned int)
 // with return type: (struct ni_gpct_device)*
-void *external_alloc(void);
 struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *arg0, void (*arg1)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*arg2)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant arg3, unsigned int arg4) {
   // Pointer type
-  return (struct ni_gpct_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ni_gpct_device));
 }
 
 // Function: ni_gpct_device_destroy

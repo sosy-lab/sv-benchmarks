@@ -1938,9 +1938,8 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_driver_register(struct i2o_driver *arg0) {
@@ -1949,9 +1948,8 @@ int i2o_driver_register(struct i2o_driver *arg0) {
 void i2o_driver_unregister(struct i2o_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
-  return (struct i2o_message *)external_alloc();
+  return ldv_malloc(sizeof(struct i2o_message));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_msg_post_wait_mem(struct i2o_controller *arg0, struct i2o_message *arg1, unsigned long arg2, struct i2o_dma *arg3) {

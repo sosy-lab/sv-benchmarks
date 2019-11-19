@@ -4709,9 +4709,8 @@ int __VERIFIER_nondet_int(void);
 int deregister_mtd_blktrans(struct mtd_blktrans_ops *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4722,9 +4721,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int mtd_erase(struct mtd_info *arg0, struct erase_info *arg1) {
@@ -4761,9 +4759,8 @@ void schedule() {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {

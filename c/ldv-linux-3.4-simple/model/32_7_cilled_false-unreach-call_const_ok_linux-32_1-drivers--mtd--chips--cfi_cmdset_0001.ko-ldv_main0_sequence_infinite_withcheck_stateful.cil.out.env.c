@@ -95,10 +95,9 @@ void cfi_fixup(struct mtd_info *arg0, struct cfi_fixup *arg1) {
 // Function: cfi_read_pri
 // with type: struct cfi_extquery *cfi_read_pri(struct map_info *map, uint16_t adr, uint16_t size, char *name)
 // with return type: (struct cfi_extquery)*
-void *external_alloc(void);
 struct cfi_extquery *cfi_read_pri(struct map_info *arg0, uint16_t arg1, uint16_t arg2, char *arg3) {
   // Pointer type
-  return (struct cfi_extquery *)external_alloc();
+  return ldv_malloc(sizeof(struct cfi_extquery));
 }
 
 // Function: cfi_varsize_frob

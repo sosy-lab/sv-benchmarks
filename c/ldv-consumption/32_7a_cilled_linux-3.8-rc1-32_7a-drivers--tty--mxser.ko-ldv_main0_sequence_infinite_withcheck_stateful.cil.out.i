@@ -7895,13 +7895,11 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
-void *external_alloc(void);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
-  return (struct tty_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_driver));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -7945,9 +7943,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -8062,13 +8059,11 @@ int __VERIFIER_nondet_int(void);
 int tty_port_open(struct tty_port *arg0, struct tty_struct *arg1, struct file *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *tty_port_register_device(struct tty_port *arg0, struct tty_driver *arg1, unsigned int arg2, struct device *arg3) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 void tty_port_tty_set(struct tty_port *arg0, struct tty_struct *arg1) {
   return;

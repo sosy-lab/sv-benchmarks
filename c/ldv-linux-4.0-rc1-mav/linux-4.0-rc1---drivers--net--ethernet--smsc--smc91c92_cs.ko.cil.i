@@ -16410,9 +16410,8 @@ int netif_rx(struct sk_buff *arg0) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 void pcmcia_disable_device(struct pcmcia_device *arg0) {
   return;

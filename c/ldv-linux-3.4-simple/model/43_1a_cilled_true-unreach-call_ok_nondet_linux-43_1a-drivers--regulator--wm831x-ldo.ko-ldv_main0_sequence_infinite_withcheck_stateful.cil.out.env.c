@@ -23,10 +23,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -41,10 +40,9 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: devm_kzalloc
 // with type: void *devm_kzalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kzalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: free_irq
@@ -58,10 +56,9 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -91,10 +88,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: platform_driver_register
@@ -126,10 +122,9 @@ int platform_get_irq_byname(struct platform_device *arg0, const char *arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk
@@ -144,10 +139,9 @@ int printk(const char *arg0, ...) {
 // Function: rdev_get_drvdata
 // with type: void *rdev_get_drvdata(struct regulator_dev *)
 // with return type: (void)*
-void *external_alloc(void);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: rdev_get_id
@@ -180,10 +174,9 @@ int regulator_notifier_call_chain(struct regulator_dev *arg0, unsigned long arg1
 // Function: regulator_register
 // with type: struct regulator_dev *regulator_register(struct regulator_desc *, struct device *, const struct regulator_init_data *, void *, struct device_node *)
 // with return type: (struct regulator_dev)*
-void *external_alloc(void);
 struct regulator_dev *regulator_register(struct regulator_desc *arg0, struct device *arg1, const struct regulator_init_data *arg2, void *arg3, struct device_node *arg4) {
   // Pointer type
-  return (struct regulator_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct regulator_dev));
 }
 
 // Function: regulator_unregister

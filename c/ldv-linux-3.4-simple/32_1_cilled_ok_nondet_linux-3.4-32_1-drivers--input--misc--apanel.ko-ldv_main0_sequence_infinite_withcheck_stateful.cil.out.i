@@ -4556,9 +4556,8 @@ int __VERIFIER_nondet_int(void);
 int check_signature(const volatile void *arg0, const unsigned char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -4583,9 +4582,8 @@ int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_write_word_data(const struct i2c_client *arg0, u8 arg1, u16 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct input_polled_dev *input_allocate_polled_device() {
-  return (struct input_polled_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_polled_dev));
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;
@@ -4600,9 +4598,8 @@ int input_register_polled_device(struct input_polled_dev *arg0) {
 void input_unregister_polled_device(struct input_polled_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;

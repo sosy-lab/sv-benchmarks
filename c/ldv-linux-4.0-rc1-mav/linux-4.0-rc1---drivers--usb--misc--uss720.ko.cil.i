@@ -11493,9 +11493,8 @@ size_t parport_ieee1284_read_nibble(struct parport *arg0, void *arg1, size_t arg
 void parport_put_port(struct parport *arg0) {
   return;
 }
-void *external_alloc(void);
 struct parport *parport_register_port(unsigned long arg0, int arg1, int arg2, struct parport_operations *arg3) {
-  return (struct parport *)external_alloc();
+  return ldv_malloc(sizeof(struct parport));
 }
 void parport_remove_port(struct parport *arg0) {
   return;

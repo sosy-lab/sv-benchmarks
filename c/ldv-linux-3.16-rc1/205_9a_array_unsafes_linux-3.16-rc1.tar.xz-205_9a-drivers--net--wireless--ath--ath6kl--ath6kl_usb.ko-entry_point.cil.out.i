@@ -8712,9 +8712,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void ath6kl_core_cleanup(struct ath6kl *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ath6kl *ath6kl_core_create(struct device *arg0) {
-  return (struct ath6kl *)external_alloc();
+  return ldv_malloc(sizeof(struct ath6kl));
 }
 void ath6kl_core_destroy(struct ath6kl *arg0) {
   return;
@@ -8746,9 +8745,8 @@ int ath6kl_warn(const char *arg0, ...) {
 void flush_scheduled_work() {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ldv_probe_2() {
@@ -8772,9 +8770,8 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -8789,9 +8786,8 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;

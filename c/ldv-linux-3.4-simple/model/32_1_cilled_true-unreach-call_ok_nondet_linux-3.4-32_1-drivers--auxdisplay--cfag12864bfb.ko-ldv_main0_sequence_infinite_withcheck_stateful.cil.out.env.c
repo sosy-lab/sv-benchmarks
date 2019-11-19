@@ -40,10 +40,9 @@ unsigned char cfag12864b_isinited() {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -58,10 +57,9 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t size, struct device *dev)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -100,10 +98,9 @@ int platform_device_add(struct platform_device *arg0) {
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *name, int id)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put

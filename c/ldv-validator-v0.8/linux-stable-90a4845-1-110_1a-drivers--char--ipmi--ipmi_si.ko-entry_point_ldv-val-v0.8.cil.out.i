@@ -10022,9 +10022,8 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
@@ -10075,9 +10074,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_notice(const struct device *arg0, const char *arg1, ...) {
@@ -10090,9 +10088,8 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const struct dmi_device *dmi_find_device(int arg0, const char *arg1, const struct dmi_device *arg2) {
-  return (const struct dmi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct dmi_device));
 }
 int __VERIFIER_nondet_int(void);
 int driver_register(struct device_driver *arg0) {
@@ -10107,16 +10104,14 @@ void free_irq(unsigned int arg0, void *arg1) {
 void getnstimeofday(struct timespec *arg0) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ipmi_smi_msg *ipmi_alloc_smi_msg() {
-  return (struct ipmi_smi_msg *)external_alloc();
+  return ldv_malloc(sizeof(struct ipmi_smi_msg));
 }
 int __VERIFIER_nondet_int(void);
 int ipmi_register_smi(struct ipmi_smi_handlers *arg0, void *arg1, struct ipmi_device_id *arg2, struct device *arg3, const char *arg4, unsigned char arg5) {
@@ -10136,13 +10131,11 @@ int __VERIFIER_nondet_int(void);
 int ipmi_unregister_smi(ipmi_smi_t arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct task_struct *kthread_create(int (*arg0)(void *), void *arg1, const char *arg2, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -10197,16 +10190,14 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add(struct platform_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int pnp_register_driver(struct pnp_driver *arg0) {

@@ -8237,9 +8237,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -8268,9 +8267,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -8278,13 +8276,11 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 void blk_dump_rq_flags(struct request *arg0, char *arg1) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_fetch_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
-void *external_alloc(void);
 struct request_queue *blk_init_queue(request_fn_proc *arg0, spinlock_t *arg1) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 void blk_queue_bounce_limit(struct request_queue *arg0, u64 arg1) {
   return;
@@ -8353,9 +8349,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -8436,9 +8431,8 @@ int __VERIFIER_nondet_int(void);
 int sg_nents(struct scatterlist *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void trace_hardirqs_off() {
   return;

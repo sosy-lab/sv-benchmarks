@@ -14435,9 +14435,8 @@ int __request_module(bool arg0, const char *arg1, ...) {
 void __rt_mutex_init(struct rt_mutex *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
 struct v4l2_clk *__v4l2_clk_register_fixed(const char *arg0, const char *arg1, unsigned long arg2, struct module *arg3) {
-  return (struct v4l2_clk *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_clk));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -14528,13 +14527,11 @@ void rt_mutex_unlock(struct rt_mutex *arg0) {
 void tveeprom_hauppauge_analog(struct i2c_client *arg0, struct tveeprom *arg1, unsigned char *arg2) {
   return;
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_clear_halt(struct usb_device *arg0, int arg1) {
@@ -14571,9 +14568,8 @@ int usb_unlink_urb(struct urb *arg0) {
 void v4l2_clk_unregister_fixed(struct v4l2_clk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;

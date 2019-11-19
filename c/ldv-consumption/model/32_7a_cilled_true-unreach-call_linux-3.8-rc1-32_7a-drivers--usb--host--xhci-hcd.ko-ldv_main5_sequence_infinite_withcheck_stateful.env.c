@@ -98,10 +98,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: _dev_info
@@ -224,10 +223,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_warn
@@ -242,19 +240,17 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_pool_destroy
@@ -285,10 +281,9 @@ int dma_set_mask(struct device *arg0, u64 arg1) {
 // Function: dmi_get_system_info
 // with type: const char *dmi_get_system_info(int)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *dmi_get_system_info(int arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: free_irq
@@ -310,10 +305,9 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -504,10 +498,9 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk
@@ -522,10 +515,9 @@ int printk(const char *arg0, ...) {
 // Function: radix_tree_delete
 // with type: void *radix_tree_delete(struct radix_tree_root *, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *radix_tree_delete(struct radix_tree_root *arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: radix_tree_insert
@@ -540,10 +532,9 @@ int radix_tree_insert(struct radix_tree_root *arg0, unsigned long arg1, void *ar
 // Function: radix_tree_lookup
 // with type: void *radix_tree_lookup(struct radix_tree_root *, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *radix_tree_lookup(struct radix_tree_root *arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: request_threaded_irq
@@ -566,10 +557,9 @@ void set_timer_slack(struct timer_list *arg0, int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Skip function: strstr
@@ -647,19 +637,17 @@ void usb_amd_quirk_pll_enable() {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_create_shared_hcd
 // with type: struct usb_hcd *usb_create_shared_hcd(const struct hc_driver *, struct device *, const char *, struct usb_hcd *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_create_shared_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2, struct usb_hcd *arg3) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_disable_xhci_ports

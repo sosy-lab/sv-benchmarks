@@ -22641,9 +22641,8 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -22737,13 +22736,11 @@ void debug_dma_mapping_error(struct device *arg0, dma_addr_t arg1) {
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -22767,21 +22764,17 @@ int __VERIFIER_nondet_int(void);
 int device_set_wakeup_enable(struct device *arg0, bool arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct reset_control *devm_reset_control_get(struct device *arg0, const char *arg1) {
-  return (struct reset_control *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void disable_irq(unsigned int arg0) {
   return;
@@ -22824,9 +22817,8 @@ int __VERIFIER_nondet_int(void);
 int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -22914,9 +22906,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_setup_18() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_9() {
@@ -22934,9 +22925,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_thaw_noirq_9() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 void mdiobus_free(struct mii_bus *arg0) {
   return;
@@ -23039,9 +23029,8 @@ int pci_set_power_state(struct pci_dev *arg0, pci_power_t arg1) {
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 void phy_disconnect(struct phy_device *arg0) {
   return;
@@ -23102,9 +23091,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq_byname(struct platform_device *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void pm_wakeup_event(struct device *arg0, unsigned int arg1) {
   return;
@@ -23121,9 +23109,8 @@ int __VERIFIER_nondet_int(void);
 int ptp_clock_index(struct ptp_clock *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0, struct device *arg1) {
-  return (struct ptp_clock *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ptp_clock_unregister(struct ptp_clock *arg0) {
@@ -23173,20 +23160,17 @@ int __VERIFIER_nondet_int(void);
 int single_release(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_clone_tx_timestamp(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -23200,9 +23184,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct regmap *syscon_regmap_lookup_by_phandle(struct device_node *arg0, const char *arg1) {
-  return (struct regmap *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void unregister_netdev(struct net_device *arg0) {
   return;

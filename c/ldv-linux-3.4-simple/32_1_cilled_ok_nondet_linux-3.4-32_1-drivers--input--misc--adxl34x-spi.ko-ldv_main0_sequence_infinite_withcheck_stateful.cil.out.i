@@ -3614,9 +3614,8 @@ long ldv__builtin_expect(long val , long res )
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 struct adxl34x *adxl34x_probe(struct device *arg0, int arg1, bool arg2, const struct adxl34x_bus_ops *arg3) {
-  return (struct adxl34x *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int adxl34x_remove(struct adxl34x *arg0) {
@@ -3632,9 +3631,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

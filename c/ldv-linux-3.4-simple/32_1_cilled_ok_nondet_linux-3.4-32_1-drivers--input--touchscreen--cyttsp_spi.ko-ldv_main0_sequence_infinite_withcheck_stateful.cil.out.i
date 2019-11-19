@@ -4171,9 +4171,8 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *arg0, struct device *arg1, int arg2, size_t arg3) {
-  return (struct cyttsp *)external_alloc();
+  return ldv_malloc(sizeof(struct cyttsp));
 }
 void cyttsp_remove(struct cyttsp *arg0) {
   return;
@@ -4182,9 +4181,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

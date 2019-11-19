@@ -7389,9 +7389,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct gpio_desc *__devm_gpiod_get_index(struct device *arg0, const char *arg1, unsigned int arg2, enum gpiod_flags arg3) {
-  return (struct gpio_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -7417,9 +7416,8 @@ int __pm_runtime_suspend(struct device *arg0, int arg1) {
 void __pm_runtime_use_autosuspend(struct device *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
-  return (const struct acpi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct acpi_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int desc_to_gpio(const struct gpio_desc *arg0) {
@@ -7428,13 +7426,11 @@ int desc_to_gpio(const struct gpio_desc *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct iio_dev *devm_iio_device_alloc(struct device *arg0, int arg1) {
-  return (struct iio_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_dev));
 }
-void *external_alloc(void);
 struct iio_trigger *devm_iio_trigger_alloc(struct device *arg0, const char *arg1, ...) {
-  return (struct iio_trigger *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_trigger));
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -7448,9 +7444,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int gpiod_to_irq(const struct gpio_desc *arg0) {

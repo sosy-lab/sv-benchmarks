@@ -7101,9 +7101,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -7157,13 +7156,11 @@ void fb_destroy_modelist(struct list_head *arg0) {
 void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
   return;
 }
-void *external_alloc(void);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
-void *external_alloc(void);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t fb_sys_write(struct fb_info *arg0, const char *arg1, size_t arg2, loff_t *arg3) {
@@ -7175,9 +7172,8 @@ void fb_var_to_videomode(struct fb_videomode *arg0, const struct fb_var_screenin
 void fb_videomode_to_var(struct fb_var_screeninfo *arg0, const struct fb_videomode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -7246,13 +7242,11 @@ int unregister_framebuffer(struct fb_info *arg0) {
 void up(struct semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {
@@ -7275,17 +7269,15 @@ int usb_submit_urb(struct urb *arg0, gfp_t arg1) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int vmalloc_to_pfn(const void *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;

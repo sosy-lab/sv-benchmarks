@@ -8670,9 +8670,8 @@ int __VERIFIER_nondet_int(void);
 int mmc_add_host(struct mmc_host *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
-  return (struct mmc_host *)external_alloc();
+  return ldv_malloc(sizeof(struct mmc_host));
 }
 void mmc_detect_change(struct mmc_host *arg0, unsigned long arg1) {
   return;
@@ -8738,9 +8737,8 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int regulator_get_current_limit(struct regulator *arg0) {
@@ -8775,9 +8773,8 @@ void sg_miter_start(struct sg_mapping_iter *arg0, struct scatterlist *arg1, unsi
 void sg_miter_stop(struct sg_mapping_iter *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void synchronize_irq(unsigned int arg0) {
   return;

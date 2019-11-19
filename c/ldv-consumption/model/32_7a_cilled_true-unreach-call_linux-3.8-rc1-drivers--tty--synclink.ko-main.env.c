@@ -21,10 +21,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -63,19 +62,17 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: __tty_alloc_driver
 // with type: struct tty_driver *__tty_alloc_driver(unsigned int, struct module *, unsigned long)
 // with return type: (struct tty_driver)*
-void *external_alloc(void);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
   // Pointer type
-  return (struct tty_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_driver));
 }
 
 // Function: __wake_up
@@ -148,10 +145,9 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_hdlcdev
 // with type: struct net_device *alloc_hdlcdev(void *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_hdlcdev(void *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: capable
@@ -321,10 +317,9 @@ void interruptible_sleep_on(wait_queue_head_t *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -751,10 +746,9 @@ void tty_ldisc_flush(struct tty_struct *arg0) {
 // Function: tty_ldisc_ref
 // with type: struct tty_ldisc *tty_ldisc_ref(struct tty_struct *)
 // with return type: (struct tty_ldisc)*
-void *external_alloc(void);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
   // Pointer type
-  return (struct tty_ldisc *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_ldisc));
 }
 
 // Function: tty_lock

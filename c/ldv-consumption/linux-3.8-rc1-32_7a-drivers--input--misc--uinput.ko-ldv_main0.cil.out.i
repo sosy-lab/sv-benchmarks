@@ -5290,9 +5290,8 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -5339,9 +5338,8 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrndup(const char *arg0, size_t arg1, gfp_t arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -5349,9 +5347,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_handler_precall() {
   return;
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void might_fault() {
   return;
@@ -5392,9 +5389,8 @@ int printk(const char *arg0, ...) {
 void schedule() {
   return;
 }
-void *external_alloc(void);
 char *strndup_user(const char *arg0, long arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void wait_for_completion(struct completion *arg0) {
   return;

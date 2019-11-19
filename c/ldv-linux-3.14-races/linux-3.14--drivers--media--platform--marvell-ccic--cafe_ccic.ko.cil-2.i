@@ -12037,16 +12037,14 @@ void __const_udelay(unsigned long arg0){
 void msleep(unsigned int arg0){
   return;
 }
-void *external_alloc(void);
 char *strcpy(char *arg0, const char *arg1){
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void pci_restore_state(struct pci_dev *arg0){
   return;
 }
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3){
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 int __VERIFIER_nondet_int(void);
 int vb2_streamon(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
@@ -12096,16 +12094,14 @@ void ldv_switch_to_interrupt_context(){
 void _raw_spin_unlock(raw_spinlock_t *arg0){
   return;
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0){
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void ldv_check_alloc_flags(gfp_t arg0){
   return;
 }
-void *external_alloc(void);
 void *vb2_dma_contig_init_ctx(struct device *arg0){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2){
@@ -12172,13 +12168,11 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void v4l2_device_unregister(struct v4l2_device *arg0){
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0){
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
-void *external_alloc(void);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
@@ -12211,9 +12205,8 @@ long int schedule_timeout(long arg0){
 void _raw_spin_lock(raw_spinlock_t *arg0){
   return;
 }
-void *external_alloc(void);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3){
   return;
@@ -12230,9 +12223,8 @@ int __VERIFIER_nondet_int(void);
 int vb2_streamoff(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int vb2_poll(struct vb2_queue *arg0, struct file *arg1, poll_table *arg2){

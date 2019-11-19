@@ -25571,9 +25571,8 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   return;
 }
 }
-void *external_alloc(void);
 void *PDE_DATA(const struct inode *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -25710,9 +25709,8 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void pci_set_master(struct pci_dev *arg0) {
   return;
@@ -25731,9 +25729,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int remap_pfn_range(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2, unsigned long arg3, pgprot_t arg4) {
@@ -25787,9 +25784,8 @@ void v4l2_device_unregister(struct v4l2_device *arg0) {
 void v4l2_get_timestamp(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int *arg4, unsigned int arg5, unsigned int arg6, unsigned int arg7, unsigned int arg8) {
   return;
@@ -25797,13 +25793,11 @@ void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int a
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) {
@@ -25812,9 +25806,8 @@ long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) 
 void video_unregister_device(struct video_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct videocodec *videocodec_attach(struct videocodec_master *arg0) {
-  return (struct videocodec *)external_alloc();
+  return ldv_malloc(sizeof(struct videocodec));
 }
 int __VERIFIER_nondet_int(void);
 int videocodec_detach(struct videocodec *arg0) {

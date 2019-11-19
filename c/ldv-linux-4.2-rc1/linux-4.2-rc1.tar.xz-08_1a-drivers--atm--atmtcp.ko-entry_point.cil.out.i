@@ -7615,9 +7615,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __copy_from_user_overflow() {
   return;
@@ -7641,20 +7640,17 @@ void _raw_read_unlock(rwlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *atm_alloc_charge(struct atm_vcc *arg0, int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void atm_dev_deregister(struct atm_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct atm_dev *atm_dev_lookup(int arg0) {
-  return (struct atm_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct atm_dev));
 }
-void *external_alloc(void);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
-  return (struct atm_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct atm_dev));
 }
 int __VERIFIER_nondet_int(void);
 int atm_init_aal5(struct atm_vcc *arg0) {
@@ -7700,9 +7696,8 @@ void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void schedule() {
   return;
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

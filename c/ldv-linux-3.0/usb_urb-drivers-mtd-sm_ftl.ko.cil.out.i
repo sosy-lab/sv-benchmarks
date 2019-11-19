@@ -6514,9 +6514,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
@@ -6547,9 +6546,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int __kfifo_out_r(struct __kfifo *arg0, void *arg1, unsigned int arg2, size_t arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -6608,9 +6606,8 @@ void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;

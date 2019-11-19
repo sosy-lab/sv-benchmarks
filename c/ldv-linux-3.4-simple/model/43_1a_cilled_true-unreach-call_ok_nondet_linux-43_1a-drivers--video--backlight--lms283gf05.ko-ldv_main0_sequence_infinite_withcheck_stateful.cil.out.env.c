@@ -40,10 +40,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -86,19 +85,17 @@ int gpio_request(unsigned int arg0, const char *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: lcd_device_register
 // with type: struct lcd_device *lcd_device_register(const char *, struct device *, void *, struct lcd_ops *)
 // with return type: (struct lcd_device)*
-void *external_alloc(void);
 struct lcd_device *lcd_device_register(const char *arg0, struct device *arg1, void *arg2, struct lcd_ops *arg3) {
   // Pointer type
-  return (struct lcd_device *)external_alloc();
+  return ldv_malloc(sizeof(struct lcd_device));
 }
 
 // Function: ldv_check_final_state
@@ -128,10 +125,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: memset

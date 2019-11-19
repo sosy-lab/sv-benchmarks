@@ -4737,9 +4737,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *alloc_pages_exact(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3) {
   return;
@@ -4766,9 +4765,8 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 void down_read(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
-  return (struct vm_area_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct vm_area_struct));
 }
 int __VERIFIER_nondet_int(void);
 int follow_pfn(struct vm_area_struct *arg0, unsigned long arg1, unsigned long *arg2) {

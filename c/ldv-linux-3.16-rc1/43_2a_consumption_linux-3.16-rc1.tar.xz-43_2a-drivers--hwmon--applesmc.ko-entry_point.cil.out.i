@@ -5067,9 +5067,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -5085,9 +5084,8 @@ int __platform_driver_register(struct platform_driver *arg0, struct module *arg1
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __udelay(unsigned long arg0) {
   return;
@@ -5099,16 +5097,14 @@ int __VERIFIER_nondet_int(void);
 int dmi_check_system(const struct dmi_system_id *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct input_polled_dev *input_allocate_polled_device() {
-  return (struct input_polled_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_polled_dev));
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;
@@ -5126,9 +5122,8 @@ void input_set_abs_params(struct input_dev *arg0, unsigned int arg1, int arg2, i
 void input_unregister_polled_device(struct input_polled_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
@@ -5180,9 +5175,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_noirq_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_4() {
@@ -5212,9 +5206,8 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;

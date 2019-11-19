@@ -7501,9 +7501,8 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
-  return (struct tty_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_driver));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2) {
@@ -7611,13 +7610,11 @@ int tty_port_open(struct tty_port *arg0, struct tty_struct *arg1, struct file *a
 void tty_port_put(struct tty_port *arg0) {
   return;
 }
-void *external_alloc(void);
 struct device *tty_port_register_device(struct tty_port *arg0, struct tty_driver *arg1, unsigned int arg2, struct device *arg3) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 void tty_port_tty_hangup(struct tty_port *arg0, bool arg1) {
   return;
@@ -7650,9 +7647,8 @@ int tty_unregister_driver(struct tty_driver *arg0) {
 void tty_vhangup(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int usb_autopm_get_interface_async(struct usb_interface *arg0) {
@@ -7678,13 +7674,11 @@ void usb_driver_release_interface(struct usb_driver *arg0, struct usb_interface 
 void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
 struct usb_interface *usb_get_intf(struct usb_interface *arg0) {
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
-void *external_alloc(void);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;

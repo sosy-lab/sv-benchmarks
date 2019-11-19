@@ -112,10 +112,9 @@ long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsi
 // Function: dma_request_slave_channel_reason
 // with type: struct dma_chan *dma_request_slave_channel_reason(struct device *, const char *)
 // with return type: (struct dma_chan)*
-void *external_alloc(void);
 struct dma_chan *dma_request_slave_channel_reason(struct device *arg0, const char *arg1){
   // Pointer type
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 
 // Function: wait_for_completion_timeout
@@ -165,10 +164,9 @@ void ldv_check_alloc_flags(gfp_t arg0){
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2){
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: clk_set_rate
@@ -244,10 +242,9 @@ void put_device(struct device *arg0){
 // Function: devm_reset_control_get
 // with type: struct reset_control *devm_reset_control_get(struct device *, const char *)
 // with return type: (struct reset_control)*
-void *external_alloc(void);
 struct reset_control *devm_reset_control_get(struct device *arg0, const char *arg1){
   // Pointer type
-  return (struct reset_control *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_err
@@ -303,19 +300,17 @@ void pm_runtime_enable(struct device *arg0){
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1){
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_clk_get
 // with type: struct clk *devm_clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1){
   // Pointer type
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __init_waitqueue_head
@@ -363,10 +358,9 @@ void clk_unprepare(struct clk *arg0){
 // Function: memcpy
 // with type: void *memcpy(void *, const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: clk_prepare

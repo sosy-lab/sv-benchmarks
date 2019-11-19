@@ -1663,9 +1663,8 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_buf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void virtqueue_kick(struct virtqueue *arg0) {
   return;

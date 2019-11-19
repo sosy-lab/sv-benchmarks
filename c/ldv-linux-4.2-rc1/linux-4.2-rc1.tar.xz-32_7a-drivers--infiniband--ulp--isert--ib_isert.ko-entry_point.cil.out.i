@@ -17062,9 +17062,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -17146,29 +17145,24 @@ void dump_stack() {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ib_mr *ib_alloc_fast_reg_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mr));
 }
-void *external_alloc(void);
 struct ib_fast_reg_page_list *ib_alloc_fast_reg_page_list(struct ib_device *arg0, int arg1) {
-  return (struct ib_fast_reg_page_list *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_fast_reg_page_list));
 }
-void *external_alloc(void);
 struct ib_pd *ib_alloc_pd(struct ib_device *arg0) {
-  return (struct ib_pd *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_pd));
 }
 int __VERIFIER_nondet_int(void);
 int ib_check_mr_status(struct ib_mr *arg0, u32 arg1, struct ib_mr_status *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_cq *ib_create_cq(struct ib_device *arg0, void (*arg1)(struct ib_cq *, void *), void (*arg2)(struct ib_event *, void *), void *arg3, const struct ib_cq_init_attr *arg4) {
-  return (struct ib_cq *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_cq));
 }
-void *external_alloc(void);
 struct ib_mr *ib_create_mr(struct ib_pd *arg0, struct ib_mr_init_attr *arg1) {
-  return (struct ib_mr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_dealloc_pd(struct ib_pd *arg0) {
@@ -17190,28 +17184,24 @@ int __VERIFIER_nondet_int(void);
 int ib_destroy_qp(struct ib_qp *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *ib_event_msg(enum ib_event_type arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ib_free_fast_reg_page_list(struct ib_fast_reg_page_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ib_mr *ib_get_dma_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_query_device(struct ib_device *arg0, struct ib_device_attr *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *ib_wc_status_msg(enum ib_wc_status arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct iscsi_cmd *iscsit_allocate_cmd(struct iscsi_conn *arg0, int arg1) {
-  return (struct iscsi_cmd *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_cmd));
 }
 int __VERIFIER_nondet_int(void);
 int iscsit_build_logout_rsp(struct iscsi_cmd *arg0, struct iscsi_conn *arg1, struct iscsi_logout_rsp *arg2) {
@@ -17244,9 +17234,8 @@ int __VERIFIER_nondet_int(void);
 int iscsit_check_dataout_payload(struct iscsi_cmd *arg0, struct iscsi_data *arg1, bool arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct iscsi_cmd *iscsit_find_cmd_from_itt(struct iscsi_conn *arg0, itt_t arg1) {
-  return (struct iscsi_cmd *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_cmd));
 }
 int __VERIFIER_nondet_int(void);
 int iscsit_handle_logout_cmd(struct iscsi_conn *arg0, struct iscsi_cmd *arg1, unsigned char *arg2) {
@@ -17347,9 +17336,8 @@ int __VERIFIER_nondet_int(void);
 int rdma_bind_addr(struct rdma_cm_id *arg0, struct sockaddr *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rdma_cm_id *rdma_create_id(int (*arg0)(struct rdma_cm_id *, struct rdma_cm_event *), void *arg1, enum rdma_port_space arg2, enum ib_qp_type arg3) {
-  return (struct rdma_cm_id *)external_alloc();
+  return ldv_malloc(sizeof(struct rdma_cm_id));
 }
 int __VERIFIER_nondet_int(void);
 int rdma_create_qp(struct rdma_cm_id *arg0, struct ib_pd *arg1, struct ib_qp_init_attr *arg2) {
@@ -17362,9 +17350,8 @@ int __VERIFIER_nondet_int(void);
 int rdma_disconnect(struct rdma_cm_id *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *rdma_event_msg(enum rdma_cm_event_type arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int rdma_listen(struct rdma_cm_id *arg0, int arg1) {
@@ -17382,9 +17369,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t sg_copy_from_buffer(struct scatterlist *arg0, unsigned int arg1, const void *arg2, size_t arg3) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void target_execute_cmd(struct se_cmd *arg0) {
   return;

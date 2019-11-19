@@ -139,10 +139,9 @@ int debug_lockdep_rcu_enabled() {
 // Function: eventfd_ctx_fileget
 // with type: struct eventfd_ctx *eventfd_ctx_fileget(struct file *)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: eventfd_ctx_put
@@ -156,10 +155,9 @@ void eventfd_ctx_put(struct eventfd_ctx *arg0) {
 // Function: eventfd_fget
 // with type: struct file *eventfd_fget(int)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *eventfd_fget(int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: eventfd_signal
@@ -176,10 +174,9 @@ __u64 eventfd_signal(struct eventfd_ctx *arg0, __u64 arg1) {
 // Function: fget
 // with type: struct file *fget(unsigned int)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: finish_wait
@@ -201,10 +198,9 @@ void fput(struct file *arg0) {
 // Function: get_task_mm
 // with type: struct mm_struct *get_task_mm(struct task_struct *)
 // with return type: (struct mm_struct)*
-void *external_alloc(void);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
   // Pointer type
-  return (struct mm_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct mm_struct));
 }
 
 // Function: get_user_pages_fast
@@ -221,10 +217,9 @@ int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **ar
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -299,10 +294,9 @@ void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) 
 // Function: macvtap_get_socket
 // with type: struct socket *macvtap_get_socket(struct file *)
 // with return type: (struct socket)*
-void *external_alloc(void);
 struct socket *macvtap_get_socket(struct file *arg0) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 
 // Skip function: malloc
@@ -448,10 +442,9 @@ int set_page_dirty_lock(struct page *arg0) {
 // Function: sockfd_lookup
 // with type: struct socket *sockfd_lookup(int, int *)
 // with return type: (struct socket)*
-void *external_alloc(void);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 
 // Function: synchronize_sched
@@ -465,10 +458,9 @@ void synchronize_sched() {
 // Function: tun_get_socket
 // with type: struct socket *tun_get_socket(struct file *)
 // with return type: (struct socket)*
-void *external_alloc(void);
 struct socket *tun_get_socket(struct file *arg0) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 
 // Function: unuse_mm

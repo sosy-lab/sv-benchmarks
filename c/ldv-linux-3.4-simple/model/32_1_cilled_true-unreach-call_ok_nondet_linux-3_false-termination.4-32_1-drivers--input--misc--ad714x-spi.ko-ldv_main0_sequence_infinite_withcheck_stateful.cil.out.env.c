@@ -31,10 +31,9 @@ int ad714x_enable(struct ad714x_chip *arg0) {
 // Function: ad714x_probe
 // with type: struct ad714x_chip *ad714x_probe(struct device *dev, u16 bus_type, int irq, int (*read)(struct ad714x_chip *, unsigned short, unsigned short *, size_t ), int (*write)(struct ad714x_chip *, unsigned short, unsigned short))
 // with return type: (struct ad714x_chip)*
-void *external_alloc(void);
 struct ad714x_chip *ad714x_probe(struct device *arg0, u16 arg1, int arg2, int (*arg3)(struct ad714x_chip *, unsigned short, unsigned short *, size_t ), int (*arg4)(struct ad714x_chip *, unsigned short, unsigned short)) {
   // Pointer type
-  return (struct ad714x_chip *)external_alloc();
+  return ldv_malloc(sizeof(struct ad714x_chip));
 }
 
 // Function: ad714x_remove
@@ -57,10 +56,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata

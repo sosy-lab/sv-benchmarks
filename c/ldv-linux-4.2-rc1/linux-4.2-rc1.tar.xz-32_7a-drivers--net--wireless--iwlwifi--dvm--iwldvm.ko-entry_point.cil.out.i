@@ -49045,13 +49045,11 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __compiletime_assert_1040() {
   return;
@@ -49063,13 +49061,11 @@ bool __VERIFIER_nondet_bool(void);
 bool __get_page_tail(struct page *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 const char *__ieee80211_create_tpt_led_trigger(struct ieee80211_hw *arg0, unsigned int arg1, const struct ieee80211_tpt_blink *arg2, unsigned int arg3) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 const char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
@@ -49140,21 +49136,17 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_symlink(const char *arg0, struct dentry *arg1, const char *arg2) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_u8(const char *arg0, umode_t arg1, struct dentry *arg2, u8 *arg3) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -49199,17 +49191,15 @@ int __VERIFIER_nondet_int(void);
 int hex_dump_to_buffer(const void *arg0, size_t arg1, int arg2, int arg3, char *arg4, size_t arg5, bool arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ieee80211_hw *ieee80211_alloc_hw_nm(size_t arg0, const struct ieee80211_ops *arg1, const char *arg2) {
-  return (struct ieee80211_hw *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_hw));
 }
 int __VERIFIER_nondet_int(void);
 int ieee80211_ave_rssi(struct ieee80211_vif *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int ieee80211_channel_to_frequency(int arg0, enum ieee80211_band arg1) {
@@ -49224,9 +49214,8 @@ void ieee80211_disable_rssi_reports(struct ieee80211_vif *arg0) {
 void ieee80211_enable_rssi_reports(struct ieee80211_vif *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
-  return (struct ieee80211_sta *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee80211_sta));
 }
 void ieee80211_free_hw(struct ieee80211_hw *arg0) {
   return;
@@ -49349,9 +49338,8 @@ int __VERIFIER_nondet_int(void);
 int iwl_opmode_register(const char *arg0, const struct iwl_op_mode_ops *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *arg0, const struct iwl_cfg *arg1, const u8 *arg2, size_t arg3) {
-  return (struct iwl_nvm_data *)external_alloc();
+  return ldv_malloc(sizeof(struct iwl_nvm_data));
 }
 int __VERIFIER_nondet_int(void);
 int iwl_read_eeprom(struct iwl_trans *arg0, u8 **arg1, size_t *arg2) {
@@ -49374,16 +49362,14 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_head *)) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;

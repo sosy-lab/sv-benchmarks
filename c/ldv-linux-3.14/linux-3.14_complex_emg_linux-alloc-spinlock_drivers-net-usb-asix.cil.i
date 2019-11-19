@@ -14764,9 +14764,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_pre_usb_register_driver() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 void mdiobus_free(struct mii_bus *arg0) {
   return;
@@ -14811,9 +14810,8 @@ int __VERIFIER_nondet_int(void);
 int netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 void phy_disconnect(struct phy_device *arg0) {
   return;
@@ -14843,9 +14841,8 @@ int phy_start_aneg(struct phy_device *arg0) {
 void phy_stop(struct phy_device *arg0) {
   return;
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

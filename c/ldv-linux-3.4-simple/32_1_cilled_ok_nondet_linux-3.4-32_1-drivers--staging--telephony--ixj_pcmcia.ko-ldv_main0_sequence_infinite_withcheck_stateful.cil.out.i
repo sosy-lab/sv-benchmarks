@@ -5246,9 +5246,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 IXJ *ixj_pcmcia_probe(unsigned long arg0, unsigned long arg1) {
-  return (IXJ *)external_alloc();
+  return ldv_malloc(sizeof(IXJ));
 }
 void ldv_check_return_value(int arg0) {
   return;

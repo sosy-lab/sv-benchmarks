@@ -1,10 +1,9 @@
 // Function: PDE_DATA
 // with type: void *PDE_DATA(const struct inode *)
 // with return type: (void)*
-void *external_alloc(void);
 void *PDE_DATA(const struct inode *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: __VERIFIER_error
@@ -67,10 +66,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: _copy_from_user
@@ -102,10 +100,9 @@ int attach_capi_ctr(struct capi_ctr *arg0) {
 // Function: avmcard_dma_alloc
 // with type: avmcard_dmainfo *avmcard_dma_alloc(char *, struct pci_dev *, long, long)
 // with return type: (avmcard_dmainfo )*
-void *external_alloc(void);
 avmcard_dmainfo *avmcard_dma_alloc(char *arg0, struct pci_dev *arg1, long arg2, long arg3) {
   // Pointer type
-  return (avmcard_dmainfo *)external_alloc();
+  return ldv_malloc(sizeof(avmcard_dmainfo));
 }
 
 // Function: avmcard_dma_free
@@ -119,10 +116,9 @@ void avmcard_dma_free(avmcard_dmainfo *arg0) {
 // Function: b1_alloc_card
 // with type: avmcard *b1_alloc_card(int)
 // with return type: (avmcard )*
-void *external_alloc(void);
 avmcard *b1_alloc_card(int arg0) {
   // Pointer type
-  return (avmcard *)external_alloc();
+  return ldv_malloc(sizeof(avmcard));
 }
 
 // Function: b1_free_card
@@ -254,10 +250,9 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -296,10 +291,9 @@ int ldv_shutdown_2() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: malloc
@@ -425,10 +419,9 @@ int single_release(struct inode *arg0, struct file *arg1) {
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: skb_put

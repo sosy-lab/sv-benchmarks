@@ -4852,13 +4852,11 @@ int __VERIFIER_nondet_int(void);
 int edac_mc_add_mc(struct mem_ctl_info *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mem_ctl_info *edac_mc_alloc(unsigned int arg0, unsigned int arg1, struct edac_mc_layer *arg2, unsigned int arg3) {
-  return (struct mem_ctl_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mem_ctl_info));
 }
-void *external_alloc(void);
 struct mem_ctl_info *edac_mc_del_mc(struct device *arg0) {
-  return (struct mem_ctl_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mem_ctl_info));
 }
 void edac_mc_free(struct mem_ctl_info *arg0) {
   return;
@@ -4866,9 +4864,8 @@ void edac_mc_free(struct mem_ctl_info *arg0) {
 void edac_mc_handle_error(const enum hw_event_mc_err_type arg0, struct mem_ctl_info *arg1, const u16 arg2, const unsigned long arg3, const unsigned long arg4, const unsigned long arg5, const int arg6, const int arg7, const int arg8, const char *arg9, const char *arg10) {
   return;
 }
-void *external_alloc(void);
 struct edac_pci_ctl_info *edac_pci_create_generic_ctl(struct device *arg0, const char *arg1) {
-  return (struct edac_pci_ctl_info *)external_alloc();
+  return ldv_malloc(sizeof(struct edac_pci_ctl_info));
 }
 void edac_pci_release_generic_ctl(struct edac_pci_ctl_info *arg0) {
   return;
@@ -4906,9 +4903,8 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;

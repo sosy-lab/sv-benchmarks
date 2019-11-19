@@ -26,10 +26,9 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __symbol_put
@@ -56,10 +55,9 @@ u16 dib0070_wbd_offset(struct dvb_frontend *arg0) {
 // Function: dib7000p_get_i2c_master
 // with type: struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *, enum dibx000_i2c_interface , int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
 struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dib7000p_i2c_enumeration
@@ -256,9 +254,8 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 

@@ -3913,9 +3913,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -3936,9 +3935,8 @@ int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_write_byte_data(const struct i2c_client *arg0, u8 arg1, u8 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct input_polled_dev *input_allocate_polled_device() {
-  return (struct input_polled_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_polled_dev));
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;

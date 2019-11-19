@@ -4184,9 +4184,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4197,13 +4196,11 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 struct parport *parport_pc_probe_port(unsigned long arg0, unsigned long arg1, int arg2, int arg3, struct device *arg4, int arg5) {
-  return (struct parport *)external_alloc();
+  return ldv_malloc(sizeof(struct parport));
 }
 void parport_pc_unregister_port(struct parport *arg0) {
   return;

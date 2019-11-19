@@ -2484,9 +2484,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -2517,9 +2516,8 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int regulator_get_mode(struct regulator *arg0) {

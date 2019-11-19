@@ -232,10 +232,9 @@ int driver_attach(struct device_driver *arg0) {
 // Function: driver_find
 // with type: struct device_driver *driver_find(const char *, struct bus_type *)
 // with return type: (struct device_driver)*
-void *external_alloc(void);
 struct device_driver *driver_find(const char *arg0, struct bus_type *arg1) {
   // Pointer type
-  return (struct device_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct device_driver));
 }
 
 // Function: driver_register

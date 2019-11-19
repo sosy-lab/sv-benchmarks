@@ -62,10 +62,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -87,10 +86,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -126,10 +124,9 @@ void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
 // Function: thermal_cooling_device_register
 // with type: struct thermal_cooling_device *thermal_cooling_device_register(char *, void *, const struct thermal_cooling_device_ops *)
 // with return type: (struct thermal_cooling_device)*
-void *external_alloc(void);
 struct thermal_cooling_device *thermal_cooling_device_register(char *arg0, void *arg1, const struct thermal_cooling_device_ops *arg2) {
   // Pointer type
-  return (struct thermal_cooling_device *)external_alloc();
+  return ldv_malloc(sizeof(struct thermal_cooling_device));
 }
 
 // Function: thermal_cooling_device_unregister

@@ -7513,9 +7513,8 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 void schedule() {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_autopm_get_interface(struct usb_interface *arg0) {

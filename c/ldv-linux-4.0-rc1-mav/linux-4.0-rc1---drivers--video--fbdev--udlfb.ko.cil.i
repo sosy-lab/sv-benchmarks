@@ -14390,13 +14390,11 @@ void fb_destroy_modelist(struct list_head *arg0) {
 void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
   return;
 }
-void *external_alloc(void);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
-void *external_alloc(void);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t fb_sys_read(struct fb_info *arg0, char *arg1, size_t arg2, loff_t *arg3) {
@@ -14412,9 +14410,8 @@ void fb_var_to_videomode(struct fb_videomode *arg0, const struct fb_var_screenin
 void fb_videomode_to_var(struct fb_var_screeninfo *arg0, const struct fb_videomode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;

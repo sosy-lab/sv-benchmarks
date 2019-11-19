@@ -9,10 +9,9 @@
 // Function: __alloc_pages_nodemask
 // with type: struct page *__alloc_pages_nodemask(gfp_t , unsigned int, struct zonelist *, nodemask_t *)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: __copy_to_user_overflow
@@ -42,10 +41,9 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t , gfp_t , int)
 // with return type: (void)*
-void *external_alloc(void);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __list_add
@@ -151,10 +149,9 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: cfs_array_alloc
 // with type: void *cfs_array_alloc(int, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *cfs_array_alloc(int arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: cfs_array_free
@@ -274,10 +271,9 @@ int cfs_ip_addr_parse(char *arg0, int arg1, struct list_head *arg2) {
 // Function: cfs_percpt_alloc
 // with type: void *cfs_percpt_alloc(struct cfs_cpt_table *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *cfs_percpt_alloc(struct cfs_cpt_table *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: cfs_percpt_free
@@ -299,10 +295,9 @@ void cfs_percpt_lock(struct cfs_percpt_lock *arg0, int arg1) {
 // Function: cfs_percpt_lock_alloc
 // with type: struct cfs_percpt_lock *cfs_percpt_lock_alloc(struct cfs_cpt_table *)
 // with return type: (struct cfs_percpt_lock)*
-void *external_alloc(void);
 struct cfs_percpt_lock *cfs_percpt_lock_alloc(struct cfs_cpt_table *arg0) {
   // Pointer type
-  return (struct cfs_percpt_lock *)external_alloc();
+  return ldv_malloc(sizeof(struct cfs_percpt_lock));
 }
 
 // Function: cfs_percpt_lock_free
@@ -358,10 +353,9 @@ void cfs_srand(unsigned int arg0, unsigned int arg1) {
 // Function: cfs_trimwhite
 // with type: char *cfs_trimwhite(char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *cfs_trimwhite(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: complete
@@ -491,10 +485,9 @@ int kernel_setsockopt(struct socket *arg0, int arg1, int arg2, char *arg3, unsig
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 
 // Function: ktime_get
@@ -544,10 +537,9 @@ int libcfs_deregister_ioctl(struct libcfs_ioctl_handler *arg0) {
 // Function: libcfs_id2str
 // with type: char *libcfs_id2str(lnet_process_id_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_id2str(lnet_process_id_t arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_isknown_lnd
@@ -562,37 +554,33 @@ int libcfs_isknown_lnd(int arg0) {
 // Function: libcfs_lnd2modname
 // with type: char *libcfs_lnd2modname(int)
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_lnd2modname(int arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_lnd2str
 // with type: char *libcfs_lnd2str(int)
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_lnd2str(int arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_net2str
 // with type: char *libcfs_net2str(__u32 )
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_net2str(__u32 arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_nid2str
 // with type: char *libcfs_nid2str(lnet_nid_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_nid2str(lnet_nid_t arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_register_ioctl
@@ -696,10 +684,9 @@ long int schedule_timeout(long arg0) {
 // Function: sock_alloc_file
 // with type: struct file *sock_alloc_file(struct socket *, int, const char *)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *sock_alloc_file(struct socket *arg0, int arg1, const char *arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: sock_create
@@ -772,19 +759,17 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vmalloc_node
 // with type: void *vmalloc_node(unsigned long, int)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc_node(unsigned long arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: wait_for_completion

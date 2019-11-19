@@ -53,19 +53,17 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -113,19 +111,17 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 // Function: devm_ioremap
 // with type: void *devm_ioremap(struct device *, resource_size_t , resource_size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap(struct device *arg0, resource_size_t arg1, resource_size_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: free
@@ -159,19 +155,17 @@ int ftrace_raw_output_prep(struct trace_iterator *arg0, struct trace_event *arg1
 // Function: init_bch
 // with type: struct bch_control *init_bch(int, int, unsigned int)
 // with return type: (struct bch_control)*
-void *external_alloc(void);
 struct bch_control *init_bch(int arg0, int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct bch_control *)external_alloc();
+  return ldv_malloc(sizeof(struct bch_control));
 }
 
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -260,10 +254,9 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: rcu_is_watching

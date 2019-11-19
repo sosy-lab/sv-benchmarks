@@ -4335,9 +4335,8 @@ unsigned char __VERIFIER_nondet_uchar(void);
 unsigned char bin2bcd(unsigned int arg0) {
   return __VERIFIER_nondet_uchar();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -4358,9 +4357,8 @@ int __VERIFIER_nondet_int(void);
 int gpio_request(unsigned int arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -4378,9 +4376,8 @@ int platform_driver_register(struct platform_driver *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct rtc_device *rtc_device_register(const char *arg0, struct device *arg1, const struct rtc_class_ops *arg2, struct module *arg3) {
-  return (struct rtc_device *)external_alloc();
+  return ldv_malloc(sizeof(struct rtc_device));
 }
 void rtc_device_unregister(struct rtc_device *arg0) {
   return;

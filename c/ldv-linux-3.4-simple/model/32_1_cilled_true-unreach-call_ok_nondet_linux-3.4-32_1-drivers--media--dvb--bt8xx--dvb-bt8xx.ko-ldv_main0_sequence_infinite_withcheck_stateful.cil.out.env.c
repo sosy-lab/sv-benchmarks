@@ -30,10 +30,9 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *symbol)
 // with return type: (void)*
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __symbol_put
@@ -63,10 +62,9 @@ void bt878_stop(struct bt878 *arg0) {
 // Function: bttv_get_pcidev
 // with type: struct pci_dev *bttv_get_pcidev(unsigned int card)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *bttv_get_pcidev(unsigned int arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: bttv_gpio_enable
@@ -108,10 +106,9 @@ int bttv_write_gpio(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata

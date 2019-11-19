@@ -14834,9 +14834,8 @@ int __VERIFIER_nondet_int(void);
 int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigned int arg2, const char * const *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
 int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
@@ -14858,9 +14857,8 @@ int __VERIFIER_nondet_int(void);
 int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *arg0, unsigned long arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int snd_pcm_lib_ioctl(struct snd_pcm_substream *arg0, unsigned int arg1, void *arg2) {

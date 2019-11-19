@@ -10065,9 +10065,8 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -10078,9 +10077,8 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_irdadev(int arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int async_wrap_skb(struct sk_buff *arg0, __u8 *arg1, int arg2) {
@@ -10124,9 +10122,8 @@ void irda_setup_dma(int arg0, dma_addr_t arg1, int arg2, int arg3) {
 void irlap_close(struct irlap_cb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2) {
-  return (struct irlap_cb *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kfree_skb(struct sk_buff *arg0) {
   return;
@@ -10157,9 +10154,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void lock_acquire(struct lockdep_map *arg0, unsigned int arg1, int arg2, int arg3, int arg4, struct lockdep_map *arg5, unsigned long arg6) {
   return;

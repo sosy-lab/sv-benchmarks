@@ -18530,9 +18530,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -18644,9 +18643,8 @@ int __VERIFIER_nondet_int(void);
 int drm_crtc_init(struct drm_device *arg0, struct drm_crtc *arg1, const struct drm_crtc_funcs *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_display_mode *drm_cvt_mode(struct drm_device *arg0, int arg1, int arg2, int arg3, bool arg4, bool arg5, bool arg6) {
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 int __VERIFIER_nondet_int(void);
 int drm_debugfs_create_files(const struct drm_info_list *arg0, int arg1, struct dentry *arg2, struct drm_minor *arg3) {
@@ -18740,16 +18738,14 @@ int __VERIFIER_nondet_int(void);
 int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
-  return (struct drm_gem_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_gem_object));
 }
 void drm_gem_object_release(struct drm_gem_object *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_buf *drm_gem_prime_export(struct drm_device *arg0, struct drm_gem_object *arg1, int arg2) {
-  return (struct dma_buf *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int drm_gem_prime_fd_to_handle(struct drm_device *arg0, struct drm_file *arg1, int arg2, uint32_t *arg3) {
@@ -18759,9 +18755,8 @@ int __VERIFIER_nondet_int(void);
 int drm_gem_prime_handle_to_fd(struct drm_device *arg0, struct drm_file *arg1, uint32_t arg2, uint32_t arg3, int *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_gem_object *drm_gem_prime_import(struct drm_device *arg0, struct dma_buf *arg1) {
-  return (struct drm_gem_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_gem_object));
 }
 int __VERIFIER_nondet_int(void);
 int drm_get_pci_dev(struct pci_dev *arg0, const struct pci_device_id *arg1, struct drm_driver *arg2) {
@@ -18872,9 +18867,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int drm_poll(struct file *arg0, struct poll_table_struct *arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct drm_property *drm_property_create_range(struct drm_device *arg0, int arg1, const char *arg2, uint64_t arg3, uint64_t arg4) {
-  return (struct drm_property *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_property));
 }
 void drm_put_dev(struct drm_device *arg0) {
   return;
@@ -18938,9 +18932,8 @@ bool flush_work(struct work_struct *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -18949,9 +18942,8 @@ int __VERIFIER_nondet_int(void);
 int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -18962,17 +18954,14 @@ void idr_preload(gfp_t arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *idr_replace(struct idr *arg0, void *arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -19061,9 +19050,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_19() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_20() {

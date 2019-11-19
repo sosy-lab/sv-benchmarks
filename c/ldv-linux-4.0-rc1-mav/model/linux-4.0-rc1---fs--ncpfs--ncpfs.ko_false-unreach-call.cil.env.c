@@ -201,19 +201,17 @@ void clear_inode(struct inode *arg0) {
 // Function: d_alloc
 // with type: struct dentry *d_alloc(struct dentry *, const struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_alloc(struct dentry *arg0, const struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_hash_and_lookup
 // with type: struct dentry *d_hash_and_lookup(struct dentry *, struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_hash_and_lookup(struct dentry *arg0, struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_instantiate
@@ -227,10 +225,9 @@ void d_instantiate(struct dentry *arg0, struct inode *arg1) {
 // Function: d_make_root
 // with type: struct dentry *d_make_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_rehash
@@ -279,10 +276,9 @@ void dentry_update_name_case(struct dentry *arg0, struct qstr *arg1) {
 // Function: dget_parent
 // with type: struct dentry *dget_parent(struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *dget_parent(struct dentry *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: down_read
@@ -330,10 +326,9 @@ int filemap_write_and_wait_range(struct address_space *arg0, loff_t arg1, loff_t
 // Function: find_get_pid
 // with type: struct pid *find_get_pid(int)
 // with return type: (struct pid)*
-void *external_alloc(void);
 struct pid *find_get_pid(int arg0) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 
 // Function: finish_wait
@@ -543,10 +538,9 @@ int kill_pid(struct pid *arg0, int arg1, int arg2) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -611,19 +605,17 @@ int ldv_mod_timer(int arg0, struct timer_list *arg1, unsigned long arg2) {
 // Function: load_nls
 // with type: struct nls_table *load_nls(char *)
 // with return type: (struct nls_table)*
-void *external_alloc(void);
 struct nls_table *load_nls(char *arg0) {
   // Pointer type
-  return (struct nls_table *)external_alloc();
+  return ldv_malloc(sizeof(struct nls_table));
 }
 
 // Function: load_nls_default
 // with type: struct nls_table *load_nls_default()
 // with return type: (struct nls_table)*
-void *external_alloc(void);
 struct nls_table *load_nls_default() {
   // Pointer type
-  return (struct nls_table *)external_alloc();
+  return ldv_malloc(sizeof(struct nls_table));
 }
 
 // Function: lock_sock_nested
@@ -688,10 +680,9 @@ kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: memset
@@ -733,10 +724,9 @@ int mod_timer(struct timer_list *arg0, unsigned long arg1) {
 // Function: mount_nodev
 // with type: struct dentry *mount_nodev(struct file_system_type *, int, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: mutex_destroy
@@ -750,19 +740,17 @@ void mutex_destroy(struct mutex *arg0) {
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: page_follow_link_light
 // with type: void *page_follow_link_light(struct dentry *, struct nameidata *)
 // with return type: (void)*
-void *external_alloc(void);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: page_put_link
@@ -776,10 +764,9 @@ void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
 // Function: pagecache_get_page
 // with type: struct page *pagecache_get_page(struct address_space *, unsigned long, int, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: pid_vnr
@@ -909,10 +896,9 @@ void shrink_dcache_parent(struct dentry *arg0) {
 // Function: sockfd_lookup
 // with type: struct socket *sockfd_lookup(int, int *)
 // with return type: (struct socket)*
-void *external_alloc(void);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 
 // Skip function: strchr
@@ -930,10 +916,9 @@ struct socket *sockfd_lookup(int arg0, int *arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: sync_filesystem

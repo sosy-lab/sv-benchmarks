@@ -26,19 +26,17 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __bitmap_weight
@@ -201,55 +199,49 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: async_gen_syndrome
 // with type: struct dma_async_tx_descriptor *async_gen_syndrome(struct page **, unsigned int, int, size_t , struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_gen_syndrome(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, struct async_submit_ctl *arg4) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_memcpy
 // with type: struct dma_async_tx_descriptor *async_memcpy(struct page *, struct page *, unsigned int, unsigned int, size_t , struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_memcpy(struct page *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3, size_t arg4, struct async_submit_ctl *arg5) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_raid6_2data_recov
 // with type: struct dma_async_tx_descriptor *async_raid6_2data_recov(int, size_t , int, int, struct page **, struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_raid6_2data_recov(int arg0, size_t arg1, int arg2, int arg3, struct page **arg4, struct async_submit_ctl *arg5) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_raid6_datap_recov
 // with type: struct dma_async_tx_descriptor *async_raid6_datap_recov(int, size_t , int, struct page **, struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_raid6_datap_recov(int arg0, size_t arg1, int arg2, struct page **arg3, struct async_submit_ctl *arg4) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_syndrome_val
 // with type: struct dma_async_tx_descriptor *async_syndrome_val(struct page **, unsigned int, int, size_t , enum sum_check_flags *, struct page *, struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_syndrome_val(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, enum sum_check_flags *arg4, struct page *arg5, struct async_submit_ctl *arg6) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_trigger_callback
 // with type: struct dma_async_tx_descriptor *async_trigger_callback(struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_trigger_callback(struct async_submit_ctl *arg0) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_tx_quiesce
@@ -263,37 +255,33 @@ void async_tx_quiesce(struct dma_async_tx_descriptor **arg0) {
 // Function: async_xor
 // with type: struct dma_async_tx_descriptor *async_xor(struct page *, struct page **, unsigned int, int, size_t , struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_xor(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, struct async_submit_ctl *arg5) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: async_xor_val
 // with type: struct dma_async_tx_descriptor *async_xor_val(struct page *, struct page **, unsigned int, int, size_t , enum sum_check_flags *, struct async_submit_ctl *)
 // with return type: (struct dma_async_tx_descriptor)*
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_xor_val(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, enum sum_check_flags *arg5, struct async_submit_ctl *arg6) {
   // Pointer type
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 
 // Function: bdevname
 // with type: const char *bdevname(struct block_device *, char *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: bio_clone_mddev
 // with type: struct bio *bio_clone_mddev(struct bio *, gfp_t , struct mddev *)
 // with return type: (struct bio)*
-void *external_alloc(void);
 struct bio *bio_clone_mddev(struct bio *arg0, gfp_t arg1, struct mddev *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 
 // Function: bio_endio
@@ -398,10 +386,9 @@ void bitmap_unplug(struct bitmap *arg0) {
 // Function: blk_check_plugged
 // with type: struct blk_plug_cb *blk_check_plugged(void (*)(struct blk_plug_cb *, bool ), void *, int)
 // with return type: (struct blk_plug_cb)*
-void *external_alloc(void);
 struct blk_plug_cb *blk_check_plugged(void (*arg0)(struct blk_plug_cb *, bool ), void *arg1, int arg2) {
   // Pointer type
-  return (struct blk_plug_cb *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_plug_cb));
 }
 
 // Function: blk_finish_plug
@@ -516,10 +503,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: flex_array_alloc
 // with type: struct flex_array *flex_array_alloc(int, unsigned int, gfp_t )
 // with return type: (struct flex_array)*
-void *external_alloc(void);
 struct flex_array *flex_array_alloc(int arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct flex_array *)external_alloc();
+  return ldv_malloc(sizeof(struct flex_array));
 }
 
 // Function: flex_array_free
@@ -533,10 +519,9 @@ void flex_array_free(struct flex_array *arg0) {
 // Function: flex_array_get
 // with type: void *flex_array_get(struct flex_array *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *flex_array_get(struct flex_array *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: flex_array_prealloc
@@ -601,10 +586,9 @@ void kernfs_notify(struct kernfs_node *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -651,10 +635,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: ldv_stop_2
@@ -706,10 +689,9 @@ bool llist_add_batch(struct llist_node *arg0, struct llist_node *arg1, struct ll
 // Function: llist_reverse_order
 // with type: struct llist_node *llist_reverse_order(struct llist_node *)
 // with return type: (struct llist_node)*
-void *external_alloc(void);
 struct llist_node *llist_reverse_order(struct llist_node *arg0) {
   // Pointer type
-  return (struct llist_node *)external_alloc();
+  return ldv_malloc(sizeof(struct llist_node));
 }
 
 // Function: lock_acquire
@@ -816,10 +798,9 @@ void md_new_event(struct mddev *arg0) {
 // Function: md_register_thread
 // with type: struct md_thread *md_register_thread(void (*)(struct md_thread *), struct mddev *, const char *)
 // with return type: (struct md_thread)*
-void *external_alloc(void);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
   // Pointer type
-  return (struct md_thread *)external_alloc();
+  return ldv_malloc(sizeof(struct md_thread));
 }
 
 // Function: md_set_array_sectors

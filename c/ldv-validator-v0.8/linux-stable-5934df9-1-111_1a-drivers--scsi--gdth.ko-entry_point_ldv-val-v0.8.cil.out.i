@@ -13263,9 +13263,8 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dev_set_drvdata(struct device *arg0, void *arg1) {
   return;
@@ -13280,9 +13279,8 @@ void do_gettimeofday(struct timeval *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -13363,13 +13361,11 @@ void scsi_adjust_queue_depth(struct scsi_device *arg0, int arg1, int arg2) {
 void scsi_free_host_dev(struct scsi_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *scsi_get_host_dev(struct Scsi_Host *arg0) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -13380,9 +13376,8 @@ void scsi_remove_host(struct Scsi_Host *arg0) {
 void scsi_scan_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {

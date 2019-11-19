@@ -17,10 +17,9 @@ void __const_udelay(unsigned long arg0) {
 // Function: __devm_gpiod_get_optional
 // with type: struct gpio_desc *__devm_gpiod_get_optional(struct device *, const char *, enum gpiod_flags )
 // with return type: (struct gpio_desc)*
-void *external_alloc(void);
 struct gpio_desc *__devm_gpiod_get_optional(struct device *arg0, const char *arg1, enum gpiod_flags arg2) {
   // Pointer type
-  return (struct gpio_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __dynamic_dev_dbg
@@ -93,10 +92,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: _dev_info
@@ -195,19 +193,17 @@ int device_wakeup_enable(struct device *arg0) {
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: down_write
@@ -237,10 +233,9 @@ void gpiod_set_value_cansleep(struct gpio_desc *arg0, int arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -256,10 +251,9 @@ void iounmap(volatile void *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -297,10 +291,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -344,10 +337,9 @@ int of_device_is_compatible(const struct device_node *arg0, const char *arg1) {
 // Function: of_find_property
 // with type: struct property *of_find_property(const struct device_node *, const char *, int *)
 // with return type: (struct property)*
-void *external_alloc(void);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
   // Pointer type
-  return (struct property *)external_alloc();
+  return ldv_malloc(sizeof(struct property));
 }
 
 // Function: of_property_read_u32_array
@@ -421,10 +413,9 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk
@@ -478,10 +469,9 @@ int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_del_gadget_udc

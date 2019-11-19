@@ -8265,9 +8265,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __class_register(struct class *arg0, struct lock_class_key *arg1) {
@@ -8276,9 +8275,8 @@ int __class_register(struct class *arg0, struct lock_class_key *arg1) {
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -8365,9 +8363,8 @@ void driver_unregister(struct device_driver *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoll(const char *arg0, unsigned int arg1, long long *arg2) {

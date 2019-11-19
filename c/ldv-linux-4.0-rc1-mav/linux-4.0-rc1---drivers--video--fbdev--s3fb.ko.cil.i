@@ -13101,9 +13101,8 @@ int __VERIFIER_nondet_int(void);
 int fb_alloc_cmap(struct fb_cmap *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *fb_ddc_read(struct i2c_adapter *arg0) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 void fb_dealloc_cmap(struct fb_cmap *arg0) {
   return;
@@ -13114,9 +13113,8 @@ void fb_destroy_modedb(struct fb_videomode *arg0) {
 void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
   return;
 }
-void *external_alloc(void);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
 int __VERIFIER_nondet_int(void);
 int fb_find_mode(struct fb_var_screeninfo *arg0, struct fb_info *arg1, const char *arg2, const struct fb_videomode *arg3, unsigned int arg4, const struct fb_videomode *arg5, unsigned int arg6) {
@@ -13131,9 +13129,8 @@ void fb_videomode_to_modelist(const struct fb_videomode *arg0, int arg1, struct 
 void fb_videomode_to_var(struct fb_var_screeninfo *arg0, const struct fb_videomode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;

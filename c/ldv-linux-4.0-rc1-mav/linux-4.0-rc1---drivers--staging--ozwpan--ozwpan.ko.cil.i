@@ -26700,9 +26700,8 @@ void consume_skb(struct sk_buff *arg0) {
 void dev_add_pack(struct packet_type *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *dev_get_by_name(struct net *arg0, const char *arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int dev_queue_xmit(struct sk_buff *arg0) {
@@ -26711,9 +26710,8 @@ int dev_queue_xmit(struct sk_buff *arg0) {
 void dev_remove_pack(struct packet_type *arg0) {
   return;
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -26750,9 +26748,8 @@ int hrtimer_start_range_ns(struct hrtimer *arg0, ktime_t arg1, unsigned long arg
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -26785,9 +26782,8 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add(struct platform_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_put(struct platform_device *arg0) {
   return;
@@ -26823,17 +26819,15 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_disabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_hcd *usb_get_hcd(struct usb_hcd *arg0) {
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_hcd_check_unlink_urb(struct usb_hcd *arg0, struct urb *arg1, int arg2) {

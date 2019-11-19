@@ -243,19 +243,17 @@ int d_invalidate(struct dentry *arg0) {
 // Function: d_lookup
 // with type: struct dentry *d_lookup(const struct dentry *, const struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_lookup(const struct dentry *arg0, const struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_make_root
 // with type: struct dentry *d_make_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_rehash
@@ -318,10 +316,9 @@ int debug_lockdep_rcu_enabled() {
 // Function: dentry_open
 // with type: struct file *dentry_open(const struct path *, int, const struct cred *)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *dentry_open(const struct path *arg0, int arg1, const struct cred *arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: dput
@@ -351,19 +348,17 @@ void fd_install(unsigned int arg0, struct file *arg1) {
 // Function: fget
 // with type: struct file *fget(unsigned int)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: find_get_pid
 // with type: struct pid *find_get_pid(int)
 // with return type: (struct pid)*
-void *external_alloc(void);
 struct pid *find_get_pid(int arg0) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 
 // Function: finish_wait
@@ -473,10 +468,9 @@ unsigned int get_next_ino() {
 // Function: get_task_pid
 // with type: struct pid *get_task_pid(struct task_struct *, enum pid_type )
 // with return type: (struct pid)*
-void *external_alloc(void);
 struct pid *get_task_pid(struct task_struct *arg0, enum pid_type arg1) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 
 // Function: get_unused_fd_flags
@@ -671,10 +665,9 @@ int may_umount_tree(struct vfsmount *arg0) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: memset
@@ -708,19 +701,17 @@ int misc_register(struct miscdevice *arg0) {
 // Function: mount_nodev
 // with type: struct dentry *mount_nodev(struct file_system_type *, int, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: noop_llseek
@@ -892,10 +883,9 @@ int simple_statfs(struct dentry *arg0, struct kstatfs *arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: sys_close

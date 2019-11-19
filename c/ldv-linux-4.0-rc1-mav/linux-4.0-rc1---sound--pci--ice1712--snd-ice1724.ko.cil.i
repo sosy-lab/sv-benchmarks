@@ -35179,17 +35179,14 @@ int __VERIFIER_nondet_int(void);
 int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigned int arg2, const char * const *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_find_id(struct snd_card *arg0, struct snd_ctl_elem_id *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_make_virtual_master(char *arg0, const unsigned int *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
 void snd_ctl_notify(struct snd_card *arg0, unsigned int arg1, struct snd_ctl_elem_id *arg2) {
   return;

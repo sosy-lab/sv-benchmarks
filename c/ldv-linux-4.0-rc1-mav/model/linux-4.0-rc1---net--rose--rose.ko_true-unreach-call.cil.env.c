@@ -49,10 +49,9 @@ void __copy_to_user_overflow() {
 // Function: __dev_get_by_name
 // with type: struct net_device *__dev_get_by_name(struct net *, const char *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: __raw_spin_lock_init
@@ -124,10 +123,9 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, unsigned char, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: arp_find
@@ -159,19 +157,17 @@ unsigned long int ax25_display_timer(struct timer_list *arg0) {
 // Function: ax25_find_cb
 // with type: ax25_cb *ax25_find_cb(ax25_address *, ax25_address *, ax25_digi *, struct net_device *)
 // with return type: (ax25_cb )*
-void *external_alloc(void);
 ax25_cb *ax25_find_cb(ax25_address *arg0, ax25_address *arg1, ax25_digi *arg2, struct net_device *arg3) {
   // Pointer type
-  return (ax25_cb *)external_alloc();
+  return ldv_malloc(sizeof(ax25_cb));
 }
 
 // Function: ax25_findbyuid
 // with type: ax25_uid_assoc *ax25_findbyuid(kuid_t )
 // with return type: (ax25_uid_assoc )*
-void *external_alloc(void);
 ax25_uid_assoc *ax25_findbyuid(kuid_t arg0) {
   // Pointer type
-  return (ax25_uid_assoc *)external_alloc();
+  return ldv_malloc(sizeof(ax25_uid_assoc));
 }
 
 // Function: ax25_linkfail_register
@@ -226,10 +222,9 @@ void ax25_register_pid(struct ax25_protocol *arg0) {
 // Function: ax25_send_frame
 // with type: ax25_cb *ax25_send_frame(struct sk_buff *, int, ax25_address *, ax25_address *, ax25_digi *, struct net_device *)
 // with return type: (ax25_cb )*
-void *external_alloc(void);
 ax25_cb *ax25_send_frame(struct sk_buff *arg0, int arg1, ax25_address *arg2, ax25_address *arg3, ax25_digi *arg4, struct net_device *arg5) {
   // Pointer type
-  return (ax25_cb *)external_alloc();
+  return ldv_malloc(sizeof(ax25_cb));
 }
 
 // Function: ax25cmp
@@ -244,10 +239,9 @@ int ax25cmp(const ax25_address *arg0, const ax25_address *arg1) {
 // Function: ax2asc
 // with type: char *ax2asc(char *, const ax25_address *)
 // with return type: (char)*
-void *external_alloc(void);
 char *ax2asc(char *arg0, const ax25_address *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: calloc
@@ -377,10 +371,9 @@ int ldv_del_timer(int arg0, struct timer_list *arg1) {
 // Function: ldv_register_net_sysctl
 // with type: struct ctl_table_header *ldv_register_net_sysctl(struct ctl_table_header *, struct net *, char *, struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
 struct ctl_table_header *ldv_register_net_sysctl(struct ctl_table_header *arg0, struct net *arg1, char *arg2, struct ctl_table *arg3) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 
 // Function: lock_sock_nested
@@ -444,10 +437,9 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *, umode_t , struct proc_dir_entry *, const struct file_operations *, void *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: proto_register
@@ -479,10 +471,9 @@ int rcu_read_lock_held() {
 // Function: register_net_sysctl
 // with type: struct ctl_table_header *register_net_sysctl(struct net *, const char *, struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
 struct ctl_table_header *register_net_sysctl(struct net *arg0, const char *arg1, struct ctl_table *arg2) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 
 // Function: register_netdev
@@ -547,19 +538,17 @@ int send_sig(int arg0, struct task_struct *arg1, int arg2) {
 // Function: seq_hlist_next
 // with type: struct hlist_node *seq_hlist_next(void *, struct hlist_head *, loff_t *)
 // with return type: (struct hlist_node)*
-void *external_alloc(void);
 struct hlist_node *seq_hlist_next(void *arg0, struct hlist_head *arg1, loff_t *arg2) {
   // Pointer type
-  return (struct hlist_node *)external_alloc();
+  return ldv_malloc(sizeof(struct hlist_node));
 }
 
 // Function: seq_hlist_start_head
 // with type: struct hlist_node *seq_hlist_start_head(struct hlist_head *, loff_t )
 // with return type: (struct hlist_node)*
-void *external_alloc(void);
 struct hlist_node *seq_hlist_start_head(struct hlist_head *arg0, loff_t arg1) {
   // Pointer type
-  return (struct hlist_node *)external_alloc();
+  return ldv_malloc(sizeof(struct hlist_node));
 }
 
 // Function: seq_lseek
@@ -620,10 +609,9 @@ ssize_t seq_read(struct file *arg0, char *arg1, size_t arg2, loff_t *arg3) {
 // Function: sk_alloc
 // with type: struct sock *sk_alloc(struct net *, int, gfp_t , struct proto *)
 // with return type: (struct sock)*
-void *external_alloc(void);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
   // Pointer type
-  return (struct sock *)external_alloc();
+  return ldv_malloc(sizeof(struct sock));
 }
 
 // Function: sk_free
@@ -654,10 +642,9 @@ int skb_copy_datagram_iter(const struct sk_buff *arg0, int arg1, struct iov_iter
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_free_datagram
@@ -671,19 +658,17 @@ void skb_free_datagram(struct sock *arg0, struct sk_buff *arg1) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
@@ -725,19 +710,17 @@ void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
 // Function: skb_recv_datagram
 // with type: struct sk_buff *skb_recv_datagram(struct sock *, unsigned int, int, int *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_recv_datagram(struct sock *arg0, unsigned int arg1, int arg2, int *arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: sock_alloc_send_skb
 // with type: struct sk_buff *sock_alloc_send_skb(struct sock *, unsigned long, int, int *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *sock_alloc_send_skb(struct sock *arg0, unsigned long arg1, int arg2, int *arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: sock_get_timestamp

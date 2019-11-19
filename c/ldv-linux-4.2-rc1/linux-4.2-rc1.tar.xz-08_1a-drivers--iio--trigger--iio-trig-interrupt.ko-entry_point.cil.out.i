@@ -3416,9 +3416,8 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct iio_trigger *iio_trigger_alloc(const char *arg0, ...) {
-  return (struct iio_trigger *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_trigger));
 }
 void iio_trigger_poll(struct iio_trigger *arg0) {
   return;
@@ -3436,9 +3435,8 @@ void ldv_initialize() {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void put_device(struct device *arg0) {
   return;

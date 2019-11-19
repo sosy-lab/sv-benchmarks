@@ -26435,9 +26435,8 @@ int del_timer_sync(struct timer_list *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -26557,13 +26556,11 @@ void tty_ldisc_deref(struct tty_ldisc *arg0) {
 void tty_ldisc_flush(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
-  return (struct tty_ldisc *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_ldisc));
 }
-void *external_alloc(void);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int tty_register_driver(struct tty_driver *arg0) {

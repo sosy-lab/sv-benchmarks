@@ -12652,9 +12652,8 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -12709,9 +12708,8 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct event_t *gigaset_add_event(struct cardstate *arg0, struct at_state_t *arg1, int arg2, void *arg3, int arg4, void *arg5) {
-  return (struct event_t *)external_alloc();
+  return ldv_malloc(sizeof(struct event_t));
 }
 void gigaset_blockdriver(struct gigaset_driver *arg0) {
   return;
@@ -12735,13 +12733,11 @@ void gigaset_handle_modem_response(struct cardstate *arg0) {
 void gigaset_if_receive(struct cardstate *arg0, unsigned char *arg1, size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct cardstate *gigaset_initcs(struct gigaset_driver *arg0, int arg1, int arg2, int arg3, int arg4, const char *arg5) {
-  return (struct cardstate *)external_alloc();
+  return ldv_malloc(sizeof(struct cardstate));
 }
-void *external_alloc(void);
 struct gigaset_driver *gigaset_initdriver(unsigned int arg0, unsigned int arg1, const char *arg2, const char *arg3, const struct gigaset_ops *arg4, struct module *arg5) {
-  return (struct gigaset_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct gigaset_driver));
 }
 void gigaset_isdn_rcv_err(struct bc_state *arg0) {
   return;
@@ -12799,13 +12795,11 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

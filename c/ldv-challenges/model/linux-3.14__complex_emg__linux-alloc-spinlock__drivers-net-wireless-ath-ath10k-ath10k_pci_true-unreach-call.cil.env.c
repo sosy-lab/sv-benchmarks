@@ -139,10 +139,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 // Function: ath10k_core_create
 // with type: struct ath10k *ath10k_core_create(void *, struct device *, const struct ath10k_hif_ops *)
 // with return type: (struct ath10k)*
-void *external_alloc(void);
 struct ath10k *ath10k_core_create(void *arg0, struct device *arg1, const struct ath10k_hif_ops *arg2) {
   // Pointer type
-  return (struct ath10k *)external_alloc();
+  return ldv_malloc(sizeof(struct ath10k));
 }
 
 // Function: ath10k_core_destroy
@@ -332,10 +331,9 @@ void iowrite32(u32 arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_after_alloc

@@ -8242,9 +8242,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_uninit_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
@@ -8272,9 +8271,8 @@ int netif_rx(struct sk_buff *arg0) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 void pcmcia_disable_device(struct pcmcia_device *arg0) {
   return;

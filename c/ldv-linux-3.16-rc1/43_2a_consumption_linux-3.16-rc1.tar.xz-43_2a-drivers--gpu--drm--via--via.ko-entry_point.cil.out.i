@@ -10094,9 +10094,8 @@ int __VERIFIER_nondet_int(void);
 int drm_err(const char *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_local_map *drm_getsarea(struct drm_device *arg0) {
-  return (struct drm_local_map *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_local_map));
 }
 bool __VERIFIER_nondet_bool(void);
 bool drm_handle_vblank(struct drm_device *arg0, int arg1) {
@@ -10173,9 +10172,8 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -10183,9 +10181,8 @@ void idr_init(struct idr *arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -10197,9 +10194,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -10262,9 +10258,8 @@ void up_read(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {

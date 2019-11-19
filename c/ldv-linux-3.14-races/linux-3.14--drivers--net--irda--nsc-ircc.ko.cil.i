@@ -12605,9 +12605,8 @@ void free(void *);
 void kfree(void const *p) {
   free((void *)p);
 }
-void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0){
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3){
   return;
@@ -12622,9 +12621,8 @@ void async_unwrap_char(struct net_device *arg0, struct net_device_stats *arg1, i
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
 }
-void *external_alloc(void);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2){
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void consume_skb(struct sk_buff *arg0){
   return;
@@ -12691,9 +12689,8 @@ void ldv_switch_to_process_context(){
 void unregister_netdevice_queue(struct net_device *arg0, struct list_head *arg1){
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2){
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
@@ -12738,27 +12735,23 @@ int ldv_failed_register_netdev(){
 void _raw_spin_lock(raw_spinlock_t *arg0){
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4){
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3){
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_irdadev(int arg0){
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void free_dma(unsigned int arg0){
   return;
 }
-void *external_alloc(void);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2){
-  return (struct irlap_cb *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int netpoll_trap(){

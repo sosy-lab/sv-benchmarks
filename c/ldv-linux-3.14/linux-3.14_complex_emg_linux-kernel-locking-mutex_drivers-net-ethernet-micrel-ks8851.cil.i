@@ -11476,9 +11476,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -11648,9 +11647,8 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *regulator_get_optional(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void regulator_put(struct regulator *arg0) {
   return;
@@ -11659,9 +11657,8 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

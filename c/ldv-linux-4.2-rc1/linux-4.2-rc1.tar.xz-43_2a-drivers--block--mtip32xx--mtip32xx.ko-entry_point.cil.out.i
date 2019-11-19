@@ -12977,9 +12977,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -13060,13 +13059,11 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk_node(int arg0, int arg1) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
 struct block_device *bdget_disk(struct gendisk *arg0, int arg1) {
-  return (struct block_device *)external_alloc();
+  return ldv_malloc(sizeof(struct block_device));
 }
 void bdput(struct block_device *arg0) {
   return;
@@ -13074,9 +13071,8 @@ void bdput(struct block_device *arg0) {
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_mq_alloc_request(struct request_queue *arg0, int arg1, gfp_t arg2, bool arg3) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 int __VERIFIER_nondet_int(void);
 int blk_mq_alloc_tag_set(struct blk_mq_tag_set *arg0) {
@@ -13088,13 +13084,11 @@ void blk_mq_end_request(struct request *arg0, int arg1) {
 void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
 struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *arg0, const int arg1) {
-  return (struct blk_mq_hw_ctx *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_mq_hw_ctx));
 }
 void blk_mq_start_request(struct request *arg0) {
   return;
@@ -13105,9 +13099,8 @@ void blk_mq_start_stopped_hw_queues(struct request_queue *arg0, bool arg1) {
 void blk_mq_stop_hw_queues(struct request_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_mq_tag_to_rq(struct blk_mq_tags *arg0, unsigned int arg1) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_put_request(struct request *arg0) {
   return;
@@ -13147,9 +13140,8 @@ bool capable(int arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct cpumask *cpumask_of_node(int arg0) {
-  return (const struct cpumask *)external_alloc();
+  return ldv_malloc(sizeof(struct cpumask));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;
@@ -13163,13 +13155,11 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 void debug_dma_unmap_sg(struct device *arg0, struct scatterlist *arg1, int arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -13183,9 +13173,8 @@ void del_gendisk(struct gendisk *arg0) {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
@@ -13208,9 +13197,8 @@ int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dmam_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
@@ -13252,16 +13240,14 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -13293,9 +13279,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_early_9() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_9() {
@@ -13393,9 +13378,8 @@ void schedule() {
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 int __VERIFIER_nondet_int(void);
 int simple_open(struct inode *arg0, struct file *arg1) {

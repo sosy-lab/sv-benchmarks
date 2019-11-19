@@ -18,10 +18,9 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __const_udelay
@@ -51,10 +50,9 @@ void __copy_to_user_overflow() {
 // Function: __devres_alloc
 // with type: void *__devres_alloc(void (*)(struct device *, void *), size_t , gfp_t , const char *)
 // with return type: (void)*
-void *external_alloc(void);
 void *__devres_alloc(void (*arg0)(struct device *, void *), size_t arg1, gfp_t arg2, const char *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __init_waitqueue_head
@@ -135,10 +133,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __scsi_add_device
 // with type: struct scsi_device *__scsi_add_device(struct Scsi_Host *, uint , uint , u64 , void *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
 struct scsi_device *__scsi_add_device(struct Scsi_Host *arg0, uint arg1, uint arg2, u64 arg3, void *arg4) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 
 // Function: __scsi_format_command
@@ -256,10 +253,9 @@ acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi
 // Function: acpi_find_child_device
 // with type: struct acpi_device *acpi_find_child_device(struct acpi_device *, u64 , bool )
 // with return type: (struct acpi_device)*
-void *external_alloc(void);
 struct acpi_device *acpi_find_child_device(struct acpi_device *arg0, u64 arg1, bool arg2) {
   // Pointer type
-  return (struct acpi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct acpi_device));
 }
 
 // Function: acpi_initialize_hp_context
@@ -372,10 +368,9 @@ void blk_abort_request(struct request *arg0) {
 // Function: blk_init_tags
 // with type: struct blk_queue_tag *blk_init_tags(int, int)
 // with return type: (struct blk_queue_tag)*
-void *external_alloc(void);
 struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
   // Pointer type
-  return (struct blk_queue_tag *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_queue_tag));
 }
 
 // Function: blk_queue_dma_drain
@@ -496,10 +491,9 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: dev_err
@@ -605,10 +599,9 @@ void devres_free(void *arg0) {
 // Function: devres_open_group
 // with type: void *devres_open_group(struct device *, void *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devres_open_group(struct device *arg0, void *arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devres_release_group
@@ -649,10 +642,9 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: dmam_alloc_coherent
 // with type: void *dmam_alloc_coherent(struct device *, size_t , dma_addr_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: finish_wait
@@ -674,10 +666,9 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: glob_match
@@ -1356,10 +1347,9 @@ int scsi_execute(struct scsi_device *arg0, const unsigned char *arg1, int arg2, 
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -1494,10 +1484,9 @@ void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) 
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul
@@ -1529,10 +1518,9 @@ int strcasecmp(const char *arg0, const char *arg1) {
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: strlen
@@ -1618,10 +1606,9 @@ void trace_hardirqs_on() {
 // Function: trace_print_symbols_seq
 // with type: const char *trace_print_symbols_seq(struct trace_seq *, unsigned long, const struct trace_print_flags *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: trace_raw_output_prep

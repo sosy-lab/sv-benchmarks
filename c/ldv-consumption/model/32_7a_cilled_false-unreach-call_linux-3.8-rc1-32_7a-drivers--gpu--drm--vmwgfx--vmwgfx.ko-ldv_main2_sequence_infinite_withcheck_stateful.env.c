@@ -184,10 +184,9 @@ void _raw_write_unlock(rwlock_t *arg0) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: cancel_work_sync
@@ -239,10 +238,9 @@ void cfb_imageblit(struct fb_info *arg0, const struct fb_image *arg1) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: do_gettimeofday
@@ -454,10 +452,9 @@ int drm_irq_uninstall(struct drm_device *arg0) {
 // Function: drm_master_get
 // with type: struct drm_master *drm_master_get(struct drm_master *)
 // with return type: (struct drm_master)*
-void *external_alloc(void);
 struct drm_master *drm_master_get(struct drm_master *arg0) {
   // Pointer type
-  return (struct drm_master *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_master));
 }
 
 // Function: drm_master_put
@@ -530,19 +527,17 @@ void drm_mode_destroy(struct drm_device *arg0, struct drm_display_mode *arg1) {
 // Function: drm_mode_duplicate
 // with type: struct drm_display_mode *drm_mode_duplicate(struct drm_device *, const struct drm_display_mode *)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_duplicate(struct drm_device *arg0, const struct drm_display_mode *arg1) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_mode_object_find
 // with type: struct drm_mode_object *drm_mode_object_find(struct drm_device *, uint32_t , uint32_t )
 // with return type: (struct drm_mode_object)*
-void *external_alloc(void);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
   // Pointer type
-  return (struct drm_mode_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mode_object));
 }
 
 // Function: drm_mode_probed_add
@@ -690,10 +685,9 @@ bool flush_delayed_work(struct delayed_work *arg0) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -765,10 +759,9 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find
 // with type: void *idr_find(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
 void *idr_find(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: idr_get_new_above
@@ -817,10 +810,9 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_wc
 // with type: void *ioremap_wc(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -1144,10 +1136,9 @@ int ttm_base_object_init(struct ttm_object_file *arg0, struct ttm_base_object *a
 // Function: ttm_base_object_lookup
 // with type: struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *, uint32_t )
 // with return type: (struct ttm_base_object)*
-void *external_alloc(void);
 struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *arg0, uint32_t arg1) {
   // Pointer type
-  return (struct ttm_base_object *)external_alloc();
+  return ldv_malloc(sizeof(struct ttm_base_object));
 }
 
 // Function: ttm_base_object_unref
@@ -1383,10 +1374,9 @@ void ttm_mem_global_release(struct ttm_mem_global *arg0) {
 // Function: ttm_object_device_init
 // with type: struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global *, unsigned int)
 // with return type: (struct ttm_object_device)*
-void *external_alloc(void);
 struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct ttm_object_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ttm_object_device_release
@@ -1400,10 +1390,9 @@ void ttm_object_device_release(struct ttm_object_device **arg0) {
 // Function: ttm_object_file_init
 // with type: struct ttm_object_file *ttm_object_file_init(struct ttm_object_device *, unsigned int)
 // with return type: (struct ttm_object_file)*
-void *external_alloc(void);
 struct ttm_object_file *ttm_object_file_init(struct ttm_object_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct ttm_object_file *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ttm_object_file_release
@@ -1577,10 +1566,9 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: warn_slowpath_fmt

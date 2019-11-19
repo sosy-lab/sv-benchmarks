@@ -11823,9 +11823,8 @@ void consume_skb(struct sk_buff *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kfree_skb(struct sk_buff *arg0) {
   return;
@@ -11842,9 +11841,8 @@ void ldv_pre_probe() {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 struct nfc_digital_dev *nfc_digital_allocate_device(struct nfc_digital_ops *arg0, __u32 arg1, __u32 arg2, int arg3, int arg4) {
-  return (struct nfc_digital_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct nfc_digital_dev));
 }
 void nfc_digital_free_device(struct nfc_digital_dev *arg0) {
   return;
@@ -11863,13 +11861,11 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;

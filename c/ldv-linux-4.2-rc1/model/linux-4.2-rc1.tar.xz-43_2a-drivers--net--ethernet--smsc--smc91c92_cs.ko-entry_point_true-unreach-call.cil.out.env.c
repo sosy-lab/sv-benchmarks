@@ -192,10 +192,9 @@ int generic_mii_ioctl(struct mii_if_info *arg0, struct mii_ioctl_data *arg1, int
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -245,10 +244,9 @@ int ldv_ndo_uninit_4() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -368,10 +366,9 @@ void netif_tx_wake_queue(struct netdev_queue *arg0) {
 // Function: pcmcia_dev_present
 // with type: struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *)
 // with return type: (struct pcmcia_device)*
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
   // Pointer type
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 
 // Function: pcmcia_disable_device

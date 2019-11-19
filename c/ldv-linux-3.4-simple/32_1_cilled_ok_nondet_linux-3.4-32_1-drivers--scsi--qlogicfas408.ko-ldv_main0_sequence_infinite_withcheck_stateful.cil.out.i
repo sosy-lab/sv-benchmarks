@@ -6498,9 +6498,8 @@ int printk(const char *arg0, ...) {
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

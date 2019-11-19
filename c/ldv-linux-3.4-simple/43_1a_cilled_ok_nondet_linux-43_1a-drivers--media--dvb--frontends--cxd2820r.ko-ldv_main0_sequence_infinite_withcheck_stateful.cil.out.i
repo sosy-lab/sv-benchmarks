@@ -11356,9 +11356,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int intlog2(u32 arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -11366,9 +11365,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void msleep(unsigned int arg0) {
   return;

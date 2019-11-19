@@ -94,19 +94,17 @@ int aarp_send_ddp(struct net_device *arg0, struct sk_buff *arg1, struct atalk_ad
 // Function: atalk_find_dev_addr
 // with type: struct atalk_addr *atalk_find_dev_addr(struct net_device *)
 // with return type: (struct atalk_addr)*
-void *external_alloc(void);
 struct atalk_addr *atalk_find_dev_addr(struct net_device *arg0) {
   // Pointer type
-  return (struct atalk_addr *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: atrtr_get_dev
 // with type: struct net_device *atrtr_get_dev(struct atalk_addr *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *atrtr_get_dev(struct atalk_addr *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: calloc
@@ -214,10 +212,9 @@ int ldv_ndo_uninit_1() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: malloc
@@ -265,10 +262,9 @@ int register_netdev(struct net_device *arg0) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Skip function: strcpy

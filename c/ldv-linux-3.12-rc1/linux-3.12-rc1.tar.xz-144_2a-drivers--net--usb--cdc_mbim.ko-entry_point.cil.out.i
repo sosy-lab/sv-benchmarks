@@ -7052,9 +7052,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void _raw_spin_lock_bh(raw_spinlock_t *arg0) {
   return;
@@ -7066,9 +7065,8 @@ int __VERIFIER_nondet_int(void);
 int cdc_ncm_bind_common(struct usbnet *arg0, struct usb_interface *arg1, u8 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *cdc_ncm_fill_tx_frame(struct cdc_ncm_ctx *arg0, struct sk_buff *arg1, __le32 arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int cdc_ncm_rx_verify_ndp16(struct sk_buff *arg0, int arg1) {
@@ -7102,22 +7100,19 @@ int __VERIFIER_nondet_int(void);
 int pskb_expand_head(struct sk_buff *arg0, int arg1, int arg2, gfp_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
   arg0->tail += arg1;
   return ret_val;
 }
-void *external_alloc(void);
 struct usb_driver *usb_cdc_wdm_register(struct usb_interface *arg0, struct usb_endpoint_descriptor *arg1, int arg2, int (*arg3)(struct usb_interface *, int)) {
-  return (struct usb_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_driver));
 }
 void usb_deregister(struct usb_driver *arg0) {
   return;

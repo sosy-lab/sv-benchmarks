@@ -13012,9 +13012,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 struct mii_bus *alloc_mdio_bitbang(struct mdiobb_ctrl *arg0) {
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 void consume_skb(struct sk_buff *arg0) {
   return;
@@ -13034,17 +13033,14 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -13153,9 +13149,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_noirq_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_3() {
@@ -13214,37 +13209,31 @@ int netif_receive_skb_sk(struct sock *arg0, struct sk_buff *arg1) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
-  return (struct property *)external_alloc();
+  return ldv_malloc(sizeof(struct property));
 }
-void *external_alloc(void);
 const void *of_get_mac_address(struct device_node *arg0) {
-  return (const void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int of_get_phy_mode(struct device_node *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const struct of_device_id *of_match_device(const struct of_device_id *arg0, const struct device *arg1) {
-  return (const struct of_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct of_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int of_mdiobus_register(struct mii_bus *arg0, struct device_node *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device_node *of_parse_phandle(const struct device_node *arg0, const char *arg1, int arg2) {
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
 struct phy_device *of_phy_connect(struct net_device *arg0, struct device_node *arg1, void (*arg2)(struct net_device *), u32 arg3, phy_interface_t arg4) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
-void *external_alloc(void);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 void phy_disconnect(struct phy_device *arg0) {
   return;
@@ -13281,9 +13270,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void pm_runtime_enable(struct device *arg0) {
   return;

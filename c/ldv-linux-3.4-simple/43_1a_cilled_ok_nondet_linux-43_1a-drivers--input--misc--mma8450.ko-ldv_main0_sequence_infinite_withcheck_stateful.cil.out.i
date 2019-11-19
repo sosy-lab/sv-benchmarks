@@ -3700,9 +3700,8 @@ int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_write_byte_data(const struct i2c_client *arg0, u8 arg1, u8 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct input_polled_dev *input_allocate_polled_device() {
-  return (struct input_polled_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_polled_dev));
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;
@@ -3717,9 +3716,8 @@ int input_register_polled_device(struct input_polled_dev *arg0) {
 void input_set_abs_params(struct input_dev *arg0, unsigned int arg1, int arg2, int arg3, int arg4, int arg5) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -3730,9 +3728,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void msleep(unsigned int arg0) {
   return;

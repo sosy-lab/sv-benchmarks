@@ -4094,9 +4094,8 @@ long ldv__builtin_expect(long val , long res )
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_initialize() {
   return;
@@ -4145,9 +4144,8 @@ int __VERIFIER_nondet_int(void);
 int ubi_leb_write(struct ubi_volume_desc *arg0, int arg1, const void *arg2, int arg3, int arg4, int arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ubi_volume_desc *ubi_open_volume(int arg0, int arg1, int arg2) {
-  return (struct ubi_volume_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ubi_register_volume_notifier(struct notifier_block *arg0, int arg1) {

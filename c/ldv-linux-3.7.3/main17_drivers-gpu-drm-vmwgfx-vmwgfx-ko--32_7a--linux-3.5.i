@@ -25683,9 +25683,8 @@ void _raw_write_lock(rwlock_t *arg0) {
 void _raw_write_unlock(rwlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
@@ -25704,9 +25703,8 @@ void cfb_fillrect(struct fb_info *arg0, const struct fb_fillrect *arg1) {
 void cfb_imageblit(struct fb_info *arg0, const struct fb_image *arg1) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;
@@ -25778,9 +25776,8 @@ int __VERIFIER_nondet_int(void);
 int drm_irq_uninstall(struct drm_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_master *drm_master_get(struct drm_master *arg0) {
-  return (struct drm_master *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_master));
 }
 void drm_master_put(struct drm_master **arg0) {
   return;
@@ -25809,13 +25806,11 @@ int drm_mode_crtc_set_gamma_size(struct drm_crtc *arg0, int arg1) {
 void drm_mode_destroy(struct drm_device *arg0, struct drm_display_mode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_duplicate(struct drm_device *arg0, const struct drm_display_mode *arg1) {
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
-void *external_alloc(void);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
-  return (struct drm_mode_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mode_object));
 }
 void drm_mode_probed_add(struct drm_connector *arg0, struct drm_display_mode *arg1) {
   return;
@@ -25865,9 +25860,8 @@ bool __VERIFIER_nondet_bool(void);
 bool flush_delayed_work_sync(struct delayed_work *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -25895,9 +25889,8 @@ void ida_remove(struct ida *arg0, int arg1) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
 void *idr_find(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int idr_get_new_above(struct idr *arg0, void *arg1, int arg2, int *arg3) {
@@ -25917,9 +25910,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -26048,9 +26040,8 @@ int __VERIFIER_nondet_int(void);
 int ttm_base_object_init(struct ttm_object_file *arg0, struct ttm_base_object *arg1, bool arg2, enum ttm_object_type arg3, void (*arg4)(struct ttm_base_object **), void (*arg5)(struct ttm_base_object *, enum ttm_ref_type )) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *arg0, uint32_t arg1) {
-  return (struct ttm_base_object *)external_alloc();
+  return ldv_malloc(sizeof(struct ttm_base_object));
 }
 void ttm_base_object_unref(struct ttm_base_object **arg0) {
   return;
@@ -26146,16 +26137,14 @@ int ttm_mem_global_init(struct ttm_mem_global *arg0) {
 void ttm_mem_global_release(struct ttm_mem_global *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global *arg0, unsigned int arg1) {
-  return (struct ttm_object_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ttm_object_device_release(struct ttm_object_device **arg0) {
   return;
 }
-void *external_alloc(void);
 struct ttm_object_file *ttm_object_file_init(struct ttm_object_device *arg0, unsigned int arg1) {
-  return (struct ttm_object_file *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ttm_object_file_release(struct ttm_object_file **arg0) {
   return;
@@ -26224,9 +26213,8 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;

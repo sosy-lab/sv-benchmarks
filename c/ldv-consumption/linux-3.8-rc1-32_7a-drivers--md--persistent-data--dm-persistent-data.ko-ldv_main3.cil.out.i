@@ -11603,24 +11603,20 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32c(u32 arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct dm_bufio_client *dm_bufio_client_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, void (*arg4)(struct dm_buffer *), void (*arg5)(struct dm_buffer *)) {
-  return (struct dm_bufio_client *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_bufio_client_destroy(struct dm_bufio_client *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dm_bufio_get(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *dm_bufio_get_aux_data(struct dm_buffer *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *dm_bufio_get_block_data(struct dm_buffer *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 sector_t dm_bufio_get_block_number(struct dm_buffer *arg0) {
@@ -11630,9 +11626,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int dm_bufio_get_block_size(struct dm_bufio_client *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct dm_bufio_client *dm_bufio_get_client(struct dm_buffer *arg0) {
-  return (struct dm_bufio_client *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 sector_t dm_bufio_get_device_size(struct dm_bufio_client *arg0) {
@@ -11641,13 +11636,11 @@ sector_t dm_bufio_get_device_size(struct dm_bufio_client *arg0) {
 void dm_bufio_mark_buffer_dirty(struct dm_buffer *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dm_bufio_new(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *dm_bufio_read(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_bufio_release(struct dm_buffer *arg0) {
   return;

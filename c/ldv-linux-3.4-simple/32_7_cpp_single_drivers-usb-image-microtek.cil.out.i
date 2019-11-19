@@ -25282,13 +25282,11 @@ long ldv__builtin_expect(long val, long res) {
 void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_and(unsigned long *arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -25368,9 +25366,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 pte_t *__get_locked_pte(struct mm_struct *arg0, unsigned long arg1, spinlock_t **arg2) {
-  return (pte_t *)external_alloc();
+  return ldv_malloc(sizeof(pte_t));
 }
 bool __VERIFIER_nondet_bool(void);
 bool __get_page_tail(struct page *arg0) {
@@ -25391,9 +25388,8 @@ void __invalid_creds(const struct cred *arg0, const char *arg1, unsigned arg2) {
 void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -25412,9 +25408,8 @@ int __VERIFIER_nondet_int(void);
 int __lock_page_or_retry(struct page *arg0, struct mm_struct *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
-  return (struct sighand_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct sighand_struct));
 }
 void __mark_inode_dirty(struct inode *arg0, int arg1) {
   return;
@@ -25425,9 +25420,8 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __mmdrop(struct mm_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page *__page_cache_alloc(gfp_t arg0) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void __percpu_counter_add(struct percpu_counter *arg0, s64 arg1, s32 arg2) {
   return;
@@ -25591,13 +25585,11 @@ int __VERIFIER_nondet_int(void);
 int add_to_page_cache_locked(struct page *arg0, struct address_space *arg1, unsigned long arg2, gfp_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 struct page *alloc_pages_vma(gfp_t arg0, int arg1, struct vm_area_struct *arg2, unsigned long arg3, int arg4) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void balance_dirty_pages_ratelimited_nr(struct address_space *arg0, unsigned long arg1) {
   return;
@@ -25638,16 +25630,14 @@ int bitmap_scnprintf(char *arg0, unsigned int arg1, const unsigned long *arg2, i
 void blk_flush_plug_list(struct blk_plug *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
 struct blk_queue_tag *blk_init_tags(int arg0) {
-  return (struct blk_queue_tag *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_queue_tag));
 }
 void blk_queue_dma_alignment(struct request_queue *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_queue_find_tag(struct request_queue *arg0, int arg1) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_queue_free_tags(struct request_queue *arg0) {
   return;
@@ -25671,9 +25661,8 @@ int call_usermodehelper_exec(struct subprocess_info *arg0, int arg1) {
 void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct subprocess_info *info, struct cred *new), void (*arg2)(struct subprocess_info *info), void *arg3) {
   return;
 }
-void *external_alloc(void);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
-  return (struct subprocess_info *)external_alloc();
+  return ldv_malloc(sizeof(struct subprocess_info));
 }
 void clear_bdi_congested(struct backing_dev_info *arg0, int arg1) {
   return;
@@ -25684,9 +25673,8 @@ void clear_page(void *arg0) {
 void copy_page(void *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct proc_dir_entry *create_proc_entry(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
 bool __VERIFIER_nondet_bool(void);
 bool creds_are_invalid(const struct cred *arg0) {
@@ -25695,9 +25683,8 @@ bool creds_are_invalid(const struct cred *arg0) {
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dentry *d_instantiate_unique(struct dentry *arg0, struct inode *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -25753,9 +25740,8 @@ int __VERIFIER_nondet_int(void);
 int dequeue_signal(struct task_struct *arg0, sigset_t *arg1, siginfo_t *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -25840,13 +25826,11 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_zero_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct page *find_or_create_page(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
-  return (struct vm_area_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct vm_area_struct));
 }
 void flush_scheduled_work() {
   return;
@@ -25894,9 +25878,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int invalidate_mapping_pages(struct address_space *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
   return;
@@ -25904,9 +25887,8 @@ void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
 void irq_free_descs(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
-  return (struct irq_data *)external_alloc();
+  return ldv_malloc(sizeof(struct irq_data));
 }
 void irq_modify_status(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -25922,9 +25904,8 @@ int __VERIFIER_nondet_int(void);
 int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
-  return (struct irq_desc *)external_alloc();
+  return ldv_malloc(sizeof(struct irq_desc));
 }
 void key_put(struct key *arg0) {
   return;
@@ -25936,13 +25917,11 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
   return;
@@ -25950,9 +25929,8 @@ void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
 void kmemleak_free(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
@@ -26022,16 +26000,14 @@ int __VERIFIER_nondet_int(void);
 int locks_mandatory_locked(struct inode *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void msleep(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
-  return (struct zoneref *)external_alloc();
+  return ldv_malloc(sizeof(struct zoneref));
 }
 struct timeval ns_to_timeval(const s64 arg0) {
   return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
@@ -26062,9 +26038,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
 void profile_hits(int arg0, void *arg1, unsigned int arg2) {
   return;
@@ -26081,13 +26056,11 @@ void put_page(struct page *arg0) {
 void rcu_note_context_switch(int arg0) {
   return;
 }
-void *external_alloc(void);
 struct page *read_cache_page(struct address_space *arg0, unsigned long arg1, filler_t *arg2, void *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 struct page *read_cache_page_async(struct address_space *arg0, unsigned long arg1, filler_t *arg2, void *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irq_handler_t arg1, irq_handler_t arg2, unsigned long arg3, const char *arg4, void *arg5) {
@@ -26106,9 +26079,8 @@ void scsi_adjust_queue_depth(struct scsi_device *arg0, int arg1, int arg2) {
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -26137,16 +26109,14 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2, size_t arg3) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void show_state_filter(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void synchronize_sched() {
   return;
@@ -26183,9 +26153,8 @@ void up_read(struct rw_semaphore *arg0) {
 void up_write(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 void usb_deregister(struct usb_driver *arg0) {
   return;

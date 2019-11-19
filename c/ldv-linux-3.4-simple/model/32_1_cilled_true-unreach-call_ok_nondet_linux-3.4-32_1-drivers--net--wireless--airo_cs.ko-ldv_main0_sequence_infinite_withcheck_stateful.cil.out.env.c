@@ -14,10 +14,9 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 // Function: init_airo_card
 // with type: struct net_device *init_airo_card(unsigned short irq, int port, int is_pcmcia, struct device *dmdev)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *init_airo_card(unsigned short arg0, int arg1, int arg2, struct device *arg3) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Skip function: kfree

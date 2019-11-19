@@ -10710,9 +10710,8 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -10733,9 +10732,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int led_classdev_register(struct device *arg0, struct led_classdev *arg1) {
@@ -10748,9 +10746,8 @@ int __VERIFIER_nondet_int(void);
 int mmc_add_host(struct mmc_host *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
-  return (struct mmc_host *)external_alloc();
+  return ldv_malloc(sizeof(struct mmc_host));
 }
 void mmc_detect_change(struct mmc_host *arg0, unsigned long arg1) {
   return;
@@ -10835,9 +10832,8 @@ void sg_miter_start(struct sg_mapping_iter *arg0, struct scatterlist *arg1, unsi
 void sg_miter_stop(struct sg_mapping_iter *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 bool __VERIFIER_nondet_bool(void);
 bool synchronize_hardirq(unsigned int arg0) {

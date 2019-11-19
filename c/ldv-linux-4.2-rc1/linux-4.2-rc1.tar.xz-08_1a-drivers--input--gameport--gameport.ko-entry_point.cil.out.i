@@ -4848,9 +4848,8 @@ int __VERIFIER_nondet_int(void);
 int driver_attach(struct device_driver *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device_driver *driver_find(const char *arg0, struct bus_type *arg1) {
-  return (struct device_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct device_driver));
 }
 int __VERIFIER_nondet_int(void);
 int driver_register(struct device_driver *arg0) {

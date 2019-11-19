@@ -8014,9 +8014,8 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -8032,9 +8031,8 @@ int flexcop_device_initialize(struct flexcop_device *arg0) {
 void flexcop_device_kfree(struct flexcop_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct flexcop_device *flexcop_device_kmalloc(size_t arg0) {
-  return (struct flexcop_device *)external_alloc();
+  return ldv_malloc(sizeof(struct flexcop_device));
 }
 void flexcop_pass_dmx_packets(struct flexcop_device *arg0, u8 *arg1, u32 arg2) {
   return;
@@ -8063,9 +8061,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {

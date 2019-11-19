@@ -19643,13 +19643,11 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 void *PDE_DATA(const struct inode *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __copy_from_user_overflow() {
   return;
@@ -19696,17 +19694,15 @@ int acpi_bus_register_driver(struct acpi_driver *arg0) {
 void acpi_bus_unregister_driver(struct acpi_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *acpi_device_hid(struct acpi_device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 const char *acpi_format_exception(acpi_status arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_get_devices(const char *arg0, acpi_status (*arg1)(acpi_handle , u32 , void *, void **), void *arg2, void **arg3) {
@@ -19728,9 +19724,8 @@ int __VERIFIER_nondet_int(void);
 enum acpi_backlight_type acpi_video_get_backlight_type() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct backlight_device *backlight_device_register(const char *arg0, struct device *arg1, void *arg2, const struct backlight_ops *arg3, const struct backlight_properties *arg4) {
-  return (struct backlight_device *)external_alloc();
+  return ldv_malloc(sizeof(struct backlight_device));
 }
 void backlight_device_unregister(struct backlight_device *arg0) {
   return;
@@ -19759,13 +19754,11 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
 const struct dmi_device *dmi_find_device(int arg0, const char *arg1, const struct dmi_device *arg2) {
-  return (const struct dmi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct dmi_device));
 }
-void *external_alloc(void);
 const char *dmi_get_system_info(int arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int dmi_name_in_vendors(const char *arg0) {
@@ -19789,9 +19782,8 @@ int ec_write(u8 arg0, u8 arg1) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
@@ -19812,13 +19804,11 @@ void input_set_capability(struct input_dev *arg0, unsigned int arg1, unsigned in
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_freezable_should_stop(bool *arg0) {
@@ -19974,9 +19964,8 @@ int __VERIFIER_nondet_int(void);
 pid_t pid_vnr(struct pid *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;
@@ -19988,13 +19977,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 bool __VERIFIER_nondet_bool(void);
 bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delayed_work *arg2, unsigned long arg3) {
@@ -20007,9 +19994,8 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 void remove_proc_entry(const char *arg0, struct proc_dir_entry *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rfkill *rfkill_alloc(const char *arg0, struct device *arg1, const enum rfkill_type arg2, const struct rfkill_ops *arg3, void *arg4) {
-  return (struct rfkill *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void rfkill_destroy(struct rfkill *arg0) {
   return;
@@ -20060,9 +20046,8 @@ int __VERIFIER_nondet_int(void);
 int single_release(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *skip_spaces(const char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int snd_card_free(struct snd_card *arg0) {
@@ -20084,9 +20069,8 @@ int __VERIFIER_nondet_int(void);
 int snd_ctl_boolean_mono_info(struct snd_kcontrol *arg0, struct snd_ctl_elem_info *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
 void snd_ctl_notify(struct snd_card *arg0, unsigned int arg1, struct snd_ctl_elem_id *arg2) {
   return;

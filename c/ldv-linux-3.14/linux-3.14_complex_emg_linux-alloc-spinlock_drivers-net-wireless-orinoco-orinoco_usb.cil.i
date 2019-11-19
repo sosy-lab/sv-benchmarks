@@ -13341,9 +13341,8 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct orinoco_private *alloc_orinocodev(int arg0, struct device *arg1, int (*arg2)(struct orinoco_private *), int (*arg3)(struct orinoco_private *, int)) {
-  return (struct orinoco_private *)external_alloc();
+  return ldv_malloc(sizeof(struct orinoco_private));
 }
 void complete(struct completion *arg0) {
   return;
@@ -13423,9 +13422,8 @@ int __VERIFIER_nondet_int(void);
 int orinoco_change_mtu(struct net_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct net_device_stats *orinoco_get_stats(struct net_device *arg0) {
-  return (struct net_device_stats *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device_stats));
 }
 int __VERIFIER_nondet_int(void);
 int orinoco_if_add(struct orinoco_private *arg0, unsigned long arg1, unsigned int arg2, const struct net_device_ops *arg3) {

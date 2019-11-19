@@ -9910,9 +9910,8 @@ int __VERIFIER_nondet_int(void);
 int generic_mii_ioctl(struct mii_if_info *arg0, struct mii_ioctl_data *arg1, int arg2, unsigned int *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -9931,9 +9930,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_uninit_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int mii_ethtool_gset(struct mii_if_info *arg0, struct ethtool_cmd *arg1) {
@@ -9980,9 +9978,8 @@ int netif_rx(struct sk_buff *arg0) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 void pcmcia_disable_device(struct pcmcia_device *arg0) {
   return;

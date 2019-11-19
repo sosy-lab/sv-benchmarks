@@ -7381,9 +7381,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_uninit_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int netif_rx(struct sk_buff *arg0) {

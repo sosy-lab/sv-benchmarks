@@ -232,10 +232,9 @@ int ldv_shutdown_1() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: ldv_suspend_late_2
@@ -509,10 +508,9 @@ void rtl8723ae_firmware_selfreset(struct ieee80211_hw *arg0) {
 // Function: rtl_btc_get_ops_pointer
 // with type: struct rtl_btc_ops *rtl_btc_get_ops_pointer()
 // with return type: (struct rtl_btc_ops)*
-void *external_alloc(void);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
   // Pointer type
-  return (struct rtl_btc_ops *)external_alloc();
+  return ldv_malloc(sizeof(struct rtl_btc_ops));
 }
 
 // Function: rtl_cam_add_one_entry

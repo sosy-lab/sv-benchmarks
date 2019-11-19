@@ -11769,16 +11769,14 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void disable_irq(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -11918,9 +11916,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_noirq_6() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_6() {
@@ -12010,9 +12007,8 @@ void netif_schedule_queue(struct netdev_queue *arg0) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct of_device_id *of_match_device(const struct of_device_id *arg0, const struct device *arg1) {
-  return (const struct of_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct of_device_id));
 }
 void pci_disable_device(struct pci_dev *arg0) {
   return;
@@ -12051,9 +12047,8 @@ int pci_wake_from_d3(struct pci_dev *arg0, bool arg1) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

@@ -33,10 +33,9 @@ void __napi_schedule(struct napi_struct *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -75,10 +74,9 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock
@@ -154,10 +152,9 @@ u32 bitrev32(u32 arg0) {
 // Function: clk_get
 // with type: struct clk *clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: clk_put
@@ -299,10 +296,9 @@ void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -391,10 +387,9 @@ void ldv_switch_to_process_context() {
 // Function: mdiobus_alloc_size
 // with type: struct mii_bus *mdiobus_alloc_size(size_t )
 // with return type: (struct mii_bus)*
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
   // Pointer type
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 
 // Function: mdiobus_free
@@ -551,10 +546,9 @@ int phy_ethtool_sset(struct phy_device *arg0, struct ethtool_cmd *arg1) {
 // Function: phy_find_first
 // with type: struct phy_device *phy_find_first(struct mii_bus *)
 // with return type: (struct phy_device)*
-void *external_alloc(void);
 struct phy_device *phy_find_first(struct mii_bus *arg0) {
   // Pointer type
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 
 // Function: phy_mii_ioctl
@@ -602,19 +596,17 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: platform_get_resource_byname
 // with type: struct resource *platform_get_resource_byname(struct platform_device *, unsigned int, const char *)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *platform_get_resource_byname(struct platform_device *arg0, unsigned int arg1, const char *arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk

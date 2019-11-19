@@ -9242,9 +9242,8 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -9354,21 +9353,17 @@ void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsi
 void tasklet_kill(struct tasklet_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *arg0) {
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *arg0) {
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {

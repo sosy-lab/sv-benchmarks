@@ -25830,20 +25830,17 @@ bool capable(int arg0) {
 void clear_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *d_alloc(struct dentry *arg0, const struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_hash_and_lookup(struct dentry *arg0, struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -25863,9 +25860,8 @@ int del_timer_sync(struct timer_list *arg0) {
 void dentry_update_name_case(struct dentry *arg0, struct qstr *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dentry *dget_parent(struct dentry *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void down_read(struct rw_semaphore *arg0) {
   return;
@@ -25884,9 +25880,8 @@ int __VERIFIER_nondet_int(void);
 int filemap_write_and_wait_range(struct address_space *arg0, loff_t arg1, loff_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pid *find_get_pid(int arg0) {
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -25962,9 +25957,8 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -25990,13 +25984,11 @@ int __VERIFIER_nondet_int(void);
 int ldv_mod_timer(int arg0, struct timer_list *arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct nls_table *load_nls(char *arg0) {
-  return (struct nls_table *)external_alloc();
+  return ldv_malloc(sizeof(struct nls_table));
 }
-void *external_alloc(void);
 struct nls_table *load_nls_default() {
-  return (struct nls_table *)external_alloc();
+  return ldv_malloc(sizeof(struct nls_table));
 }
 void lock_sock_nested(struct sock *arg0, int arg1) {
   return;
@@ -26017,9 +26009,8 @@ kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   return *(struct __anonstruct_kuid_t_48 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_48));
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void might_fault() {
   return;
@@ -26035,27 +26026,23 @@ int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void mutex_destroy(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
-void *external_alloc(void);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
   return;
 }
-void *external_alloc(void);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 pid_t pid_vnr(struct pid *arg0) {
@@ -26105,13 +26092,11 @@ void setattr_copy(struct inode *arg0, const struct iattr *arg1) {
 void shrink_dcache_parent(struct dentry *arg0) {
   return;
 }
-void *external_alloc(void);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int sync_filesystem(struct super_block *arg0) {

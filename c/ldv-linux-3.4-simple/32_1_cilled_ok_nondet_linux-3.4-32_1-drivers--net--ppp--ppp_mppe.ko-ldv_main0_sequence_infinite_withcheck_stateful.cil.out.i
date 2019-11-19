@@ -4155,9 +4155,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return ldv_malloc(sizeof(struct crypto_tfm));
 }
 void crypto_destroy_tfm(void *arg0, struct crypto_tfm *arg1) {
   return;

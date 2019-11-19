@@ -3332,9 +3332,8 @@ int __VERIFIER_nondet_int(void);
 int comedi_get_n_channels(struct comedi_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct comedi_device *comedi_open(const char *arg0) {
-  return (struct comedi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct comedi_device));
 }
 void ldv_initialize() {
   return;

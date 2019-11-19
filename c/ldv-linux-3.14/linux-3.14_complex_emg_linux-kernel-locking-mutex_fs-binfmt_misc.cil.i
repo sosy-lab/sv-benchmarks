@@ -7662,28 +7662,24 @@ void ldv_check_alloc_flags(gfp_t arg0) {
 void lockref_get(struct lockref *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void might_fault() {
   return;
 }
-void *external_alloc(void);
 struct dentry *mount_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct file *open_exec(const char *arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int prepare_binprm(struct linux_binprm *arg0) {

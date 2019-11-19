@@ -7,10 +7,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __bus_register
@@ -58,19 +57,17 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __root_device_register
 // with type: struct device *__root_device_register(const char *, struct module *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *__root_device_register(const char *arg0, struct module *arg1) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: __transport_register_session
@@ -109,10 +106,9 @@ int core_tmr_alloc_req(struct se_cmd *arg0, void *arg1, u8 arg2, gfp_t arg3) {
 // Function: core_tpg_check_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *, unsigned char *)
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return ldv_malloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_deregister
@@ -220,10 +216,9 @@ u32 fc_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl 
 // Function: fc_parse_pr_out_transport_id
 // with type: char *fc_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
 char *fc_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: finish_wait
@@ -270,10 +265,9 @@ u32 iscsi_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_a
 // Function: iscsi_parse_pr_out_transport_id
 // with type: char *iscsi_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
 char *iscsi_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -281,19 +275,17 @@ char *iscsi_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -339,10 +331,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -436,10 +427,9 @@ u32 sas_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl
 // Function: sas_parse_pr_out_transport_id
 // with type: char *sas_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
 char *sas_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: schedule
@@ -479,10 +469,9 @@ void scsi_adjust_queue_depth(struct scsi_device *arg0, int arg1, int arg2) {
 // Function: scsi_device_lookup
 // with type: struct scsi_device *scsi_device_lookup(struct Scsi_Host *, uint , uint , uint )
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 
 // Function: scsi_device_put
@@ -496,10 +485,9 @@ void scsi_device_put(struct scsi_device *arg0) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -547,19 +535,17 @@ unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Skip function: snprintf
@@ -591,10 +577,9 @@ void target_fabric_configfs_free(struct target_fabric_configfs *arg0) {
 // Function: target_fabric_configfs_init
 // with type: struct target_fabric_configfs *target_fabric_configfs_init(struct module *, const char *)
 // with return type: (struct target_fabric_configfs)*
-void *external_alloc(void);
 struct target_fabric_configfs *target_fabric_configfs_init(struct module *arg0, const char *arg1) {
   // Pointer type
-  return (struct target_fabric_configfs *)external_alloc();
+  return ldv_malloc(sizeof(struct target_fabric_configfs));
 }
 
 // Function: target_fabric_configfs_register
@@ -685,10 +670,9 @@ void transport_init_se_cmd(struct se_cmd *arg0, struct target_core_fabric_ops *a
 // Function: transport_init_session
 // with type: struct se_session *transport_init_session()
 // with return type: (struct se_session)*
-void *external_alloc(void);
 struct se_session *transport_init_session() {
   // Pointer type
-  return (struct se_session *)external_alloc();
+  return ldv_malloc(sizeof(struct se_session));
 }
 
 // Function: transport_lookup_cmd_lun
@@ -721,10 +705,9 @@ int transport_send_check_condition_and_sense(struct se_cmd *arg0, u8 arg1, int a
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: autoremove_wake_function

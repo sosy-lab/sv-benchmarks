@@ -180,10 +180,9 @@ int cdev_add(struct cdev *arg0, dev_t arg1, unsigned int arg2) {
 // Function: cdev_alloc
 // with type: struct cdev *cdev_alloc()
 // with return type: (struct cdev)*
-void *external_alloc(void);
 struct cdev *cdev_alloc() {
   // Pointer type
-  return (struct cdev *)external_alloc();
+  return ldv_malloc(sizeof(struct cdev));
 }
 
 // Function: cdev_del
@@ -214,10 +213,9 @@ int clk_enable(struct clk *arg0) {
 // Function: clk_get
 // with type: struct clk *clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: clk_get_rate
@@ -275,10 +273,9 @@ void clk_unprepare(struct clk *arg0) {
 // Function: compat_alloc_user_space
 // with type: void *compat_alloc_user_space(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *compat_alloc_user_space(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: compat_put_timespec
@@ -388,10 +385,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: i2c_unregister_device
@@ -405,10 +401,9 @@ void i2c_unregister_device(struct i2c_client *arg0) {
 // Function: i2c_verify_client
 // with type: struct i2c_client *i2c_verify_client(struct device *)
 // with return type: (struct i2c_client)*
-void *external_alloc(void);
 struct i2c_client *i2c_verify_client(struct device *arg0) {
   // Pointer type
-  return (struct i2c_client *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_client));
 }
 
 // Skip function: kfree
@@ -416,10 +411,9 @@ struct i2c_client *i2c_verify_client(struct device *arg0) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: kstrtou16
@@ -538,10 +532,9 @@ void media_device_unregister_entity(struct media_entity *arg0) {
 // Function: media_entity_get
 // with type: struct media_entity *media_entity_get(struct media_entity *)
 // with return type: (struct media_entity)*
-void *external_alloc(void);
 struct media_entity *media_entity_get(struct media_entity *arg0) {
   // Pointer type
-  return (struct media_entity *)external_alloc();
+  return ldv_malloc(sizeof(struct media_entity));
 }
 
 // Function: media_entity_put
@@ -624,37 +617,33 @@ loff_t no_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: of_find_property
 // with type: struct property *of_find_property(const struct device_node *, const char *, int *)
 // with return type: (struct property)*
-void *external_alloc(void);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
   // Pointer type
-  return (struct property *)external_alloc();
+  return ldv_malloc(sizeof(struct property));
 }
 
 // Function: of_get_next_parent
 // with type: struct device_node *of_get_next_parent(struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
 struct device_node *of_get_next_parent(struct device_node *arg0) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
 
 // Function: of_get_parent
 // with type: struct device_node *of_get_parent(const struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
 struct device_node *of_get_parent(const struct device_node *arg0) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
 
 // Function: of_get_property
 // with type: const void *of_get_property(const struct device_node *, const char *, int *)
 // with return type: (const void)*
-void *external_alloc(void);
 const void *of_get_property(const struct device_node *arg0, const char *arg1, int *arg2) {
   // Pointer type
-  return (const void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: of_graph_parse_endpoint
@@ -677,19 +666,17 @@ void of_node_put(struct device_node *arg0) {
 // Function: of_parse_phandle
 // with type: struct device_node *of_parse_phandle(const struct device_node *, const char *, int)
 // with return type: (struct device_node)*
-void *external_alloc(void);
 struct device_node *of_parse_phandle(const struct device_node *arg0, const char *arg1, int arg2) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
 
 // Function: of_prop_next_u32
 // with type: const __be32 *of_prop_next_u32(struct property *, const __be32 *, u32 *)
 // with return type: (const __be32 )*
-void *external_alloc(void);
 const __be32 *of_prop_next_u32(struct property *arg0, const __be32 *arg1, u32 *arg2) {
   // Pointer type
-  return (const __be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 
 // Function: of_property_read_u32_array
@@ -837,19 +824,17 @@ int trace_event_reg(struct trace_event_call *arg0, enum trace_reg arg1, void *ar
 // Function: trace_print_flags_seq
 // with type: const char *trace_print_flags_seq(struct trace_seq *, const char *, unsigned long, const struct trace_print_flags *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *trace_print_flags_seq(struct trace_seq *arg0, const char *arg1, unsigned long arg2, const struct trace_print_flags *arg3) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: trace_print_symbols_seq
 // with type: const char *trace_print_symbols_seq(struct trace_seq *, unsigned long, const struct trace_print_flags *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: trace_raw_output_prep

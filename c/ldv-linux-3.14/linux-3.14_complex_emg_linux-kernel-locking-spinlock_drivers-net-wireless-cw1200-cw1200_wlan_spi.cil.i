@@ -11287,9 +11287,8 @@ int __VERIFIER_nondet_int(void);
 int gpio_request(unsigned int arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct gpio_desc *gpio_to_desc(unsigned int arg0) {
-  return (struct gpio_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int gpiod_direction_output(struct gpio_desc *arg0, int arg1) {

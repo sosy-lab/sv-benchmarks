@@ -5614,9 +5614,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -5627,17 +5626,15 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int mmc_add_host(struct mmc_host *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
-  return (struct mmc_host *)external_alloc();
+  return ldv_malloc(sizeof(struct mmc_host));
 }
 void mmc_free_host(struct mmc_host *arg0) {
   return;
@@ -5659,9 +5656,8 @@ int mmc_suspend_host(struct mmc_host *arg0) {
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   return ldv_malloc(arg2);

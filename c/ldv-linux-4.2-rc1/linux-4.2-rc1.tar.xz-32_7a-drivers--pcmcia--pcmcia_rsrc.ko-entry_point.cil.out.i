@@ -5436,9 +5436,8 @@ int class_interface_register(struct class_interface *arg0) {
 void class_interface_unregister(struct class_interface *arg0) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -5476,9 +5475,8 @@ int __VERIFIER_nondet_int(void);
 int pci_bus_alloc_resource(struct pci_bus *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, resource_size_t arg4, unsigned long arg5, resource_size_t (*arg6)(void *, const struct resource *, resource_size_t , resource_size_t ), void *arg7) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *pci_find_parent_resource(const struct pci_dev *arg0, struct resource *arg1) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

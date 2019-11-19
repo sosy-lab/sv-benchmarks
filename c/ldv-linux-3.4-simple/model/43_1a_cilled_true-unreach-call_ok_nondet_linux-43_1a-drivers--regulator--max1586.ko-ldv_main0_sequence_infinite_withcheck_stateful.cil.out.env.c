@@ -36,10 +36,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -84,10 +83,9 @@ s32 i2c_smbus_write_byte(const struct i2c_client *arg0, u8 arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -117,28 +115,25 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: rdev_get_drvdata
 // with type: void *rdev_get_drvdata(struct regulator_dev *)
 // with return type: (void)*
-void *external_alloc(void);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: regulator_register
 // with type: struct regulator_dev *regulator_register(struct regulator_desc *, struct device *, const struct regulator_init_data *, void *, struct device_node *)
 // with return type: (struct regulator_dev)*
-void *external_alloc(void);
 struct regulator_dev *regulator_register(struct regulator_desc *arg0, struct device *arg1, const struct regulator_init_data *arg2, void *arg3, struct device_node *arg4) {
   // Pointer type
-  return (struct regulator_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct regulator_dev));
 }
 
 // Function: regulator_unregister
