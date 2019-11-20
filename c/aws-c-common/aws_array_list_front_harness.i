@@ -8048,7 +8048,7 @@ void aws_array_list_front_harness() {
 
         __VERIFIER_assert((memcmp(val, list.data, list.item_size) == 0));
         __VERIFIER_assert(list.data != ((void *)0));
-        __VERIFIER_assert(list.length != 0);
+        __VERIFIER_assert(list.length);
     }
 
 

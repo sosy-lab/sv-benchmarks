@@ -10122,7 +10122,7 @@ _Bool
               0
                    ;
     }
-    if (aws_hash_table_is_valid(iter->map) != 0) {
+    if (aws_hash_table_is_valid(iter->map)) {
         return 
               0
                    ;
