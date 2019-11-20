@@ -5641,7 +5641,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }
