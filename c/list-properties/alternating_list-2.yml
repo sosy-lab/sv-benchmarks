@@ -7,7 +7,7 @@ properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
   - property_file: ../properties/valid-memcleanup.prp
-    expected_verdict: false
+    expected_verdict: true
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
