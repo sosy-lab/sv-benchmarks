@@ -5883,7 +5883,7 @@ uint64_t uninterpreted_hasher(const void *a) {
 _Bool 
     uninterpreted_predicate_fn(uint8_t value);
 void *memcpy_impl(void *dst, const void *src, size_t n) {
-    __VERIFIER_assume(__VERIFIER_base_pointer(dst) != __VERIFIER_base_pointer(src) || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
+    __VERIFIER_assume(dst != src || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
 
 
                                  ;
@@ -5898,7 +5898,7 @@ void *memcpy_impl(void *dst, const void *src, size_t n) {
 
 
 void *memcpy_using_uint64_impl(void *dst, const void *src, size_t n) {
-    __VERIFIER_assume(__VERIFIER_base_pointer(dst) != __VERIFIER_base_pointer(src) || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
+    __VERIFIER_assume(dst != src || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
 
 
                                  ;

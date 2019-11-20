@@ -8754,8 +8754,8 @@ int aws_ring_buffer_acquire(struct aws_ring_buffer *ring_buf, size_t requested_s
 
     uint8_t *tail_cpy;
     uint8_t *head_cpy;
-    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire); __VERIFIER_assert(__VERIFIER_base_pointer(tail_cpy) == __VERIFIER_base_pointer(ring_buf->allocation)); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
-    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed); __VERIFIER_assert(__VERIFIER_base_pointer(head_cpy) == __VERIFIER_base_pointer(ring_buf->allocation)); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
+    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire); __VERIFIER_assert(tail_cpy == ring_buf->allocation); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
+    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed); __VERIFIER_assert(head_cpy == ring_buf->allocation); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
 
 
     if (head_cpy == tail_cpy) {
@@ -8828,8 +8828,8 @@ int aws_ring_buffer_acquire_up_to(
 
     uint8_t *tail_cpy;
     uint8_t *head_cpy;
-    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire); __VERIFIER_assert(__VERIFIER_base_pointer(tail_cpy) == __VERIFIER_base_pointer(ring_buf->allocation)); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
-    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed); __VERIFIER_assert(__VERIFIER_base_pointer(head_cpy) == __VERIFIER_base_pointer(ring_buf->allocation)); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
+    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire); __VERIFIER_assert(tail_cpy == ring_buf->allocation); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
+    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed); __VERIFIER_assert(head_cpy == ring_buf->allocation); __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
 
 
     if (head_cpy == tail_cpy) {
@@ -8920,8 +8920,8 @@ static inline
 
 
 
-    if ((__VERIFIER_base_pointer(buf->buffer) != __VERIFIER_base_pointer(ring_buffer->allocation)) ||
-        (__VERIFIER_base_pointer(buf->buffer) != __VERIFIER_base_pointer(ring_buffer->allocation_end))) {
+    if ((buf->buffer != ring_buffer->allocation) ||
+        (buf->buffer != ring_buffer->allocation_end)) {
         return 
               0
                    ;

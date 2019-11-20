@@ -7430,7 +7430,7 @@ void *___memmove_chk(void *dest, const void *src, size_t n, size_t size) {
     return memmove_impl(dest, src, n);
 }
 void *memcpy_impl(void *dst, const void *src, size_t n) {
-    __VERIFIER_assume(__VERIFIER_base_pointer(dst) != __VERIFIER_base_pointer(src) || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
+    __VERIFIER_assume(dst != src || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
 
 
                                  ;
