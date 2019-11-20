@@ -8084,9 +8084,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __blkdev_driver_ioctl(struct block_device *arg0, fmode_t arg1, unsigned int arg2, unsigned long arg3) {
@@ -8134,9 +8133,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 int __VERIFIER_nondet_int(void);
 int blk_lld_busy(struct request_queue *arg0) {
@@ -8181,9 +8179,8 @@ int __VERIFIER_nondet_int(void);
 int dm_register_target(struct target_type *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *dm_shift_arg(struct dm_arg_set *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int dm_suspended(struct dm_target *arg0) {
@@ -8222,16 +8219,14 @@ long __VERIFIER_nondet_long(void);
 long int io_schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_initialize() {
   return;
@@ -8246,13 +8241,11 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -8293,9 +8286,8 @@ int __VERIFIER_nondet_int(void);
 int scsi_dh_attach(struct request_queue *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *scsi_dh_attached_handler_name(struct request_queue *arg0, gfp_t arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void scsi_dh_detach(struct request_queue *arg0) {
   return;

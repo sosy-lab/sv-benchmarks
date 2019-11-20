@@ -10548,9 +10548,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -10643,9 +10642,8 @@ int __VERIFIER_nondet_int(void);
 int fw_iso_buffer_init(struct fw_iso_buffer *arg0, struct fw_card *arg1, int arg2, enum dma_data_direction arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct fw_iso_context *fw_iso_context_create(struct fw_card *arg0, int arg1, int arg2, int arg3, size_t arg4, void (*arg5)(struct fw_iso_context *, u32 , size_t , void *, void *), void *arg6) {
-  return (struct fw_iso_context *)external_alloc();
+  return ldv_malloc(sizeof(struct fw_iso_context));
 }
 void fw_iso_context_destroy(struct fw_iso_context *arg0) {
   return;
@@ -10682,9 +10680,8 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void list_del(struct list_head *arg0) {
   return;

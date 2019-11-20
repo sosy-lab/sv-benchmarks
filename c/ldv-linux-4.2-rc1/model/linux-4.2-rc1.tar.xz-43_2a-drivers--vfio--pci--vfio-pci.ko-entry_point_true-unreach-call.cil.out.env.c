@@ -144,10 +144,9 @@ void enable_irq(unsigned int arg0) {
 // Function: eventfd_ctx_fdget
 // with type: struct eventfd_ctx *eventfd_ctx_fdget(int)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
 struct eventfd_ctx *eventfd_ctx_fdget(int arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: eventfd_ctx_put
@@ -196,10 +195,9 @@ void get_cached_msi_msg(unsigned int arg0, struct msi_msg *arg1) {
 // Function: iommu_group_get
 // with type: struct iommu_group *iommu_group_get(struct device *)
 // with return type: (struct iommu_group)*
-void *external_alloc(void);
 struct iommu_group *iommu_group_get(struct device *arg0) {
   // Pointer type
-  return (struct iommu_group *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iommu_group_id
@@ -222,10 +220,9 @@ void iommu_group_put(struct iommu_group *arg0) {
 // Function: ioport_map
 // with type: void *ioport_map(unsigned long, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioport_map(unsigned long arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ioport_unmap
@@ -266,10 +263,9 @@ unsigned int ioread8(void *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -307,10 +303,9 @@ void iowrite8(u8 arg0, void *arg1) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -361,10 +356,9 @@ int ldv_shutdown_4() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -374,10 +368,9 @@ struct page *ldv_some_page() {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: memset
@@ -493,10 +486,9 @@ void pci_clear_master(struct pci_dev *arg0) {
 // Function: pci_dev_driver
 // with type: struct pci_driver *pci_dev_driver(const struct pci_dev *)
 // with return type: (struct pci_driver)*
-void *external_alloc(void);
 struct pci_driver *pci_dev_driver(const struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_driver));
 }
 
 // Function: pci_dev_put
@@ -561,10 +553,9 @@ int pci_enable_msix_range(struct pci_dev *arg0, struct msix_entry *arg1, int arg
 // Function: pci_get_class
 // with type: struct pci_dev *pci_get_class(unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_class(unsigned int arg0, struct pci_dev *arg1) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_intx
@@ -614,10 +605,9 @@ int pci_load_and_free_saved_state(struct pci_dev *arg0, struct pci_saved_state *
 // Function: pci_map_rom
 // with type: void *pci_map_rom(struct pci_dev *, size_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_probe_reset_bus
@@ -693,10 +683,9 @@ int pci_set_power_state(struct pci_dev *arg0, pci_power_t arg1) {
 // Function: pci_store_saved_state
 // with type: struct pci_saved_state *pci_store_saved_state(struct pci_dev *)
 // with return type: (struct pci_saved_state)*
-void *external_alloc(void);
 struct pci_saved_state *pci_store_saved_state(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_saved_state *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_try_reset_bus
@@ -846,10 +835,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: try_module_get
@@ -875,28 +863,25 @@ int vfio_add_group_dev(struct device *arg0, const struct vfio_device_ops *arg1, 
 // Function: vfio_del_group_dev
 // with type: void *vfio_del_group_dev(struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *vfio_del_group_dev(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vfio_device_data
 // with type: void *vfio_device_data(struct vfio_device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *vfio_device_data(struct vfio_device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vfio_device_get_from_dev
 // with type: struct vfio_device *vfio_device_get_from_dev(struct device *)
 // with return type: (struct vfio_device)*
-void *external_alloc(void);
 struct vfio_device *vfio_device_get_from_dev(struct device *arg0) {
   // Pointer type
-  return (struct vfio_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vfio_device_put
@@ -919,10 +904,9 @@ int vfio_external_user_iommu_id(struct vfio_group *arg0) {
 // Function: vfio_group_get_external_user
 // with type: struct vfio_group *vfio_group_get_external_user(struct file *)
 // with return type: (struct vfio_group)*
-void *external_alloc(void);
 struct vfio_group *vfio_group_get_external_user(struct file *arg0) {
   // Pointer type
-  return (struct vfio_group *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vfio_group_put_external_user

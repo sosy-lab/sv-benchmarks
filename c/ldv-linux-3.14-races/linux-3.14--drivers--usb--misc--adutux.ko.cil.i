@@ -8090,17 +8090,14 @@ int __VERIFIER_nondet_int(void);
 int usb_string(struct usb_device *arg0, int arg1, char *arg2, size_t arg3){
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1){
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
-void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1){
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2){

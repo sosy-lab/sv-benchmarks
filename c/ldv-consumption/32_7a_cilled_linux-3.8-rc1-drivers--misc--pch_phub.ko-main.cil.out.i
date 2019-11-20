@@ -3708,17 +3708,15 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *dmi_get_system_info(int arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
@@ -3773,9 +3771,8 @@ void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;

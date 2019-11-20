@@ -7481,9 +7481,8 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -7492,9 +7491,8 @@ int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_
 void driver_unregister(struct device_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ieee802154_dev *ieee802154_alloc_device(size_t arg0, struct ieee802154_ops *arg1) {
-  return (struct ieee802154_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct ieee802154_dev));
 }
 void ieee802154_free_device(struct ieee802154_dev *arg0) {
   return;

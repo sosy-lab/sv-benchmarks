@@ -791,9 +791,8 @@ u64 clockevent_delta2ns(unsigned long arg0, struct clock_event_device *arg1) {
 void clockevents_register_device(struct clock_event_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
-  return (struct cs5535_mfgpt_timer *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void cs5535_mfgpt_free_timer(struct cs5535_mfgpt_timer *arg0) {
   return;

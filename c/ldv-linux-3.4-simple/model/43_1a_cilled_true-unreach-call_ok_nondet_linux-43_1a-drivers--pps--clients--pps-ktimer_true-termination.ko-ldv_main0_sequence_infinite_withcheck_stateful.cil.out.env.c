@@ -39,10 +39,9 @@ void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -64,10 +63,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: mod_timer
@@ -90,10 +88,9 @@ void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, v
 // Function: pps_register_source
 // with type: struct pps_device *pps_register_source(struct pps_source_info *, int)
 // with return type: (struct pps_device)*
-void *external_alloc(void);
 struct pps_device *pps_register_source(struct pps_source_info *arg0, int arg1) {
   // Pointer type
-  return (struct pps_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pps_device));
 }
 
 // Function: pps_unregister_source

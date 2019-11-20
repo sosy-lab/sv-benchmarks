@@ -8179,9 +8179,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __blk_put_request(struct request_queue *arg0, struct request *arg1) {
   return;
@@ -8202,13 +8201,11 @@ unsigned long int __phys_addr(unsigned long arg0) {
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct request_queue *__scsi_alloc_queue(struct Scsi_Host *arg0, void (*arg1)(struct request_queue *)) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
 struct scsi_cmnd *__scsi_get_command(struct Scsi_Host *arg0, gfp_t arg1) {
-  return (struct scsi_cmnd *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_cmnd));
 }
 void __scsi_put_command(struct Scsi_Host *arg0, struct scsi_cmnd *arg1, struct device *arg2) {
   return;
@@ -8230,9 +8227,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_put_request(struct request *arg0) {
   return;
@@ -8254,21 +8250,18 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void free_pages(unsigned long arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_zeroed_page(gfp_t arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -8322,9 +8315,8 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_lookup(unsigned short arg0) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;

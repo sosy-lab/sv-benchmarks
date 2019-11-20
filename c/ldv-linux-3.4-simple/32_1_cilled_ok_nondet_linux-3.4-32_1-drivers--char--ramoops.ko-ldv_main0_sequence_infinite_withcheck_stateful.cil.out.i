@@ -2016,16 +2016,14 @@ long ldv__builtin_expect(long val , long res )
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -2041,9 +2039,8 @@ int kmsg_dump_unregister(struct kmsg_dumper *arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct platform_device *platform_create_bundle(struct platform_driver *arg0, int (*arg1)(struct platform_device *), struct resource *arg2, unsigned int arg3, const void *arg4, size_t arg5) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 int __VERIFIER_nondet_int(void);
 int platform_driver_probe(struct platform_driver *arg0, int (*arg1)(struct platform_device *)) {

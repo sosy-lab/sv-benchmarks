@@ -9059,9 +9059,8 @@ int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0) {
@@ -9098,9 +9097,8 @@ unsigned int ioread32(void *arg0) {
 void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -9155,9 +9153,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_noirq_5() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_5() {
@@ -9180,9 +9177,8 @@ void msleep(unsigned int arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -9192,9 +9188,8 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_disabled() {
@@ -9220,9 +9215,8 @@ void usb_hcd_resume_root_hub(struct usb_hcd *arg0) {
 void usb_hcd_unlink_urb_from_ep(struct usb_hcd *arg0, struct urb *arg1) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_hub_find_child(struct usb_device *arg0, int arg1) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_put_hcd(struct usb_hcd *arg0) {
   return;

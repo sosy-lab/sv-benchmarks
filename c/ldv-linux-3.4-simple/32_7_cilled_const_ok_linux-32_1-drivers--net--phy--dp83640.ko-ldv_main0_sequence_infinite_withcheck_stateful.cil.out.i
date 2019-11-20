@@ -10206,9 +10206,8 @@ int __VERIFIER_nondet_int(void);
 int dev_mc_del(struct net_device *arg0, unsigned char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void kfree_skb(struct sk_buff *arg0) {
   return;
@@ -10254,9 +10253,8 @@ int printk(char *arg0, ...) {
 void ptp_clock_event(struct ptp_clock *arg0, struct ptp_clock_event *arg1) {
   return;
 }
-void *external_alloc(void);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0) {
-  return (struct ptp_clock *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ptp_clock_unregister(struct ptp_clock *arg0) {
@@ -10272,9 +10270,8 @@ int schedule_work(struct work_struct *arg0) {
 void skb_complete_tx_timestamp(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;

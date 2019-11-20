@@ -5845,9 +5845,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
@@ -5868,9 +5867,8 @@ int __VERIFIER_nondet_int(void);
 int blk_execute_rq(struct request_queue *arg0, struct gendisk *arg1, struct request *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_put_request(struct request *arg0) {
   return;
@@ -5894,9 +5892,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;

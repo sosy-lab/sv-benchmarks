@@ -17871,9 +17871,8 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int arg1, struct lock_class_key *arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_ctrl));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int v4l2_ctrl_poll(struct file *arg0, struct poll_table_struct *arg1) {
@@ -17912,13 +17911,11 @@ void v4l2_get_timestamp(struct timeval *arg0) {
 void v4l2_video_std_frame_period(int arg0, struct v4l2_fract *arg1) {
   return;
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;
@@ -17991,9 +17988,8 @@ int __VERIFIER_nondet_int(void);
 int videobuf_streamon(struct videobuf_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *arg0) {
-  return (struct videobuf_dmabuf *)external_alloc();
+  return ldv_malloc(sizeof(struct videobuf_dmabuf));
 }
 int __VERIFIER_nondet_int(void);
 int videobuf_waiton(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, int arg2, int arg3) {

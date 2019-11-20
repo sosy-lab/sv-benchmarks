@@ -14487,13 +14487,11 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
-void *external_alloc(void);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
-  return (struct tty_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_driver));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -14518,9 +14516,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_hdlcdev(void *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
@@ -14567,9 +14564,8 @@ int __VERIFIER_nondet_int(void);
 netdev_tx_t hdlc_start_xmit(struct sk_buff *arg0, struct net_device *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -14620,9 +14616,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_9() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -14739,9 +14734,8 @@ void tty_ldisc_deref(struct tty_ldisc *arg0) {
 void tty_ldisc_flush(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
-  return (struct tty_ldisc *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_ldisc));
 }
 void tty_lock(struct tty_struct *arg0) {
   return;

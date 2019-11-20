@@ -6839,9 +6839,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __copy_from_user_overflow() {
   return;
@@ -6893,9 +6892,8 @@ int __VERIFIER_nondet_int(void);
 int alloc_chrdev_region(dev_t *arg0, unsigned int arg1, unsigned int arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct file *anon_inode_getfile(const char *arg0, const struct file_operations *arg1, void *arg2, int arg3) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int cdev_add(struct cdev *arg0, dev_t arg1, unsigned int arg2) {
@@ -6917,9 +6915,8 @@ int debug_lockdep_rcu_enabled() {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -6950,9 +6947,8 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -6964,9 +6960,8 @@ int __VERIFIER_nondet_int(void);
 int iommu_group_for_each_dev(struct iommu_group *arg0, void *arg1, int (*arg2)(struct device *, void *)) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct iommu_group *iommu_group_get(struct device *arg0) {
-  return (struct iommu_group *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int iommu_group_id(struct iommu_group *arg0) {
@@ -6983,9 +6978,8 @@ int __VERIFIER_nondet_int(void);
 int iommu_group_unregister_notifier(struct iommu_group *arg0, struct notifier_block *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_initialize() {
   return;
@@ -7026,9 +7020,8 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 char *strndup_user(const char *arg0, long arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void unregister_chrdev_region(dev_t arg0, unsigned int arg1) {
   return;

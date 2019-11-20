@@ -52,10 +52,9 @@ void __ldv_spin_lock(spinlock_t *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -350,10 +349,9 @@ int netpoll_trap() {
 // Function: pcmcia_dev_present
 // with type: struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *)
 // with return type: (struct pcmcia_device)*
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
   // Pointer type
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 
 // Function: pcmcia_disable_device

@@ -12358,9 +12358,8 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __compiletime_assert_322() {
   return;
@@ -12380,13 +12379,11 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
 struct bio *bio_map_kern(struct request_queue *arg0, void *arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 void bio_put(struct bio *arg0) {
   return;
@@ -12411,9 +12408,8 @@ void blk_mq_end_request(struct request *arg0, int arg1) {
 void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 void blk_mq_start_request(struct request *arg0) {
   return;
@@ -12560,9 +12556,8 @@ bool __VERIFIER_nondet_bool(void);
 bool virtqueue_enable_cb(struct virtqueue *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 bool __VERIFIER_nondet_bool(void);
 bool virtqueue_is_broken(struct virtqueue *arg0) {

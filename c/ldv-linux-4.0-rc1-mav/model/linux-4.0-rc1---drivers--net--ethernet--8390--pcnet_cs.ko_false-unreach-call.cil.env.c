@@ -17,10 +17,9 @@ void NS8390_init(struct net_device *arg0, int arg1) {
 // Function: __alloc_ei_netdev
 // with type: struct net_device *__alloc_ei_netdev(int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *__alloc_ei_netdev(int arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: __const_udelay
@@ -110,10 +109,9 @@ int ei_close(struct net_device *arg0) {
 // Function: ei_get_stats
 // with type: struct net_device_stats *ei_get_stats(struct net_device *)
 // with return type: (struct net_device_stats)*
-void *external_alloc(void);
 struct net_device_stats *ei_get_stats(struct net_device *arg0) {
   // Pointer type
-  return (struct net_device_stats *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device_stats));
 }
 
 // Function: ei_interrupt
@@ -287,10 +285,9 @@ void netif_device_detach(struct net_device *arg0) {
 // Function: pcmcia_dev_present
 // with type: struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *)
 // with return type: (struct pcmcia_device)*
-void *external_alloc(void);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
   // Pointer type
-  return (struct pcmcia_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_device));
 }
 
 // Function: pcmcia_disable_device

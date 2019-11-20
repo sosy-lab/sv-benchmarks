@@ -13271,13 +13271,11 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -13325,9 +13323,8 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add_data(struct platform_device *arg0, const void *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_del(struct platform_device *arg0) {
   return;
@@ -13342,9 +13339,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void pm_runtime_enable(struct device *arg0) {
   return;
@@ -13377,9 +13373,8 @@ void soc_camera_lock(struct vb2_queue *arg0) {
 void soc_camera_unlock(struct vb2_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct soc_camera_format_xlate *soc_camera_xlate_by_fourcc(struct soc_camera_device *arg0, unsigned int arg1) {
-  return (const struct soc_camera_format_xlate *)external_alloc();
+  return ldv_malloc(sizeof(struct soc_camera_format_xlate));
 }
 int __VERIFIER_nondet_int(void);
 s32 soc_mbus_bytes_per_line(u32 arg0, const struct soc_mbus_pixelfmt *arg1) {
@@ -13389,9 +13384,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int soc_mbus_config_compatible(const struct v4l2_mbus_config *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 const struct soc_mbus_pixelfmt *soc_mbus_get_fmtdesc(enum v4l2_mbus_pixelcode arg0) {
-  return (const struct soc_mbus_pixelfmt *)external_alloc();
+  return ldv_malloc(sizeof(struct soc_mbus_pixelfmt));
 }
 int __VERIFIER_nondet_int(void);
 s32 soc_mbus_image_size(const struct soc_mbus_pixelfmt *arg0, u32 arg1, u32 arg2) {
@@ -13405,9 +13399,8 @@ bool __VERIFIER_nondet_bool(void);
 bool try_module_get(struct module *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_ctrl));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_device_register_subdev(struct v4l2_device *arg0, struct v4l2_subdev *arg1) {
@@ -13425,17 +13418,14 @@ void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
 void vb2_dma_contig_cleanup_ctx(void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int vb2_poll(struct vb2_queue *arg0, struct file *arg1, poll_table *arg2) {

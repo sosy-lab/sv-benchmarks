@@ -88,19 +88,17 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: blk_execute_rq_nowait
@@ -125,10 +123,9 @@ bool blk_get_queue(struct request_queue *arg0) {
 // Function: blk_get_request
 // with type: struct request *blk_get_request(struct request_queue *, int, gfp_t )
 // with return type: (struct request)*
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 
 // Function: blk_put_queue
@@ -196,10 +193,9 @@ int cdev_add(struct cdev *arg0, dev_t arg1, unsigned int arg2) {
 // Function: cdev_alloc
 // with type: struct cdev *cdev_alloc()
 // with return type: (struct cdev)*
-void *external_alloc(void);
 struct cdev *cdev_alloc() {
   // Pointer type
-  return (struct cdev *)external_alloc();
+  return ldv_malloc(sizeof(struct cdev));
 }
 
 // Function: cdev_del
@@ -238,10 +234,9 @@ int debug_lockdep_rcu_enabled() {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -265,10 +260,9 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: device_unregister
@@ -333,10 +327,9 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: idr_preload
@@ -603,10 +596,9 @@ int scsi_register_driver(struct device_driver *arg0) {
 // Function: scsi_sense_desc_find
 // with type: const u8 *scsi_sense_desc_find(const u8 *, int, int)
 // with return type: (const u8 )*
-void *external_alloc(void);
 const u8 *scsi_sense_desc_find(const u8 *arg0, int arg1, int arg2) {
   // Pointer type
-  return (const u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
 
 // Skip function: snprintf

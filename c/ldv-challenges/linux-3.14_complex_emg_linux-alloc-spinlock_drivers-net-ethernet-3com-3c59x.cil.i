@@ -17243,9 +17243,8 @@ int generic_mii_ioctl(struct mii_if_info *arg0, struct mii_ioctl_data *arg1, int
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *ioport_map(unsigned long arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread16(void *arg0) {

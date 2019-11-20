@@ -230,19 +230,17 @@ void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
 // Function: fb_find_best_display
 // with type: const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
 
 // Function: fb_find_nearest_mode
 // with type: const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_videomode));
 }
 
 // Function: fb_sys_read
@@ -294,10 +292,9 @@ void fb_videomode_to_var(struct fb_var_screeninfo *arg0, const struct fb_videomo
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release

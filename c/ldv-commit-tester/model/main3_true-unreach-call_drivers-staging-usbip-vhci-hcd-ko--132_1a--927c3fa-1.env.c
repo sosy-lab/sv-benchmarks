@@ -122,10 +122,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -290,10 +289,9 @@ void sock_release(struct socket *arg0) {
 // Function: sockfd_to_socket
 // with type: struct socket *sockfd_to_socket(unsigned int)
 // with return type: (struct socket)*
-void *external_alloc(void);
 struct socket *sockfd_to_socket(unsigned int arg0) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 
 // Skip function: sprintf
@@ -329,10 +327,9 @@ int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_disabled
@@ -413,10 +410,9 @@ void usb_remove_hcd(struct usb_hcd *arg0) {
 // Function: usbip_alloc_iso_desc_pdu
 // with type: void *usbip_alloc_iso_desc_pdu(struct urb *, ssize_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *usbip_alloc_iso_desc_pdu(struct urb *arg0, ssize_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: usbip_dump_header

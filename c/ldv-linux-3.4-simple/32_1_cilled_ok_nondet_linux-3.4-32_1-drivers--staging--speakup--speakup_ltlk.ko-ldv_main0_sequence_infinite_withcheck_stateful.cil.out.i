@@ -890,9 +890,8 @@ unsigned char __VERIFIER_nondet_uchar(void);
 unsigned char spk_serial_in() {
   return __VERIFIER_nondet_uchar();
 }
-void *external_alloc(void);
 const char *spk_synth_immediate(struct spk_synth *arg0, const char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int synth_add(struct spk_synth *arg0) {

@@ -22,10 +22,9 @@ void acpi_bus_unregister_driver(struct acpi_driver *arg0) {
 // Function: acpi_device_hid
 // with type: const char *acpi_device_hid(struct acpi_device *device)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *acpi_device_hid(struct acpi_device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: acpi_enable_gpe

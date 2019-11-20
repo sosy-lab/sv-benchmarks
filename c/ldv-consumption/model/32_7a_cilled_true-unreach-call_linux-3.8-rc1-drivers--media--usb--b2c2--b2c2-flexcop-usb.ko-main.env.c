@@ -21,10 +21,9 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -64,10 +63,9 @@ void flexcop_device_kfree(struct flexcop_device *arg0) {
 // Function: flexcop_device_kmalloc
 // with type: struct flexcop_device *flexcop_device_kmalloc(size_t )
 // with return type: (struct flexcop_device)*
-void *external_alloc(void);
 struct flexcop_device *flexcop_device_kmalloc(size_t arg0) {
   // Pointer type
-  return (struct flexcop_device *)external_alloc();
+  return ldv_malloc(sizeof(struct flexcop_device));
 }
 
 // Function: flexcop_pass_dmx_packets
@@ -142,10 +140,9 @@ int printk(const char *arg0, ...) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 
 // Function: usb_control_msg

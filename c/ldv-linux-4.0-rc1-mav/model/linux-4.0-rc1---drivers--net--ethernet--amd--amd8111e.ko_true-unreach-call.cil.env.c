@@ -226,10 +226,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_ioremap
 // with type: void *devm_ioremap(struct device *, resource_size_t , resource_size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_ioremap(struct device *arg0, resource_size_t arg1, resource_size_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_set_mask

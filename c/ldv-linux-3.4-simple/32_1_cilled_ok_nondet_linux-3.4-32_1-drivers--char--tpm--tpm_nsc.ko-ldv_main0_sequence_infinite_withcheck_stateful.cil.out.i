@@ -4705,9 +4705,8 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
@@ -4717,9 +4716,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_initialize() {
   return;
@@ -4731,9 +4729,8 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add(struct platform_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_del(struct platform_device *arg0) {
   return;
@@ -4759,9 +4756,8 @@ int __VERIFIER_nondet_int(void);
 int tpm_pm_suspend(struct device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct tpm_chip *tpm_register_hardware(struct device *arg0, const struct tpm_vendor_specific *arg1) {
-  return (struct tpm_chip *)external_alloc();
+  return ldv_malloc(sizeof(struct tpm_chip));
 }
 void tpm_remove_hardware(struct device *arg0) {
   return;

@@ -6444,9 +6444,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -6458,9 +6457,8 @@ int ldv_detach_1() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void tty_flip_buffer_push(struct tty_port *arg0) {
   return;
@@ -6472,9 +6470,8 @@ int tty_insert_flip_string_fixed_flag(struct tty_port *arg0, const unsigned char
 void tty_port_tty_hangup(struct tty_port *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -6507,9 +6504,8 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct urb *usb_get_from_anchor(struct usb_anchor *arg0) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;

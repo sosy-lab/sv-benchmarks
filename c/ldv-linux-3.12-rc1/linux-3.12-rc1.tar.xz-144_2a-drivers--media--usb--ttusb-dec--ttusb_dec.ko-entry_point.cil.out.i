@@ -9705,17 +9705,14 @@ void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsi
 void tasklet_kill(struct tasklet_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *arg0) {
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *arg0) {
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {

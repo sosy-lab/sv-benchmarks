@@ -22,19 +22,17 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 // Function: alloc_orinocodev
 // with type: struct orinoco_private *alloc_orinocodev(int sizeof_card, struct device *device, int (*hard_reset)(struct orinoco_private *), int (*stop_fw)(struct orinoco_private *, int))
 // with return type: (struct orinoco_private)*
-void *external_alloc(void);
 struct orinoco_private *alloc_orinocodev(int arg0, struct device *arg1, int (*arg2)(struct orinoco_private *), int (*arg3)(struct orinoco_private *, int)) {
   // Pointer type
-  return (struct orinoco_private *)external_alloc();
+  return ldv_malloc(sizeof(struct orinoco_private));
 }
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata

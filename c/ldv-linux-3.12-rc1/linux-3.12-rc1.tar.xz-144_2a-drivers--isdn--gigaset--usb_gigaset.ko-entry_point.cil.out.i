@@ -7613,9 +7613,8 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct event_t *gigaset_add_event(struct cardstate *arg0, struct at_state_t *arg1, int arg2, void *arg3, int arg4, void *arg5) {
-  return (struct event_t *)external_alloc();
+  return ldv_malloc(sizeof(struct event_t));
 }
 void gigaset_blockdriver(struct gigaset_driver *arg0) {
   return;
@@ -7633,13 +7632,11 @@ void gigaset_freecs(struct cardstate *arg0) {
 void gigaset_freedriver(struct gigaset_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct cardstate *gigaset_initcs(struct gigaset_driver *arg0, int arg1, int arg2, int arg3, int arg4, const char *arg5) {
-  return (struct cardstate *)external_alloc();
+  return ldv_malloc(sizeof(struct cardstate));
 }
-void *external_alloc(void);
 struct gigaset_driver *gigaset_initdriver(unsigned int arg0, unsigned int arg1, const char *arg2, const char *arg3, const struct gigaset_ops *arg4, struct module *arg5) {
-  return (struct gigaset_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct gigaset_driver));
 }
 void gigaset_m10x_input(struct inbuf_t *arg0) {
   return;
@@ -7677,13 +7674,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsigned long arg2) {
   return;

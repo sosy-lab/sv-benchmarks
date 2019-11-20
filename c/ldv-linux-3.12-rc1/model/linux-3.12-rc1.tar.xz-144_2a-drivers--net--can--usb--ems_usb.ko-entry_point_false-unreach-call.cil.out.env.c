@@ -33,28 +33,25 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: alloc_can_err_skb
 // with type: struct sk_buff *alloc_can_err_skb(struct net_device *, struct can_frame **)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *alloc_can_err_skb(struct net_device *arg0, struct can_frame **arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: alloc_can_skb
 // with type: struct sk_buff *alloc_can_skb(struct net_device *, struct can_frame **)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *alloc_can_skb(struct net_device *arg0, struct can_frame **arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: alloc_candev
 // with type: struct net_device *alloc_candev(int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_candev(int arg0, unsigned int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -256,10 +253,9 @@ void unregister_netdev(struct net_device *arg0) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: usb_anchor_urb

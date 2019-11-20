@@ -22,10 +22,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -49,10 +48,9 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_kzalloc
 // with type: void *devm_kzalloc(struct device *dev, size_t size, gfp_t gfp)
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kzalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: gpio_direction_output

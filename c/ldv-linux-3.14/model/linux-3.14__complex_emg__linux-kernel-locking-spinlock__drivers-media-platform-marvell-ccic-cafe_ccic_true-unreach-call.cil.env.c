@@ -426,10 +426,9 @@ long int schedule_timeout(long arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Skip function: strcpy
@@ -494,10 +493,9 @@ void v4l2_device_unregister(struct v4l2_device *arg0) {
 // Function: v4l2_i2c_new_subdev_board
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *, struct i2c_adapter *, struct i2c_board_info *, const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: vb2_buffer_done
@@ -519,10 +517,9 @@ void vb2_dma_contig_cleanup_ctx(void *arg0) {
 // Function: vb2_dma_contig_init_ctx
 // with type: void *vb2_dma_contig_init_ctx(struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vb2_dqbuf
@@ -546,19 +543,17 @@ int vb2_mmap(struct vb2_queue *arg0, struct vm_area_struct *arg1) {
 // Function: vb2_plane_cookie
 // with type: void *vb2_plane_cookie(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vb2_plane_vaddr
 // with type: void *vb2_plane_vaddr(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vb2_poll
@@ -650,10 +645,9 @@ int vb2_streamon(struct vb2_queue *arg0, enum v4l2_buf_type arg1) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release_empty

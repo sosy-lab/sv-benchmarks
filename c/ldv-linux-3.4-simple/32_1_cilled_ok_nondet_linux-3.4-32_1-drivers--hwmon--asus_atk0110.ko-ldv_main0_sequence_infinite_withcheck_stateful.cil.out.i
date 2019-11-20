@@ -8672,9 +8672,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object_typed(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3, acpi_object_type arg4) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 const char *acpi_format_exception(acpi_status arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_get_handle(acpi_handle arg0, acpi_string arg1, acpi_handle *arg2) {
@@ -8684,17 +8683,14 @@ int __VERIFIER_nondet_int(void);
 int acpi_resources_are_enforced() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_x32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -8718,16 +8714,14 @@ int __VERIFIER_nondet_int(void);
 int dmi_check_system(const struct dmi_system_id *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_check_return_value(int arg0) {
   return;

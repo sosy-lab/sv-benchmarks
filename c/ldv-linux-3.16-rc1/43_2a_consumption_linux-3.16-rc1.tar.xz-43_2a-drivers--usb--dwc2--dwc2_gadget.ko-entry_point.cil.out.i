@@ -9243,13 +9243,11 @@ int clk_prepare(struct clk *arg0) {
 void clk_unprepare(struct clk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -9262,21 +9260,17 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct phy *devm_phy_get(struct device *arg0, const char *arg1) {
-  return (struct phy *)external_alloc();
+  return ldv_malloc(sizeof(struct phy));
 }
 int __VERIFIER_nondet_int(void);
 int devm_regulator_bulk_get(struct device *arg0, int arg1, struct regulator_bulk_data *arg2) {
@@ -9286,9 +9280,8 @@ int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_phy *devm_usb_get_phy(struct device *arg0, enum usb_phy_type arg1) {
-  return (struct usb_phy *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_phy));
 }
 void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
   return;
@@ -9296,9 +9289,8 @@ void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
 void iowrite32_rep(void *arg0, const void *arg1, unsigned long arg2) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -9306,9 +9298,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int msecs_to_jiffies(const unsigned int arg0) {
@@ -9337,9 +9328,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -9401,9 +9391,8 @@ int __VERIFIER_nondet_int(void);
 int usb_gadget_unregister_driver(struct usb_gadget_driver *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *usb_speed_string(enum usb_device_speed arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

@@ -5,10 +5,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __dynamic_pr_debug
@@ -148,19 +147,17 @@ void enable_irq(unsigned int arg0) {
 // Function: eventfd_ctx_fdget
 // with type: struct eventfd_ctx *eventfd_ctx_fdget(int)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
 struct eventfd_ctx *eventfd_ctx_fdget(int arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: eventfd_ctx_fileget
 // with type: struct eventfd_ctx *eventfd_ctx_fileget(struct file *)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: eventfd_ctx_put
@@ -183,10 +180,9 @@ int eventfd_ctx_remove_wait_queue(struct eventfd_ctx *arg0, wait_queue_t *arg1, 
 // Function: eventfd_fget
 // with type: struct file *eventfd_fget(int)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *eventfd_fget(int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: eventfd_signal
@@ -238,10 +234,9 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: iommu_group_get
 // with type: struct iommu_group *iommu_group_get(struct device *)
 // with return type: (struct iommu_group)*
-void *external_alloc(void);
 struct iommu_group *iommu_group_get(struct device *arg0) {
   // Pointer type
-  return (struct iommu_group *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iommu_group_put
@@ -306,10 +301,9 @@ void iowrite8(u8 arg0, void *arg1) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -329,10 +323,9 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Skip function: memset
@@ -543,10 +536,9 @@ int pci_load_and_free_saved_state(struct pci_dev *arg0, struct pci_saved_state *
 // Function: pci_map_rom
 // with type: void *pci_map_rom(struct pci_dev *, size_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_release_selected_regions
@@ -595,10 +587,9 @@ int pci_save_state(struct pci_dev *arg0) {
 // Function: pci_store_saved_state
 // with type: struct pci_saved_state *pci_store_saved_state(struct pci_dev *)
 // with return type: (struct pci_saved_state)*
-void *external_alloc(void);
 struct pci_saved_state *pci_store_saved_state(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_saved_state *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_unmap_rom
@@ -743,10 +734,9 @@ int vfio_add_group_dev(struct device *arg0, const struct vfio_device_ops *arg1, 
 // Function: vfio_del_group_dev
 // with type: void *vfio_del_group_dev(struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *vfio_del_group_dev(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: warn_slowpath_fmt

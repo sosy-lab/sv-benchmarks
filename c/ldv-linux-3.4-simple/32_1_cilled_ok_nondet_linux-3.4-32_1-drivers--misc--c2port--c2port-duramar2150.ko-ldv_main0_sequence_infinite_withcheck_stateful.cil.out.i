@@ -655,13 +655,11 @@ long ldv__builtin_expect(long val , long res )
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
-void *external_alloc(void);
 struct c2port_device *c2port_device_register(char *arg0, struct c2port_ops *arg1, void *arg2) {
-  return (struct c2port_device *)external_alloc();
+  return ldv_malloc(sizeof(struct c2port_device));
 }
 void c2port_device_unregister(struct c2port_device *arg0) {
   return;

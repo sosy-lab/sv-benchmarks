@@ -7742,9 +7742,8 @@ void cx8802_buf_queue(struct cx8802_dev *arg0, struct cx88_buffer *arg1) {
 void cx8802_cancel_buffers(struct cx8802_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *arg0, enum cx88_board_type arg1) {
-  return (struct cx8802_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct cx8802_driver));
 }
 int __VERIFIER_nondet_int(void);
 int cx8802_register_driver(struct cx8802_driver *arg0) {
@@ -7790,17 +7789,15 @@ int __VERIFIER_nondet_int(void);
 int cx88_set_tvnorm(struct cx88_core *arg0, v4l2_std_id arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct video_device *cx88_vdev_init(struct cx88_core *arg0, struct pci_dev *arg1, const struct video_device *arg2, const char *arg3) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 int __VERIFIER_nondet_int(void);
 int cx88_video_mux(struct cx88_core *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dev_set_drvdata(struct device *arg0, void *arg1) {
   return;
@@ -7857,9 +7854,8 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_query_menu(struct v4l2_querymenu *arg0, struct v4l2_queryctrl *arg1, const char * const *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;

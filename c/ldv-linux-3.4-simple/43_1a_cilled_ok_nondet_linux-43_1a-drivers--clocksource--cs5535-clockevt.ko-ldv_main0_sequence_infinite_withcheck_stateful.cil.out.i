@@ -774,9 +774,8 @@ u64 clockevent_delta2ns(unsigned long arg0, struct clock_event_device *arg1) {
 void clockevents_register_device(struct clock_event_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
-  return (struct cs5535_mfgpt_timer *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void cs5535_mfgpt_free_timer(struct cs5535_mfgpt_timer *arg0) {
   return;
@@ -792,9 +791,8 @@ int cs5535_mfgpt_set_irq(struct cs5535_mfgpt_timer *arg0, int arg1, int *arg2, i
 void cs5535_mfgpt_write(struct cs5535_mfgpt_timer *arg0, uint16_t arg1, uint16_t arg2) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -802,9 +800,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

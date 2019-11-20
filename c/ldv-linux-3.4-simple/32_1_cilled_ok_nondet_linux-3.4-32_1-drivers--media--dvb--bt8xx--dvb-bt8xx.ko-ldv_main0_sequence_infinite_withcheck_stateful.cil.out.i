@@ -11872,9 +11872,8 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __symbol_put(const char *arg0) {
   return;
@@ -11885,9 +11884,8 @@ void bt878_start(struct bt878 *arg0, u32 arg1, u32 arg2, u32 arg3) {
 void bt878_stop(struct bt878 *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_dev *bttv_get_pcidev(unsigned int arg0) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 int __VERIFIER_nondet_int(void);
 int bttv_gpio_enable(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
@@ -11905,9 +11903,8 @@ int __VERIFIER_nondet_int(void);
 int bttv_write_gpio(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

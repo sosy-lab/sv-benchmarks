@@ -23545,9 +23545,8 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __compiletime_assert_1057() {
   return;
@@ -23683,9 +23682,8 @@ int __VERIFIER_nondet_int(void);
 int device_add(struct device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *device_find_child(struct device *arg0, void *arg1, int (*arg2)(struct device *, void *)) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_for_each_child(struct device *arg0, void *arg1, int (*arg2)(struct device *, void *)) {
@@ -23710,9 +23708,8 @@ void down_write(struct rw_semaphore *arg0) {
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void getnstimeofday64(struct timespec *arg0) {
   return;
@@ -23733,9 +23730,8 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 void init_timer_on_stack_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {

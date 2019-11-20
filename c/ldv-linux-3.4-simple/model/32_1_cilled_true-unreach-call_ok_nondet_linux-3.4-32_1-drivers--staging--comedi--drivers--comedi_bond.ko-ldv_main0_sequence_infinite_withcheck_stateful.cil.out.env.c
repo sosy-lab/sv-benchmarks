@@ -76,10 +76,9 @@ int comedi_get_n_channels(struct comedi_device *arg0, unsigned int arg1) {
 // Function: comedi_open
 // with type: struct comedi_device *comedi_open(const char *path)
 // with return type: (struct comedi_device)*
-void *external_alloc(void);
 struct comedi_device *comedi_open(const char *arg0) {
   // Pointer type
-  return (struct comedi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct comedi_device));
 }
 
 // Skip function: kfree

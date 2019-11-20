@@ -3428,9 +3428,8 @@ long ldv__builtin_expect(long val , long res )
 void cma3000_exit(struct cma3000_accl_data *arg0) {
   return;
 }
-void *external_alloc(void);
 struct cma3000_accl_data *cma3000_init(struct device *arg0, int arg1, const struct cma3000_bus_ops *arg2) {
-  return (struct cma3000_accl_data *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void cma3000_resume(struct cma3000_accl_data *arg0) {
   return;
@@ -3442,9 +3441,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

@@ -154,10 +154,9 @@ int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigne
 // Function: snd_ctl_new1
 // with type: struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *, void *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_iprintf
@@ -208,10 +207,9 @@ int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *arg0) {
 // Function: snd_pcm_lib_get_vmalloc_page
 // with type: struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *, unsigned long)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: snd_pcm_lib_ioctl

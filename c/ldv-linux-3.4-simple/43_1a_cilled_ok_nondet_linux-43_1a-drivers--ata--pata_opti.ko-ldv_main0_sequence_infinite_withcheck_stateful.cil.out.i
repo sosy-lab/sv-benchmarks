@@ -4872,9 +4872,8 @@ int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ata_device *ata_dev_pair(struct ata_device *arg0) {
-  return (struct ata_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_device));
 }
 int __VERIFIER_nondet_int(void);
 int ata_pci_sff_init_one(struct pci_dev *arg0, const struct ata_port_info * const *arg1, struct scsi_host_template *arg2, void *arg3, int arg4) {
@@ -4894,9 +4893,8 @@ unsigned int ioread16(void *arg0) {
 void iowrite8(u8 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4907,9 +4905,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int pci_test_config_bits(struct pci_dev *arg0, const struct pci_bits *arg1) {

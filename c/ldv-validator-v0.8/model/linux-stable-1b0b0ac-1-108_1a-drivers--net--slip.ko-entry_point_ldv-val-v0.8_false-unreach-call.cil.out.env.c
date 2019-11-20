@@ -74,10 +74,9 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -120,10 +119,9 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_alloc_skb
 // with type: struct sk_buff *dev_alloc_skb(unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: dev_close
@@ -284,10 +282,9 @@ void slhc_free(struct slcompress *arg0) {
 // Function: slhc_init
 // with type: struct slcompress *slhc_init(int, int)
 // with return type: (struct slcompress)*
-void *external_alloc(void);
 struct slcompress *slhc_init(int arg0, int arg1) {
   // Pointer type
-  return (struct slcompress *)external_alloc();
+  return ldv_malloc(sizeof(struct slcompress));
 }
 
 // Function: slhc_remember

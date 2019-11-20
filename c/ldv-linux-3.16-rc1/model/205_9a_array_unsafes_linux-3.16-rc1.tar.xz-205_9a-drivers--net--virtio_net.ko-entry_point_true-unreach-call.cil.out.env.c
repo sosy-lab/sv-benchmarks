@@ -11,10 +11,9 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __bitmap_weight
@@ -113,10 +112,9 @@ void __napi_schedule(struct napi_struct *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -158,10 +156,9 @@ struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: calloc
@@ -247,10 +244,9 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 // Function: ewma_add
 // with type: struct ewma *ewma_add(struct ewma *, unsigned long)
 // with return type: (struct ewma)*
-void *external_alloc(void);
 struct ewma *ewma_add(struct ewma *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct ewma *)external_alloc();
+  return ldv_malloc(sizeof(struct ewma));
 }
 
 // Function: ewma_init
@@ -748,10 +744,9 @@ int virtqueue_add_sgs(struct virtqueue *arg0, struct scatterlist **arg1, unsigne
 // Function: virtqueue_detach_unused_buf
 // with type: void *virtqueue_detach_unused_buf(struct virtqueue *)
 // with return type: (void)*
-void *external_alloc(void);
 void *virtqueue_detach_unused_buf(struct virtqueue *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: virtqueue_disable_cb
@@ -785,10 +780,9 @@ unsigned int virtqueue_enable_cb_prepare(struct virtqueue *arg0) {
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: virtqueue_get_vring_size

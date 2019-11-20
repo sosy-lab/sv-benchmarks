@@ -9,10 +9,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __compiletime_assert_361
@@ -253,10 +252,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: call_rcu_sched
@@ -405,10 +403,9 @@ void dump_stack() {
 // Function: filp_open
 // with type: struct file *filp_open(const char *, int, umode_t )
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *filp_open(const char *arg0, int arg1, umode_t arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: flush_delayed_work
@@ -500,19 +497,17 @@ void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_hea
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -534,10 +529,9 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: kstrtouint
@@ -745,10 +739,9 @@ int match_int(substring_t *arg0, int *arg1) {
 // Function: match_strdup
 // with type: char *match_strdup(const substring_t *)
 // with return type: (char)*
-void *external_alloc(void);
 char *match_strdup(const substring_t *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: match_token
@@ -907,10 +900,9 @@ int rcu_read_lock_held() {
 // Function: scsi_device_type
 // with type: const char *scsi_device_type(unsigned int)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *scsi_device_type(unsigned int arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: sg_copy_to_buffer
@@ -966,10 +958,9 @@ void sg_miter_stop(struct sg_mapping_iter *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf
@@ -985,10 +976,9 @@ struct scatterlist *sg_next(struct scatterlist *arg0) {
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: strlen
@@ -1009,10 +999,9 @@ int strncasecmp(const char *arg0, const char *arg1, size_t arg2) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: strstr
@@ -1072,19 +1061,17 @@ void trace_hardirqs_on() {
 // Function: trace_print_hex_seq
 // with type: const char *trace_print_hex_seq(struct trace_seq *, const unsigned char *, int)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *trace_print_hex_seq(struct trace_seq *arg0, const unsigned char *arg1, int arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: trace_print_symbols_seq
 // with type: const char *trace_print_symbols_seq(struct trace_seq *, unsigned long, const struct trace_print_flags *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: trace_raw_output_prep
@@ -1134,10 +1121,9 @@ void vfree(const void *arg0) {
 // Function: vmap
 // with type: void *vmap(struct page **, unsigned int, unsigned long, pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: vunmap
@@ -1151,10 +1137,9 @@ void vunmap(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: wait_for_completion

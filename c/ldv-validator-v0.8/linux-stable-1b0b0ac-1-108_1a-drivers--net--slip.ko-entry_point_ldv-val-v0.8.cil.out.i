@@ -7678,9 +7678,8 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int capable(int arg0) {
@@ -7697,9 +7696,8 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int dev_close(struct net_device *arg0) {
@@ -7763,9 +7761,8 @@ int slhc_compress(struct slcompress *arg0, unsigned char *arg1, int arg2, unsign
 void slhc_free(struct slcompress *arg0) {
   return;
 }
-void *external_alloc(void);
 struct slcompress *slhc_init(int arg0, int arg1) {
-  return (struct slcompress *)external_alloc();
+  return ldv_malloc(sizeof(struct slcompress));
 }
 int __VERIFIER_nondet_int(void);
 int slhc_remember(struct slcompress *arg0, unsigned char *arg1, int arg2) {

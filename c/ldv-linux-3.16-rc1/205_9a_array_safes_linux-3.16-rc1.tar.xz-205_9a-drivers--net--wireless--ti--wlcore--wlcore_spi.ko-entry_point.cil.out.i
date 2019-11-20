@@ -7816,9 +7816,8 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add_resources(struct platform_device *arg0, const struct resource *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_put(struct platform_device *arg0) {
   return;

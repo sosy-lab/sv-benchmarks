@@ -4440,9 +4440,8 @@ int ata_pci_bmdma_init_one(struct pci_dev *arg0, const struct ata_port_info * co
 void ata_print_version(const struct device *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4453,9 +4452,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;

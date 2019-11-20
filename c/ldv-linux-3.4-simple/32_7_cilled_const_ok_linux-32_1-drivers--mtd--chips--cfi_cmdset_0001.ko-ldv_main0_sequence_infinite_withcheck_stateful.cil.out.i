@@ -14135,9 +14135,8 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void cfi_fixup(struct mtd_info *arg0, struct cfi_fixup *arg1) {
   return;
 }
-void *external_alloc(void);
 struct cfi_extquery *cfi_read_pri(struct map_info *arg0, uint16_t arg1, uint16_t arg2, char *arg3) {
-  return (struct cfi_extquery *)external_alloc();
+  return ldv_malloc(sizeof(struct cfi_extquery));
 }
 int __VERIFIER_nondet_int(void);
 int cfi_varsize_frob(struct mtd_info *arg0, int (*arg1)(struct map_info *map, struct flchip *chip, unsigned long adr, int len, void *thunk), loff_t arg2, size_t arg3, void *arg4) {

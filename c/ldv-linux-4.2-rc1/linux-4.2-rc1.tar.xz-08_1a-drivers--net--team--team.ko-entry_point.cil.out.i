@@ -13822,13 +13822,11 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __compiletime_assert_402() {
   return;
@@ -13876,9 +13874,8 @@ int __VERIFIER_nondet_int(void);
 int __netpoll_setup(struct netpoll *arg0, struct net_device *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
-  return (struct nlmsghdr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlmsghdr));
 }
 int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
@@ -13912,9 +13909,8 @@ int dev_close(struct net_device *arg0) {
 void dev_disable_lro(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device *dev_get_by_index(struct net *arg0, int arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void dev_mc_flush(struct net_device *arg0) {
   return;
@@ -13984,9 +13980,8 @@ int __VERIFIER_nondet_int(void);
 int genl_unregister_family(struct genl_family *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *genlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, struct genl_family *arg3, int arg4, u8 arg5) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void get_random_bytes(void *arg0, int arg1) {
   return;
@@ -14000,9 +13995,8 @@ void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_hea
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ldv_init_4() {
@@ -14137,9 +14131,8 @@ int rtnl_trylock() {
 void rtnl_unlock() {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;

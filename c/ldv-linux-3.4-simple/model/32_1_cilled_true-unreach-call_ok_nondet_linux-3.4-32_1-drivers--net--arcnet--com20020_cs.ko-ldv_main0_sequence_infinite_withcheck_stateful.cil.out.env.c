@@ -31,10 +31,9 @@ int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, co
 // Function: alloc_arcdev
 // with type: struct net_device *alloc_arcdev(const char *name)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_arcdev(const char *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: com20020_check

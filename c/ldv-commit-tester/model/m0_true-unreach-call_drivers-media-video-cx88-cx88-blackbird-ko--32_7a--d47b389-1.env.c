@@ -98,10 +98,9 @@ void cx8802_cancel_buffers(struct cx8802_dev *arg0) {
 // Function: cx8802_get_driver
 // with type: struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *, enum cx88_board_type )
 // with return type: (struct cx8802_driver)*
-void *external_alloc(void);
 struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *arg0, enum cx88_board_type arg1) {
   // Pointer type
-  return (struct cx8802_driver *)external_alloc();
+  return ldv_malloc(sizeof(struct cx8802_driver));
 }
 
 // Function: cx8802_register_driver
@@ -211,10 +210,9 @@ int cx88_set_tvnorm(struct cx88_core *arg0, v4l2_std_id arg1) {
 // Function: cx88_vdev_init
 // with type: struct video_device *cx88_vdev_init(struct cx88_core *, struct pci_dev *, const struct video_device *, const char *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
 struct video_device *cx88_vdev_init(struct cx88_core *arg0, struct pci_dev *arg1, const struct video_device *arg2, const char *arg3) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 
 // Function: cx88_video_mux
@@ -229,10 +227,9 @@ int cx88_video_mux(struct cx88_core *arg0, unsigned int arg1) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -391,10 +388,9 @@ int v4l2_ctrl_query_menu(struct v4l2_querymenu *arg0, struct v4l2_queryctrl *arg
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return ldv_malloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release

@@ -9300,9 +9300,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_rwsem(struct rw_semaphore *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -9356,16 +9355,14 @@ int __VERIFIER_nondet_int(void);
 int dm_io(struct dm_io_request *arg0, unsigned int arg1, struct dm_io_region *arg2, unsigned long *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dm_io_client *dm_io_client_create() {
-  return (struct dm_io_client *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_io_client_destroy(struct dm_io_client *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dm_kcopyd_client *dm_kcopyd_client_create() {
-  return (struct dm_kcopyd_client *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_kcopyd_client_destroy(struct dm_kcopyd_client *arg0) {
   return;
@@ -9377,9 +9374,8 @@ int dm_kcopyd_copy(struct dm_kcopyd_client *arg0, struct dm_io_region *arg1, uns
 void dm_kcopyd_do_callback(void *arg0, int arg1, unsigned long arg2) {
   return;
 }
-void *external_alloc(void);
 void *dm_kcopyd_prepare_callback(struct dm_kcopyd_client *arg0, void (*arg1)(int, unsigned long, void *), void *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_put_device(struct dm_target *arg0, struct dm_dev *arg1) {
   return;
@@ -9410,9 +9406,8 @@ sector_t dm_table_get_size(struct dm_table *arg0) {
 void dm_unregister_target(struct target_type *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dm_vcalloc(unsigned long arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void down_read(struct rw_semaphore *arg0) {
   return;
@@ -9433,13 +9428,11 @@ bool flush_work(struct work_struct *arg0) {
 void generic_make_request(struct bio *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -9447,9 +9440,8 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtouint(const char *arg0, unsigned int arg1, unsigned int *arg2) {
@@ -9485,13 +9477,11 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -9550,13 +9540,11 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void wake_up_bit(void *arg0, int arg1) {
   return;

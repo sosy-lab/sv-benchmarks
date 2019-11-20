@@ -11409,9 +11409,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 void bd_set_size(struct block_device *arg0, loff_t arg1) {
   return;
@@ -11419,9 +11418,8 @@ void bd_set_size(struct block_device *arg0, loff_t arg1) {
 void bio_endio(struct bio *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -11438,16 +11436,14 @@ void blk_queue_max_hw_sectors(struct request_queue *arg0, unsigned int arg1) {
 void blk_queue_max_segments(struct request_queue *arg0, unsigned short arg1) {
   return;
 }
-void *external_alloc(void);
 struct block_device *blkdev_get_by_dev(dev_t arg0, fmode_t arg1, void *arg2) {
-  return (struct block_device *)external_alloc();
+  return ldv_malloc(sizeof(struct block_device));
 }
 void blkdev_put(struct block_device *arg0, fmode_t arg1) {
   return;
 }
-void *external_alloc(void);
 struct lu_env *cl_env_get(int *arg0) {
-  return (struct lu_env *)external_alloc();
+  return ldv_malloc(sizeof(struct lu_env));
 }
 void cl_env_put(struct lu_env *arg0, int *arg1) {
   return;
@@ -11474,9 +11470,8 @@ void fput(struct file *arg0) {
 void invalidate_bdev(struct block_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 void lbug_with_loc(struct libcfs_debug_msg_data *arg0) {
   return;
@@ -11492,9 +11487,8 @@ long __VERIFIER_nondet_long(void);
 ssize_t ll_direct_rw_pages(const struct lu_env *arg0, struct cl_io *arg1, int arg2, struct inode *arg3, struct ll_dio_pages *arg4) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 void *ll_iocontrol_register(enum llioc_iter (*arg0)(struct inode *, struct file *, unsigned int, unsigned long, void *, int *), int arg1, unsigned int *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ll_iocontrol_unregister(void *arg0) {
   return;

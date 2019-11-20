@@ -18150,9 +18150,8 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct buffer_head *__bread_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct buffer_head *)external_alloc();
+  return ldv_malloc(sizeof(struct buffer_head));
 }
 void __compiletime_assert_100() {
   return;
@@ -18166,9 +18165,8 @@ void __compiletime_assert_491() {
 void __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct buffer_head *__getblk_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct buffer_head *)external_alloc();
+  return ldv_malloc(sizeof(struct buffer_head));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -18197,25 +18195,21 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_obtain_alias(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_splice_alias(struct inode *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -18239,9 +18233,8 @@ int generic_readlink(struct dentry *arg0, char *arg1, int arg2) {
 void iget_failed(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
 struct inode *iget_locked(struct super_block *arg0, unsigned long arg1) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 void init_special_inode(struct inode *arg0, umode_t arg1, dev_t arg2) {
   return;
@@ -18255,9 +18248,8 @@ void iput(struct inode *arg0) {
 void kill_block_super(struct super_block *arg0) {
   return;
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -18291,24 +18283,20 @@ kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   return *(struct __anonstruct_kuid_t_48 *)ldv_xmalloc(sizeof(struct __anonstruct_kuid_t_48));
 }
-void *external_alloc(void);
 struct dentry *mount_bdev(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3, int (*arg4)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
-void *external_alloc(void);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
   return;
 }
-void *external_alloc(void);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
@@ -18355,9 +18343,8 @@ void vfree(const void *arg0) {
 void xz_dec_end(struct xz_dec *arg0) {
   return;
 }
-void *external_alloc(void);
 struct xz_dec *xz_dec_init(enum xz_mode arg0, uint32_t arg1) {
-  return (struct xz_dec *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void xz_dec_reset(struct xz_dec *arg0) {
   return;

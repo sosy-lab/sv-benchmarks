@@ -15505,9 +15505,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -15532,9 +15531,8 @@ void _raw_spin_lock_bh(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ath10k *ath10k_core_create(void *arg0, struct device *arg1, const struct ath10k_hif_ops *arg2) {
-  return (struct ath10k *)external_alloc();
+  return ldv_malloc(sizeof(struct ath10k));
 }
 void ath10k_core_destroy(struct ath10k *arg0) {
   return;
@@ -15607,9 +15605,8 @@ unsigned int ioread32(void *arg0) {
 void iowrite32(u32 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_after_alloc(void *arg0) {
   return;

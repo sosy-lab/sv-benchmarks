@@ -135,10 +135,9 @@ int LNetSetLazyPortal(int arg0) {
 // Function: __alloc_pages_nodemask
 // with type: struct page *__alloc_pages_nodemask(gfp_t , unsigned int, struct zonelist *, nodemask_t *)
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: __copy_from_user_overflow
@@ -305,10 +304,9 @@ int cfs_cpt_weight(struct cfs_cpt_table *arg0, int arg1) {
 // Function: cfs_percpt_alloc
 // with type: void *cfs_percpt_alloc(struct cfs_cpt_table *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *cfs_percpt_alloc(struct cfs_cpt_table *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: cfs_percpt_free
@@ -408,10 +406,9 @@ unsigned long int get_seconds() {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 
 // Function: lbug_with_loc
@@ -441,10 +438,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: libcfs_debug_msg
@@ -468,19 +464,17 @@ int libcfs_deregister_ioctl(struct libcfs_ioctl_handler *arg0) {
 // Function: libcfs_id2str
 // with type: char *libcfs_id2str(lnet_process_id_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_id2str(lnet_process_id_t arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_nid2str
 // with type: char *libcfs_nid2str(lnet_nid_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *libcfs_nid2str(lnet_nid_t arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: libcfs_register_ioctl

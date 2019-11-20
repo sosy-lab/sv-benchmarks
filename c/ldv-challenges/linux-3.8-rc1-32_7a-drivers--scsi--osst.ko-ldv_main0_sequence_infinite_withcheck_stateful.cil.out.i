@@ -11853,9 +11853,8 @@ void ldv_check_final_state(void)
 void __blk_put_request(struct request_queue *arg0, struct request *arg1) {
   return;
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __free_pages(struct page *arg0, unsigned int arg1) {
   return;
@@ -11890,20 +11889,17 @@ void _raw_write_lock(rwlock_t *arg0) {
 void _raw_write_unlock(rwlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void blk_execute_rq_nowait(struct request_queue *arg0, struct gendisk *arg1, struct request *arg2, int arg3, rq_end_io_fn *arg4) {
   return;
 }
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_put_request(struct request *arg0) {
   return;
@@ -11930,17 +11926,15 @@ void class_destroy(struct class *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -12037,13 +12031,11 @@ int __VERIFIER_nondet_int(void);
 int scsi_register_driver(struct device_driver *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const u8 *scsi_sense_desc_find(const u8 *arg0, int arg1, int arg2) {
-  return (const u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -12052,9 +12044,8 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void wait_for_completion(struct completion *arg0) {
   return;

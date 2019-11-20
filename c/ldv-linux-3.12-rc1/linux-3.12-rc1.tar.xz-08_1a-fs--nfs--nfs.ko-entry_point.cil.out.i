@@ -43399,13 +43399,11 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __cond_resched_lock(spinlock_t *arg0) {
@@ -43417,9 +43415,8 @@ void __d_drop(struct dentry *arg0) {
 void __free_pages(struct page *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct fscache_cookie *__fscache_acquire_cookie(struct fscache_cookie *arg0, const struct fscache_cookie_def *arg1, void *arg2) {
-  return (struct fscache_cookie *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __fscache_invalidate(struct fscache_cookie *arg0) {
   return;
@@ -43505,9 +43502,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __page_file_index(struct page *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct address_space *__page_file_mapping(struct page *arg0) {
-  return (struct address_space *)external_alloc();
+  return ldv_malloc(sizeof(struct address_space));
 }
 void __pagevec_release(struct pagevec *arg0) {
   return;
@@ -43569,9 +43565,8 @@ int add_to_page_cache_lru(struct page *arg0, struct address_space *arg1, unsigne
 void aio_complete(struct kiocb *arg0, long arg1, long arg2) {
   return;
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void bdi_destroy(struct backing_dev_info *arg0) {
   return;
@@ -43587,9 +43582,8 @@ int bdi_register_dev(struct backing_dev_info *arg0, dev_t arg1) {
 void bdi_unregister(struct backing_dev_info *arg0) {
   return;
 }
-void *external_alloc(void);
 wait_queue_head_t *bit_waitqueue(void *arg0, int arg1) {
-  return (wait_queue_head_t *)external_alloc();
+  return ldv_malloc(sizeof(wait_queue_head_t));
 }
 void call_rcu_sched(struct callback_head *arg0, void (*arg1)(struct callback_head *)) {
   return;
@@ -43632,9 +43626,8 @@ int __VERIFIER_nondet_int(void);
 int current_umask() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *d_alloc(struct dentry *arg0, const struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_delete(struct dentry *arg0) {
   return;
@@ -43649,24 +43642,20 @@ int __VERIFIER_nondet_int(void);
 int d_invalidate(struct dentry *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *d_lookup(const struct dentry *arg0, const struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *d_materialise_unique(struct dentry *arg0, struct inode *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_move(struct dentry *arg0, struct dentry *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dentry *d_obtain_alias(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -43690,9 +43679,8 @@ void delayed_work_timer_fn(unsigned long arg0) {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *dget_parent(struct dentry *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t do_sync_read(struct file *arg0, char *arg1, size_t arg2, loff_t *arg3) {
@@ -43760,13 +43748,11 @@ int __VERIFIER_nondet_int(void);
 int ftrace_event_reg(struct ftrace_event_call *arg0, enum trace_reg arg1, void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *ftrace_print_flags_seq(struct trace_seq *arg0, const char *arg1, unsigned long arg2, const struct trace_print_flags *arg3) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 const char *ftrace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int ftrace_raw_output_prep(struct trace_iterator *arg0, struct trace_event *arg1) {
@@ -43839,9 +43825,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_zeroed_page(gfp_t arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct page *grab_cache_page_write_begin(struct address_space *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void ida_destroy(struct ida *arg0) {
   return;
@@ -43858,13 +43843,11 @@ void idr_init(struct idr *arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct inode *iget5_locked(struct super_block *arg0, unsigned long arg1, int (*arg2)(struct inode *, void *), int (*arg3)(struct inode *, void *), void *arg4) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
-void *external_alloc(void);
 struct inode *igrab(struct inode *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 void ihold(struct inode *arg0) {
   return;
@@ -43913,13 +43896,11 @@ int is_bad_inode(struct inode *arg0) {
 void kill_anon_super(struct super_block *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -43927,20 +43908,17 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmemleak_not_leak(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *kstrndup(const char *arg0, size_t arg1, gfp_t arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
@@ -44011,9 +43989,8 @@ void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) 
 void lockref_get(struct lockref *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
   return *(struct __anonstruct_kgid_t_37 *)ldv_xmalloc(sizeof(struct __anonstruct_kgid_t_37));
@@ -44024,21 +44001,18 @@ kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
 void mark_mounts_for_expiry(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
 char *match_strdup(const substring_t *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -44056,9 +44030,8 @@ int migrate_page(struct address_space *arg0, struct page *arg1, struct page *arg
 void mnt_set_expiry(struct vfsmount *arg0, struct list_head *arg1) {
   return;
 }
-void *external_alloc(void);
 struct vfsmount *mntget(struct vfsmount *arg0) {
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
   return;
@@ -44069,9 +44042,8 @@ void mutex_unlock(struct mutex *arg0) {
 void nlmclnt_done(struct nlm_host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nlm_host *nlmclnt_init(const struct nlmclnt_initdata *arg0) {
-  return (struct nlm_host *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int out_of_line_wait_on_bit(void *arg0, int arg1, int (*arg2)(void *), unsigned int arg3) {
@@ -44106,13 +44078,11 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void put_page(struct page *arg0) {
   return;
@@ -44131,9 +44101,8 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
@@ -44152,9 +44121,8 @@ bool __VERIFIER_nondet_bool(void);
 bool rcu_lockdep_current_cpu_online() {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct page *read_cache_page(struct address_space *arg0, unsigned long arg1, filler_t *arg2, void *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int read_cache_pages(struct address_space *arg0, struct list_head *arg1, filler_t *arg2, void *arg3) {
@@ -44176,9 +44144,8 @@ int __VERIFIER_nondet_int(void);
 int register_shrinker(struct shrinker *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 void remove_proc_entry(const char *arg0, struct proc_dir_entry *arg1) {
   return;
@@ -44187,13 +44154,11 @@ int __VERIFIER_nondet_int(void);
 int rpc_call_sync(struct rpc_clnt *arg0, const struct rpc_message *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rpc_clnt *rpc_clone_client_set_auth(struct rpc_clnt *arg0, rpc_authflavor_t arg1) {
-  return (struct rpc_clnt *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_clnt));
 }
-void *external_alloc(void);
 struct rpc_clnt *rpc_create(struct rpc_create_args *arg0) {
-  return (struct rpc_clnt *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_clnt));
 }
 void rpc_exit(struct rpc_task *arg0, int arg1) {
   return;
@@ -44204,28 +44169,24 @@ void rpc_init_wait_queue(struct rpc_wait_queue *arg0, const char *arg1) {
 void rpc_killall_tasks(struct rpc_clnt *arg0) {
   return;
 }
-void *external_alloc(void);
 struct rpc_cred *rpc_lookup_cred() {
-  return (struct rpc_cred *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_cred));
 }
-void *external_alloc(void);
 struct rpc_cred *rpc_lookup_machine_cred(const char *arg0) {
-  return (struct rpc_cred *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_cred));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t rpc_max_payload(struct rpc_clnt *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 const char *rpc_peeraddr2str(struct rpc_clnt *arg0, enum rpc_display_format_t arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void rpc_print_iostats(struct seq_file *arg0, struct rpc_clnt *arg1) {
   return;
 }
-void *external_alloc(void);
 struct proc_dir_entry *rpc_proc_register(struct net *arg0, struct rpc_stat *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void rpc_proc_unregister(struct net *arg0, const char *arg1) {
   return;
@@ -44244,9 +44205,8 @@ int __VERIFIER_nondet_int(void);
 int rpc_restart_call_prepare(struct rpc_task *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rpc_task *rpc_run_task(const struct rpc_task_setup *arg0) {
-  return (struct rpc_task *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_task));
 }
 void rpc_setbufsize(struct rpc_clnt *arg0, unsigned int arg1, unsigned int arg2) {
   return;
@@ -44300,13 +44260,11 @@ int __VERIFIER_nondet_int(void);
 int seq_escape(struct seq_file *arg0, const char *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct list_head *seq_list_next(void *arg0, struct list_head *arg1, loff_t *arg2) {
-  return (struct list_head *)external_alloc();
+  return ldv_malloc(sizeof(struct list_head));
 }
-void *external_alloc(void);
 struct list_head *seq_list_start_head(struct list_head *arg0, loff_t arg1) {
-  return (struct list_head *)external_alloc();
+  return ldv_malloc(sizeof(struct list_head));
 }
 long __VERIFIER_nondet_long(void);
 loff_t seq_lseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -44346,17 +44304,14 @@ int __VERIFIER_nondet_int(void);
 int set_page_dirty(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct super_block *sget(struct file_system_type *arg0, int (*arg1)(struct super_block *, void *), int (*arg2)(struct super_block *, void *), int arg3, void *arg4) {
-  return (struct super_block *)external_alloc();
+  return ldv_malloc(sizeof(struct super_block));
 }
-void *external_alloc(void);
 char *strndup_user(const char *arg0, long arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int sync_inode(struct inode *arg0, struct writeback_control *arg1) {
@@ -44422,9 +44377,8 @@ int __VERIFIER_nondet_int(void);
 int vfs_fsync(struct file *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct vfsmount *vfs_kern_mount(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3) {
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 int __VERIFIER_nondet_int(void);
 int wait_for_completion_killable(struct completion *arg0) {
@@ -44450,20 +44404,17 @@ int __VERIFIER_nondet_int(void);
 int write_inode_now(struct inode *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 __be32 *xdr_encode_opaque(__be32 *arg0, const void *arg1, unsigned int arg2) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 void xdr_init_decode_pages(struct xdr_stream *arg0, struct xdr_buf *arg1, struct page **arg2, unsigned int arg3) {
   return;
 }
-void *external_alloc(void);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
-void *external_alloc(void);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;

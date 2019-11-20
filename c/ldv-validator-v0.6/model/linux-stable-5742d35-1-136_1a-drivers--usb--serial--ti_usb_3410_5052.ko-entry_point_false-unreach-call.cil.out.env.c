@@ -209,10 +209,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -434,10 +433,9 @@ void tty_kref_put(struct tty_struct *arg0) {
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_wakeup
@@ -503,10 +501,9 @@ void usb_kill_urb(struct urb *arg0) {
 // Function: usb_match_id
 // with type: const struct usb_device_id *usb_match_id(struct usb_interface *, const struct usb_device_id *)
 // with return type: (struct usb_device_id)*
-void *external_alloc(void);
 const struct usb_device_id *usb_match_id(struct usb_interface *arg0, const struct usb_device_id *arg1) {
   // Pointer type
-  return (const struct usb_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device_id));
 }
 
 // Function: usb_register_driver

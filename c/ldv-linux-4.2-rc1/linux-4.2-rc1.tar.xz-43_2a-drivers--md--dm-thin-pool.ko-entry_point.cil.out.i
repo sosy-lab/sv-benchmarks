@@ -13897,9 +13897,8 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_rwsem(struct rw_semaphore *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -13932,13 +13931,11 @@ int _cond_resched() {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct bio *bio_alloc_bioset(gfp_t arg0, int arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 void bio_chain(struct bio *arg0, struct bio *arg1) {
   return;
@@ -13976,13 +13973,11 @@ int __VERIFIER_nondet_int(void);
 int dm_bio_detain(struct dm_bio_prison *arg0, struct dm_cell_key *arg1, struct bio *arg2, struct dm_bio_prison_cell *arg3, struct dm_bio_prison_cell **arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dm_bio_prison_cell *dm_bio_prison_alloc_cell(struct dm_bio_prison *arg0, gfp_t arg1) {
-  return (struct dm_bio_prison_cell *)external_alloc();
+  return ldv_malloc(sizeof(struct dm_bio_prison_cell));
 }
-void *external_alloc(void);
 struct dm_bio_prison *dm_bio_prison_create() {
-  return (struct dm_bio_prison *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_bio_prison_destroy(struct dm_bio_prison *arg0) {
   return;
@@ -13990,17 +13985,15 @@ void dm_bio_prison_destroy(struct dm_bio_prison *arg0) {
 void dm_bio_prison_free_cell(struct dm_bio_prison *arg0, struct dm_bio_prison_cell *arg1) {
   return;
 }
-void *external_alloc(void);
 void *dm_block_data(struct dm_block *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 dm_block_t dm_block_location(struct dm_block *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct dm_block_manager *dm_block_manager_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct dm_block_manager *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_block_manager_destroy(struct dm_block_manager *arg0) {
   return;
@@ -14089,32 +14082,28 @@ void dm_consume_args(struct dm_arg_set *arg0, unsigned int arg1) {
 void dm_deferred_entry_dec(struct dm_deferred_entry *arg0, struct list_head *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dm_deferred_entry *dm_deferred_entry_inc(struct dm_deferred_set *arg0) {
-  return (struct dm_deferred_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dm_deferred_set_add_work(struct dm_deferred_set *arg0, struct list_head *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dm_deferred_set *dm_deferred_set_create() {
-  return (struct dm_deferred_set *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_deferred_set_destroy(struct dm_deferred_set *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *dm_device_name(struct mapped_device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int dm_get_device(struct dm_target *arg0, const char *arg1, fmode_t arg2, struct dm_dev **arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mapped_device *dm_get_md(dev_t arg0) {
-  return (struct mapped_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_internal_resume(struct mapped_device *arg0) {
   return;
@@ -14122,9 +14111,8 @@ void dm_internal_resume(struct mapped_device *arg0) {
 void dm_internal_suspend_noflush(struct mapped_device *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dm_kcopyd_client *dm_kcopyd_client_create(struct dm_kcopyd_throttle *arg0) {
-  return (struct dm_kcopyd_client *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dm_kcopyd_client_destroy(struct dm_kcopyd_client *arg0) {
   return;
@@ -14159,17 +14147,14 @@ int __VERIFIER_nondet_int(void);
 int dm_set_target_max_io_len(struct dm_target *arg0, sector_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const char *dm_shift_arg(struct dm_arg_set *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct dm_space_map *dm_sm_disk_create(struct dm_transaction_manager *arg0, dm_block_t arg1) {
-  return (struct dm_space_map *)external_alloc();
+  return ldv_malloc(sizeof(struct dm_space_map));
 }
-void *external_alloc(void);
 struct dm_space_map *dm_sm_disk_open(struct dm_transaction_manager *arg0, void *arg1, size_t arg2) {
-  return (struct dm_space_map *)external_alloc();
+  return ldv_malloc(sizeof(struct dm_space_map));
 }
 int __VERIFIER_nondet_int(void);
 int dm_suspended(struct dm_target *arg0) {
@@ -14181,9 +14166,8 @@ void dm_table_add_target_callbacks(struct dm_table *arg0, struct dm_target_callb
 void dm_table_event(struct dm_table *arg0) {
   return;
 }
-void *external_alloc(void);
 struct mapped_device *dm_table_get_md(struct dm_table *arg0) {
-  return (struct mapped_device *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 fmode_t dm_table_get_mode(struct dm_table *arg0) {
@@ -14193,9 +14177,8 @@ int __VERIFIER_nondet_int(void);
 int dm_tm_commit(struct dm_transaction_manager *arg0, struct dm_block *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dm_transaction_manager *dm_tm_create_non_blocking_clone(struct dm_transaction_manager *arg0) {
-  return (struct dm_transaction_manager *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dm_tm_create_with_sm(struct dm_block_manager *arg0, dm_block_t arg1, struct dm_transaction_manager **arg2, struct dm_space_map **arg3) {
@@ -14251,9 +14234,8 @@ void generic_make_request(struct bio *arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -14280,9 +14262,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_resume_5() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -14299,9 +14280,8 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) {
   return;
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -14330,16 +14310,14 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 bool __VERIFIER_nondet_bool(void);
 bool rcu_is_watching() {

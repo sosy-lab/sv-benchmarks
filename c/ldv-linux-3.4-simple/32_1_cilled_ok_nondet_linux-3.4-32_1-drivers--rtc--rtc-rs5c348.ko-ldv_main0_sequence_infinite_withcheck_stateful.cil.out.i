@@ -4199,9 +4199,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct rtc_device *rtc_device_register(const char *arg0, struct device *arg1, const struct rtc_class_ops *arg2, struct module *arg3) {
-  return (struct rtc_device *)external_alloc();
+  return ldv_malloc(sizeof(struct rtc_device));
 }
 void rtc_device_unregister(struct rtc_device *arg0) {
   return;

@@ -14012,9 +14012,8 @@ void main(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, char *arg1, struct lock_class_key *arg2) {
   return;
@@ -14084,13 +14083,11 @@ int __VERIFIER_nondet_int(void);
 int printk(char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(char *arg0, umode_t arg1, struct proc_dir_entry *arg2, struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_mkdir(char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct proc_dir_entry));
 }
 int __VERIFIER_nondet_int(void);
 int queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
@@ -14102,13 +14099,11 @@ void remove_proc_entry(char *arg0, struct proc_dir_entry *arg1) {
 void schedule() {
   return;
 }
-void *external_alloc(void);
 struct list_head *seq_list_next(void *arg0, struct list_head *arg1, loff_t *arg2) {
-  return (struct list_head *)external_alloc();
+  return ldv_malloc(sizeof(struct list_head));
 }
-void *external_alloc(void);
 struct list_head *seq_list_start(struct list_head *arg0, loff_t arg1) {
-  return (struct list_head *)external_alloc();
+  return ldv_malloc(sizeof(struct list_head));
 }
 int __VERIFIER_nondet_int(void);
 int seq_open(struct file *arg0, struct seq_operations *arg1) {
@@ -14118,9 +14113,8 @@ int __VERIFIER_nondet_int(void);
 int seq_printf(struct seq_file *arg0, char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_queue_purge(struct sk_buff_head *arg0) {
   return;

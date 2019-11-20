@@ -3185,13 +3185,11 @@ unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
-  return (struct mtd_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mtd_info));
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -3233,9 +3231,8 @@ int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2,
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

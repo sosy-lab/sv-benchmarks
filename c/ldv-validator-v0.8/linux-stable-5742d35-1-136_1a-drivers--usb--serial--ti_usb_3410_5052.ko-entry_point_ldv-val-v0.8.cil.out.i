@@ -7014,9 +7014,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -7102,9 +7101,8 @@ int tty_insert_flip_string_fixed_flag(struct tty_struct *arg0, const unsigned ch
 void tty_kref_put(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 void tty_wakeup(struct tty_struct *arg0) {
   return;
@@ -7128,9 +7126,8 @@ int usb_driver_set_configuration(struct usb_device *arg0, int arg1) {
 void usb_kill_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct usb_device_id *usb_match_id(struct usb_interface *arg0, const struct usb_device_id *arg1) {
-  return (const struct usb_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int usb_reset_device(struct usb_device *arg0) {

@@ -3742,9 +3742,8 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 struct ad7879 *ad7879_probe(struct device *arg0, u8 arg1, unsigned int arg2, const struct ad7879_bus_ops *arg3) {
-  return (struct ad7879 *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ad7879_remove(struct ad7879 *arg0) {
   return;
@@ -3753,9 +3752,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {

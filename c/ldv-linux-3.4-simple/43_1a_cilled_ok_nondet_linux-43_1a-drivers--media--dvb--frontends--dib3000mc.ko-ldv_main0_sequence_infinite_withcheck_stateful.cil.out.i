@@ -7722,9 +7722,8 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 void dibx000_exit_i2c_master(struct dibx000_i2c_master *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *arg0, enum dibx000_i2c_interface arg1, int arg2) {
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dibx000_init_i2c_master(struct dibx000_i2c_master *arg0, u16 arg1, struct i2c_adapter *arg2, u8 arg3) {
@@ -7734,9 +7733,8 @@ int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -7744,9 +7742,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void msleep(unsigned int arg0) {
   return;

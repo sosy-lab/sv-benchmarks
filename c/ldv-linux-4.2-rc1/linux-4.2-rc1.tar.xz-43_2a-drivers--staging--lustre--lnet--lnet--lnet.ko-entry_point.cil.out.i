@@ -36173,9 +36173,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void __copy_to_user_overflow() {
   return;
@@ -36224,9 +36223,8 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 void *cfs_array_alloc(int arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void cfs_array_free(void *arg0) {
   return;
@@ -36275,9 +36273,8 @@ int __VERIFIER_nondet_int(void);
 int cfs_ip_addr_parse(char *arg0, int arg1, struct list_head *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *cfs_percpt_alloc(struct cfs_cpt_table *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void cfs_percpt_free(void *arg0) {
   return;
@@ -36285,9 +36282,8 @@ void cfs_percpt_free(void *arg0) {
 void cfs_percpt_lock(struct cfs_percpt_lock *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct cfs_percpt_lock *cfs_percpt_lock_alloc(struct cfs_cpt_table *arg0) {
-  return (struct cfs_percpt_lock *)external_alloc();
+  return ldv_malloc(sizeof(struct cfs_percpt_lock));
 }
 void cfs_percpt_lock_free(struct cfs_percpt_lock *arg0) {
   return;
@@ -36309,9 +36305,8 @@ void cfs_restore_sigs(sigset_t arg0) {
 void cfs_srand(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 char *cfs_trimwhite(char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void complete(struct completion *arg0) {
   return;
@@ -36365,9 +36360,8 @@ int __VERIFIER_nondet_int(void);
 int kernel_setsockopt(struct socket *arg0, int arg1, int arg2, char *arg3, unsigned int arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 ktime_t ktime_get() {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
@@ -36381,9 +36375,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_debug_msg(struct libcfs_debug_msg_data *arg0, const char *arg1, ...) {
@@ -36393,29 +36386,24 @@ int __VERIFIER_nondet_int(void);
 int libcfs_deregister_ioctl(struct libcfs_ioctl_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *libcfs_id2str(lnet_process_id_t arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_isknown_lnd(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *libcfs_lnd2modname(int arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *libcfs_lnd2str(int arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *libcfs_net2str(__u32 arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *libcfs_nid2str(lnet_nid_t arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_register_ioctl(struct libcfs_ioctl_handler *arg0) {
@@ -36451,9 +36439,8 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct file *sock_alloc_file(struct socket *arg0, int arg1, const char *arg2) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int sock_create(int arg0, int arg1, int arg2, struct socket **arg3) {

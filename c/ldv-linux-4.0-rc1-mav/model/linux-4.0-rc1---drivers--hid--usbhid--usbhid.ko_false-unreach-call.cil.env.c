@@ -295,19 +295,17 @@ int hid_add_device(struct hid_device *arg0) {
 // Function: hid_alloc_report_buf
 // with type: u8 *hid_alloc_report_buf(struct hid_report *, gfp_t )
 // with return type: (u8 )*
-void *external_alloc(void);
 u8 *hid_alloc_report_buf(struct hid_report *arg0, gfp_t arg1) {
   // Pointer type
-  return (u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
 
 // Function: hid_allocate_device
 // with type: struct hid_device *hid_allocate_device()
 // with return type: (struct hid_device)*
-void *external_alloc(void);
 struct hid_device *hid_allocate_device() {
   // Pointer type
-  return (struct hid_device *)external_alloc();
+  return ldv_malloc(sizeof(struct hid_device));
 }
 
 // Function: hid_check_keys_pressed
@@ -391,10 +389,9 @@ int input_ff_create(struct input_dev *arg0, unsigned int arg1) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -711,10 +708,9 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *, int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_interrupt_msg

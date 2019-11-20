@@ -15820,20 +15820,17 @@ void driver_unregister(struct device_driver *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void ldv_initialize() {
   return;
@@ -15866,9 +15863,8 @@ int __VERIFIER_nondet_int(void);
 int pccard_register_pcmcia(struct pcmcia_socket *arg0, struct pcmcia_callback *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *arg0) {
-  return (struct pcmcia_socket *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_socket));
 }
 void pcmcia_parse_uevents(struct pcmcia_socket *arg0, unsigned int arg1) {
   return;

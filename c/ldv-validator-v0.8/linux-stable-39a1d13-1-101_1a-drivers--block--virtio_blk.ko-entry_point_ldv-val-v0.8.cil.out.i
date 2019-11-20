@@ -4358,13 +4358,11 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
 struct bio *bio_map_kern(struct request_queue *arg0, void *arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 void bio_put(struct bio *arg0) {
   return;
@@ -4376,13 +4374,11 @@ int __VERIFIER_nondet_int(void);
 int blk_execute_rq(struct request_queue *arg0, struct gendisk *arg1, struct request *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct request_queue *blk_init_queue(request_fn_proc *arg0, spinlock_t *arg1) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
 struct request *blk_peek_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_queue_alignment_offset(struct request_queue *arg0, unsigned int arg1) {
   return;
@@ -4437,13 +4433,11 @@ void ldv_initialize() {
 void list_del(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return ldv_malloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -4488,9 +4482,8 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_buf_gfp(struct virtqueue *arg0, struct scatterlist *arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void virtqueue_kick(struct virtqueue *arg0) {
   return;

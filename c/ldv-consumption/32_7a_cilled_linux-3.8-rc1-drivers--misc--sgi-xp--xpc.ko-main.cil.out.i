@@ -10935,9 +10935,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -10992,9 +10991,8 @@ void add_timer(struct timer_list *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct cpumask *cpumask_of_node(int arg0) {
-  return (const struct cpumask *)external_alloc();
+  return ldv_malloc(sizeof(struct cpumask));
 }
 int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
@@ -11039,9 +11037,8 @@ int gru_create_message_queue(struct gru_message_queue_desc *arg0, void *arg1, un
 void gru_free_message(struct gru_message_queue_desc *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 void *gru_get_next_message(struct gru_message_queue_desc *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int gru_send_message_gpa(struct gru_message_queue_desc *arg0, void *arg1, unsigned int arg2) {
@@ -11058,9 +11055,8 @@ int __VERIFIER_nondet_int(void);
 int is_uv_system() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_xpc_arch_ops_uv_probe_1() {
@@ -11097,9 +11093,8 @@ int __VERIFIER_nondet_int(void);
 int register_reboot_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {

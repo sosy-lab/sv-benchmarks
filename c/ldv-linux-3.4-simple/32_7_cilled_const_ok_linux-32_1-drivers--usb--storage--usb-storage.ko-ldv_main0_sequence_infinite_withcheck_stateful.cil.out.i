@@ -18812,9 +18812,8 @@ bool cancel_delayed_work_sync(struct delayed_work *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_notice(struct device *arg0, char *arg1, ...) {
@@ -18838,9 +18837,8 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void init_timer_key(struct timer_list *arg0, char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -18891,17 +18889,14 @@ void scsi_eh_prep_cmnd(struct scsi_cmnd *arg0, struct scsi_eh_save *arg1, unsign
 void scsi_eh_restore_cmnd(struct scsi_cmnd *arg0, struct scsi_eh_save *arg1) {
   return;
 }
-void *external_alloc(void);
 char *scsi_extd_sense_format(unsigned char arg0, unsigned char arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct scsi_device *scsi_get_host_dev(struct Scsi_Host *arg0) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -18926,29 +18921,24 @@ void scsi_report_device_reset(struct Scsi_Host *arg0, int arg1, int arg2) {
 void scsi_scan_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 u8 *scsi_sense_desc_find(u8 *arg0, int arg1, int arg2) {
-  return (u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
-void *external_alloc(void);
 char *scsi_sense_key_string(unsigned char arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 void usb_autopm_get_interface_no_resume(struct usb_interface *arg0) {
   return;

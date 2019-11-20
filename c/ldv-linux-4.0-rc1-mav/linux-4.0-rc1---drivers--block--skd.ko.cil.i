@@ -22132,9 +22132,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 void blk_add_request_payload(struct request *arg0, struct page *arg1, unsigned int arg2) {
   return;
@@ -22142,13 +22141,11 @@ void blk_add_request_payload(struct request *arg0, struct page *arg1, unsigned i
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
-  return (struct request_queue *)external_alloc();
+  return ldv_malloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
 struct request *blk_peek_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 void blk_queue_flush(struct request_queue *arg0, unsigned int arg1) {
   return;
@@ -22355,9 +22352,8 @@ int scsi_cmd_ioctl(struct request_queue *arg0, struct gendisk *arg1, fmode_t arg
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void unregister_blkdev(unsigned int arg0, const char *arg1) {
   return;

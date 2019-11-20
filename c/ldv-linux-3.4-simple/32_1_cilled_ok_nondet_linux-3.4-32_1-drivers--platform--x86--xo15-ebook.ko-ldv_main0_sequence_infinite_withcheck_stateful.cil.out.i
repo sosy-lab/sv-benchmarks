@@ -3875,9 +3875,8 @@ int acpi_bus_register_driver(struct acpi_driver *arg0) {
 void acpi_bus_unregister_driver(struct acpi_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *acpi_device_hid(struct acpi_device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_enable_gpe(acpi_handle arg0, u32 arg1) {

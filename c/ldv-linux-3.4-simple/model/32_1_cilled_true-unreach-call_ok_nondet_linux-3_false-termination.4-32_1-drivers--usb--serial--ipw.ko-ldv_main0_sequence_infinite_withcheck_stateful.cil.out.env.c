@@ -24,10 +24,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *src, size_t len, gfp_t gfp)
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_return_value

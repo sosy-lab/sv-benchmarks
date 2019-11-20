@@ -9,10 +9,9 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __compiletime_assert_162
@@ -151,10 +150,9 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *, int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: __raw_spin_lock_init
@@ -842,10 +840,9 @@ int xenbus_printf(struct xenbus_transaction arg0, const char *arg1, const char *
 // Function: xenbus_read
 // with type: void *xenbus_read(struct xenbus_transaction , const char *, const char *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
 void *xenbus_read(struct xenbus_transaction arg0, const char *arg1, const char *arg2, unsigned int *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: xenbus_register_frontend
@@ -869,10 +866,9 @@ int xenbus_scanf(struct xenbus_transaction arg0, const char *arg1, const char *a
 // Function: xenbus_strstate
 // with type: const char *xenbus_strstate(enum xenbus_state )
 // with return type: (const char)*
-void *external_alloc(void);
 const char *xenbus_strstate(enum xenbus_state arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: xenbus_switch_state

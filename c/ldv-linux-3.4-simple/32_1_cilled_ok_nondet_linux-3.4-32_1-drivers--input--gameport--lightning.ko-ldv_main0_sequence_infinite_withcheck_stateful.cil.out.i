@@ -2087,9 +2087,8 @@ void __gameport_register_port(struct gameport *arg0, struct module *arg1) {
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void gameport_set_phys(struct gameport *arg0, const char *arg1, ...) {
   return;

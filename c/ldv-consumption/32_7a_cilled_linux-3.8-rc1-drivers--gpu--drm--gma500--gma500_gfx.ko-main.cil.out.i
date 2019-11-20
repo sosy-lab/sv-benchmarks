@@ -38318,9 +38318,8 @@ int acpi_video_register() {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int allocate_resource(struct resource *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, resource_size_t arg4, resource_size_t arg5, resource_size_t (*arg6)(void *, const struct resource *, resource_size_t , resource_size_t ), void *arg7) {
@@ -38349,9 +38348,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -38494,9 +38492,8 @@ int __VERIFIER_nondet_int(void);
 int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
-  return (struct drm_gem_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_gem_object));
 }
 void drm_gem_object_release(struct drm_gem_object *arg0) {
   return;
@@ -38511,9 +38508,8 @@ void drm_gem_vm_close(struct vm_area_struct *arg0) {
 void drm_gem_vm_open(struct vm_area_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
-  return (struct edid *)external_alloc();
+  return ldv_malloc(sizeof(struct edid));
 }
 int __VERIFIER_nondet_int(void);
 int drm_get_pci_dev(struct pci_dev *arg0, const struct pci_device_id *arg1, struct drm_driver *arg2) {
@@ -38576,9 +38572,8 @@ int __VERIFIER_nondet_int(void);
 int drm_mode_connector_update_edid_property(struct drm_connector *arg0, struct edid *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_create(struct drm_device *arg0) {
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 int __VERIFIER_nondet_int(void);
 int drm_mode_create_scaling_mode_property(struct drm_device *arg0) {
@@ -38594,17 +38589,15 @@ void drm_mode_debug_printmodeline(const struct drm_display_mode *arg0) {
 void drm_mode_destroy(struct drm_device *arg0, struct drm_display_mode *arg1) {
   return;
 }
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_duplicate(struct drm_device *arg0, const struct drm_display_mode *arg1) {
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 uint32_t drm_mode_legacy_fb_format(uint32_t arg0, uint32_t arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
-  return (struct drm_mode_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mode_object));
 }
 void drm_mode_probed_add(struct drm_connector *arg0, struct drm_display_mode *arg1) {
   return;
@@ -38645,13 +38638,11 @@ int __VERIFIER_nondet_int(void);
 int drm_property_add_enum(struct drm_property *arg0, int arg1, uint64_t arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct drm_property *drm_property_create(struct drm_device *arg0, int arg1, const char *arg2, int arg3) {
-  return (struct drm_property *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_property));
 }
-void *external_alloc(void);
 struct drm_property *drm_property_create_range(struct drm_device *arg0, int arg1, const char *arg2, uint64_t arg3, uint64_t arg4) {
-  return (struct drm_property *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_property));
 }
 void drm_property_destroy(struct drm_device *arg0, struct drm_property *arg1) {
   return;
@@ -38691,9 +38682,8 @@ int fb_alloc_cmap(struct fb_cmap *arg0, int arg1, int arg2) {
 void fb_dealloc_cmap(struct fb_cmap *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -38721,9 +38711,8 @@ int __VERIFIER_nondet_int(void);
 int i2c_dp_aux_add_bus(struct i2c_adapter *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct i2c_adapter *i2c_get_adapter(int arg0) {
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
@@ -38736,17 +38725,14 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *ioremap_cache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -38904,17 +38890,14 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_msi_block(struct pci_dev *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void pci_restore_state(struct pci_dev *arg0) {
   return;
@@ -38982,9 +38965,8 @@ int __VERIFIER_nondet_int(void);
 int set_pages_wb(struct page *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int unregister_acpi_notifier(struct notifier_block *arg0) {
@@ -39015,9 +38997,8 @@ int __VERIFIER_nondet_int(void);
 int vm_insert_pfn(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *vmalloc_user(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1) {

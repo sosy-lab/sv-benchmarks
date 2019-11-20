@@ -5610,9 +5610,8 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct net_device *init_airo_card(unsigned short arg0, int arg1, int arg2, struct device *arg3) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void ldv_check_return_value(int arg0) {
   return;

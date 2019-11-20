@@ -4031,9 +4031,8 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int cpci_hp_register_bus(struct pci_bus *arg0, u8 arg1, u8 arg2) {
@@ -4059,9 +4058,8 @@ int __VERIFIER_nondet_int(void);
 int cpci_hp_unregister_controller(struct cpci_hp_controller *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -4069,20 +4067,17 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_bus *pci_find_bus(int arg0, int arg1) {
-  return (struct pci_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_bus));
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_slot(struct pci_bus *arg0, unsigned int arg1) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

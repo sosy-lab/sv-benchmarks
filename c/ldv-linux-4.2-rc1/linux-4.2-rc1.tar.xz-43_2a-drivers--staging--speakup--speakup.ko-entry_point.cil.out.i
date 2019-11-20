@@ -16041,13 +16041,11 @@ u16 inverse_translate(struct vc_data *arg0, int arg1, int arg2) {
 void kd_mksound(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
-  return (struct kobject *)external_alloc();
+  return ldv_malloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
@@ -16056,9 +16054,8 @@ int __VERIFIER_nondet_int(void);
 int kstrtoll(const char *arg0, unsigned int arg1, long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -16080,9 +16077,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int misc_deregister(struct miscdevice *arg0) {
@@ -16158,9 +16154,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *skip_spaces(const char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void start_tty(struct tty_struct *arg0) {
   return;
@@ -16197,9 +16192,8 @@ void tty_kref_put(struct tty_struct *arg0) {
 void tty_ldisc_deref(struct tty_ldisc *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_ldisc *tty_ldisc_ref_wait(struct tty_struct *arg0) {
-  return (struct tty_ldisc *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_ldisc));
 }
 int __VERIFIER_nondet_int(void);
 int unregister_keyboard_notifier(struct notifier_block *arg0) {

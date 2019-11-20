@@ -4355,9 +4355,8 @@ int __VERIFIER_nondet_int(void);
 int _cond_resched() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct mtd_info *get_mtd_device(struct mtd_info *arg0, int arg1) {
-  return (struct mtd_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mtd_info));
 }
 void ldv_initialize() {
   return;

@@ -31,10 +31,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -113,10 +112,9 @@ int regulator_enable(struct regulator *arg0) {
 // Function: regulator_get
 // with type: struct regulator *regulator_get(struct device *dev, const char *id)
 // with return type: (struct regulator)*
-void *external_alloc(void);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: regulator_get_mode

@@ -22372,9 +22372,8 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -22409,9 +22408,8 @@ unsigned long int __phys_addr(unsigned long arg0) {
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -22428,13 +22426,11 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
-  return (struct blk_queue_tag *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_queue_tag));
 }
-void *external_alloc(void);
 struct request *blk_mq_tag_to_rq(struct blk_mq_tags *arg0, unsigned int arg1) {
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 blk_mq_unique_tag(struct request *arg0) {
@@ -22507,37 +22503,30 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 void get_random_bytes(void *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct ib_mr *ib_alloc_fast_reg_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mr));
 }
-void *external_alloc(void);
 struct ib_fast_reg_page_list *ib_alloc_fast_reg_page_list(struct ib_device *arg0, int arg1) {
-  return (struct ib_fast_reg_page_list *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_fast_reg_page_list));
 }
-void *external_alloc(void);
 struct ib_pd *ib_alloc_pd(struct ib_device *arg0) {
-  return (struct ib_pd *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_pd));
 }
 int __VERIFIER_nondet_int(void);
 int ib_cm_init_qp_attr(struct ib_cm_id *arg0, struct ib_qp_attr *arg1, int *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_cm_id *ib_create_cm_id(struct ib_device *arg0, int (*arg1)(struct ib_cm_id *, struct ib_cm_event *), void *arg2) {
-  return (struct ib_cm_id *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_cm_id));
 }
-void *external_alloc(void);
 struct ib_cq *ib_create_cq(struct ib_device *arg0, void (*arg1)(struct ib_cq *, void *), void (*arg2)(struct ib_event *, void *), void *arg3, int arg4, int arg5) {
-  return (struct ib_cq *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_cq));
 }
-void *external_alloc(void);
 struct ib_fmr_pool *ib_create_fmr_pool(struct ib_pd *arg0, struct ib_fmr_pool_param *arg1) {
-  return (struct ib_fmr_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct ib_qp *ib_create_qp(struct ib_pd *arg0, struct ib_qp_init_attr *arg1) {
-  return (struct ib_qp *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_qp));
 }
 int __VERIFIER_nondet_int(void);
 int ib_dealloc_pd(struct ib_pd *arg0) {
@@ -22565,9 +22554,8 @@ int __VERIFIER_nondet_int(void);
 int ib_find_pkey(struct ib_device *arg0, u8 arg1, u16 arg2, u16 *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_pool_fmr *ib_fmr_pool_map_phys(struct ib_fmr_pool *arg0, u64 *arg1, int arg2, u64 arg3) {
-  return (struct ib_pool_fmr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_pool_fmr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_fmr_pool_unmap(struct ib_pool_fmr *arg0) {
@@ -22576,13 +22564,11 @@ int ib_fmr_pool_unmap(struct ib_pool_fmr *arg0) {
 void ib_free_fast_reg_page_list(struct ib_fast_reg_page_list *arg0) {
   return;
 }
-void *external_alloc(void);
 void *ib_get_client_data(struct ib_device *arg0, struct ib_client *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct ib_mr *ib_get_dma_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_mr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_modify_qp(struct ib_qp *arg0, struct ib_qp_attr *arg1, int arg2) {
@@ -22632,9 +22618,8 @@ void ib_set_client_data(struct ib_device *arg0, struct ib_client *arg1, void *ar
 void ib_unregister_client(struct ib_client *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoint(const char *arg0, unsigned int arg1, int *arg2) {
@@ -22663,9 +22648,8 @@ int __VERIFIER_nondet_int(void);
 int match_int(substring_t *arg0, int *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *match_strdup(const substring_t *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
@@ -22691,13 +22675,11 @@ int __VERIFIER_nondet_int(void);
 int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_get(struct Scsi_Host *arg0) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -22708,17 +22690,15 @@ void scsi_remove_host(struct Scsi_Host *arg0) {
 void scsi_scan_target(struct device *arg0, unsigned int arg1, unsigned int arg2, u64 arg3, int arg4) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long long int simple_strtoull(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct scsi_transport_template *srp_attach_transport(struct srp_function_template *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int srp_reconnect_rport(struct srp_rport *arg0) {
@@ -22730,9 +22710,8 @@ void srp_release_transport(struct scsi_transport_template *arg0) {
 void srp_remove_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct srp_rport *srp_rport_add(struct Scsi_Host *arg0, struct srp_rport_identifiers *arg1) {
-  return (struct srp_rport *)external_alloc();
+  return ldv_malloc(sizeof(struct srp_rport));
 }
 void srp_rport_get(struct srp_rport *arg0) {
   return;
@@ -22754,9 +22733,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void wait_for_completion(struct completion *arg0) {
   return;

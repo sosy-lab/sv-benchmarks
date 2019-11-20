@@ -22090,13 +22090,11 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -22169,52 +22167,41 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_gen_syndrome(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, struct async_submit_ctl *arg4) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_memcpy(struct page *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3, size_t arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_raid6_2data_recov(int arg0, size_t arg1, int arg2, int arg3, struct page **arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_raid6_datap_recov(int arg0, size_t arg1, int arg2, struct page **arg3, struct async_submit_ctl *arg4) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_syndrome_val(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, enum sum_check_flags *arg4, struct page *arg5, struct async_submit_ctl *arg6) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_trigger_callback(struct async_submit_ctl *arg0) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
 void async_tx_quiesce(struct dma_async_tx_descriptor **arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_xor(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 struct dma_async_tx_descriptor *async_xor_val(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, enum sum_check_flags *arg5, struct async_submit_ctl *arg6) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 struct bio *bio_clone_mddev(struct bio *arg0, gfp_t arg1, struct mddev *arg2) {
-  return (struct bio *)external_alloc();
+  return ldv_malloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -22255,9 +22242,8 @@ int bitmap_startwrite(struct bitmap *arg0, sector_t arg1, unsigned long arg2, in
 void bitmap_unplug(struct bitmap *arg0) {
   return;
 }
-void *external_alloc(void);
 struct blk_plug_cb *blk_check_plugged(void (*arg0)(struct blk_plug_cb *, bool ), void *arg1, int arg2) {
-  return (struct blk_plug_cb *)external_alloc();
+  return ldv_malloc(sizeof(struct blk_plug_cb));
 }
 void blk_finish_plug(struct blk_plug *arg0) {
   return;
@@ -22301,16 +22287,14 @@ unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, u
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct flex_array *flex_array_alloc(int arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct flex_array *)external_alloc();
+  return ldv_malloc(sizeof(struct flex_array));
 }
 void flex_array_free(struct flex_array *arg0) {
   return;
 }
-void *external_alloc(void);
 void *flex_array_get(struct flex_array *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int flex_array_prealloc(struct flex_array *arg0, unsigned int arg1, unsigned int arg2, gfp_t arg3) {
@@ -22334,13 +22318,11 @@ void get_online_cpus() {
 void kernfs_notify(struct kernfs_node *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -22374,9 +22356,8 @@ bool __VERIFIER_nondet_bool(void);
 bool llist_add_batch(struct llist_node *arg0, struct llist_node *arg1, struct llist_head *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct llist_node *llist_reverse_order(struct llist_node *arg0) {
-  return (struct llist_node *)external_alloc();
+  return ldv_malloc(sizeof(struct llist_node));
 }
 void lock_acquire(struct lockdep_map *arg0, unsigned int arg1, int arg2, int arg3, int arg4, struct lockdep_map *arg5, unsigned long arg6) {
   return;
@@ -22417,9 +22398,8 @@ int md_is_badblock(struct badblocks *arg0, sector_t arg1, int arg2, sector_t *ar
 void md_new_event(struct mddev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
-  return (struct md_thread *)external_alloc();
+  return ldv_malloc(sizeof(struct md_thread));
 }
 void md_set_array_sectors(struct mddev *arg0, sector_t arg1) {
   return;

@@ -140,10 +140,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_libipw
 // with type: struct net_device *alloc_libipw(int, int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *alloc_libipw(int arg0, int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -213,10 +212,9 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_free_attrs
@@ -367,10 +365,9 @@ void iowrite8(u8 arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kstrtouint
@@ -437,10 +434,9 @@ int ldv_resume_early_9() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: ldv_suspend_late_9
@@ -464,10 +460,9 @@ int libipw_change_mtu(struct net_device *arg0, int arg1) {
 // Function: libipw_get_geo
 // with type: const struct libipw_geo *libipw_get_geo(struct libipw_device *)
 // with return type: (struct libipw_geo)*
-void *external_alloc(void);
 const struct libipw_geo *libipw_get_geo(struct libipw_device *arg0) {
   // Pointer type
-  return (const struct libipw_geo *)external_alloc();
+  return ldv_malloc(sizeof(struct libipw_geo));
 }
 
 // Function: libipw_networks_age

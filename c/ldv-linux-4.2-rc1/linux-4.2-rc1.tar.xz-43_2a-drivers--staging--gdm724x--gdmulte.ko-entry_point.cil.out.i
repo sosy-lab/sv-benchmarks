@@ -11075,9 +11075,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
@@ -11085,13 +11084,11 @@ void __init_work(struct work_struct *arg0, int arg1) {
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sock *__netlink_kernel_create(struct net *arg0, int arg1, struct module *arg2, struct netlink_kernel_cfg *arg3) {
-  return (struct sock *)external_alloc();
+  return ldv_malloc(sizeof(struct sock));
 }
-void *external_alloc(void);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
-  return (struct nlmsghdr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlmsghdr));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -11102,9 +11099,8 @@ void _dev_info(const struct device *arg0, const char *arg1, ...) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void consume_skb(struct sk_buff *arg0) {
   return;
@@ -11115,9 +11111,8 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct net_device *dev_get_by_index(struct net *arg0, int arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
@@ -11145,9 +11140,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_uninit_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -11204,9 +11198,8 @@ int __VERIFIER_nondet_int(void);
 int register_netdev(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -11239,9 +11232,8 @@ void usb_enable_autosuspend(struct usb_device *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;

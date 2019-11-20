@@ -17,19 +17,17 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -51,10 +49,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -182,10 +179,9 @@ int ubi_leb_write(struct ubi_volume_desc *arg0, int arg1, const void *arg2, int 
 // Function: ubi_open_volume
 // with type: struct ubi_volume_desc *ubi_open_volume(int, int, int)
 // with return type: (struct ubi_volume_desc)*
-void *external_alloc(void);
 struct ubi_volume_desc *ubi_open_volume(int arg0, int arg1, int arg2) {
   // Pointer type
-  return (struct ubi_volume_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ubi_register_volume_notifier

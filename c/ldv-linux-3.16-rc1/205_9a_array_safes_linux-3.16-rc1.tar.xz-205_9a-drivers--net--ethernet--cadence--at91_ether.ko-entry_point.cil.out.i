@@ -7189,13 +7189,11 @@ void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, siz
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_ioremap(struct device *arg0, resource_size_t arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -7238,9 +7236,8 @@ int ldv_probe_1() {
 void macb_get_hwaddr(struct macb *arg0) {
   return;
 }
-void *external_alloc(void);
 struct net_device_stats *macb_get_stats(struct net_device *arg0) {
-  return (struct net_device_stats *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device_stats));
 }
 int __VERIFIER_nondet_int(void);
 int macb_ioctl(struct net_device *arg0, struct ifreq *arg1, int arg2) {
@@ -7296,9 +7293,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

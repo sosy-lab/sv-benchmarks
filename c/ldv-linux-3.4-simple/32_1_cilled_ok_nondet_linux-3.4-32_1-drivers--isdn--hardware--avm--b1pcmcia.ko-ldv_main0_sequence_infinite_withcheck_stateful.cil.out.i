@@ -1909,9 +1909,8 @@ int __VERIFIER_nondet_int(void);
 int attach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 avmcard *b1_alloc_card(int arg0) {
-  return (avmcard *)external_alloc();
+  return ldv_malloc(sizeof(avmcard));
 }
 int __VERIFIER_nondet_int(void);
 int b1_detect(unsigned int arg0, enum avmcardtype arg1) {

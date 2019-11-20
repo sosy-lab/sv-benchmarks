@@ -7946,16 +7946,14 @@ unsigned long int get_state_synchronize_rcu() {
 void init_rcu_head_on_stack(struct callback_head *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void kthread_bind(struct task_struct *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -8007,9 +8005,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_setup_8() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -8182,9 +8179,8 @@ int __VERIFIER_nondet_int(void);
 int torture_onoff_init(long arg0, long arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *torture_onoff_stats(char *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int torture_random(struct torture_random_state *arg0) {

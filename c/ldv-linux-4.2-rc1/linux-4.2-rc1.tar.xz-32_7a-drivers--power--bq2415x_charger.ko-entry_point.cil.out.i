@@ -8466,9 +8466,8 @@ void __init_work(struct work_struct *arg0, int arg1) {
 void _dev_info(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
-  return (const struct acpi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct acpi_device_id));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -8481,9 +8480,8 @@ int __VERIFIER_nondet_int(void);
 int device_property_read_u32_array(struct device *arg0, const char *arg1, u32 *arg2, size_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
@@ -8509,9 +8507,8 @@ void idr_remove(struct idr *arg0, int arg1) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoll(const char *arg0, unsigned int arg1, long long *arg2) {
@@ -8533,17 +8530,14 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 struct power_supply *power_supply_get_by_name(const char *arg0) {
-  return (struct power_supply *)external_alloc();
+  return ldv_malloc(sizeof(struct power_supply));
 }
-void *external_alloc(void);
 struct power_supply *power_supply_get_by_phandle(struct device_node *arg0, const char *arg1) {
-  return (struct power_supply *)external_alloc();
+  return ldv_malloc(sizeof(struct power_supply));
 }
-void *external_alloc(void);
 void *power_supply_get_drvdata(struct power_supply *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int power_supply_get_property(struct power_supply *arg0, enum power_supply_property arg1, union power_supply_propval *arg2) {
@@ -8556,9 +8550,8 @@ int __VERIFIER_nondet_int(void);
 int power_supply_reg_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct power_supply *power_supply_register(struct device *arg0, const struct power_supply_desc *arg1, const struct power_supply_config *arg2) {
-  return (struct power_supply *)external_alloc();
+  return ldv_malloc(sizeof(struct power_supply));
 }
 void power_supply_unreg_notifier(struct notifier_block *arg0) {
   return;

@@ -48039,13 +48039,11 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nfs_open_context *alloc_nfs_open_context(struct dentry *arg0, fmode_t arg1) {
-  return (struct nfs_open_context *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_open_context));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int allow_signal(int arg0) {
@@ -48089,9 +48087,8 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *dget_parent(struct dentry *arg0) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void down_read(struct rw_semaphore *arg0) {
   return;
@@ -48132,13 +48129,11 @@ bool __VERIFIER_nondet_bool(void);
 bool freezing_slow_path(struct task_struct *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct nfs_open_context *get_nfs_open_context(struct nfs_open_context *arg0) {
-  return (struct nfs_open_context *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_open_context));
 }
-void *external_alloc(void);
 struct gss_api_mech *gss_mech_get_by_OID(struct xdr_netobj *arg0) {
-  return (struct gss_api_mech *)external_alloc();
+  return ldv_malloc(sizeof(struct gss_api_mech));
 }
 void gss_mech_put(struct gss_api_mech *arg0) {
   return;
@@ -48165,9 +48160,8 @@ int ida_simple_get(struct ida *arg0, unsigned int arg1, unsigned int arg2, gfp_t
 void ida_simple_remove(struct ida *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 void *idr_find(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int idr_get_new(struct idr *arg0, void *arg1, int *arg2) {
@@ -48177,13 +48171,11 @@ int __VERIFIER_nondet_int(void);
 int idr_pre_get(struct idr *arg0, gfp_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *idr_replace(struct idr *arg0, void *arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct inode *igrab(struct inode *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 void ihold(struct inode *arg0) {
   return;
@@ -48211,16 +48203,14 @@ int __VERIFIER_nondet_int(void);
 int key_validate(const struct key *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct key *keyring_alloc(const char *arg0, kuid_t arg1, kgid_t arg2, const struct cred *arg3, key_perm_t arg4, unsigned long arg5, struct key *arg6) {
-  return (struct key *)external_alloc();
+  return ldv_malloc(sizeof(struct key));
 }
 void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_head *)) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoll(const char *arg0, unsigned int arg1, long long *arg2) {
@@ -48230,9 +48220,8 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -48298,9 +48287,8 @@ bool mod_delayed_work(struct workqueue_struct *arg0, struct delayed_work *arg1, 
 void module_put(struct module *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *mount_subtree(struct vfsmount *arg0, const char *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void msleep(unsigned int arg0) {
   return;
@@ -48324,21 +48312,17 @@ void nfs_access_set_mask(struct nfs_access_entry *arg0, u32 arg1) {
 void nfs_access_zap_cache(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *arg0) {
-  return (struct nfs_client *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_client));
 }
-void *external_alloc(void);
 struct nfs_fattr *nfs_alloc_fattr() {
-  return (struct nfs_fattr *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_fattr));
 }
-void *external_alloc(void);
 struct nfs_fh *nfs_alloc_fhandle() {
-  return (struct nfs_fh *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_fh));
 }
-void *external_alloc(void);
 struct nfs_server *nfs_alloc_server() {
-  return (struct nfs_server *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_server));
 }
 void nfs_clear_inode(struct inode *arg0) {
   return;
@@ -48351,9 +48335,8 @@ long __VERIFIER_nondet_long(void);
 ssize_t nfs_dns_resolve_name(struct net *arg0, char *arg1, size_t arg2, struct sockaddr *arg3, size_t arg4) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct vfsmount *nfs_do_submount(struct dentry *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2, rpc_authflavor_t arg3) {
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t nfs_dreq_bytes_left(struct nfs_direct_req *arg0) {
@@ -48362,9 +48345,8 @@ ssize_t nfs_dreq_bytes_left(struct nfs_direct_req *arg0) {
 void nfs_fattr_init(struct nfs_fattr *arg0) {
   return;
 }
-void *external_alloc(void);
 struct inode *nfs_fhget(struct super_block *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int nfs_file_fsync_commit(struct file *arg0, loff_t arg1, loff_t arg2, int arg3) {
@@ -48382,9 +48364,8 @@ void nfs_free_client(struct nfs_client *arg0) {
 void nfs_free_server(struct nfs_server *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dentry *nfs_fs_mount_common(struct nfs_server *arg0, int arg1, const char *arg2, struct nfs_mount_info *arg3, struct nfs_subversion *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void nfs_fscache_set_inode_cookie(struct inode *arg0, struct file *arg1) {
   return;
@@ -48401,9 +48382,8 @@ bool __VERIFIER_nondet_bool(void);
 bool nfs_generic_pg_test(struct nfs_pageio_descriptor *arg0, struct nfs_page *arg1, struct nfs_page *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct nfs_client *nfs_get_client(const struct nfs_client_initdata *arg0, const struct rpc_timeout *arg1, const char *arg2, rpc_authflavor_t arg3) {
-  return (struct nfs_client *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_client));
 }
 int __VERIFIER_nondet_int(void);
 int nfs_init_server_rpcclient(struct nfs_server *arg0, const struct rpc_timeout *arg1, rpc_authflavor_t arg2) {
@@ -48448,9 +48428,8 @@ void nfs_pageio_reset_read_mds(struct nfs_pageio_descriptor *arg0) {
 void nfs_pageio_reset_write_mds(struct nfs_pageio_descriptor *arg0) {
   return;
 }
-void *external_alloc(void);
 char *nfs_path(char **arg0, struct dentry *arg1, char *arg2, ssize_t arg3, unsigned int arg4) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void nfs_pgheader_init(struct nfs_pageio_descriptor *arg0, struct nfs_pgio_header *arg1, void (*arg2)(struct nfs_pgio_header *)) {
   return;
@@ -48473,9 +48452,8 @@ void nfs_put_client(struct nfs_client *arg0) {
 void nfs_readdata_release(struct nfs_read_data *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nfs_read_header *nfs_readhdr_alloc() {
-  return (struct nfs_read_header *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_read_header));
 }
 void nfs_readhdr_free(struct nfs_pgio_header *arg0) {
   return;
@@ -48525,9 +48503,8 @@ int nfs_write_inode(struct inode *arg0, struct writeback_control *arg1) {
 void nfs_writedata_release(struct nfs_write_data *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nfs_write_header *nfs_writehdr_alloc() {
-  return (struct nfs_write_header *)external_alloc();
+  return ldv_malloc(sizeof(struct nfs_write_header));
 }
 void nfs_writehdr_free(struct nfs_pgio_header *arg0) {
   return;
@@ -48543,17 +48520,15 @@ int __VERIFIER_nondet_int(void);
 int out_of_line_wait_on_bit_lock(void *arg0, int arg1, int (*arg2)(void *), unsigned int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 const struct cred *override_creds(const struct cred *arg0) {
-  return (const struct cred *)external_alloc();
+  return ldv_malloc(sizeof(struct cred));
 }
 int __VERIFIER_nondet_int(void);
 int posix_lock_file_wait(struct file *arg0, struct file_lock *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct cred *prepare_kernel_cred(struct task_struct *arg0) {
-  return (struct cred *)external_alloc();
+  return ldv_malloc(sizeof(struct cred));
 }
 void prepare_to_wait(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
   return;
@@ -48574,16 +48549,14 @@ void put_rpccred(struct rpc_cred *arg0) {
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return ldv_malloc(sizeof(struct rb_node));
 }
 int __VERIFIER_nondet_int(void);
 int rcu_is_cpu_idle() {
@@ -48600,17 +48573,14 @@ int register_key_type(struct key_type *arg0) {
 void register_nfs_version(struct nfs_subversion *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
-void *external_alloc(void);
 struct key *request_key(struct key_type *arg0, const char *arg1, const char *arg2) {
-  return (struct key *)external_alloc();
+  return ldv_malloc(sizeof(struct key));
 }
-void *external_alloc(void);
 struct key *request_key_with_auxdata(struct key_type *arg0, const char *arg1, const void *arg2, size_t arg3, void *arg4) {
-  return (struct key *)external_alloc();
+  return ldv_malloc(sizeof(struct key));
 }
 void revert_creds(const struct cred *arg0) {
   return;
@@ -48626,13 +48596,11 @@ int __VERIFIER_nondet_int(void);
 int rpc_call_sync(struct rpc_clnt *arg0, const struct rpc_message *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rpc_clnt *rpc_clone_client(struct rpc_clnt *arg0) {
-  return (struct rpc_clnt *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_clnt));
 }
-void *external_alloc(void);
 struct rpc_clnt *rpc_clone_client_set_auth(struct rpc_clnt *arg0, rpc_authflavor_t arg1) {
-  return (struct rpc_clnt *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_clnt));
 }
 void rpc_delay(struct rpc_task *arg0, unsigned long arg1) {
   return;
@@ -48646,9 +48614,8 @@ void rpc_destroy_wait_queue(struct rpc_wait_queue *arg0) {
 void rpc_exit(struct rpc_task *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct super_block *rpc_get_sb_net(const struct net *arg0) {
-  return (struct super_block *)external_alloc();
+  return ldv_malloc(sizeof(struct super_block));
 }
 void rpc_init_priority_wait_queue(struct rpc_wait_queue *arg0, const char *arg1) {
   return;
@@ -48660,25 +48627,21 @@ int __VERIFIER_nondet_int(void);
 int rpc_localaddr(struct rpc_clnt *arg0, struct sockaddr *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *arg0, int arg1) {
-  return (struct rpc_pipe *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_pipe));
 }
-void *external_alloc(void);
 struct dentry *rpc_mkpipe_dentry(struct dentry *arg0, const char *arg1, void *arg2, struct rpc_pipe *arg3) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct net *rpc_net_ns(struct rpc_clnt *arg0) {
-  return (struct net *)external_alloc();
+  return ldv_malloc(sizeof(struct net));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t rpc_ntop(const struct sockaddr *arg0, char *arg1, const size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 const char *rpc_peeraddr2str(struct rpc_clnt *arg0, enum rpc_display_format_t arg1) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int rpc_pipefs_notifier_register(struct notifier_block *arg0) {
@@ -48720,9 +48683,8 @@ int __VERIFIER_nondet_int(void);
 int rpc_rmdir(struct dentry *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct rpc_task *rpc_run_task(const struct rpc_task_setup *arg0) {
-  return (struct rpc_task *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_task));
 }
 void rpc_shutdown_client(struct rpc_clnt *arg0) {
   return;
@@ -48740,16 +48702,14 @@ int rpc_unlink(struct dentry *arg0) {
 void rpc_wake_up(struct rpc_wait_queue *arg0) {
   return;
 }
-void *external_alloc(void);
 struct rpc_task *rpc_wake_up_first(struct rpc_wait_queue *arg0, bool (*arg1)(struct rpc_task *, void *), void *arg2) {
-  return (struct rpc_task *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_task));
 }
 void rpc_wake_up_queued_task(struct rpc_wait_queue *arg0, struct rpc_task *arg1) {
   return;
 }
-void *external_alloc(void);
 struct rpc_auth *rpcauth_create(rpc_authflavor_t arg0, struct rpc_clnt *arg1) {
-  return (struct rpc_auth *)external_alloc();
+  return ldv_malloc(sizeof(struct rpc_auth));
 }
 int __VERIFIER_nondet_int(void);
 int rpcauth_list_flavors(rpc_authflavor_t *arg0, int arg1) {
@@ -48782,9 +48742,8 @@ int __VERIFIER_nondet_int(void);
 int svc_bind(struct svc_serv *arg0, struct net *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct svc_serv *svc_create(struct svc_program *arg0, unsigned int arg1, void (*arg2)(struct svc_serv *, struct net *)) {
-  return (struct svc_serv *)external_alloc();
+  return ldv_malloc(sizeof(struct svc_serv));
 }
 int __VERIFIER_nondet_int(void);
 int svc_create_xprt(struct svc_serv *arg0, const char *arg1, struct net *arg2, const int arg3, const unsigned short arg4, int arg5) {
@@ -48796,9 +48755,8 @@ void svc_destroy(struct svc_serv *arg0) {
 void svc_exit_thread(struct svc_rqst *arg0) {
   return;
 }
-void *external_alloc(void);
 struct svc_rqst *svc_prepare_thread(struct svc_serv *arg0, struct svc_pool *arg1, int arg2) {
-  return (struct svc_rqst *)external_alloc();
+  return ldv_malloc(sizeof(struct svc_rqst));
 }
 int __VERIFIER_nondet_int(void);
 int svc_process(struct svc_rqst *arg0) {
@@ -48848,9 +48806,8 @@ void up_read(struct rw_semaphore *arg0) {
 void up_write(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
 struct vfsmount *vfs_kern_mount(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3) {
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 int __VERIFIER_nondet_int(void);
 int wait_for_completion_interruptible(struct completion *arg0) {
@@ -48869,13 +48826,11 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *external_alloc(void);
 __be32 *xdr_encode_opaque(__be32 *arg0, const void *arg1, unsigned int arg2) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
-void *external_alloc(void);
 __be32 *xdr_encode_opaque_fixed(__be32 *arg0, const void *arg1, unsigned int arg2) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 void xdr_enter_page(struct xdr_stream *arg0, unsigned int arg1) {
   return;
@@ -48886,9 +48841,8 @@ void xdr_init_decode(struct xdr_stream *arg0, struct xdr_buf *arg1, __be32 *arg2
 void xdr_init_encode(struct xdr_stream *arg0, struct xdr_buf *arg1, __be32 *arg2) {
   return;
 }
-void *external_alloc(void);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 void xdr_inline_pages(struct xdr_buf *arg0, unsigned int arg1, struct page **arg2, unsigned int arg3, unsigned int arg4) {
   return;
@@ -48897,9 +48851,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int xdr_read_pages(struct xdr_stream *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return ldv_malloc(sizeof(__be32));
 }
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;

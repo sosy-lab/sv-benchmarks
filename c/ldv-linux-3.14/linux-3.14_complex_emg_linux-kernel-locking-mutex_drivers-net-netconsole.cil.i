@@ -10508,9 +10508,8 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void config_group_init(struct config_group *arg0) {
   return;
 }
-void *external_alloc(void);
 struct config_item *config_item_get(struct config_item *arg0) {
-  return (struct config_item *)external_alloc();
+  return ldv_malloc(sizeof(struct config_item));
 }
 void config_item_init_type_name(struct config_item *arg0, const char *arg1, struct config_item_type *arg2) {
   return;
@@ -10589,17 +10588,15 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *strnchr(const char *arg0, size_t arg1, int arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int unregister_console(struct console *arg0) {

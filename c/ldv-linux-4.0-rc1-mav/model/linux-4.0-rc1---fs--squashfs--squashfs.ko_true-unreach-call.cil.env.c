@@ -9,10 +9,9 @@
 // Function: __bread_gfp
 // with type: struct buffer_head *__bread_gfp(struct block_device *, sector_t , unsigned int, gfp_t )
 // with return type: (struct buffer_head)*
-void *external_alloc(void);
 struct buffer_head *__bread_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct buffer_head *)external_alloc();
+  return ldv_malloc(sizeof(struct buffer_head));
 }
 
 // Function: __compiletime_assert_100
@@ -50,10 +49,9 @@ void __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
 // Function: __getblk_gfp
 // with type: struct buffer_head *__getblk_gfp(struct block_device *, sector_t , unsigned int, gfp_t )
 // with return type: (struct buffer_head)*
-void *external_alloc(void);
 struct buffer_head *__getblk_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct buffer_head *)external_alloc();
+  return ldv_malloc(sizeof(struct buffer_head));
 }
 
 // Function: __init_waitqueue_head
@@ -131,10 +129,9 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 // Function: bdevname
 // with type: const char *bdevname(struct block_device *, char *)
 // with return type: (const char)*
-void *external_alloc(void);
 const char *bdevname(struct block_device *arg0, char *arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: calloc
@@ -153,28 +150,25 @@ bool capable(int arg0) {
 // Function: d_make_root
 // with type: struct dentry *d_make_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_make_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_obtain_alias
 // with type: struct dentry *d_obtain_alias(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_obtain_alias(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_splice_alias
 // with type: struct dentry *d_splice_alias(struct inode *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_splice_alias(struct inode *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: default_llseek
@@ -250,10 +244,9 @@ void iget_failed(struct inode *arg0) {
 // Function: iget_locked
 // with type: struct inode *iget_locked(struct super_block *, unsigned long)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *iget_locked(struct super_block *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: init_special_inode
@@ -293,10 +286,9 @@ void kill_block_super(struct super_block *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kmem_cache_destroy
@@ -394,28 +386,25 @@ kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
 // Function: mount_bdev
 // with type: struct dentry *mount_bdev(struct file_system_type *, int, const char *, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *mount_bdev(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3, int (*arg4)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: page_follow_link_light
 // with type: void *page_follow_link_light(struct dentry *, struct nameidata *)
 // with return type: (void)*
-void *external_alloc(void);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: page_put_link
@@ -429,10 +418,9 @@ void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
 // Function: pagecache_get_page
 // with type: struct page *pagecache_get_page(struct address_space *, unsigned long, int, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: prepare_to_wait_event
@@ -556,10 +544,9 @@ void xz_dec_end(struct xz_dec *arg0) {
 // Function: xz_dec_init
 // with type: struct xz_dec *xz_dec_init(enum xz_mode , uint32_t )
 // with return type: (struct xz_dec)*
-void *external_alloc(void);
 struct xz_dec *xz_dec_init(enum xz_mode arg0, uint32_t arg1) {
   // Pointer type
-  return (struct xz_dec *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: xz_dec_reset

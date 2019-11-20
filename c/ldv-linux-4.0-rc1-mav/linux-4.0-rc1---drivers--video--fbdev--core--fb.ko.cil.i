@@ -21220,9 +21220,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void console_lock() {
   return;
@@ -21238,9 +21237,8 @@ long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -21259,9 +21257,8 @@ int fb_deferred_io_fsync(struct file *arg0, loff_t arg1, loff_t arg2, int arg3) 
 void fb_deferred_io_open(struct fb_info *arg0, struct inode *arg1, struct file *arg2) {
   return;
 }
-void *external_alloc(void);
 const struct linux_logo *fb_find_logo(int arg0) {
-  return (const struct linux_logo *)external_alloc();
+  return ldv_malloc(sizeof(struct linux_logo));
 }
 int __VERIFIER_nondet_int(void);
 int fb_is_primary_device(struct fb_info *arg0) {
@@ -21297,9 +21294,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void remove_proc_entry(const char *arg0, struct proc_dir_entry *arg1) {
   return;

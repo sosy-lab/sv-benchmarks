@@ -78,10 +78,9 @@ int comedi_get_n_channels(struct comedi_device *arg0, unsigned int arg1) {
 // Function: comedi_open
 // with type: struct comedi_device *comedi_open(const char *)
 // with return type: (struct comedi_device)*
-void *external_alloc(void);
 struct comedi_device *comedi_open(const char *arg0) {
   // Pointer type
-  return (struct comedi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct comedi_device));
 }
 
 // Skip function: kfree
@@ -89,10 +88,9 @@ struct comedi_device *comedi_open(const char *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -114,10 +112,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc

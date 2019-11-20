@@ -17683,17 +17683,15 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct neighbour *__neigh_create(struct neigh_table *arg0, const void *arg1, struct net_device *arg2, bool arg3) {
-  return (struct neighbour *)external_alloc();
+  return ldv_malloc(sizeof(struct neighbour));
 }
 int __VERIFIER_nondet_int(void);
 int __neigh_event_send(struct neighbour *arg0, struct sk_buff *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -17758,9 +17756,8 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -17796,9 +17793,8 @@ void free_netdev(struct net_device *arg0) {
 void get_random_bytes(void *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -17859,9 +17855,8 @@ void netdev_err(const struct net_device *arg0, const char *arg1, ...) {
 void netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct net_device *netdev_master_upper_dev_get(struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 void netdev_warn(const struct net_device *arg0, const char *arg1, ...) {
   return;

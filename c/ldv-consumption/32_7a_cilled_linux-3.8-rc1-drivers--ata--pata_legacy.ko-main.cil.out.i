@@ -6775,16 +6775,14 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
@@ -6796,13 +6794,11 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void async_synchronize_full() {
   return;
 }
-void *external_alloc(void);
 struct ata_device *ata_dev_next(struct ata_device *arg0, struct ata_link *arg1, enum ata_dev_iter_mode arg2) {
-  return (struct ata_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_device));
 }
-void *external_alloc(void);
 struct ata_device *ata_dev_pair(struct ata_device *arg0) {
-  return (struct ata_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_device));
 }
 int __VERIFIER_nondet_int(void);
 int ata_dev_printk(const struct ata_device *arg0, const char *arg1, const char *arg2, ...) {
@@ -6812,9 +6808,8 @@ int __VERIFIER_nondet_int(void);
 int ata_host_activate(struct ata_host *arg0, int arg1, irqreturn_t (*arg2)(int, void *), unsigned long arg3, struct scsi_host_template *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ata_host *ata_host_alloc(struct device *arg0, int arg1) {
-  return (struct ata_host *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_host));
 }
 void ata_host_detach(struct ata_host *arg0) {
   return;
@@ -6848,9 +6843,8 @@ int ata_timing_compute(struct ata_device *arg0, unsigned short arg1, struct ata_
 void ata_timing_merge(const struct ata_timing *arg0, const struct ata_timing *arg1, struct ata_timing *arg2, unsigned int arg3) {
   return;
 }
-void *external_alloc(void);
 void *devm_ioport_map(struct device *arg0, unsigned long arg1, unsigned int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread16(void *arg0) {
@@ -6890,13 +6884,11 @@ int __VERIFIER_nondet_int(void);
 int pci_bus_read_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2, u16 *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
-void *external_alloc(void);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
-  return (struct platform_device *)external_alloc();
+  return ldv_malloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;

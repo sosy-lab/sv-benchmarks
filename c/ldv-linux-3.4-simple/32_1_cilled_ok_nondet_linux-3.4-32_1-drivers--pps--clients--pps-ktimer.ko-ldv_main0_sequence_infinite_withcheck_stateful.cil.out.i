@@ -1137,9 +1137,8 @@ int mod_timer(struct timer_list *arg0, unsigned long arg1) {
 void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, void *arg3) {
   return;
 }
-void *external_alloc(void);
 struct pps_device *pps_register_source(struct pps_source_info *arg0, int arg1) {
-  return (struct pps_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pps_device));
 }
 void pps_unregister_source(struct pps_device *arg0) {
   return;

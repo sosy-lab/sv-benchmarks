@@ -5116,9 +5116,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -5134,9 +5133,8 @@ int __VERIFIER_nondet_int(void);
 int gpio_request_one(unsigned int arg0, unsigned long arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct lcd_device *lcd_device_register(const char *arg0, struct device *arg1, void *arg2, struct lcd_ops *arg3) {
-  return (struct lcd_device *)external_alloc();
+  return ldv_malloc(sizeof(struct lcd_device));
 }
 void lcd_device_unregister(struct lcd_device *arg0) {
   return;
@@ -5158,9 +5156,8 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void regulator_put(struct regulator *arg0) {
   return;

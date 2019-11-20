@@ -2119,9 +2119,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void gameport_set_phys(struct gameport *arg0, const char *arg1, ...) {
   return;
@@ -2129,9 +2128,8 @@ void gameport_set_phys(struct gameport *arg0, const char *arg1, ...) {
 void gameport_unregister_port(struct gameport *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -2143,16 +2141,14 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void msleep(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int pnp_register_driver(struct pnp_driver *arg0) {

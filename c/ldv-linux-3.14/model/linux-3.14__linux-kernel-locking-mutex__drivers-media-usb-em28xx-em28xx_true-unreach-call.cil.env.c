@@ -74,10 +74,9 @@ void __rt_mutex_init(struct rt_mutex *arg0, const char *arg1) {
 // Function: __v4l2_clk_register_fixed
 // with type: struct v4l2_clk *__v4l2_clk_register_fixed(const char *, const char *, unsigned long, struct module *)
 // with return type: (struct v4l2_clk)*
-void *external_alloc(void);
 struct v4l2_clk *__v4l2_clk_register_fixed(const char *arg0, const char *arg1, unsigned long arg2, struct module *arg3) {
   // Pointer type
-  return (struct v4l2_clk *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_clk));
 }
 
 // Function: _raw_spin_lock
@@ -308,19 +307,17 @@ void tveeprom_hauppauge_analog(struct i2c_client *arg0, struct tveeprom *arg1, u
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return ldv_malloc(sizeof(struct urb));
 }
 
 // Function: usb_clear_halt
@@ -368,10 +365,9 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_device));
 }
 
 // Function: usb_kill_urb
@@ -428,10 +424,9 @@ void v4l2_clk_unregister_fixed(struct v4l2_clk *arg0) {
 // Function: v4l2_i2c_new_subdev_board
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *, struct i2c_adapter *, struct i2c_board_info *, const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return ldv_malloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: warn_slowpath_fmt

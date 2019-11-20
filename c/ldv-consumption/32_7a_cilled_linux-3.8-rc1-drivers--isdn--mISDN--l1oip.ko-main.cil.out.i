@@ -8169,9 +8169,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -8223,9 +8222,8 @@ int __VERIFIER_nondet_int(void);
 int kernel_sendmsg(struct socket *arg0, struct msghdr *arg1, struct kvec *arg2, size_t arg3, size_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -8255,9 +8253,8 @@ int mISDN_register_device(struct mISDNdevice *arg0, struct device *arg1, char *a
 void mISDN_unregister_device(struct mISDNdevice *arg0) {
   return;
 }
-void *external_alloc(void);
 void *memchr_inv(const void *arg0, int arg1, size_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void module_put(struct module *arg0) {
   return;
@@ -8316,9 +8313,8 @@ bool try_module_get(struct module *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void wait_for_completion(struct completion *arg0) {
   return;

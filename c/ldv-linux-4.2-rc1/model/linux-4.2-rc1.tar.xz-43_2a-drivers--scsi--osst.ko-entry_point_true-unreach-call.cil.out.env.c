@@ -17,10 +17,9 @@ void __blk_put_request(struct request_queue *arg0, struct request *arg1) {
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -142,10 +141,9 @@ void _raw_write_unlock(rwlock_t *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return ldv_malloc(sizeof(struct gendisk));
 }
 
 // Function: blk_execute_rq_nowait
@@ -159,10 +157,9 @@ void blk_execute_rq_nowait(struct request_queue *arg0, struct gendisk *arg1, str
 // Function: blk_get_request
 // with type: struct request *blk_get_request(struct request_queue *, int, gfp_t )
 // with return type: (struct request)*
-void *external_alloc(void);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return ldv_malloc(sizeof(struct request));
 }
 
 // Function: blk_put_request
@@ -240,10 +237,9 @@ void complete(struct completion *arg0) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: device_create_file
@@ -318,10 +314,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -488,10 +483,9 @@ int scsi_register_driver(struct device_driver *arg0) {
 // Function: scsi_sense_desc_find
 // with type: const u8 *scsi_sense_desc_find(const u8 *, int, int)
 // with return type: (const u8 )*
-void *external_alloc(void);
 const u8 *scsi_sense_desc_find(const u8 *arg0, int arg1, int arg2) {
   // Pointer type
-  return (const u8 *)external_alloc();
+  return ldv_malloc(sizeof(u8));
 }
 
 // Function: scsi_set_medium_removal
@@ -514,10 +508,9 @@ void sdev_prefix_printk(const char *arg0, const struct scsi_device *arg1, const 
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

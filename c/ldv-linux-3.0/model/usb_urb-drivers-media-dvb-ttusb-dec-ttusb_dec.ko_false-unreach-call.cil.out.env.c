@@ -5,10 +5,9 @@
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __list_add
@@ -90,10 +89,9 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -263,10 +261,9 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: list_del
@@ -358,19 +355,17 @@ void tasklet_kill(struct tasklet_struct *arg0) {
 // Function: ttusbdecfe_dvbs_attach
 // with type: struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *config)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *arg0) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
 
 // Function: ttusbdecfe_dvbt_attach
 // with type: struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *config)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
 struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *arg0) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return ldv_malloc(sizeof(struct dvb_frontend));
 }
 
 // Function: usb_bulk_msg

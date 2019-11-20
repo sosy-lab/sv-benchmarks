@@ -12700,9 +12700,8 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __put_cred(struct cred *arg0) {
   return;
@@ -12721,9 +12720,8 @@ int __VERIFIER_nondet_int(void);
 int __scm_send(struct socket *arg0, struct msghdr *arg1, struct scm_cookie *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *__skb_recv_datagram(struct sock *arg0, unsigned int arg1, int *arg2, int *arg3, int *arg4) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __sock_recv_timestamp(struct msghdr *arg0, struct sock *arg1, struct sk_buff *arg2) {
   return;
@@ -12802,20 +12800,17 @@ int __VERIFIER_nondet_int(void);
 int kern_path(const char *arg0, unsigned int arg1, struct path *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *kern_path_create(int arg0, const char *arg1, struct path *arg2, unsigned int arg3) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 ktime_t ktime_get_real() {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
@@ -12826,9 +12821,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -12855,9 +12849,8 @@ void lockref_get(struct lockref *arg0) {
 void might_fault() {
   return;
 }
-void *external_alloc(void);
 struct vfsmount *mntget(struct vfsmount *arg0) {
-  return (struct vfsmount *)external_alloc();
+  return ldv_malloc(sizeof(struct vfsmount));
 }
 int __VERIFIER_nondet_int(void);
 int mutex_lock_interruptible_nested(struct mutex *arg0, unsigned int arg1) {
@@ -12890,9 +12883,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int proto_register(struct proto *arg0, int arg1) {
@@ -12920,9 +12912,8 @@ bool __VERIFIER_nondet_bool(void);
 bool rcu_lockdep_current_cpu_online() {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct ctl_table_header *register_net_sysctl(struct net *arg0, const char *arg1, struct ctl_table *arg2) {
-  return (struct ctl_table_header *)external_alloc();
+  return ldv_malloc(sizeof(struct ctl_table_header));
 }
 int __VERIFIER_nondet_int(void);
 int register_pernet_subsys(struct pernet_operations *arg0) {
@@ -12941,9 +12932,8 @@ long int schedule_timeout(long arg0) {
 void scm_detach_fds(struct msghdr *arg0, struct scm_cookie *arg1) {
   return;
 }
-void *external_alloc(void);
 struct scm_fp_list *scm_fp_dup(struct scm_fp_list *arg0) {
-  return (struct scm_fp_list *)external_alloc();
+  return ldv_malloc(sizeof(struct scm_fp_list));
 }
 int __VERIFIER_nondet_int(void);
 int security_path_mknod(struct path *arg0, struct dentry *arg1, umode_t arg2, unsigned int arg3) {
@@ -13003,9 +12993,8 @@ int __VERIFIER_nondet_int(void);
 int seq_release_net(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
-  return (struct sock *)external_alloc();
+  return ldv_malloc(sizeof(struct sock));
 }
 int __VERIFIER_nondet_int(void);
 int sk_filter(struct sock *arg0, struct sk_buff *arg1) {
@@ -13014,13 +13003,11 @@ int sk_filter(struct sock *arg0, struct sk_buff *arg1) {
 void sk_free(struct sock *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_copy_datagram_from_iovec(struct sk_buff *arg0, int arg1, const struct iovec *arg2, int arg3, int arg4) {
@@ -13030,9 +13017,8 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_datagram_iovec(const struct sk_buff *arg0, int arg1, struct iovec *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_free_datagram(struct sock *arg0, struct sk_buff *arg1) {
   return;
@@ -13048,16 +13034,14 @@ void skb_queue_purge(struct sk_buff_head *arg0) {
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_recv_datagram(struct sock *arg0, unsigned int arg1, int arg2, int *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *sock_alloc_send_pskb(struct sock *arg0, unsigned long arg1, unsigned long arg2, int arg3, int *arg4, int arg5) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int sock_i_ino(struct sock *arg0) {
@@ -13107,9 +13091,8 @@ int sock_wake_async(struct socket *arg0, int arg1, int arg2) {
 void sock_wfree(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *sock_wmalloc(struct sock *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void touch_atime(const struct path *arg0) {
   return;

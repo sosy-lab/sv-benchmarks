@@ -1077,9 +1077,8 @@ void getnstimeofday(struct timespec *arg0) {
 void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -1087,9 +1086,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
@@ -1098,9 +1096,8 @@ int mod_timer(struct timer_list *arg0, unsigned long arg1) {
 void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, void *arg3) {
   return;
 }
-void *external_alloc(void);
 struct pps_device *pps_register_source(struct pps_source_info *arg0, int arg1) {
-  return (struct pps_device *)external_alloc();
+  return ldv_malloc(sizeof(struct pps_device));
 }
 void pps_unregister_source(struct pps_device *arg0) {
   return;

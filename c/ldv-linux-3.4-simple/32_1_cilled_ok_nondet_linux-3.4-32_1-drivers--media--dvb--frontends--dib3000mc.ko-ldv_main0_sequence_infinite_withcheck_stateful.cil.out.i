@@ -7785,9 +7785,8 @@ long ldv__builtin_expect(long val , long res )
 void dibx000_exit_i2c_master(struct dibx000_i2c_master *arg0) {
   return;
 }
-void *external_alloc(void);
 struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *arg0, enum dibx000_i2c_interface arg1, int arg2) {
-  return (struct i2c_adapter *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dibx000_init_i2c_master(struct dibx000_i2c_master *arg0, u16 arg1, struct i2c_adapter *arg2, u8 arg3) {

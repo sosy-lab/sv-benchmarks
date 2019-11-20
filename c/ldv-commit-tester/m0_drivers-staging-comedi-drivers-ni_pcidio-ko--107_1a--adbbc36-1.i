@@ -4143,9 +4143,8 @@ void disable_irq(unsigned int arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void ldv_handler_precall() {
   return;
@@ -4191,9 +4190,8 @@ void mite_prep_dma(struct mite_channel *arg0, unsigned int arg1, unsigned int ar
 void mite_release_channel(struct mite_channel *arg0) {
   return;
 }
-void *external_alloc(void);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct mite_channel *)external_alloc();
+  return ldv_malloc(sizeof(struct mite_channel));
 }
 int __VERIFIER_nondet_int(void);
 int mite_setup(struct mite_struct *arg0) {

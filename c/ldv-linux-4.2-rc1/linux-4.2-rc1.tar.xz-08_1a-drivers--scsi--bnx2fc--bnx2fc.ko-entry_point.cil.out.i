@@ -24373,13 +24373,11 @@ int __VERIFIER_nondet_int(void);
 int ___pskb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -24414,9 +24412,8 @@ unsigned long int __msecs_to_jiffies(const unsigned int arg0) {
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -24431,9 +24428,8 @@ void __unregister_cpu_notifier(struct notifier_block *arg0) {
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
 }
-void *external_alloc(void);
 struct fc_frame *_fc_frame_alloc(size_t arg0) {
-  return (struct fc_frame *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_frame));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -24505,16 +24501,14 @@ int __VERIFIER_nondet_int(void);
 int dev_queue_xmit_sk(struct sock *arg0, struct sk_buff *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
 }
-void *external_alloc(void);
 struct scsi_transport_template *fc_attach_transport(struct fc_function_template *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_transport_template));
 }
 int __VERIFIER_nondet_int(void);
 int fc_block_scsi_eh(struct scsi_cmnd *arg0) {
@@ -24534,17 +24528,15 @@ int __VERIFIER_nondet_int(void);
 int fc_elsct_init(struct fc_lport *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct fc_seq *fc_elsct_send(struct fc_lport *arg0, u32 arg1, struct fc_frame *arg2, unsigned int arg3, void (*arg4)(struct fc_seq *, struct fc_frame *, void *), void *arg5, u32 arg6) {
-  return (struct fc_seq *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_seq));
 }
 int __VERIFIER_nondet_int(void);
 int fc_exch_init(struct fc_lport *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct fc_exch_mgr *fc_exch_mgr_alloc(struct fc_lport *arg0, enum fc_class arg1, u16 arg2, u16 arg3, bool (*arg4)(struct fc_frame *)) {
-  return (struct fc_exch_mgr *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void fc_exch_mgr_free(struct fc_lport *arg0) {
   return;
@@ -24564,9 +24556,8 @@ int __VERIFIER_nondet_int(void);
 int fc_fabric_logoff(struct fc_lport *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct fc_frame *fc_frame_alloc_fill(struct fc_lport *arg0, size_t arg1) {
-  return (struct fc_frame *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_frame));
 }
 void fc_get_host_port_state(struct Scsi_Host *arg0) {
   return;
@@ -24574,9 +24565,8 @@ void fc_get_host_port_state(struct Scsi_Host *arg0) {
 void fc_get_host_speed(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fc_host_statistics *fc_get_host_stats(struct Scsi_Host *arg0) {
-  return (struct fc_host_statistics *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_host_statistics));
 }
 int __VERIFIER_nondet_int(void);
 int fc_lport_bsg_request(struct fc_bsg_job *arg0) {
@@ -24628,9 +24618,8 @@ int __VERIFIER_nondet_int(void);
 int fc_slave_alloc(struct scsi_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct fc_lport *fc_vport_id_lookup(struct fc_lport *arg0, u32 arg1) {
-  return (struct fc_lport *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_lport));
 }
 void fc_vport_setlink(struct fc_lport *arg0) {
   return;
@@ -24648,9 +24637,8 @@ void fcoe_clean_pending_queue(struct fc_lport *arg0) {
 void fcoe_ctlr_destroy(struct fcoe_ctlr *arg0) {
   return;
 }
-void *external_alloc(void);
 struct fcoe_ctlr_device *fcoe_ctlr_device_add(struct device *arg0, struct fcoe_sysfs_function_template *arg1, int arg2) {
-  return (struct fcoe_ctlr_device *)external_alloc();
+  return ldv_malloc(sizeof(struct fcoe_ctlr_device));
 }
 void fcoe_ctlr_device_delete(struct fcoe_ctlr_device *arg0) {
   return;
@@ -24749,9 +24737,8 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
   return;
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -24762,9 +24749,8 @@ void kfree_skb(struct sk_buff *arg0) {
 void kthread_bind(struct task_struct *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -24783,9 +24769,8 @@ void ldv__builtin_va_start(__builtin_va_list *arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct fc_lport *libfc_vport_create(struct fc_vport *arg0, int arg1) {
-  return (struct fc_lport *)external_alloc();
+  return ldv_malloc(sizeof(struct fc_lport));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -24819,9 +24804,8 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
@@ -24863,9 +24847,8 @@ int __VERIFIER_nondet_int(void);
 int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -24880,25 +24863,21 @@ void scsi_remove_host(struct Scsi_Host *arg0) {
 void set_user_nice(struct task_struct *arg0, long arg1) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   unsigned char *ret_val = arg0->data + arg0->tail;
@@ -24908,9 +24887,8 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
 void synchronize_net() {
   return;
 }
-void *external_alloc(void);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 u16 vlan_dev_vlan_id(const struct net_device *arg0) {

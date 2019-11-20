@@ -3138,17 +3138,15 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_kzalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -3175,9 +3173,8 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int regulator_list_voltage_linear(struct regulator_dev *arg0, unsigned int arg1) {
@@ -3187,9 +3184,8 @@ int __VERIFIER_nondet_int(void);
 int regulator_map_voltage_linear(struct regulator_dev *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator_dev *regulator_register(const struct regulator_desc *arg0, const struct regulator_config *arg1) {
-  return (struct regulator_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct regulator_dev));
 }
 void regulator_unregister(struct regulator_dev *arg0) {
   return;

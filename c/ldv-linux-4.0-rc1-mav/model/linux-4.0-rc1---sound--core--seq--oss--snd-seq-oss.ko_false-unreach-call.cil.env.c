@@ -197,10 +197,9 @@ long int schedule_timeout(long arg0) {
 // Function: snd_info_create_module_entry
 // with type: struct snd_info_entry *snd_info_create_module_entry(struct module *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
 struct snd_info_entry *snd_info_create_module_entry(struct module *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return ldv_malloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry

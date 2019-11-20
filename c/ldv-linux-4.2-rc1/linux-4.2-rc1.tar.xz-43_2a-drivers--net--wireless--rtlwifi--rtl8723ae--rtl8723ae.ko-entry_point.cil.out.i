@@ -26180,9 +26180,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_2() {
@@ -26286,9 +26285,8 @@ void rtl8723_save_adda_registers(struct ieee80211_hw *arg0, u32 *arg1, u32 *arg2
 void rtl8723ae_firmware_selfreset(struct ieee80211_hw *arg0) {
   return;
 }
-void *external_alloc(void);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
-  return (struct rtl_btc_ops *)external_alloc();
+  return ldv_malloc(sizeof(struct rtl_btc_ops));
 }
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 rtl_cam_add_one_entry(struct ieee80211_hw *arg0, u8 *arg1, u32 arg2, u32 arg3, u32 arg4, u32 arg5, u8 *arg6) {

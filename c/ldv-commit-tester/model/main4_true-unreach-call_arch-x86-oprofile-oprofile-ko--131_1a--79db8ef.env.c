@@ -30,10 +30,9 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: __ring_buffer_alloc
 // with type: struct ring_buffer *__ring_buffer_alloc(unsigned long, unsigned int, struct lock_class_key *)
 // with return type: (struct ring_buffer)*
-void *external_alloc(void);
 struct ring_buffer *__ring_buffer_alloc(unsigned long arg0, unsigned int arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct ring_buffer *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __wake_up
@@ -133,19 +132,17 @@ struct timespec current_kernel_time() {
 // Function: d_alloc_name
 // with type: struct dentry *d_alloc_name(struct dentry *, const char *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_alloc_name(struct dentry *arg0, const char *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_alloc_root
 // with type: struct dentry *d_alloc_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *d_alloc_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: d_instantiate
@@ -167,10 +164,9 @@ void d_rehash(struct dentry *arg0) {
 // Function: dcookie_register
 // with type: struct dcookie_user *dcookie_register()
 // with return type: (struct dcookie_user)*
-void *external_alloc(void);
 struct dcookie_user *dcookie_register() {
   // Pointer type
-  return (struct dcookie_user *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dcookie_unregister
@@ -244,10 +240,9 @@ unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, u
 // Function: find_vma
 // with type: struct vm_area_struct *find_vma(struct mm_struct *, unsigned long)
 // with return type: (struct vm_area_struct)*
-void *external_alloc(void);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct vm_area_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct vm_area_struct));
 }
 
 // Function: finish_wait
@@ -311,10 +306,9 @@ int get_sb_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg
 // Function: get_task_mm
 // with type: struct mm_struct *get_task_mm(struct task_struct *)
 // with return type: (struct mm_struct)*
-void *external_alloc(void);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
   // Pointer type
-  return (struct mm_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct mm_struct));
 }
 
 // Function: hrtimer_cancel
@@ -485,10 +479,9 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: nonseekable_open
@@ -538,10 +531,9 @@ void pci_dev_put(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: prepare_to_wait
@@ -669,10 +661,9 @@ int reserve_perfctr_nmi(unsigned int arg0) {
 // Function: ring_buffer_consume
 // with type: struct ring_buffer_event *ring_buffer_consume(struct ring_buffer *, int, u64 *, unsigned long *)
 // with return type: (struct ring_buffer_event)*
-void *external_alloc(void);
 struct ring_buffer_event *ring_buffer_consume(struct ring_buffer *arg0, int arg1, u64 *arg2, unsigned long *arg3) {
   // Pointer type
-  return (struct ring_buffer_event *)external_alloc();
+  return ldv_malloc(sizeof(struct ring_buffer_event));
 }
 
 // Function: ring_buffer_entries_cpu
@@ -687,10 +678,9 @@ unsigned long int ring_buffer_entries_cpu(struct ring_buffer *arg0, int arg1) {
 // Function: ring_buffer_event_data
 // with type: void *ring_buffer_event_data(struct ring_buffer_event *)
 // with return type: (void)*
-void *external_alloc(void);
 void *ring_buffer_event_data(struct ring_buffer_event *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ring_buffer_event_length
@@ -713,10 +703,9 @@ void ring_buffer_free(struct ring_buffer *arg0) {
 // Function: ring_buffer_lock_reserve
 // with type: struct ring_buffer_event *ring_buffer_lock_reserve(struct ring_buffer *, unsigned long)
 // with return type: (struct ring_buffer_event)*
-void *external_alloc(void);
 struct ring_buffer_event *ring_buffer_lock_reserve(struct ring_buffer *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct ring_buffer_event *)external_alloc();
+  return ldv_malloc(sizeof(struct ring_buffer_event));
 }
 
 // Function: ring_buffer_unlock_commit
@@ -914,10 +903,9 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: warn_slowpath_fmt

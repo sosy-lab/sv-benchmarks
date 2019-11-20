@@ -168,10 +168,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: device_create_file
@@ -489,19 +488,17 @@ void tty_ldisc_flush(struct tty_struct *arg0) {
 // Function: tty_ldisc_ref
 // with type: struct tty_ldisc *tty_ldisc_ref(struct tty_struct *)
 // with return type: (struct tty_ldisc)*
-void *external_alloc(void);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
   // Pointer type
-  return (struct tty_ldisc *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_ldisc));
 }
 
 // Function: tty_register_device
 // with type: struct device *tty_register_device(struct tty_driver *, unsigned int, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: tty_register_driver

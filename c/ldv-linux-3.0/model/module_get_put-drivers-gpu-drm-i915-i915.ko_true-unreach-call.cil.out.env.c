@@ -5,10 +5,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __const_udelay
@@ -47,10 +46,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __list_add
@@ -88,10 +86,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __symbol_put
@@ -105,10 +102,9 @@ void __symbol_put(const char *arg0) {
 // Function: __vmalloc
 // with type: void *__vmalloc(unsigned long, gfp_t , pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __wake_up
@@ -333,10 +329,9 @@ bool cancel_work_sync(struct work_struct *arg0) {
 // Function: compat_alloc_user_space
 // with type: void *compat_alloc_user_space(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *compat_alloc_user_space(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: complete_all
@@ -359,10 +354,9 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, mode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, mode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -402,10 +396,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -765,10 +758,9 @@ int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, si
 // Function: drm_gem_object_lookup
 // with type: struct drm_gem_object *drm_gem_object_lookup(struct drm_device *, struct drm_file *, u32 )
 // with return type: (struct drm_gem_object)*
-void *external_alloc(void);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
   // Pointer type
-  return (struct drm_gem_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_gem_object));
 }
 
 // Function: drm_gem_object_release
@@ -782,28 +774,25 @@ void drm_gem_object_release(struct drm_gem_object *arg0) {
 // Function: drm_get_connector_name
 // with type: char *drm_get_connector_name(struct drm_connector *)
 // with return type: (char)*
-void *external_alloc(void);
 char *drm_get_connector_name(struct drm_connector *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: drm_get_edid
 // with type: struct edid *drm_get_edid(struct drm_connector *, struct i2c_adapter *)
 // with return type: (struct edid)*
-void *external_alloc(void);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return ldv_malloc(sizeof(struct edid));
 }
 
 // Function: drm_get_encoder_name
 // with type: char *drm_get_encoder_name(struct drm_encoder *)
 // with return type: (char)*
-void *external_alloc(void);
 char *drm_get_encoder_name(struct drm_encoder *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: drm_get_pci_dev
@@ -818,10 +807,9 @@ int drm_get_pci_dev(struct pci_dev *arg0, const struct pci_device_id *arg1, stru
 // Function: drm_getsarea
 // with type: struct drm_local_map *drm_getsarea(struct drm_device *)
 // with return type: (struct drm_local_map)*
-void *external_alloc(void);
 struct drm_local_map *drm_getsarea(struct drm_device *arg0) {
   // Pointer type
-  return (struct drm_local_map *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_local_map));
 }
 
 // Function: drm_handle_vblank
@@ -949,19 +937,17 @@ void drm_kms_helper_poll_init(struct drm_device *arg0) {
 // Function: drm_mm_get_block_generic
 // with type: struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *, unsigned long, unsigned int, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, int arg3) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_get_block_range_generic
 // with type: struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *, unsigned long, unsigned int, unsigned long, unsigned long, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, int arg5) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_init
@@ -1018,19 +1004,17 @@ int drm_mm_scan_remove_block(struct drm_mm_node *arg0) {
 // Function: drm_mm_search_free
 // with type: struct drm_mm_node *drm_mm_search_free(const struct drm_mm *, unsigned long, unsigned int, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_search_free(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, int arg3) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_search_free_in_range
 // with type: struct drm_mm_node *drm_mm_search_free_in_range(const struct drm_mm *, unsigned long, unsigned int, unsigned long, unsigned long, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_search_free_in_range(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, int arg5) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_takedown
@@ -1086,10 +1070,9 @@ int drm_mode_connector_update_edid_property(struct drm_connector *arg0, struct e
 // Function: drm_mode_create
 // with type: struct drm_display_mode *drm_mode_create(struct drm_device *)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_create(struct drm_device *arg0) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_mode_create_scaling_mode_property
@@ -1140,19 +1123,17 @@ void drm_mode_destroy(struct drm_device *arg0, struct drm_display_mode *arg1) {
 // Function: drm_mode_duplicate
 // with type: struct drm_display_mode *drm_mode_duplicate(struct drm_device *, const struct drm_display_mode *)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
 struct drm_display_mode *drm_mode_duplicate(struct drm_device *arg0, const struct drm_display_mode *arg1) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_mode_object_find
 // with type: struct drm_mode_object *drm_mode_object_find(struct drm_device *, uint32_t , uint32_t )
 // with return type: (struct drm_mode_object)*
-void *external_alloc(void);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
   // Pointer type
-  return (struct drm_mode_object *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mode_object));
 }
 
 // Function: drm_mode_probed_add
@@ -1191,10 +1172,9 @@ int drm_mode_vrefresh(const struct drm_display_mode *arg0) {
 // Function: drm_pci_alloc
 // with type: drm_dma_handle_t *drm_pci_alloc(struct drm_device *, size_t , size_t )
 // with return type: (drm_dma_handle_t )*
-void *external_alloc(void);
 drm_dma_handle_t *drm_pci_alloc(struct drm_device *arg0, size_t arg1, size_t arg2) {
   // Pointer type
-  return (drm_dma_handle_t *)external_alloc();
+  return ldv_malloc(sizeof(drm_dma_handle_t));
 }
 
 // Function: drm_pci_exit
@@ -1234,10 +1214,9 @@ int drm_property_add_enum(struct drm_property *arg0, int arg1, uint64_t arg2, co
 // Function: drm_property_create
 // with type: struct drm_property *drm_property_create(struct drm_device *, int, const char *, int)
 // with return type: (struct drm_property)*
-void *external_alloc(void);
 struct drm_property *drm_property_create(struct drm_device *arg0, int arg1, const char *arg2, int arg3) {
   // Pointer type
-  return (struct drm_property *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_property));
 }
 
 // Function: drm_property_destroy
@@ -1378,10 +1357,9 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return ldv_malloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -1490,10 +1468,9 @@ void intel_gtt_clear_range(unsigned int arg0, unsigned int arg1) {
 // Function: intel_gtt_get
 // with type: const struct intel_gtt *intel_gtt_get()
 // with return type: (struct intel_gtt)*
-void *external_alloc(void);
 const struct intel_gtt *intel_gtt_get() {
   // Pointer type
-  return (const struct intel_gtt *)external_alloc();
+  return ldv_malloc(sizeof(struct intel_gtt));
 }
 
 // Function: intel_gtt_insert_pages
@@ -1541,19 +1518,17 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_cache
 // with type: void *ioremap_cache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_cache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ioremap_wc
 // with type: void *ioremap_wc(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -1866,19 +1841,17 @@ int pci_enable_msi_block(struct pci_dev *arg0, unsigned int arg1) {
 // Function: pci_get_class
 // with type: struct pci_dev *pci_get_class(unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_class(unsigned int arg0, struct pci_dev *arg1) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_get_domain_bus_and_slot
 // with type: struct pci_dev *pci_get_domain_bus_and_slot(int, unsigned int, unsigned int)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_iomap
@@ -1900,10 +1873,9 @@ void pci_iounmap(struct pci_dev *arg0, void *arg1) {
 // Function: pci_map_rom
 // with type: void *pci_map_rom(struct pci_dev *, size_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: pci_save_state
@@ -2108,10 +2080,9 @@ int set_page_dirty(struct page *arg0) {
 // Function: shmem_read_mapping_page_gfp
 // with type: struct page *shmem_read_mapping_page_gfp(struct address_space *, unsigned long, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: shmem_truncate_range

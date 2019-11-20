@@ -13879,9 +13879,8 @@ int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __copy_from_user_overflow() {
   return;
@@ -13940,9 +13939,8 @@ bool cancel_delayed_work_sync(struct delayed_work *arg0) {
 void class_destroy(struct class *arg0) {
   return;
 }
-void *external_alloc(void);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void console_lock() {
   return;
@@ -13958,9 +13956,8 @@ long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -13975,9 +13972,8 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 void dump_page(struct page *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
 const struct linux_logo *fb_find_logo(int arg0) {
-  return (const struct linux_logo *)external_alloc();
+  return ldv_malloc(sizeof(struct linux_logo));
 }
 int __VERIFIER_nondet_int(void);
 int fb_is_primary_device(struct fb_info *arg0) {
@@ -14049,9 +14045,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 bool __VERIFIER_nondet_bool(void);
 bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delayed_work *arg2, unsigned long arg3) {
@@ -14102,9 +14097,8 @@ int __VERIFIER_nondet_int(void);
 int vm_iomap_memory(struct vm_area_struct *arg0, phys_addr_t arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *vmalloc_to_page(const void *arg0) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {

@@ -6118,9 +6118,8 @@ void ldv_check_final_state(void)
 void ___might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -6170,9 +6169,8 @@ int __VERIFIER_nondet_int(void);
 int compat_get_timeval(struct timeval *arg0, const void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -6241,9 +6239,8 @@ long __VERIFIER_nondet_long(void);
 ssize_t parport_read(struct parport *arg0, void *arg1, size_t arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
-  return (struct pardevice *)external_alloc();
+  return ldv_malloc(sizeof(struct pardevice));
 }
 void parport_release(struct pardevice *arg0) {
   return;

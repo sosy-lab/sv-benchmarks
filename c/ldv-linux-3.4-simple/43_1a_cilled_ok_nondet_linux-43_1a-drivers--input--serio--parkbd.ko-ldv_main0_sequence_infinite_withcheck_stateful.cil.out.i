@@ -2435,9 +2435,8 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 void __serio_register_port(struct serio *arg0, struct module *arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -2445,24 +2444,21 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int parport_claim(struct pardevice *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct parport *parport_find_number(int arg0) {
-  return (struct parport *)external_alloc();
+  return ldv_malloc(sizeof(struct parport));
 }
 void parport_put_port(struct parport *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
-  return (struct pardevice *)external_alloc();
+  return ldv_malloc(sizeof(struct pardevice));
 }
 void parport_release(struct pardevice *arg0) {
   return;

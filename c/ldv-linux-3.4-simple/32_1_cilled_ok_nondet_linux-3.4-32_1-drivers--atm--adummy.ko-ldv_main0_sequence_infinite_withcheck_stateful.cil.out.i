@@ -5959,9 +5959,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void atm_dev_deregister(struct atm_dev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
-  return (struct atm_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct atm_dev));
 }
 void atm_dev_signal_change(struct atm_dev *arg0, char arg1) {
   return;

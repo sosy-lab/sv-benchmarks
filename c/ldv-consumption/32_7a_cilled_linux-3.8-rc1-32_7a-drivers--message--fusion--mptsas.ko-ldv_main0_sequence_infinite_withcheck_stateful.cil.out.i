@@ -13725,9 +13725,8 @@ unsigned long int __phys_addr(unsigned long arg0) {
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
@@ -13755,9 +13754,8 @@ void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, siz
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -13831,9 +13829,8 @@ int mpt_findImVolumes(MPT_ADAPTER *arg0) {
 void mpt_free_msg_frame(MPT_ADAPTER *arg0, MPT_FRAME_HDR *arg1) {
   return;
 }
-void *external_alloc(void);
 MPT_FRAME_HDR *mpt_get_msg_frame(u8 arg0, MPT_ADAPTER *arg1) {
-  return (MPT_FRAME_HDR *)external_alloc();
+  return ldv_malloc(sizeof(MPT_FRAME_HDR));
 }
 void mpt_put_msg_frame(u8 arg0, MPT_ADAPTER *arg1, MPT_FRAME_HDR *arg2) {
   return;
@@ -13872,9 +13869,8 @@ int __VERIFIER_nondet_int(void);
 int mptbase_sas_persist_operation(MPT_ADAPTER *arg0, u8 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct scsi_cmnd *mptscsih_get_scsi_lookup(MPT_ADAPTER *arg0, int arg1) {
-  return (struct scsi_cmnd *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_cmnd));
 }
 int __VERIFIER_nondet_int(void);
 int mptscsih_ioc_reset(MPT_ADAPTER *arg0, int arg1) {
@@ -13931,25 +13927,21 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delayed_work *arg2, unsigned long arg3) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct scsi_transport_template *sas_attach_transport(struct sas_function_template *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_transport_template));
 }
-void *external_alloc(void);
 struct sas_rphy *sas_end_device_alloc(struct sas_port *arg0) {
-  return (struct sas_rphy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_rphy));
 }
-void *external_alloc(void);
 struct sas_rphy *sas_expander_alloc(struct sas_port *arg0, enum sas_device_type arg1) {
-  return (struct sas_rphy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_rphy));
 }
 int __VERIFIER_nondet_int(void);
 int sas_phy_add(struct sas_phy *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sas_phy *sas_phy_alloc(struct device *arg0, int arg1) {
-  return (struct sas_phy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_phy));
 }
 void sas_phy_free(struct sas_phy *arg0) {
   return;
@@ -13961,9 +13953,8 @@ int sas_port_add(struct sas_port *arg0) {
 void sas_port_add_phy(struct sas_port *arg0, struct sas_phy *arg1) {
   return;
 }
-void *external_alloc(void);
 struct sas_port *sas_port_alloc_num(struct device *arg0) {
-  return (struct sas_port *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_port));
 }
 void sas_port_delete(struct sas_port *arg0) {
   return;
@@ -14002,9 +13993,8 @@ int scsi_add_host_with_dma(struct Scsi_Host *arg0, struct device *arg1, struct d
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
-void *external_alloc(void);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3) {
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 void scsi_device_put(struct scsi_device *arg0) {
   return;
@@ -14013,9 +14003,8 @@ int __VERIFIER_nondet_int(void);
 int scsi_device_set_state(struct scsi_device *arg0, enum scsi_device_state arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 int __VERIFIER_nondet_int(void);
 int scsi_is_host_device(const struct device *arg0) {

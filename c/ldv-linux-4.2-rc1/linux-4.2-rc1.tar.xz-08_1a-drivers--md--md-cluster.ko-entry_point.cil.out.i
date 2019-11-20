@@ -5959,16 +5959,14 @@ void list_del(struct list_head *arg0) {
 void md_check_recovery(struct mddev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct md_rdev *md_find_rdev_nr_rcu(struct mddev *arg0, int arg1) {
-  return (struct md_rdev *)external_alloc();
+  return ldv_malloc(sizeof(struct md_rdev));
 }
 void md_kick_rdev_from_array(struct md_rdev *arg0) {
   return;
 }
-void *external_alloc(void);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
-  return (struct md_thread *)external_alloc();
+  return ldv_malloc(sizeof(struct md_thread));
 }
 void md_reload_sb(struct mddev *arg0) {
   return;

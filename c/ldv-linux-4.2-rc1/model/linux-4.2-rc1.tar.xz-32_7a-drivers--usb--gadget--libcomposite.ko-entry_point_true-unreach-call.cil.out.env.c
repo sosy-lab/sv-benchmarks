@@ -202,19 +202,17 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: kstrtou16
@@ -425,10 +423,9 @@ int usb_gadget_unregister_driver(struct usb_gadget_driver *arg0) {
 // Function: usb_speed_string
 // with type: const char *usb_speed_string(enum usb_device_speed )
 // with return type: (const char)*
-void *external_alloc(void);
 const char *usb_speed_string(enum usb_device_speed arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: usb_udc_attach_driver

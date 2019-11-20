@@ -27956,9 +27956,8 @@ void __const_udelay(unsigned long arg0) {
 void __copy_from_user_overflow() {
   return;
 }
-void *external_alloc(void);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -28043,13 +28042,11 @@ void debug_dma_sync_single_for_device(struct device *arg0, dma_addr_t arg1, size
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -28075,20 +28072,17 @@ int __VERIFIER_nondet_int(void);
 int device_wakeup_enable(struct device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_release_channel(struct dma_chan *arg0) {
   return;
 }
-void *external_alloc(void);
 struct dma_chan *dma_request_slave_channel(struct device *arg0, const char *arg1) {
-  return (struct dma_chan *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_chan));
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;
@@ -28151,9 +28145,8 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq_byname(struct platform_device *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void pm_runtime_enable(struct device *arg0) {
   return;
@@ -28225,9 +28218,8 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_hcd));
 }
 void usb_del_gadget_udc(struct usb_gadget *arg0) {
   return;
@@ -28265,9 +28257,8 @@ void usb_hcd_unlink_urb_from_ep(struct usb_hcd *arg0, struct urb *arg1) {
 void usb_hcd_unmap_urb_for_dma(struct usb_hcd *arg0, struct urb *arg1) {
   return;
 }
-void *external_alloc(void);
 const char *usb_otg_state_string(enum usb_otg_state arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void usb_put_hcd(struct usb_hcd *arg0) {
   return;

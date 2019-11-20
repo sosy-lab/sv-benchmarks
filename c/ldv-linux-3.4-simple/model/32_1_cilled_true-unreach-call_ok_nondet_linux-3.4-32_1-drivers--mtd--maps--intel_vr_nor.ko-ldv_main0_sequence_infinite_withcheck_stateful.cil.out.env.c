@@ -14,10 +14,9 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -41,19 +40,17 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: do_map_probe
 // with type: struct mtd_info *do_map_probe(const char *name, struct map_info *map)
 // with return type: (struct mtd_info)*
-void *external_alloc(void);
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
   // Pointer type
-  return (struct mtd_info *)external_alloc();
+  return ldv_malloc(sizeof(struct mtd_info));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap

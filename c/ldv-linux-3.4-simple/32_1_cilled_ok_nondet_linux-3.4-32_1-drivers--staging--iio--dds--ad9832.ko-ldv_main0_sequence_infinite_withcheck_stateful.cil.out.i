@@ -4352,9 +4352,8 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -4363,9 +4362,8 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 void driver_unregister(struct device_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct iio_dev *iio_allocate_device(int arg0) {
-  return (struct iio_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_dev));
 }
 int __VERIFIER_nondet_int(void);
 int iio_device_register(struct iio_dev *arg0) {
@@ -4395,16 +4393,14 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void regulator_put(struct regulator *arg0) {
   return;
 }
-void *external_alloc(void);
 const struct spi_device_id *spi_get_device_id(const struct spi_device *arg0) {
-  return (const struct spi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct spi_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int spi_register_driver(struct spi_driver *arg0) {

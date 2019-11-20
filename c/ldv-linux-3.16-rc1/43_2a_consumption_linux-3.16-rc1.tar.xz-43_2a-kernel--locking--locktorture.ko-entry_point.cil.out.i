@@ -2959,9 +2959,8 @@ int _torture_create_kthread(int (*arg0)(void *), void *arg1, char *arg2, char *a
 void _torture_stop_kthread(char *arg0, struct task_struct **arg1) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -2993,9 +2992,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

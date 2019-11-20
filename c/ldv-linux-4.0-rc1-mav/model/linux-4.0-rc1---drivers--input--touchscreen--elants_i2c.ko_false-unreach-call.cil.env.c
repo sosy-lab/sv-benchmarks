@@ -85,19 +85,17 @@ int devm_add_action(struct device *arg0, void (*arg1)(void *), void *arg2) {
 // Function: devm_input_allocate_device
 // with type: struct input_dev *devm_input_allocate_device(struct device *)
 // with return type: (struct input_dev)*
-void *external_alloc(void);
 struct input_dev *devm_input_allocate_device(struct device *arg0) {
   // Pointer type
-  return (struct input_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct input_dev));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_request_threaded_irq

@@ -27,28 +27,25 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_regmap_init_i2c
 // with type: struct regmap *devm_regmap_init_i2c(struct i2c_client *, const struct regmap_config *)
 // with return type: (struct regmap)*
-void *external_alloc(void);
 struct regmap *devm_regmap_init_i2c(struct i2c_client *arg0, const struct regmap_config *arg1) {
   // Pointer type
-  return (struct regmap *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: devm_regulator_register
 // with type: struct regulator_dev *devm_regulator_register(struct device *, const struct regulator_desc *, const struct regulator_config *)
 // with return type: (struct regulator_dev)*
-void *external_alloc(void);
 struct regulator_dev *devm_regulator_register(struct device *arg0, const struct regulator_desc *arg1, const struct regulator_config *arg2) {
   // Pointer type
-  return (struct regulator_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct regulator_dev));
 }
 
 // Function: devm_request_threaded_irq
@@ -96,10 +93,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -109,10 +105,9 @@ struct page *ldv_some_page() {
 // Function: rdev_get_drvdata
 // with type: void *rdev_get_drvdata(struct regulator_dev *)
 // with return type: (void)*
-void *external_alloc(void);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: rdev_get_id

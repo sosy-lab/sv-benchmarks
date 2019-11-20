@@ -10070,9 +10070,8 @@ void __local_bh_disable_ip(unsigned long arg0, unsigned int arg1) {
 void __local_bh_enable_ip(unsigned long arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -10138,9 +10137,8 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
 void tasklet_kill(struct tasklet_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
-  return (struct usb_host_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_host_interface));
 }
 void usb_deregister(struct usb_driver *arg0) {
   return;
@@ -10152,9 +10150,8 @@ int usb_driver_claim_interface(struct usb_driver *arg0, struct usb_interface *ar
 void usb_driver_release_interface(struct usb_driver *arg0, struct usb_interface *arg1) {
   return;
 }
-void *external_alloc(void);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return ldv_malloc(sizeof(struct usb_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {

@@ -9,10 +9,9 @@
 // Function: __nlmsg_put
 // with type: struct nlmsghdr *__nlmsg_put(struct sk_buff *, u32 , u32 , int, int, int)
 // with return type: (struct nlmsghdr)*
-void *external_alloc(void);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
   // Pointer type
-  return (struct nlmsghdr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlmsghdr));
 }
 
 // Function: __put_net
@@ -237,10 +236,9 @@ void nf_log_unset(struct net *arg0, const struct nf_logger *arg1) {
 // Function: nfnetlink_alloc_skb
 // with type: struct sk_buff *nfnetlink_alloc_skb(struct net *, unsigned int, u32 , gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *nfnetlink_alloc_skb(struct net *arg0, unsigned int arg1, u32 arg2, gfp_t arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: nfnetlink_subsys_register
@@ -299,10 +297,9 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *, umode_t , struct proc_dir_entry *, const struct file_operations *, void *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: rcu_read_lock_bh_held

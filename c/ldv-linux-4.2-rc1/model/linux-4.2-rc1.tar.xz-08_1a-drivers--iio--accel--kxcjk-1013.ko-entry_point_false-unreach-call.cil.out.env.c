@@ -9,10 +9,9 @@
 // Function: __devm_gpiod_get_index
 // with type: struct gpio_desc *__devm_gpiod_get_index(struct device *, const char *, unsigned int, enum gpiod_flags )
 // with return type: (struct gpio_desc)*
-void *external_alloc(void);
 struct gpio_desc *__devm_gpiod_get_index(struct device *arg0, const char *arg1, unsigned int arg2, enum gpiod_flags arg3) {
   // Pointer type
-  return (struct gpio_desc *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __dynamic_dev_dbg
@@ -77,10 +76,9 @@ void __pm_runtime_use_autosuspend(struct device *arg0, bool arg1) {
 // Function: acpi_match_device
 // with type: const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *, const struct device *)
 // with return type: (struct acpi_device_id)*
-void *external_alloc(void);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
   // Pointer type
-  return (const struct acpi_device_id *)external_alloc();
+  return ldv_malloc(sizeof(struct acpi_device_id));
 }
 
 // Skip function: calloc
@@ -105,19 +103,17 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_iio_device_alloc
 // with type: struct iio_dev *devm_iio_device_alloc(struct device *, int)
 // with return type: (struct iio_dev)*
-void *external_alloc(void);
 struct iio_dev *devm_iio_device_alloc(struct device *arg0, int arg1) {
   // Pointer type
-  return (struct iio_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_dev));
 }
 
 // Function: devm_iio_trigger_alloc
 // with type: struct iio_trigger *devm_iio_trigger_alloc(struct device *, const char *, ...)
 // with return type: (struct iio_trigger)*
-void *external_alloc(void);
 struct iio_trigger *devm_iio_trigger_alloc(struct device *arg0, const char *arg1, ...) {
   // Pointer type
-  return (struct iio_trigger *)external_alloc();
+  return ldv_malloc(sizeof(struct iio_trigger));
 }
 
 // Function: devm_request_threaded_irq
@@ -150,10 +146,9 @@ unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, u
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: gpiod_to_irq

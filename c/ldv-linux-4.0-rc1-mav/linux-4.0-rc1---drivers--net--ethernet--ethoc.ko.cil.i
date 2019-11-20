@@ -15093,9 +15093,8 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -15165,21 +15164,17 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_ioremap_nocache(struct device *arg0, resource_size_t arg1, resource_size_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 __be16 eth_type_trans(struct sk_buff *arg0, struct net_device *arg1) {
@@ -15218,9 +15213,8 @@ void ldv_assert(const char *arg0, int arg1) {
 void ldv_pre_probe() {
   return;
 }
-void *external_alloc(void);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return ldv_malloc(sizeof(struct mii_bus));
 }
 void mdiobus_free(struct mii_bus *arg0) {
   return;
@@ -15267,9 +15261,8 @@ int __VERIFIER_nondet_int(void);
 int phy_ethtool_sset(struct phy_device *arg0, struct ethtool_cmd *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct phy_device *phy_find_first(struct mii_bus *arg0) {
-  return (struct phy_device *)external_alloc();
+  return ldv_malloc(sizeof(struct phy_device));
 }
 int __VERIFIER_nondet_int(void);
 int phy_mii_ioctl(struct phy_device *arg0, struct ifreq *arg1, int arg2) {
@@ -15284,9 +15277,8 @@ void phy_stop(struct phy_device *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {

@@ -16706,9 +16706,8 @@ void __copy_from_user_overflow() {
 void __copy_to_user_overflow() {
   return;
 }
-void *external_alloc(void);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -16765,9 +16764,8 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 bitrev32(u32 arg0) {
@@ -17034,9 +17032,8 @@ int __VERIFIER_nondet_int(void);
 int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
-  return (struct sock *)external_alloc();
+  return ldv_malloc(sizeof(struct sock));
 }
 int __VERIFIER_nondet_int(void);
 int sk_attach_filter(struct sock_fprog *arg0, struct sock *arg1) {
@@ -17068,9 +17065,8 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_ubufs(struct sk_buff *arg0, gfp_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 bool __VERIFIER_nondet_bool(void);
 bool skb_flow_dissect(const struct sk_buff *arg0, struct flow_keys *arg1) {
@@ -17097,9 +17093,8 @@ void skb_tstamp_tx(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
 void skb_tx_error(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *sock_alloc_send_pskb(struct sock *arg0, unsigned long arg1, unsigned long arg2, int arg3, int *arg4, int arg5) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void sock_init_data(struct socket *arg0, struct sock *arg1) {
   return;

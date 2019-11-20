@@ -15395,13 +15395,11 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *__devres_alloc(void (*arg0)(struct device *, void *), size_t arg1, gfp_t arg2, const char *arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -15420,9 +15418,8 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -15446,9 +15443,8 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __rwlock_init(rwlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -15486,9 +15482,8 @@ void _raw_write_lock(rwlock_t *arg0) {
 void _raw_write_unlock(rwlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
 struct agp_memory *agp_allocate_memory(struct agp_bridge_data *arg0, size_t arg1, u32 arg2) {
-  return (struct agp_memory *)external_alloc();
+  return ldv_malloc(sizeof(struct agp_memory));
 }
 int __VERIFIER_nondet_int(void);
 int agp_bind_memory(struct agp_memory *arg0, off_t arg1) {
@@ -15501,9 +15496,8 @@ int __VERIFIER_nondet_int(void);
 int agp_unbind_memory(struct agp_memory *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -15532,9 +15526,8 @@ int debug_lockdep_rcu_enabled() {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_name(struct device *arg0, const char *arg1, ...) {
@@ -15590,13 +15583,11 @@ int drm_mm_clean(struct drm_mm *arg0) {
 void drm_mm_debug_table(struct drm_mm *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, int arg4) {
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5, int arg6) {
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 int __VERIFIER_nondet_int(void);
 int drm_mm_init(struct drm_mm *arg0, unsigned long arg1, unsigned long arg2) {
@@ -15609,13 +15600,11 @@ int drm_mm_pre_get(struct drm_mm *arg0) {
 void drm_mm_put_block(struct drm_mm_node *arg0) {
   return;
 }
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_search_free_generic(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, bool arg4) {
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
-void *external_alloc(void);
 struct drm_mm_node *drm_mm_search_free_in_range_generic(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5, bool arg6) {
-  return (struct drm_mm_node *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_mm_node));
 }
 void drm_mm_takedown(struct drm_mm *arg0) {
   return;
@@ -15636,13 +15625,11 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -15771,13 +15758,11 @@ int __VERIFIER_nondet_int(void);
 int set_pages_wb(struct page *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct file *shmem_file_setup(const char *arg0, loff_t arg1, unsigned long arg2) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
-void *external_alloc(void);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 void si_meminfo(struct sysinfo *arg0) {
   return;
@@ -15798,9 +15783,8 @@ int __VERIFIER_nondet_int(void);
 int vm_insert_mixed(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void vunmap(const void *arg0) {
   return;

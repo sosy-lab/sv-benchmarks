@@ -12044,9 +12044,8 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __list_del_entry(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -12077,13 +12076,11 @@ bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
 struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, const char *arg2, u32 arg3) {
-  return (struct se_node_acl *)external_alloc();
+  return ldv_malloc(sizeof(struct se_node_acl));
 }
-void *external_alloc(void);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
-  return (struct se_node_acl *)external_alloc();
+  return ldv_malloc(sizeof(struct se_node_acl));
 }
 int __VERIFIER_nondet_int(void);
 int core_tpg_del_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, int arg2) {
@@ -12129,9 +12126,8 @@ int hex2bin(u8 *arg0, const char *arg1, size_t arg2) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
@@ -12151,9 +12147,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -12187,13 +12182,11 @@ void sg_miter_start(struct sg_mapping_iter *arg0, struct scatterlist *arg1, unsi
 void sg_miter_stop(struct sg_mapping_iter *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void target_execute_cmd(struct se_cmd *arg0) {
   return;
@@ -12201,9 +12194,8 @@ void target_execute_cmd(struct se_cmd *arg0) {
 void target_fabric_configfs_deregister(struct target_fabric_configfs *arg0) {
   return;
 }
-void *external_alloc(void);
 struct target_fabric_configfs *target_fabric_configfs_init(struct module *arg0, const char *arg1) {
-  return (struct target_fabric_configfs *)external_alloc();
+  return ldv_malloc(sizeof(struct target_fabric_configfs));
 }
 int __VERIFIER_nondet_int(void);
 int target_fabric_configfs_register(struct target_fabric_configfs *arg0) {
@@ -12226,9 +12218,8 @@ int __VERIFIER_nondet_int(void);
 int transport_generic_free_cmd(struct se_cmd *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct se_session *transport_init_session(enum target_prot_op arg0) {
-  return (struct se_session *)external_alloc();
+  return ldv_malloc(sizeof(struct se_session));
 }
 void transport_register_session(struct se_portal_group *arg0, struct se_node_acl *arg1, struct se_session *arg2, void *arg3) {
   return;
@@ -12236,9 +12227,8 @@ void transport_register_session(struct se_portal_group *arg0, struct se_node_acl
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

@@ -25005,9 +25005,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -25112,20 +25111,17 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
 }
-void *external_alloc(void);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -25157,9 +25153,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -25167,21 +25162,17 @@ void iounmap(volatile void *arg0) {
 void iowrite32(u32 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct iscsi_boot_kobj *iscsi_boot_create_ethernet(struct iscsi_boot_kset *arg0, int arg1, void *arg2, ssize_t (*arg3)(void *, int, char *), umode_t (*arg4)(void *, int), void (*arg5)(void *)) {
-  return (struct iscsi_boot_kobj *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_boot_kobj));
 }
-void *external_alloc(void);
 struct iscsi_boot_kset *iscsi_boot_create_host_kset(unsigned int arg0) {
-  return (struct iscsi_boot_kset *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_boot_kset));
 }
-void *external_alloc(void);
 struct iscsi_boot_kobj *iscsi_boot_create_initiator(struct iscsi_boot_kset *arg0, int arg1, void *arg2, ssize_t (*arg3)(void *, int, char *), umode_t (*arg4)(void *, int), void (*arg5)(void *)) {
-  return (struct iscsi_boot_kobj *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_boot_kobj));
 }
-void *external_alloc(void);
 struct iscsi_boot_kobj *iscsi_boot_create_target(struct iscsi_boot_kset *arg0, int arg1, void *arg2, ssize_t (*arg3)(void *, int, char *), umode_t (*arg4)(void *, int), void (*arg5)(void *)) {
-  return (struct iscsi_boot_kobj *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_boot_kobj));
 }
 void iscsi_boot_destroy_kset(struct iscsi_boot_kset *arg0) {
   return;
@@ -25204,9 +25195,8 @@ int __VERIFIER_nondet_int(void);
 int iscsi_conn_send_pdu(struct iscsi_cls_conn *arg0, struct iscsi_hdr *arg1, char *arg2, uint32_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct iscsi_cls_conn *iscsi_conn_setup(struct iscsi_cls_session *arg0, int arg1, uint32_t arg2) {
-  return (struct iscsi_cls_conn *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_cls_conn));
 }
 int __VERIFIER_nondet_int(void);
 int iscsi_conn_start(struct iscsi_cls_conn *arg0) {
@@ -25218,13 +25208,11 @@ void iscsi_conn_stop(struct iscsi_cls_conn *arg0, int arg1) {
 void iscsi_conn_teardown(struct iscsi_cls_conn *arg0) {
   return;
 }
-void *external_alloc(void);
 struct iscsi_endpoint *iscsi_create_endpoint(int arg0) {
-  return (struct iscsi_endpoint *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_endpoint));
 }
-void *external_alloc(void);
 struct iscsi_iface *iscsi_create_iface(struct Scsi_Host *arg0, struct iscsi_transport *arg1, uint32_t arg2, uint32_t arg3, int arg4) {
-  return (struct iscsi_iface *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_iface));
 }
 void iscsi_destroy_endpoint(struct iscsi_endpoint *arg0) {
   return;
@@ -25244,21 +25232,18 @@ int __VERIFIER_nondet_int(void);
 int iscsi_eh_session_reset(struct scsi_cmnd *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 char *iscsi_get_port_speed_name(struct Scsi_Host *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
-void *external_alloc(void);
 char *iscsi_get_port_state_name(struct Scsi_Host *arg0) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int iscsi_host_add(struct Scsi_Host *arg0, struct device *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct Scsi_Host *iscsi_host_alloc(struct scsi_host_template *arg0, int arg1, bool arg2) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void iscsi_host_for_each_session(struct Scsi_Host *arg0, void (*arg1)(struct iscsi_cls_session *)) {
   return;
@@ -25273,9 +25258,8 @@ int iscsi_host_get_param(struct Scsi_Host *arg0, enum iscsi_host_param arg1, cha
 void iscsi_host_remove(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
 struct iscsi_endpoint *iscsi_lookup_endpoint(u64 arg0) {
-  return (struct iscsi_endpoint *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_endpoint));
 }
 void iscsi_put_task(struct iscsi_task *arg0) {
   return;
@@ -25284,9 +25268,8 @@ int __VERIFIER_nondet_int(void);
 int iscsi_queuecommand(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct scsi_transport_template *iscsi_register_transport(struct iscsi_transport *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_transport_template));
 }
 void iscsi_session_failure(struct iscsi_session *arg0, enum iscsi_err arg1) {
   return;
@@ -25298,9 +25281,8 @@ int iscsi_session_get_param(struct iscsi_cls_session *arg0, enum iscsi_param arg
 void iscsi_session_recovery_timedout(struct iscsi_cls_session *arg0) {
   return;
 }
-void *external_alloc(void);
 struct iscsi_cls_session *iscsi_session_setup(struct iscsi_transport *arg0, struct Scsi_Host *arg1, uint16_t arg2, int arg3, int arg4, uint32_t arg5, unsigned int arg6) {
-  return (struct iscsi_cls_session *)external_alloc();
+  return ldv_malloc(sizeof(struct iscsi_cls_session));
 }
 void iscsi_session_teardown(struct iscsi_cls_session *arg0) {
   return;
@@ -25362,9 +25344,8 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
 struct nlattr *nla_find(const struct nlattr *arg0, int arg1, int arg2) {
-  return (struct nlattr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlattr));
 }
 int __VERIFIER_nondet_int(void);
 int pci_bus_read_config_dword(struct pci_bus *arg0, unsigned int arg1, int arg2, u32 *arg3) {
@@ -25374,9 +25355,8 @@ int __VERIFIER_nondet_int(void);
 int pci_cleanup_aer_uncorrect_error_status(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
@@ -25462,9 +25442,8 @@ int scsi_dma_map(struct scsi_cmnd *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_get(struct Scsi_Host *arg0) {
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -25481,9 +25460,8 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2, size_t arg3) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void synchronize_irq(unsigned int arg0) {
   return;

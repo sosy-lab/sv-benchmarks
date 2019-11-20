@@ -9,19 +9,17 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: __compiletime_assert_402
@@ -143,10 +141,9 @@ int __netpoll_setup(struct netpoll *arg0, struct net_device *arg1) {
 // Function: __nlmsg_put
 // with type: struct nlmsghdr *__nlmsg_put(struct sk_buff *, u32 , u32 , int, int, int)
 // with return type: (struct nlmsghdr)*
-void *external_alloc(void);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
   // Pointer type
-  return (struct nlmsghdr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlmsghdr));
 }
 
 // Function: __request_module
@@ -233,10 +230,9 @@ void dev_disable_lro(struct net_device *arg0) {
 // Function: dev_get_by_index
 // with type: struct net_device *dev_get_by_index(struct net *, int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *dev_get_by_index(struct net *arg0, int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: dev_mc_flush
@@ -407,10 +403,9 @@ int genl_unregister_family(struct genl_family *arg0) {
 // Function: genlmsg_put
 // with type: void *genlmsg_put(struct sk_buff *, u32 , u32 , struct genl_family *, int, u8 )
 // with return type: (void)*
-void *external_alloc(void);
 void *genlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, struct genl_family *arg3, int arg4, u8 arg5) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: get_random_bytes
@@ -450,10 +445,9 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_init_4
@@ -804,10 +798,9 @@ void rtnl_unlock() {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_trim

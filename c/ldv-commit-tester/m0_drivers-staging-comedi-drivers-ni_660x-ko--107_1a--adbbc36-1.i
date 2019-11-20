@@ -4000,9 +4000,8 @@ int debug_lockdep_rcu_enabled() {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void ldv_handler_precall() {
   return;
@@ -4035,9 +4034,8 @@ void mite_list_devices() {
 void mite_release_channel(struct mite_channel *arg0) {
   return;
 }
-void *external_alloc(void);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct mite_channel *)external_alloc();
+  return ldv_malloc(sizeof(struct mite_channel));
 }
 int __VERIFIER_nondet_int(void);
 int mite_setup2(struct mite_struct *arg0, unsigned int arg1) {
@@ -4050,9 +4048,8 @@ int mite_sync_input_dma(struct mite_channel *arg0, struct comedi_async *arg1) {
 void mite_unsetup(struct mite_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *arg0, void (*arg1)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*arg2)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant arg3, unsigned int arg4) {
-  return (struct ni_gpct_device *)external_alloc();
+  return ldv_malloc(sizeof(struct ni_gpct_device));
 }
 void ni_gpct_device_destroy(struct ni_gpct_device *arg0) {
   return;

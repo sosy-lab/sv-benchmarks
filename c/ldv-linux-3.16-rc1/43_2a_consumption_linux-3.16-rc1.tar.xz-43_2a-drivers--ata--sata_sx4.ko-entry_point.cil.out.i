@@ -6910,9 +6910,8 @@ int __VERIFIER_nondet_int(void);
 int ata_host_activate(struct ata_host *arg0, int arg1, irqreturn_t (*arg2)(int, void *), unsigned long arg3, struct scsi_host_template *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ata_host *ata_host_alloc_pinfo(struct device *arg0, const struct ata_port_info * const *arg1, int arg2) {
-  return (struct ata_host *)external_alloc();
+  return ldv_malloc(sizeof(struct ata_host));
 }
 void ata_pci_remove_one(struct pci_dev *arg0) {
   return;
@@ -6965,9 +6964,8 @@ int __VERIFIER_nondet_int(void);
 int ata_std_bios_param(struct scsi_device *arg0, struct block_device *arg1, sector_t arg2, int *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int dma_set_mask(struct device *arg0, u64 arg1) {
@@ -6977,17 +6975,15 @@ int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread8(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void ldv_check_final_state() {
   return;
@@ -6995,9 +6991,8 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void msleep(unsigned int arg0) {
   return;
@@ -7026,9 +7021,8 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

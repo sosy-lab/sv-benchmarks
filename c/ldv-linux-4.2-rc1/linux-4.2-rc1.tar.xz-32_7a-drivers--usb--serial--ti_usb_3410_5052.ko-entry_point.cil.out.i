@@ -8369,9 +8369,8 @@ int tty_insert_flip_string_fixed_flag(struct tty_port *arg0, const unsigned char
 void tty_kref_put(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
-  return (struct tty_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct tty_struct));
 }
 void tty_port_tty_wakeup(struct tty_port *arg0) {
   return;

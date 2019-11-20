@@ -9,10 +9,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __bitmap_weight
@@ -183,10 +182,9 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *, int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return ldv_malloc(sizeof(unsigned char));
 }
 
 // Function: __raw_spin_lock_init
@@ -548,10 +546,9 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -573,10 +570,9 @@ void iowrite32(u32 arg0, void *arg1) {
 // Function: irq_to_desc
 // with type: struct irq_desc *irq_to_desc(unsigned int)
 // with return type: (struct irq_desc)*
-void *external_alloc(void);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
   // Pointer type
-  return (struct irq_desc *)external_alloc();
+  return ldv_malloc(sizeof(struct irq_desc));
 }
 
 // Skip function: kfree
@@ -600,10 +596,9 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ktime_get_with_offset
@@ -695,10 +690,9 @@ int ldv_ndo_uninit_14() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -849,10 +843,9 @@ int mlx4_SET_PORT_qpn_calc(struct mlx4_dev *arg0, u8 arg1, u32 arg2, u8 arg3) {
 // Function: mlx4_alloc_cmd_mailbox
 // with type: struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *)
 // with return type: (struct mlx4_cmd_mailbox)*
-void *external_alloc(void);
 struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *arg0) {
   // Pointer type
-  return (struct mlx4_cmd_mailbox *)external_alloc();
+  return ldv_malloc(sizeof(struct mlx4_cmd_mailbox));
 }
 
 // Function: mlx4_alloc_hwq_res
@@ -1016,10 +1009,9 @@ int mlx4_get_counter_stats(struct mlx4_dev *arg0, int arg1, struct mlx4_counter 
 // Function: mlx4_get_cpu_rmap
 // with type: struct cpu_rmap *mlx4_get_cpu_rmap(struct mlx4_dev *, int)
 // with return type: (struct cpu_rmap)*
-void *external_alloc(void);
 struct cpu_rmap *mlx4_get_cpu_rmap(struct mlx4_dev *arg0, int arg1) {
   // Pointer type
-  return (struct cpu_rmap *)external_alloc();
+  return ldv_malloc(sizeof(struct cpu_rmap));
 }
 
 // Function: mlx4_get_default_counter_index
@@ -1496,10 +1488,9 @@ void napi_disable(struct napi_struct *arg0) {
 // Function: napi_get_frags
 // with type: struct sk_buff *napi_get_frags(struct napi_struct *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
 struct sk_buff *napi_get_frags(struct napi_struct *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 
 // Function: napi_gro_frags
@@ -1551,10 +1542,9 @@ void netdev_features_change(struct net_device *arg0) {
 // Function: netdev_master_upper_dev_get
 // with type: struct net_device *netdev_master_upper_dev_get(struct net_device *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
 struct net_device *netdev_master_upper_dev_get(struct net_device *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return ldv_malloc(sizeof(struct net_device));
 }
 
 // Function: netdev_rss_key_fill
@@ -1711,10 +1701,9 @@ int ptp_clock_index(struct ptp_clock *arg0) {
 // Function: ptp_clock_register
 // with type: struct ptp_clock *ptp_clock_register(struct ptp_clock_info *, struct device *)
 // with return type: (struct ptp_clock)*
-void *external_alloc(void);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0, struct device *arg1) {
   // Pointer type
-  return (struct ptp_clock *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ptp_clock_unregister

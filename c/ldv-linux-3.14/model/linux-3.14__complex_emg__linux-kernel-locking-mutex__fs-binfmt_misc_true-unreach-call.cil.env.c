@@ -275,10 +275,9 @@ void lockref_get(struct lockref *arg0) {
 // Function: lookup_one_len
 // with type: struct dentry *lookup_one_len(const char *, struct dentry *, int)
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Skip function: malloc
@@ -296,19 +295,17 @@ void might_fault() {
 // Function: mount_single
 // with type: struct dentry *mount_single(struct file_system_type *, int, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
 struct dentry *mount_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 
 // Function: noop_llseek
@@ -327,10 +324,9 @@ loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: open_exec
 // with type: struct file *open_exec(const char *)
 // with return type: (struct file)*
-void *external_alloc(void);
 struct file *open_exec(const char *arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 
 // Function: prepare_binprm

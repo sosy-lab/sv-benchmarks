@@ -5,10 +5,9 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __bitmap_weight
@@ -115,10 +114,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __scsi_iterate_devices
 // with type: struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *, struct scsi_device *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return ldv_malloc(sizeof(struct scsi_device));
 }
 
 // Function: __wake_up
@@ -167,10 +165,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: attribute_container_find_class_device
 // with type: struct device *attribute_container_find_class_device(struct attribute_container *, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *attribute_container_find_class_device(struct attribute_container *arg0, struct device *arg1) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: blk_queue_free_tags
@@ -252,10 +249,9 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -299,19 +295,17 @@ u64 dma_get_required_mask(struct device *arg0) {
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dma_pool_destroy
@@ -442,10 +436,9 @@ void int_to_scsilun(unsigned int arg0, struct scsi_lun *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -469,10 +462,9 @@ void kill_fasync(struct fasync_struct **arg0, int arg1, int arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 
 // Function: ldv_check_return_value
@@ -803,10 +795,9 @@ bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delay
 // Function: raid_class_attach
 // with type: struct raid_template *raid_class_attach(struct raid_function_template *)
 // with return type: (struct raid_template)*
-void *external_alloc(void);
 struct raid_template *raid_class_attach(struct raid_function_template *arg0) {
   // Pointer type
-  return (struct raid_template *)external_alloc();
+  return ldv_malloc(sizeof(struct raid_template));
 }
 
 // Function: raid_class_release
@@ -829,10 +820,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: sas_attach_transport
 // with type: struct scsi_transport_template *sas_attach_transport(struct sas_function_template *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
 struct scsi_transport_template *sas_attach_transport(struct sas_function_template *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: sas_disable_tlr
@@ -854,19 +844,17 @@ void sas_enable_tlr(struct scsi_device *arg0) {
 // Function: sas_end_device_alloc
 // with type: struct sas_rphy *sas_end_device_alloc(struct sas_port *)
 // with return type: (struct sas_rphy)*
-void *external_alloc(void);
 struct sas_rphy *sas_end_device_alloc(struct sas_port *arg0) {
   // Pointer type
-  return (struct sas_rphy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_rphy));
 }
 
 // Function: sas_expander_alloc
 // with type: struct sas_rphy *sas_expander_alloc(struct sas_port *, enum sas_device_type )
 // with return type: (struct sas_rphy)*
-void *external_alloc(void);
 struct sas_rphy *sas_expander_alloc(struct sas_port *arg0, enum sas_device_type arg1) {
   // Pointer type
-  return (struct sas_rphy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_rphy));
 }
 
 // Function: sas_is_tlr_enabled
@@ -890,10 +878,9 @@ int sas_phy_add(struct sas_phy *arg0) {
 // Function: sas_phy_alloc
 // with type: struct sas_phy *sas_phy_alloc(struct device *, int)
 // with return type: (struct sas_phy)*
-void *external_alloc(void);
 struct sas_phy *sas_phy_alloc(struct device *arg0, int arg1) {
   // Pointer type
-  return (struct sas_phy *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_phy));
 }
 
 // Function: sas_phy_free
@@ -924,10 +911,9 @@ void sas_port_add_phy(struct sas_port *arg0, struct sas_phy *arg1) {
 // Function: sas_port_alloc_num
 // with type: struct sas_port *sas_port_alloc_num(struct device *)
 // with return type: (struct sas_port)*
-void *external_alloc(void);
 struct sas_port *sas_port_alloc_num(struct device *arg0) {
   // Pointer type
-  return (struct sas_port *)external_alloc();
+  return ldv_malloc(sizeof(struct sas_port));
 }
 
 // Function: sas_port_delete
@@ -1059,10 +1045,9 @@ void scsi_dma_unmap(struct scsi_cmnd *arg0) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return ldv_malloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -1161,10 +1146,9 @@ int scsilun_to_int(struct scsi_lun *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
 
 // Function: si_meminfo

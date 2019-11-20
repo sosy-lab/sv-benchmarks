@@ -114,10 +114,9 @@ u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_printk
@@ -218,19 +217,17 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -244,10 +241,9 @@ void iounmap(volatile void *arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -337,10 +333,9 @@ int pccard_register_pcmcia(struct pcmcia_socket *arg0, struct pcmcia_callback *a
 // Function: pcmcia_get_socket
 // with type: struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *)
 // with return type: (struct pcmcia_socket)*
-void *external_alloc(void);
 struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *arg0) {
   // Pointer type
-  return (struct pcmcia_socket *)external_alloc();
+  return ldv_malloc(sizeof(struct pcmcia_socket));
 }
 
 // Function: pcmcia_parse_uevents

@@ -9299,9 +9299,8 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -9371,9 +9370,8 @@ int hrtimer_try_to_cancel(struct hrtimer *arg0) {
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 ktime_t ktime_get() {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
@@ -9392,9 +9390,8 @@ int __VERIFIER_nondet_int(void);
 int ldv_setup_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) {
   return;
@@ -9431,16 +9428,14 @@ void qdisc_class_hash_insert(struct Qdisc_class_hash *arg0, struct Qdisc_class_c
 void qdisc_class_hash_remove(struct Qdisc_class_hash *arg0, struct Qdisc_class_common *arg1) {
   return;
 }
-void *external_alloc(void);
 struct Qdisc *qdisc_create_dflt(struct netdev_queue *arg0, const struct Qdisc_ops *arg1, u32 arg2) {
-  return (struct Qdisc *)external_alloc();
+  return ldv_malloc(sizeof(struct Qdisc));
 }
 void qdisc_destroy(struct Qdisc *arg0) {
   return;
 }
-void *external_alloc(void);
 struct qdisc_rate_table *qdisc_get_rtab(struct tc_ratespec *arg0, struct nlattr *arg1) {
-  return (struct qdisc_rate_table *)external_alloc();
+  return ldv_malloc(sizeof(struct qdisc_rate_table));
 }
 void qdisc_put_rtab(struct qdisc_rate_table *arg0) {
   return;
@@ -9472,13 +9467,11 @@ int __VERIFIER_nondet_int(void);
 int rtnl_is_locked() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;

@@ -54847,9 +54847,8 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __compiletime_assert_402() {
   return;
@@ -54876,9 +54875,8 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -54931,9 +54929,8 @@ void __sg_page_iter_start(struct sg_page_iter *arg0, struct scatterlist *arg1, u
 void __unregister_chrdev(unsigned int arg0, unsigned int arg1, unsigned int arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -54994,13 +54991,11 @@ void _raw_write_unlock(rwlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
 struct agp_memory *agp_allocate_memory(struct agp_bridge_data *arg0, size_t arg1, u32 arg2) {
-  return (struct agp_memory *)external_alloc();
+  return ldv_malloc(sizeof(struct agp_memory));
 }
-void *external_alloc(void);
 struct agp_bridge_data *agp_backend_acquire(struct pci_dev *arg0) {
-  return (struct agp_bridge_data *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void agp_backend_release(struct agp_bridge_data *arg0) {
   return;
@@ -55023,9 +55018,8 @@ int __VERIFIER_nondet_int(void);
 int agp_unbind_memory(struct agp_memory *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct inode *alloc_anon_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int arch_phys_wc_add(unsigned long arg0, unsigned long arg1) {
@@ -55052,9 +55046,8 @@ int class_create_file_ns(struct class *arg0, const struct class_attribute *arg1,
 void class_destroy(struct class *arg0) {
   return;
 }
-void *external_alloc(void);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void debug_check_no_locks_freed(const void *arg0, unsigned long arg1) {
   return;
@@ -55082,13 +55075,11 @@ int __VERIFIER_nondet_int(void);
 int debug_locks_off() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -55111,9 +55102,8 @@ int __VERIFIER_nondet_int(void);
 int device_add(struct device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *device_create_with_groups(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const struct attribute_group **arg4, const char *arg5, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 void device_del(struct device *arg0) {
   return;
@@ -55128,32 +55118,27 @@ int device_register(struct device *arg0) {
 void device_unregister(struct device *arg0) {
   return;
 }
-void *external_alloc(void);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct dma_buf_attachment *dma_buf_attach(struct dma_buf *arg0, struct device *arg1) {
-  return (struct dma_buf_attachment *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_buf_attachment));
 }
 void dma_buf_detach(struct dma_buf *arg0, struct dma_buf_attachment *arg1) {
   return;
 }
-void *external_alloc(void);
 struct dma_buf *dma_buf_export(const struct dma_buf_export_info *arg0) {
-  return (struct dma_buf *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_buf));
 }
 int __VERIFIER_nondet_int(void);
 int dma_buf_fd(struct dma_buf *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dma_buf *dma_buf_get(int arg0) {
-  return (struct dma_buf *)external_alloc();
+  return ldv_malloc(sizeof(struct dma_buf));
 }
-void *external_alloc(void);
 struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *arg0, enum dma_data_direction arg1) {
-  return (struct sg_table *)external_alloc();
+  return ldv_malloc(sizeof(struct sg_table));
 }
 void dma_buf_put(struct dma_buf *arg0) {
   return;
@@ -55199,9 +55184,8 @@ int __VERIFIER_nondet_int(void);
 int hdmi_vendor_infoframe_init(struct hdmi_vendor_infoframe *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return ldv_malloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
@@ -55230,17 +55214,15 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int idr_for_each(struct idr *arg0, int (*arg1)(int, void *, void *), void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *idr_get_next(struct idr *arg0, int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -55251,17 +55233,14 @@ void idr_preload(gfp_t arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 void *idr_replace(struct idr *arg0, void *arg1, int arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -55269,28 +55248,24 @@ void iounmap(volatile void *arg0) {
 void iput(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void kill_anon_super(struct super_block *arg0) {
   return;
 }
-void *external_alloc(void);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int kobject_uevent_env(struct kobject *arg0, enum kobject_action arg1, char **arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 ktime_t ktime_get() {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
@@ -55301,9 +55276,8 @@ ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
 ktime_t ktime_mono_to_any(ktime_t arg0, enum tk_offsets arg1) {
   return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
 }
-void *external_alloc(void);
 char *kvasprintf(gfp_t arg0, const char *arg1, va_list *arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void kvfree(const void *arg0) {
   return;
@@ -55410,21 +55384,18 @@ void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) 
 void mark_page_accessed(struct page *arg0) {
   return;
 }
-void *external_alloc(void);
 void *memchr_inv(const void *arg0, int arg1, size_t arg2) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct dentry *mount_pseudo(struct file_system_type *arg0, char *arg1, const struct super_operations *arg2, const struct dentry_operations *arg3, unsigned long arg4) {
-  return (struct dentry *)external_alloc();
+  return ldv_malloc(sizeof(struct dentry));
 }
 void mutex_destroy(struct mutex *arg0) {
   return;
@@ -55454,20 +55425,17 @@ int __VERIFIER_nondet_int(void);
 int of_get_videomode(struct device_node *arg0, struct videomode *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device_node *of_graph_get_next_endpoint(const struct device_node *arg0, struct device_node *arg1) {
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
 struct device_node *of_graph_get_remote_port(const struct device_node *arg0) {
-  return (struct device_node *)external_alloc();
+  return ldv_malloc(sizeof(struct device_node));
 }
 void of_node_put(struct device_node *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_disable_device(struct pci_dev *arg0) {
   return;
@@ -55480,9 +55448,8 @@ int __VERIFIER_nondet_int(void);
 int pci_find_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct pci_dev *pci_get_subsys(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, struct pci_dev *arg4) {
-  return (struct pci_dev *)external_alloc();
+  return ldv_malloc(sizeof(struct pci_dev));
 }
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
@@ -55494,9 +55461,8 @@ int pcie_capability_read_dword(struct pci_dev *arg0, int arg1, u32 *arg2) {
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
   return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
 }
-void *external_alloc(void);
 struct task_struct *pid_task(struct pid *arg0, enum pid_type arg1) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 pid_t pid_vnr(struct pid *arg0) {
@@ -55597,25 +55563,21 @@ int sg_alloc_table_from_pages(struct sg_table *arg0, struct page **arg1, unsigne
 void sg_free_table(struct sg_table *arg0) {
   return;
 }
-void *external_alloc(void);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return ldv_malloc(sizeof(struct scatterlist));
 }
-void *external_alloc(void);
 struct file *shmem_file_setup(const char *arg0, loff_t arg1, unsigned long arg2) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
-void *external_alloc(void);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t show_class_attr_string(struct class *arg0, struct class_attribute *arg1, char *arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
 char *simple_dname(struct dentry *arg0, char *arg1, int arg2) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int simple_pin_fs(struct file_system_type *arg0, struct vfsmount **arg1, int *arg2) {
@@ -55680,32 +55642,26 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int vm_mmap(struct file *arg0, unsigned long arg1, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vmalloc_32(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 struct page *vmalloc_to_page(const void *arg0) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
-void *external_alloc(void);
 void *vmalloc_user(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
-void *external_alloc(void);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void vunmap(const void *arg0) {
   return;
 }
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;

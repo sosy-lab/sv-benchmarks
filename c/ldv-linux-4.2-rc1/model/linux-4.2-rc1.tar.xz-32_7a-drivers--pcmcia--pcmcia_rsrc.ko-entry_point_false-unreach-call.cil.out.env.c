@@ -62,10 +62,9 @@ void class_interface_unregister(struct class_interface *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: iounmap
@@ -163,10 +162,9 @@ int pci_bus_alloc_resource(struct pci_bus *arg0, struct resource *arg1, resource
 // Function: pci_find_parent_resource
 // with type: struct resource *pci_find_parent_resource(const struct pci_dev *, struct resource *)
 // with return type: (struct resource)*
-void *external_alloc(void);
 struct resource *pci_find_parent_resource(const struct pci_dev *arg0, struct resource *arg1) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return ldv_malloc(sizeof(struct resource));
 }
 
 // Function: printk

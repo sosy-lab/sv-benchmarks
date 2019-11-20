@@ -7000,9 +7000,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 int __VERIFIER_nondet_int(void);
 int __hid_register_driver(struct hid_driver *arg0, struct module *arg1, const char *arg2) {

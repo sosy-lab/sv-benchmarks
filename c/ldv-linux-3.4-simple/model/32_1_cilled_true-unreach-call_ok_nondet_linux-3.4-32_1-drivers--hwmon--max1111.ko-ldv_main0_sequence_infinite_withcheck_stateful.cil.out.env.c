@@ -30,10 +30,9 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -56,10 +55,9 @@ void driver_unregister(struct device_driver *arg0) {
 // Function: hwmon_device_register
 // with type: struct device *hwmon_device_register(struct device *dev)
 // with return type: (struct device)*
-void *external_alloc(void);
 struct device *hwmon_device_register(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 
 // Function: hwmon_device_unregister

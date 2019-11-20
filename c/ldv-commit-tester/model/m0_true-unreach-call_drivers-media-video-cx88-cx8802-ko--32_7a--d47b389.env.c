@@ -104,10 +104,9 @@ void btcx_riscmem_free(struct pci_dev *arg0, struct btcx_riscmem *arg1) {
 // Function: cx88_core_get
 // with type: struct cx88_core *cx88_core_get(struct pci_dev *)
 // with return type: (struct cx88_core)*
-void *external_alloc(void);
 struct cx88_core *cx88_core_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct cx88_core *)external_alloc();
+  return ldv_malloc(sizeof(struct cx88_core));
 }
 
 // Function: cx88_core_irq
@@ -224,10 +223,9 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: dev_set_drvdata
@@ -481,9 +479,8 @@ int videobuf_iolock(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, s
 // Function: videobuf_to_dma
 // with type: struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *)
 // with return type: (struct videobuf_dmabuf)*
-void *external_alloc(void);
 struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *arg0) {
   // Pointer type
-  return (struct videobuf_dmabuf *)external_alloc();
+  return ldv_malloc(sizeof(struct videobuf_dmabuf));
 }
 

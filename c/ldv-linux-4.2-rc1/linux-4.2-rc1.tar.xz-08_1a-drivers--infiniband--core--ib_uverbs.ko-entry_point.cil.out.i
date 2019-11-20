@@ -12250,9 +12250,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return ldv_malloc(sizeof(struct class));
 }
 void __copy_from_user_overflow() {
   return;
@@ -12322,9 +12321,8 @@ int __VERIFIER_nondet_int(void);
 int alloc_chrdev_region(dev_t *arg0, unsigned int arg1, unsigned int arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct file *anon_inode_getfile(const char *arg0, const struct file_operations *arg1, void *arg2, int arg3) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
@@ -12354,9 +12352,8 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return ldv_malloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -12391,9 +12388,8 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
 struct pid *get_task_pid(struct task_struct *arg0, enum pid_type arg1) {
-  return (struct pid *)external_alloc();
+  return ldv_malloc(sizeof(struct pid));
 }
 int __VERIFIER_nondet_int(void);
 int get_unused_fd_flags(unsigned int arg0) {
@@ -12407,17 +12403,14 @@ int __VERIFIER_nondet_int(void);
 int ib_close_qp(struct ib_qp *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
-  return (struct ib_ah *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_ah));
 }
-void *external_alloc(void);
 struct ib_flow *ib_create_flow(struct ib_qp *arg0, struct ib_flow_attr *arg1, int arg2) {
-  return (struct ib_flow *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_flow));
 }
-void *external_alloc(void);
 struct ib_qp *ib_create_qp(struct ib_pd *arg0, struct ib_qp_init_attr *arg1) {
-  return (struct ib_qp *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_qp));
 }
 int __VERIFIER_nondet_int(void);
 int ib_dealloc_mw(struct ib_mw *arg0) {
@@ -12459,17 +12452,15 @@ int __VERIFIER_nondet_int(void);
 int ib_detach_mcast(struct ib_qp *arg0, union ib_gid *arg1, u16 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *ib_get_client_data(struct ib_device *arg0, struct ib_client *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int ib_modify_qp(struct ib_qp *arg0, struct ib_qp_attr *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct ib_qp *ib_open_qp(struct ib_xrcd *arg0, struct ib_qp_open_attr *arg1) {
-  return (struct ib_qp *)external_alloc();
+  return ldv_malloc(sizeof(struct ib_qp));
 }
 int __VERIFIER_nondet_int(void);
 int ib_query_device(struct ib_device *arg0, struct ib_device_attr *arg1) {
@@ -12516,9 +12507,8 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void idr_preload(gfp_t arg0) {
   return;
@@ -12526,16 +12516,14 @@ void idr_preload(gfp_t arg0) {
 void idr_remove(struct idr *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
 struct inode *igrab(struct inode *arg0) {
-  return (struct inode *)external_alloc();
+  return ldv_malloc(sizeof(struct inode));
 }
 void iput(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 void kill_fasync(struct fasync_struct **arg0, int arg1, int arg2) {
   return;

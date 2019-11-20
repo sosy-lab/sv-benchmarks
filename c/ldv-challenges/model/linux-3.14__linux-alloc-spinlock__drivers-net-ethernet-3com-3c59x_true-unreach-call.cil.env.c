@@ -336,10 +336,9 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioport_map
 // with type: void *ioport_map(unsigned long, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
 void *ioport_map(unsigned long arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ioread16

@@ -217,10 +217,9 @@ int drm_err(const char *arg0, const char *arg1, ...) {
 // Function: drm_getsarea
 // with type: struct drm_local_map *drm_getsarea(struct drm_device *)
 // with return type: (struct drm_local_map)*
-void *external_alloc(void);
 struct drm_local_map *drm_getsarea(struct drm_device *arg0) {
   // Pointer type
-  return (struct drm_local_map *)external_alloc();
+  return ldv_malloc(sizeof(struct drm_local_map));
 }
 
 // Function: drm_handle_vblank
@@ -408,10 +407,9 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: idr_init
@@ -435,10 +433,9 @@ void idr_remove(struct idr *arg0, int arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: ldv_check_final_state
@@ -469,10 +466,9 @@ int ldv_release_2() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return ldv_malloc(sizeof(struct page___0));
 }
 
 // Function: list_del
@@ -641,10 +637,9 @@ void vfree(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: default_wake_function

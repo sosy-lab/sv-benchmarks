@@ -9,10 +9,9 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 
 // Function: __compiletime_assert_60
@@ -43,10 +42,9 @@ int __netlink_dump_start(struct sock *arg0, struct sk_buff *arg1, const struct n
 // Function: __nlmsg_put
 // with type: struct nlmsghdr *__nlmsg_put(struct sk_buff *, u32 , u32 , int, int, int)
 // with return type: (struct nlmsghdr)*
-void *external_alloc(void);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
   // Pointer type
-  return (struct nlmsghdr *)external_alloc();
+  return ldv_malloc(sizeof(struct nlmsghdr));
 }
 
 // Function: __request_module
@@ -358,10 +356,9 @@ void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
 // Function: strnchr
 // with type: char *strnchr(const char *, size_t , int)
 // with return type: (char)*
-void *external_alloc(void);
 char *strnchr(const char *arg0, size_t arg1, int arg2) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: unregister_pernet_subsys

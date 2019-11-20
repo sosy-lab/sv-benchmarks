@@ -10129,9 +10129,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, int arg1) {
@@ -10169,9 +10168,8 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return ldv_malloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -10187,9 +10185,8 @@ bool __virt_addr_valid(unsigned long arg0) {
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   return ldv_malloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return ldv_malloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -10221,9 +10218,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 struct ewma *ewma_add(struct ewma *arg0, unsigned long arg1) {
-  return (struct ewma *)external_alloc();
+  return ldv_malloc(sizeof(struct ewma));
 }
 void ewma_init(struct ewma *arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -10414,9 +10410,8 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_sgs(struct virtqueue *arg0, struct scatterlist **arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 void *virtqueue_detach_unused_buf(struct virtqueue *arg0) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void virtqueue_disable_cb(struct virtqueue *arg0) {
   return;
@@ -10429,9 +10424,8 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int virtqueue_enable_cb_prepare(struct virtqueue *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return ldv_malloc(0UL);
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int virtqueue_get_vring_size(struct virtqueue *arg0) {

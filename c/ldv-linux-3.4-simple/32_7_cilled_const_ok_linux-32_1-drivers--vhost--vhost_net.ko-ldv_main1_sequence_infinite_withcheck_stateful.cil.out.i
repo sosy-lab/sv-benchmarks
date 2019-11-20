@@ -22622,24 +22622,21 @@ int __VERIFIER_nondet_int(void);
 int cgroup_attach_task_all(struct task_struct *arg0, struct task_struct *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return ldv_malloc(0UL);
 }
 void eventfd_ctx_put(struct eventfd_ctx *arg0) {
   return;
 }
-void *external_alloc(void);
 struct file *eventfd_fget(int arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int eventfd_signal(struct eventfd_ctx *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return ldv_malloc(sizeof(struct file));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -22647,17 +22644,15 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
-  return (struct mm_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct mm_struct));
 }
 int __VERIFIER_nondet_int(void);
 int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return ldv_malloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -22673,9 +22668,8 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
 struct socket *macvtap_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 int __VERIFIER_nondet_int(void);
 int memcpy_fromiovec(unsigned char *arg0, struct iovec *arg1, int arg2) {
@@ -22712,16 +22706,14 @@ int __VERIFIER_nondet_int(void);
 int set_page_dirty_lock(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 void synchronize_sched() {
   return;
 }
-void *external_alloc(void);
 struct socket *tun_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return ldv_malloc(sizeof(struct socket));
 }
 void unuse_mm(struct mm_struct *arg0) {
   return;

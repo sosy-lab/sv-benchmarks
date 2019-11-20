@@ -60,10 +60,9 @@ void config_group_init(struct config_group *arg0) {
 // Function: config_item_get
 // with type: struct config_item *config_item_get(struct config_item *)
 // with return type: (struct config_item)*
-void *external_alloc(void);
 struct config_item *config_item_get(struct config_item *arg0) {
   // Pointer type
-  return (struct config_item *)external_alloc();
+  return ldv_malloc(sizeof(struct config_item));
 }
 
 // Function: config_item_init_type_name
@@ -278,10 +277,9 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: strnchr
 // with type: char *strnchr(const char *, size_t , int)
 // with return type: (char)*
-void *external_alloc(void);
 char *strnchr(const char *arg0, size_t arg1, int arg2) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: strnlen
@@ -300,10 +298,9 @@ __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return ldv_malloc(sizeof(char));
 }
 
 // Function: unregister_console
