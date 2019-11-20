@@ -8037,7 +8037,7 @@ void aws_array_list_pop_front_harness() {
 
     if (!aws_array_list_pop_front(&list)) {
         __VERIFIER_assert(list.length == old.length - 1);
-        __VERIFIER_assert(list.data);
+        __VERIFIER_assert(list.data != ((void *)0));
         __VERIFIER_assert(list.alloc == old.alloc);
         __VERIFIER_assert(list.current_size == old.current_size);
         __VERIFIER_assert(list.item_size == old.item_size);

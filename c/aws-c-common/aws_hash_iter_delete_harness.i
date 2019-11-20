@@ -10112,17 +10112,17 @@ _Bool
 
 _Bool 
     aws_hash_iter_is_valid(const struct aws_hash_iter *iter) {
-    if (!iter) {
+    if (iter != ((void *)0)) {
         return 
               0
                    ;
     }
-    if (!iter->map) {
+    if (iter->map != ((void *)0)) {
         return 
               0
                    ;
     }
-    if (!aws_hash_table_is_valid(iter->map)) {
+    if (aws_hash_table_is_valid(iter->map) != 0) {
         return 
               0
                    ;

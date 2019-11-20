@@ -8049,7 +8049,7 @@ void aws_array_list_get_at_ptr_harness() {
 
 
 
-        __VERIFIER_assert(list.data);
+        __VERIFIER_assert(list.data != ((void *)0));
         __VERIFIER_assert(list.length > index);
     }
 
