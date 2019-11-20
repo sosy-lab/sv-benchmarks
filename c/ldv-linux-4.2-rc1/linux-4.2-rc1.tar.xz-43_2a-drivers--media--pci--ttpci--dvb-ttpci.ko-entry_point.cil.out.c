@@ -11987,8 +11987,7 @@ void ldv_initialize_saa7146_ext_vv_15(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  av7110_vv_data_c_group0 = (struct file *)tmp;
+  av7110_vv_data_c_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -11997,8 +11996,7 @@ void ldv_initialize_saa7146_ext_vv_16(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  av7110_vv_data_st_group0 = (struct file *)tmp;
+  av7110_vv_data_st_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -15062,8 +15060,7 @@ void ldv_main_exported_11(void)
   int tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg0 = (struct file *)tmp;
+  ldvarg0 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg1 = tmp___0;
   ldv_memset((void *)(& ldvarg2), 0, 4UL);
@@ -15094,8 +15091,7 @@ void ldv_main_exported_13(void)
   int tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg16 = (struct file *)tmp;
+  ldvarg16 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg17 = tmp___0;
   ldv_memset((void *)(& ldvarg18), 0, 4UL);
@@ -16225,8 +16221,7 @@ void ldv_main_exported_9(void)
   int tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg25 = (struct file *)tmp;
+  ldvarg25 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg26 = tmp___0;
   ldv_memset((void *)(& ldvarg27), 0, 4UL);
@@ -21047,8 +21042,7 @@ int main(void)
   ldvarg52 = (struct dvb_frontend *)tmp___5;
   tmp___6 = ldv_init_zalloc(1UL);
   ldvarg67 = tmp___6;
-  tmp___7 = __VERIFIER_nondet_pointer();
-  ldvarg66 = (struct file *)tmp___7;
+  ldvarg66 = ldv_malloc(sizeof(struct file));
   ldv_initialize();
   ldv_memset((void *)(& ldvarg4), 0, 4UL);
   ldv_memset((void *)(& ldvarg5), 0, 4UL);

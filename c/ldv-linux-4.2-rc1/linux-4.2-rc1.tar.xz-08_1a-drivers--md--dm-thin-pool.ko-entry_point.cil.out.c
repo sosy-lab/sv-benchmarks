@@ -14789,8 +14789,7 @@ void ldv_initialize_dm_block_validator_4(void)
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  sb_validator_group0 = (struct dm_block *)tmp;
+  sb_validator_group0 = ldv_malloc(0UL);
   tmp___0 = ldv_init_zalloc(24UL);
   sb_validator_group1 = (struct dm_block_validator *)tmp___0;
   return;

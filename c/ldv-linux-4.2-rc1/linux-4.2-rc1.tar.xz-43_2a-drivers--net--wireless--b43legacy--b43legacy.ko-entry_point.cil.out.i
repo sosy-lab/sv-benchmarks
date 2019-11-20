@@ -25773,8 +25773,7 @@ void ldv_initialize_b43legacy_debugfs_fops_9(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fops_shm_group0 = (struct file *)tmp;
+  fops_shm_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -25782,8 +25781,7 @@ void ldv_initialize_b43legacy_debugfs_fops_11(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fops_tsf_group0 = (struct file *)tmp;
+  fops_tsf_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -25791,8 +25789,7 @@ void ldv_initialize_b43legacy_debugfs_fops_7(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fops_restart_group0 = (struct file *)tmp;
+  fops_restart_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -25800,8 +25797,7 @@ void ldv_initialize_b43legacy_debugfs_fops_8(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fops_txstat_group0 = (struct file *)tmp;
+  fops_txstat_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -25809,8 +25805,7 @@ void ldv_initialize_b43legacy_debugfs_fops_10(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fops_ucode_regs_group0 = (struct file *)tmp;
+  fops_ucode_regs_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

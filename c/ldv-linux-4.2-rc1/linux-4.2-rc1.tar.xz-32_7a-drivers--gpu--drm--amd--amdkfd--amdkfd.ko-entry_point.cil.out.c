@@ -5574,10 +5574,8 @@ int main(void)
   ldvarg18 = (struct kfd2kgd_calls *)tmp;
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg20 = tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg17 = (struct kgd_dev *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg19 = (struct pci_dev *)tmp___2;
+  ldvarg17 = ldv_malloc(0UL);
+  ldvarg19 = ldv_malloc(sizeof(struct pci_dev));
   tmp___3 = ldv_init_zalloc(40UL);
   ldvarg16 = (struct kgd2kfd_shared_resources *)tmp___3;
   ldv_initialize();

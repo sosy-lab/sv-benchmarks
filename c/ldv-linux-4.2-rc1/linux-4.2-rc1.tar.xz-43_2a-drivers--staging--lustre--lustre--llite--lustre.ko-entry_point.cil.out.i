@@ -40055,8 +40055,7 @@ void ldv_main_exported_53(void)
   ldvarg158 = (struct kstat *)tmp;
   tmp___0 = ldv_init_zalloc(4UL);
   ldvarg160 = (int *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg162 = (struct file *)tmp___1;
+  ldvarg162 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(80UL);
   ldvarg159 = (struct iattr *)tmp___2;
   tmp___3 = ldv_init_zalloc(1UL);
@@ -48624,8 +48623,7 @@ void ldv_initialize_address_space_operations_49(void)
   {
   tmp = ldv_init_zalloc(408UL);
   ll_aops_group1 = (struct address_space *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  ll_aops_group2 = (struct file *)tmp___0;
+  ll_aops_group2 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(64UL);
   ll_aops_group0 = (struct page *)tmp___1;
   tmp___2 = ldv_init_zalloc(96UL);
@@ -49743,8 +49741,7 @@ int main(void)
   ldvarg185 = (char *)tmp___0;
   tmp___1 = ldv_init_zalloc(4UL);
   ldvarg186 = (int *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg184 = (struct kstatfs *)tmp___2;
+  ldvarg184 = ldv_malloc(sizeof(struct kstatfs));
   ldv_initialize();
   ldv_state_variable_33 = 0;
   ldv_state_variable_32 = 0;

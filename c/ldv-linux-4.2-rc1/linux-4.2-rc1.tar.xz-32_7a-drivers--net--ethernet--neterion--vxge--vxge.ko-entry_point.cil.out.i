@@ -24675,8 +24675,7 @@ void ldv_initialize_pci_error_handlers_11(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  vxge_err_handler_group0 = (struct pci_dev *)tmp;
+  vxge_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

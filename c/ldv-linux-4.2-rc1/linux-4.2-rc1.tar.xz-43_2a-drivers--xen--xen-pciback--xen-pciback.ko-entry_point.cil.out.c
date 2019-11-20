@@ -5919,8 +5919,7 @@ void ldv_initialize_pci_error_handlers_15(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  xen_pcibk_error_handler_group0 = (struct pci_dev *)tmp;
+  xen_pcibk_error_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -11537,8 +11536,7 @@ void ldv_initialize_xen_pcibk_backend_4(void)
   {
   tmp = ldv_init_zalloc(312UL);
   xen_pcibk_vpci_backend_group0 = (struct xen_pcibk_device *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  xen_pcibk_vpci_backend_group1 = (struct pci_dev *)tmp___0;
+  xen_pcibk_vpci_backend_group1 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -12012,8 +12010,7 @@ void ldv_initialize_xen_pcibk_backend_3(void)
   {
   tmp = ldv_init_zalloc(312UL);
   xen_pcibk_passthrough_backend_group0 = (struct xen_pcibk_device *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  xen_pcibk_passthrough_backend_group1 = (struct pci_dev *)tmp___0;
+  xen_pcibk_passthrough_backend_group1 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

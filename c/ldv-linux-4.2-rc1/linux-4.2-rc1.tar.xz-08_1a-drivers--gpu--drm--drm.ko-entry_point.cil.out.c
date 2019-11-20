@@ -20192,8 +20192,7 @@ int main(void)
   ldvarg0 = (struct dentry *)tmp;
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg2 = (char *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg4 = (struct kstatfs *)tmp___1;
+  ldvarg4 = ldv_malloc(0UL);
   tmp___2 = ldv_init_zalloc(320UL);
   ldvarg3 = (struct dentry *)tmp___2;
   tmp___3 = ldv_init_zalloc(128UL);
@@ -25043,8 +25042,7 @@ void ldv_main_exported_15(void)
   {
   tmp = ldv_init_zalloc(72UL);
   ldvarg90 = (struct bin_attribute *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  ldvarg89 = (struct file *)tmp___0;
+  ldvarg89 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(1UL);
   ldvarg88 = (char *)tmp___1;
   tmp___2 = ldv_init_zalloc(296UL);
@@ -46629,10 +46627,8 @@ void ldv_initialize_dma_buf_ops_3(void)
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  drm_gem_prime_dmabuf_ops_group0 = (struct dma_buf *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  drm_gem_prime_dmabuf_ops_group1 = (struct dma_buf_attachment *)tmp___0;
+  drm_gem_prime_dmabuf_ops_group0 = ldv_malloc(sizeof(struct dma_buf));
+  drm_gem_prime_dmabuf_ops_group1 = ldv_malloc(sizeof(struct dma_buf_attachment));
   return;
 }
 }

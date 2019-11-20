@@ -9104,8 +9104,7 @@ void ldv_initialize_v4l2_file_operations_6(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  s2255_fops_v4l_group0 = (struct file *)tmp;
+  s2255_fops_v4l_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -9324,8 +9323,7 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   s2255_ioctl_ops_group0 = (struct v4l2_format *)tmp___0;
   tmp___1 = ldv_init_zalloc(176UL);
   s2255_ioctl_ops_group4 = (struct v4l2_fh *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  s2255_ioctl_ops_group3 = (struct file *)tmp___2;
+  s2255_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   tmp___3 = ldv_init_zalloc(88UL);
   s2255_ioctl_ops_group5 = (struct v4l2_buffer *)tmp___3;
   tmp___4 = ldv_init_zalloc(204UL);

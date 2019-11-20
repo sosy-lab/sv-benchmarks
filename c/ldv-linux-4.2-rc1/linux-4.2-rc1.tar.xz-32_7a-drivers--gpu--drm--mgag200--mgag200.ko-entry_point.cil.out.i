@@ -12683,8 +12683,7 @@ void ldv_main_exported_1(void)
   ldvarg21 = (struct ttm_mem_type_manager *)tmp___0;
   tmp___1 = ldv_init_zalloc(64UL);
   ldvarg16 = (struct page *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg20 = (struct file *)tmp___2;
+  ldvarg20 = ldv_malloc(sizeof(struct file));
   ldv_memset((void *)(& ldvarg22), 0, 4UL);
   ldv_memset((void *)(& ldvarg13), 0, 1UL);
   ldv_memset((void *)(& ldvarg17), 0, 4UL);

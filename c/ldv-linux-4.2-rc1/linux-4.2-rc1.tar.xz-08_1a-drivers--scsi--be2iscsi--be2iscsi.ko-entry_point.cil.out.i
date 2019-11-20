@@ -18554,8 +18554,7 @@ void ldv_initialize_pci_error_handlers_9(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  beiscsi_eeh_handlers_group0 = (struct pci_dev *)tmp;
+  beiscsi_eeh_handlers_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -18924,10 +18923,8 @@ void ldv_initialize_scsi_host_template_10(void)
   void *tmp ;
   void *tmp___0 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  beiscsi_sht_group0 = (struct scsi_cmnd *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  beiscsi_sht_group1 = (struct scsi_device *)tmp___0;
+  beiscsi_sht_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
+  beiscsi_sht_group1 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

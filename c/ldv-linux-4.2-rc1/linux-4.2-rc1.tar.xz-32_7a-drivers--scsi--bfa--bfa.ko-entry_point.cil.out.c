@@ -13706,8 +13706,7 @@ void ldv_initialize_pci_error_handlers_38(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  bfad_err_handler_group0 = (struct pci_dev *)tmp;
+  bfad_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -17140,12 +17139,10 @@ void ldv_initialize_scsi_host_template_36(void)
   void *tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  bfad_im_scsi_host_template_group0 = (struct scsi_cmnd *)tmp;
+  bfad_im_scsi_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   bfad_im_scsi_host_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  bfad_im_scsi_host_template_group2 = (struct scsi_device *)tmp___1;
+  bfad_im_scsi_host_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }
@@ -17410,12 +17407,10 @@ void ldv_initialize_scsi_host_template_35(void)
   void *tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  bfad_im_vport_template_group0 = (struct scsi_cmnd *)tmp;
+  bfad_im_vport_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   bfad_im_vport_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  bfad_im_vport_template_group2 = (struct scsi_device *)tmp___1;
+  bfad_im_vport_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

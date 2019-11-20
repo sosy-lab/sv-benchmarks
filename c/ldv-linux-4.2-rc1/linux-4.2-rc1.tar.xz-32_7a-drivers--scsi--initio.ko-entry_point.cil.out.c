@@ -8654,8 +8654,7 @@ void ldv_initialize_scsi_host_template_3(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  initio_template_group0 = (struct scsi_cmnd *)tmp;
+  initio_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   return;
 }
 }
@@ -8716,8 +8715,7 @@ int main(void)
   ldvarg4 = (struct block_device *)tmp___0;
   tmp___1 = ldv_init_zalloc(3816UL);
   ldvarg0 = (struct Scsi_Host *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg2 = (struct scsi_device *)tmp___2;
+  ldvarg2 = ldv_malloc(sizeof(struct scsi_device));
   tmp___3 = ldv_init_zalloc(32UL);
   ldvarg5 = (struct pci_device_id *)tmp___3;
   ldv_initialize();

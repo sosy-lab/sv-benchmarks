@@ -46686,8 +46686,7 @@ void ldv_initialize_target_fabric_discovery_attribute_68(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  iscsi_disc_userid_group0 = (struct target_fabric_configfs *)tmp;
+  iscsi_disc_userid_group0 = ldv_malloc(0UL);
   return;
 }
 }
@@ -46756,8 +46755,7 @@ void ldv_initialize_target_fabric_discovery_attribute_67(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  iscsi_disc_password_group0 = (struct target_fabric_configfs *)tmp;
+  iscsi_disc_password_group0 = ldv_malloc(0UL);
   return;
 }
 }
@@ -46806,8 +46804,7 @@ void ldv_initialize_target_fabric_discovery_attribute_64(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  iscsi_disc_password_mutual_group0 = (struct target_fabric_configfs *)tmp;
+  iscsi_disc_password_mutual_group0 = ldv_malloc(0UL);
   return;
 }
 }
@@ -47106,8 +47103,7 @@ void ldv_initialize_target_fabric_discovery_attribute_63(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  iscsi_disc_enforce_discovery_auth_group0 = (struct target_fabric_configfs *)tmp;
+  iscsi_disc_enforce_discovery_auth_group0 = ldv_malloc(0UL);
   return;
 }
 }
@@ -47136,8 +47132,7 @@ void ldv_initialize_target_fabric_discovery_attribute_65(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  iscsi_disc_userid_mutual_group0 = (struct target_fabric_configfs *)tmp;
+  iscsi_disc_userid_mutual_group0 = ldv_malloc(0UL);
   return;
 }
 }
@@ -48741,8 +48736,7 @@ void ldv_main_exported_66(void)
   int tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg248 = (struct target_fabric_configfs *)tmp;
+  ldvarg248 = ldv_malloc(0UL);
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg249 = (char *)tmp___0;
   tmp___1 = __VERIFIER_nondet_int();
@@ -48873,8 +48867,7 @@ void ldv_main_exported_62(void)
   ldvarg98 = (unsigned char *)tmp___1;
   tmp___2 = ldv_init_zalloc(120UL);
   ldvarg100 = (struct se_tpg_np *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  ldvarg94 = (struct target_fabric_configfs *)tmp___3;
+  ldvarg94 = ldv_malloc(0UL);
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg101 = (char *)tmp___4;
   tmp___5 = ldv_init_zalloc(1UL);
@@ -49984,8 +49977,7 @@ void ldv_main_exported_69(void)
   int tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg128 = (struct target_fabric_configfs *)tmp;
+  ldvarg128 = ldv_malloc(0UL);
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg129 = (char *)tmp___0;
   tmp___1 = __VERIFIER_nondet_int();

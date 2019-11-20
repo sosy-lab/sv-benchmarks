@@ -13407,10 +13407,8 @@ void ldv_initialize_scsi_host_template_4(void)
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fcoe_shost_template_group0 = (struct scsi_cmnd *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  fcoe_shost_template_group1 = (struct scsi_device *)tmp___0;
+  fcoe_shost_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
+  fcoe_shost_template_group1 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

@@ -6287,8 +6287,7 @@ void ldv_initialize_usb_serial_driver_1(void)
   ti_2port_device_group0 = (struct urb *)tmp;
   tmp___0 = ldv_init_zalloc(2152UL);
   ti_2port_device_group1 = (struct usb_serial_port *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ti_2port_device_group2 = (struct file *)tmp___1;
+  ti_2port_device_group2 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(264UL);
   ti_2port_device_group3 = (struct usb_serial *)tmp___2;
   tmp___3 = ldv_init_zalloc(2528UL);
@@ -6309,8 +6308,7 @@ void ldv_initialize_usb_serial_driver_2(void)
   ti_1port_device_group0 = (struct urb *)tmp;
   tmp___0 = ldv_init_zalloc(2152UL);
   ti_1port_device_group1 = (struct usb_serial_port *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ti_1port_device_group2 = (struct file *)tmp___1;
+  ti_1port_device_group2 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(264UL);
   ti_1port_device_group3 = (struct usb_serial *)tmp___2;
   tmp___3 = ldv_init_zalloc(2528UL);

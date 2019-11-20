@@ -15667,8 +15667,7 @@ void ldv_initialize_scsi_host_template_7(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  bnx2i_host_template_group0 = (struct scsi_cmnd *)tmp;
+  bnx2i_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   return;
 }
 }
@@ -16281,8 +16280,7 @@ void ldv_main_exported_7(void)
   int tmp___2 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg30 = (struct scsi_device *)tmp;
+  ldvarg30 = ldv_malloc(sizeof(struct scsi_device));
   tmp___0 = ldv_init_zalloc(1504UL);
   ldvarg28 = (struct scsi_target *)tmp___0;
   tmp___1 = ldv_init_zalloc(3816UL);

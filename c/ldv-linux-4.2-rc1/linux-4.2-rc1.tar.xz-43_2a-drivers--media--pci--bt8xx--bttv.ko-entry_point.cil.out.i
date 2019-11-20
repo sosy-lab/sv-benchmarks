@@ -11889,8 +11889,7 @@ void ldv_initialize_v4l2_ioctl_ops_14(void)
   bttv_ioctl_ops_group1 = (struct v4l2_event_subscription const *)tmp;
   tmp___0 = ldv_init_zalloc(208UL);
   bttv_ioctl_ops_group5 = (struct v4l2_format *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  bttv_ioctl_ops_group3 = (struct file *)tmp___1;
+  bttv_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(176UL);
   bttv_ioctl_ops_group2 = (struct v4l2_fh *)tmp___2;
   tmp___3 = ldv_init_zalloc(88UL);
@@ -12052,8 +12051,7 @@ void ldv_initialize_v4l2_file_operations_13(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  radio_fops_group0 = (struct file *)tmp;
+  radio_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -12079,8 +12077,7 @@ void ldv_initialize_v4l2_file_operations_15(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  bttv_fops_group0 = (struct file *)tmp;
+  bttv_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -12112,8 +12109,7 @@ void ldv_initialize_v4l2_ioctl_ops_12(void)
   {
   tmp = ldv_init_zalloc(32UL);
   radio_ioctl_ops_group0 = (struct v4l2_event_subscription const *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  radio_ioctl_ops_group2 = (struct file *)tmp___0;
+  radio_ioctl_ops_group2 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(176UL);
   radio_ioctl_ops_group1 = (struct v4l2_fh *)tmp___1;
   return;

@@ -32375,8 +32375,7 @@ void ldv_initialize_il_debugfs_ops_10(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  il4965_debugfs_ops_group0 = (struct file *)tmp;
+  il4965_debugfs_ops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

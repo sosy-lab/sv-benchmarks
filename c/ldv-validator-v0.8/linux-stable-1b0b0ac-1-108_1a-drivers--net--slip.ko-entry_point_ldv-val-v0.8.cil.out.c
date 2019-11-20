@@ -7400,10 +7400,8 @@ int main(void)
   ldvarg4 = (struct ifreq *)tmp___0;
   tmp___1 = ldv_init_zalloc(184UL);
   ldvarg0 = (struct rtnl_link_stats64 *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg7 = (struct file *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  ldvarg13 = (struct file *)tmp___3;
+  ldvarg7 = ldv_malloc(sizeof(struct file));
+  ldvarg13 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg10 = (unsigned char *)tmp___4;
   tmp___5 = ldv_init_zalloc(1UL);

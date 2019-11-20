@@ -14765,14 +14765,12 @@ int main(void)
   ldvarg988 = (struct drm_mode_create_dumb *)tmp___4;
   tmp___5 = ldv_init_zalloc(4UL);
   ldvarg973 = (int *)tmp___5;
-  tmp___6 = __VERIFIER_nondet_pointer();
-  ldvarg992 = (struct dma_buf_attachment *)tmp___6;
+  ldvarg992 = ldv_malloc(sizeof(struct dma_buf_attachment));
   tmp___7 = ldv_init_zalloc(1UL);
   ldvarg990 = tmp___7;
   tmp___8 = ldv_init_zalloc(8UL);
   ldvarg985 = (uint64_t *)tmp___8;
-  tmp___9 = __VERIFIER_nondet_pointer();
-  ldvarg983 = (struct dma_buf *)tmp___9;
+  ldvarg983 = ldv_malloc(sizeof(struct dma_buf));
   tmp___10 = ldv_init_zalloc(4UL);
   ldvarg982 = (int *)tmp___10;
   tmp___11 = ldv_init_zalloc(1UL);
@@ -20393,8 +20391,7 @@ void ldv_initialize_vga_switcheroo_client_ops_175(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  amdgpu_switcheroo_ops_group0 = (struct pci_dev *)tmp;
+  amdgpu_switcheroo_ops_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -35599,8 +35596,7 @@ void ldv_main_exported_162(void)
   int tmp___3 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg575 = (struct file *)tmp;
+  ldvarg575 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(32UL);
   ldvarg576 = (struct ttm_placement *)tmp___0;
   tmp___1 = ldv_init_zalloc(64UL);
@@ -148343,8 +148339,7 @@ void ldv_main_exported_12(void)
   int tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg793 = (struct pci_dev *)tmp;
+  ldvarg793 = ldv_malloc(sizeof(struct pci_dev));
   ldv_memset((void *)(& ldvarg791), 0, 4UL);
   ldv_memset((void *)(& ldvarg794), 0, 4UL);
   ldv_memset((void *)(& ldvarg792), 0, 4UL);

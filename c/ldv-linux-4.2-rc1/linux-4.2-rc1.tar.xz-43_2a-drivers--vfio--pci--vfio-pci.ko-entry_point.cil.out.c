@@ -5873,8 +5873,7 @@ int main(void)
   ldvarg14 = (char *)tmp___10;
   tmp___11 = ldv_init_zalloc(32UL);
   ldvarg17 = (struct pci_device_id *)tmp___11;
-  tmp___12 = __VERIFIER_nondet_pointer();
-  ldvarg26 = (struct pci_dev *)tmp___12;
+  ldvarg26 = ldv_malloc(sizeof(struct pci_dev));
   ldv_initialize();
   ldv_memset((void *)(& ldvarg8), 0, 8UL);
   ldv_memset((void *)(& ldvarg13), 0, 8UL);

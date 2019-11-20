@@ -17978,12 +17978,10 @@ void ldv_initialize_scsi_host_template_5(void)
   void *tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  hpsa_driver_template_group0 = (struct scsi_cmnd *)tmp;
+  hpsa_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   hpsa_driver_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  hpsa_driver_template_group2 = (struct scsi_device *)tmp___1;
+  hpsa_driver_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

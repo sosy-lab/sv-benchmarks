@@ -16528,8 +16528,7 @@ int main(void)
   ldvarg37 = tmp___3;
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg29 = (char *)tmp___4;
-  tmp___5 = __VERIFIER_nondet_pointer();
-  ldvarg35 = (struct req_msg_field *)tmp___5;
+  ldvarg35 = ldv_malloc(0UL);
   tmp___6 = ldv_init_zalloc(1UL);
   ldvarg69 = (char *)tmp___6;
   tmp___7 = ldv_init_zalloc(1UL);

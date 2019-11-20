@@ -8599,8 +8599,7 @@ void ldv_initialize_mpt_pci_driver_1(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  mptctl_driver_group0 = (struct pci_dev *)tmp;
+  mptctl_driver_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

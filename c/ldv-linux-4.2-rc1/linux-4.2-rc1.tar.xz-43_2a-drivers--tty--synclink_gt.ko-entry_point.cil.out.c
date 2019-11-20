@@ -14322,8 +14322,7 @@ void ldv_initialize_tty_operations_5(void)
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ops_group0 = (struct file *)tmp;
+  ops_group0 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1816UL);
   ops_group1 = (struct tty_struct *)tmp___0;
   return;

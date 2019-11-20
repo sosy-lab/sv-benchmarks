@@ -12386,8 +12386,7 @@ void ldv_initialize_v4l2_ioctl_ops_7(void)
   video_ioctl_ops_group1 = (struct v4l2_event_subscription const *)tmp;
   tmp___0 = ldv_init_zalloc(208UL);
   video_ioctl_ops_group0 = (struct v4l2_format *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  video_ioctl_ops_group3 = (struct file *)tmp___1;
+  video_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(176UL);
   video_ioctl_ops_group2 = (struct v4l2_fh *)tmp___2;
   tmp___3 = ldv_init_zalloc(88UL);
@@ -12403,8 +12402,7 @@ void ldv_initialize_v4l2_ioctl_ops_4(void)
   {
   tmp = ldv_init_zalloc(32UL);
   radio_ioctl_ops_group0 = (struct v4l2_event_subscription const *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  radio_ioctl_ops_group2 = (struct file *)tmp___0;
+  radio_ioctl_ops_group2 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(176UL);
   radio_ioctl_ops_group1 = (struct v4l2_fh *)tmp___1;
   return;
@@ -12414,8 +12412,7 @@ void ldv_initialize_v4l2_file_operations_8(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  tm6000_fops_group0 = (struct file *)tmp;
+  tm6000_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -12423,8 +12420,7 @@ void ldv_initialize_v4l2_file_operations_5(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  radio_fops_group0 = (struct file *)tmp;
+  radio_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

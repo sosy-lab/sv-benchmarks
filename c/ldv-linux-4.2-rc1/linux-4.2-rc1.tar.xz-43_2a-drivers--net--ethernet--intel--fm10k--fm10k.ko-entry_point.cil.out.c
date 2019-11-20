@@ -16392,8 +16392,7 @@ void ldv_initialize_pci_error_handlers_18(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fm10k_err_handler_group0 = (struct pci_dev *)tmp;
+  fm10k_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

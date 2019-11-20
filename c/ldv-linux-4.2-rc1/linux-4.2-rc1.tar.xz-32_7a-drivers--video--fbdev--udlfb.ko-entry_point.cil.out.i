@@ -6706,8 +6706,7 @@ void ldv_initialize_bin_attribute_5(void)
   {
   tmp = ldv_init_zalloc(296UL);
   edid_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  edid_attr_group1 = (struct file *)tmp___0;
+  edid_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   edid_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
