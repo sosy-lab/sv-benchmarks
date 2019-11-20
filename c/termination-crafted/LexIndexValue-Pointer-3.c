@@ -15,6 +15,9 @@ extern int __VERIFIER_nondet_int(void);
 
 int main() {
 	int *p = malloc(1048 * sizeof(int));
+	for (int i = 0; i < 1048; ++i) {
+		p[i] = __VERIFIER_nondet_int();
+	}
 	int *q = p;
 	while (*q >= 0 && q < p + 1048 * sizeof(int)) {
 		if (__VERIFIER_nondet_int()) {
