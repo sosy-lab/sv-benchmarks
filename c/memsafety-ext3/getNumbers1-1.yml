@@ -5,5 +5,4 @@ input_files: 'getNumbers1-1.c'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
-    expected_verdict: false
-    subproperty: valid-deref
+    expected_verdict: true
