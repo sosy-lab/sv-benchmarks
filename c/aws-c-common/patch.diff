@@ -223,3 +223,16 @@ index 3e4e71b..f9e0d04 100644
  /* clang-format off */
  #    define AWS_IS_ZEROED(object)                                                                                      \
          __CPROVER_forall {                                                                                             \
+diff --git a/.cbmc-batch/stubs/memcpy_override.c b/.cbmc-batch/stubs/memcpy_override.c
+index e89e6f4..b5a90c2 100644
+--- a/.cbmc-batch/stubs/memcpy_override.c
++++ b/.cbmc-batch/stubs/memcpy_override.c
+@@ -32,7 +32,7 @@
+  */
+ void *memcpy_impl(void *dst, const void *src, size_t n) {
+     __CPROVER_precondition(
+-        __CPROVER_POINTER_OBJECT(dst) != __CPROVER_POINTER_OBJECT(src) ||
++        dst != src ||
+             ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n),
+         "memcpy src/dst overlap");
+     __CPROVER_precondition(__CPROVER_r_ok(src, n), "memcpy source region readable");
