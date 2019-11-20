@@ -1,0 +1,32 @@
+commit 493d99f27fe71cf078563505eede0cf2a3413729
+Author: feliperodri <rms.felipe@gmail.com>
+Date:   Tue Nov 19 19:01:36 2019 -0400
+
+    Implements __CPROVER_file_local_priority_queue_c_s_swap function
+    
+    Signed-off-by: feliperodri <rms.felipe@gmail.com>
+
+diff --git a/c/aws-c-common/aws_priority_queue_s_swap_harness.i b/c/aws-c-common/aws_priority_queue_s_swap_harness.i
+index cf1021cdd7..30269897bb 100644
+--- a/c/aws-c-common/aws_priority_queue_s_swap_harness.i
++++ b/c/aws-c-common/aws_priority_queue_s_swap_harness.i
+@@ -8498,7 +8498,18 @@ size_t aws_priority_queue_size(const struct aws_priority_queue *queue) {
+ size_t aws_priority_queue_capacity(const struct aws_priority_queue *queue) {
+     return aws_array_list_capacity(&queue->container);
+ }
+-void __CPROVER_file_local_priority_queue_c_s_swap(struct aws_priority_queue *queue, size_t a, size_t b);
++void __CPROVER_file_local_priority_queue_c_s_swap(struct aws_priority_queue *queue, size_t a, size_t b) {
++    __VERIFIER_assert(aws_priority_queue_is_valid(queue));
++    __VERIFIER_assert(a < queue->container.length);
++    __VERIFIER_assert(b < queue->container.length);
++    __VERIFIER_assert(aws_priority_queue_backpointer_index_valid(queue, a));
++    __VERIFIER_assert(aws_priority_queue_backpointer_index_valid(queue, b));
++
++    if (queue->backpointers.data) {
++        __VERIFIER_assert(queue->backpointers.length > a);
++        __VERIFIER_assert(queue->backpointers.length > b);
++    }
++}
+ 
+ void aws_priority_queue_s_swap_harness() {
+ 
