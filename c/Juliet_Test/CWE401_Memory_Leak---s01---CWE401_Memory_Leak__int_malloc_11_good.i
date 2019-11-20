@@ -1379,7 +1379,6 @@ unsigned long ldv_undef_ulong(void);
 unsigned long long ldv_undef_ulonglong(void);
 
 
-void *ldv_undef_ptr(void);
 
 
 int ldv_undef_int_negative(void);
@@ -1388,7 +1387,6 @@ int ldv_undef_int_negative(void);
 int ldv_undef_int_nonpositive(void);
 
 
-void *ldv_undef_ptr_non_null(void);
 
 
 int __VERIFIER_nondet_int(void);
@@ -1406,7 +1404,6 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long long __VERIFIER_nondet_ulonglong(void);
 
 
-void *__VERIFIER_nondet_pointer(void);
 
 
 int ldv_undef_int(void)
@@ -1442,14 +1439,6 @@ unsigned int ldv_undef_uint(void)
 }
 
 
-void *ldv_undef_ptr(void)
-{
-  void *tmp;
-  
-  tmp = __VERIFIER_nondet_pointer();
-  
-  return tmp;
-}
 
 
 unsigned long ldv_undef_ulong(void)
@@ -1505,15 +1494,6 @@ int ldv_undef_int_nonpositive(void)
 }
 
 
-void *ldv_undef_ptr_non_null(void)
-{
-  
-  void *ret = ldv_undef_ptr();
-  
-  __VERIFIER_assume(ret != (void *)0);
-  
-  return ret;
-}
 
 
 
