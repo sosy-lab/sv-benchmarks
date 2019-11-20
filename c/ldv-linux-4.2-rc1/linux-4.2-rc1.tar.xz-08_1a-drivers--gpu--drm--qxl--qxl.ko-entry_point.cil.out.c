@@ -6538,7 +6538,6 @@ int main(void)
   int ldvarg41 ;
   int ldvarg23 ;
   struct dma_buf_attachment *ldvarg43 ;
-  void *tmp___6 ;
   struct sg_table *ldvarg42 ;
   void *tmp___7 ;
   int *ldvarg37 ;
@@ -6553,7 +6552,6 @@ int main(void)
   int ldvarg27 ;
   uint32_t ldvarg35 ;
   struct dma_buf *ldvarg38 ;
-  void *tmp___11 ;
   int ldvarg30 ;
   uint32_t ldvarg33 ;
   void *ldvarg25 ;
@@ -6586,8 +6584,7 @@ int main(void)
   ldvarg32 = (struct vm_area_struct *)tmp___4;
   tmp___5 = ldv_init_zalloc(1UL);
   ldvarg31 = tmp___5;
-  tmp___6 = __VERIFIER_nondet_pointer();
-  ldvarg43 = (struct dma_buf_attachment *)tmp___6;
+  ldvarg43 = ldv_malloc(0UL);
   tmp___7 = ldv_init_zalloc(16UL);
   ldvarg42 = (struct sg_table *)tmp___7;
   tmp___8 = ldv_init_zalloc(4UL);
@@ -6596,8 +6593,7 @@ int main(void)
   ldvarg29 = (uint32_t *)tmp___9;
   tmp___10 = ldv_init_zalloc(32UL);
   ldvarg26 = (struct drm_mode_create_dumb *)tmp___10;
-  tmp___11 = __VERIFIER_nondet_pointer();
-  ldvarg38 = (struct dma_buf *)tmp___11;
+  ldvarg38 = ldv_malloc(0UL);
   tmp___12 = ldv_init_zalloc(1UL);
   ldvarg25 = tmp___12;
   tmp___13 = ldv_init_zalloc(352UL);
@@ -11703,7 +11699,6 @@ void ldv_main_exported_8(void)
   uint32_t ldvarg80 ;
   bool ldvarg73 ;
   struct file *ldvarg77 ;
-  void *tmp___1 ;
   struct ttm_placement *ldvarg81 ;
   void *tmp___2 ;
   int tmp___3 ;
@@ -11713,8 +11708,7 @@ void ldv_main_exported_8(void)
   ldvarg74 = (struct page *)tmp;
   tmp___0 = ldv_init_zalloc(256UL);
   ldvarg79 = (struct ttm_mem_type_manager *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg77 = (struct file *)tmp___1;
+  ldvarg77 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(32UL);
   ldvarg81 = (struct ttm_placement *)tmp___2;
   ldv_memset((void *)(& ldvarg75), 0, 4UL);

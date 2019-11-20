@@ -7497,7 +7497,6 @@ int main(void)
   unsigned long ldvarg2 ;
   loff_t ldvarg17 ;
   struct file *ldvarg14 ;
-  void *tmp___3 ;
   char *ldvarg13 ;
   void *tmp___4 ;
   size_t ldvarg12 ;
@@ -7515,7 +7514,6 @@ int main(void)
   struct kobject *ldvarg25 ;
   void *tmp___9 ;
   struct file *ldvarg23 ;
-  void *tmp___10 ;
   char *ldvarg22 ;
   void *tmp___11 ;
   int tmp___12 ;
@@ -7534,8 +7532,7 @@ int main(void)
   ldvarg10 = (struct fb_image *)tmp___1;
   tmp___2 = ldv_init_zalloc(40UL);
   ldvarg9 = (struct fb_cmap *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  ldvarg14 = (struct file *)tmp___3;
+  ldvarg14 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg13 = (char *)tmp___4;
   tmp___5 = ldv_init_zalloc(296UL);
@@ -7548,8 +7545,7 @@ int main(void)
   ldvarg24 = (struct bin_attribute *)tmp___8;
   tmp___9 = ldv_init_zalloc(296UL);
   ldvarg25 = (struct kobject *)tmp___9;
-  tmp___10 = __VERIFIER_nondet_pointer();
-  ldvarg23 = (struct file *)tmp___10;
+  ldvarg23 = ldv_malloc(sizeof(struct file));
   tmp___11 = ldv_init_zalloc(1UL);
   ldvarg22 = (char *)tmp___11;
   ldv_initialize();

@@ -30120,10 +30120,8 @@ extern int ldv_probe_10(void) ;
 extern int ldv_release_10(void) ;
 void ldv_initialize_il_debugfs_ops_10(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  il4965_debugfs_ops_group0 = (struct file *)tmp;
+  il4965_debugfs_ops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

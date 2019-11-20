@@ -4373,15 +4373,13 @@ int ldv_retval_3  ;
 void ldv_initialize_usb_serial_driver_1(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
 
   {
   tmp = ldv_init_zalloc(2320UL);
   kobil_device_group0 = (struct usb_serial_port *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  kobil_device_group1 = (struct file *)tmp___0;
+  kobil_device_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(280UL);
   kobil_device_group2 = (struct usb_serial *)tmp___1;
   tmp___2 = ldv_init_zalloc(2704UL);

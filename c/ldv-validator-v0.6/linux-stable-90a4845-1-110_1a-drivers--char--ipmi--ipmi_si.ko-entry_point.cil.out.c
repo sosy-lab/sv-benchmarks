@@ -7979,7 +7979,6 @@ int main(void)
   int ldvarg12 ;
   int tmp___1 ;
   struct ipmi_smi *ldvarg16 ;
-  void *tmp___2 ;
   void *ldvarg15 ;
   void *tmp___3 ;
   void *ldvarg6 ;
@@ -8024,8 +8023,7 @@ int main(void)
   ldvarg7 = tmp___0;
   tmp___1 = __VERIFIER_nondet_int();
   ldvarg12 = tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  ldvarg16 = (struct ipmi_smi *)tmp___2;
+  ldvarg16 = ldv_malloc(0UL);
   tmp___3 = ldv_zalloc(1UL);
   ldvarg15 = tmp___3;
   tmp___4 = ldv_zalloc(1UL);

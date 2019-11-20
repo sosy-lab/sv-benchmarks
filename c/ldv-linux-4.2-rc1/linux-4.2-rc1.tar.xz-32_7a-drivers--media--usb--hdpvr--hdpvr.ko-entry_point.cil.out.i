@@ -8969,10 +8969,8 @@ void work_init_1(void)
 }
 void ldv_initialize_v4l2_file_operations_6(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  hdpvr_fops_group0 = (struct file *)tmp;
+  hdpvr_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -9079,7 +9077,6 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
   {
@@ -9091,8 +9088,7 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   hdpvr_ioctl_ops_group0 = (struct v4l2_format *)tmp___1;
   tmp___2 = ldv_init_zalloc(176UL);
   hdpvr_ioctl_ops_group4 = (struct v4l2_fh *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  hdpvr_ioctl_ops_group3 = (struct file *)tmp___3;
+  hdpvr_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(132UL);
   hdpvr_ioctl_ops_group5 = (struct v4l2_dv_timings *)tmp___4;
   tmp___5 = ldv_init_zalloc(40UL);

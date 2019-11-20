@@ -15309,10 +15309,8 @@ void invoke_work_5(void)
 }
 void ldv_initialize_pci_error_handlers_10(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  qlge_err_handler_group0 = (struct pci_dev *)tmp;
+  qlge_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

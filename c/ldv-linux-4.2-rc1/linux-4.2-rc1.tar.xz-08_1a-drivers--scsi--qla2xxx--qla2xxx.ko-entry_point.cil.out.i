@@ -20521,16 +20521,12 @@ void invoke_work_5(void)
 }
 void ldv_initialize_scsi_host_template_88(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  qla2xxx_driver_template_group0 = (struct scsi_cmnd *)tmp;
+  qla2xxx_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   qla2xxx_driver_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  qla2xxx_driver_template_group2 = (struct scsi_device *)tmp___1;
+  qla2xxx_driver_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }
@@ -20983,10 +20979,8 @@ void invoke_work_2(void)
 }
 void ldv_initialize_pci_error_handlers_77(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  qla2xxx_err_handler_group0 = (struct pci_dev *)tmp;
+  qla2xxx_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -58646,13 +58640,11 @@ void choose_timer_22(struct timer_list *timer )
 void ldv_initialize_bin_attribute_69(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_vpd_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_vpd_attr_group1 = (struct file *)tmp___0;
+  sysfs_vpd_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_vpd_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -58702,13 +58694,11 @@ void ldv_initialize_device_attribute_54(void)
 void ldv_initialize_bin_attribute_71(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_optrom_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_optrom_attr_group1 = (struct file *)tmp___0;
+  sysfs_optrom_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_optrom_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -58738,13 +58728,11 @@ void ldv_initialize_fc_function_template_33(void)
 void ldv_initialize_bin_attribute_73(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_fw_dump_template_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_fw_dump_template_attr_group1 = (struct file *)tmp___0;
+  sysfs_fw_dump_template_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_fw_dump_template_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -58753,13 +58741,11 @@ void ldv_initialize_bin_attribute_73(void)
 void ldv_initialize_bin_attribute_72(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_nvram_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_nvram_attr_group1 = (struct file *)tmp___0;
+  sysfs_nvram_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_nvram_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -58806,13 +58792,11 @@ int reg_timer_22(struct timer_list *timer )
 void ldv_initialize_bin_attribute_74(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_fw_dump_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_fw_dump_attr_group1 = (struct file *)tmp___0;
+  sysfs_fw_dump_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_fw_dump_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -58838,7 +58822,6 @@ void ldv_main_exported_67(void)
   char *ldvarg332 ;
   void *tmp___0 ;
   struct file *ldvarg333 ;
-  void *tmp___1 ;
   struct bin_attribute *ldvarg334 ;
   void *tmp___2 ;
   size_t ldvarg331 ;
@@ -58848,8 +58831,7 @@ void ldv_main_exported_67(void)
   ldvarg335 = (struct kobject *)tmp;
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg332 = (char *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg333 = (struct file *)tmp___1;
+  ldvarg333 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(72UL);
   ldvarg334 = (struct bin_attribute *)tmp___2;
   ldv_memset((void *)(& ldvarg336), 0, 8UL);
@@ -59291,7 +59273,6 @@ void ldv_main_exported_70(void)
 {
   loff_t ldvarg342 ;
   struct file *ldvarg339 ;
-  void *tmp ;
   struct bin_attribute *ldvarg340 ;
   void *tmp___0 ;
   size_t ldvarg337 ;
@@ -59301,8 +59282,7 @@ void ldv_main_exported_70(void)
   void *tmp___2 ;
   int tmp___3 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg339 = (struct file *)tmp;
+  ldvarg339 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(72UL);
   ldvarg340 = (struct bin_attribute *)tmp___0;
   tmp___1 = ldv_init_zalloc(1UL);
@@ -59349,7 +59329,6 @@ void ldv_main_exported_68(void)
   struct kobject *ldvarg347 ;
   void *tmp ;
   struct file *ldvarg345 ;
-  void *tmp___0 ;
   char *ldvarg344 ;
   void *tmp___1 ;
   loff_t ldvarg348 ;
@@ -59360,8 +59339,7 @@ void ldv_main_exported_68(void)
   {
   tmp = ldv_init_zalloc(296UL);
   ldvarg347 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  ldvarg345 = (struct file *)tmp___0;
+  ldvarg345 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(1UL);
   ldvarg344 = (char *)tmp___1;
   tmp___2 = ldv_init_zalloc(72UL);
@@ -59989,7 +59967,6 @@ void ldv_main_exported_65(void)
   struct kobject *ldvarg205 ;
   void *tmp___0 ;
   struct file *ldvarg203 ;
-  void *tmp___1 ;
   struct bin_attribute *ldvarg204 ;
   void *tmp___2 ;
   int tmp___3 ;
@@ -59998,8 +59975,7 @@ void ldv_main_exported_65(void)
   ldvarg202 = (char *)tmp;
   tmp___0 = ldv_init_zalloc(296UL);
   ldvarg205 = (struct kobject *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  ldvarg203 = (struct file *)tmp___1;
+  ldvarg203 = ldv_malloc(sizeof(struct file));
   tmp___2 = ldv_init_zalloc(72UL);
   ldvarg204 = (struct bin_attribute *)tmp___2;
   ldv_memset((void *)(& ldvarg201), 0, 8UL);
@@ -60529,7 +60505,6 @@ void ldv_main_exported_66(void)
   void *tmp ;
   loff_t ldvarg276 ;
   struct file *ldvarg273 ;
-  void *tmp___0 ;
   struct kobject *ldvarg275 ;
   void *tmp___1 ;
   size_t ldvarg271 ;
@@ -60539,8 +60514,7 @@ void ldv_main_exported_66(void)
   {
   tmp = ldv_init_zalloc(72UL);
   ldvarg274 = (struct bin_attribute *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  ldvarg273 = (struct file *)tmp___0;
+  ldvarg273 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(296UL);
   ldvarg275 = (struct kobject *)tmp___1;
   tmp___2 = ldv_init_zalloc(1UL);

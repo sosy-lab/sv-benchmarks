@@ -22313,20 +22313,16 @@ void ldv_check_final_state(void) ;
 extern int ldv_probe_6(void) ;
 void ldv_initialize_scsi_host_template_6(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  aic79xx_driver_template_group0 = (struct scsi_cmnd *)tmp;
+  aic79xx_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   aic79xx_driver_template_group1 = (struct Scsi_Host *)tmp___0;
   tmp___1 = ldv_init_zalloc(1504UL);
   aic79xx_driver_template_group2 = (struct scsi_target *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  aic79xx_driver_template_group3 = (struct scsi_device *)tmp___2;
+  aic79xx_driver_template_group3 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

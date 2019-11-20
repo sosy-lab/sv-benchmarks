@@ -45560,11 +45560,9 @@ int reg_check_7(irqreturn_t (*handler)(int  , void * ) )
 }
 void ldv_initialize_pci_error_handlers_21(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  e1000_err_handler_group0 = (struct pci_dev *)tmp;
+  e1000_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

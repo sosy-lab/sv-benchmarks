@@ -10141,10 +10141,8 @@ void disable_work_2(struct work_struct *work )
 }
 void ldv_initialize_pci_error_handlers_7(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ixgb_err_handler_group0 = (struct pci_dev *)tmp;
+  ixgb_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

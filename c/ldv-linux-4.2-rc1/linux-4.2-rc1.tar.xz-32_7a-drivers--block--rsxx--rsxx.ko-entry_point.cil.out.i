@@ -6690,10 +6690,8 @@ void choose_interrupt_1(void)
 }
 void ldv_initialize_pci_error_handlers_10(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  rsxx_err_handler_group0 = (struct pci_dev *)tmp;
+  rsxx_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

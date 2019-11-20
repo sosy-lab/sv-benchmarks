@@ -16054,11 +16054,9 @@ void disable_suitable_timer_3(struct timer_list *timer )
 }
 void ldv_initialize_tty_operations_10(void)
 {
-  void *tmp ;
   void *tmp___0 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  modem_ops_group0 = (struct file *)tmp;
+  modem_ops_group0 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1816UL);
   modem_ops_group1 = (struct tty_struct *)tmp___0;
   return;

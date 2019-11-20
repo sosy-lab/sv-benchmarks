@@ -16742,12 +16742,10 @@ extern int ldv_probe_3(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_scsi_host_template_16(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  cciss_driver_template_group0 = (struct scsi_cmnd *)tmp;
+  cciss_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   cciss_driver_template_group1 = (struct Scsi_Host *)tmp___0;
   return;

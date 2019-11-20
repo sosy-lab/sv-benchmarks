@@ -4911,7 +4911,6 @@ void disable_suitable_timer_1(struct timer_list *timer )
 int main(void) 
 { 
   struct file *ldvarg11 ;
-  void *tmp ;
   struct poll_table_struct *ldvarg7 ;
   void *tmp___0 ;
   int ldvarg3 ;
@@ -4922,10 +4921,8 @@ int main(void)
   struct ktermios *ldvarg6 ;
   void *tmp___2 ;
   struct file *ldvarg8 ;
-  void *tmp___3 ;
   unsigned int ldvarg1 ;
   struct file *ldvarg14 ;
-  void *tmp___4 ;
   char *ldvarg4 ;
   void *tmp___5 ;
   unsigned char *ldvarg13 ;
@@ -4934,32 +4931,27 @@ int main(void)
   void *tmp___7 ;
   size_t ldvarg9 ;
   struct file *ldvarg2 ;
-  void *tmp___8 ;
   int tmp___9 ;
   int tmp___10 ;
   int tmp___11 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ldvarg11 = (struct file *)tmp;
+  ldvarg11 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(16UL);
   ldvarg7 = (struct poll_table_struct *)tmp___0;
   tmp___1 = ldv_init_zalloc(1UL);
   ldvarg5 = (unsigned char *)tmp___1;
   tmp___2 = ldv_init_zalloc(44UL);
   ldvarg6 = (struct ktermios *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  ldvarg8 = (struct file *)tmp___3;
-  tmp___4 = __VERIFIER_nondet_pointer();
-  ldvarg14 = (struct file *)tmp___4;
+  ldvarg8 = ldv_malloc(sizeof(struct file));
+  ldvarg14 = ldv_malloc(sizeof(struct file));
   tmp___5 = ldv_init_zalloc(1UL);
   ldvarg4 = (char *)tmp___5;
   tmp___6 = ldv_init_zalloc(1UL);
   ldvarg13 = (unsigned char *)tmp___6;
   tmp___7 = ldv_init_zalloc(1UL);
   ldvarg10 = (unsigned char *)tmp___7;
-  tmp___8 = __VERIFIER_nondet_pointer();
-  ldvarg2 = (struct file *)tmp___8;
+  ldvarg2 = ldv_malloc(sizeof(struct file));
   ldv_initialize();
   ldv_memset((void *)(& ldvarg3), 0, 4UL);
   ldv_memset((void *)(& ldvarg0), 0, 8UL);

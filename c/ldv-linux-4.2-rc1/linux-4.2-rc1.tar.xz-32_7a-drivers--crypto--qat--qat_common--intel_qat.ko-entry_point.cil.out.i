@@ -8760,10 +8760,8 @@ void disable_work_1(struct work_struct *work )
 }
 void ldv_initialize_pci_error_handlers_6(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  adf_err_handler_group0 = (struct pci_dev *)tmp;
+  adf_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

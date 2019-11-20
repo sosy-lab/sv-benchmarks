@@ -6749,10 +6749,8 @@ void ldv_check_final_state(void) ;
 extern int ldv_probe_3(void) ;
 void ldv_initialize_v4l2_file_operations_4(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  cpia2_fops_group0 = (struct file *)tmp;
+  cpia2_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -6761,7 +6759,6 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   void *tmp___3 ;
   void *tmp___4 ;
   {
@@ -6771,8 +6768,7 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   cpia2_ioctl_ops_group0 = (struct v4l2_format *)tmp___0;
   tmp___1 = ldv_init_zalloc(176UL);
   cpia2_ioctl_ops_group4 = (struct v4l2_fh *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  cpia2_ioctl_ops_group3 = (struct file *)tmp___2;
+  cpia2_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   tmp___3 = ldv_init_zalloc(88UL);
   cpia2_ioctl_ops_group5 = (struct v4l2_buffer *)tmp___3;
   tmp___4 = ldv_init_zalloc(204UL);

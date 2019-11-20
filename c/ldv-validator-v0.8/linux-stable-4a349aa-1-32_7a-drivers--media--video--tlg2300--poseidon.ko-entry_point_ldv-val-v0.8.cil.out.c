@@ -8165,11 +8165,9 @@ void call_and_disable_all_1(int state )
 }
 void ldv_initialize_v4l2_file_operations_12(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  pd_video_fops_group0 = (struct file *)tmp;
+  pd_video_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -8318,7 +8316,6 @@ void ldv_initialize_v4l2_ioctl_ops_11(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
 
@@ -8331,8 +8328,7 @@ void ldv_initialize_v4l2_ioctl_ops_11(void)
   pd_video_ioctl_ops_group1 = (struct v4l2_format *)tmp___1;
   tmp___2 = ldv_init_zalloc(8UL);
   pd_video_ioctl_ops_group0 = (struct v4l2_control *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  pd_video_ioctl_ops_group5 = (struct file *)tmp___3;
+  pd_video_ioctl_ops_group5 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(44UL);
   pd_video_ioctl_ops_group2 = (struct v4l2_frequency *)tmp___4;
   tmp___5 = ldv_init_zalloc(88UL);
@@ -12230,11 +12226,9 @@ extern int ldv_probe_5(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_v4l2_file_operations_7(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  poseidon_fm_fops_group0 = (struct file *)tmp;
+  poseidon_fm_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -12244,7 +12238,6 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
 
   {
@@ -12256,8 +12249,7 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   poseidon_fm_ioctl_ops_group1 = (struct v4l2_ext_controls *)tmp___1;
   tmp___2 = ldv_init_zalloc(8UL);
   poseidon_fm_ioctl_ops_group0 = (struct v4l2_control *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  poseidon_fm_ioctl_ops_group5 = (struct file *)tmp___3;
+  poseidon_fm_ioctl_ops_group5 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(44UL);
   poseidon_fm_ioctl_ops_group2 = (struct v4l2_frequency *)tmp___4;
   return;

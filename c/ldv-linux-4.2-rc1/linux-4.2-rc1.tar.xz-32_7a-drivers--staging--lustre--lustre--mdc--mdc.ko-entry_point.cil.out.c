@@ -16398,7 +16398,6 @@ int main(void)
   ldlm_cancel_flags_t ldvarg44 ;
   int ldvarg24 ;
   struct req_msg_field *ldvarg35 ;
-  void *tmp___5 ;
   __u64 ldvarg38 ;
   char *ldvarg69 ;
   void *tmp___6 ;
@@ -16528,8 +16527,7 @@ int main(void)
   ldvarg37 = tmp___3;
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg29 = (char *)tmp___4;
-  tmp___5 = __VERIFIER_nondet_pointer();
-  ldvarg35 = (struct req_msg_field *)tmp___5;
+  ldvarg35 = ldv_malloc(0UL);
   tmp___6 = ldv_init_zalloc(1UL);
   ldvarg69 = (char *)tmp___6;
   tmp___7 = ldv_init_zalloc(1UL);

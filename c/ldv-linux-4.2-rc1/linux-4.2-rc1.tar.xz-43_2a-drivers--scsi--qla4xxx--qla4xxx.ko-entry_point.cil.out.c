@@ -23875,26 +23875,20 @@ void call_and_disable_all_3(int state )
 void ldv_initialize_scsi_host_template_27(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
 
   {
   tmp = ldv_init_zalloc(3816UL);
   qla4xxx_driver_template_group0 = (struct Scsi_Host *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  qla4xxx_driver_template_group1 = (struct scsi_cmnd *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  qla4xxx_driver_template_group2 = (struct scsi_device *)tmp___1;
+  qla4xxx_driver_template_group1 = ldv_malloc(sizeof(struct scsi_cmnd));
+  qla4xxx_driver_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }
 void ldv_initialize_pci_error_handlers_22(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  qla4xxx_err_handler_group0 = (struct pci_dev *)tmp;
+  qla4xxx_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -41796,14 +41790,12 @@ extern int ldv_probe_20(void) ;
 void ldv_initialize_bin_attribute_20(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_fw_dump_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  sysfs_fw_dump_attr_group1 = (struct file *)tmp___0;
+  sysfs_fw_dump_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_fw_dump_attr_group2 = (struct bin_attribute *)tmp___1;
   return;

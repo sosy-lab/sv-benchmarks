@@ -21378,10 +21378,8 @@ void saa7164_encoder_unregister(struct saa7164_port *port )
 int ldv_retval_2 ;
 void ldv_initialize_v4l2_file_operations_9(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  mpeg_fops_group0 = (struct file *)tmp;
+  mpeg_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -21390,7 +21388,6 @@ void ldv_initialize_v4l2_ioctl_ops_8(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(32UL);
   mpeg_ioctl_ops_group2 = (struct v4l2_ext_controls *)tmp;
@@ -21398,8 +21395,7 @@ void ldv_initialize_v4l2_ioctl_ops_8(void)
   mpeg_ioctl_ops_group1 = (struct v4l2_format *)tmp___0;
   tmp___1 = ldv_init_zalloc(8UL);
   mpeg_ioctl_ops_group0 = (struct v4l2_control *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  mpeg_ioctl_ops_group3 = (struct file *)tmp___2;
+  mpeg_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -23781,10 +23777,8 @@ void saa7164_vbi_unregister(struct saa7164_port *port )
 int ldv_retval_1 ;
 void ldv_initialize_v4l2_file_operations_7(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  vbi_fops_group0 = (struct file *)tmp;
+  vbi_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -23793,7 +23787,6 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(208UL);
   vbi_ioctl_ops_group2 = (struct v4l2_format *)tmp;
@@ -23801,8 +23794,7 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   vbi_ioctl_ops_group1 = (struct v4l2_ext_controls *)tmp___0;
   tmp___1 = ldv_init_zalloc(8UL);
   vbi_ioctl_ops_group0 = (struct v4l2_control *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  vbi_ioctl_ops_group3 = (struct file *)tmp___2;
+  vbi_ioctl_ops_group3 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

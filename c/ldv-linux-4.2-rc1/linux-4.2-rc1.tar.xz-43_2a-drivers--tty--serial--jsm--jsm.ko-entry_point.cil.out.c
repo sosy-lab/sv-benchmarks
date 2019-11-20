@@ -4511,11 +4511,9 @@ void ldv_pci_driver_4(void)
 }
 void ldv_initialize_pci_error_handlers_5(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  jsm_err_handler_group0 = (struct pci_dev *)tmp;
+  jsm_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

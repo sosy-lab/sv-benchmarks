@@ -10543,24 +10543,20 @@ void ldv_initialize_vb2_ops_14(void)
 }
 void ldv_initialize_v4l2_file_operations_12(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fimc_m2m_fops_group0 = (struct file *)tmp;
+  fimc_m2m_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
 void ldv_initialize_v4l2_ioctl_ops_13(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(208UL);
   fimc_m2m_ioctl_ops_group0 = (struct v4l2_format *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  fimc_m2m_ioctl_ops_group2 = (struct file *)tmp___0;
+  fimc_m2m_ioctl_ops_group2 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(88UL);
   fimc_m2m_ioctl_ops_group3 = (struct v4l2_buffer *)tmp___1;
   tmp___2 = ldv_init_zalloc(64UL);
@@ -14151,24 +14147,20 @@ void ldv_initialize_v4l2_subdev_internal_ops_5(void)
 }
 void ldv_initialize_v4l2_file_operations_9(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  fimc_capture_fops_group0 = (struct file *)tmp;
+  fimc_capture_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
 void ldv_initialize_v4l2_ioctl_ops_8(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(208UL);
   fimc_capture_ioctl_ops_group0 = (struct v4l2_format *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  fimc_capture_ioctl_ops_group1 = (struct file *)tmp___0;
+  fimc_capture_ioctl_ops_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(88UL);
   fimc_capture_ioctl_ops_group2 = (struct v4l2_buffer *)tmp___1;
   tmp___2 = ldv_init_zalloc(64UL);

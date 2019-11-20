@@ -17894,11 +17894,9 @@ void call_and_disable_work_4(struct work_struct *work )
 }
 void ldv_initialize_v4l2_file_operations_18(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  cx18_v4l2_enc_fops_group0 = (struct file *)tmp;
+  cx18_v4l2_enc_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -22187,7 +22185,6 @@ void ldv_initialize_v4l2_ioctl_ops_16(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
 
@@ -22200,8 +22197,7 @@ void ldv_initialize_v4l2_ioctl_ops_16(void)
   cx18_ioctl_ops_group1 = (struct v4l2_audio *)tmp___1;
   tmp___2 = ldv_init_zalloc(176UL);
   cx18_ioctl_ops_group3 = (struct v4l2_fh *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  cx18_ioctl_ops_group2 = (struct file *)tmp___3;
+  cx18_ioctl_ops_group2 = ldv_malloc(sizeof(struct file));
   tmp___4 = ldv_init_zalloc(88UL);
   cx18_ioctl_ops_group4 = (struct v4l2_buffer *)tmp___4;
   tmp___5 = ldv_init_zalloc(40UL);

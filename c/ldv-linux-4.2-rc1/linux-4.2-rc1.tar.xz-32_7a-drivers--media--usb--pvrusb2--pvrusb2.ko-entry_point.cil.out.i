@@ -22642,10 +22642,8 @@ struct pvr2_v4l2 *pvr2_v4l2_create(struct pvr2_context *mnp )
 int ldv_retval_1 ;
 void ldv_initialize_v4l2_file_operations_12(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  vdev_fops_group0 = (struct file *)tmp;
+  vdev_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
 }
 }
@@ -22655,7 +22653,6 @@ void ldv_initialize_v4l2_ioctl_ops_13(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   {
   tmp = ldv_init_zalloc(8UL);
   pvr2_ioctl_ops_group4 = (struct v4l2_control *)tmp;
@@ -22665,8 +22662,7 @@ void ldv_initialize_v4l2_ioctl_ops_13(void)
   pvr2_ioctl_ops_group1 = (struct v4l2_audio *)tmp___1;
   tmp___2 = ldv_init_zalloc(32UL);
   pvr2_ioctl_ops_group0 = (struct v4l2_ext_controls *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
-  pvr2_ioctl_ops_group2 = (struct file *)tmp___3;
+  pvr2_ioctl_ops_group2 = ldv_malloc(sizeof(struct file));
   return;
 }
 }

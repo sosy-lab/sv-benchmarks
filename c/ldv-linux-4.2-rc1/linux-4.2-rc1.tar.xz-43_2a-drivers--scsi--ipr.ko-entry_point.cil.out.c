@@ -20190,14 +20190,12 @@ void work_init_7(void)
 void ldv_initialize_bin_attribute_19(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
   tmp = ldv_init_zalloc(296UL);
   ipr_dump_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  ipr_dump_attr_group1 = (struct file *)tmp___0;
+  ipr_dump_attr_group1 = ldv_malloc(sizeof(struct file));
   tmp___1 = ldv_init_zalloc(72UL);
   ipr_dump_attr_group2 = (struct bin_attribute *)tmp___1;
   return;
@@ -20255,11 +20253,9 @@ void invoke_work_7(void)
 }
 void ldv_initialize_pci_error_handlers_11(void) 
 { 
-  void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  ipr_err_handler_group0 = (struct pci_dev *)tmp;
+  ipr_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
@@ -20659,20 +20655,16 @@ void choose_timer_8(struct timer_list *timer )
 }
 void ldv_initialize_scsi_host_template_13(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  driver_template_group0 = (struct scsi_cmnd *)tmp;
+  driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   driver_template_group1 = (struct Scsi_Host *)tmp___0;
   tmp___1 = ldv_init_zalloc(1504UL);
   driver_template_group2 = (struct scsi_target *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
-  driver_template_group3 = (struct scsi_device *)tmp___2;
+  driver_template_group3 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }
@@ -21178,7 +21170,6 @@ int main(void)
   struct kobject *ldvarg42 ;
   void *tmp___29 ;
   struct file *ldvarg40 ;
-  void *tmp___30 ;
   size_t ldvarg38 ;
   void *ldvarg45 ;
   void *tmp___31 ;
@@ -21308,8 +21299,7 @@ int main(void)
   ldvarg41 = (struct bin_attribute *)tmp___28;
   tmp___29 = ldv_init_zalloc(296UL);
   ldvarg42 = (struct kobject *)tmp___29;
-  tmp___30 = __VERIFIER_nondet_pointer();
-  ldvarg40 = (struct file *)tmp___30;
+  ldvarg40 = ldv_malloc(sizeof(struct file));
   tmp___31 = ldv_init_zalloc(1UL);
   ldvarg45 = tmp___31;
   tmp___32 = ldv_init_zalloc(24UL);

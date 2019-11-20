@@ -7475,12 +7475,10 @@ void call_and_disable_work_1(struct work_struct *work )
 }
 void ldv_initialize_tty_operations_6(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  serial_ops_group0 = (struct file *)tmp;
+  serial_ops_group0 = ldv_malloc(sizeof(struct file));
   tmp___0 = ldv_init_zalloc(1816UL);
   serial_ops_group1 = (struct tty_struct *)tmp___0;
   return;

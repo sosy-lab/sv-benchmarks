@@ -5789,17 +5789,13 @@ void ldv_initialize_device_attribute_5(void)
 }
 void ldv_initialize_scsi_host_template_4(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  usb_stor_host_template_group0 = (struct scsi_cmnd *)tmp;
+  usb_stor_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
   usb_stor_host_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
-  usb_stor_host_template_group2 = (struct scsi_device *)tmp___1;
+  usb_stor_host_template_group2 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

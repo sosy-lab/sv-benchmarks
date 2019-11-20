@@ -7217,14 +7217,10 @@ void activate_work_1(struct work_struct *work , int state )
 }
 void ldv_initialize_scsi_host_template_3(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
-  uas_host_template_group0 = (struct scsi_cmnd *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
-  uas_host_template_group1 = (struct scsi_device *)tmp___0;
+  uas_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
+  uas_host_template_group1 = ldv_malloc(sizeof(struct scsi_device));
   return;
 }
 }

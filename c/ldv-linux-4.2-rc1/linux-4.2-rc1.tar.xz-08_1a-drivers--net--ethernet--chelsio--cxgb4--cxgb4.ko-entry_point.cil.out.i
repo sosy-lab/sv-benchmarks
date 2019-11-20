@@ -17326,10 +17326,8 @@ void choose_interrupt_6(void)
 }
 void ldv_initialize_pci_error_handlers_47(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  cxgb4_eeh_group0 = (struct pci_dev *)tmp;
+  cxgb4_eeh_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

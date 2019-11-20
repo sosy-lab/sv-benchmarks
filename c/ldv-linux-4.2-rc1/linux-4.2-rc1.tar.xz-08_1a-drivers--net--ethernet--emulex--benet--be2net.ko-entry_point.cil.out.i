@@ -18373,10 +18373,8 @@ void activate_work_4(struct work_struct *work , int state )
 }
 void ldv_initialize_pci_error_handlers_7(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  be_eeh_handlers_group0 = (struct pci_dev *)tmp;
+  be_eeh_handlers_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }

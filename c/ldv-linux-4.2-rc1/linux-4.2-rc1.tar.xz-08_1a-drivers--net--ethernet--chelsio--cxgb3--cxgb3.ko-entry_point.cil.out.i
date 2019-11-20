@@ -14032,10 +14032,8 @@ void disable_suitable_irq_1(int line , void *data )
 }
 void ldv_initialize_pci_error_handlers_25(void)
 {
-  void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
-  t3_err_handler_group0 = (struct pci_dev *)tmp;
+  t3_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
 }
 }
