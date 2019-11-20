@@ -6416,9 +6416,7 @@ void choose_interrupt_1(void)
 }
 void ldv_initialize_scsi_host_template_3(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
   rtsx_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);

@@ -19629,7 +19629,6 @@ void disable_work_5(struct work_struct *work )
 }
 void ldv_initialize_pci_error_handlers_9(void) 
 { 
-  void *tmp ;
 
   {
   beiscsi_eeh_handlers_group0 = ldv_malloc(sizeof(struct pci_dev));
@@ -20057,8 +20056,6 @@ void ldv_initialize_device_attribute_17(void)
 }
 void ldv_initialize_scsi_host_template_10(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
 
   {
   beiscsi_sht_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

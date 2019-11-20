@@ -8597,7 +8597,6 @@ void ldv_file_operations_2(void)
 }
 void ldv_initialize_mpt_pci_driver_1(void)
 {
-  void *tmp ;
   {
   mptctl_driver_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

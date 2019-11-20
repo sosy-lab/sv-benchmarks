@@ -24064,7 +24064,6 @@ struct kernel_symbol  const  __ksymtab_v4l2_subdev_init  =    {(unsigned long )(
 int ldv_retval_2  ;
 void ldv_initialize_v4l2_file_operations_1(void) 
 { 
-  void *tmp ;
 
   {
   v4l2_subdev_fops_group0 = ldv_malloc(sizeof(struct file));

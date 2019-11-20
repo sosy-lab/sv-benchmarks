@@ -20659,10 +20659,8 @@ void ldv_check_final_state(void) ;
 extern int ldv_probe_6(void) ;
 void ldv_initialize_scsi_host_template_6(void)
 {
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   {
   aic79xx_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);

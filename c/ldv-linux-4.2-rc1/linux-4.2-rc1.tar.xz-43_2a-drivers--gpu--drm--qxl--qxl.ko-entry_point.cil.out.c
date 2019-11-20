@@ -6539,7 +6539,6 @@ int main(void)
   int ldvarg41 ;
   int ldvarg23 ;
   struct dma_buf_attachment *ldvarg43 ;
-  void *tmp___6 ;
   struct sg_table *ldvarg42 ;
   void *tmp___7 ;
   int *ldvarg37 ;
@@ -6554,7 +6553,6 @@ int main(void)
   int ldvarg27 ;
   uint32_t ldvarg35 ;
   struct dma_buf *ldvarg38 ;
-  void *tmp___11 ;
   int ldvarg30 ;
   uint32_t ldvarg33 ;
   void *ldvarg25 ;
@@ -11727,7 +11725,6 @@ void ldv_main_exported_8(void)
   uint32_t ldvarg80 ;
   bool ldvarg73 ;
   struct file *ldvarg77 ;
-  void *tmp___1 ;
   struct ttm_placement *ldvarg81 ;
   void *tmp___2 ;
   int tmp___3 ;

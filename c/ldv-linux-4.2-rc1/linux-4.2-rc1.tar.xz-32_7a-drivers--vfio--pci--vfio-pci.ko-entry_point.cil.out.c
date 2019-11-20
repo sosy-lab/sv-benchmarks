@@ -5905,7 +5905,6 @@ int main(void)
   void *tmp___11 ;
   enum pci_channel_state ldvarg27 ;
   struct pci_dev *ldvarg26 ;
-  void *tmp___12 ;
   int tmp___13 ;
   int tmp___14 ;
   int tmp___15 ;

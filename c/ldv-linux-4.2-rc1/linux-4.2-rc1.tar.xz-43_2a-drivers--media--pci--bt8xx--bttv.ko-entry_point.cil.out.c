@@ -12474,7 +12474,6 @@ void ldv_initialize_v4l2_ioctl_ops_14(void)
 { 
   void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   void *tmp___4 ;
@@ -12667,7 +12666,6 @@ void activate_suitable_irq_1(int line , void *data )
 }
 void ldv_initialize_v4l2_file_operations_13(void) 
 { 
-  void *tmp ;
 
   {
   radio_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -12698,7 +12696,6 @@ void activate_pending_timer_5(struct timer_list *timer , unsigned long data , in
 }
 void ldv_initialize_v4l2_file_operations_15(void) 
 { 
-  void *tmp ;
 
   {
   bttv_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -12732,7 +12729,6 @@ void disable_suitable_timer_5(struct timer_list *timer )
 void ldv_initialize_v4l2_ioctl_ops_12(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {

@@ -5534,9 +5534,7 @@ int main(void)
   void *ldvarg20 ;
   void *tmp___0 ;
   struct kgd_dev *ldvarg17 ;
-  void *tmp___1 ;
   struct pci_dev *ldvarg19 ;
-  void *tmp___2 ;
   struct kgd2kfd_shared_resources *ldvarg16 ;
   void *tmp___3 ;
   int tmp___4 ;

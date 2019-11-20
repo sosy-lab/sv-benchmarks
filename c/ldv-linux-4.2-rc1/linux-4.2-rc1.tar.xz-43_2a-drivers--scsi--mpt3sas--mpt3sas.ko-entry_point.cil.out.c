@@ -24407,10 +24407,8 @@ void disable_work_3(struct work_struct *work )
 }
 void ldv_initialize_scsi_host_template_35(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
 
   {
   scsih_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
@@ -24444,7 +24442,6 @@ void ldv_pci_driver_32(void)
 }
 void ldv_initialize_pci_error_handlers_33(void) 
 { 
-  void *tmp ;
 
   {
   _scsih_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));

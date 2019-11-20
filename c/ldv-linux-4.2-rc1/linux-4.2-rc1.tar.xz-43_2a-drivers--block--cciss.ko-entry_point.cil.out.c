@@ -16742,7 +16742,6 @@ extern int ldv_probe_3(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_scsi_host_template_16(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {

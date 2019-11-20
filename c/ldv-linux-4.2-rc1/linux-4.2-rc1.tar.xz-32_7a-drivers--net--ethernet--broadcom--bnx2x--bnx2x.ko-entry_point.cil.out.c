@@ -34035,7 +34035,6 @@ void call_and_disable_all_6(int state )
 }
 void ldv_initialize_pci_error_handlers_28(void) 
 { 
-  void *tmp ;
 
   {
   bnx2x_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));

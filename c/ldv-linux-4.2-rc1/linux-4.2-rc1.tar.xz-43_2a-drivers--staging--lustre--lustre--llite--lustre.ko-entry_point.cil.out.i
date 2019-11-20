@@ -40015,7 +40015,6 @@ void ldv_main_exported_53(void)
   void *tmp___0 ;
   unsigned int ldvarg161 ;
   struct file *ldvarg162 ;
-  void *tmp___1 ;
   umode_t ldvarg169 ;
   struct iattr *ldvarg159 ;
   void *tmp___2 ;
@@ -48617,7 +48616,6 @@ extern int ldv_release_49(void) ;
 void ldv_initialize_address_space_operations_49(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
   {
@@ -49730,7 +49728,6 @@ int main(void)
   int *ldvarg186 ;
   void *tmp___1 ;
   struct kstatfs *ldvarg184 ;
-  void *tmp___2 ;
   int tmp___3 ;
   int tmp___4 ;
   int tmp___5 ;

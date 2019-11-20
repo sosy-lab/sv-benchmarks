@@ -7377,13 +7377,11 @@ int main(void)
   int ldvarg2 ;
   unsigned long ldvarg11 ;
   struct file *ldvarg7 ;
-  void *tmp___2 ;
   unsigned int ldvarg12 ;
   unsigned long ldvarg5 ;
   unsigned int ldvarg6 ;
   int ldvarg8 ;
   struct file *ldvarg13 ;
-  void *tmp___3 ;
   unsigned char *ldvarg10 ;
   void *tmp___4 ;
   char *ldvarg9 ;

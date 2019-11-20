@@ -7741,7 +7741,6 @@ void ldv_usb_driver_3(void)
 }
 void ldv_initialize_tty_operations_2(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {

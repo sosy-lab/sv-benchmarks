@@ -24531,7 +24531,6 @@ void ldv_initialize_v4l2_ioctl_ops_7(void)
   void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
-  void *tmp___4 ;
   void *tmp___5 ;
   void *tmp___6 ;
   void *tmp___7 ;
@@ -30263,7 +30262,6 @@ int ldv_retval_1  ;
 int ldv_retval_3  ;
 void ldv_initialize_v4l2_file_operations_6(void) 
 { 
-  void *tmp ;
 
   {
   ivtv_v4l2_enc_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -30272,7 +30270,6 @@ void ldv_initialize_v4l2_file_operations_6(void)
 }
 void ldv_initialize_v4l2_file_operations_5(void) 
 { 
-  void *tmp ;
 
   {
   ivtv_v4l2_dec_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -30281,7 +30278,6 @@ void ldv_initialize_v4l2_file_operations_5(void)
 }
 void ldv_initialize_v4l2_file_operations_4(void) 
 { 
-  void *tmp ;
 
   {
   ivtv_v4l2_radio_fops_group0 = ldv_malloc(sizeof(struct file));

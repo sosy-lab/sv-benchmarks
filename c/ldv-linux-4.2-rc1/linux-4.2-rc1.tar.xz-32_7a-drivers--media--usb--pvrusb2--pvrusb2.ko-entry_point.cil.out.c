@@ -24582,7 +24582,6 @@ struct pvr2_v4l2 *pvr2_v4l2_create(struct pvr2_context *mnp )
 int ldv_retval_1  ;
 void ldv_initialize_v4l2_file_operations_12(void) 
 { 
-  void *tmp ;
 
   {
   vdev_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -24595,7 +24594,6 @@ void ldv_initialize_v4l2_ioctl_ops_13(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
 
   {
   tmp = ldv_init_zalloc(8UL);

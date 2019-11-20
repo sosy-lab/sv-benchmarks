@@ -20166,7 +20166,6 @@ int main(void)
   char *ldvarg2 ;
   void *tmp___0 ;
   struct kstatfs *ldvarg4 ;
-  void *tmp___1 ;
   struct dentry *ldvarg3 ;
   void *tmp___2 ;
   int ldvarg18 ;
@@ -25031,7 +25030,6 @@ void ldv_main_exported_15(void)
   struct bin_attribute *ldvarg90 ;
   void *tmp ;
   struct file *ldvarg89 ;
-  void *tmp___0 ;
   loff_t ldvarg92 ;
   char *ldvarg88 ;
   void *tmp___1 ;
@@ -46623,8 +46621,6 @@ extern int ldv_open_3(void) ;
 extern int ldv_probe_3(void) ;
 void ldv_initialize_dma_buf_ops_3(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
 
   {
   drm_gem_prime_dmabuf_ops_group0 = ldv_malloc(sizeof(struct dma_buf));

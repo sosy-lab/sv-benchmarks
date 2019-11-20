@@ -8651,7 +8651,6 @@ void choose_interrupt_1(void)
 }
 void ldv_initialize_scsi_host_template_3(void) 
 { 
-  void *tmp ;
 
   {
   initio_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
@@ -8700,7 +8699,6 @@ int main(void)
   struct Scsi_Host *ldvarg0 ;
   void *tmp___1 ;
   struct scsi_device *ldvarg2 ;
-  void *tmp___2 ;
   struct pci_device_id *ldvarg5 ;
   void *tmp___3 ;
   int tmp___4 ;

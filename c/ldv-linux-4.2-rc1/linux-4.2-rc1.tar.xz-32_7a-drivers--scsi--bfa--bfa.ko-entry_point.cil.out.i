@@ -13455,7 +13455,6 @@ void activate_suitable_irq_1(int line , void *data )
 }
 void ldv_initialize_pci_error_handlers_38(void)
 {
-  void *tmp ;
   {
   bfad_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
@@ -16537,9 +16536,7 @@ void work_init_3(void)
 }
 void ldv_initialize_scsi_host_template_36(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
   bfad_im_scsi_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
@@ -16761,9 +16758,7 @@ void call_and_disable_work_5(struct work_struct *work )
 }
 void ldv_initialize_scsi_host_template_35(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
   bfad_im_vport_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);

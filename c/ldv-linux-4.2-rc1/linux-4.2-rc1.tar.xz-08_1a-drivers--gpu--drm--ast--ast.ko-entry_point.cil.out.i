@@ -11679,7 +11679,6 @@ void ldv_main_exported_1(void)
   struct ttm_placement *ldvarg13 ;
   void *tmp___0 ;
   struct file *ldvarg14 ;
-  void *tmp___1 ;
   bool ldvarg8 ;
   struct ttm_mem_type_manager *ldvarg15 ;
   void *tmp___2 ;

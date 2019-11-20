@@ -16398,7 +16398,6 @@ int main(void)
   ldlm_cancel_flags_t ldvarg44 ;
   int ldvarg24 ;
   struct req_msg_field *ldvarg35 ;
-  void *tmp___5 ;
   __u64 ldvarg38 ;
   char *ldvarg69 ;
   void *tmp___6 ;

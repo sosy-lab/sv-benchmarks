@@ -12252,9 +12252,7 @@ int ldv_irq_1(int state , int line , void *data )
 }
 void ldv_initialize_scsi_host_template_5(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
   ips_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);

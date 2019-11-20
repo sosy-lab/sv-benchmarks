@@ -9723,7 +9723,6 @@ void activate_work_4(struct work_struct *work , int state )
 }
 void ldv_initialize_pci_error_handlers_7(void)
 {
-  void *tmp ;
   {
   alx_err_handlers_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

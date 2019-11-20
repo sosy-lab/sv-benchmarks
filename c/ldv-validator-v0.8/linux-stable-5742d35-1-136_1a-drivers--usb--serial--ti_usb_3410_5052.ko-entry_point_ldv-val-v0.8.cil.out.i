@@ -6005,7 +6005,6 @@ void ldv_initialize_usb_serial_driver_1(void)
 {
   void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   {
@@ -6025,7 +6024,6 @@ void ldv_initialize_usb_serial_driver_2(void)
 {
   void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   {

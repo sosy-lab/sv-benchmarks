@@ -20190,7 +20190,6 @@ void work_init_7(void)
 void ldv_initialize_bin_attribute_19(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -20254,7 +20253,6 @@ void invoke_work_7(void)
 }
 void ldv_initialize_pci_error_handlers_11(void) 
 { 
-  void *tmp ;
 
   {
   ipr_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
@@ -20657,10 +20655,8 @@ void choose_timer_8(struct timer_list *timer )
 }
 void ldv_initialize_scsi_host_template_13(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
 
   {
   driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
@@ -21174,7 +21170,6 @@ int main(void)
   struct kobject *ldvarg42 ;
   void *tmp___29 ;
   struct file *ldvarg40 ;
-  void *tmp___30 ;
   size_t ldvarg38 ;
   void *ldvarg45 ;
   void *tmp___31 ;

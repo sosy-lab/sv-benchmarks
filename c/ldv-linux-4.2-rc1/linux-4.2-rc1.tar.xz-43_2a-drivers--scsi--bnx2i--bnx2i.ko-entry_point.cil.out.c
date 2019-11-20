@@ -15664,7 +15664,6 @@ void disable_suitable_timer_3(struct timer_list *timer )
 }
 void ldv_initialize_scsi_host_template_7(void) 
 { 
-  void *tmp ;
 
   {
   bnx2i_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
@@ -16271,7 +16270,6 @@ void ldv_main_exported_6(void)
 void ldv_main_exported_7(void) 
 { 
   struct scsi_device *ldvarg30 ;
-  void *tmp ;
   struct scsi_target *ldvarg28 ;
   void *tmp___0 ;
   struct Scsi_Host *ldvarg29 ;

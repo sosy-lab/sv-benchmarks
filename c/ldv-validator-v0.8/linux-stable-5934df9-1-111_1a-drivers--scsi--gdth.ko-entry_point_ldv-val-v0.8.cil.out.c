@@ -12582,9 +12582,7 @@ void ldv_initialize_kernel_param_10(void)
 }
 void ldv_initialize_scsi_host_template_4(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
 
   {
   gdth_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

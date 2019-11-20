@@ -12378,7 +12378,6 @@ void ldv_initialize_v4l2_ioctl_ops_7(void)
 {
   void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   {
@@ -12397,7 +12396,6 @@ void ldv_initialize_v4l2_ioctl_ops_7(void)
 void ldv_initialize_v4l2_ioctl_ops_4(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(32UL);
@@ -12410,7 +12408,6 @@ void ldv_initialize_v4l2_ioctl_ops_4(void)
 }
 void ldv_initialize_v4l2_file_operations_8(void)
 {
-  void *tmp ;
   {
   tm6000_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -12418,7 +12415,6 @@ void ldv_initialize_v4l2_file_operations_8(void)
 }
 void ldv_initialize_v4l2_file_operations_5(void)
 {
-  void *tmp ;
   {
   radio_fops_group0 = ldv_malloc(sizeof(struct file));
   return;

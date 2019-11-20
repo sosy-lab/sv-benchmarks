@@ -11708,7 +11708,6 @@ void ldv_videobuf_queue_ops_14(void)
 }
 void ldv_initialize_v4l2_file_operations_13(void)
 {
-  void *tmp ;
   {
   cx231xx_v4l_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -11716,7 +11715,6 @@ void ldv_initialize_v4l2_file_operations_13(void)
 }
 void ldv_initialize_v4l2_file_operations_10(void)
 {
-  void *tmp ;
   {
   radio_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -11726,7 +11724,6 @@ void ldv_initialize_v4l2_ioctl_ops_12(void)
 {
   void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   {
@@ -11745,7 +11742,6 @@ void ldv_initialize_v4l2_ioctl_ops_12(void)
 void ldv_initialize_v4l2_ioctl_ops_9(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(32UL);
@@ -25811,7 +25807,6 @@ void ldv_initialize_v4l2_ioctl_ops_4(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   void *tmp___3 ;
   {
   tmp = ldv_init_zalloc(32UL);
@@ -25828,7 +25823,6 @@ void ldv_initialize_v4l2_ioctl_ops_4(void)
 }
 void ldv_initialize_v4l2_file_operations_5(void)
 {
-  void *tmp ;
   {
   mpeg_fops_group0 = ldv_malloc(sizeof(struct file));
   return;

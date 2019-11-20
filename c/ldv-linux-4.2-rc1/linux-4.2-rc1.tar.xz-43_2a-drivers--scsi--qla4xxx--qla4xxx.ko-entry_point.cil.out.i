@@ -22622,8 +22622,6 @@ void call_and_disable_all_3(int state )
 void ldv_initialize_scsi_host_template_27(void)
 {
   void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(3816UL);
   qla4xxx_driver_template_group0 = (struct Scsi_Host *)tmp;
@@ -22634,7 +22632,6 @@ void ldv_initialize_scsi_host_template_27(void)
 }
 void ldv_initialize_pci_error_handlers_22(void)
 {
-  void *tmp ;
   {
   qla4xxx_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
@@ -38828,7 +38825,6 @@ extern int ldv_probe_20(void) ;
 void ldv_initialize_bin_attribute_20(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);

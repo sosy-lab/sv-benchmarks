@@ -8165,7 +8165,6 @@ void call_and_disable_all_1(int state )
 }
 void ldv_initialize_v4l2_file_operations_12(void) 
 { 
-  void *tmp ;
 
   {
   pd_video_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -8317,7 +8316,6 @@ void ldv_initialize_v4l2_ioctl_ops_11(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
 
@@ -12228,7 +12226,6 @@ extern int ldv_probe_5(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_v4l2_file_operations_7(void) 
 { 
-  void *tmp ;
 
   {
   poseidon_fm_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -12241,7 +12238,6 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
 
   {

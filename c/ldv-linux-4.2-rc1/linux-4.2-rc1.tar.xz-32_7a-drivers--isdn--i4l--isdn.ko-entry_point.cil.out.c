@@ -16998,7 +16998,6 @@ void disable_suitable_timer_3(struct timer_list *timer )
 }
 void ldv_initialize_tty_operations_10(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {

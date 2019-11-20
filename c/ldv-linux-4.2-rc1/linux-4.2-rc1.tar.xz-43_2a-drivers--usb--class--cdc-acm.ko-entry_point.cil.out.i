@@ -7404,7 +7404,6 @@ void ldv_usb_driver_3(void)
 }
 void ldv_initialize_tty_operations_2(void)
 {
-  void *tmp ;
   void *tmp___0 ;
   {
   acm_ops_group0 = ldv_malloc(sizeof(struct file));

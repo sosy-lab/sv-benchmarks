@@ -26314,7 +26314,6 @@ void disable_work_5(struct work_struct *work )
 }
 void ldv_initialize_pci_error_handlers_11(void) 
 { 
-  void *tmp ;
 
   {
   vxge_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));

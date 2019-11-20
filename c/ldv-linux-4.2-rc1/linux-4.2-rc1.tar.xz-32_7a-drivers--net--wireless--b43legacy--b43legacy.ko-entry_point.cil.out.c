@@ -27754,7 +27754,6 @@ extern int ldv_release_10(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_b43legacy_debugfs_fops_9(void) 
 { 
-  void *tmp ;
 
   {
   fops_shm_group0 = ldv_malloc(sizeof(struct file));
@@ -27763,7 +27762,6 @@ void ldv_initialize_b43legacy_debugfs_fops_9(void)
 }
 void ldv_initialize_b43legacy_debugfs_fops_11(void) 
 { 
-  void *tmp ;
 
   {
   fops_tsf_group0 = ldv_malloc(sizeof(struct file));
@@ -27772,7 +27770,6 @@ void ldv_initialize_b43legacy_debugfs_fops_11(void)
 }
 void ldv_initialize_b43legacy_debugfs_fops_7(void) 
 { 
-  void *tmp ;
 
   {
   fops_restart_group0 = ldv_malloc(sizeof(struct file));
@@ -27781,7 +27778,6 @@ void ldv_initialize_b43legacy_debugfs_fops_7(void)
 }
 void ldv_initialize_b43legacy_debugfs_fops_8(void) 
 { 
-  void *tmp ;
 
   {
   fops_txstat_group0 = ldv_malloc(sizeof(struct file));
@@ -27790,7 +27786,6 @@ void ldv_initialize_b43legacy_debugfs_fops_8(void)
 }
 void ldv_initialize_b43legacy_debugfs_fops_10(void) 
 { 
-  void *tmp ;
 
   {
   fops_ucode_regs_group0 = ldv_malloc(sizeof(struct file));

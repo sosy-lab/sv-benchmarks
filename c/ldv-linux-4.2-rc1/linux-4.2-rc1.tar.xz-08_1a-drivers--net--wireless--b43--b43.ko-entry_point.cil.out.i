@@ -67397,7 +67397,6 @@ int ldv_retval_3 ;
 int ldv_retval_7 ;
 void ldv_initialize_b43_debugfs_fops_17(void)
 {
-  void *tmp ;
   {
   fops_mmio16read_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67405,7 +67404,6 @@ void ldv_initialize_b43_debugfs_fops_17(void)
 }
 void ldv_initialize_b43_debugfs_fops_15(void)
 {
-  void *tmp ;
   {
   fops_mmio32read_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67413,7 +67411,6 @@ void ldv_initialize_b43_debugfs_fops_15(void)
 }
 void ldv_initialize_b43_debugfs_fops_20(void)
 {
-  void *tmp ;
   {
   fops_shm16write_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67421,7 +67418,6 @@ void ldv_initialize_b43_debugfs_fops_20(void)
 }
 void ldv_initialize_b43_debugfs_fops_13(void)
 {
-  void *tmp ;
   {
   fops_txstat_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67429,7 +67425,6 @@ void ldv_initialize_b43_debugfs_fops_13(void)
 }
 void ldv_initialize_b43_debugfs_fops_18(void)
 {
-  void *tmp ;
   {
   fops_shm32write_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67437,7 +67432,6 @@ void ldv_initialize_b43_debugfs_fops_18(void)
 }
 void ldv_initialize_b43_debugfs_fops_14(void)
 {
-  void *tmp ;
   {
   fops_mmio32write_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67445,7 +67439,6 @@ void ldv_initialize_b43_debugfs_fops_14(void)
 }
 void ldv_initialize_b43_debugfs_fops_11(void)
 {
-  void *tmp ;
   {
   fops_loctls_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67453,7 +67446,6 @@ void ldv_initialize_b43_debugfs_fops_11(void)
 }
 void ldv_initialize_b43_debugfs_fops_21(void)
 {
-  void *tmp ;
   {
   fops_shm16read_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67461,7 +67453,6 @@ void ldv_initialize_b43_debugfs_fops_21(void)
 }
 void ldv_initialize_b43_debugfs_fops_16(void)
 {
-  void *tmp ;
   {
   fops_mmio16write_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67469,7 +67460,6 @@ void ldv_initialize_b43_debugfs_fops_16(void)
 }
 void ldv_initialize_b43_debugfs_fops_19(void)
 {
-  void *tmp ;
   {
   fops_shm32read_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -67477,7 +67467,6 @@ void ldv_initialize_b43_debugfs_fops_19(void)
 }
 void ldv_initialize_b43_debugfs_fops_12(void)
 {
-  void *tmp ;
   {
   fops_restart_group0 = ldv_malloc(sizeof(struct file));
   return;

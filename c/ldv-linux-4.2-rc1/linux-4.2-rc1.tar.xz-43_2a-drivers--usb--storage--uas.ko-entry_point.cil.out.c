@@ -7173,8 +7173,6 @@ void activate_work_1(struct work_struct *work , int state )
 }
 void ldv_initialize_scsi_host_template_3(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
 
   {
   uas_host_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

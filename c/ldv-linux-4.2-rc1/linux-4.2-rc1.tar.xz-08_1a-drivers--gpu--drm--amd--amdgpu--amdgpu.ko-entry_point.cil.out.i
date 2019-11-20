@@ -14645,7 +14645,6 @@ int main(void)
   int *ldvarg973 ;
   void *tmp___5 ;
   struct dma_buf_attachment *ldvarg992 ;
-  void *tmp___6 ;
   int ldvarg980 ;
   u32 ldvarg970 ;
   unsigned long ldvarg969 ;
@@ -14657,7 +14656,6 @@ int main(void)
   uint64_t *ldvarg985 ;
   void *tmp___8 ;
   struct dma_buf *ldvarg983 ;
-  void *tmp___9 ;
   int ldvarg962 ;
   u32 ldvarg971 ;
   int *ldvarg982 ;
@@ -19685,7 +19683,6 @@ void ldv_file_operations_174(void)
 }
 void ldv_initialize_vga_switcheroo_client_ops_175(void)
 {
-  void *tmp ;
   {
   amdgpu_switcheroo_ops_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
@@ -33531,7 +33528,6 @@ void ldv_main_exported_162(void)
 {
   bool ldvarg567 ;
   struct file *ldvarg575 ;
-  void *tmp ;
   struct ttm_placement *ldvarg576 ;
   void *tmp___0 ;
   u32 ldvarg571 ;
@@ -136032,7 +136028,6 @@ extern int ldv_release_12(void) ;
 void ldv_main_exported_12(void)
 {
   struct pci_dev *ldvarg793 ;
-  void *tmp ;
   enum vga_switcheroo_state ldvarg791 ;
   enum vga_switcheroo_client_id ldvarg794 ;
   enum vga_switcheroo_client_id ldvarg792 ;

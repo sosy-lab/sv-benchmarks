@@ -6911,7 +6911,6 @@ void ldv_check_final_state(void) ;
 extern int ldv_probe_3(void) ;
 void ldv_initialize_v4l2_file_operations_4(void) 
 { 
-  void *tmp ;
 
   {
   cpia2_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -6923,7 +6922,6 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   void *tmp___3 ;
   void *tmp___4 ;
 

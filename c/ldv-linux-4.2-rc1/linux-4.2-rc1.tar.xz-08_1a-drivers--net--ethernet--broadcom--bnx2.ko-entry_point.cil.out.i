@@ -19090,7 +19090,6 @@ int ldv_retval_4 ;
 int ldv_retval_3 ;
 void ldv_initialize_pci_error_handlers_4(void)
 {
-  void *tmp ;
   {
   bnx2_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

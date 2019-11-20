@@ -4733,7 +4733,6 @@ void disable_suitable_timer_1(struct timer_list *timer )
 int main(void)
 {
   struct file *ldvarg11 ;
-  void *tmp ;
   struct poll_table_struct *ldvarg7 ;
   void *tmp___0 ;
   int ldvarg3 ;
@@ -4744,10 +4743,8 @@ int main(void)
   struct ktermios *ldvarg6 ;
   void *tmp___2 ;
   struct file *ldvarg8 ;
-  void *tmp___3 ;
   unsigned int ldvarg1 ;
   struct file *ldvarg14 ;
-  void *tmp___4 ;
   char *ldvarg4 ;
   void *tmp___5 ;
   unsigned char *ldvarg13 ;
@@ -4756,7 +4753,6 @@ int main(void)
   void *tmp___7 ;
   size_t ldvarg9 ;
   struct file *ldvarg2 ;
-  void *tmp___8 ;
   int tmp___9 ;
   int tmp___10 ;
   int tmp___11 ;

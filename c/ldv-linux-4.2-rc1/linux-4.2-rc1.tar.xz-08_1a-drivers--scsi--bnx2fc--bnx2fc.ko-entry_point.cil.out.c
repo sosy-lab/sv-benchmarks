@@ -16700,8 +16700,6 @@ void call_and_disable_all_1(int state )
 }
 void ldv_initialize_scsi_host_template_10(void) 
 { 
-  void *tmp ;
-  void *tmp___0 ;
 
   {
   bnx2fc_shost_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

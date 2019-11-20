@@ -23609,7 +23609,6 @@ void disable_suitable_irq_3(int line , void *data )
 }
 void ldv_initialize_pci_error_handlers_13(void) 
 { 
-  void *tmp ;
 
   {
   i40e_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));

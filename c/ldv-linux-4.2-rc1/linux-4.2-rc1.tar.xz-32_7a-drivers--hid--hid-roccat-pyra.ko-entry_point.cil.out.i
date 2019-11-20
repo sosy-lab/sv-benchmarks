@@ -4974,7 +4974,6 @@ extern int ldv_probe_6(void) ;
 void ldv_initialize_bin_attribute_17(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -4988,7 +4987,6 @@ void ldv_initialize_bin_attribute_17(void)
 void ldv_initialize_bin_attribute_18(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -5002,7 +5000,6 @@ void ldv_initialize_bin_attribute_18(void)
 void ldv_initialize_bin_attribute_6(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -5025,7 +5022,6 @@ void ldv_initialize_hid_driver_1(void)
 void ldv_initialize_bin_attribute_19(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -5047,9 +5043,7 @@ int main(void)
   size_t ldvarg0 ;
   loff_t ldvarg5 ;
   struct file *ldvarg2 ;
-  void *tmp___2 ;
   struct file *ldvarg8 ;
-  void *tmp___3 ;
   loff_t ldvarg11 ;
   char *ldvarg7 ;
   void *tmp___4 ;
@@ -5096,9 +5090,7 @@ int main(void)
   struct bin_attribute *ldvarg34 ;
   void *tmp___19 ;
   struct file *ldvarg33 ;
-  void *tmp___20 ;
   struct file *ldvarg39 ;
-  void *tmp___21 ;
   size_t ldvarg37 ;
   struct kobject *ldvarg41 ;
   void *tmp___22 ;
@@ -5123,7 +5115,6 @@ int main(void)
   void *tmp___29 ;
   loff_t ldvarg57 ;
   struct file *ldvarg54 ;
-  void *tmp___30 ;
   char *ldvarg53 ;
   void *tmp___31 ;
   struct bin_attribute *ldvarg55 ;
@@ -5136,7 +5127,6 @@ int main(void)
   struct bin_attribute *ldvarg61 ;
   void *tmp___34 ;
   struct file *ldvarg60 ;
-  void *tmp___35 ;
   char *ldvarg59 ;
   void *tmp___36 ;
   struct kobject *ldvarg62 ;
@@ -5146,7 +5136,6 @@ int main(void)
   struct bin_attribute *ldvarg67 ;
   void *tmp___39 ;
   struct file *ldvarg66 ;
-  void *tmp___40 ;
   size_t ldvarg64 ;
   struct kobject *ldvarg68 ;
   void *tmp___41 ;
@@ -5159,7 +5148,6 @@ int main(void)
   char *ldvarg71 ;
   void *tmp___44 ;
   struct file *ldvarg72 ;
-  void *tmp___45 ;
   loff_t ldvarg75 ;
   loff_t ldvarg81 ;
   char *ldvarg77 ;
@@ -5169,12 +5157,10 @@ int main(void)
   struct kobject *ldvarg80 ;
   void *tmp___48 ;
   struct file *ldvarg78 ;
-  void *tmp___49 ;
   size_t ldvarg76 ;
   struct bin_attribute *ldvarg85 ;
   void *tmp___50 ;
   struct file *ldvarg84 ;
-  void *tmp___51 ;
   loff_t ldvarg87 ;
   size_t ldvarg82 ;
   struct kobject *ldvarg86 ;
@@ -5204,7 +5190,6 @@ int main(void)
   struct bin_attribute *ldvarg100 ;
   void *tmp___61 ;
   struct file *ldvarg99 ;
-  void *tmp___62 ;
   char *ldvarg104 ;
   void *tmp___63 ;
   struct device_attribute *ldvarg105 ;

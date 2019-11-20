@@ -20386,9 +20386,7 @@ void ldv_main_exported_61(void)
   size_t ldvarg66 ;
   size_t tmp___11 ;
   struct pipe_inode_info *ldvarg55 ;
-  void *tmp___12 ;
   struct files_struct *ldvarg79 ;
-  void *tmp___13 ;
   loff_t *ldvarg65 ;
   void *tmp___14 ;
   unsigned int ldvarg57 ;
@@ -20421,7 +20419,6 @@ void ldv_main_exported_61(void)
   loff_t *ldvarg56 ;
   void *tmp___28 ;
   struct pipe_inode_info *ldvarg72 ;
-  void *tmp___29 ;
   size_t ldvarg71 ;
   size_t tmp___30 ;
   char *ldvarg67 ;
@@ -20727,7 +20724,6 @@ void ldv_main_exported_62(void)
   struct file_lock *ldvarg162 ;
   void *tmp ;
   struct pipe_inode_info *ldvarg171 ;
-  void *tmp___0 ;
   struct iovec *ldvarg180 ;
   void *tmp___1 ;
   unsigned long ldvarg179 ;
@@ -20761,7 +20757,6 @@ void ldv_main_exported_62(void)
   size_t ldvarg187 ;
   size_t tmp___16 ;
   struct files_struct *ldvarg195 ;
-  void *tmp___17 ;
   loff_t ldvarg175 ;
   loff_t tmp___18 ;
   int ldvarg160 ;
@@ -20785,7 +20780,6 @@ void ldv_main_exported_62(void)
   size_t ldvarg185 ;
   size_t tmp___28 ;
   struct pipe_inode_info *ldvarg188 ;
-  void *tmp___29 ;
   unsigned long ldvarg168 ;
   unsigned long tmp___30 ;
   long ldvarg165 ;
@@ -35731,7 +35725,6 @@ void ldv_main_exported_44(void)
   char *ldvarg31 ;
   void *tmp___2 ;
   struct vfsmount *ldvarg26 ;
-  void *tmp___3 ;
   struct kstat *ldvarg27 ;
   void *tmp___4 ;
   int tmp___5 ;
@@ -41702,7 +41695,6 @@ void ldv_main_exported_35(void)
   struct kstat *ldvarg89 ;
   void *tmp___0 ;
   struct vfsmount *ldvarg88 ;
-  void *tmp___1 ;
   int tmp___2 ;
 
   {
@@ -41743,7 +41735,6 @@ void ldv_main_exported_34(void)
   struct iattr *ldvarg305 ;
   void *tmp___0 ;
   struct vfsmount *ldvarg303 ;
-  void *tmp___1 ;
   int tmp___2 ;
 
   {

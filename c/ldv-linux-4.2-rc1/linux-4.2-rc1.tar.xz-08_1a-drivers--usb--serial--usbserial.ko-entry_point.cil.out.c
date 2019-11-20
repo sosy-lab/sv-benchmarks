@@ -7475,7 +7475,6 @@ void call_and_disable_work_1(struct work_struct *work )
 }
 void ldv_initialize_tty_operations_6(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {

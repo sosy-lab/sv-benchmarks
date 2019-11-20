@@ -22613,7 +22613,6 @@ void choose_interrupt_2(void)
 }
 void ldv_initialize_pci_error_handlers_37(void)
 {
-  void *tmp ;
   {
   ixgbe_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

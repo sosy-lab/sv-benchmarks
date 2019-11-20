@@ -19640,10 +19640,8 @@ void ldv_initialize_spi_function_template_3(void)
 }
 void ldv_initialize_scsi_host_template_4(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
 
   {
   aic7xxx_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

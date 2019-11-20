@@ -7979,7 +7979,6 @@ int main(void)
   int ldvarg12 ;
   int tmp___1 ;
   struct ipmi_smi *ldvarg16 ;
-  void *tmp___2 ;
   void *ldvarg15 ;
   void *tmp___3 ;
   void *ldvarg6 ;

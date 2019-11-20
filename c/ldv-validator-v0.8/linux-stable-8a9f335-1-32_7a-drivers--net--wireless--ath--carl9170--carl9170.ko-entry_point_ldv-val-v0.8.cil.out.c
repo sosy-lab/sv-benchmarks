@@ -27805,7 +27805,6 @@ extern int ldv_release_15(void) ;
 int ldv_retval_3  ;
 void ldv_initialize_carl9170_debugfs_fops_11(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_ampdu_density_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27814,7 +27813,6 @@ void ldv_initialize_carl9170_debugfs_fops_11(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_18(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_ampdu_upload_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27823,7 +27821,6 @@ void ldv_initialize_carl9170_debugfs_fops_18(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_21(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_ampdu_scheduler_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27832,7 +27829,6 @@ void ldv_initialize_carl9170_debugfs_fops_21(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_50(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_qos_stat_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27841,7 +27837,6 @@ void ldv_initialize_carl9170_debugfs_fops_50(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_26(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_usb_tx_anch_urbs_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27850,7 +27845,6 @@ void ldv_initialize_carl9170_debugfs_fops_26(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_29(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_pending_1_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27859,7 +27853,6 @@ void ldv_initialize_carl9170_debugfs_fops_29(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_35(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_ampdu_info_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27868,7 +27861,6 @@ void ldv_initialize_carl9170_debugfs_fops_35(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_43(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_bug_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27877,7 +27869,6 @@ void ldv_initialize_carl9170_debugfs_fops_43(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_39(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_rx_tally_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27886,7 +27877,6 @@ void ldv_initialize_carl9170_debugfs_fops_39(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_46(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_phy_noise_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27895,7 +27885,6 @@ void ldv_initialize_carl9170_debugfs_fops_46(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_22(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_total_queued_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27904,7 +27893,6 @@ void ldv_initialize_carl9170_debugfs_fops_22(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_12(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_ampdu_factor_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27913,7 +27901,6 @@ void ldv_initialize_carl9170_debugfs_fops_12(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_45(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_vif_dump_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27922,7 +27909,6 @@ void ldv_initialize_carl9170_debugfs_fops_45(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_41(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_iowrite32_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27931,7 +27917,6 @@ void ldv_initialize_carl9170_debugfs_fops_41(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_17(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_janitor_last_run_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27940,7 +27925,6 @@ void ldv_initialize_carl9170_debugfs_fops_17(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_32(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_status_2_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27949,7 +27933,6 @@ void ldv_initialize_carl9170_debugfs_fops_32(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_30(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_pending_0_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27958,7 +27941,6 @@ void ldv_initialize_carl9170_debugfs_fops_30(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_20(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_total_pending_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27967,7 +27949,6 @@ void ldv_initialize_carl9170_debugfs_fops_20(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_27(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_pending_3_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27976,7 +27957,6 @@ void ldv_initialize_carl9170_debugfs_fops_27(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_25(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_usb_rx_anch_urbs_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27985,7 +27965,6 @@ void ldv_initialize_carl9170_debugfs_fops_25(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_48(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_sta_psm_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -27994,7 +27973,6 @@ void ldv_initialize_carl9170_debugfs_fops_48(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_37(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_wlan_queue_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28003,7 +27981,6 @@ void ldv_initialize_carl9170_debugfs_fops_37(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_33(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_status_1_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28012,7 +27989,6 @@ void ldv_initialize_carl9170_debugfs_fops_33(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_19(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_ampdu_list_len_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28021,7 +27997,6 @@ void ldv_initialize_carl9170_debugfs_fops_19(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_51(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_mem_usage_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28030,7 +28005,6 @@ void ldv_initialize_carl9170_debugfs_fops_51(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_14(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_sniffer_enabled_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28039,7 +28013,6 @@ void ldv_initialize_carl9170_debugfs_fops_14(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_9(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_pretbtt_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28048,7 +28021,6 @@ void ldv_initialize_carl9170_debugfs_fops_9(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_47(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_stuck_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28057,7 +28029,6 @@ void ldv_initialize_carl9170_debugfs_fops_47(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_38(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_phy_errors_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28066,7 +28037,6 @@ void ldv_initialize_carl9170_debugfs_fops_38(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_42(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_erp_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28075,7 +28045,6 @@ void ldv_initialize_carl9170_debugfs_fops_42(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_10(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_beacon_int_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28084,7 +28053,6 @@ void ldv_initialize_carl9170_debugfs_fops_10(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_34(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_status_0_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28093,7 +28061,6 @@ void ldv_initialize_carl9170_debugfs_fops_34(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_31(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_status_3_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28102,7 +28069,6 @@ void ldv_initialize_carl9170_debugfs_fops_31(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_36(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_pta_queue_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28111,7 +28077,6 @@ void ldv_initialize_carl9170_debugfs_fops_36(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_49(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_ampdu_state_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28120,7 +28085,6 @@ void ldv_initialize_carl9170_debugfs_fops_49(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_13(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_rx_software_decryption_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28129,7 +28093,6 @@ void ldv_initialize_carl9170_debugfs_fops_13(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_44(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_ioread32_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28138,7 +28101,6 @@ void ldv_initialize_carl9170_debugfs_fops_44(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_24(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_usb_rx_work_urbs_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28147,7 +28109,6 @@ void ldv_initialize_carl9170_debugfs_fops_24(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_40(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_hw_tx_tally_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28156,7 +28117,6 @@ void ldv_initialize_carl9170_debugfs_fops_40(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_15(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_rx_dropped_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28165,7 +28125,6 @@ void ldv_initialize_carl9170_debugfs_fops_15(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_23(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_usb_rx_pool_urbs_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28174,7 +28133,6 @@ void ldv_initialize_carl9170_debugfs_fops_23(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_16(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_dropped_ops_group0 = ldv_malloc(sizeof(struct file));
@@ -28183,7 +28141,6 @@ void ldv_initialize_carl9170_debugfs_fops_16(void)
 }
 void ldv_initialize_carl9170_debugfs_fops_28(void) 
 { 
-  void *tmp ;
 
   {
   carl_debugfs_tx_pending_2_ops_group0 = ldv_malloc(sizeof(struct file));

@@ -21316,7 +21316,6 @@ void work_init_9(void)
 }
 void ldv_initialize_pci_error_handlers_23(void) 
 { 
-  void *tmp ;
 
   {
   igb_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));

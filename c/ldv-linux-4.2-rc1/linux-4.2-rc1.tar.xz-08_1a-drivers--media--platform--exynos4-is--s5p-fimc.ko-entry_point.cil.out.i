@@ -10543,7 +10543,6 @@ void ldv_initialize_vb2_ops_14(void)
 }
 void ldv_initialize_v4l2_file_operations_12(void)
 {
-  void *tmp ;
   {
   fimc_m2m_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -10552,7 +10551,6 @@ void ldv_initialize_v4l2_file_operations_12(void)
 void ldv_initialize_v4l2_ioctl_ops_13(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
   {
@@ -14149,7 +14147,6 @@ void ldv_initialize_v4l2_subdev_internal_ops_5(void)
 }
 void ldv_initialize_v4l2_file_operations_9(void)
 {
-  void *tmp ;
   {
   fimc_capture_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -14158,7 +14155,6 @@ void ldv_initialize_v4l2_file_operations_9(void)
 void ldv_initialize_v4l2_ioctl_ops_8(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
   {

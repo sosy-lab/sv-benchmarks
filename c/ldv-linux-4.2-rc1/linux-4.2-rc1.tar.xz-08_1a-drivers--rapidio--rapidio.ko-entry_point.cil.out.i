@@ -7548,7 +7548,6 @@ extern int ldv_release_5(void) ;
 void ldv_initialize_bin_attribute_5(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);

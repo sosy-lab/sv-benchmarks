@@ -8080,8 +8080,6 @@ void disable_suitable_irq_2(int line , void *data )
 }
 void ldv_initialize_scsi_host_template_4(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
   {
   driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   driver_template_group1 = ldv_malloc(sizeof(struct scsi_device));

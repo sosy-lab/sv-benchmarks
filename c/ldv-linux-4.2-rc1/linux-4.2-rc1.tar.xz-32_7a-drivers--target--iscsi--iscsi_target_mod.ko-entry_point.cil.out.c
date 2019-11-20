@@ -46683,7 +46683,6 @@ void ldv_initialize_target_fabric_tpg_param_attribute_83(void)
 }
 void ldv_initialize_target_fabric_discovery_attribute_68(void) 
 { 
-  void *tmp ;
 
   {
   iscsi_disc_userid_group0 = ldv_malloc(0UL);
@@ -46752,7 +46751,6 @@ void ldv_initialize_target_fabric_tpg_attrib_attribute_99(void)
 }
 void ldv_initialize_target_fabric_discovery_attribute_67(void) 
 { 
-  void *tmp ;
 
   {
   iscsi_disc_password_group0 = ldv_malloc(0UL);
@@ -46801,7 +46799,6 @@ void ldv_initialize_target_fabric_tpg_param_attribute_74(void)
 }
 void ldv_initialize_target_fabric_discovery_attribute_64(void) 
 { 
-  void *tmp ;
 
   {
   iscsi_disc_password_mutual_group0 = ldv_malloc(0UL);
@@ -47100,7 +47097,6 @@ void ldv_initialize_target_fabric_tpg_param_attribute_90(void)
 }
 void ldv_initialize_target_fabric_discovery_attribute_63(void) 
 { 
-  void *tmp ;
 
   {
   iscsi_disc_enforce_discovery_auth_group0 = ldv_malloc(0UL);
@@ -47129,7 +47125,6 @@ void ldv_initialize_target_fabric_tpg_param_attribute_82(void)
 }
 void ldv_initialize_target_fabric_discovery_attribute_65(void) 
 { 
-  void *tmp ;
 
   {
   iscsi_disc_userid_mutual_group0 = ldv_malloc(0UL);
@@ -48730,7 +48725,6 @@ void ldv_main_exported_73(void)
 void ldv_main_exported_66(void) 
 { 
   struct target_fabric_configfs *ldvarg248 ;
-  void *tmp ;
   char *ldvarg249 ;
   void *tmp___0 ;
   int tmp___1 ;
@@ -48851,7 +48845,6 @@ void ldv_main_exported_62(void)
   struct se_tpg_np *ldvarg100 ;
   void *tmp___2 ;
   struct target_fabric_configfs *ldvarg94 ;
-  void *tmp___3 ;
   char *ldvarg101 ;
   void *tmp___4 ;
   char *ldvarg95 ;
@@ -49971,7 +49964,6 @@ void ldv_main_exported_135(void)
 void ldv_main_exported_69(void) 
 { 
   struct target_fabric_configfs *ldvarg128 ;
-  void *tmp ;
   char *ldvarg129 ;
   void *tmp___0 ;
   int tmp___1 ;

@@ -6968,7 +6968,6 @@ extern int ldv_probe_6(void) ;
 void ldv_initialize_bin_attribute_5(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {

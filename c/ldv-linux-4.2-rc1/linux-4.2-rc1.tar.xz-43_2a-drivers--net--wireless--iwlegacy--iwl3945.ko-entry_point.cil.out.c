@@ -24882,7 +24882,6 @@ extern int ldv_probe_10(void) ;
 extern int ldv_release_10(void) ;
 void ldv_initialize_il_debugfs_ops_10(void) 
 { 
-  void *tmp ;
 
   {
   il3945_debugfs_ops_group0 = ldv_malloc(sizeof(struct file));

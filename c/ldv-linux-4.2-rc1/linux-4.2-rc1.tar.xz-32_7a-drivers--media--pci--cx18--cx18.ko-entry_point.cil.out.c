@@ -17894,7 +17894,6 @@ void call_and_disable_work_4(struct work_struct *work )
 }
 void ldv_initialize_v4l2_file_operations_18(void) 
 { 
-  void *tmp ;
 
   {
   cx18_v4l2_enc_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -22186,7 +22185,6 @@ void ldv_initialize_v4l2_ioctl_ops_16(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
 

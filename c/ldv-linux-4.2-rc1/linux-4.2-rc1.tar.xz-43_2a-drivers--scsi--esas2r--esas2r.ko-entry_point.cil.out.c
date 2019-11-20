@@ -19323,7 +19323,6 @@ extern int ldv_probe_6(void) ;
 void ldv_initialize_bin_attribute_10(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -19449,7 +19448,6 @@ void call_and_disable_all_1(int state )
 void ldv_initialize_bin_attribute_9(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -19463,9 +19461,7 @@ void ldv_initialize_bin_attribute_9(void)
 }
 void ldv_initialize_scsi_host_template_5(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
 
   {
   driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
@@ -19524,7 +19520,6 @@ void activate_work_1(struct work_struct *work , int state )
 void ldv_initialize_bin_attribute_7(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -19578,7 +19573,6 @@ void disable_work_1(struct work_struct *work )
 void ldv_initialize_bin_attribute_8(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -19669,7 +19663,6 @@ void invoke_work_1(void)
 void ldv_initialize_bin_attribute_11(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {
@@ -19692,7 +19685,6 @@ int main(void)
   size_t ldvarg0 ;
   loff_t ldvarg5 ;
   struct file *ldvarg2 ;
-  void *tmp___2 ;
   loff_t ldvarg8 ;
   loff_t ldvarg11 ;
   char *ldvarg7 ;

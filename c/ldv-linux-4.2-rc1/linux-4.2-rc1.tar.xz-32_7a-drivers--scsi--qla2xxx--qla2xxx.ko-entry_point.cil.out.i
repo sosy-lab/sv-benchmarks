@@ -20514,9 +20514,7 @@ void invoke_work_5(void)
 }
 void ldv_initialize_scsi_host_template_88(void)
 {
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
   {
   qla2xxx_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   tmp___0 = ldv_init_zalloc(3816UL);
@@ -20974,7 +20972,6 @@ void invoke_work_2(void)
 }
 void ldv_initialize_pci_error_handlers_77(void)
 {
-  void *tmp ;
   {
   qla2xxx_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
@@ -59334,7 +59331,6 @@ void choose_timer_22(struct timer_list *timer )
 void ldv_initialize_bin_attribute_69(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -59389,7 +59385,6 @@ void ldv_initialize_device_attribute_54(void)
 void ldv_initialize_bin_attribute_71(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -59424,7 +59419,6 @@ void ldv_initialize_fc_function_template_33(void)
 void ldv_initialize_bin_attribute_73(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -59438,7 +59432,6 @@ void ldv_initialize_bin_attribute_73(void)
 void ldv_initialize_bin_attribute_72(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -59490,7 +59483,6 @@ int reg_timer_22(struct timer_list *timer )
 void ldv_initialize_bin_attribute_74(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   {
   tmp = ldv_init_zalloc(296UL);
@@ -59521,7 +59513,6 @@ void ldv_main_exported_67(void)
   char *ldvarg332 ;
   void *tmp___0 ;
   struct file *ldvarg333 ;
-  void *tmp___1 ;
   struct bin_attribute *ldvarg334 ;
   void *tmp___2 ;
   size_t ldvarg331 ;
@@ -59973,7 +59964,6 @@ void ldv_main_exported_70(void)
 {
   loff_t ldvarg342 ;
   struct file *ldvarg339 ;
-  void *tmp ;
   struct bin_attribute *ldvarg340 ;
   void *tmp___0 ;
   size_t ldvarg337 ;
@@ -60030,7 +60020,6 @@ void ldv_main_exported_68(void)
   struct kobject *ldvarg347 ;
   void *tmp ;
   struct file *ldvarg345 ;
-  void *tmp___0 ;
   char *ldvarg344 ;
   void *tmp___1 ;
   loff_t ldvarg348 ;
@@ -60669,7 +60658,6 @@ void ldv_main_exported_65(void)
   struct kobject *ldvarg205 ;
   void *tmp___0 ;
   struct file *ldvarg203 ;
-  void *tmp___1 ;
   struct bin_attribute *ldvarg204 ;
   void *tmp___2 ;
   int tmp___3 ;
@@ -61208,7 +61196,6 @@ void ldv_main_exported_66(void)
   void *tmp ;
   loff_t ldvarg276 ;
   struct file *ldvarg273 ;
-  void *tmp___0 ;
   struct kobject *ldvarg275 ;
   void *tmp___1 ;
   size_t ldvarg271 ;

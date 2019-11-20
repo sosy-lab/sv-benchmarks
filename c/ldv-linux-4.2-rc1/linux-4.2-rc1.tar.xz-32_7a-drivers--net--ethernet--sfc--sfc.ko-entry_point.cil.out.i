@@ -15482,7 +15482,6 @@ void timer_init_11(void)
 }
 void ldv_initialize_pci_error_handlers_32(void)
 {
-  void *tmp ;
   {
   efx_err_handlers_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

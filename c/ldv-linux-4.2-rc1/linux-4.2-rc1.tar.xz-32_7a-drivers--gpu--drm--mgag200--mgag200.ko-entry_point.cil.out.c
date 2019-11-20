@@ -13489,7 +13489,6 @@ void ldv_main_exported_1(void)
   struct page *ldvarg16 ;
   void *tmp___1 ;
   struct file *ldvarg20 ;
-  void *tmp___2 ;
   unsigned long ldvarg18 ;
   int tmp___3 ;
 

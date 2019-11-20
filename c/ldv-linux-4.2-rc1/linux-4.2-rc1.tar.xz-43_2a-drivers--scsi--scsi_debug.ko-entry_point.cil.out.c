@@ -13511,9 +13511,7 @@ void ldv_initialize_driver_attribute_23(void)
 }
 void ldv_initialize_scsi_host_template_3(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
-  void *tmp___1 ;
 
   {
   sdebug_driver_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));

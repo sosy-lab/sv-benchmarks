@@ -14785,7 +14785,6 @@ extern int ldv_release_4(void) ;
 extern int ldv_probe_4(void) ;
 void ldv_initialize_dm_block_validator_4(void) 
 { 
-  void *tmp ;
   void *tmp___0 ;
 
   {

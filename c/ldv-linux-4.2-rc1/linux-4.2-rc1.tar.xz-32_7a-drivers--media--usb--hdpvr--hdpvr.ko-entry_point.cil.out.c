@@ -9387,7 +9387,6 @@ void work_init_1(void)
 }
 void ldv_initialize_v4l2_file_operations_6(void) 
 { 
-  void *tmp ;
 
   {
   hdpvr_fops_group0 = ldv_malloc(sizeof(struct file));
@@ -9514,7 +9513,6 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   void *tmp___0 ;
   void *tmp___1 ;
   void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
 

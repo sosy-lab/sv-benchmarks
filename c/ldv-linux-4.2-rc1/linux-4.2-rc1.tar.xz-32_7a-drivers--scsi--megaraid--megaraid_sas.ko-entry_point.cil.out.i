@@ -13065,8 +13065,6 @@ void activate_work_4(struct work_struct *work , int state )
 }
 void ldv_initialize_scsi_host_template_14(void)
 {
-  void *tmp ;
-  void *tmp___0 ;
   {
   megasas_template_group0 = ldv_malloc(sizeof(struct scsi_cmnd));
   megasas_template_group1 = ldv_malloc(sizeof(struct scsi_device));
@@ -13798,7 +13796,6 @@ int main(void)
   dma_addr_t ldvarg8 ;
   u32 ldvarg7 ;
   struct scsi_cmnd *ldvarg4 ;
-  void *tmp___1 ;
   void *ldvarg3 ;
   void *tmp___2 ;
   struct megasas_cmd *ldvarg5 ;
@@ -13821,7 +13818,6 @@ int main(void)
   void *tmp___9 ;
   u32 ldvarg20 ;
   struct scsi_cmnd *ldvarg17 ;
-  void *tmp___10 ;
   unsigned long ldvarg19 ;
   void *ldvarg16 ;
   void *tmp___11 ;
@@ -13854,7 +13850,6 @@ int main(void)
   void *tmp___19 ;
   pm_message_t ldvarg44 ;
   struct scsi_cmnd *ldvarg48 ;
-  void *tmp___20 ;
   u32 ldvarg51 ;
   dma_addr_t ldvarg52 ;
   struct megasas_cmd *ldvarg49 ;
@@ -13882,7 +13877,6 @@ int main(void)
   char *ldvarg62 ;
   void *tmp___30 ;
   struct scsi_cmnd *ldvarg65 ;
-  void *tmp___31 ;
   int ldvarg63 ;
   unsigned long ldvarg67 ;
   struct megasas_cmd *ldvarg66 ;
@@ -18414,7 +18408,6 @@ void ldv_main_exported_6(void)
   unsigned long ldvarg41 ;
   int ldvarg37 ;
   struct scsi_cmnd *ldvarg39 ;
-  void *tmp___1 ;
   int tmp___2 ;
   {
   tmp = ldv_init_zalloc(1UL);

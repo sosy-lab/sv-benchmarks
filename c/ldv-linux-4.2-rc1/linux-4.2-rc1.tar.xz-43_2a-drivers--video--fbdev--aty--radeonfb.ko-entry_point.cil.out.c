@@ -7468,7 +7468,6 @@ int main(void)
   unsigned long ldvarg2 ;
   loff_t ldvarg17 ;
   struct file *ldvarg14 ;
-  void *tmp___3 ;
   char *ldvarg13 ;
   void *tmp___4 ;
   size_t ldvarg12 ;
@@ -7486,7 +7485,6 @@ int main(void)
   struct kobject *ldvarg25 ;
   void *tmp___9 ;
   struct file *ldvarg23 ;
-  void *tmp___10 ;
   char *ldvarg22 ;
   void *tmp___11 ;
   int tmp___12 ;

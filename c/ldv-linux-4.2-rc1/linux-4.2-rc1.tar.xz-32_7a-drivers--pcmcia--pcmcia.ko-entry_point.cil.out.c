@@ -15011,7 +15011,6 @@ extern int ldv_release_1(void) ;
 void ldv_initialize_bin_attribute_1(void) 
 { 
   void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
 
   {

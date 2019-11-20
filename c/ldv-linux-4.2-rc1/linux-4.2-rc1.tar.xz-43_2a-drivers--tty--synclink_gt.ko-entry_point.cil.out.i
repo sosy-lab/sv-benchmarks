@@ -13449,7 +13449,6 @@ int reg_timer_3(struct timer_list *timer , void (*function)(unsigned long ) , un
 }
 void ldv_initialize_tty_operations_5(void)
 {
-  void *tmp ;
   void *tmp___0 ;
   {
   ops_group0 = ldv_malloc(sizeof(struct file));

@@ -10801,7 +10801,6 @@ void work_init_3(void)
 }
 void ldv_initialize_pci_error_handlers_7(void)
 {
-  void *tmp ;
   {
   atl1e_err_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;

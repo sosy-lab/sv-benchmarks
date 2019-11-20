@@ -21378,7 +21378,6 @@ void saa7164_encoder_unregister(struct saa7164_port *port )
 int ldv_retval_2 ;
 void ldv_initialize_v4l2_file_operations_9(void)
 {
-  void *tmp ;
   {
   mpeg_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -21389,7 +21388,6 @@ void ldv_initialize_v4l2_ioctl_ops_8(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(32UL);
   mpeg_ioctl_ops_group2 = (struct v4l2_ext_controls *)tmp;
@@ -23779,7 +23777,6 @@ void saa7164_vbi_unregister(struct saa7164_port *port )
 int ldv_retval_1 ;
 void ldv_initialize_v4l2_file_operations_7(void)
 {
-  void *tmp ;
   {
   vbi_fops_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -23790,7 +23787,6 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   {
   tmp = ldv_init_zalloc(208UL);
   vbi_ioctl_ops_group2 = (struct v4l2_format *)tmp;

@@ -5616,7 +5616,6 @@ void ldv_initialize_driver_attribute_7(void)
 }
 void ldv_initialize_pci_error_handlers_15(void)
 {
-  void *tmp ;
   {
   xen_pcibk_error_handler_group0 = ldv_malloc(sizeof(struct pci_dev));
   return;
@@ -10675,7 +10674,6 @@ struct xen_pcibk_backend const xen_pcibk_vpci_backend =
 void ldv_initialize_xen_pcibk_backend_4(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   {
   tmp = ldv_init_zalloc(312UL);
   xen_pcibk_vpci_backend_group0 = (struct xen_pcibk_device *)tmp;
@@ -11111,7 +11109,6 @@ struct xen_pcibk_backend const xen_pcibk_passthrough_backend =
 void ldv_initialize_xen_pcibk_backend_3(void)
 {
   void *tmp ;
-  void *tmp___0 ;
   {
   tmp = ldv_init_zalloc(312UL);
   xen_pcibk_passthrough_backend_group0 = (struct xen_pcibk_device *)tmp;

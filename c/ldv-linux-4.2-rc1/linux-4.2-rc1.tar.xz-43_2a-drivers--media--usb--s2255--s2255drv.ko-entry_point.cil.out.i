@@ -8742,7 +8742,6 @@ int reg_timer_1(struct timer_list *timer , void (*function)(unsigned long ) , un
 }
 void ldv_initialize_v4l2_file_operations_6(void)
 {
-  void *tmp ;
   {
   s2255_fops_v4l_group0 = ldv_malloc(sizeof(struct file));
   return;
@@ -8922,7 +8921,6 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
   void *tmp ;
   void *tmp___0 ;
   void *tmp___1 ;
-  void *tmp___2 ;
   void *tmp___3 ;
   void *tmp___4 ;
   {
