@@ -29,11 +29,11 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
-	ARR_SIZE = __VERIFIER_nondet_short() ;
+	ARR_SIZE = (signed long long)__VERIFIER_nondet_short() ;
 	__VERIFIER_assume(ARR_SIZE > 0) ;
 
 	int array1[ARR_SIZE] ;
@@ -67,6 +67,8 @@ int main()
 			array2[index] = num * (num * count) ;
 		}
 
+		if(count == 200)
+			count = 0 ;	
 		count++ ;
 
 		temp = __VERIFIER_nondet_int() ;

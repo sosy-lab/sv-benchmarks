@@ -28,7 +28,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
@@ -62,6 +62,8 @@ int main()
 
 		array1[index1] = num * (num * count) ;
 		array2[index2] = num * count ;
+		if(count == 200)
+			count = 0 ;
 		count++ ;
 
 		temp = __VERIFIER_nondet_int() ;
