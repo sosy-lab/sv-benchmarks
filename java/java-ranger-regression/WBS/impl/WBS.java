@@ -1,5 +1,5 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
-public class Main {
+public class WBS {
 	
 	//Internal state
 	private int WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE; 
@@ -7,11 +7,11 @@ public class Main {
 	private int WBS_Node_WBS_rlt_PRE2;
 
 	//Outputs
-	private int Nor_Pressure;
-	private int Alt_Pressure;
-	private int Sys_Mode;
+	public int Nor_Pressure;
+	public int Alt_Pressure;
+	public int Sys_Mode;
 
-	public Main() {
+	public WBS() {
 		WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE = 0;
 		WBS_Node_WBS_BSCU_rlt_PRE1 = 0;
 		WBS_Node_WBS_rlt_PRE2 = 100;
@@ -247,16 +247,5 @@ public class Main {
 
 	   WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE = Sys_Mode;
 
-          // This assertion should fail:
-	  assert((PedalPos > 0 && PedalPos <= 4) ? (Alt_Pressure > 0 || Nor_Pressure > 0) : true);
 	}
-
-
-	public static void main(String[] args) {
-		Main Main = new Main();
-		for (int i = 0; i < 2; i++) {
-		  Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		}
-	}
-
 }

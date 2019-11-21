@@ -2,5 +2,6 @@ jayhorn-recursive/*.yml
 jbmc-regression/*.yml
 jpf-regression/*.yml
 java-ranger-regression/*.yml
+java-ranger-regression/WBS/*.yml
 MinePump/*.yml
 algorithms/*.yml
