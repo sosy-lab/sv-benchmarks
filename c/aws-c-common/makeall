@@ -29,5 +29,8 @@ sed 's/__builtin___mem/___mem/g' -i \
 sed '1 i int compare(const void *a, const void *b, unsigned long item_size);' -i \
     $SV/c/aws-c-common/./aws_array_list_sort_harness.i
 
-# adds missing __CPROVER_file_local_priority_queue_c_s_swap function
+# add missing __CPROVER_file_local_priority_queue_c_s_swap function
 cd $SV && patch -p1 < c/aws-c-common/s_swap-fix.diff
+
+# fix overflow functions
+cd $SV && patch -p1 < c/aws-c-common/overflow-fix-1.diff
