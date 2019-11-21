@@ -1,4 +1,5 @@
-extern void *alloca(unsigned long size);
+typedef unsigned int size_t;
+extern void *alloca(size_t size);
 extern void free(void*);
 extern char __VERIFIER_nondet_char(void);
 
