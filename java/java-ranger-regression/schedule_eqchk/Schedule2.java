@@ -102,30 +102,8 @@ public class Schedule2 {
 			System.out.println("NO COMMAND!");
 		}
 		
-//		int result[] = new int[100];
-//		int index = 0;
-//		int i = 0;
-//		while(i < MAXPRIO + 1){
-//			
-//			Process head = prio_queue[i].getHead();
-//			result[index++] = i;
-//			result[index++] = -1;
-//			while (head != null) {
-//				result[index++] = head.getPid();
-//				head = head.getNext();
-//			}
-//			result[index++] = -1;
-//			i ++;
-//		}
-//		System.out.println("out!");
+
 	}
-//
-//	private static void flush() {
-//		boolean continueIndex = false;
-//		while(!continueIndex){
-//			continueIndex = finish();
-//		}
-//	}
 
 	/*
 	 * 

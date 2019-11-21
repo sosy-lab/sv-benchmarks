@@ -35,13 +35,10 @@ public class TestSchedule2 {
     }
 
     public Process[] SPFWrapper(Main v, int in0, int in1, int in2) {
-        return NoVeritest(v, in0, in1, in2);
+        return IntermediateFun(v, in0, in1, in2);
     }
 
-    // This is a special method. Call this method to prevent SPF from veritesting any regions that appear in any
-    // function or method call higher up in the stack. In the future, this call to SPFWrapperInner can be changed to
-    // be a generic method call if other no-veritesting methods need to be invoked.
-    private Process[] NoVeritest(Main v, int in0, int in1, int in2){
+    private Process[] IntermediateFun(Main v, int in0, int in1, int in2){
         return SPFWrapperInner(v, in0, in1, in2);
     }
 

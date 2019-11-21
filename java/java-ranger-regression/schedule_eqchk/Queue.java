@@ -39,15 +39,6 @@ public class Queue {
 		tail.setNext(_tail);
 	}
 		
-//	public int getQueue_count() {
-//		int number = 0;
-//		Process process = head.getNext();
-//		while(process != null){
-//			number = number + 1;
-//			process = process.getNext();
-//		}
-//		return number;
-//	}
 
 	@Override
 	public boolean equals(Object o) {
