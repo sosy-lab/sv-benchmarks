@@ -26,10 +26,6 @@ public class Schedule2 {
 	public static int block_in;
 	public static int block_out;
 	
-	public static void main(String[] args) {
-		mainProcess(5, 3, 2);
-	}
-	
 	public static void mainProcess(int a1, int a2, int a3){
 		next_pid = 0; // not having this line causes inequivalence
 		current_job = new Queue(); 

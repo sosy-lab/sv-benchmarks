@@ -18,7 +18,6 @@ public class TestSchedule2 {
             System.out.println("Mismatch");
             assert(false);
         }
-//        assert(outSPF == outJR);
     }
 
     private boolean isequal(Process[] outSPF, Process[] outJR) {
