@@ -8034,8 +8034,8 @@ int aws_byte_buf_append(struct aws_byte_buf *to, const struct aws_byte_cursor *f
 
     if (from->len > 0) {
 
-        __VERIFIER_assert(from->ptr);
-        __VERIFIER_assert(to->buffer);
+        __VERIFIER_assert(from->ptr != ((void *)0));
+        __VERIFIER_assert(to->buffer != ((void *)0));
         memcpy(to->buffer + to->len, from->ptr, from->len);
         to->len += from->len;
     }

@@ -4704,7 +4704,7 @@ static inline
 static inline 
                _Bool 
                     aws_linked_list_is_valid(const struct aws_linked_list *list) {
-    if (list && list->head.next && list->head.prev == 
+    if (list != ((void *)0) && list->head.next != ((void *)0) && list->head.prev == 
                                                      ((void *)0) 
                                                           && list->tail.prev && list->tail.next == 
                                                                                                    ((void *)0)
@@ -4728,7 +4728,7 @@ static inline
 static inline 
                _Bool 
                     aws_linked_list_node_next_is_valid(const struct aws_linked_list_node *node) {
-    return node && node->next && node->next->prev == node;
+    return node != ((void *)0) && node->next != ((void *)0) && node->next->prev == node;
 }
 
 
@@ -4739,12 +4739,12 @@ static inline
 static inline 
                _Bool 
                     aws_linked_list_node_prev_is_valid(const struct aws_linked_list_node *node) {
-    return node && node->prev && node->prev->next == node;
+    return node != ((void *)0) && node->prev != ((void *)0) && node->prev->next == node;
 }
 static inline 
                _Bool 
                     aws_linked_list_is_valid_deep(const struct aws_linked_list *list) {
-    if (!list) {
+    if (list != ((void *)0)) {
         return 
               0
                    ;
@@ -4760,7 +4760,7 @@ static inline
 
 
 
-    while (temp) {
+    while (temp != ((void *)0)) {
         if (temp == &list->tail) {
             head_reaches_tail = 
                                1
