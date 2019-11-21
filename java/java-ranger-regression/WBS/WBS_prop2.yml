@@ -2,8 +2,8 @@ format_version: "1.0"
 input_files:
   - ../../common/
   - impl/
-  - prop1/
+  - prop2/
 properties:
   - property_file: ../../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: true
 
