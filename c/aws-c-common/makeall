@@ -34,3 +34,6 @@ cd $SV && patch -p1 < c/aws-c-common/s_swap-fix.diff
 
 # fix overflow functions
 cd $SV && patch -p1 < c/aws-c-common/overflow-fix-1.diff
+
+# remove all unsupported benchmarks
+rm -f aws_ring_buffer_buf_belongs_to_pool_harness.*
