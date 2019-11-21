@@ -55107,10 +55107,6 @@ int write_inode_now(struct inode *arg0, int arg1) {
 void writeback_inodes_sb(struct super_block *arg0, enum wb_reason arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

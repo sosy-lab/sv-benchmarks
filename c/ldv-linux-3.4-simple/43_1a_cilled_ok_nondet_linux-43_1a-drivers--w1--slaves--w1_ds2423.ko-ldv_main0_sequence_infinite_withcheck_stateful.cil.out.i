@@ -1393,10 +1393,6 @@ void w1_unregister_family(struct w1_family *arg0) {
 void w1_write_block(struct w1_master *arg0, const u8 *arg1, int arg2) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

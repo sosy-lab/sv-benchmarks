@@ -10746,10 +10746,6 @@ void vfree(const void *arg0) {
 void wake_up_bit(void *arg0, int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -11980,10 +11980,6 @@ int vp3054_i2c_probe(struct cx8802_dev *arg0) {
 void vp3054_i2c_remove(struct cx8802_dev *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

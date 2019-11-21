@@ -9675,10 +9675,6 @@ void uart_update_timeout(struct uart_port *arg0, unsigned int arg1, unsigned int
 void uart_write_wakeup(struct uart_port *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

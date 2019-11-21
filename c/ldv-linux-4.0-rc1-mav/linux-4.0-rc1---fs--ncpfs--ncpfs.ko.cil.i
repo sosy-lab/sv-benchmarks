@@ -26138,10 +26138,6 @@ int utf8_to_utf32(const u8 *arg0, int arg1, unicode_t *arg2) {
 void vfree(const void *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

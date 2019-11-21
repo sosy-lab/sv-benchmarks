@@ -12597,10 +12597,6 @@ int ldv_atomic_dec_and_lock_tx_global_lock_of_net_device(void)
   return (0);
 }
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

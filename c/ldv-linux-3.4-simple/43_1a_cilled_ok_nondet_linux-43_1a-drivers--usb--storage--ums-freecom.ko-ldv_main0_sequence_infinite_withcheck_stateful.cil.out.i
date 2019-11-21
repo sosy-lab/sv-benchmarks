@@ -5200,10 +5200,6 @@ int __VERIFIER_nondet_int(void);
 int usb_stor_probe2(struct us_data *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

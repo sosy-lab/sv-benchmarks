@@ -7969,10 +7969,6 @@ void unregister_hdlc_protocol(struct hdlc_proto *arg0) {
 void unregister_netdevice_queue(struct net_device *arg0, struct list_head *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -6105,10 +6105,6 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
 void unregister_hdlc_protocol(struct hdlc_proto *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

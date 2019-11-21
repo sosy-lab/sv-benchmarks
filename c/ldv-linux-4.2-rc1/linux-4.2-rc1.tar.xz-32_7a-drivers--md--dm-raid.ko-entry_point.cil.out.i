@@ -8327,10 +8327,6 @@ int __VERIFIER_nondet_int(void);
 int sync_page_io(struct md_rdev *arg0, sector_t arg1, int arg2, struct page *arg3, int arg4, bool arg5) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

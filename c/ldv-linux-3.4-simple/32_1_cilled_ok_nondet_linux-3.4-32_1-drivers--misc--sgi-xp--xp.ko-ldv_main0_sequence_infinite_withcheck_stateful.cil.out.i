@@ -3432,10 +3432,6 @@ long __VERIFIER_nondet_long(void);
 s64 uv_bios_change_memprotect(u64 arg0, u64 arg1, enum uv_memprotect arg2) {
   return __VERIFIER_nondet_long();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

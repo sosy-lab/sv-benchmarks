@@ -5110,10 +5110,6 @@ int sock_register(const struct net_proto_family *arg0) {
 void sock_unregister(int arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -3233,10 +3233,6 @@ int serio_open(struct serio *arg0, struct serio_driver *arg1) {
 void serio_unregister_driver(struct serio_driver *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

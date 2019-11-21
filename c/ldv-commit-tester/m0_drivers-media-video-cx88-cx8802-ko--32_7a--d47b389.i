@@ -6969,10 +6969,6 @@ int videobuf_iolock(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, s
 struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *arg0) {
   return ldv_malloc(sizeof(struct videobuf_dmabuf));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

@@ -6726,10 +6726,6 @@ int __VERIFIER_nondet_int(void);
 int usbatm_usb_probe(struct usb_interface *arg0, const struct usb_device_id *arg1, struct usbatm_driver *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

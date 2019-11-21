@@ -10337,10 +10337,6 @@ int __VERIFIER_nondet_int(void);
 int spi_print_msg(const unsigned char *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

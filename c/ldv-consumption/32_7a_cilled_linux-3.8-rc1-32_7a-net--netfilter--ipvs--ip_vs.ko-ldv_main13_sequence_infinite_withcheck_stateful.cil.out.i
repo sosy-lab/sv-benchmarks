@@ -31848,10 +31848,6 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 struct dst_entry *xfrm_lookup(struct net *arg0, struct dst_entry *arg1, const struct flowi *arg2, struct sock *arg3, int arg4) {
   return ldv_malloc(sizeof(struct dst_entry));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

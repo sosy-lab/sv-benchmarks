@@ -4762,10 +4762,6 @@ struct tpm_chip *tpm_register_hardware(struct device *arg0, const struct tpm_ven
 void tpm_remove_hardware(struct device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

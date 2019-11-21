@@ -1605,10 +1605,6 @@ void switch_dev_unregister(struct switch_dev *arg0) {
 void switch_set_state(struct switch_dev *arg0, int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

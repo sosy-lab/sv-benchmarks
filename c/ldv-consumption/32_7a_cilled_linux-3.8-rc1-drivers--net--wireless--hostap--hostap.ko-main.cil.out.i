@@ -21192,10 +21192,6 @@ void wireless_send_event(struct net_device *arg0, unsigned int arg1, union iwreq
 void wireless_spy_update(struct net_device *arg0, unsigned char *arg1, struct iw_quality *arg2) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

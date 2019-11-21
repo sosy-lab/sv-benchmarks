@@ -4624,10 +4624,6 @@ int __VERIFIER_nondet_int(void);
 int pcim_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

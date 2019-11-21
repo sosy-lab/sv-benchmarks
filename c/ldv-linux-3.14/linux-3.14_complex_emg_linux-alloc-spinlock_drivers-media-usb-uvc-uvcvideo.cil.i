@@ -22538,10 +22538,6 @@ long __VERIFIER_nondet_long(void);
 long int video_usercopy(struct file *arg0, unsigned int arg1, unsigned long arg2, long int (*arg3)(struct file *, unsigned int, void *)) {
   return __VERIFIER_nondet_long();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

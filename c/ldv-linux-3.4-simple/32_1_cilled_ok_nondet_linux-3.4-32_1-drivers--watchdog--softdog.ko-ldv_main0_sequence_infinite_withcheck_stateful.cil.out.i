@@ -1113,10 +1113,6 @@ int watchdog_register_device(struct watchdog_device *arg0) {
 void watchdog_unregister_device(struct watchdog_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);

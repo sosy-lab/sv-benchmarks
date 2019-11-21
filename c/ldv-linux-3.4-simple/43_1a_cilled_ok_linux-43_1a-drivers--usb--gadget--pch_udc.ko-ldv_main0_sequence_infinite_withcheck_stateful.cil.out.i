@@ -13390,10 +13390,6 @@ int usb_add_gadget_udc(struct device *arg0, struct usb_gadget *arg1) {
 void usb_del_gadget_udc(struct usb_gadget *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
-}
 void free(void *);
 void kfree(void const *p) {
   free((void *)p);
