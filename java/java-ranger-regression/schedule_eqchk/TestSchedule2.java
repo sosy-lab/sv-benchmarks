@@ -7,9 +7,9 @@ public class TestSchedule2 {
         in0 = Verifier.nondetInt();
         in1 = Verifier.nondetInt();
         in2 = Verifier.nondetInt();
-        Process[] outSPF = SPFWrapper(v, in0, in1, in2);
-        Process[] outJR = JRWrapper(v, in0, in1, in2);
-        checkEquality(v, outSPF, outJR);
+        Process[] out1 = v.testFunction(in0, in1, in2);
+        Process[] out2 = v.testFunction(in0, in1, in2);
+        checkEquality(v, out1, out2);
     }
 
     public void checkEquality(Main v, Process[] outSPF, Process[] outJR) {
@@ -31,23 +31,6 @@ public class TestSchedule2 {
         }
         System.out.println("length mismatch");
         return false;
-    }
-
-    public Process[] SPFWrapper(Main v, int in0, int in1, int in2) {
-        return IntermediateFun(v, in0, in1, in2);
-    }
-
-    private Process[] IntermediateFun(Main v, int in0, int in1, int in2){
-        return SPFWrapperInner(v, in0, in1, in2);
-    }
-
-    private Process[] SPFWrapperInner(Main v, int in0, int in1, int in2) {
-        Process[] ret = v.testFunction(in0, in1, in2);
-        return ret;
-    }
-
-    public Process[] JRWrapper(Main v, int in0, int in1, int in2) {
-        return v.testFunction(in0, in1, in2);
     }
 
     public void runTest(Main t) {
