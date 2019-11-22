@@ -9116,8 +9116,8 @@ int main(void)
   {
   {
 
-  drivers.prev = __VERIFIER_nondet_pointer();
-  drivers.next = __VERIFIER_nondet_pointer();
+  drivers.prev = ldv_malloc(sizeof(struct list_head));
+  drivers.next = ldv_malloc(sizeof(struct list_head));
 
   ldv_s_if_ops_tty_operations = 0;
   LDV_IN_INTERRUPT = 1;
