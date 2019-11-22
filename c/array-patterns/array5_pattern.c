@@ -20,7 +20,15 @@
  * If index is an even number Array1[index] is initialized with count, and
  * Array2[index] is initialized with -count. However, when index is odd,
  * exactly reverse is intialized.
- * Sum of both array should be always zero. 
+ * Sum of both array should be always zero.
+ *
+ * Changelog --> 22 November 2019
+ * Variable count is reset on reaching 200. One can have any other integer value as well
+ * to reset count. It is an additional challenge for Tools/solvers using supervised learning
+ * based techniques for algorithm selection. 200 is the max unrolling for most of the reachsafe
+ * programs to reach property violation. Presence of 200 as part of statement assignment 
+ * inside loop can be picked up by algorithm selector to deploy only falsification/correctness proving
+ * techniques.
  * */
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
