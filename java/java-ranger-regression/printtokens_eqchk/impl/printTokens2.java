@@ -20,7 +20,6 @@ public class printTokens2 {
 	}
 	
 	public static void mainProcess(char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7){
-		output = 0;
 		
 //		StringBuilder sb = new StringBuilder();
 //		try{
