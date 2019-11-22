@@ -822,10 +822,5 @@ public class replace {
 		}
 		return false;
 	}
-	
-
-	public static void main(String[] args) {
-		mainProcess('2', '&', 'a', 'a', '0');
-	}
 
 }
