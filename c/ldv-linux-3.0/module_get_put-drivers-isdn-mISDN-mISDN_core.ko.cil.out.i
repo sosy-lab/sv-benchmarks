@@ -5475,7 +5475,6 @@ static void mISDN_cleanup(void)
 void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void* __VERIFIER_nondet_pointer(void) ;
 int LDV_IN_INTERRUPT ;
 void ldv_blast_assert(void)
 {
@@ -17634,13 +17633,13 @@ int main(void)
   int ldv_s_mISDN_fops_file_operations ;
   int tmp ;
   int tmp___0 ;
-  debug___0 = __VERIFIER_nondet_pointer ();
-  debug___1 = __VERIFIER_nondet_pointer ();
-  debug___2 = __VERIFIER_nondet_pointer ();
-  debug___3 = __VERIFIER_nondet_pointer ();
-  debug___4 = __VERIFIER_nondet_pointer ();
-  debug___5 = __VERIFIER_nondet_pointer ();
-  debug___6 = __VERIFIER_nondet_pointer ();
+  debug___0 = ldv_malloc(sizeof(u_int));
+  debug___1 = ldv_malloc(sizeof(u_int));
+  debug___2 = ldv_malloc(sizeof(u_int));
+  debug___3 = ldv_malloc(sizeof(u_int));
+  debug___4 = ldv_malloc(sizeof(u_int));
+  debug___5 = ldv_malloc(sizeof(u_int));
+  debug___6 = ldv_malloc(sizeof(u_int));
   {
   {
   ldv_s_mISDN_fops_file_operations = 0;

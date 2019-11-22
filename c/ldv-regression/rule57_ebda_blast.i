@@ -50,10 +50,9 @@ void kfree(void *p) {
   freed_tmp_slot = 1;
 }
 
-extern void *__VERIFIER_nondet_pointer(void);
 
 struct bus_info *ibmphp_find_same_bus_num() {
- return __VERIFIER_nondet_pointer();
+ return kzalloc(sizeof(struct bus_info), 0);
 }
 
 extern int __VERIFIER_nondet_int(void);

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __init_work
 // with type: void __init_work(struct work_struct *, int)
 // with return type: void

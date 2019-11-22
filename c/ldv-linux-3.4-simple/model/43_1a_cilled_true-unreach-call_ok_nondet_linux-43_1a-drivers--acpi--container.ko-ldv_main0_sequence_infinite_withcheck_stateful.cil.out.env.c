@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: acpi_bus_add
 // with type: int acpi_bus_add(struct acpi_device **, struct acpi_device *, acpi_handle , int)
 // with return type: int

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: dev_err
 // with type: int dev_err(const struct device *, const char *, ...)
 // with return type: int

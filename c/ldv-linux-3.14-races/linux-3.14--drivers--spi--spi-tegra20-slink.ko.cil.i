@@ -3297,12 +3297,12 @@ __inline static int of_property_read_u32(struct device_node const *np , char con
   return (tmp);
 }
 }
-extern void *__VERIFIER_nondet_pointer(void);
+void *ldv_malloc(size_t size ) ;
 __inline static struct of_device_id const *__of_match_device(struct of_device_id const *matches ,
                                                                struct device const *dev )
 {
   {
-  return ((struct of_device_id const *)__VERIFIER_nondet_pointer());
+  return ldv_malloc(sizeof(struct of_device_id));
 }
 }
 extern int reset_control_assert(struct reset_control * ) ;
@@ -5449,7 +5449,6 @@ void ldv_platform_instance_release_3_3(int (*arg0)(struct platform_device * ) , 
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_pm_ops_scenario_4(void *arg0 )
 {
   struct device *ldv_4_device_device ;

@@ -10,8 +10,6 @@ void *PDE_DATA(const struct inode *arg0) {
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_ulong
 
 // Function: __init_waitqueue_head

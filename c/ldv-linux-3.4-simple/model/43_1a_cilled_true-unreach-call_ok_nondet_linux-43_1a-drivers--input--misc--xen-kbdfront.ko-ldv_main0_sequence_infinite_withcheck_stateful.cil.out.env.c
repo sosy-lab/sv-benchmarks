@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __get_free_pages
 // with type: unsigned long int __get_free_pages(gfp_t , unsigned int)
 // with return type: unsigned long int

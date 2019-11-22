@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __gameport_register_port
 // with type: void __gameport_register_port(struct gameport *, struct module *)
 // with return type: void

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: _raw_spin_unlock_irqrestore
 // with type: void _raw_spin_unlock_irqrestore(raw_spinlock_t *, unsigned long)
 // with return type: void

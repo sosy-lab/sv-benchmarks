@@ -7681,7 +7681,6 @@ extern void ldv_check_return_value_probe(int ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void* __VERIFIER_nondet_pointer(void);
 int LDV_IN_INTERRUPT ;
 void ldv_main0_sequence_infinite_withcheck_stateful(void)
 {
@@ -8403,15 +8402,13 @@ int pcmcia_validate_mem(struct pcmcia_socket *s )
 struct resource *pcmcia_find_mem_region(u_long base , u_long num , u_long align ,
                                         int low , struct pcmcia_socket *s )
 {
-  struct resource *tmp ;
   {
   if ((unsigned long )(s->resource_ops)->find_mem != (unsigned long )((struct resource *(*)(unsigned long ,
                                                                                             unsigned long ,
                                                                                             unsigned long ,
                                                                                             int ,
                                                                                             struct pcmcia_socket * ))0)) {
-    tmp = __VERIFIER_nondet_pointer();
-    return (tmp);
+    return ldv_malloc(sizeof(struct resource));
   } else {
   }
   return (0);

@@ -7405,7 +7405,7 @@ int aws_last_error(void) {
     return tl_last_error;
 }
 void *memcpy_impl(void *dst, const void *src, size_t n) {
-    __VERIFIER_assume(__VERIFIER_base_pointer(dst) != __VERIFIER_base_pointer(src) || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
+    __VERIFIER_assume(dst != src || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
 
 
                                  ;

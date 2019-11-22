@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __might_sleep
 // with type: void __might_sleep(const char *, int, int)
 // with return type: void
