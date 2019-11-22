@@ -223,3 +223,82 @@ index 3e4e71b..f9e0d04 100644
  /* clang-format off */
  #    define AWS_IS_ZEROED(object)                                                                                      \
          __CPROVER_forall {                                                                                             \
+diff --git a/source/ring_buffer.c b/source/ring_buffer.c
+index ff649f2..5c55c92 100644
+--- a/source/ring_buffer.c
++++ b/source/ring_buffer.c
+@@ -20,7 +20,6 @@
+ #ifdef CBMC
+ #    define AWS_ATOMIC_LOAD_PTR(ring_buf, dest_ptr, atomic_ptr, memory_order)                                          \
+         dest_ptr = aws_atomic_load_ptr_explicit(atomic_ptr, memory_order);                                             \
+-        assert(__CPROVER_POINTER_OBJECT(dest_ptr) == __CPROVER_POINTER_OBJECT(ring_buf->allocation));                  \
+         assert(aws_ring_buffer_check_atomic_ptr(ring_buf, dest_ptr));
+ #    define AWS_ATOMIC_STORE_PTR(ring_buf, atomic_ptr, src_ptr, memory_order)                                          \
+         assert(aws_ring_buffer_check_atomic_ptr(ring_buf, src_ptr));                                                   \
+@@ -239,14 +238,6 @@ int aws_ring_buffer_acquire_up_to(
+ }
+ 
+ static inline bool s_buf_belongs_to_pool(const struct aws_ring_buffer *ring_buffer, const struct aws_byte_buf *buf) {
+-#ifdef CBMC
+-    /* only continue if buf points-into ring_buffer because comparison of pointers to different objects is undefined
+-     * (C11 6.5.8) */
+-    if ((__CPROVER_POINTER_OBJECT(buf->buffer) != __CPROVER_POINTER_OBJECT(ring_buffer->allocation)) ||
+-        (__CPROVER_POINTER_OBJECT(buf->buffer) != __CPROVER_POINTER_OBJECT(ring_buffer->allocation_end))) {
+-        return false;
+-    }
+-#endif
+     return buf->buffer && ring_buffer->allocation && ring_buffer->allocation_end &&
+            buf->buffer >= ring_buffer->allocation && buf->buffer + buf->capacity <= ring_buffer->allocation_end;
+ }
+diff --git a/.cbmc-batch/stubs/memcpy_override.c b/.cbmc-batch/stubs/memcpy_override.c
+index e89e6f4..777d9dd 100644
+--- a/.cbmc-batch/stubs/memcpy_override.c
++++ b/.cbmc-batch/stubs/memcpy_override.c
+@@ -32,7 +32,7 @@
+  */
+ void *memcpy_impl(void *dst, const void *src, size_t n) {
+     __CPROVER_precondition(
+-        __CPROVER_POINTER_OBJECT(dst) != __CPROVER_POINTER_OBJECT(src) ||
++        (dst) != (src) ||
+             ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n),
+         "memcpy src/dst overlap");
+     __CPROVER_precondition(__CPROVER_r_ok(src, n), "memcpy source region readable");
+diff --git a/.cbmc-batch/stubs/memcpy_override_havoc.c b/.cbmc-batch/stubs/memcpy_override_havoc.c
+index f3dff05..1216099 100644
+--- a/.cbmc-batch/stubs/memcpy_override_havoc.c
++++ b/.cbmc-batch/stubs/memcpy_override_havoc.c
+@@ -26,7 +26,7 @@
+  */
+ void *memcpy_impl(void *dst, const void *src, size_t n) {
+     __CPROVER_precondition(
+-        __CPROVER_POINTER_OBJECT(dst) != __CPROVER_POINTER_OBJECT(src) ||
++        (dst) != (src) ||
+             ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n),
+         "memcpy src/dst overlap");
+     __CPROVER_precondition(src != NULL && __CPROVER_r_ok(src, n), "memcpy source region readable");
+diff --git a/.cbmc-batch/stubs/memcpy_override_no_op.c b/.cbmc-batch/stubs/memcpy_override_no_op.c
+index ce37556..6a4c4c0 100644
+--- a/.cbmc-batch/stubs/memcpy_override_no_op.c
++++ b/.cbmc-batch/stubs/memcpy_override_no_op.c
+@@ -32,7 +32,7 @@
+  */
+ void *memcpy_impl(void *dst, const void *src, size_t n) {
+     __CPROVER_precondition(
+-        __CPROVER_POINTER_OBJECT(dst) != __CPROVER_POINTER_OBJECT(src) ||
++        (dst) != (src) ||
+             ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n),
+         "memcpy src/dst overlap");
+     __CPROVER_precondition(src != NULL && __CPROVER_r_ok(src, n), "memcpy source region readable");
+diff --git a/.cbmc-batch/stubs/memcpy_using_uint64.c b/.cbmc-batch/stubs/memcpy_using_uint64.c
+index 63a7ece..cadbf0b 100644
+--- a/.cbmc-batch/stubs/memcpy_using_uint64.c
++++ b/.cbmc-batch/stubs/memcpy_using_uint64.c
+@@ -31,7 +31,7 @@
+ 
+ void *memcpy_using_uint64_impl(void *dst, const void *src, size_t n) {
+     __CPROVER_precondition(
+-        __CPROVER_POINTER_OBJECT(dst) != __CPROVER_POINTER_OBJECT(src) ||
++        (dst) != (src) ||
+             ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n),
+         "memcpy src/dst overlap");
+     __CPROVER_precondition(__CPROVER_r_ok(src, n), "memcpy source region readable");
