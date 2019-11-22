@@ -952,7 +952,7 @@ int event_precess(event_t *e) {
   return rc;
 }
 void user_initialize() {
-  user->info = calloc(0, sizeof(info_t));
+  user->info = calloc(1, sizeof(info_t));
   user->message.id = 11;
   user->info->is_valid = 0;
   user->status = AS_NULL;
