@@ -3,5 +3,6 @@ jbmc-regression/*.yml
 jpf-regression/*.yml
 java-ranger-regression/*.yml
 java-ranger-regression/WBS/*.yml
+java-ranger-regression/siena_eqchk/*.yml
 MinePump/*.yml
 algorithms/*.yml
