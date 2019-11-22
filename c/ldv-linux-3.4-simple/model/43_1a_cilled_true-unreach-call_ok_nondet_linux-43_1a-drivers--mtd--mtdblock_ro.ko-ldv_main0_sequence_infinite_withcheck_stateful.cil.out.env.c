@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: add_mtd_blktrans_dev
 // with type: int add_mtd_blktrans_dev(struct mtd_blktrans_dev *)
 // with return type: int

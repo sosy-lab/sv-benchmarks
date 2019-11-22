@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __init_waitqueue_head
 // with type: void __init_waitqueue_head(wait_queue_head_t *, const char *, struct lock_class_key *)
 // with return type: void

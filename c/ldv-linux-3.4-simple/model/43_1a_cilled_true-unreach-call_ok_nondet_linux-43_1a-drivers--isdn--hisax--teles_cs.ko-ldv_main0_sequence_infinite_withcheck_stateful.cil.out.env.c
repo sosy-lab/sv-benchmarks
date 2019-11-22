@@ -10,8 +10,6 @@ void HiSax_closecard(int arg0) {
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __dynamic_dev_dbg
 // with type: int __dynamic_dev_dbg(struct _ddebug *, const struct device *, const char *, ...)
 // with return type: int

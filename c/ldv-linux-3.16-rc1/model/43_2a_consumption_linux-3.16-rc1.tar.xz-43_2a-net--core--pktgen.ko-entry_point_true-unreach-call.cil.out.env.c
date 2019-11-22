@@ -12,8 +12,6 @@ void *PDE_DATA(const struct inode *arg0) {
 
 // Skip function: __VERIFIER_nondet_loff_t
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_size_t
 
 // Skip function: __VERIFIER_nondet_ulong

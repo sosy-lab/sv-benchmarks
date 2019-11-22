@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __wake_up
 // with type: void __wake_up(wait_queue_head_t *, unsigned int, int, void *)
 // with return type: void

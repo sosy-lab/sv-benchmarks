@@ -13454,7 +13454,6 @@ void *ldv_xzalloc(size_t size )
 int ldv_undef_int_negative(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int ldv_undef_int(void) 
 { 
   int tmp ;

@@ -11,8 +11,6 @@ int LNetGetId(unsigned int arg0, lnet_process_id_t *arg1) {
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_ulong
 
 // Function: __cfs_fail_check_set

@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __kfifo_alloc
 // with type: int __kfifo_alloc(struct __kfifo *, unsigned int, size_t , gfp_t )
 // with return type: int

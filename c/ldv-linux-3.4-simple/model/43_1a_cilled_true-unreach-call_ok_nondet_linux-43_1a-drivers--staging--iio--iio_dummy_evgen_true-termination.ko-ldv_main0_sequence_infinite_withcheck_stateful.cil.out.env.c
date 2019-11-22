@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __irq_alloc_descs
 // with type: int __irq_alloc_descs(int, unsigned int, unsigned int, int, struct module *)
 // with return type: int

@@ -4,8 +4,6 @@
 
 // Skip function: __VERIFIER_nondet_loff_t
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_uint
 
 // Skip function: __VERIFIER_nondet_ulong

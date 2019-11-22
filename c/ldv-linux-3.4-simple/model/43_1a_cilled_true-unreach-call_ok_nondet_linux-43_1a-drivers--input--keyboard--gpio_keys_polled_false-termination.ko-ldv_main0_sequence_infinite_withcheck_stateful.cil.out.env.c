@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __gpio_cansleep
 // with type: int __gpio_cansleep(unsigned int)
 // with return type: int

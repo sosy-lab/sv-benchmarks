@@ -3742,7 +3742,6 @@ void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern long __VERIFIER_nondet_long(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 struct ttm_tt *ttm_tt_create_dummy(struct ttm_bo_device *p0, unsigned long p1, uint32_t p2,
                                    struct page *p3) {
   return ldv_malloc(sizeof(struct ttm_tt));

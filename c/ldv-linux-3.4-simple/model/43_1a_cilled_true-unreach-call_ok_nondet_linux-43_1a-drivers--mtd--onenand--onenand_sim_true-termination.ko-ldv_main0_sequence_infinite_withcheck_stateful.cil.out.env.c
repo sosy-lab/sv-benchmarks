@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: flexonenand_region
 // with type: int flexonenand_region(struct mtd_info *, loff_t )
 // with return type: int

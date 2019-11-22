@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: input_close_device
 // with type: void input_close_device(struct input_handle *)
 // with return type: void

@@ -75,8 +75,6 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
   return;
 }
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: usb_register_dev
 // with type: int usb_register_dev(struct usb_interface *, struct usb_class_driver *)
 // with return type: int

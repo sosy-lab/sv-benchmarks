@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __pci_register_driver
 // with type: int __pci_register_driver(struct pci_driver *, struct module *, const char *)
 // with return type: int

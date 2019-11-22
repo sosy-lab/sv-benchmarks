@@ -60,8 +60,6 @@ void FsmRestartTimer(struct FsmTimer *arg0, int arg1, int arg2, void *arg3, int 
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Skip function: __VERIFIER_nondet_ulong
 
 // Function: __const_udelay

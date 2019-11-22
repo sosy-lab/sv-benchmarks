@@ -120,8 +120,6 @@ void irda_qos_bits_to_value(struct qos_info *arg0){
   return;
 }
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: netif_rx
 // with type: int netif_rx(struct sk_buff *)
 // with return type: int

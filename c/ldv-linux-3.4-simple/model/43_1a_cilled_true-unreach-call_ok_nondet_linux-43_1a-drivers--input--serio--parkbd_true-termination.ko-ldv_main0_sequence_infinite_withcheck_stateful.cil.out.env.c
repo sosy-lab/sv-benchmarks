@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: __serio_register_port
 // with type: void __serio_register_port(struct serio *, struct module *)
 // with return type: void

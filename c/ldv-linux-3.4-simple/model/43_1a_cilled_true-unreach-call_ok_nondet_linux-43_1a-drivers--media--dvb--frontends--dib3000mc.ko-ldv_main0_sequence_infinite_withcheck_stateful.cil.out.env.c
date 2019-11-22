@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: dibx000_exit_i2c_master
 // with type: void dibx000_exit_i2c_master(struct dibx000_i2c_master *)
 // with return type: void

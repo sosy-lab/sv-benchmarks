@@ -2,8 +2,6 @@
 
 // Skip function: __VERIFIER_nondet_int
 
-// Skip function: __VERIFIER_nondet_pointer
-
 // Function: crc16
 // with type: u16 crc16(u16 , const u8 *, size_t )
 // with return type: u16 
