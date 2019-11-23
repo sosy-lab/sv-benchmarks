@@ -104,6 +104,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file patch.diff"),
     ("aws-c-common", "unexpected file s_swap-fix.diff"),
     ("aws-c-common", "unexpected file overflow-fix-1.diff"),
+    ("aws-c-common", "unexpected file overflow-fix-2.diff"),
     ("aws-c-common", "unexpected file makeall"),
     ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
     ("aws-c-common", "unexpected file yml.sh"),

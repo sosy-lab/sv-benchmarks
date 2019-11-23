@@ -240,16 +240,6 @@ int __CPROVER_uninterpreted_compare(const void *const a, const void *const b) { 
 
 
 
-_Bool __CPROVER_overflow_plus(unsigned long a, unsigned long b) {
-    unsigned long c;
-    return __builtin_uaddl_overflow(a, b, &c);
-}
-
-_Bool __CPROVER_overflow_mult(unsigned long a, unsigned long b) {
-    unsigned long c;
-    return __builtin_umull_overflow(a, b, &c);
-}
-
 
 
 
@@ -2496,8 +2486,9 @@ static inline int aws_round_up_to_power_of_two(size_t n, size_t *result);
 
 
 static inline uint64_t aws_mul_u64_saturating(uint64_t a, uint64_t b) {
-    if (__CPROVER_overflow_mult(a, b))
-        return 
+    unsigned long c;
+    if (__builtin_umull_overflow(a, b, &c))
+        return
               (18446744073709551615UL)
                         ;
     return a * b;
@@ -2508,7 +2499,8 @@ static inline uint64_t aws_mul_u64_saturating(uint64_t a, uint64_t b) {
 
 
 static inline int aws_mul_u64_checked(uint64_t a, uint64_t b, uint64_t *r) {
-    if (__CPROVER_overflow_mult(a, b))
+    unsigned long c;
+    if (__builtin_umull_overflow(a, b, &c))
         return aws_raise_error(AWS_ERROR_OVERFLOW_DETECTED);
     *r = a * b;
     return (0);
@@ -2518,8 +2510,9 @@ static inline int aws_mul_u64_checked(uint64_t a, uint64_t b, uint64_t *r) {
 
 
 static inline uint32_t aws_mul_u32_saturating(uint32_t a, uint32_t b) {
-    if (__CPROVER_overflow_mult(a, b))
-        return 
+    unsigned long c;
+    if (__builtin_umul_overflow(a, b, &c))
+        return
               (4294967295U)
                         ;
     return a * b;
@@ -2530,7 +2523,8 @@ static inline uint32_t aws_mul_u32_saturating(uint32_t a, uint32_t b) {
 
 
 static inline int aws_mul_u32_checked(uint32_t a, uint32_t b, uint32_t *r) {
-    if (__CPROVER_overflow_mult(a, b))
+    unsigned long c;
+    if (__builtin_umul_overflow(a, b, &c))
         return aws_raise_error(AWS_ERROR_OVERFLOW_DETECTED);
     *r = a * b;
     return (0);
@@ -2540,8 +2534,9 @@ static inline int aws_mul_u32_checked(uint32_t a, uint32_t b, uint32_t *r) {
 
 
 static inline uint64_t aws_add_u64_saturating(uint64_t a, uint64_t b) {
-    if (__CPROVER_overflow_plus(a, b))
-        return 
+    unsigned long c;
+    if (__builtin_uaddl_overflow(a, b, &c))
+        return
               (18446744073709551615UL)
                         ;
     return a + b;
@@ -2552,7 +2547,8 @@ static inline uint64_t aws_add_u64_saturating(uint64_t a, uint64_t b) {
 
 
 static inline int aws_add_u64_checked(uint64_t a, uint64_t b, uint64_t *r) {
-    if (__CPROVER_overflow_plus(a, b))
+    unsigned long c;
+    if (__builtin_uaddl_overflow(a, b, &c))
         return aws_raise_error(AWS_ERROR_OVERFLOW_DETECTED);
     *r = a + b;
     return (0);
@@ -2562,8 +2558,9 @@ static inline int aws_add_u64_checked(uint64_t a, uint64_t b, uint64_t *r) {
 
 
 static inline uint32_t aws_add_u32_saturating(uint32_t a, uint32_t b) {
-    if (__CPROVER_overflow_plus(a, b))
-        return 
+    unsigned long c;
+    if (__builtin_uadd_overflow(a, b, &c))
+        return
               (4294967295U)
                         ;
     return a + b;
@@ -2572,9 +2569,9 @@ static inline uint32_t aws_add_u32_saturating(uint32_t a, uint32_t b) {
 
 
 
-
 static inline int aws_add_u32_checked(uint32_t a, uint32_t b, uint32_t *r) {
-    if (__CPROVER_overflow_plus(a, b))
+    unsigned long c;
+    if (__builtin_uadd_overflow(a, b, &c))
         return aws_raise_error(AWS_ERROR_OVERFLOW_DETECTED);
     *r = a + b;
     return (0);
