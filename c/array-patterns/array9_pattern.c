@@ -29,16 +29,17 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
-	ARR_SIZE = __VERIFIER_nondet_short() ;
+	ARR_SIZE = (signed long long)__VERIFIER_nondet_short() ;
 	__VERIFIER_assume(ARR_SIZE > 0) ;
 
 	int array1[ARR_SIZE] ;
 	int array2[ARR_SIZE] ;
-	int count = 0, num = -1, sum = 0 ;
+	int count = 0, num = -1;
+	signed long long sum = 0 ;
 	int temp ;
 	short index ;
 

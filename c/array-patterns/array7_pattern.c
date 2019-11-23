@@ -30,11 +30,11 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
-	ARR_SIZE = __VERIFIER_nondet_short() ;
+	ARR_SIZE = (signed long long)__VERIFIER_nondet_short() ;
 	__VERIFIER_assume(ARR_SIZE > 0) ;
 
 	int array1[ARR_SIZE] ;
@@ -42,7 +42,7 @@ int main()
 	int count = 0, num = -1 ;
 	signed long long sum = 0 ;
 	int temp ;
-	short index,pivot ;
+	signed long long index,pivot ;
 
 	for(count=0;count<ARR_SIZE;count++)
 	{
@@ -54,8 +54,8 @@ int main()
 	while(1)
         {
 		
-		index = __VERIFIER_nondet_short() ;
-		pivot = __VERIFIER_nondet_short() ;
+		index = (signed long long)__VERIFIER_nondet_short() ;
+		pivot = (signed long long)__VERIFIER_nondet_short() ;
 		__VERIFIER_assume(pivot > 0) ;
 		__VERIFIER_assume(index >= pivot && index < ARR_SIZE-pivot) ;
 		

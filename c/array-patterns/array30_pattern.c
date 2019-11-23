@@ -25,7 +25,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int diff(short idx1 ,short idx2)
 {
@@ -37,7 +37,7 @@ int diff(short idx1 ,short idx2)
 
 int main()
 {
-	ARR_SIZE = __VERIFIER_nondet_short() ;
+	ARR_SIZE = (signed long long)__VERIFIER_nondet_short() ;
 	__VERIFIER_assume(ARR_SIZE > 0) ;
 
 	int array[ARR_SIZE][ARR_SIZE] ;

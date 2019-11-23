@@ -19,7 +19,15 @@
  * In while(1) loop, two indicies are selected non-deterministically, whose entries in array are zero.
  * Array1[index1] is initialized with count.
  * Array2[index2] is initialized with -count.
- * Sum of both array should be always zero. 
+ * Sum of both array should be always zero.
+ * Changelog --> 22 November 2019
+ * Variable count is reset on reaching 200. One can have any other integer value as well
+ * to reset count. It is an additional challenge for Tools/solvers using supervised learning
+ * based techniques for algorithm selection. 200 is the max unrolling for most of the reachsafe
+ * programs to reach property violation. Presence of 200 as part of statement assignment 
+ * inside loop can be picked up by algorithm selector to deploy only falsification/correctness proving
+ * techniques.
+ 
  * */
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
@@ -28,7 +36,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
@@ -62,6 +70,8 @@ int main()
 
 		array1[index1] = num * (num * count) ;
 		array2[index2] = num * count ;
+		if(count == 200)
+			count = 0 ;
 		count++ ;
 
 		temp = __VERIFIER_nondet_int() ;

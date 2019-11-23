@@ -26,7 +26,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
 
-short ARR_SIZE ;
+signed long long ARR_SIZE ;
 
 int main()
 {
