@@ -46,7 +46,7 @@ void check(int *a0, int *a, int n) {
 int main() {
     int n = __VERIFIER_nondet_int();
     /* 1 << 30 will make sure n * sizeof(int) does not overflow */
-    __VERIFIER_assume(n >= 0 && n < (1 << 30));
+    __VERIFIER_assume(n > 1 && n < (1 << 30));
     __VERIFIER_assume(is_pow2(n));
     int *a = calloc(n, sizeof(int));
 
