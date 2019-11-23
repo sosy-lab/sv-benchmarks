@@ -20,7 +20,8 @@ public class printTokens2 {
 	}
 	
 	public static void mainProcess(char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7){
-		
+// Commented out code in this benchmark is preserved from what was provided by Wang et al. from this website: 
+// https://labs.xjtudlc.com/labs/wlaq/hjwang/toolbench.html
 //		StringBuilder sb = new StringBuilder();
 //		try{
 //			File file = new File("test.txt");

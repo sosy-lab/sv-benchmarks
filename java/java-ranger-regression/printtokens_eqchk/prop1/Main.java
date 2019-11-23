@@ -15,7 +15,7 @@ public class Main {
         printTokens2 p = new printTokens2();
         p.mainProcess(c0, c1, c2, c3, c4, c5, c6, c7);
         int out1 = p.output;
-	p.output = 0;
+        p.output = 0;
         p.mainProcess(c0, c1, c2, c3, c4, c5, c6, c7);
         int out2 = p.output;
         checkEquality(out1, out2);
