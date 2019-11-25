@@ -8329,7 +8329,7 @@ _Bool
 _Bool 
     aws_priority_queue_is_valid(const struct aws_priority_queue *const queue) {
 
-    if (!queue) {
+    if (queue != ((void *)0)) {
         return 
               0
                    ;

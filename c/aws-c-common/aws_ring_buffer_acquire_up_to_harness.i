@@ -8857,7 +8857,7 @@ int aws_ring_buffer_acquire_up_to(
     if (tail_cpy > head_cpy) {
         size_t space = tail_cpy - head_cpy;
 
-        __VERIFIER_assert(space);
+        __VERIFIER_assert(space != 0);
         space -= 1;
 
         size_t returnable_size = space > requested_size ? requested_size : space;
