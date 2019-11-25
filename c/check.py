@@ -105,6 +105,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file s_buf_belongs_to_pool-fix.diff"),
     ("aws-c-common", "unexpected file s_swap-fix.diff"),
     ("aws-c-common", "unexpected file s_remove_node-fix.diff"),
+    ("aws-c-common", "unexpected file aws_byte_cursor_read-fix.diff"),
     ("aws-c-common", "unexpected file overflow-fix-1.diff"),
     ("aws-c-common", "unexpected file overflow-fix-2.diff"),
     ("aws-c-common", "unexpected file makeall"),

@@ -38,6 +38,9 @@ cd $SV && patch -p1 < c/aws-c-common/s_swap-fix.diff
 # add missing __CPROVER_file_local_priority_queue_c_s_remove_node function
 cd $SV && patch -p1 < c/aws-c-common/s_remove_node-fix.diff
 
+# fix misconverted assumptions
+cd $SV && patch -p1 < c/aws-c-common/aws_byte_cursor_read-fix.diff
+
 # fix overflow functions
 cd $SV && patch -p1 < c/aws-c-common/overflow-fix-1.diff
 cd $SV && patch -p1 < c/aws-c-common/overflow-fix-2.diff

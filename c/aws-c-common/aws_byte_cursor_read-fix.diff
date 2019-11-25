@@ -1,0 +1,62 @@
+commit 7436f150ebeb101b07b41770fcb9ec18cc79fb54
+Author: feliperodri <rms.felipe@gmail.com>
+Date:   Mon Nov 25 15:21:05 2019 -0400
+
+    Fixes misconverted assumptions
+    
+    Signed-off-by: feliperodri <rms.felipe@gmail.com>
+
+diff --git a/c/aws-c-common/aws_byte_cursor_read_be16_harness.i b/c/aws-c-common/aws_byte_cursor_read_be16_harness.i
+index 5d3dcfa16b..00d6b57ec2 100644
+--- a/c/aws-c-common/aws_byte_cursor_read_be16_harness.i
++++ b/c/aws-c-common/aws_byte_cursor_read_be16_harness.i
+@@ -9110,7 +9110,7 @@ void aws_byte_cursor_read_common_harness() {
+ 
+     ensure_byte_cursor_has_allocated_buffer_member(&cur);
+     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
+-    __VERIFIER_assume(((((2)) == 0) || ((cur.ptr))));
++    __VERIFIER_assume(cur.ptr);
+     __VERIFIER_assume(((((sizeof(*(dest)))) == 0) || (((dest)))));
+ 
+ 
+diff --git a/c/aws-c-common/aws_byte_cursor_read_be32_harness.i b/c/aws-c-common/aws_byte_cursor_read_be32_harness.i
+index c23e42f5ef..ceca1d6e9f 100644
+--- a/c/aws-c-common/aws_byte_cursor_read_be32_harness.i
++++ b/c/aws-c-common/aws_byte_cursor_read_be32_harness.i
+@@ -9110,7 +9110,7 @@ void aws_byte_cursor_read_common_harness() {
+ 
+     ensure_byte_cursor_has_allocated_buffer_member(&cur);
+     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
+-    __VERIFIER_assume(((((4)) == 0) || ((cur.ptr))));
++    __VERIFIER_assume(cur.ptr);
+     __VERIFIER_assume(((((sizeof(*(dest)))) == 0) || (((dest)))));
+ 
+ 
+diff --git a/c/aws-c-common/aws_byte_cursor_read_be64_harness.i b/c/aws-c-common/aws_byte_cursor_read_be64_harness.i
+index 0b7b581b11..1970b78baa 100644
+--- a/c/aws-c-common/aws_byte_cursor_read_be64_harness.i
++++ b/c/aws-c-common/aws_byte_cursor_read_be64_harness.i
+@@ -9110,7 +9110,7 @@ void aws_byte_cursor_read_common_harness() {
+ 
+     ensure_byte_cursor_has_allocated_buffer_member(&cur);
+     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
+-    __VERIFIER_assume(((((8)) == 0) || ((cur.ptr))));
++    __VERIFIER_assume(cur.ptr);
+     __VERIFIER_assume(((((sizeof(*(dest)))) == 0) || (((dest)))));
+ 
+ 
+diff --git a/c/aws-c-common/aws_byte_cursor_read_u8_harness.i b/c/aws-c-common/aws_byte_cursor_read_u8_harness.i
+index 6d180569c6..5fb5b57f8a 100644
+--- a/c/aws-c-common/aws_byte_cursor_read_u8_harness.i
++++ b/c/aws-c-common/aws_byte_cursor_read_u8_harness.i
+@@ -9111,8 +9111,8 @@ void aws_byte_cursor_read_u8_harness() {
+     ensure_byte_cursor_has_allocated_buffer_member(&cur);
+     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
+ 
+-
+-    __VERIFIER_assume(((((1)) == 0) || ((dest))));
++    
++    __VERIFIER_assume(dest);
+ 
+ 
+     struct aws_byte_cursor old_cur = cur;
