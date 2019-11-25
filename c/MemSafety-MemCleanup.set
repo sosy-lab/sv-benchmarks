@@ -4,7 +4,6 @@ forester-heap/*.yml
 list-properties/*.yml
 list-ext3-properties/*.yml
 memsafety-bftpd/*.yml
-verifythis/prefixsum_rec.yml
 verifythis/tree_max.yml
 verifythis/tree_del_iter.yml
 verifythis/tree_del_rec.yml
