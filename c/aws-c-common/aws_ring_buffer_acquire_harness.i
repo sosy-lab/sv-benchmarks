@@ -8920,12 +8920,6 @@ static inline
 
 
 
-    if ((buf->buffer != ring_buffer->allocation) ||
-        (buf->buffer != ring_buffer->allocation_end)) {
-        return 
-              0
-                   ;
-    }
 
     return buf->buffer && ring_buffer->allocation && ring_buffer->allocation_end &&
            buf->buffer >= ring_buffer->allocation && buf->buffer + buf->capacity <= ring_buffer->allocation_end;
