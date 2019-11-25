@@ -9111,8 +9111,8 @@ void aws_byte_cursor_read_u8_harness() {
     ensure_byte_cursor_has_allocated_buffer_member(&cur);
     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
 
-
-    __VERIFIER_assume(((((1)) == 0) || ((dest))));
+    
+    __VERIFIER_assume(dest);
 
 
     struct aws_byte_cursor old_cur = cur;

@@ -9110,7 +9110,7 @@ void aws_byte_cursor_read_common_harness() {
 
     ensure_byte_cursor_has_allocated_buffer_member(&cur);
     __VERIFIER_assume(aws_byte_cursor_is_valid(&cur));
-    __VERIFIER_assume(((((4)) == 0) || ((cur.ptr))));
+    __VERIFIER_assume(cur.ptr);
     __VERIFIER_assume(((((sizeof(*(dest)))) == 0) || (((dest)))));
 
 
