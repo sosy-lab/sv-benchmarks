@@ -1,0 +1,46 @@
+commit bc156e2116d1e6dcee535e84bd24b5016bde0fe0
+Author: feliperodri <rms.felipe@gmail.com>
+Date:   Mon Nov 25 11:38:36 2019 -0400
+
+    Implements __CPROVER_file_local_priority_queue_c_s_remove_node function
+    
+    Signed-off-by: feliperodri <rms.felipe@gmail.com>
+
+diff --git a/c/aws-c-common/aws_priority_queue_s_remove_node_harness.i b/c/aws-c-common/aws_priority_queue_s_remove_node_harness.i
+index d26efb0af1..284627ec9e 100644
+--- a/c/aws-c-common/aws_priority_queue_s_remove_node_harness.i
++++ b/c/aws-c-common/aws_priority_queue_s_remove_node_harness.i
+@@ -8377,7 +8377,7 @@ _Bool
+ _Bool 
+     aws_priority_queue_is_valid(const struct aws_priority_queue *const queue) {
+ 
+-    if (!queue) {
++    if (queue != ((void *)0)) {
+         return 
+               0
+                    ;
+@@ -8546,7 +8546,23 @@ size_t aws_priority_queue_size(const struct aws_priority_queue *queue) {
+ size_t aws_priority_queue_capacity(const struct aws_priority_queue *queue) {
+     return aws_array_list_capacity(&queue->container);
+ }
+-int __CPROVER_file_local_priority_queue_c_s_remove_node(struct aws_priority_queue *queue, void *item, size_t index);
++int __CPROVER_file_local_priority_queue_c_s_remove_node(struct aws_priority_queue *queue, void *item, size_t index) {
++    __VERIFIER_assert(aws_priority_queue_is_valid(queue));
++    __VERIFIER_assert(item != ((void *)0) && (((queue->container.item_size) == 0) || (item != ((void *)0))));
++
++    if (aws_array_list_get_at(&queue->container, item, index)) {
++        __VERIFIER_assert(aws_priority_queue_is_valid(queue));
++        return (1);
++    }
++
++    queue->container.length -= 1;
++    if (queue->backpointers.data) {
++        queue->backpointers.length -= 1;
++    }
++
++    __VERIFIER_assert(aws_priority_queue_is_valid(queue));
++    return (0);
++}
+ 
+ void aws_priority_queue_s_remove_node_harness() {
+ 
