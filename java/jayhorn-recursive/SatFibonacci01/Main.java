@@ -20,7 +20,7 @@ public class Main {
     }
   }
 
-  static void main(String[] args) {
+  public static void main(String[] args) {
     int x = Verifier.nondetInt();
     if (x > 46 || x == -2147483648) {
       return;

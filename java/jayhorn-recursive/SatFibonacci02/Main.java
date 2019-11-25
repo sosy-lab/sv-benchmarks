@@ -18,7 +18,7 @@ public class Main {
     }
   }
 
-  static void main(String[] args) {
+  public static void main(String[] args) {
     int x = 9;
     int result = fibonacci(x);
     if (result == 34) {
