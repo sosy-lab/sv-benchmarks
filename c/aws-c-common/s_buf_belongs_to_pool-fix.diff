@@ -1,0 +1,42 @@
+commit 734ae514218a68b66336f8acffce17d0377c5199
+Author: feliperodri <rms.felipe@gmail.com>
+Date:   Mon Nov 25 14:58:56 2019 -0400
+
+    Removes unnecessary code snippet on s_buf_belongs_to_pool function
+    
+    Signed-off-by: feliperodri <rms.felipe@gmail.com>
+
+diff --git a/c/aws-c-common/aws_ring_buffer_acquire_harness.i b/c/aws-c-common/aws_ring_buffer_acquire_harness.i
+index bd08d0f63b..c314a671bd 100644
+--- a/c/aws-c-common/aws_ring_buffer_acquire_harness.i
++++ b/c/aws-c-common/aws_ring_buffer_acquire_harness.i
+@@ -8920,12 +8920,6 @@ static inline
+ 
+ 
+ 
+-    if ((buf->buffer != ring_buffer->allocation) ||
+-        (buf->buffer != ring_buffer->allocation_end)) {
+-        return 
+-              0
+-                   ;
+-    }
+ 
+     return buf->buffer && ring_buffer->allocation && ring_buffer->allocation_end &&
+            buf->buffer >= ring_buffer->allocation && buf->buffer + buf->capacity <= ring_buffer->allocation_end;
+diff --git a/c/aws-c-common/aws_ring_buffer_acquire_up_to_harness.i b/c/aws-c-common/aws_ring_buffer_acquire_up_to_harness.i
+index 2dd6a635ab..6d1b1e12d7 100644
+--- a/c/aws-c-common/aws_ring_buffer_acquire_up_to_harness.i
++++ b/c/aws-c-common/aws_ring_buffer_acquire_up_to_harness.i
+@@ -8920,12 +8920,6 @@ static inline
+ 
+ 
+ 
+-    if ((buf->buffer != ring_buffer->allocation) ||
+-        (buf->buffer != ring_buffer->allocation_end)) {
+-        return 
+-              0
+-                   ;
+-    }
+ 
+     return buf->buffer && ring_buffer->allocation && ring_buffer->allocation_end &&
+            buf->buffer >= ring_buffer->allocation && buf->buffer + buf->capacity <= ring_buffer->allocation_end;

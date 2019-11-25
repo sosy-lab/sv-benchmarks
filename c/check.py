@@ -102,6 +102,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("openbsd-6.2", "unexpected file prepreprocess.py"),
 
     ("aws-c-common", "unexpected file patch.diff"),
+    ("aws-c-common", "unexpected file s_buf_belongs_to_pool-fix.diff"),
     ("aws-c-common", "unexpected file s_swap-fix.diff"),
     ("aws-c-common", "unexpected file overflow-fix-1.diff"),
     ("aws-c-common", "unexpected file overflow-fix-2.diff"),
