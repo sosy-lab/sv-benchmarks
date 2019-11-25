@@ -3273,7 +3273,7 @@ static inline
 
 _Bool 
     aws_array_list_is_valid(const struct aws_array_list *restrict list) {
-    if (!list) {
+    if (list != ((void *)0)) {
         return 
               0
                    ;
