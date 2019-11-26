@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void);
 
 /**********************************************************************
 
@@ -562,7 +563,9 @@ int main(void)
   max3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet_bool();
   i2 = init();
-  __VERIFIER_assume(i2);
+  if(!i2){
+    abort();
+  }
   p12_old = nomsg;
   p12_new = nomsg;
   p13_old = nomsg;
