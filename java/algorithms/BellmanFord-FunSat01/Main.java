@@ -105,7 +105,7 @@ public class Main {
       for (int j = 0; j < V; j++) {
         if (i == j) continue;
         int tmp = Verifier.nondetInt();
-        Verifier.assume(tmp >= 0 && tmp < 46341);
+        Verifier.assume(tmp >= 0 && tmp < V);
         D[i*V+j] = tmp;
       }
     }
