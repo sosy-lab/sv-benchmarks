@@ -1557,7 +1557,7 @@ signed int __main(signed int argc, char **argv)
         }
         if(!(tmp_if_expr$3 == (_Bool)0))
         {
-          const unsigned char *uudecode_main$$1$$1$$3$$2$$__s2 = (const char *)line;
+          const unsigned char *uudecode_main$$1$$1$$3$$2$$__s2 = (const unsigned char *)line;
           signed int uudecode_main$$1$$1$$3$$2$$__result;
 
           uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)0] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)0];
