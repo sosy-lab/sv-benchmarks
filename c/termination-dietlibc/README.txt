@@ -1,4 +1,4 @@
-C programs from the libowfat library (http://www.fefe.de/libowfat/).
+C programs from the dietlibc library (http://www.fefe.de/dietlibc/).
 
 The benchmarks were contributed by Cornelius Aschermann from the AProVE team 
 (http://aprove.informatik.rwth-aachen.de/).
