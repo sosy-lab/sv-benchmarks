@@ -1263,6 +1263,13 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
   return ldv_malloc(sizeof(struct mtd_info));
 }

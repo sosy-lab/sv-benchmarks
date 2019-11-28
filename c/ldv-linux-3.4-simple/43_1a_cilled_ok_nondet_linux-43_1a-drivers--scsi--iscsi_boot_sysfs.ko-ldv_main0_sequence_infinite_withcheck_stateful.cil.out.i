@@ -2165,6 +2165,13 @@ bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   return ldv_malloc(sizeof(char));
 }

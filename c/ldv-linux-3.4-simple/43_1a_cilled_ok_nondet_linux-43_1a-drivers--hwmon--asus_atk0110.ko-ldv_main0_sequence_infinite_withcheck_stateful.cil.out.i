@@ -8838,6 +8838,13 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object_typed(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3, acpi_object_type arg4) {
   return __VERIFIER_nondet_uint();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 const char *acpi_format_exception(acpi_status arg0) {
   return ldv_malloc(sizeof(char));
 }

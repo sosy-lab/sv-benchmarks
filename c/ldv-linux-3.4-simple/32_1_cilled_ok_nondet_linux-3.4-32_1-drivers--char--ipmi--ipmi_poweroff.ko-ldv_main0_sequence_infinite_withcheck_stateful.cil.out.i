@@ -3806,6 +3806,13 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
   return ldv_malloc(sizeof(struct ctl_table_header));
 }

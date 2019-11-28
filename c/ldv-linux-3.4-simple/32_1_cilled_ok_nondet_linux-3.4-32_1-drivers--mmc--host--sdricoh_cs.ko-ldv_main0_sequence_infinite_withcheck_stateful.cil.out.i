@@ -5970,6 +5970,13 @@ int __VERIFIER_nondet_int(void);
 int mmc_add_host(struct mmc_host *arg0) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
   return ldv_malloc(sizeof(struct mmc_host));
 }

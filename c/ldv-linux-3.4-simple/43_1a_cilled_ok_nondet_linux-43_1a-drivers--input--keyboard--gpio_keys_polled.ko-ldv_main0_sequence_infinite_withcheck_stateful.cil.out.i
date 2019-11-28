@@ -2829,6 +2829,13 @@ int __VERIFIER_nondet_int(void);
 int gpio_request(unsigned int arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct input_polled_dev *input_allocate_polled_device() {
   return ldv_malloc(sizeof(struct input_polled_dev));
 }

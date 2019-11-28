@@ -3329,6 +3329,13 @@ int asus_wmi_register_driver(struct asus_wmi_driver *arg0) {
 void asus_wmi_unregister_driver(struct asus_wmi_driver *arg0) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

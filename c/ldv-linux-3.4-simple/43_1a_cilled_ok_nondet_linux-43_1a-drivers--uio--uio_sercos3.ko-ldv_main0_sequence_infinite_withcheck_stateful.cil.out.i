@@ -3248,6 +3248,13 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *dev_get_drvdata(const struct device *arg0) {
   return ldv_malloc(0UL);
 }

@@ -4850,6 +4850,13 @@ int unregister_mtd_user(struct mtd_notifier *arg0) {
 void vfree(const void *arg0) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *vmalloc(unsigned long arg0) {
   return ldv_malloc(0UL);
 }

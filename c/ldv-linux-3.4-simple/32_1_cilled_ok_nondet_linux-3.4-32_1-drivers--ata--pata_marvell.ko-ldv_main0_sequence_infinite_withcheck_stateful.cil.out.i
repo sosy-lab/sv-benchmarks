@@ -4822,6 +4822,13 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   return ldv_malloc(arg2);
 }
