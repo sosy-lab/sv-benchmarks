@@ -4422,6 +4422,13 @@ int __VERIFIER_nondet_int(void);
 int check_signature(const volatile void *arg0, const unsigned char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *dev_get_drvdata(const struct device *arg0) {
   return ldv_malloc(0UL);
 }

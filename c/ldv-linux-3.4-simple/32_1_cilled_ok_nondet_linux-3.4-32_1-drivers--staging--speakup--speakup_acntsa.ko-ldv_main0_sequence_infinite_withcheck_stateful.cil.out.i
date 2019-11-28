@@ -770,6 +770,13 @@ int __VERIFIER_nondet_int(void);
 int serial_synth_probe(struct spk_synth *arg0) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 const char *spk_synth_immediate(struct spk_synth *arg0, const char *arg1) {
   return ldv_malloc(sizeof(char));
 }

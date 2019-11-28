@@ -3699,6 +3699,13 @@ int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_write_byte_data(const struct i2c_client *arg0, u8 arg1, u8 arg2) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct input_polled_dev *input_allocate_polled_device() {
   return ldv_malloc(sizeof(struct input_polled_dev));
 }

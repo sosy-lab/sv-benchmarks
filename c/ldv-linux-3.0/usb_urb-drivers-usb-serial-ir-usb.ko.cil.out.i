@@ -5056,6 +5056,13 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int __kfifo_out_r(struct __kfifo *arg0, void *arg1, unsigned int arg2, size_t arg3) {
   return __VERIFIER_nondet_uint();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

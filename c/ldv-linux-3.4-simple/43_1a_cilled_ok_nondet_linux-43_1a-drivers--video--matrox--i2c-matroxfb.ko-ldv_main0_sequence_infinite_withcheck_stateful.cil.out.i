@@ -5024,6 +5024,13 @@ int __VERIFIER_nondet_int(void);
 int i2c_del_adapter(struct i2c_adapter *arg0) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct i2c_client *i2c_new_probed_device(struct i2c_adapter *arg0, struct i2c_board_info *arg1, const unsigned short *arg2, int (*arg3)(struct i2c_adapter *, unsigned short)) {
   return ldv_malloc(sizeof(struct i2c_client));
 }

@@ -4193,6 +4193,13 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add_data(struct platform_device *arg0, const void *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   return ldv_malloc(sizeof(struct platform_device));
 }

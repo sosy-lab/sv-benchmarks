@@ -3206,6 +3206,13 @@ void *ldv_vmalloc_20(unsigned long ldv_func_arg1 )
   return ((void *)0);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

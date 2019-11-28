@@ -18621,6 +18621,13 @@ void mISDN_timer_cleanup(void)
 }
 }
 extern void ldv_check_return_value(int ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 int main(void)
 { struct file *var_group1 ;
   char *var_mISDN_read_2_p1 ;

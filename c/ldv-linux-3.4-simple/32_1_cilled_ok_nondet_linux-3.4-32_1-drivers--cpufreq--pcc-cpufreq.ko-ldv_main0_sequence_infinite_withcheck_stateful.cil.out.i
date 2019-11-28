@@ -5873,6 +5873,13 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   return ldv_malloc(0UL);
 }

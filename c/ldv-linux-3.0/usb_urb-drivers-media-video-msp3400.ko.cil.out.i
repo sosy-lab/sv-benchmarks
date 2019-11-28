@@ -9584,6 +9584,13 @@ int msp_detect_stereo(struct i2c_client *client )
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

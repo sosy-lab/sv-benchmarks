@@ -4602,6 +4602,13 @@ int __serio_register_driver(struct serio_driver *arg0, struct module *arg1, cons
 void complete(struct completion *arg0) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *dev_get_drvdata(const struct device *arg0) {
   return ldv_malloc(0UL);
 }

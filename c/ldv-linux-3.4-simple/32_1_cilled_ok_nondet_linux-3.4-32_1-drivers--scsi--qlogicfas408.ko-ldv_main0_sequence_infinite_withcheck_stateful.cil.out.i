@@ -6498,6 +6498,13 @@ int printk(const char *arg0, ...) {
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   return ldv_malloc(sizeof(struct scatterlist));
 }

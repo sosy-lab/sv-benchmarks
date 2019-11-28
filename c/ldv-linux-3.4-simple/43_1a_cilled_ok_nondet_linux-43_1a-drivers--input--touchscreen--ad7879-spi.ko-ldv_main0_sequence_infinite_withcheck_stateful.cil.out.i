@@ -3549,6 +3549,13 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct ad7879 *ad7879_probe(struct device *arg0, u8 arg1, unsigned int arg2, const struct ad7879_bus_ops *arg3) {
   return ldv_malloc(0UL);
 }

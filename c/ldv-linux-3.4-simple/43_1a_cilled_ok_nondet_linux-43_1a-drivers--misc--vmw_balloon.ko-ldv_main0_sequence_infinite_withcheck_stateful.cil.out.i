@@ -4927,6 +4927,13 @@ int __VERIFIER_nondet_int(void);
 int _cond_resched() {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   return ldv_malloc(sizeof(struct page));
 }
