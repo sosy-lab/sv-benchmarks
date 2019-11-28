@@ -553,6 +553,37 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+typedef unsigned int uint32_t;
+__extension__
+typedef unsigned long long int uint64_t;
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+__extension__
+typedef long long int int_least64_t;
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+__extension__
+typedef unsigned long long int uint_least64_t;
+typedef signed char int_fast8_t;
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+typedef unsigned char uint_fast8_t;
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+typedef int intptr_t;
+typedef unsigned int uintptr_t;
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
 typedef struct node {
   struct node* next;
   int data;
@@ -596,6 +627,7 @@ int main() {
     data_new++;
   } while(ptr != head);
   data_new = data_new - len;
+  intptr_t headptr = (intptr_t)head;
   do {
     if(data_new != ptr->data) {
       goto ERROR;
@@ -604,7 +636,7 @@ int main() {
     free(ptr);
     ptr = temp;
     data_new++;
-  } while(ptr != head);
+  } while((intptr_t)ptr != headptr);
   return 0;
  ERROR: __VERIFIER_error();
   return 1;
