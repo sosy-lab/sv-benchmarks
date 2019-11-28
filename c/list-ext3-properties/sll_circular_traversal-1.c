@@ -6,6 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  * Directly continue the traversal, check data and deallocate.
  */
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef struct node {
   struct node* next;
@@ -55,6 +56,7 @@ int main() {
   } while(ptr != head);
   /* second traversal */
   data_new = data_new - len;
+  intptr_t headptr = (intptr_t)head;
   do {
     if(data_new != ptr->data) {
       goto ERROR;
@@ -63,7 +65,7 @@ int main() {
     free(ptr);
     ptr = temp;
     data_new++;
-  } while(ptr != head);
+  } while((intptr_t)ptr != headptr);
   return 0;
  ERROR: __VERIFIER_error();
   return 1;
