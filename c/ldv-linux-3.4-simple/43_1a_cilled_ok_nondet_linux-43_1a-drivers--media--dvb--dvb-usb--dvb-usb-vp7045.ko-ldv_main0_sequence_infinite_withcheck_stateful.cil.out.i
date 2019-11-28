@@ -7962,6 +7962,13 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
