@@ -957,7 +957,7 @@ extern int led_trigger_register(struct led_trigger *trigger ) ;
 extern void led_trigger_unregister(struct led_trigger *trigger ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -968,7 +968,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		if(!(!ldv_is_err(res))) {abort();}
 
 		return res;
 	} else {

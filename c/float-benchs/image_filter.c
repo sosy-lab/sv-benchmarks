@@ -5,7 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -164,9 +164,9 @@ int main()
     x1 = __VERIFIER_nondet_double();
     x2 = __VERIFIER_nondet_double();
     x3 = __VERIFIER_nondet_double();
-    __VERIFIER_assume(x1 >= -1.0 + i/10 && x1 <= -1.0 + (i+1)/10);
-    __VERIFIER_assume(x2 >= -.5 + i/10 && x2 <= -0.5 + (i+1)/10);
-    __VERIFIER_assume(x3 >= 0.75+i/40 && x3 <= 0.75+(i+1)/40);
+    if(!(x1 >= -1.0 + i/10 && x1 <= -1.0 + (i+1)/10)) {abort();}
+    if(!(x2 >= -.5 + i/10 && x2 <= -0.5 + (i+1)/10)) {abort();}
+    if(!(x3 >= 0.75+i/40 && x3 <= 0.75+(i+1)/40)) {abort();}
     sobelitereen(xm2, xm1, x0, x1, x2, x3, x4, x5, x6, x7, x8, x9,
                  x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21,
                  &y1, &y2, &y3, &y4, &y5, &y6, &y7, &y8, &y9, &y10, &y11, &y12, &y13, &y14, &y15, &y16, &y17, &y18, &y19);

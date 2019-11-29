@@ -356,7 +356,7 @@ void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
 void *ldv_xmalloc(size_t size)
 {
   void *res = malloc(size);
-  __VERIFIER_assume(res != (void *)0);
+  if(!(res != (void *)0)) {abort();}
   return res;
 }
 

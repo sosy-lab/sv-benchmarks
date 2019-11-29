@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
@@ -10,8 +10,8 @@ extern void __VERIFIER_atomic_end();
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assume(e) if(!(e)
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error()) {abort();}(void)0; } }
 
 volatile unsigned next_ticket = 0;
 volatile unsigned now_serving = 0;

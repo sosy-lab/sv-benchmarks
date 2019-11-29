@@ -112691,7 +112691,7 @@ int wrapped_main(int argc , char **argv )
   return (rc);
 }
 }
-extern void __VERIFIER_assume(int  ) ;
+extern void abort(void);
 extern char __VERIFIER_nondet_char(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 int main(int argc , char **argv ) 
@@ -112720,7 +112720,7 @@ int main(int argc , char **argv )
   } else {
     tmp___0 = 0;
   }
-  __VERIFIER_assume(tmp___0);
+  if(!(tmp___0)) {abort();}
   tmp___1 = malloc(sizeof(*argv) * (unsigned long )wrapped_argc);
   wrapped_argv = (char **)tmp___1;
   i = 0;

@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
@@ -677,11 +677,11 @@ int ctr1=1, ctr2=0;
 int readerprogress1=0, readerprogress2=0;
 pthread_mutex_t mutex;
 void __VERIFIER_atomic_use1(int myidx) {
-  __VERIFIER_assume(myidx <= 0 && ctr1>0);
+  if(!(myidx <= 0 && ctr1>0)) {abort();}
   ctr1++;
 }
 void __VERIFIER_atomic_use2(int myidx) {
-  __VERIFIER_assume(myidx >= 1 && ctr2>0);
+  if(!(myidx >= 1 && ctr2>0)) {abort();}
   ctr2++;
 }
 void __VERIFIER_atomic_use_done(int myidx) {
@@ -694,14 +694,14 @@ void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
 }
 void __VERIFIER_atomic_check_progress1(int readerstart1) {
   if (__VERIFIER_nondet_int()) {
-    __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
+    if(!(readerstart1 == 1 && readerprogress1 == 1)) {abort();}
     if (!(0)) ERROR: __VERIFIER_error();
   }
   return;
 }
 void __VERIFIER_atomic_check_progress2(int readerstart2) {
   if (__VERIFIER_nondet_int()) {
-    __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
+    if(!(readerstart2 == 1 && readerprogress2 == 1)) {abort();}
     if (!(0)) ERROR: __VERIFIER_error();
   }
   return;

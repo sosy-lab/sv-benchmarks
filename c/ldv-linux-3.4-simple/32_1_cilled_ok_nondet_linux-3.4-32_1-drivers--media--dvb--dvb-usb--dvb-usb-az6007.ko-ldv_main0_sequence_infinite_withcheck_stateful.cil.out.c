@@ -6038,7 +6038,7 @@ extern void __symbol_put(char const   *symbol ) ;
 extern void msleep(unsigned int msecs ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -6049,7 +6049,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		if(!(!ldv_is_err(res))) {abort();}
 
 		return res;
 	} else {
@@ -9983,7 +9983,7 @@ __aligned__(1)))  =
         (char const   )'G',      (char const   )'P',      (char const   )'L',      (char const   )'\000'};
 void ldv_check_final_state(void) ;
 extern void *calloc(size_t  , size_t  ) ;
-extern void __VERIFIER_assume(int  ) ;
+extern void abort(void);
 void *ldv_init_zalloc(size_t size );
 extern void ldv_check_return_value(int res ) ;
 extern void ldv_initialize(void) ;
@@ -10172,7 +10172,7 @@ void *ldv_init_zalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   p = tmp;
-  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
   return (p);
 }
 }

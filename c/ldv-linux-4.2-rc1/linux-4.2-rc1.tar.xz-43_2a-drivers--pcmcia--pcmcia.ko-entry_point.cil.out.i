@@ -5949,7 +5949,7 @@ extern void *memset(void * , int , size_t ) ;
 extern void *memmove(void * , void const * , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void __VERIFIER_assume(int ) ;
+extern void abort(void);
 void *ldv_malloc(size_t size )
 {
   void *p ;
@@ -5962,7 +5962,7 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
     return (p);
   }
 }
@@ -5979,7 +5979,7 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
     return (p);
   }
 }
@@ -5991,7 +5991,7 @@ void *ldv_init_zalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   p = tmp;
-  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
   return (p);
 }
 }

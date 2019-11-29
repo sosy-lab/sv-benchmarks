@@ -7,7 +7,7 @@ int fileno(struct _IO_FILE *stream)
   if(ret < 0)
   {
     *bb_errno = __VERIFIER_nondet_int();
-    __VERIFIER_assume(*bb_errno != 0);
+    if(!(*bb_errno != 0)) {abort();}
     return -1;
   }
 

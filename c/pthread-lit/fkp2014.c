@@ -32,7 +32,7 @@ int main() {
     s = 0;
     //t = 0;
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n > 0);
+    if(!(n > 0)) {abort();}
     for (i = 0; i < n; i++) {
 	pthread_create(&t, 0, thr, 0);
     }

@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error(void);
 #include <math.h>
 
@@ -7,7 +7,7 @@ void inductiveStepHunt (float startState)
 {
   float target = 0x1.fffffep-3f;
 
-  __VERIFIER_assume((0 < startState) && (fpclassify(startState) == FP_NORMAL) && (0x1p-126f <= startState));
+  if(!((0 < startState) && (fpclassify(startState) == FP_NORMAL) && (0x1p-126f <= startState))) {abort();}
 
   float secondPoint = (target / startState);
 
@@ -23,7 +23,7 @@ void simplifiedInductiveStepHunt (float nextState)
   float target = 0x1.fffffep-3f;
 
   // Implies nextState == 0x1p+124f;
-  __VERIFIER_assume((0x1.fffffep+123f < nextState) && (nextState < 0x1.000002p+124f));
+  if(!((0x1.fffffep+123f < nextState) && (nextState < 0x1.000002p+124f))) {abort();}
   
   float oneAfter = (target / nextState);
 

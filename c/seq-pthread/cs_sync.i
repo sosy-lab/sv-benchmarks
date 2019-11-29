@@ -1,7 +1,7 @@
 extern int __VERIFIER_nondet_int(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 typedef unsigned int size_t;
@@ -784,9 +784,9 @@ int __VERIFIER_nondet_int();
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
- __VERIFIER_assume(__CS_round+k < 2);
+ if(!(__CS_round+k < 2)) {abort();}
  __CS_round += k;
- __VERIFIER_assume(__CS_thread_lockedon[k][__CS_thread_index] == 0);
+ if(!(__CS_thread_lockedon[k][__CS_thread_index] == 0)) {abort();}
  __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 2 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
 int __CS_pthread_mutex_init(unsigned char *mutex, void *attr)
@@ -881,7 +881,7 @@ int __CS_pthread_join(unsigned char thread, void **value_ptr)
   __CS_ret = __CS_ret_ERROR;
   return 0;
  }
- __VERIFIER_assume( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED );
+ if(!( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED )) {abort();}
  return 0;
 }
 int __CS_pthread_create(unsigned char *id1, void *attr, void *(*t1)(void*), void *arg)
@@ -1031,15 +1031,15 @@ int main()
   __CS_thread[2](0);
   if (__CS_ret!=__CS_ret_PREEMPTED) __CS_thread_status[__CS_round][2] = __THREAD_FINISHED;
  }
- __VERIFIER_assume(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0]);
- __VERIFIER_assume(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1]);
- __VERIFIER_assume(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2]);
- __VERIFIER_assume(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0]);
- __VERIFIER_assume(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1]);
- __VERIFIER_assume(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2]);
- __VERIFIER_assume(num[0] == __CS_cp_num[1]);
- __VERIFIER_assume(m[0] == __CS_cp_m[1]);
- __VERIFIER_assume(empty[0] == __CS_cp_empty[1]);
- __VERIFIER_assume(full[0] == __CS_cp_full[1]);
+ if(!(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0])) {abort();}
+ if(!(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1])) {abort();}
+ if(!(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2])) {abort();}
+ if(!(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0])) {abort();}
+ if(!(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1])) {abort();}
+ if(!(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2])) {abort();}
+ if(!(num[0] == __CS_cp_num[1])) {abort();}
+ if(!(m[0] == __CS_cp_m[1])) {abort();}
+ if(!(empty[0] == __CS_cp_empty[1])) {abort();}
+ if(!(full[0] == __CS_cp_full[1])) {abort();}
  __VERIFIER_assert(__CS_error != 1);
 }

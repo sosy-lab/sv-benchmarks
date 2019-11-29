@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -677,12 +677,12 @@ int m = 0;
 int top = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(m==0);
+ if(!(m==0)) {abort();}
  m = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(m==1);
+ if(!(m==1)) {abort();}
  m = 0;
 }
 void __VERIFIER_atomic_index_malloc(int *curr_alloc_idx)
@@ -694,7 +694,7 @@ inline void push(int d) {
  int oldTop = -1, newTop = -1;
  __VERIFIER_atomic_index_malloc(&newTop);
  if(newTop == 0)
-  __VERIFIER_assume(0);
+  if(!(0)) {abort();}
  else{
   memory[newTop+0] = d;
   __VERIFIER_atomic_acquire();

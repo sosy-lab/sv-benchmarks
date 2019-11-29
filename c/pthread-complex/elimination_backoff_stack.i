@@ -1309,7 +1309,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
 typedef struct Cell Cell;
@@ -1384,8 +1384,8 @@ int allocated[4];
 ThreadInfo* malloc_ThreadInfo() {
     __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= i && i < 4);
-    __VERIFIER_assume(!allocated[i]);
+    if(!(0 <= i && i < 4)) {abort();}
+    if(!(!allocated[i])) {abort();}
     allocated[i] = 1;
     __VERIFIER_atomic_end();
     return &threads[i];
@@ -1393,8 +1393,8 @@ ThreadInfo* malloc_ThreadInfo() {
 void free_ThreadInfo(ThreadInfo* ti) {
     __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= i && i < 4);
-    __VERIFIER_assume(&threads[i] == ti);
+    if(!(0 <= i && i < 4)) {abort();}
+    if(!(&threads[i] == ti)) {abort();}
     allocated[i] = 0;
     __VERIFIER_atomic_end();
 }
@@ -1402,7 +1402,7 @@ void LesOP(ThreadInfo *p) {
     int mypid = p->id;
     location[mypid] = p;
     int him = collision;
-    __VERIFIER_assume (atomic_int_cas(&collision, him, mypid));
+    if(! (atomic_int_cas(&collision, him, mypid))) {abort();}
     if (him > 0) {
         ThreadInfo* q = location[him];
         if (q != ((void *)0) && q->id == him && q->op != p->op) {
@@ -1426,7 +1426,7 @@ stack:
     if (TryPerformStackOp(p) == 1) {
         return;
     }
-    __VERIFIER_assume(0);
+    if(!(0)) {abort();}
 }
 int TryPerformStackOp(ThreadInfo * p) {
     Cell *phead, *pnext;
@@ -1450,8 +1450,8 @@ int TryPerformStackOp(ThreadInfo * p) {
             p->cell = *phead;
             __VERIFIER_atomic_begin();
             int i = __VERIFIER_nondet_int();
-            __VERIFIER_assume(0 <= i && i < 4);
-            __VERIFIER_assume(&threads[i].cell == phead);
+            if(!(0 <= i && i < 4)) {abort();}
+            if(!(&threads[i].cell == phead)) {abort();}
             allocated[i] = 0;
             __VERIFIER_atomic_end();
             return 1;

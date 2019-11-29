@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error(void);
 /*
 ** subnormal-boundary.c
@@ -31,14 +31,14 @@ int main (void)
   if(!(fpclassify(largestSubnormalFloat) == FP_SUBNORMAL)) __VERIFIER_error();
 
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume(fpclassify(f) == FP_SUBNORMAL);
+  if(!(fpclassify(f) == FP_SUBNORMAL)) {abort();}
   if(!(f <= largestSubnormalFloat)) __VERIFIER_error();
 
 
   if(!(fpclassify(smallestNormalFloat) == FP_NORMAL)) __VERIFIER_error();
 
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume(fpclassify(f) == FP_NORMAL);
+  if(!(fpclassify(f) == FP_NORMAL)) {abort();}
   if(!(smallestNormalFloat <= fabs(f))) __VERIFIER_error();
 
   if(!(largestSubnormalFloat < smallestNormalFloat)) __VERIFIER_error();
@@ -58,7 +58,7 @@ int main (void)
   if(!(((float)v) == smallestNormalFloat)) __VERIFIER_error();
 
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume(fpclassify(f) == FP_SUBNORMAL);
+  if(!(fpclassify(f) == FP_SUBNORMAL)) {abort();}
   if(!( ((float)((double)f)) == f )) __VERIFIER_error();
   
   #endif

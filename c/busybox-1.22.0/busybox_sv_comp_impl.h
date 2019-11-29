@@ -24,7 +24,7 @@ int getopt(int argc, char * const argv[], const char *optstring)
     return -1;
 
   size_t opt_index = __VERIFIER_nondet_ulong();
-  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  if(!(opt_index < strlen(optstring) && optstring[opt_index] != ':')) {abort();}
 
   if(__VERIFIER_nondet_int())
   {
@@ -60,8 +60,8 @@ ssize_t read(int fildes, void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
   unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  __VERIFIER_assume(offset<nbyte);
+  if(!(ret>=-1 && ret<=nbyte)) {abort();}
+  if(!(offset<nbyte)) {abort();}
   /* assign some byte */
   *((char*)buf+offset)=__VERIFIER_nondet_char();
   return ret;
@@ -86,7 +86,7 @@ int vasprintf(char **ptr, const char *fmt, va_list ap)
     ++i;
   }
 
-  __VERIFIER_assume(i<result_buffer_size);
+  if(!(i<result_buffer_size)) {abort();}
 
   return i;
 }
@@ -94,7 +94,7 @@ int vasprintf(char **ptr, const char *fmt, va_list ap)
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  if(!(ret>=-1 && ret<=nbyte)) {abort();}
   return ret;
 }
 
@@ -110,7 +110,7 @@ int main()
   optind = 1;
 
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
+  if(!(argc >= 1 && argc <= 10000)) {abort();}
 
   char **argv=malloc((argc+1)*sizeof(char*));
   char **mem_track=malloc((argc+1)*sizeof(char*));

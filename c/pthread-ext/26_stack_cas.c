@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
@@ -8,8 +8,8 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assume(e) if(!(e)
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error()) {abort();}(void)0; } }
 
 void __VERIFIER_atomic_acquire(int * m)
 {

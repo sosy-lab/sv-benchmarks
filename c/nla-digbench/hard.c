@@ -5,7 +5,7 @@
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -19,7 +19,7 @@ int main() {
     int r, d, p, q;
     A = __VERIFIER_nondet_int();
     B = __VERIFIER_nondet_int();
-    __VERIFIER_assume(B >= 1);
+    if(!(B >= 1)) {abort();}
 
     r = A;
     d = B;

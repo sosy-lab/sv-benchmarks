@@ -7512,7 +7512,7 @@ extern void *calloc(size_t nmemb , size_t size ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern u16 __VERIFIER_nondet_u16(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void __VERIFIER_assume(int expression ) ;
+extern void abort(void);
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;
@@ -7526,7 +7526,7 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
     return (p);
   }
 }
@@ -7544,7 +7544,7 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
     return (p);
   }
 }

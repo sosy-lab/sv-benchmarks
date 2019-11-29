@@ -4,7 +4,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main()
@@ -12,7 +12,7 @@ int main()
   float x, y, z;
 
   x = __VERIFIER_nondet_float();
-  __VERIFIER_assume(x >= -1.f && x <= 1.f);
+  if(!(x >= -1.f && x <= 1.f)) {abort();}
 
   if (x != 0.f) {
     y = x * x;

@@ -5,7 +5,7 @@ int getgroups(int size, gid_t list[])
   if(ngroups < 0 || (size != 0 && size < ngroups))
   {
     *bb_errno = __VERIFIER_nondet_int();
-    __VERIFIER_assume(*bb_errno != 0);
+    if(!(*bb_errno != 0)) {abort();}
     return -1;
   }
 

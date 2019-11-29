@@ -9,7 +9,7 @@
  ============================================================================
 */
 #include "header.h"
-void __VERIFIER_assume(int expression);
+void abort(void);
 
 //store in the array example
 
@@ -45,7 +45,7 @@ void free_17(struct A17 **array, int len) {
 void entry_point(void) {
 	int i;
 	int len = ldv_positive();
-	__VERIFIER_assume(len<16777216);
+	if(!(len<16777216)) {abort();}
 	struct A17 **array = (struct A17 **)ldv_malloc(sizeof(struct A17*)*len); 
 	if(array) {
 		for(i=0; i<len; i++) {

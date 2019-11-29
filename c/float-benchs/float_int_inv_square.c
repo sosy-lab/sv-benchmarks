@@ -2,7 +2,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* The assertion does not hold. */
 
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main()
@@ -11,7 +11,7 @@ int main()
   float y, z;
 
   x = __VERIFIER_nondet_int();
-  __VERIFIER_assume(x >= -10 && x <= 10);
+  if(!(x >= -10 && x <= 10)) {abort();}
 
   y = x*x - 4.f;
   __VERIFIER_assert(y != 0.f);

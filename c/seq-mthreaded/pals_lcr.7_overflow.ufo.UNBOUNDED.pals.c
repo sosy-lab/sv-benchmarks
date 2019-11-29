@@ -64,7 +64,7 @@ unsigned char __VERIFIER_nondet_uchar(void) ;
 char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
-void __VERIFIER_assume(int arg ) ;
+void abort(void);
 typedef char msg_t;
 typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
@@ -572,7 +572,7 @@ int main(void)
   send7 = __VERIFIER_nondet_char();
   mode7 = __VERIFIER_nondet_bool();
   i2 = init();
-  __VERIFIER_assume(i2);
+  if(!(i2)) {abort();}
   p1_old = nomsg;
   p1_new = nomsg;
   p2_old = nomsg;

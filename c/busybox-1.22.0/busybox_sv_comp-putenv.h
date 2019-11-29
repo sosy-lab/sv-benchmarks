@@ -5,7 +5,7 @@ int putenv(char *string)
   if(__VERIFIER_nondet_int())
   {
     *bb_errno = __VERIFIER_nondet_int();
-    __VERIFIER_assume(*bb_errno != 0);
+    if(!(*bb_errno != 0)) {abort();}
     return -1;
   }
 

@@ -978,7 +978,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern void __VERIFIER_error(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -994,13 +994,13 @@ volatile int next;
 volatile int lock;
 void acquire() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock == 0);
+    if(!(lock == 0)) {abort();}
     lock = 1;
     __VERIFIER_atomic_end();
 }
 void release() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock == 1);
+    if(!(lock == 1)) {abort();}
     lock = 0;
     __VERIFIER_atomic_end();
 }
@@ -1027,7 +1027,7 @@ int main(int argc, char* argv[]) {
     lock=0;
     next = 0;
     len = __VERIFIER_nondet_int();
-    __VERIFIER_assume(len > 0);
+    if(!(len > 0)) {abort();}
     data = malloc(sizeof(int) * len);
     while(1) {
  pthread_create(&t, 0, thr, 0);

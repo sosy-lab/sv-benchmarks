@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -676,12 +676,12 @@ _Bool MTX = 0;
 __thread _Bool COND = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(MTX==0);
+ if(!(MTX==0)) {abort();}
  MTX = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(MTX==1);
+ if(!(MTX==1)) {abort();}
  MTX = 0;
 }
 void Barrier2() {
@@ -691,7 +691,7 @@ void Barrier2() {
     (COND = 1);
     count = 0; }
   else
-    { __VERIFIER_atomic_release(); __VERIFIER_assume(COND); COND = 0; __VERIFIER_atomic_acquire(); };
+    { __VERIFIER_atomic_release(); if(!(COND)) {abort();} COND = 0; __VERIFIER_atomic_acquire(); };
   __VERIFIER_atomic_release(); }
 void* thr1(void* arg){
   Barrier2();

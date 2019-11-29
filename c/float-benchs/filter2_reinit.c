@@ -9,7 +9,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern int  __VERIFIER_nondet_int(void);
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -20,8 +20,8 @@ int main()
 
   E = __VERIFIER_nondet_double();
   E0 = __VERIFIER_nondet_double();
-  __VERIFIER_assume(E >= 0. && E <= 1.);
-  __VERIFIER_assume(E0 >= 0. && E0 <= 1.);
+  if(!(E >= 0. && E <= 1.)) {abort();}
+  if(!(E0 >= 0. && E0 <= 1.)) {abort();}
 
   S0 = 0;
   S = 0;
@@ -32,7 +32,7 @@ int main()
     E0 = E;
 
     E = __VERIFIER_nondet_double();
-    __VERIFIER_assume(E >= 0. && E <= 1.);
+    if(!(E >= 0. && E <= 1.)) {abort();}
 
     if (__VERIFIER_nondet_int()) {
       E1 = E;

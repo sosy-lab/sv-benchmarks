@@ -2,7 +2,7 @@ extern _Bool __VERIFIER_nondet_bool(void);
 extern int __VERIFIER_nondet_int(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 typedef unsigned int size_t;
@@ -795,7 +795,7 @@ int __VERIFIER_nondet_int();
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
- __VERIFIER_assume(__CS_round+k < 2);
+ if(!(__CS_round+k < 2)) {abort();}
  __CS_round += k;
  __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 2 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
@@ -897,7 +897,7 @@ int __CS_pthread_join(unsigned char thread, void **value_ptr)
   __CS_ret = __CS_ret_ERROR;
   return 0;
  }
- __VERIFIER_assume( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED );
+ if(!( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED )) {abort();}
  return 0;
 }
 int __CS_pthread_create(unsigned char *id1, void *attr, void *(*t1)(void*), void *arg)
@@ -1230,58 +1230,58 @@ int main(void)
   __CS_thread[2](0);
   if (__CS_ret!=__CS_ret_PREEMPTED) __CS_thread_status[__CS_round][2] = __THREAD_FINISHED;
  }
- __VERIFIER_assume(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0]);
- __VERIFIER_assume(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1]);
- __VERIFIER_assume(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2]);
- __VERIFIER_assume(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0]);
- __VERIFIER_assume(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1]);
- __VERIFIER_assume(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2]);
- __VERIFIER_assume(m[0] == __CS_cp_m[1]);
- __VERIFIER_assume(stored_elements[0][0] == __CS_cp_stored_elements[1][0]);
- __VERIFIER_assume(stored_elements[0][1] == __CS_cp_stored_elements[1][1]);
- __VERIFIER_assume(stored_elements[0][2] == __CS_cp_stored_elements[1][2]);
- __VERIFIER_assume(stored_elements[0][3] == __CS_cp_stored_elements[1][3]);
- __VERIFIER_assume(stored_elements[0][4] == __CS_cp_stored_elements[1][4]);
- __VERIFIER_assume(stored_elements[0][5] == __CS_cp_stored_elements[1][5]);
- __VERIFIER_assume(stored_elements[0][6] == __CS_cp_stored_elements[1][6]);
- __VERIFIER_assume(stored_elements[0][7] == __CS_cp_stored_elements[1][7]);
- __VERIFIER_assume(stored_elements[0][8] == __CS_cp_stored_elements[1][8]);
- __VERIFIER_assume(stored_elements[0][9] == __CS_cp_stored_elements[1][9]);
- __VERIFIER_assume(stored_elements[0][10] == __CS_cp_stored_elements[1][10]);
- __VERIFIER_assume(stored_elements[0][11] == __CS_cp_stored_elements[1][11]);
- __VERIFIER_assume(stored_elements[0][12] == __CS_cp_stored_elements[1][12]);
- __VERIFIER_assume(stored_elements[0][13] == __CS_cp_stored_elements[1][13]);
- __VERIFIER_assume(stored_elements[0][14] == __CS_cp_stored_elements[1][14]);
- __VERIFIER_assume(stored_elements[0][15] == __CS_cp_stored_elements[1][15]);
- __VERIFIER_assume(stored_elements[0][16] == __CS_cp_stored_elements[1][16]);
- __VERIFIER_assume(stored_elements[0][17] == __CS_cp_stored_elements[1][17]);
- __VERIFIER_assume(stored_elements[0][18] == __CS_cp_stored_elements[1][18]);
- __VERIFIER_assume(stored_elements[0][19] == __CS_cp_stored_elements[1][19]);
- __VERIFIER_assume(enqueue_flag[0] == __CS_cp_enqueue_flag[1]);
- __VERIFIER_assume(dequeue_flag[0] == __CS_cp_dequeue_flag[1]);
- __VERIFIER_assume(queue[0].element[0] == __CS_cp_queue[1].element[0]);
- __VERIFIER_assume(queue[0].element[1] == __CS_cp_queue[1].element[1]);
- __VERIFIER_assume(queue[0].element[2] == __CS_cp_queue[1].element[2]);
- __VERIFIER_assume(queue[0].element[3] == __CS_cp_queue[1].element[3]);
- __VERIFIER_assume(queue[0].element[4] == __CS_cp_queue[1].element[4]);
- __VERIFIER_assume(queue[0].element[5] == __CS_cp_queue[1].element[5]);
- __VERIFIER_assume(queue[0].element[6] == __CS_cp_queue[1].element[6]);
- __VERIFIER_assume(queue[0].element[7] == __CS_cp_queue[1].element[7]);
- __VERIFIER_assume(queue[0].element[8] == __CS_cp_queue[1].element[8]);
- __VERIFIER_assume(queue[0].element[9] == __CS_cp_queue[1].element[9]);
- __VERIFIER_assume(queue[0].element[10] == __CS_cp_queue[1].element[10]);
- __VERIFIER_assume(queue[0].element[11] == __CS_cp_queue[1].element[11]);
- __VERIFIER_assume(queue[0].element[12] == __CS_cp_queue[1].element[12]);
- __VERIFIER_assume(queue[0].element[13] == __CS_cp_queue[1].element[13]);
- __VERIFIER_assume(queue[0].element[14] == __CS_cp_queue[1].element[14]);
- __VERIFIER_assume(queue[0].element[15] == __CS_cp_queue[1].element[15]);
- __VERIFIER_assume(queue[0].element[16] == __CS_cp_queue[1].element[16]);
- __VERIFIER_assume(queue[0].element[17] == __CS_cp_queue[1].element[17]);
- __VERIFIER_assume(queue[0].element[18] == __CS_cp_queue[1].element[18]);
- __VERIFIER_assume(queue[0].element[19] == __CS_cp_queue[1].element[19]);
- __VERIFIER_assume(queue[0].head == __CS_cp_queue[1].head);
- __VERIFIER_assume(queue[0].tail == __CS_cp_queue[1].tail);
- __VERIFIER_assume(queue[0].amount == __CS_cp_queue[1].amount);
+ if(!(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0])) {abort();}
+ if(!(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1])) {abort();}
+ if(!(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2])) {abort();}
+ if(!(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0])) {abort();}
+ if(!(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1])) {abort();}
+ if(!(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2])) {abort();}
+ if(!(m[0] == __CS_cp_m[1])) {abort();}
+ if(!(stored_elements[0][0] == __CS_cp_stored_elements[1][0])) {abort();}
+ if(!(stored_elements[0][1] == __CS_cp_stored_elements[1][1])) {abort();}
+ if(!(stored_elements[0][2] == __CS_cp_stored_elements[1][2])) {abort();}
+ if(!(stored_elements[0][3] == __CS_cp_stored_elements[1][3])) {abort();}
+ if(!(stored_elements[0][4] == __CS_cp_stored_elements[1][4])) {abort();}
+ if(!(stored_elements[0][5] == __CS_cp_stored_elements[1][5])) {abort();}
+ if(!(stored_elements[0][6] == __CS_cp_stored_elements[1][6])) {abort();}
+ if(!(stored_elements[0][7] == __CS_cp_stored_elements[1][7])) {abort();}
+ if(!(stored_elements[0][8] == __CS_cp_stored_elements[1][8])) {abort();}
+ if(!(stored_elements[0][9] == __CS_cp_stored_elements[1][9])) {abort();}
+ if(!(stored_elements[0][10] == __CS_cp_stored_elements[1][10])) {abort();}
+ if(!(stored_elements[0][11] == __CS_cp_stored_elements[1][11])) {abort();}
+ if(!(stored_elements[0][12] == __CS_cp_stored_elements[1][12])) {abort();}
+ if(!(stored_elements[0][13] == __CS_cp_stored_elements[1][13])) {abort();}
+ if(!(stored_elements[0][14] == __CS_cp_stored_elements[1][14])) {abort();}
+ if(!(stored_elements[0][15] == __CS_cp_stored_elements[1][15])) {abort();}
+ if(!(stored_elements[0][16] == __CS_cp_stored_elements[1][16])) {abort();}
+ if(!(stored_elements[0][17] == __CS_cp_stored_elements[1][17])) {abort();}
+ if(!(stored_elements[0][18] == __CS_cp_stored_elements[1][18])) {abort();}
+ if(!(stored_elements[0][19] == __CS_cp_stored_elements[1][19])) {abort();}
+ if(!(enqueue_flag[0] == __CS_cp_enqueue_flag[1])) {abort();}
+ if(!(dequeue_flag[0] == __CS_cp_dequeue_flag[1])) {abort();}
+ if(!(queue[0].element[0] == __CS_cp_queue[1].element[0])) {abort();}
+ if(!(queue[0].element[1] == __CS_cp_queue[1].element[1])) {abort();}
+ if(!(queue[0].element[2] == __CS_cp_queue[1].element[2])) {abort();}
+ if(!(queue[0].element[3] == __CS_cp_queue[1].element[3])) {abort();}
+ if(!(queue[0].element[4] == __CS_cp_queue[1].element[4])) {abort();}
+ if(!(queue[0].element[5] == __CS_cp_queue[1].element[5])) {abort();}
+ if(!(queue[0].element[6] == __CS_cp_queue[1].element[6])) {abort();}
+ if(!(queue[0].element[7] == __CS_cp_queue[1].element[7])) {abort();}
+ if(!(queue[0].element[8] == __CS_cp_queue[1].element[8])) {abort();}
+ if(!(queue[0].element[9] == __CS_cp_queue[1].element[9])) {abort();}
+ if(!(queue[0].element[10] == __CS_cp_queue[1].element[10])) {abort();}
+ if(!(queue[0].element[11] == __CS_cp_queue[1].element[11])) {abort();}
+ if(!(queue[0].element[12] == __CS_cp_queue[1].element[12])) {abort();}
+ if(!(queue[0].element[13] == __CS_cp_queue[1].element[13])) {abort();}
+ if(!(queue[0].element[14] == __CS_cp_queue[1].element[14])) {abort();}
+ if(!(queue[0].element[15] == __CS_cp_queue[1].element[15])) {abort();}
+ if(!(queue[0].element[16] == __CS_cp_queue[1].element[16])) {abort();}
+ if(!(queue[0].element[17] == __CS_cp_queue[1].element[17])) {abort();}
+ if(!(queue[0].element[18] == __CS_cp_queue[1].element[18])) {abort();}
+ if(!(queue[0].element[19] == __CS_cp_queue[1].element[19])) {abort();}
+ if(!(queue[0].head == __CS_cp_queue[1].head)) {abort();}
+ if(!(queue[0].tail == __CS_cp_queue[1].tail)) {abort();}
+ if(!(queue[0].amount == __CS_cp_queue[1].amount)) {abort();}
  __VERIFIER_assert(__CS_error_detail != __ERR_MAXTHREADS_REACHED);
  __VERIFIER_assert(__CS_error_detail != __ERR_ASSERT_FAILURE);
  __VERIFIER_assert(__CS_error_detail != __ERR_ERROR_LABEL_REACHED);

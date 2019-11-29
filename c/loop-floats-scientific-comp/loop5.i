@@ -973,7 +973,7 @@ extern int matherr (struct exception *__exc);
 
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 
@@ -1008,7 +1008,7 @@ int main()
  while(1)
  {
   x = __VERIFIER_nondet_int() ;
-  __VERIFIER_assume(x > -180 && x < 180) ;
+  if(!(x > -180 && x < 180) ) {abort();}
   angleInRadian = radianMeasure(x) ;
   sum2 = sum2 + sin(angleInRadian+2*phaseLead);
   sum1 = sum1 + cos(angleInRadian+3*phaseLag) ;

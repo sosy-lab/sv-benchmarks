@@ -1,7 +1,7 @@
 int __return_main;
 void __VERIFIER_error();
 float __VERIFIER_nondet_float();
-void __VERIFIER_assume(int expression);
+void abort(void);
 void __VERIFIER_assert(int cond);
 float f(float x);
 float g(float x);

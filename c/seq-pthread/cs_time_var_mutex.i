@@ -1,7 +1,7 @@
 extern int __VERIFIER_nondet_int(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned int size_t;
 typedef long int wchar_t;
@@ -548,7 +548,7 @@ int __VERIFIER_nondet_int();
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
- __VERIFIER_assume(__CS_round+k < 3);
+ if(!(__CS_round+k < 3)) {abort();}
  __CS_round += k;
  __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 3 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
@@ -644,7 +644,7 @@ int __CS_pthread_join(unsigned char thread, void **value_ptr)
   __CS_ret = __CS_ret_ERROR;
   return 0;
  }
- __VERIFIER_assume( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED );
+ if(!( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED )) {abort();}
  return 0;
 }
 int __CS_pthread_create(unsigned char *id1, void *attr, void *(*t1)(void*), void *arg)
@@ -827,27 +827,27 @@ int main()
   __CS_thread[2](0);
   if (__CS_ret!=__CS_ret_PREEMPTED) __CS_thread_status[__CS_round][2] = __THREAD_FINISHED;
  }
- __VERIFIER_assume(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0]);
- __VERIFIER_assume(__CS_thread_status[1][0] == __CS_cp___CS_thread_status[2][0]);
- __VERIFIER_assume(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1]);
- __VERIFIER_assume(__CS_thread_status[1][1] == __CS_cp___CS_thread_status[2][1]);
- __VERIFIER_assume(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2]);
- __VERIFIER_assume(__CS_thread_status[1][2] == __CS_cp___CS_thread_status[2][2]);
- __VERIFIER_assume(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0]);
- __VERIFIER_assume(__CS_thread_lockedon[1][0] == __CS_cp___CS_thread_lockedon[2][0]);
- __VERIFIER_assume(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1]);
- __VERIFIER_assume(__CS_thread_lockedon[1][1] == __CS_cp___CS_thread_lockedon[2][1]);
- __VERIFIER_assume(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2]);
- __VERIFIER_assume(__CS_thread_lockedon[1][2] == __CS_cp___CS_thread_lockedon[2][2]);
- __VERIFIER_assume(block[0] == __CS_cp_block[1]);
- __VERIFIER_assume(block[1] == __CS_cp_block[2]);
- __VERIFIER_assume(busy[0] == __CS_cp_busy[1]);
- __VERIFIER_assume(busy[1] == __CS_cp_busy[2]);
- __VERIFIER_assume(inode[0] == __CS_cp_inode[1]);
- __VERIFIER_assume(inode[1] == __CS_cp_inode[2]);
- __VERIFIER_assume(m_inode[0] == __CS_cp_m_inode[1]);
- __VERIFIER_assume(m_inode[1] == __CS_cp_m_inode[2]);
- __VERIFIER_assume(m_busy[0] == __CS_cp_m_busy[1]);
- __VERIFIER_assume(m_busy[1] == __CS_cp_m_busy[2]);
+ if(!(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0])) {abort();}
+ if(!(__CS_thread_status[1][0] == __CS_cp___CS_thread_status[2][0])) {abort();}
+ if(!(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1])) {abort();}
+ if(!(__CS_thread_status[1][1] == __CS_cp___CS_thread_status[2][1])) {abort();}
+ if(!(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2])) {abort();}
+ if(!(__CS_thread_status[1][2] == __CS_cp___CS_thread_status[2][2])) {abort();}
+ if(!(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0])) {abort();}
+ if(!(__CS_thread_lockedon[1][0] == __CS_cp___CS_thread_lockedon[2][0])) {abort();}
+ if(!(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1])) {abort();}
+ if(!(__CS_thread_lockedon[1][1] == __CS_cp___CS_thread_lockedon[2][1])) {abort();}
+ if(!(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2])) {abort();}
+ if(!(__CS_thread_lockedon[1][2] == __CS_cp___CS_thread_lockedon[2][2])) {abort();}
+ if(!(block[0] == __CS_cp_block[1])) {abort();}
+ if(!(block[1] == __CS_cp_block[2])) {abort();}
+ if(!(busy[0] == __CS_cp_busy[1])) {abort();}
+ if(!(busy[1] == __CS_cp_busy[2])) {abort();}
+ if(!(inode[0] == __CS_cp_inode[1])) {abort();}
+ if(!(inode[1] == __CS_cp_inode[2])) {abort();}
+ if(!(m_inode[0] == __CS_cp_m_inode[1])) {abort();}
+ if(!(m_inode[1] == __CS_cp_m_inode[2])) {abort();}
+ if(!(m_busy[0] == __CS_cp_m_busy[1])) {abort();}
+ if(!(m_busy[1] == __CS_cp_m_busy[2])) {abort();}
  __VERIFIER_assert(__CS_error != 1);
 }

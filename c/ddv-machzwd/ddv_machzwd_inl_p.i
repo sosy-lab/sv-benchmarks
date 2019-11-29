@@ -3,7 +3,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* SUPPOSED TO SUCCEED */
 
 
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 
 
@@ -666,7 +666,7 @@ extern inline int pthread_mutex_lock(pthread_mutex_t *__mutex)
 {
   __VERIFIER_HIDE:
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(!__mutex->locked);
+  if(!(!__mutex->locked)) {abort();}
   __mutex->locked=1;
   __VERIFIER_atomic_end();
   return 0;
@@ -2758,7 +2758,7 @@ void call_cdev_functions()
     }
 
     cdev_no = __VERIFIER_nondet_ushort();
-    __VERIFIER_assume (0 <= cdev_no && cdev_no < number_cdev_registered);
+    if(! (0 <= cdev_no && cdev_no < number_cdev_registered)) {abort();}
 
     switch (__VERIFIER_nondet_ushort()) {
  case 0:
@@ -2958,7 +2958,7 @@ void call_genhd_functions()
     }
 
     genhd_no = __VERIFIER_nondet_ushort();
-    __VERIFIER_assume (genhd_no < number_genhd_registered);
+    if(! (genhd_no < number_genhd_registered)) {abort();}
 
 
     function_no = __VERIFIER_nondet_ushort();
@@ -3029,7 +3029,7 @@ void call_interrupt_handler()
     struct pt_regs regs;
 
     i = __VERIFIER_nondet_int();
-    __VERIFIER_assume(i < 16);
+    if(!(i < 16)) {abort();}
 
     if (registered_irq[i].handler) {
       (* registered_irq[i].handler)((int)i, registered_irq[i].dev_id, &regs)
@@ -3048,7 +3048,7 @@ int pci_probe_device()
     registered_pci_driver.no_pci_device_id = 1;
 
     dev_id = __VERIFIER_nondet_uint();
-    __VERIFIER_assume(dev_id < registered_pci_driver.no_pci_device_id);
+    if(!(dev_id < registered_pci_driver.no_pci_device_id)) {abort();}
 
     err = (*registered_pci_driver.pci_driver->probe)(&registered_pci_driver.pci_dev,
            &registered_pci_driver.pci_driver->id_table[dev_id]);
@@ -3091,7 +3091,7 @@ void call_pci_functions()
 void call_tasklet_functions()
 {
   unsigned int i;
-  __VERIFIER_assume(i < 1);
+  if(!(i < 1)) {abort();}
 
   if ((tasklet_registered[i].tasklet != ((void *)0)) &&
       (tasklet_registered[i].tasklet->count == 0)) {
@@ -3108,7 +3108,7 @@ void call_timer_functions()
 {
   unsigned short i = __VERIFIER_nondet_ushort();
 
-  __VERIFIER_assume(i < number_timer_registered);
+  if(!(i < number_timer_registered)) {abort();}
 
   if (timer_registered[i].timer->__ddv_active) {
     (* timer_registered[i].timer->function)(timer_registered[i].timer->data);
@@ -3142,7 +3142,7 @@ inline struct pci_dev *pci_get_class (unsigned int class, struct pci_dev *from)
  from->vendor = __VERIFIER_nondet_ushort();
  from->device = __VERIFIER_nondet_ushort();
  from->irq = __VERIFIER_nondet_uint();
- __VERIFIER_assume(from->irq < 16);
+ if(!(from->irq < 16)) {abort();}
 
  return from;
     } else {
@@ -3780,7 +3780,7 @@ inline int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, c
 {
     int major;
     int return_value = __VERIFIER_nondet_int();
-    __VERIFIER_assume((return_value == 0) || (return_value == -1));
+    if(!((return_value == 0) || (return_value == -1))) {abort();}
 
     if (return_value == 0) {
         major = __VERIFIER_nondet_uint();
@@ -3793,7 +3793,7 @@ inline int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, c
 inline int register_chrdev_region(dev_t from, unsigned count, const char *name)
 {
     int return_value = __VERIFIER_nondet_int();
-    __VERIFIER_assume((return_value == 0) || (return_value == -1));
+    if(!((return_value == 0) || (return_value == -1))) {abort();}
 
     return return_value;
 }
@@ -3846,7 +3846,7 @@ inline int cdev_add(struct cdev *p, dev_t dev, unsigned count)
     p->count = count;
 
     int return_value = __VERIFIER_nondet_int();
-    __VERIFIER_assume((return_value == 0) || (return_value == -1));
+    if(!((return_value == 0) || (return_value == -1))) {abort();}
 
     if (return_value == 0) {
  if (number_cdev_registered < 1) {
@@ -4357,7 +4357,7 @@ inline int schedule_work(struct work_struct *work)
 inline void call_shared_workqueue_functions()
 {
     unsigned short i = __VERIFIER_nondet_ushort();
-    __VERIFIER_assume(i < 10);
+    if(!(i < 10)) {abort();}
 
     if (shared_workqueue[i] != ((void *)0)) {
  (*shared_workqueue[i]->func)(shared_workqueue[i]->data);

@@ -6,7 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
 extern unsigned char __VERIFIER_nondet_unsigned_char(void);
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -17,7 +17,7 @@ double cos(double a)
 {
         double x = __VERIFIER_nondet_double();
 
-        __VERIFIER_assume(x >= -1.1 && x <= 1.1);
+        if(!(x >= -1.1 && x <= 1.1)) {abort();}
 
         return x;
 }
@@ -26,9 +26,9 @@ double exp(double a)
 {
         double x = __VERIFIER_nondet_double();
 
-        __VERIFIER_assume(x >= 0.);
+        if(!(x >= 0.)) {abort();}
         if (a <= 0.) {
-                __VERIFIER_assume(x <= 1.);                
+                if(!(x <= 1.)) {abort();}                
         }
 
         return x;

@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int();
 int main()
@@ -7,14 +7,14 @@ int main()
   int i;
   int j=__VERIFIER_nondet_int();
   int n=__VERIFIER_nondet_int();
-  __VERIFIER_assume(n < 100000);
+  if(!(n < 100000)) {abort();}
   int a[n];
 
-  __VERIFIER_assume(j>0 && j < 10000);
+  if(!(j>0 && j < 10000)) {abort();}
  
   for(i=1;i<n;i++) {
     int k=__VERIFIER_nondet_int();
-    __VERIFIER_assume(k>0 && k < 10000);
+    if(!(k>0 && k < 10000)) {abort();}
     a[i]=i+j+k;
   }
 

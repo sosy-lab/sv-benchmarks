@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void);
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -3635,9 +3635,9 @@ void* ldv_successful_alloc(size_t size)
   void *res ;
   long tmp ;
   res = malloc(size);
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
   tmp = ldv_is_err((void const *)res);
-  __VERIFIER_assume(tmp == 0L);
+  if(!(tmp == 0L)) {abort();}
   return res;
 }
 long ldv_is_err(void const *ptr )
@@ -3749,9 +3749,9 @@ void *ldv_calloc(size_t nmemb , size_t size )
   tmp___1 = __VERIFIER_nondet_int();
   if (tmp___1 != 0) {
     res = calloc(nmemb, size);
-    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
     tmp___0 = ldv_is_err((void const *)res);
-    __VERIFIER_assume(tmp___0 == 0L);
+    if(!(tmp___0 == 0L)) {abort();}
     return (res);
   } else {
     return ((void *)0);

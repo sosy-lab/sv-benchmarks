@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void);
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void avoid_zero(int y)
 {
@@ -4216,7 +4216,7 @@ extern int remap_pfn_range(struct vm_area_struct * , unsigned long , unsigned lo
                            unsigned long , pgprot_t ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -4226,7 +4226,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);

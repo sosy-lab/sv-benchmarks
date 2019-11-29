@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -675,7 +675,7 @@ unsigned int r = 0;
 unsigned int s = 0;
 void __VERIFIER_atomic_inc_r()
 {
-  __VERIFIER_assume(r!=-1);
+  if(!(r!=-1)) {abort();}
   r = r + 1;
 }
 void* thr1(void* arg){

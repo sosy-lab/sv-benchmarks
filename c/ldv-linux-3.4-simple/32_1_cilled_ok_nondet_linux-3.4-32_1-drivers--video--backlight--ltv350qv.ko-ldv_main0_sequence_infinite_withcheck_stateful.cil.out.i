@@ -3548,7 +3548,7 @@ extern int dev_set_drvdata(struct device *dev , void *data ) ;
 extern struct module __this_module ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -3558,7 +3558,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);

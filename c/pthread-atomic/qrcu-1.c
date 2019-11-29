@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern int __VERIFIER_nondet_int();
@@ -34,12 +34,12 @@ pthread_mutex_t mutex; // used to serialize updaters' slowpaths
   }
 
 void __VERIFIER_atomic_use1(int myidx) {
-  __VERIFIER_assume(myidx <= 0 && ctr1>0);
+  if(!(myidx <= 0 && ctr1>0)) {abort();}
   ctr1++;
 }
 
 void __VERIFIER_atomic_use2(int myidx) {
-  __VERIFIER_assume(myidx >= 1 && ctr2>0);
+  if(!(myidx >= 1 && ctr2>0)) {abort();}
   ctr2++;
 }
 
@@ -57,7 +57,7 @@ void __VERIFIER_atomic_take_snapshot(int *readerstart1, int *readerstart2) {
 void __VERIFIER_atomic_check_progress1(int readerstart1) {
   /* Verify reader progress. */
   if (__VERIFIER_nondet_int()) {
-    __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
+    if(!(readerstart1 == 1 && readerprogress1 == 1)) {abort();}
     assert(0);
   } 
   return;
@@ -65,7 +65,7 @@ void __VERIFIER_atomic_check_progress1(int readerstart1) {
 
 void __VERIFIER_atomic_check_progress2(int readerstart2) {
   if (__VERIFIER_nondet_int()) {
-    __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
+    if(!(readerstart2 == 1 && readerprogress2 == 1)) {abort();}
     assert(0);
   } 
   return;

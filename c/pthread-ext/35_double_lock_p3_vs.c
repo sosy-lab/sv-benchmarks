@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
@@ -6,8 +6,8 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int count = 0;
 
-#define assume(e) __VERIFIER_assume(e)
-#define assert_nl(e) { if(!(e)) { goto ERROR; } }
+#define assume(e) if(!(e)
+#define assert_nl(e) { if(!(e)) { goto ERROR) {abort();} } }
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 void __VERIFIER_atomic_acquire(int * m)

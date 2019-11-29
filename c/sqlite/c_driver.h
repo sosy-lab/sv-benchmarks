@@ -4,7 +4,7 @@
 
 #ifndef c_driver_h
 #define c_driver_h
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 #ifdef WRAPPED_MAIN
@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 	
 	// Generate arbitrary number of arguments
         int wrapped_argc = __VERIFIER_nondet_int();
-        __VERIFIER_assume(wrapped_argc >= 1 && wrapped_argc <= 20);
+        if(!(wrapped_argc >= 1 && wrapped_argc <= 20)) {abort();}
 
 	char ** wrapped_argv = malloc(sizeof(*argv) * wrapped_argc);
 	for (int i = 0; i < wrapped_argc; ++i) {

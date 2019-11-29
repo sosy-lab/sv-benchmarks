@@ -986,7 +986,7 @@ extern int fesetenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
 extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -995,8 +995,8 @@ double __VERIFIER_nondet_double();
 int main(void)
 {
   double d = __VERIFIER_nondet_double();
-  __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isinff (d) : sizeof (d) == sizeof (double) ? __isinf (d) : __isinfl (d)));
-  __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isnanf (d) : sizeof (d) == sizeof (double) ? __isnan (d) : __isnanl (d)));
+  if(!(!(sizeof (d) == sizeof (float) ? __isinff (d) : sizeof (d) == sizeof (double) ? __isinf (d) : __isinfl (d)))) {abort();}
+  if(!(!(sizeof (d) == sizeof (float) ? __isnanf (d) : sizeof (d) == sizeof (double) ? __isnan (d) : __isnanl (d)))) {abort();}
 
   int save_round = fegetround();
   fesetround(0xc00);
@@ -1006,10 +1006,10 @@ int main(void)
   __VERIFIER_assert(round(d) == result);
 
   double d1 = __VERIFIER_nondet_double();
-  __VERIFIER_assume((sizeof (d1) == sizeof (float) ? __isinff (d1) : sizeof (d1) == sizeof (double) ? __isinf (d1) : __isinfl (d1)));
+  if(!((sizeof (d1) == sizeof (float) ? __isinff (d1) : sizeof (d1) == sizeof (double) ? __isinf (d1) : __isinfl (d1)))) {abort();}
   __VERIFIER_assert((sizeof (round(d1)) == sizeof (float) ? __isinff (round(d1)) : sizeof (round(d1)) == sizeof (double) ? __isinf (round(d1)) : __isinfl (round(d1))));
 
   double d2 = __VERIFIER_nondet_double();
-  __VERIFIER_assume((sizeof (d2) == sizeof (float) ? __isinff (d2) : sizeof (d2) == sizeof (double) ? __isinf (d2) : __isinfl (d2)));
+  if(!((sizeof (d2) == sizeof (float) ? __isinff (d2) : sizeof (d2) == sizeof (double) ? __isinf (d2) : __isinfl (d2)))) {abort();}
   __VERIFIER_assert((sizeof (round(d2)) == sizeof (float) ? __isinff (round(d2)) : sizeof (round(d2)) == sizeof (double) ? __isinf (round(d2)) : __isinfl (round(d2))));
 }

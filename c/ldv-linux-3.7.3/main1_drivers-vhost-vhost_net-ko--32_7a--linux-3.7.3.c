@@ -5708,7 +5708,7 @@ __inline static int vring_need_event(__u16 event_idx , __u16 new_idx , __u16 old
 extern int memcpy_fromiovec(unsigned char * , struct iovec * , int  ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 extern void *memcpy(void * , void const   * , size_t  ) ;
 long ldv_is_err(const void *ptr)
@@ -5720,7 +5720,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		if(!(!ldv_is_err(res))) {abort();}
 
 		return res;
 	} else {

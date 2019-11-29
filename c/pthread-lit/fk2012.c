@@ -1,6 +1,6 @@
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
@@ -17,25 +17,25 @@ volatile int counter;
 
 void acquire1() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock1 == 0);
+    if(!(lock1 == 0)) {abort();}
     lock1 = 1;
     __VERIFIER_atomic_end();
 }
 void release1() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock1 == 1);
+    if(!(lock1 == 1)) {abort();}
     lock1 = 0;
     __VERIFIER_atomic_end();
 }
 void acquire2() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock2 == 0);
+    if(!(lock2 == 0)) {abort();}
     lock2 = 1;
     __VERIFIER_atomic_end();
 }
 void release2() {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock2 == 1);
+    if(!(lock2 == 1)) {abort();}
     lock2 = 0;
     __VERIFIER_atomic_end();
 }

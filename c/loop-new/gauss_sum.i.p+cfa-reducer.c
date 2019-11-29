@@ -1,6 +1,6 @@
 int __return_main;
 void __VERIFIER_error();
-void __VERIFIER_assume(int);
+void abort(void);
 void __VERIFIER_assert(int cond);
 int __VERIFIER_nondet_int();
 int main();

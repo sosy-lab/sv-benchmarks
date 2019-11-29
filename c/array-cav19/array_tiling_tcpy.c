@@ -1,11 +1,11 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int();
 int main()
 {
   int S=__VERIFIER_nondet_int();
-  __VERIFIER_assume(S>1);
+  if(!(S>1)) {abort();}
   int i;
   int a[2*S];
   int acopy[2*S];

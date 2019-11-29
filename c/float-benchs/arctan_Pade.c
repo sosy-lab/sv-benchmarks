@@ -8,7 +8,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -42,7 +42,7 @@ int main()
   double a, r;
 
   a = __VERIFIER_nondet_double();
-  __VERIFIER_assume(a >= -1.79e308 && a <= 1.79e308);
+  if(!(a >= -1.79e308 && a <= 1.79e308)) {abort();}
 
   r = ARCTAN(a);
   

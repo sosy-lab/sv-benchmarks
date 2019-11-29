@@ -5,7 +5,7 @@
 
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond)
 {
   if (!(cond)) {
@@ -24,13 +24,13 @@ int main()
   unsigned int loop_entered = 0;
 
   index1 = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(index1 < 100000);
+  if(!(index1 < 100000)) {abort();}
   index2 = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(index2 < 100000);
+  if(!(index2 < 100000)) {abort();}
 
   while (index1 < index2) {
     __VERIFIER_assert((index1 < 100000) && (index2 < 100000));
-    __VERIFIER_assume(array[index1] == array[index2]);
+    if(!(array[index1] == array[index2])) {abort();}
     index1++;
     index2--;
     loop_entered = 1;

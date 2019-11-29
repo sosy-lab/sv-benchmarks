@@ -3,7 +3,7 @@ International Conference on Tools and Algorithms for the Construction and Analys
 
 #define SIZE 100000
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond)
 {
   if (!(cond)) {
@@ -22,13 +22,13 @@ int main()
   unsigned int loop_entered = 0;
 
   index1 =  __VERIFIER_nondet_uint();
-  __VERIFIER_assume(index1 < SIZE);
+  if(!(index1 < SIZE)) {abort();}
   index2 =  __VERIFIER_nondet_uint();
-  __VERIFIER_assume(index2 < SIZE);
+  if(!(index2 < SIZE)) {abort();}
   
   while (index1 < index2) {
     __VERIFIER_assert((index1 < SIZE) && (index2 < SIZE));
-    __VERIFIER_assume(array[index1] == array[index2]);
+    if(!(array[index1] == array[index2])) {abort();}
     index1++;
     index2--;
     loop_entered = 1;

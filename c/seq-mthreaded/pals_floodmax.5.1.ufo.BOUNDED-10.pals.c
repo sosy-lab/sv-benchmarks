@@ -61,7 +61,7 @@ DM-0000575
 char __VERIFIER_nondet_char(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 void assert(_Bool arg ) ;
-void __VERIFIER_assume(int arg ) ;
+void abort(void);
 typedef char msg_t;
 typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
@@ -2695,7 +2695,7 @@ int main(void)
   max5 = __VERIFIER_nondet_char();
   mode5 = __VERIFIER_nondet_bool();
   i2 = init();
-  __VERIFIER_assume(i2);
+  if(!(i2)) {abort();}
   p12_old = nomsg;
   p12_new = nomsg;
   p13_old = nomsg;

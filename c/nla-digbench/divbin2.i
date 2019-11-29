@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:

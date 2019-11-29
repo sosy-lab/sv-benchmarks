@@ -7523,7 +7523,7 @@ void *ldv_vmalloc_73(unsigned long ldv_func_arg1 ) ;
 extern void vfree(void const   * ) ;
 unsigned long ldv___get_free_pages_52(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -7534,7 +7534,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		if(!(!ldv_is_err(res))) {abort();}
 
 		return res;
 	} else {

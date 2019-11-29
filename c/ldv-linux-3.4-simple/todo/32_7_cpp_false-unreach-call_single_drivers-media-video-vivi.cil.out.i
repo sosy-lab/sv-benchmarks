@@ -13833,7 +13833,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 }
 void *kmem_cache_alloc(struct kmem_cache *, gfp_t);
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -13843,7 +13843,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);
@@ -21466,10 +21466,10 @@ int kthread_stop(struct task_struct *arg0) {
   return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
-void __VERIFIER_assume(int);
+void abort(void);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
   union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
+  if(!(tmp != 0)) {abort();}
   return *tmp;
 }
 void ldv_initialize() {
@@ -21504,10 +21504,10 @@ struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, n
   return (struct zoneref *)external_alloc();
 }
 void *external_alloc(void);
-void __VERIFIER_assume(int);
+void abort(void);
 struct timeval ns_to_timeval(const s64 arg0) {
   struct timeval *tmp = (struct timeval*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
+  if(!(tmp != 0)) {abort();}
   return *tmp;
 }
 int __VERIFIER_nondet_int(void);

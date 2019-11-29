@@ -3607,7 +3607,7 @@ int ldv_post_probe(int probe_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
 extern int ldv_failed_usb_register_driver(void) ;
 void ldv_check_final_state(void) ;
-extern void __VERIFIER_assume(int ) ;
+extern void abort(void);
 int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
@@ -5210,12 +5210,12 @@ void *ldv_character_driver_scenario_2(void *arg0 )
     }
     if (tmp___15 != 0) {
       {
-      __VERIFIER_assume(ldv_2_ret_default == 0);
+      if(!(ldv_2_ret_default == 0)) {abort();}
       }
       goto ldv_call_2;
     } else {
       {
-      __VERIFIER_assume(ldv_2_ret_default != 0);
+      if(!(ldv_2_ret_default != 0)) {abort();}
       }
       goto ldv_main_2;
     }
@@ -5252,7 +5252,7 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   ldv_2_ldv_param_4_1_default = (char *)tmp___18;
   tmp___19 = ldv_xmalloc(0UL);
   ldv_2_ldv_param_4_3_default = (long long *)tmp___19;
-  __VERIFIER_assume(ldv_2_size_cnt_write_size <= 2147479552UL);
+  if(!(ldv_2_size_cnt_write_size <= 2147479552UL)) {abort();}
   ldv_character_driver_scenario_write_2_4((ssize_t (*)(struct file * , char * , size_t ,
                                                        loff_t * ))ldv_2_container_file_operations->write,
                                           ldv_2_resource_file, ldv_2_ldv_param_4_1_default,
@@ -5325,7 +5325,7 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   goto ldv_30874;
   switch_default:
   {
-  __VERIFIER_assume(0);
+  if(!(0)) {abort();}
   }
   switch_break___0: ;
   }
@@ -5333,7 +5333,7 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   goto ldv_30879;
   switch_default___0:
   {
-  __VERIFIER_assume(0);
+  if(!(0)) {abort();}
   }
   switch_break: ;
   }
@@ -5425,7 +5425,7 @@ void ldv_dispatch_default_deregister_3_4_3(void)
   {
   {
   ret = pthread_join(ldv_thread_2, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5441,7 +5441,7 @@ void ldv_dispatch_default_register_3_4_4(void)
   cf_arg_2 = (struct ldv_struct_insmod_4 *)tmp;
   ret = pthread_create(& ldv_thread_2, (pthread_attr_t const *)0, & ldv_character_driver_scenario_2,
                        (void *)cf_arg_2);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5452,7 +5452,7 @@ void ldv_dispatch_deregister_5_1(struct usb_driver *arg0 )
   {
   {
   ret = pthread_join(ldv_thread_3, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5463,7 +5463,7 @@ void ldv_dispatch_insmod_deregister_7_2(void)
   {
   {
   ret = pthread_join(ldv_thread_4, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5479,7 +5479,7 @@ void ldv_dispatch_insmod_register_7_3(void)
   cf_arg_4 = (struct ldv_struct_insmod_4 *)tmp;
   ret = pthread_create(& ldv_thread_4, (pthread_attr_t const *)0, & ldv_insmod_4,
                        (void *)cf_arg_4);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5496,7 +5496,7 @@ void ldv_dispatch_register_6_3(struct usb_driver *arg0 )
   cf_arg_3->arg0 = arg0;
   ret = pthread_create(& ldv_thread_3, (pthread_attr_t const *)0, & ldv_usb_scenario_3,
                        (void *)cf_arg_3);
-  __VERIFIER_assume(ret == 0);
+  if(!(ret == 0)) {abort();}
   }
   return;
 }
@@ -5557,12 +5557,12 @@ void *ldv_insmod_4(void *arg0 )
   }
   if (tmp___1 != 0) {
     {
-    __VERIFIER_assume(ldv_4_ret_default != 0);
+    if(!(ldv_4_ret_default != 0)) {abort();}
     }
     return ((void *)0);
   } else {
     {
-    __VERIFIER_assume(ldv_4_ret_default == 0);
+    if(!(ldv_4_ret_default == 0)) {abort();}
     ldv_4_reg_guard_3_default = ldv_undef_int();
     }
     if (ldv_4_reg_guard_3_default != 0) {
@@ -5612,7 +5612,7 @@ void *ldv_main_7(void *arg0 )
   ldv_dispatch_insmod_register_7_3();
   ldv_dispatch_insmod_deregister_7_2();
   ldv_check_final_state();
-  __VERIFIER_assume(0);
+  if(!(0)) {abort();}
   }
   return ((void *)0);
   return ((void *)0);
@@ -5685,12 +5685,12 @@ void *ldv_usb_scenario_3(void *arg0 )
     }
     if (tmp___8 != 0) {
       {
-      __VERIFIER_assume(ldv_3_probe_retval_default != 0);
+      if(!(ldv_3_probe_retval_default != 0)) {abort();}
       }
       goto ldv_manage_interface_3;
     } else {
       {
-      __VERIFIER_assume(ldv_3_probe_retval_default == 0);
+      if(!(ldv_3_probe_retval_default == 0)) {abort();}
       tmp___7 = ldv_undef_int();
       }
       {
@@ -5721,7 +5721,7 @@ void *ldv_usb_scenario_3(void *arg0 )
       goto ldv_31011;
       switch_default:
       {
-      __VERIFIER_assume(0);
+      if(!(0)) {abort();}
       }
       switch_break: ;
       }
@@ -6132,7 +6132,7 @@ static int ldv_filter_positive_int(int val )
 {
   {
   {
-  __VERIFIER_assume(val <= 0);
+  if(!(val <= 0)) {abort();}
   }
   return (val);
 }
@@ -6215,9 +6215,9 @@ void *ldv_malloc(size_t size )
     {
     tmp = malloc(size);
     res = tmp;
-    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
     tmp___0 = ldv_is_err((void const *)res);
-    __VERIFIER_assume(tmp___0 == 0L);
+    if(!(tmp___0 == 0L)) {abort();}
     }
     return (res);
   } else {
@@ -6239,9 +6239,9 @@ void *ldv_calloc(size_t nmemb , size_t size )
     {
     tmp = calloc(nmemb, size);
     res = tmp;
-    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
     tmp___0 = ldv_is_err((void const *)res);
-    __VERIFIER_assume(tmp___0 == 0L);
+    if(!(tmp___0 == 0L)) {abort();}
     }
     return (res);
   } else {
@@ -6277,9 +6277,9 @@ void *ldv_xmalloc(size_t size )
   {
   tmp = malloc(size);
   res = tmp;
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
   tmp___0 = ldv_is_err((void const *)res);
-  __VERIFIER_assume(tmp___0 == 0L);
+  if(!(tmp___0 == 0L)) {abort();}
   }
   return (res);
 }
@@ -6293,9 +6293,9 @@ void *ldv_xzalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   res = tmp;
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  if(!((unsigned long )res != (unsigned long )((void *)0))) {abort();}
   tmp___0 = ldv_is_err((void const *)res);
-  __VERIFIER_assume(tmp___0 == 0L);
+  if(!(tmp___0 == 0L)) {abort();}
   }
   return (res);
 }
@@ -6332,7 +6332,7 @@ int ldv_undef_int_negative(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  __VERIFIER_assume(ret < 0);
+  if(!(ret < 0)) {abort();}
   }
   return (ret);
 }
@@ -6345,7 +6345,7 @@ int ldv_undef_int_nonpositive(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  __VERIFIER_assume(ret <= 0);
+  if(!(ret <= 0)) {abort();}
   }
   return (ret);
 }

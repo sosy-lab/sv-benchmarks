@@ -451,7 +451,7 @@ int main(void)
 
 	whoop_loff_t = (loff_t *) malloc(sizeof(loff_t));
 	whoop_int = __VERIFIER_nondet_int();
-	__VERIFIER_assume(whoop_int >= 0);
+	if(!(whoop_int >= 0)) {abort();}
 
 	// Call module_init function
 	int _whoop_init_result = _whoop_init();

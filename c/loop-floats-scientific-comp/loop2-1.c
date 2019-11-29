@@ -3,7 +3,7 @@
  * sin(x) > cos(x) for x in (pi/4,pi)
  * */
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 float pi = 3.14159 ;
@@ -14,7 +14,7 @@ int main()
 {
 	float x = __VERIFIER_nondet_float() ;
 	float octant = pi/3 ;
-	__VERIFIER_assume(x > 0 && x < octant) ;
+	if(!(x > 0 && x < octant) ) {abort();}
 	float oddExp = x ;
 	float evenExp = 1.0 ;
 	float term = x ;

@@ -7,7 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 union double_int
@@ -41,7 +41,7 @@ int main()
   double a,r;
 
   a = __VERIFIER_nondet_double();
-  __VERIFIER_assume(a >= 20. && a <= 30.);
+  if(!(a >= 20. && a <= 30.)) {abort();}
 
   r = inv(a);
 

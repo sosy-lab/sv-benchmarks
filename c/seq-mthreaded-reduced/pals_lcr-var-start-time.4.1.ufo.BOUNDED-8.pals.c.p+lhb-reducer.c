@@ -3,7 +3,7 @@ void __VERIFIER_error();
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 void assert(_Bool arg);
-void __VERIFIER_assume(int arg);
+void abort(void);
 typedef char msg_t;
 typedef int port_t;
 void read(port_t p, msg_t m);

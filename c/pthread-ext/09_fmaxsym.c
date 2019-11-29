@@ -1,11 +1,11 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int();
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assume(e) if(!(e)
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error()) {abort();}(void)0; } }
 
 #define WORKPERTHREAD 2
 #define THREADSMAX 3

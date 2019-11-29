@@ -4,7 +4,7 @@
  * e^x   = 1+x+x^2/2!+x^3/3! ....
  */
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 extern float __VERIFIER_nondet_float() ;
@@ -13,8 +13,8 @@ extern int __VERIFIER_nondet_int() ;
 int main()
 {
 	float x = __VERIFIER_nondet_float() ;
-	__VERIFIER_assume(x > -1.0) ;
-	__VERIFIER_assume(x < 1.0) ;
+	if(!(x > -1.0) ) {abort();}
+	if(!(x < 1.0) ) {abort();}
 	float exp = 1.0 ;
 	float term = 1.0 ;
 	unsigned int count = 1 ;

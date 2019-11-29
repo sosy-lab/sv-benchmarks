@@ -999,7 +999,7 @@ int ldv_asprintf(char **ptr)
 }
 
 
-void __VERIFIER_assume(int);
+void abort(void);
 
 
 void ldv_exit(void);
@@ -1008,7 +1008,7 @@ void ldv_exit(void);
 void ldv_exit(void)
 {
   
-  __VERIFIER_assume(0);
+  if(!(0)) {abort();}
   
   return;
 }
@@ -1400,7 +1400,7 @@ int ldv_undef_int_positive(void)
   
   int ret = ldv_undef_int();
   
-  __VERIFIER_assume(ret > 0);
+  if(!(ret > 0)) {abort();}
   
   return ret;
 }
@@ -1411,7 +1411,7 @@ int ldv_undef_int_negative(void)
   
   int ret = ldv_undef_int();
   
-  __VERIFIER_assume(ret < 0);
+  if(!(ret < 0)) {abort();}
   
   return ret;
 }
@@ -1422,7 +1422,7 @@ int ldv_undef_int_nonpositive(void)
   
   int ret = ldv_undef_int();
   
-  __VERIFIER_assume(ret <= 0);
+  if(!(ret <= 0)) {abort();}
   
   return ret;
 }
@@ -1450,7 +1450,7 @@ void *ldv_reference_malloc(size_t size)
     
     res = malloc(size);
     
-    __VERIFIER_assume(res != (void *)0);
+    if(!(res != (void *)0)) {abort();}
     
     __retres = res;
     
@@ -1528,7 +1528,7 @@ void *ldv_reference_realloc(void *ptr, size_t size)
     
     res = malloc(size);
     
-    __VERIFIER_assume(res != (void *)0);
+    if(!(res != (void *)0)) {abort();}
     
     memcpy(res,(void const *)ptr,size);
     
@@ -1555,7 +1555,7 @@ void *ldv_reference_xmalloc(size_t size)
   
   res = malloc(size);
   
-  __VERIFIER_assume(res != (void *)0);
+  if(!(res != (void *)0)) {abort();}
   
   return res;
 }
@@ -1567,7 +1567,7 @@ void *ldv_reference_xzalloc(size_t size)
   
   res = calloc(1UL,size);
   
-  __VERIFIER_assume(res != (void *)0);
+  if(!(res != (void *)0)) {abort();}
   
   return res;
 }

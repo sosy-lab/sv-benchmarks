@@ -671,7 +671,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-extern void __VERIFIER_assume(int cond);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int a[10] = {0};
 int x = 0;
@@ -684,7 +684,7 @@ int main(int argc, char* argv[]) {
   pthread_t t[10];
   int i;
   int n = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(n >= (10/2) && n <= 10);
+  if(!(n >= (10/2) && n <= 10)) {abort();}
   for (i = 0; i < n; i++) {
     pthread_create(&t[i], 0, thr, 0);
   }

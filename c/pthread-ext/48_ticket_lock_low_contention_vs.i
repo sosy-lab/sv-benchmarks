@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
@@ -676,7 +676,7 @@ volatile unsigned s = 0;
 volatile unsigned t = 0;
 void __VERIFIER_atomic_fetch_and_inc(unsigned * l)
 {
-  __VERIFIER_assume(t != -1);
+  if(!(t != -1)) {abort();}
   *l = t;
   t = t + 1;
 }

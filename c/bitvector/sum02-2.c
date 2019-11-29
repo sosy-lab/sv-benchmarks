@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume();
+extern void abort(void);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -13,7 +13,7 @@ int main() {
   unsigned long long sn=0;
   // n needs to be less than 2^32 such that the multiplication part
   // of the Gauss sum does not exceed the range of unsigned long long
-  __VERIFIER_assume(n < 4294967296U); 
+  if(!(n < 4294967296U)) {abort();} 
   for(i=0; i<=n; i++) {
     sn = sn + i;
   }

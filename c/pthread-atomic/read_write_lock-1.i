@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -673,11 +673,11 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 int w=0, r=0, x, y;
 void __VERIFIER_atomic_take_write_lock() {
-  __VERIFIER_assume(w==0 && r==0);
+  if(!(w==0 && r==0)) {abort();}
   w = 1;
 }
 void __VERIFIER_atomic_take_read_lock() {
-  __VERIFIER_assume(w==0);
+  if(!(w==0)) {abort();}
   r = r+1;
 }
 void __VERIFIER_atomic_release_read_lock() {

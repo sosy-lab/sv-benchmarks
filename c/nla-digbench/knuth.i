@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -14,8 +14,8 @@ int main() {
     unsigned r, k, q, d, s, t;
     n = __VERIFIER_nondet_unsigned_int();
     a = __VERIFIER_nondet_unsigned_int();
-    __VERIFIER_assume(n < (0x7fffffff * 2U + 1U)/8);
-    __VERIFIER_assume(a > 2);
+    if(!(n < (0x7fffffff * 2U + 1U)/8)) {abort();}
+    if(!(a > 2)) {abort();}
     d = a;
     r = n % d;
     t = 0;

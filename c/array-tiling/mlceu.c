@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
 void *malloc(unsigned int size);
@@ -10,7 +10,7 @@ int main()
 {
 	SIZE = __VERIFIER_nondet_int();
 	if(SIZE <= 0) return 1;
-	__VERIFIER_assume(SIZE <= 66060288/sizeof(int));
+	if(!(SIZE <= 66060288/sizeof(int))) {abort();}
 
 	int i;
 	int *a = malloc(sizeof(int)*SIZE);

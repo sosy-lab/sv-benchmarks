@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <stdlib.h>
@@ -28,8 +28,8 @@ int main()
 	t = (pthread_t *)malloc(sizeof(pthread_t) * SIGMA);
 	array = (int *)malloc(sizeof(int) * SIGMA);
 
-	__VERIFIER_assume(t);
-	__VERIFIER_assume(array);
+	if(!(t)) {abort();}
+	if(!(array)) {abort();}
 
 	for (tid=0; tid<SIGMA; tid++) {
 		array_index++;

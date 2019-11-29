@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -675,12 +675,12 @@ extern int pthread_atfork (void (*__prepare) (void),
 int count = 0;
 void __VERIFIER_atomic_acquire(int * m)
 {
- __VERIFIER_assume(*m==0);
+ if(!(*m==0)) {abort();}
  *m = 1;
 }
 void __VERIFIER_atomic_release(int * m)
 {
- __VERIFIER_assume(*m==1);
+ if(!(*m==1)) {abort();}
  *m = 0;
 }
 void __VERIFIER_atomic_inc()

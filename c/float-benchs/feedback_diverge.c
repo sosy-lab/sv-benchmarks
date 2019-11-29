@@ -5,7 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern int  __VERIFIER_nondet_int(void);
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 void wait_for_clock() { }
@@ -22,7 +22,7 @@ int main()
 
     if (__VERIFIER_nondet_int()) {
       X = __VERIFIER_nondet_float();
-      __VERIFIER_assume(X >= -20.f && X <= 20.f);
+      if(!(X >= -20.f && X <= 20.f)) {abort();}
     }
     else {
       X = B;

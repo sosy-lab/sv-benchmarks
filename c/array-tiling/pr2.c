@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
 
@@ -18,7 +18,7 @@ int main()
 
 		if(CELLCOUNT % 2 != 0) { return 1; }
 
-		__VERIFIER_assume(CELLCOUNT % 2 == 0);
+		if(!(CELLCOUNT % 2 == 0)) {abort();}
 		for(i = 1; i <= CELLCOUNT/2; i++)
 		{
 			if(CCCELVOL2 >= MINVAL)

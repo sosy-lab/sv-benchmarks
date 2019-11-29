@@ -4,7 +4,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 union float_int {
@@ -40,7 +40,7 @@ int main()
   float a,r;
  
   a = __VERIFIER_nondet_float();
-  __VERIFIER_assume(a >= 0.1f && a <= 100.f);
+  if(!(a >= 0.1f && a <= 100.f)) {abort();}
 
   r = InvSqrt(a);
 

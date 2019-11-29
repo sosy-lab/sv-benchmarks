@@ -2,16 +2,16 @@ int getlogin_r(char *buf, size_t bufsize)
 {
     if (__VERIFIER_nondet_int()) {
         *bb_errno = __VERIFIER_nondet_int();
-        __VERIFIER_assume(*bb_errno != 0);
+        if(!(*bb_errno != 0)) {abort();}
 
         /* return non-zero */
         int ret = __VERIFIER_nondet_int();
-        __VERIFIER_assume(ret != 0);
+        if(!(ret != 0)) {abort();}
         return ret;
     }
 
     int size = __VERIFIER_nondet_int();
-    __VERIFIER_assume(size > 0 && size < bufsize);
+    if(!(size > 0 && size < bufsize)) {abort();}
     for (int i; i < size; ++i) {
         buf[i] = __VERIFIER_nondet_char();
     }

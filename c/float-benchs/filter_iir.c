@@ -4,7 +4,7 @@ void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -42,7 +42,7 @@ int main()
   while (1) { 
 
     X = __VERIFIER_nondet_double();
-    __VERIFIER_assume(X >= -10. && X <= 10.);
+    if(!(X >= -10. && X <= 10.)) {abort();}
   
     iir4(&X, &P);
 

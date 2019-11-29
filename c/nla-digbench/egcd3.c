@@ -1,7 +1,7 @@
 /* extended Euclid's algorithm */
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -15,8 +15,8 @@ int main() {
     int a, b, p, q, r, s;
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
-    __VERIFIER_assume(x >= 1);
-    __VERIFIER_assume(y >= 1);
+    if(!(x >= 1)) {abort();}
+    if(!(y >= 1)) {abort();}
 
     a = x;
     b = y;

@@ -6,7 +6,7 @@
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -20,8 +20,8 @@ int main() {
     x1 = __VERIFIER_nondet_int();
     x2 = __VERIFIER_nondet_int();
 
-    __VERIFIER_assume(x1 >= 0);
-    __VERIFIER_assume(x2 != 0);
+    if(!(x1 >= 0)) {abort();}
+    if(!(x2 != 0)) {abort();}
 
     y1 = 0;
     y2 = 0;

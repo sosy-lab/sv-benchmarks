@@ -75,7 +75,7 @@ _Bool __VERIFIER_nondet_bool(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 extern int __VERIFIER_nondet_int();
-void __VERIFIER_assume(int arg ) ;
+void abort(void);
 unsigned char __startrek_round  ;
 unsigned char __startrek_task  ;
 unsigned char __startrek_job  ;
@@ -590,382 +590,382 @@ __inline void __startrek_schedule_jobs(void)
   __startrek_end[0] = __VERIFIER_nondet_uchar();
   __startrek_min[0] = __VERIFIER_nondet_uchar();
   __startrek_max[0] = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(24 <= __startrek_start[26]);
-  __VERIFIER_assume(__startrek_end[26] <= 26);
-  __VERIFIER_assume(__startrek_start[26] == __startrek_end[26]);
-  __VERIFIER_assume(__startrek_min[26] == __startrek_start[26]);
-  __VERIFIER_assume(__startrek_max[26] == __startrek_end[26]);
-  __VERIFIER_assume(23 <= __startrek_start[25]);
-  __VERIFIER_assume(__startrek_end[25] <= 25);
-  __VERIFIER_assume(__startrek_max[25] < __startrek_min[26]);
-  __VERIFIER_assume(__startrek_start[25] == __startrek_end[25]);
-  __VERIFIER_assume(__startrek_min[25] == __startrek_start[25]);
-  __VERIFIER_assume(__startrek_max[25] == __startrek_end[25]);
-  __VERIFIER_assume(22 <= __startrek_start[24]);
-  __VERIFIER_assume(__startrek_end[24] <= 24);
-  __VERIFIER_assume(__startrek_max[24] < __startrek_min[25]);
-  __VERIFIER_assume(__startrek_start[24] == __startrek_end[24]);
-  __VERIFIER_assume(__startrek_min[24] == __startrek_start[24]);
-  __VERIFIER_assume(__startrek_max[24] == __startrek_end[24]);
-  __VERIFIER_assume(21 <= __startrek_start[23]);
-  __VERIFIER_assume(__startrek_end[23] <= 23);
-  __VERIFIER_assume(__startrek_max[23] < __startrek_min[24]);
-  __VERIFIER_assume(__startrek_start[23] == __startrek_end[23]);
-  __VERIFIER_assume(__startrek_min[23] == __startrek_start[23]);
-  __VERIFIER_assume(__startrek_max[23] == __startrek_end[23]);
-  __VERIFIER_assume(20 <= __startrek_start[22]);
-  __VERIFIER_assume(__startrek_end[22] <= 22);
-  __VERIFIER_assume(__startrek_max[22] < __startrek_min[23]);
-  __VERIFIER_assume(__startrek_start[22] == __startrek_end[22]);
-  __VERIFIER_assume(__startrek_min[22] == __startrek_start[22]);
-  __VERIFIER_assume(__startrek_max[22] == __startrek_end[22]);
-  __VERIFIER_assume(19 <= __startrek_start[21]);
-  __VERIFIER_assume(__startrek_end[21] <= 21);
-  __VERIFIER_assume(__startrek_max[21] < __startrek_min[22]);
-  __VERIFIER_assume(__startrek_start[21] == __startrek_end[21]);
-  __VERIFIER_assume(__startrek_min[21] == __startrek_start[21]);
-  __VERIFIER_assume(__startrek_max[21] == __startrek_end[21]);
-  __VERIFIER_assume(18 <= __startrek_start[20]);
-  __VERIFIER_assume(__startrek_end[20] <= 20);
-  __VERIFIER_assume(__startrek_max[20] < __startrek_min[21]);
-  __VERIFIER_assume(__startrek_start[20] == __startrek_end[20]);
-  __VERIFIER_assume(__startrek_min[20] == __startrek_start[20]);
-  __VERIFIER_assume(__startrek_max[20] == __startrek_end[20]);
-  __VERIFIER_assume(17 <= __startrek_start[19]);
-  __VERIFIER_assume(__startrek_end[19] <= 19);
-  __VERIFIER_assume(__startrek_max[19] < __startrek_min[20]);
-  __VERIFIER_assume(__startrek_start[19] == __startrek_end[19]);
-  __VERIFIER_assume(__startrek_min[19] == __startrek_start[19]);
-  __VERIFIER_assume(__startrek_max[19] == __startrek_end[19]);
-  __VERIFIER_assume(16 <= __startrek_start[18]);
-  __VERIFIER_assume(__startrek_end[18] <= 18);
-  __VERIFIER_assume(__startrek_max[18] < __startrek_min[19]);
-  __VERIFIER_assume(__startrek_start[18] == __startrek_end[18]);
-  __VERIFIER_assume(__startrek_min[18] == __startrek_start[18]);
-  __VERIFIER_assume(__startrek_max[18] == __startrek_end[18]);
-  __VERIFIER_assume(15 <= __startrek_start[17]);
-  __VERIFIER_assume(__startrek_end[17] <= 17);
-  __VERIFIER_assume(__startrek_max[17] < __startrek_min[18]);
-  __VERIFIER_assume(__startrek_start[17] == __startrek_end[17]);
-  __VERIFIER_assume(__startrek_min[17] == __startrek_start[17]);
-  __VERIFIER_assume(__startrek_max[17] == __startrek_end[17]);
-  __VERIFIER_assume(14 <= __startrek_start[16]);
-  __VERIFIER_assume(__startrek_end[16] <= 16);
-  __VERIFIER_assume(__startrek_max[16] < __startrek_min[17]);
-  __VERIFIER_assume(__startrek_start[16] == __startrek_end[16]);
-  __VERIFIER_assume(__startrek_min[16] == __startrek_start[16]);
-  __VERIFIER_assume(__startrek_max[16] == __startrek_end[16]);
-  __VERIFIER_assume(13 <= __startrek_start[15]);
-  __VERIFIER_assume(__startrek_end[15] <= 15);
-  __VERIFIER_assume(__startrek_max[15] < __startrek_min[16]);
-  __VERIFIER_assume(__startrek_start[15] == __startrek_end[15]);
-  __VERIFIER_assume(__startrek_min[15] == __startrek_start[15]);
-  __VERIFIER_assume(__startrek_max[15] == __startrek_end[15]);
-  __VERIFIER_assume(13 <= __startrek_start[14]);
-  __VERIFIER_assume(__startrek_end[14] <= 26);
-  __VERIFIER_assume(__startrek_start[14] <= __startrek_end[14]);
+  if(!(24 <= __startrek_start[26])) {abort();}
+  if(!(__startrek_end[26] <= 26)) {abort();}
+  if(!(__startrek_start[26] == __startrek_end[26])) {abort();}
+  if(!(__startrek_min[26] == __startrek_start[26])) {abort();}
+  if(!(__startrek_max[26] == __startrek_end[26])) {abort();}
+  if(!(23 <= __startrek_start[25])) {abort();}
+  if(!(__startrek_end[25] <= 25)) {abort();}
+  if(!(__startrek_max[25] < __startrek_min[26])) {abort();}
+  if(!(__startrek_start[25] == __startrek_end[25])) {abort();}
+  if(!(__startrek_min[25] == __startrek_start[25])) {abort();}
+  if(!(__startrek_max[25] == __startrek_end[25])) {abort();}
+  if(!(22 <= __startrek_start[24])) {abort();}
+  if(!(__startrek_end[24] <= 24)) {abort();}
+  if(!(__startrek_max[24] < __startrek_min[25])) {abort();}
+  if(!(__startrek_start[24] == __startrek_end[24])) {abort();}
+  if(!(__startrek_min[24] == __startrek_start[24])) {abort();}
+  if(!(__startrek_max[24] == __startrek_end[24])) {abort();}
+  if(!(21 <= __startrek_start[23])) {abort();}
+  if(!(__startrek_end[23] <= 23)) {abort();}
+  if(!(__startrek_max[23] < __startrek_min[24])) {abort();}
+  if(!(__startrek_start[23] == __startrek_end[23])) {abort();}
+  if(!(__startrek_min[23] == __startrek_start[23])) {abort();}
+  if(!(__startrek_max[23] == __startrek_end[23])) {abort();}
+  if(!(20 <= __startrek_start[22])) {abort();}
+  if(!(__startrek_end[22] <= 22)) {abort();}
+  if(!(__startrek_max[22] < __startrek_min[23])) {abort();}
+  if(!(__startrek_start[22] == __startrek_end[22])) {abort();}
+  if(!(__startrek_min[22] == __startrek_start[22])) {abort();}
+  if(!(__startrek_max[22] == __startrek_end[22])) {abort();}
+  if(!(19 <= __startrek_start[21])) {abort();}
+  if(!(__startrek_end[21] <= 21)) {abort();}
+  if(!(__startrek_max[21] < __startrek_min[22])) {abort();}
+  if(!(__startrek_start[21] == __startrek_end[21])) {abort();}
+  if(!(__startrek_min[21] == __startrek_start[21])) {abort();}
+  if(!(__startrek_max[21] == __startrek_end[21])) {abort();}
+  if(!(18 <= __startrek_start[20])) {abort();}
+  if(!(__startrek_end[20] <= 20)) {abort();}
+  if(!(__startrek_max[20] < __startrek_min[21])) {abort();}
+  if(!(__startrek_start[20] == __startrek_end[20])) {abort();}
+  if(!(__startrek_min[20] == __startrek_start[20])) {abort();}
+  if(!(__startrek_max[20] == __startrek_end[20])) {abort();}
+  if(!(17 <= __startrek_start[19])) {abort();}
+  if(!(__startrek_end[19] <= 19)) {abort();}
+  if(!(__startrek_max[19] < __startrek_min[20])) {abort();}
+  if(!(__startrek_start[19] == __startrek_end[19])) {abort();}
+  if(!(__startrek_min[19] == __startrek_start[19])) {abort();}
+  if(!(__startrek_max[19] == __startrek_end[19])) {abort();}
+  if(!(16 <= __startrek_start[18])) {abort();}
+  if(!(__startrek_end[18] <= 18)) {abort();}
+  if(!(__startrek_max[18] < __startrek_min[19])) {abort();}
+  if(!(__startrek_start[18] == __startrek_end[18])) {abort();}
+  if(!(__startrek_min[18] == __startrek_start[18])) {abort();}
+  if(!(__startrek_max[18] == __startrek_end[18])) {abort();}
+  if(!(15 <= __startrek_start[17])) {abort();}
+  if(!(__startrek_end[17] <= 17)) {abort();}
+  if(!(__startrek_max[17] < __startrek_min[18])) {abort();}
+  if(!(__startrek_start[17] == __startrek_end[17])) {abort();}
+  if(!(__startrek_min[17] == __startrek_start[17])) {abort();}
+  if(!(__startrek_max[17] == __startrek_end[17])) {abort();}
+  if(!(14 <= __startrek_start[16])) {abort();}
+  if(!(__startrek_end[16] <= 16)) {abort();}
+  if(!(__startrek_max[16] < __startrek_min[17])) {abort();}
+  if(!(__startrek_start[16] == __startrek_end[16])) {abort();}
+  if(!(__startrek_min[16] == __startrek_start[16])) {abort();}
+  if(!(__startrek_max[16] == __startrek_end[16])) {abort();}
+  if(!(13 <= __startrek_start[15])) {abort();}
+  if(!(__startrek_end[15] <= 15)) {abort();}
+  if(!(__startrek_max[15] < __startrek_min[16])) {abort();}
+  if(!(__startrek_start[15] == __startrek_end[15])) {abort();}
+  if(!(__startrek_min[15] == __startrek_start[15])) {abort();}
+  if(!(__startrek_max[15] == __startrek_end[15])) {abort();}
+  if(!(13 <= __startrek_start[14])) {abort();}
+  if(!(__startrek_end[14] <= 26)) {abort();}
+  if(!(__startrek_start[14] <= __startrek_end[14])) {abort();}
   if (__startrek_start[14] < __startrek_min[15]) {
-    __VERIFIER_assume(__startrek_min[14] == __startrek_start[14]);
+    if(!(__startrek_min[14] == __startrek_start[14])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_min[14] == __startrek_min[15]);
+    if(!(__startrek_min[14] == __startrek_min[15])) {abort();}
   }
   if (__startrek_end[14] > __startrek_max[26]) {
-    __VERIFIER_assume(__startrek_max[14] == __startrek_end[14]);
+    if(!(__startrek_max[14] == __startrek_end[14])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_max[14] == __startrek_max[26]);
+    if(!(__startrek_max[14] == __startrek_max[26])) {abort();}
   }
-  __VERIFIER_assume(11 <= __startrek_start[13]);
-  __VERIFIER_assume(__startrek_end[13] <= 13);
-  __VERIFIER_assume(__startrek_start[13] == __startrek_end[13]);
-  __VERIFIER_assume(__startrek_min[13] == __startrek_start[13]);
-  __VERIFIER_assume(__startrek_max[13] == __startrek_end[13]);
-  __VERIFIER_assume(10 <= __startrek_start[12]);
-  __VERIFIER_assume(__startrek_end[12] <= 12);
-  __VERIFIER_assume(__startrek_max[12] < __startrek_min[13]);
-  __VERIFIER_assume(__startrek_start[12] == __startrek_end[12]);
-  __VERIFIER_assume(__startrek_min[12] == __startrek_start[12]);
-  __VERIFIER_assume(__startrek_max[12] == __startrek_end[12]);
-  __VERIFIER_assume(9 <= __startrek_start[11]);
-  __VERIFIER_assume(__startrek_end[11] <= 11);
-  __VERIFIER_assume(__startrek_max[11] < __startrek_min[12]);
-  __VERIFIER_assume(__startrek_start[11] == __startrek_end[11]);
-  __VERIFIER_assume(__startrek_min[11] == __startrek_start[11]);
-  __VERIFIER_assume(__startrek_max[11] == __startrek_end[11]);
-  __VERIFIER_assume(8 <= __startrek_start[10]);
-  __VERIFIER_assume(__startrek_end[10] <= 10);
-  __VERIFIER_assume(__startrek_max[10] < __startrek_min[11]);
-  __VERIFIER_assume(__startrek_start[10] == __startrek_end[10]);
-  __VERIFIER_assume(__startrek_min[10] == __startrek_start[10]);
-  __VERIFIER_assume(__startrek_max[10] == __startrek_end[10]);
-  __VERIFIER_assume(7 <= __startrek_start[9]);
-  __VERIFIER_assume(__startrek_end[9] <= 9);
-  __VERIFIER_assume(__startrek_max[9] < __startrek_min[10]);
-  __VERIFIER_assume(__startrek_start[9] == __startrek_end[9]);
-  __VERIFIER_assume(__startrek_min[9] == __startrek_start[9]);
-  __VERIFIER_assume(__startrek_max[9] == __startrek_end[9]);
-  __VERIFIER_assume(6 <= __startrek_start[8]);
-  __VERIFIER_assume(__startrek_end[8] <= 8);
-  __VERIFIER_assume(__startrek_max[8] < __startrek_min[9]);
-  __VERIFIER_assume(__startrek_start[8] == __startrek_end[8]);
-  __VERIFIER_assume(__startrek_min[8] == __startrek_start[8]);
-  __VERIFIER_assume(__startrek_max[8] == __startrek_end[8]);
-  __VERIFIER_assume(5 <= __startrek_start[7]);
-  __VERIFIER_assume(__startrek_end[7] <= 7);
-  __VERIFIER_assume(__startrek_max[7] < __startrek_min[8]);
-  __VERIFIER_assume(__startrek_start[7] == __startrek_end[7]);
-  __VERIFIER_assume(__startrek_min[7] == __startrek_start[7]);
-  __VERIFIER_assume(__startrek_max[7] == __startrek_end[7]);
-  __VERIFIER_assume(4 <= __startrek_start[6]);
-  __VERIFIER_assume(__startrek_end[6] <= 6);
-  __VERIFIER_assume(__startrek_max[6] < __startrek_min[7]);
-  __VERIFIER_assume(__startrek_start[6] == __startrek_end[6]);
-  __VERIFIER_assume(__startrek_min[6] == __startrek_start[6]);
-  __VERIFIER_assume(__startrek_max[6] == __startrek_end[6]);
-  __VERIFIER_assume(3 <= __startrek_start[5]);
-  __VERIFIER_assume(__startrek_end[5] <= 5);
-  __VERIFIER_assume(__startrek_max[5] < __startrek_min[6]);
-  __VERIFIER_assume(__startrek_start[5] == __startrek_end[5]);
-  __VERIFIER_assume(__startrek_min[5] == __startrek_start[5]);
-  __VERIFIER_assume(__startrek_max[5] == __startrek_end[5]);
-  __VERIFIER_assume(2 <= __startrek_start[4]);
-  __VERIFIER_assume(__startrek_end[4] <= 4);
-  __VERIFIER_assume(__startrek_max[4] < __startrek_min[5]);
-  __VERIFIER_assume(__startrek_start[4] == __startrek_end[4]);
-  __VERIFIER_assume(__startrek_min[4] == __startrek_start[4]);
-  __VERIFIER_assume(__startrek_max[4] == __startrek_end[4]);
-  __VERIFIER_assume(1 <= __startrek_start[3]);
-  __VERIFIER_assume(__startrek_end[3] <= 3);
-  __VERIFIER_assume(__startrek_max[3] < __startrek_min[4]);
-  __VERIFIER_assume(__startrek_start[3] == __startrek_end[3]);
-  __VERIFIER_assume(__startrek_min[3] == __startrek_start[3]);
-  __VERIFIER_assume(__startrek_max[3] == __startrek_end[3]);
-  __VERIFIER_assume(0 <= __startrek_start[2]);
-  __VERIFIER_assume(__startrek_end[2] <= 2);
-  __VERIFIER_assume(__startrek_max[2] < __startrek_min[3]);
-  __VERIFIER_assume(__startrek_start[2] == __startrek_end[2]);
-  __VERIFIER_assume(__startrek_min[2] == __startrek_start[2]);
-  __VERIFIER_assume(__startrek_max[2] == __startrek_end[2]);
-  __VERIFIER_assume(0 <= __startrek_start[1]);
-  __VERIFIER_assume(__startrek_end[1] <= 13);
-  __VERIFIER_assume(__startrek_max[1] < __startrek_min[14]);
-  __VERIFIER_assume(__startrek_start[1] <= __startrek_end[1]);
+  if(!(11 <= __startrek_start[13])) {abort();}
+  if(!(__startrek_end[13] <= 13)) {abort();}
+  if(!(__startrek_start[13] == __startrek_end[13])) {abort();}
+  if(!(__startrek_min[13] == __startrek_start[13])) {abort();}
+  if(!(__startrek_max[13] == __startrek_end[13])) {abort();}
+  if(!(10 <= __startrek_start[12])) {abort();}
+  if(!(__startrek_end[12] <= 12)) {abort();}
+  if(!(__startrek_max[12] < __startrek_min[13])) {abort();}
+  if(!(__startrek_start[12] == __startrek_end[12])) {abort();}
+  if(!(__startrek_min[12] == __startrek_start[12])) {abort();}
+  if(!(__startrek_max[12] == __startrek_end[12])) {abort();}
+  if(!(9 <= __startrek_start[11])) {abort();}
+  if(!(__startrek_end[11] <= 11)) {abort();}
+  if(!(__startrek_max[11] < __startrek_min[12])) {abort();}
+  if(!(__startrek_start[11] == __startrek_end[11])) {abort();}
+  if(!(__startrek_min[11] == __startrek_start[11])) {abort();}
+  if(!(__startrek_max[11] == __startrek_end[11])) {abort();}
+  if(!(8 <= __startrek_start[10])) {abort();}
+  if(!(__startrek_end[10] <= 10)) {abort();}
+  if(!(__startrek_max[10] < __startrek_min[11])) {abort();}
+  if(!(__startrek_start[10] == __startrek_end[10])) {abort();}
+  if(!(__startrek_min[10] == __startrek_start[10])) {abort();}
+  if(!(__startrek_max[10] == __startrek_end[10])) {abort();}
+  if(!(7 <= __startrek_start[9])) {abort();}
+  if(!(__startrek_end[9] <= 9)) {abort();}
+  if(!(__startrek_max[9] < __startrek_min[10])) {abort();}
+  if(!(__startrek_start[9] == __startrek_end[9])) {abort();}
+  if(!(__startrek_min[9] == __startrek_start[9])) {abort();}
+  if(!(__startrek_max[9] == __startrek_end[9])) {abort();}
+  if(!(6 <= __startrek_start[8])) {abort();}
+  if(!(__startrek_end[8] <= 8)) {abort();}
+  if(!(__startrek_max[8] < __startrek_min[9])) {abort();}
+  if(!(__startrek_start[8] == __startrek_end[8])) {abort();}
+  if(!(__startrek_min[8] == __startrek_start[8])) {abort();}
+  if(!(__startrek_max[8] == __startrek_end[8])) {abort();}
+  if(!(5 <= __startrek_start[7])) {abort();}
+  if(!(__startrek_end[7] <= 7)) {abort();}
+  if(!(__startrek_max[7] < __startrek_min[8])) {abort();}
+  if(!(__startrek_start[7] == __startrek_end[7])) {abort();}
+  if(!(__startrek_min[7] == __startrek_start[7])) {abort();}
+  if(!(__startrek_max[7] == __startrek_end[7])) {abort();}
+  if(!(4 <= __startrek_start[6])) {abort();}
+  if(!(__startrek_end[6] <= 6)) {abort();}
+  if(!(__startrek_max[6] < __startrek_min[7])) {abort();}
+  if(!(__startrek_start[6] == __startrek_end[6])) {abort();}
+  if(!(__startrek_min[6] == __startrek_start[6])) {abort();}
+  if(!(__startrek_max[6] == __startrek_end[6])) {abort();}
+  if(!(3 <= __startrek_start[5])) {abort();}
+  if(!(__startrek_end[5] <= 5)) {abort();}
+  if(!(__startrek_max[5] < __startrek_min[6])) {abort();}
+  if(!(__startrek_start[5] == __startrek_end[5])) {abort();}
+  if(!(__startrek_min[5] == __startrek_start[5])) {abort();}
+  if(!(__startrek_max[5] == __startrek_end[5])) {abort();}
+  if(!(2 <= __startrek_start[4])) {abort();}
+  if(!(__startrek_end[4] <= 4)) {abort();}
+  if(!(__startrek_max[4] < __startrek_min[5])) {abort();}
+  if(!(__startrek_start[4] == __startrek_end[4])) {abort();}
+  if(!(__startrek_min[4] == __startrek_start[4])) {abort();}
+  if(!(__startrek_max[4] == __startrek_end[4])) {abort();}
+  if(!(1 <= __startrek_start[3])) {abort();}
+  if(!(__startrek_end[3] <= 3)) {abort();}
+  if(!(__startrek_max[3] < __startrek_min[4])) {abort();}
+  if(!(__startrek_start[3] == __startrek_end[3])) {abort();}
+  if(!(__startrek_min[3] == __startrek_start[3])) {abort();}
+  if(!(__startrek_max[3] == __startrek_end[3])) {abort();}
+  if(!(0 <= __startrek_start[2])) {abort();}
+  if(!(__startrek_end[2] <= 2)) {abort();}
+  if(!(__startrek_max[2] < __startrek_min[3])) {abort();}
+  if(!(__startrek_start[2] == __startrek_end[2])) {abort();}
+  if(!(__startrek_min[2] == __startrek_start[2])) {abort();}
+  if(!(__startrek_max[2] == __startrek_end[2])) {abort();}
+  if(!(0 <= __startrek_start[1])) {abort();}
+  if(!(__startrek_end[1] <= 13)) {abort();}
+  if(!(__startrek_max[1] < __startrek_min[14])) {abort();}
+  if(!(__startrek_start[1] <= __startrek_end[1])) {abort();}
   if (__startrek_start[1] < __startrek_min[2]) {
-    __VERIFIER_assume(__startrek_min[1] == __startrek_start[1]);
+    if(!(__startrek_min[1] == __startrek_start[1])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_min[1] == __startrek_min[2]);
+    if(!(__startrek_min[1] == __startrek_min[2])) {abort();}
   }
   if (__startrek_end[1] > __startrek_max[13]) {
-    __VERIFIER_assume(__startrek_max[1] == __startrek_end[1]);
+    if(!(__startrek_max[1] == __startrek_end[1])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_max[1] == __startrek_max[13]);
+    if(!(__startrek_max[1] == __startrek_max[13])) {abort();}
   }
-  __VERIFIER_assume(0 <= __startrek_start[0]);
-  __VERIFIER_assume(__startrek_end[0] <= 26);
-  __VERIFIER_assume(__startrek_start[0] <= __startrek_end[0]);
+  if(!(0 <= __startrek_start[0])) {abort();}
+  if(!(__startrek_end[0] <= 26)) {abort();}
+  if(!(__startrek_start[0] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] < __startrek_min[1]) {
-    __VERIFIER_assume(__startrek_min[0] == __startrek_start[0]);
+    if(!(__startrek_min[0] == __startrek_start[0])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_min[0] == __startrek_min[1]);
+    if(!(__startrek_min[0] == __startrek_min[1])) {abort();}
   }
   if (__startrek_end[0] > __startrek_max[14]) {
-    __VERIFIER_assume(__startrek_max[0] == __startrek_end[0]);
+    if(!(__startrek_max[0] == __startrek_end[0])) {abort();}
   } else {
-    __VERIFIER_assume(__startrek_max[0] == __startrek_max[14]);
+    if(!(__startrek_max[0] == __startrek_max[14])) {abort();}
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[0]);
-  __VERIFIER_assume(__startrek_end[2] < __startrek_start[1]);
-  __VERIFIER_assume(__startrek_end[2] < __startrek_start[0]);
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[3]);
-  __VERIFIER_assume(__startrek_end[3] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[0])) {abort();}
+  if(!(__startrek_end[2] < __startrek_start[1])) {abort();}
+  if(!(__startrek_end[2] < __startrek_start[0])) {abort();}
+  if(!(__startrek_end[1] < __startrek_start[3])) {abort();}
+  if(!(__startrek_end[3] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[3]) {
     if (__startrek_start[3] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[3]);
-      __VERIFIER_assume(__startrek_end[3] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[3])) {abort();}
+      if(!(__startrek_end[3] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[4]);
-  __VERIFIER_assume(__startrek_end[4] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[4])) {abort();}
+  if(!(__startrek_end[4] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[4]) {
     if (__startrek_start[4] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[4]);
-      __VERIFIER_assume(__startrek_end[4] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[4])) {abort();}
+      if(!(__startrek_end[4] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[5]);
-  __VERIFIER_assume(__startrek_end[5] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[5])) {abort();}
+  if(!(__startrek_end[5] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[5]) {
     if (__startrek_start[5] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[5]);
-      __VERIFIER_assume(__startrek_end[5] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[5])) {abort();}
+      if(!(__startrek_end[5] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[6]);
-  __VERIFIER_assume(__startrek_end[6] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[6])) {abort();}
+  if(!(__startrek_end[6] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[6]) {
     if (__startrek_start[6] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[6]);
-      __VERIFIER_assume(__startrek_end[6] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[6])) {abort();}
+      if(!(__startrek_end[6] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[7]);
-  __VERIFIER_assume(__startrek_end[7] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[7])) {abort();}
+  if(!(__startrek_end[7] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[7]) {
     if (__startrek_start[7] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[7]);
-      __VERIFIER_assume(__startrek_end[7] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[7])) {abort();}
+      if(!(__startrek_end[7] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[8]);
-  __VERIFIER_assume(__startrek_end[8] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[8])) {abort();}
+  if(!(__startrek_end[8] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[8]) {
     if (__startrek_start[8] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[8]);
-      __VERIFIER_assume(__startrek_end[8] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[8])) {abort();}
+      if(!(__startrek_end[8] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[9]);
-  __VERIFIER_assume(__startrek_end[9] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[9])) {abort();}
+  if(!(__startrek_end[9] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[9]) {
     if (__startrek_start[9] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[9]);
-      __VERIFIER_assume(__startrek_end[9] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[9])) {abort();}
+      if(!(__startrek_end[9] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[10]);
-  __VERIFIER_assume(__startrek_end[10] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[10])) {abort();}
+  if(!(__startrek_end[10] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[10]) {
     if (__startrek_start[10] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[10]);
-      __VERIFIER_assume(__startrek_end[10] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[10])) {abort();}
+      if(!(__startrek_end[10] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[11]);
-  __VERIFIER_assume(__startrek_end[11] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[11])) {abort();}
+  if(!(__startrek_end[11] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[11]) {
     if (__startrek_start[11] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[11]);
-      __VERIFIER_assume(__startrek_end[11] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[11])) {abort();}
+      if(!(__startrek_end[11] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[12]);
-  __VERIFIER_assume(__startrek_end[12] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[12])) {abort();}
+  if(!(__startrek_end[12] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[12]) {
     if (__startrek_start[12] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[12]);
-      __VERIFIER_assume(__startrek_end[12] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[12])) {abort();}
+      if(!(__startrek_end[12] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[1] < __startrek_start[13]);
-  __VERIFIER_assume(__startrek_end[13] <= __startrek_end[0]);
+  if(!(__startrek_end[1] < __startrek_start[13])) {abort();}
+  if(!(__startrek_end[13] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[13]) {
     if (__startrek_start[13] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[13]);
-      __VERIFIER_assume(__startrek_end[13] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[13])) {abort();}
+      if(!(__startrek_end[13] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] <= __startrek_end[0]);
+  if(!(__startrek_end[14] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[14]) {
     if (__startrek_start[14] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[14]);
-      __VERIFIER_assume(__startrek_end[14] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[14])) {abort();}
+      if(!(__startrek_end[14] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[15] < __startrek_start[14]);
-  __VERIFIER_assume(__startrek_end[15] <= __startrek_end[0]);
+  if(!(__startrek_end[15] < __startrek_start[14])) {abort();}
+  if(!(__startrek_end[15] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[15]) {
     if (__startrek_start[15] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[15]);
-      __VERIFIER_assume(__startrek_end[15] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[15])) {abort();}
+      if(!(__startrek_end[15] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[16]);
-  __VERIFIER_assume(__startrek_end[16] <= __startrek_end[0]);
+  if(!(__startrek_end[14] < __startrek_start[16])) {abort();}
+  if(!(__startrek_end[16] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[16]) {
     if (__startrek_start[16] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[16]);
-      __VERIFIER_assume(__startrek_end[16] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[16])) {abort();}
+      if(!(__startrek_end[16] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[17]);
-  __VERIFIER_assume(__startrek_end[17] <= __startrek_end[0]);
+  if(!(__startrek_end[14] < __startrek_start[17])) {abort();}
+  if(!(__startrek_end[17] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[17]) {
     if (__startrek_start[17] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[17]);
-      __VERIFIER_assume(__startrek_end[17] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[17])) {abort();}
+      if(!(__startrek_end[17] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[18]);
-  __VERIFIER_assume(__startrek_end[18] <= __startrek_end[0]);
+  if(!(__startrek_end[14] < __startrek_start[18])) {abort();}
+  if(!(__startrek_end[18] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[18]) {
     if (__startrek_start[18] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[18]);
-      __VERIFIER_assume(__startrek_end[18] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[18])) {abort();}
+      if(!(__startrek_end[18] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[19]);
-  __VERIFIER_assume(__startrek_end[19] <= __startrek_end[0]);
+  if(!(__startrek_end[14] < __startrek_start[19])) {abort();}
+  if(!(__startrek_end[19] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[19]) {
     if (__startrek_start[19] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[19]);
-      __VERIFIER_assume(__startrek_end[19] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[19])) {abort();}
+      if(!(__startrek_end[19] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[20]);
-  __VERIFIER_assume(__startrek_end[20] <= __startrek_end[0]);
+  if(!(__startrek_end[14] < __startrek_start[20])) {abort();}
+  if(!(__startrek_end[20] <= __startrek_end[0])) {abort();}
   if (__startrek_start[0] <= __startrek_end[20]) {
     if (__startrek_start[20] <= __startrek_end[0]) {
       {
-      __VERIFIER_assume(__startrek_start[0] <= __startrek_start[20]);
-      __VERIFIER_assume(__startrek_end[20] < __startrek_end[0]);
+      if(!(__startrek_start[0] <= __startrek_start[20])) {abort();}
+      if(!(__startrek_end[20] < __startrek_end[0])) {abort();}
       }
     }
   }
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[21]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[21]);
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[22]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[22]);
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[23]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[23]);
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[24]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[24]);
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[25]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[25]);
-  __VERIFIER_assume(__startrek_end[14] < __startrek_start[26]);
-  __VERIFIER_assume(__startrek_end[0] < __startrek_start[26]);
+  if(!(__startrek_end[14] < __startrek_start[21])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[21])) {abort();}
+  if(!(__startrek_end[14] < __startrek_start[22])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[22])) {abort();}
+  if(!(__startrek_end[14] < __startrek_start[23])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[23])) {abort();}
+  if(!(__startrek_end[14] < __startrek_start[24])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[24])) {abort();}
+  if(!(__startrek_end[14] < __startrek_start[25])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[25])) {abort();}
+  if(!(__startrek_end[14] < __startrek_start[26])) {abort();}
+  if(!(__startrek_end[0] < __startrek_start[26])) {abort();}
 }
 }
 __inline void __startrek_init_globals(void) 
@@ -1198,89 +1198,89 @@ __inline static _Bool __startrek_cs_t0(void)
   }
   o2 = __startrek_round;
   __startrek_round = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(__startrek_round > o2);
-  __VERIFIER_assume(__startrek_round <= __startrek_job_end);
+  if(!(__startrek_round > o2)) {abort();}
+  if(!(__startrek_round <= __startrek_job_end)) {abort();}
   if (__startrek_round != __startrek_job_end) {
     {
     switch (__startrek_job) {
     case 0: 
     if (__startrek_start[26] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[26]);
+      if(!(__startrek_round > __startrek_end[26])) {abort();}
     }
     if (__startrek_start[25] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[25]);
+      if(!(__startrek_round > __startrek_end[25])) {abort();}
     }
     if (__startrek_start[24] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[24]);
+      if(!(__startrek_round > __startrek_end[24])) {abort();}
     }
     if (__startrek_start[23] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[23]);
+      if(!(__startrek_round > __startrek_end[23])) {abort();}
     }
     if (__startrek_start[22] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[22]);
+      if(!(__startrek_round > __startrek_end[22])) {abort();}
     }
     if (__startrek_start[21] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[21]);
+      if(!(__startrek_round > __startrek_end[21])) {abort();}
     }
     if (__startrek_start[20] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[20]);
+      if(!(__startrek_round > __startrek_end[20])) {abort();}
     }
     if (__startrek_start[19] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[19]);
+      if(!(__startrek_round > __startrek_end[19])) {abort();}
     }
     if (__startrek_start[18] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[18]);
+      if(!(__startrek_round > __startrek_end[18])) {abort();}
     }
     if (__startrek_start[17] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[17]);
+      if(!(__startrek_round > __startrek_end[17])) {abort();}
     }
     if (__startrek_start[16] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[16]);
+      if(!(__startrek_round > __startrek_end[16])) {abort();}
     }
     if (__startrek_start[15] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[15]);
+      if(!(__startrek_round > __startrek_end[15])) {abort();}
     }
     if (__startrek_start[14] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[14]);
+      if(!(__startrek_round > __startrek_end[14])) {abort();}
     }
     if (__startrek_start[13] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[13]);
+      if(!(__startrek_round > __startrek_end[13])) {abort();}
     }
     if (__startrek_start[12] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[12]);
+      if(!(__startrek_round > __startrek_end[12])) {abort();}
     }
     if (__startrek_start[11] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[11]);
+      if(!(__startrek_round > __startrek_end[11])) {abort();}
     }
     if (__startrek_start[10] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[10]);
+      if(!(__startrek_round > __startrek_end[10])) {abort();}
     }
     if (__startrek_start[9] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[9]);
+      if(!(__startrek_round > __startrek_end[9])) {abort();}
     }
     if (__startrek_start[8] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[8]);
+      if(!(__startrek_round > __startrek_end[8])) {abort();}
     }
     if (__startrek_start[7] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[7]);
+      if(!(__startrek_round > __startrek_end[7])) {abort();}
     }
     if (__startrek_start[6] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[6]);
+      if(!(__startrek_round > __startrek_end[6])) {abort();}
     }
     if (__startrek_start[5] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[5]);
+      if(!(__startrek_round > __startrek_end[5])) {abort();}
     }
     if (__startrek_start[4] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[4]);
+      if(!(__startrek_round > __startrek_end[4])) {abort();}
     }
     if (__startrek_start[3] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[3]);
+      if(!(__startrek_round > __startrek_end[3])) {abort();}
     }
     if (__startrek_start[2] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[2]);
+      if(!(__startrek_round > __startrek_end[2])) {abort();}
     }
     if (__startrek_start[1] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[1]);
+      if(!(__startrek_round > __startrek_end[1])) {abort();}
     }
     break;
     }
@@ -1304,85 +1304,85 @@ __inline static _Bool __startrek_cs_t1(void)
   }
   o2 = __startrek_round;
   __startrek_round = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(__startrek_round > o2);
-  __VERIFIER_assume(__startrek_round <= __startrek_job_end);
+  if(!(__startrek_round > o2)) {abort();}
+  if(!(__startrek_round <= __startrek_job_end)) {abort();}
   if (__startrek_round != __startrek_job_end) {
     {
     switch (__startrek_job) {
     case 14: 
     if (__startrek_start[26] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[26]);
+      if(!(__startrek_round > __startrek_end[26])) {abort();}
     }
     if (__startrek_start[25] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[25]);
+      if(!(__startrek_round > __startrek_end[25])) {abort();}
     }
     if (__startrek_start[24] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[24]);
+      if(!(__startrek_round > __startrek_end[24])) {abort();}
     }
     if (__startrek_start[23] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[23]);
+      if(!(__startrek_round > __startrek_end[23])) {abort();}
     }
     if (__startrek_start[22] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[22]);
+      if(!(__startrek_round > __startrek_end[22])) {abort();}
     }
     if (__startrek_start[21] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[21]);
+      if(!(__startrek_round > __startrek_end[21])) {abort();}
     }
     if (__startrek_start[20] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[20]);
+      if(!(__startrek_round > __startrek_end[20])) {abort();}
     }
     if (__startrek_start[19] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[19]);
+      if(!(__startrek_round > __startrek_end[19])) {abort();}
     }
     if (__startrek_start[18] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[18]);
+      if(!(__startrek_round > __startrek_end[18])) {abort();}
     }
     if (__startrek_start[17] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[17]);
+      if(!(__startrek_round > __startrek_end[17])) {abort();}
     }
     if (__startrek_start[16] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[16]);
+      if(!(__startrek_round > __startrek_end[16])) {abort();}
     }
     if (__startrek_start[15] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[15]);
+      if(!(__startrek_round > __startrek_end[15])) {abort();}
     }
     break;
     case 1: 
     if (__startrek_start[13] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[13]);
+      if(!(__startrek_round > __startrek_end[13])) {abort();}
     }
     if (__startrek_start[12] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[12]);
+      if(!(__startrek_round > __startrek_end[12])) {abort();}
     }
     if (__startrek_start[11] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[11]);
+      if(!(__startrek_round > __startrek_end[11])) {abort();}
     }
     if (__startrek_start[10] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[10]);
+      if(!(__startrek_round > __startrek_end[10])) {abort();}
     }
     if (__startrek_start[9] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[9]);
+      if(!(__startrek_round > __startrek_end[9])) {abort();}
     }
     if (__startrek_start[8] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[8]);
+      if(!(__startrek_round > __startrek_end[8])) {abort();}
     }
     if (__startrek_start[7] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[7]);
+      if(!(__startrek_round > __startrek_end[7])) {abort();}
     }
     if (__startrek_start[6] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[6]);
+      if(!(__startrek_round > __startrek_end[6])) {abort();}
     }
     if (__startrek_start[5] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[5]);
+      if(!(__startrek_round > __startrek_end[5])) {abort();}
     }
     if (__startrek_start[4] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[4]);
+      if(!(__startrek_round > __startrek_end[4])) {abort();}
     }
     if (__startrek_start[3] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[3]);
+      if(!(__startrek_round > __startrek_end[3])) {abort();}
     }
     if (__startrek_start[2] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end[2]);
+      if(!(__startrek_round > __startrek_end[2])) {abort();}
     }
     break;
     }
@@ -1449,25 +1449,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 2;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 0: 
-  __VERIFIER_assume(_cmd_turn_[0] == _i_cmd_turn_[1]);
-  __VERIFIER_assume(_cmd_forward_[0] == _i_cmd_forward_[1]);
-  __VERIFIER_assume(_obstacle_flag_[0] == _i_obstacle_flag_[1]);
-  __VERIFIER_assume(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1]);
+  if(!(_cmd_turn_[0] == _i_cmd_turn_[1])) {abort();}
+  if(!(_cmd_forward_[0] == _i_cmd_forward_[1])) {abort();}
+  if(!(_obstacle_flag_[0] == _i_obstacle_flag_[1])) {abort();}
+  if(!(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1])) {abort();}
   break;
   case 1: 
-  __VERIFIER_assume(_cmd_turn_[1] == _i_cmd_turn_[2]);
-  __VERIFIER_assume(_cmd_forward_[1] == _i_cmd_forward_[2]);
-  __VERIFIER_assume(_obstacle_flag_[1] == _i_obstacle_flag_[2]);
-  __VERIFIER_assume(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2]);
+  if(!(_cmd_turn_[1] == _i_cmd_turn_[2])) {abort();}
+  if(!(_cmd_forward_[1] == _i_cmd_forward_[2])) {abort();}
+  if(!(_obstacle_flag_[1] == _i_obstacle_flag_[2])) {abort();}
+  if(!(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2])) {abort();}
   break;
   case 2: 
-  __VERIFIER_assume(_cmd_turn_[2] == _i_cmd_turn_[3]);
-  __VERIFIER_assume(_cmd_forward_[2] == _i_cmd_forward_[3]);
-  __VERIFIER_assume(_obstacle_flag_[2] == _i_obstacle_flag_[3]);
-  __VERIFIER_assume(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3]);
+  if(!(_cmd_turn_[2] == _i_cmd_turn_[3])) {abort();}
+  if(!(_cmd_forward_[2] == _i_cmd_forward_[3])) {abort();}
+  if(!(_obstacle_flag_[2] == _i_obstacle_flag_[3])) {abort();}
+  if(!(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1477,91 +1477,91 @@ void __startrek_hyperperiod(void)
   __startrek_job = 1;
   __startrek_Assert_t1_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts2();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 0: 
-  __VERIFIER_assume(_cmd_turn_[0] == _i_cmd_turn_[1]);
-  __VERIFIER_assume(_cmd_forward_[0] == _i_cmd_forward_[1]);
-  __VERIFIER_assume(_obstacle_flag_[0] == _i_obstacle_flag_[1]);
-  __VERIFIER_assume(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1]);
+  if(!(_cmd_turn_[0] == _i_cmd_turn_[1])) {abort();}
+  if(!(_cmd_forward_[0] == _i_cmd_forward_[1])) {abort();}
+  if(!(_obstacle_flag_[0] == _i_obstacle_flag_[1])) {abort();}
+  if(!(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1])) {abort();}
   break;
   case 1: 
-  __VERIFIER_assume(_cmd_turn_[1] == _i_cmd_turn_[2]);
-  __VERIFIER_assume(_cmd_forward_[1] == _i_cmd_forward_[2]);
-  __VERIFIER_assume(_obstacle_flag_[1] == _i_obstacle_flag_[2]);
-  __VERIFIER_assume(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2]);
+  if(!(_cmd_turn_[1] == _i_cmd_turn_[2])) {abort();}
+  if(!(_cmd_forward_[1] == _i_cmd_forward_[2])) {abort();}
+  if(!(_obstacle_flag_[1] == _i_obstacle_flag_[2])) {abort();}
+  if(!(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2])) {abort();}
   break;
   case 2: 
-  __VERIFIER_assume(_cmd_turn_[2] == _i_cmd_turn_[3]);
-  __VERIFIER_assume(_cmd_forward_[2] == _i_cmd_forward_[3]);
-  __VERIFIER_assume(_obstacle_flag_[2] == _i_obstacle_flag_[3]);
-  __VERIFIER_assume(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3]);
+  if(!(_cmd_turn_[2] == _i_cmd_turn_[3])) {abort();}
+  if(!(_cmd_forward_[2] == _i_cmd_forward_[3])) {abort();}
+  if(!(_obstacle_flag_[2] == _i_obstacle_flag_[3])) {abort();}
+  if(!(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3])) {abort();}
   break;
   case 3: 
-  __VERIFIER_assume(_cmd_turn_[3] == _i_cmd_turn_[4]);
-  __VERIFIER_assume(_cmd_forward_[3] == _i_cmd_forward_[4]);
-  __VERIFIER_assume(_obstacle_flag_[3] == _i_obstacle_flag_[4]);
-  __VERIFIER_assume(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4]);
+  if(!(_cmd_turn_[3] == _i_cmd_turn_[4])) {abort();}
+  if(!(_cmd_forward_[3] == _i_cmd_forward_[4])) {abort();}
+  if(!(_obstacle_flag_[3] == _i_obstacle_flag_[4])) {abort();}
+  if(!(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4])) {abort();}
   break;
   case 4: 
-  __VERIFIER_assume(_cmd_turn_[4] == _i_cmd_turn_[5]);
-  __VERIFIER_assume(_cmd_forward_[4] == _i_cmd_forward_[5]);
-  __VERIFIER_assume(_obstacle_flag_[4] == _i_obstacle_flag_[5]);
-  __VERIFIER_assume(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5]);
+  if(!(_cmd_turn_[4] == _i_cmd_turn_[5])) {abort();}
+  if(!(_cmd_forward_[4] == _i_cmd_forward_[5])) {abort();}
+  if(!(_obstacle_flag_[4] == _i_obstacle_flag_[5])) {abort();}
+  if(!(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5])) {abort();}
   break;
   case 5: 
-  __VERIFIER_assume(_cmd_turn_[5] == _i_cmd_turn_[6]);
-  __VERIFIER_assume(_cmd_forward_[5] == _i_cmd_forward_[6]);
-  __VERIFIER_assume(_obstacle_flag_[5] == _i_obstacle_flag_[6]);
-  __VERIFIER_assume(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6]);
+  if(!(_cmd_turn_[5] == _i_cmd_turn_[6])) {abort();}
+  if(!(_cmd_forward_[5] == _i_cmd_forward_[6])) {abort();}
+  if(!(_obstacle_flag_[5] == _i_obstacle_flag_[6])) {abort();}
+  if(!(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6])) {abort();}
   break;
   case 6: 
-  __VERIFIER_assume(_cmd_turn_[6] == _i_cmd_turn_[7]);
-  __VERIFIER_assume(_cmd_forward_[6] == _i_cmd_forward_[7]);
-  __VERIFIER_assume(_obstacle_flag_[6] == _i_obstacle_flag_[7]);
-  __VERIFIER_assume(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7]);
+  if(!(_cmd_turn_[6] == _i_cmd_turn_[7])) {abort();}
+  if(!(_cmd_forward_[6] == _i_cmd_forward_[7])) {abort();}
+  if(!(_obstacle_flag_[6] == _i_obstacle_flag_[7])) {abort();}
+  if(!(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7])) {abort();}
   break;
   case 7: 
-  __VERIFIER_assume(_cmd_turn_[7] == _i_cmd_turn_[8]);
-  __VERIFIER_assume(_cmd_forward_[7] == _i_cmd_forward_[8]);
-  __VERIFIER_assume(_obstacle_flag_[7] == _i_obstacle_flag_[8]);
-  __VERIFIER_assume(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8]);
+  if(!(_cmd_turn_[7] == _i_cmd_turn_[8])) {abort();}
+  if(!(_cmd_forward_[7] == _i_cmd_forward_[8])) {abort();}
+  if(!(_obstacle_flag_[7] == _i_obstacle_flag_[8])) {abort();}
+  if(!(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8])) {abort();}
   break;
   case 8: 
-  __VERIFIER_assume(_cmd_turn_[8] == _i_cmd_turn_[9]);
-  __VERIFIER_assume(_cmd_forward_[8] == _i_cmd_forward_[9]);
-  __VERIFIER_assume(_obstacle_flag_[8] == _i_obstacle_flag_[9]);
-  __VERIFIER_assume(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9]);
+  if(!(_cmd_turn_[8] == _i_cmd_turn_[9])) {abort();}
+  if(!(_cmd_forward_[8] == _i_cmd_forward_[9])) {abort();}
+  if(!(_obstacle_flag_[8] == _i_obstacle_flag_[9])) {abort();}
+  if(!(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9])) {abort();}
   break;
   case 9: 
-  __VERIFIER_assume(_cmd_turn_[9] == _i_cmd_turn_[10]);
-  __VERIFIER_assume(_cmd_forward_[9] == _i_cmd_forward_[10]);
-  __VERIFIER_assume(_obstacle_flag_[9] == _i_obstacle_flag_[10]);
-  __VERIFIER_assume(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10]);
+  if(!(_cmd_turn_[9] == _i_cmd_turn_[10])) {abort();}
+  if(!(_cmd_forward_[9] == _i_cmd_forward_[10])) {abort();}
+  if(!(_obstacle_flag_[9] == _i_obstacle_flag_[10])) {abort();}
+  if(!(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10])) {abort();}
   break;
   case 10: 
-  __VERIFIER_assume(_cmd_turn_[10] == _i_cmd_turn_[11]);
-  __VERIFIER_assume(_cmd_forward_[10] == _i_cmd_forward_[11]);
-  __VERIFIER_assume(_obstacle_flag_[10] == _i_obstacle_flag_[11]);
-  __VERIFIER_assume(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11]);
+  if(!(_cmd_turn_[10] == _i_cmd_turn_[11])) {abort();}
+  if(!(_cmd_forward_[10] == _i_cmd_forward_[11])) {abort();}
+  if(!(_obstacle_flag_[10] == _i_obstacle_flag_[11])) {abort();}
+  if(!(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11])) {abort();}
   break;
   case 11: 
-  __VERIFIER_assume(_cmd_turn_[11] == _i_cmd_turn_[12]);
-  __VERIFIER_assume(_cmd_forward_[11] == _i_cmd_forward_[12]);
-  __VERIFIER_assume(_obstacle_flag_[11] == _i_obstacle_flag_[12]);
-  __VERIFIER_assume(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12]);
+  if(!(_cmd_turn_[11] == _i_cmd_turn_[12])) {abort();}
+  if(!(_cmd_forward_[11] == _i_cmd_forward_[12])) {abort();}
+  if(!(_obstacle_flag_[11] == _i_obstacle_flag_[12])) {abort();}
+  if(!(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12])) {abort();}
   break;
   case 12: 
-  __VERIFIER_assume(_cmd_turn_[12] == _i_cmd_turn_[13]);
-  __VERIFIER_assume(_cmd_forward_[12] == _i_cmd_forward_[13]);
-  __VERIFIER_assume(_obstacle_flag_[12] == _i_obstacle_flag_[13]);
-  __VERIFIER_assume(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13]);
+  if(!(_cmd_turn_[12] == _i_cmd_turn_[13])) {abort();}
+  if(!(_cmd_forward_[12] == _i_cmd_forward_[13])) {abort();}
+  if(!(_obstacle_flag_[12] == _i_obstacle_flag_[13])) {abort();}
+  if(!(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13])) {abort();}
   break;
   case 13: 
-  __VERIFIER_assume(_cmd_turn_[13] == _i_cmd_turn_[14]);
-  __VERIFIER_assume(_cmd_forward_[13] == _i_cmd_forward_[14]);
-  __VERIFIER_assume(_obstacle_flag_[13] == _i_obstacle_flag_[14]);
-  __VERIFIER_assume(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14]);
+  if(!(_cmd_turn_[13] == _i_cmd_turn_[14])) {abort();}
+  if(!(_cmd_forward_[13] == _i_cmd_forward_[14])) {abort();}
+  if(!(_obstacle_flag_[13] == _i_obstacle_flag_[14])) {abort();}
+  if(!(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14])) {abort();}
   break;
   }
   assert(__startrek_Assert_t1_i0);
@@ -1571,163 +1571,163 @@ void __startrek_hyperperiod(void)
   __startrek_job = 0;
   __startrek_Assert_t0_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts3();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 0: 
-  __VERIFIER_assume(_cmd_turn_[0] == _i_cmd_turn_[1]);
-  __VERIFIER_assume(_cmd_forward_[0] == _i_cmd_forward_[1]);
-  __VERIFIER_assume(_obstacle_flag_[0] == _i_obstacle_flag_[1]);
-  __VERIFIER_assume(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1]);
+  if(!(_cmd_turn_[0] == _i_cmd_turn_[1])) {abort();}
+  if(!(_cmd_forward_[0] == _i_cmd_forward_[1])) {abort();}
+  if(!(_obstacle_flag_[0] == _i_obstacle_flag_[1])) {abort();}
+  if(!(_nxtway_gs_mode_[0] == _i_nxtway_gs_mode_[1])) {abort();}
   break;
   case 1: 
-  __VERIFIER_assume(_cmd_turn_[1] == _i_cmd_turn_[2]);
-  __VERIFIER_assume(_cmd_forward_[1] == _i_cmd_forward_[2]);
-  __VERIFIER_assume(_obstacle_flag_[1] == _i_obstacle_flag_[2]);
-  __VERIFIER_assume(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2]);
+  if(!(_cmd_turn_[1] == _i_cmd_turn_[2])) {abort();}
+  if(!(_cmd_forward_[1] == _i_cmd_forward_[2])) {abort();}
+  if(!(_obstacle_flag_[1] == _i_obstacle_flag_[2])) {abort();}
+  if(!(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2])) {abort();}
   break;
   case 2: 
-  __VERIFIER_assume(_cmd_turn_[2] == _i_cmd_turn_[3]);
-  __VERIFIER_assume(_cmd_forward_[2] == _i_cmd_forward_[3]);
-  __VERIFIER_assume(_obstacle_flag_[2] == _i_obstacle_flag_[3]);
-  __VERIFIER_assume(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3]);
+  if(!(_cmd_turn_[2] == _i_cmd_turn_[3])) {abort();}
+  if(!(_cmd_forward_[2] == _i_cmd_forward_[3])) {abort();}
+  if(!(_obstacle_flag_[2] == _i_obstacle_flag_[3])) {abort();}
+  if(!(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3])) {abort();}
   break;
   case 3: 
-  __VERIFIER_assume(_cmd_turn_[3] == _i_cmd_turn_[4]);
-  __VERIFIER_assume(_cmd_forward_[3] == _i_cmd_forward_[4]);
-  __VERIFIER_assume(_obstacle_flag_[3] == _i_obstacle_flag_[4]);
-  __VERIFIER_assume(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4]);
+  if(!(_cmd_turn_[3] == _i_cmd_turn_[4])) {abort();}
+  if(!(_cmd_forward_[3] == _i_cmd_forward_[4])) {abort();}
+  if(!(_obstacle_flag_[3] == _i_obstacle_flag_[4])) {abort();}
+  if(!(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4])) {abort();}
   break;
   case 4: 
-  __VERIFIER_assume(_cmd_turn_[4] == _i_cmd_turn_[5]);
-  __VERIFIER_assume(_cmd_forward_[4] == _i_cmd_forward_[5]);
-  __VERIFIER_assume(_obstacle_flag_[4] == _i_obstacle_flag_[5]);
-  __VERIFIER_assume(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5]);
+  if(!(_cmd_turn_[4] == _i_cmd_turn_[5])) {abort();}
+  if(!(_cmd_forward_[4] == _i_cmd_forward_[5])) {abort();}
+  if(!(_obstacle_flag_[4] == _i_obstacle_flag_[5])) {abort();}
+  if(!(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5])) {abort();}
   break;
   case 5: 
-  __VERIFIER_assume(_cmd_turn_[5] == _i_cmd_turn_[6]);
-  __VERIFIER_assume(_cmd_forward_[5] == _i_cmd_forward_[6]);
-  __VERIFIER_assume(_obstacle_flag_[5] == _i_obstacle_flag_[6]);
-  __VERIFIER_assume(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6]);
+  if(!(_cmd_turn_[5] == _i_cmd_turn_[6])) {abort();}
+  if(!(_cmd_forward_[5] == _i_cmd_forward_[6])) {abort();}
+  if(!(_obstacle_flag_[5] == _i_obstacle_flag_[6])) {abort();}
+  if(!(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6])) {abort();}
   break;
   case 6: 
-  __VERIFIER_assume(_cmd_turn_[6] == _i_cmd_turn_[7]);
-  __VERIFIER_assume(_cmd_forward_[6] == _i_cmd_forward_[7]);
-  __VERIFIER_assume(_obstacle_flag_[6] == _i_obstacle_flag_[7]);
-  __VERIFIER_assume(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7]);
+  if(!(_cmd_turn_[6] == _i_cmd_turn_[7])) {abort();}
+  if(!(_cmd_forward_[6] == _i_cmd_forward_[7])) {abort();}
+  if(!(_obstacle_flag_[6] == _i_obstacle_flag_[7])) {abort();}
+  if(!(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7])) {abort();}
   break;
   case 7: 
-  __VERIFIER_assume(_cmd_turn_[7] == _i_cmd_turn_[8]);
-  __VERIFIER_assume(_cmd_forward_[7] == _i_cmd_forward_[8]);
-  __VERIFIER_assume(_obstacle_flag_[7] == _i_obstacle_flag_[8]);
-  __VERIFIER_assume(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8]);
+  if(!(_cmd_turn_[7] == _i_cmd_turn_[8])) {abort();}
+  if(!(_cmd_forward_[7] == _i_cmd_forward_[8])) {abort();}
+  if(!(_obstacle_flag_[7] == _i_obstacle_flag_[8])) {abort();}
+  if(!(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8])) {abort();}
   break;
   case 8: 
-  __VERIFIER_assume(_cmd_turn_[8] == _i_cmd_turn_[9]);
-  __VERIFIER_assume(_cmd_forward_[8] == _i_cmd_forward_[9]);
-  __VERIFIER_assume(_obstacle_flag_[8] == _i_obstacle_flag_[9]);
-  __VERIFIER_assume(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9]);
+  if(!(_cmd_turn_[8] == _i_cmd_turn_[9])) {abort();}
+  if(!(_cmd_forward_[8] == _i_cmd_forward_[9])) {abort();}
+  if(!(_obstacle_flag_[8] == _i_obstacle_flag_[9])) {abort();}
+  if(!(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9])) {abort();}
   break;
   case 9: 
-  __VERIFIER_assume(_cmd_turn_[9] == _i_cmd_turn_[10]);
-  __VERIFIER_assume(_cmd_forward_[9] == _i_cmd_forward_[10]);
-  __VERIFIER_assume(_obstacle_flag_[9] == _i_obstacle_flag_[10]);
-  __VERIFIER_assume(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10]);
+  if(!(_cmd_turn_[9] == _i_cmd_turn_[10])) {abort();}
+  if(!(_cmd_forward_[9] == _i_cmd_forward_[10])) {abort();}
+  if(!(_obstacle_flag_[9] == _i_obstacle_flag_[10])) {abort();}
+  if(!(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10])) {abort();}
   break;
   case 10: 
-  __VERIFIER_assume(_cmd_turn_[10] == _i_cmd_turn_[11]);
-  __VERIFIER_assume(_cmd_forward_[10] == _i_cmd_forward_[11]);
-  __VERIFIER_assume(_obstacle_flag_[10] == _i_obstacle_flag_[11]);
-  __VERIFIER_assume(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11]);
+  if(!(_cmd_turn_[10] == _i_cmd_turn_[11])) {abort();}
+  if(!(_cmd_forward_[10] == _i_cmd_forward_[11])) {abort();}
+  if(!(_obstacle_flag_[10] == _i_obstacle_flag_[11])) {abort();}
+  if(!(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11])) {abort();}
   break;
   case 11: 
-  __VERIFIER_assume(_cmd_turn_[11] == _i_cmd_turn_[12]);
-  __VERIFIER_assume(_cmd_forward_[11] == _i_cmd_forward_[12]);
-  __VERIFIER_assume(_obstacle_flag_[11] == _i_obstacle_flag_[12]);
-  __VERIFIER_assume(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12]);
+  if(!(_cmd_turn_[11] == _i_cmd_turn_[12])) {abort();}
+  if(!(_cmd_forward_[11] == _i_cmd_forward_[12])) {abort();}
+  if(!(_obstacle_flag_[11] == _i_obstacle_flag_[12])) {abort();}
+  if(!(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12])) {abort();}
   break;
   case 12: 
-  __VERIFIER_assume(_cmd_turn_[12] == _i_cmd_turn_[13]);
-  __VERIFIER_assume(_cmd_forward_[12] == _i_cmd_forward_[13]);
-  __VERIFIER_assume(_obstacle_flag_[12] == _i_obstacle_flag_[13]);
-  __VERIFIER_assume(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13]);
+  if(!(_cmd_turn_[12] == _i_cmd_turn_[13])) {abort();}
+  if(!(_cmd_forward_[12] == _i_cmd_forward_[13])) {abort();}
+  if(!(_obstacle_flag_[12] == _i_obstacle_flag_[13])) {abort();}
+  if(!(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13])) {abort();}
   break;
   case 13: 
-  __VERIFIER_assume(_cmd_turn_[13] == _i_cmd_turn_[14]);
-  __VERIFIER_assume(_cmd_forward_[13] == _i_cmd_forward_[14]);
-  __VERIFIER_assume(_obstacle_flag_[13] == _i_obstacle_flag_[14]);
-  __VERIFIER_assume(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14]);
+  if(!(_cmd_turn_[13] == _i_cmd_turn_[14])) {abort();}
+  if(!(_cmd_forward_[13] == _i_cmd_forward_[14])) {abort();}
+  if(!(_obstacle_flag_[13] == _i_obstacle_flag_[14])) {abort();}
+  if(!(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14])) {abort();}
   break;
   case 14: 
-  __VERIFIER_assume(_cmd_turn_[14] == _i_cmd_turn_[15]);
-  __VERIFIER_assume(_cmd_forward_[14] == _i_cmd_forward_[15]);
-  __VERIFIER_assume(_obstacle_flag_[14] == _i_obstacle_flag_[15]);
-  __VERIFIER_assume(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15]);
+  if(!(_cmd_turn_[14] == _i_cmd_turn_[15])) {abort();}
+  if(!(_cmd_forward_[14] == _i_cmd_forward_[15])) {abort();}
+  if(!(_obstacle_flag_[14] == _i_obstacle_flag_[15])) {abort();}
+  if(!(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15])) {abort();}
   break;
   case 15: 
-  __VERIFIER_assume(_cmd_turn_[15] == _i_cmd_turn_[16]);
-  __VERIFIER_assume(_cmd_forward_[15] == _i_cmd_forward_[16]);
-  __VERIFIER_assume(_obstacle_flag_[15] == _i_obstacle_flag_[16]);
-  __VERIFIER_assume(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16]);
+  if(!(_cmd_turn_[15] == _i_cmd_turn_[16])) {abort();}
+  if(!(_cmd_forward_[15] == _i_cmd_forward_[16])) {abort();}
+  if(!(_obstacle_flag_[15] == _i_obstacle_flag_[16])) {abort();}
+  if(!(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16])) {abort();}
   break;
   case 16: 
-  __VERIFIER_assume(_cmd_turn_[16] == _i_cmd_turn_[17]);
-  __VERIFIER_assume(_cmd_forward_[16] == _i_cmd_forward_[17]);
-  __VERIFIER_assume(_obstacle_flag_[16] == _i_obstacle_flag_[17]);
-  __VERIFIER_assume(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17]);
+  if(!(_cmd_turn_[16] == _i_cmd_turn_[17])) {abort();}
+  if(!(_cmd_forward_[16] == _i_cmd_forward_[17])) {abort();}
+  if(!(_obstacle_flag_[16] == _i_obstacle_flag_[17])) {abort();}
+  if(!(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17])) {abort();}
   break;
   case 17: 
-  __VERIFIER_assume(_cmd_turn_[17] == _i_cmd_turn_[18]);
-  __VERIFIER_assume(_cmd_forward_[17] == _i_cmd_forward_[18]);
-  __VERIFIER_assume(_obstacle_flag_[17] == _i_obstacle_flag_[18]);
-  __VERIFIER_assume(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18]);
+  if(!(_cmd_turn_[17] == _i_cmd_turn_[18])) {abort();}
+  if(!(_cmd_forward_[17] == _i_cmd_forward_[18])) {abort();}
+  if(!(_obstacle_flag_[17] == _i_obstacle_flag_[18])) {abort();}
+  if(!(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18])) {abort();}
   break;
   case 18: 
-  __VERIFIER_assume(_cmd_turn_[18] == _i_cmd_turn_[19]);
-  __VERIFIER_assume(_cmd_forward_[18] == _i_cmd_forward_[19]);
-  __VERIFIER_assume(_obstacle_flag_[18] == _i_obstacle_flag_[19]);
-  __VERIFIER_assume(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19]);
+  if(!(_cmd_turn_[18] == _i_cmd_turn_[19])) {abort();}
+  if(!(_cmd_forward_[18] == _i_cmd_forward_[19])) {abort();}
+  if(!(_obstacle_flag_[18] == _i_obstacle_flag_[19])) {abort();}
+  if(!(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19])) {abort();}
   break;
   case 19: 
-  __VERIFIER_assume(_cmd_turn_[19] == _i_cmd_turn_[20]);
-  __VERIFIER_assume(_cmd_forward_[19] == _i_cmd_forward_[20]);
-  __VERIFIER_assume(_obstacle_flag_[19] == _i_obstacle_flag_[20]);
-  __VERIFIER_assume(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20]);
+  if(!(_cmd_turn_[19] == _i_cmd_turn_[20])) {abort();}
+  if(!(_cmd_forward_[19] == _i_cmd_forward_[20])) {abort();}
+  if(!(_obstacle_flag_[19] == _i_obstacle_flag_[20])) {abort();}
+  if(!(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20])) {abort();}
   break;
   case 20: 
-  __VERIFIER_assume(_cmd_turn_[20] == _i_cmd_turn_[21]);
-  __VERIFIER_assume(_cmd_forward_[20] == _i_cmd_forward_[21]);
-  __VERIFIER_assume(_obstacle_flag_[20] == _i_obstacle_flag_[21]);
-  __VERIFIER_assume(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21]);
+  if(!(_cmd_turn_[20] == _i_cmd_turn_[21])) {abort();}
+  if(!(_cmd_forward_[20] == _i_cmd_forward_[21])) {abort();}
+  if(!(_obstacle_flag_[20] == _i_obstacle_flag_[21])) {abort();}
+  if(!(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21])) {abort();}
   break;
   case 21: 
-  __VERIFIER_assume(_cmd_turn_[21] == _i_cmd_turn_[22]);
-  __VERIFIER_assume(_cmd_forward_[21] == _i_cmd_forward_[22]);
-  __VERIFIER_assume(_obstacle_flag_[21] == _i_obstacle_flag_[22]);
-  __VERIFIER_assume(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22]);
+  if(!(_cmd_turn_[21] == _i_cmd_turn_[22])) {abort();}
+  if(!(_cmd_forward_[21] == _i_cmd_forward_[22])) {abort();}
+  if(!(_obstacle_flag_[21] == _i_obstacle_flag_[22])) {abort();}
+  if(!(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22])) {abort();}
   break;
   case 22: 
-  __VERIFIER_assume(_cmd_turn_[22] == _i_cmd_turn_[23]);
-  __VERIFIER_assume(_cmd_forward_[22] == _i_cmd_forward_[23]);
-  __VERIFIER_assume(_obstacle_flag_[22] == _i_obstacle_flag_[23]);
-  __VERIFIER_assume(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23]);
+  if(!(_cmd_turn_[22] == _i_cmd_turn_[23])) {abort();}
+  if(!(_cmd_forward_[22] == _i_cmd_forward_[23])) {abort();}
+  if(!(_obstacle_flag_[22] == _i_obstacle_flag_[23])) {abort();}
+  if(!(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23])) {abort();}
   break;
   case 23: 
-  __VERIFIER_assume(_cmd_turn_[23] == _i_cmd_turn_[24]);
-  __VERIFIER_assume(_cmd_forward_[23] == _i_cmd_forward_[24]);
-  __VERIFIER_assume(_obstacle_flag_[23] == _i_obstacle_flag_[24]);
-  __VERIFIER_assume(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24]);
+  if(!(_cmd_turn_[23] == _i_cmd_turn_[24])) {abort();}
+  if(!(_cmd_forward_[23] == _i_cmd_forward_[24])) {abort();}
+  if(!(_obstacle_flag_[23] == _i_obstacle_flag_[24])) {abort();}
+  if(!(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24])) {abort();}
   break;
   case 24: 
-  __VERIFIER_assume(_cmd_turn_[24] == _i_cmd_turn_[25]);
-  __VERIFIER_assume(_cmd_forward_[24] == _i_cmd_forward_[25]);
-  __VERIFIER_assume(_obstacle_flag_[24] == _i_obstacle_flag_[25]);
-  __VERIFIER_assume(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25]);
+  if(!(_cmd_turn_[24] == _i_cmd_turn_[25])) {abort();}
+  if(!(_cmd_forward_[24] == _i_cmd_forward_[25])) {abort();}
+  if(!(_obstacle_flag_[24] == _i_obstacle_flag_[25])) {abort();}
+  if(!(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25])) {abort();}
   break;
   case 25: 
-  __VERIFIER_assume(_cmd_turn_[25] == _i_cmd_turn_[26]);
-  __VERIFIER_assume(_cmd_forward_[25] == _i_cmd_forward_[26]);
-  __VERIFIER_assume(_obstacle_flag_[25] == _i_obstacle_flag_[26]);
-  __VERIFIER_assume(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26]);
+  if(!(_cmd_turn_[25] == _i_cmd_turn_[26])) {abort();}
+  if(!(_cmd_forward_[25] == _i_cmd_forward_[26])) {abort();}
+  if(!(_obstacle_flag_[25] == _i_obstacle_flag_[26])) {abort();}
+  if(!(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26])) {abort();}
   break;
   }
 
@@ -1737,25 +1737,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 3;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 1: 
-  __VERIFIER_assume(_cmd_turn_[1] == _i_cmd_turn_[2]);
-  __VERIFIER_assume(_cmd_forward_[1] == _i_cmd_forward_[2]);
-  __VERIFIER_assume(_obstacle_flag_[1] == _i_obstacle_flag_[2]);
-  __VERIFIER_assume(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2]);
+  if(!(_cmd_turn_[1] == _i_cmd_turn_[2])) {abort();}
+  if(!(_cmd_forward_[1] == _i_cmd_forward_[2])) {abort();}
+  if(!(_obstacle_flag_[1] == _i_obstacle_flag_[2])) {abort();}
+  if(!(_nxtway_gs_mode_[1] == _i_nxtway_gs_mode_[2])) {abort();}
   break;
   case 2: 
-  __VERIFIER_assume(_cmd_turn_[2] == _i_cmd_turn_[3]);
-  __VERIFIER_assume(_cmd_forward_[2] == _i_cmd_forward_[3]);
-  __VERIFIER_assume(_obstacle_flag_[2] == _i_obstacle_flag_[3]);
-  __VERIFIER_assume(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3]);
+  if(!(_cmd_turn_[2] == _i_cmd_turn_[3])) {abort();}
+  if(!(_cmd_forward_[2] == _i_cmd_forward_[3])) {abort();}
+  if(!(_obstacle_flag_[2] == _i_obstacle_flag_[3])) {abort();}
+  if(!(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3])) {abort();}
   break;
   case 3: 
-  __VERIFIER_assume(_cmd_turn_[3] == _i_cmd_turn_[4]);
-  __VERIFIER_assume(_cmd_forward_[3] == _i_cmd_forward_[4]);
-  __VERIFIER_assume(_obstacle_flag_[3] == _i_obstacle_flag_[4]);
-  __VERIFIER_assume(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4]);
+  if(!(_cmd_turn_[3] == _i_cmd_turn_[4])) {abort();}
+  if(!(_cmd_forward_[3] == _i_cmd_forward_[4])) {abort();}
+  if(!(_obstacle_flag_[3] == _i_obstacle_flag_[4])) {abort();}
+  if(!(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1765,25 +1765,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 4;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 2: 
-  __VERIFIER_assume(_cmd_turn_[2] == _i_cmd_turn_[3]);
-  __VERIFIER_assume(_cmd_forward_[2] == _i_cmd_forward_[3]);
-  __VERIFIER_assume(_obstacle_flag_[2] == _i_obstacle_flag_[3]);
-  __VERIFIER_assume(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3]);
+  if(!(_cmd_turn_[2] == _i_cmd_turn_[3])) {abort();}
+  if(!(_cmd_forward_[2] == _i_cmd_forward_[3])) {abort();}
+  if(!(_obstacle_flag_[2] == _i_obstacle_flag_[3])) {abort();}
+  if(!(_nxtway_gs_mode_[2] == _i_nxtway_gs_mode_[3])) {abort();}
   break;
   case 3: 
-  __VERIFIER_assume(_cmd_turn_[3] == _i_cmd_turn_[4]);
-  __VERIFIER_assume(_cmd_forward_[3] == _i_cmd_forward_[4]);
-  __VERIFIER_assume(_obstacle_flag_[3] == _i_obstacle_flag_[4]);
-  __VERIFIER_assume(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4]);
+  if(!(_cmd_turn_[3] == _i_cmd_turn_[4])) {abort();}
+  if(!(_cmd_forward_[3] == _i_cmd_forward_[4])) {abort();}
+  if(!(_obstacle_flag_[3] == _i_obstacle_flag_[4])) {abort();}
+  if(!(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4])) {abort();}
   break;
   case 4: 
-  __VERIFIER_assume(_cmd_turn_[4] == _i_cmd_turn_[5]);
-  __VERIFIER_assume(_cmd_forward_[4] == _i_cmd_forward_[5]);
-  __VERIFIER_assume(_obstacle_flag_[4] == _i_obstacle_flag_[5]);
-  __VERIFIER_assume(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5]);
+  if(!(_cmd_turn_[4] == _i_cmd_turn_[5])) {abort();}
+  if(!(_cmd_forward_[4] == _i_cmd_forward_[5])) {abort();}
+  if(!(_obstacle_flag_[4] == _i_obstacle_flag_[5])) {abort();}
+  if(!(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1793,25 +1793,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 5;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 3: 
-  __VERIFIER_assume(_cmd_turn_[3] == _i_cmd_turn_[4]);
-  __VERIFIER_assume(_cmd_forward_[3] == _i_cmd_forward_[4]);
-  __VERIFIER_assume(_obstacle_flag_[3] == _i_obstacle_flag_[4]);
-  __VERIFIER_assume(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4]);
+  if(!(_cmd_turn_[3] == _i_cmd_turn_[4])) {abort();}
+  if(!(_cmd_forward_[3] == _i_cmd_forward_[4])) {abort();}
+  if(!(_obstacle_flag_[3] == _i_obstacle_flag_[4])) {abort();}
+  if(!(_nxtway_gs_mode_[3] == _i_nxtway_gs_mode_[4])) {abort();}
   break;
   case 4: 
-  __VERIFIER_assume(_cmd_turn_[4] == _i_cmd_turn_[5]);
-  __VERIFIER_assume(_cmd_forward_[4] == _i_cmd_forward_[5]);
-  __VERIFIER_assume(_obstacle_flag_[4] == _i_obstacle_flag_[5]);
-  __VERIFIER_assume(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5]);
+  if(!(_cmd_turn_[4] == _i_cmd_turn_[5])) {abort();}
+  if(!(_cmd_forward_[4] == _i_cmd_forward_[5])) {abort();}
+  if(!(_obstacle_flag_[4] == _i_obstacle_flag_[5])) {abort();}
+  if(!(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5])) {abort();}
   break;
   case 5: 
-  __VERIFIER_assume(_cmd_turn_[5] == _i_cmd_turn_[6]);
-  __VERIFIER_assume(_cmd_forward_[5] == _i_cmd_forward_[6]);
-  __VERIFIER_assume(_obstacle_flag_[5] == _i_obstacle_flag_[6]);
-  __VERIFIER_assume(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6]);
+  if(!(_cmd_turn_[5] == _i_cmd_turn_[6])) {abort();}
+  if(!(_cmd_forward_[5] == _i_cmd_forward_[6])) {abort();}
+  if(!(_obstacle_flag_[5] == _i_obstacle_flag_[6])) {abort();}
+  if(!(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1821,25 +1821,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 6;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 4: 
-  __VERIFIER_assume(_cmd_turn_[4] == _i_cmd_turn_[5]);
-  __VERIFIER_assume(_cmd_forward_[4] == _i_cmd_forward_[5]);
-  __VERIFIER_assume(_obstacle_flag_[4] == _i_obstacle_flag_[5]);
-  __VERIFIER_assume(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5]);
+  if(!(_cmd_turn_[4] == _i_cmd_turn_[5])) {abort();}
+  if(!(_cmd_forward_[4] == _i_cmd_forward_[5])) {abort();}
+  if(!(_obstacle_flag_[4] == _i_obstacle_flag_[5])) {abort();}
+  if(!(_nxtway_gs_mode_[4] == _i_nxtway_gs_mode_[5])) {abort();}
   break;
   case 5: 
-  __VERIFIER_assume(_cmd_turn_[5] == _i_cmd_turn_[6]);
-  __VERIFIER_assume(_cmd_forward_[5] == _i_cmd_forward_[6]);
-  __VERIFIER_assume(_obstacle_flag_[5] == _i_obstacle_flag_[6]);
-  __VERIFIER_assume(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6]);
+  if(!(_cmd_turn_[5] == _i_cmd_turn_[6])) {abort();}
+  if(!(_cmd_forward_[5] == _i_cmd_forward_[6])) {abort();}
+  if(!(_obstacle_flag_[5] == _i_obstacle_flag_[6])) {abort();}
+  if(!(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6])) {abort();}
   break;
   case 6: 
-  __VERIFIER_assume(_cmd_turn_[6] == _i_cmd_turn_[7]);
-  __VERIFIER_assume(_cmd_forward_[6] == _i_cmd_forward_[7]);
-  __VERIFIER_assume(_obstacle_flag_[6] == _i_obstacle_flag_[7]);
-  __VERIFIER_assume(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7]);
+  if(!(_cmd_turn_[6] == _i_cmd_turn_[7])) {abort();}
+  if(!(_cmd_forward_[6] == _i_cmd_forward_[7])) {abort();}
+  if(!(_obstacle_flag_[6] == _i_obstacle_flag_[7])) {abort();}
+  if(!(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1849,25 +1849,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 7;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 5: 
-  __VERIFIER_assume(_cmd_turn_[5] == _i_cmd_turn_[6]);
-  __VERIFIER_assume(_cmd_forward_[5] == _i_cmd_forward_[6]);
-  __VERIFIER_assume(_obstacle_flag_[5] == _i_obstacle_flag_[6]);
-  __VERIFIER_assume(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6]);
+  if(!(_cmd_turn_[5] == _i_cmd_turn_[6])) {abort();}
+  if(!(_cmd_forward_[5] == _i_cmd_forward_[6])) {abort();}
+  if(!(_obstacle_flag_[5] == _i_obstacle_flag_[6])) {abort();}
+  if(!(_nxtway_gs_mode_[5] == _i_nxtway_gs_mode_[6])) {abort();}
   break;
   case 6: 
-  __VERIFIER_assume(_cmd_turn_[6] == _i_cmd_turn_[7]);
-  __VERIFIER_assume(_cmd_forward_[6] == _i_cmd_forward_[7]);
-  __VERIFIER_assume(_obstacle_flag_[6] == _i_obstacle_flag_[7]);
-  __VERIFIER_assume(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7]);
+  if(!(_cmd_turn_[6] == _i_cmd_turn_[7])) {abort();}
+  if(!(_cmd_forward_[6] == _i_cmd_forward_[7])) {abort();}
+  if(!(_obstacle_flag_[6] == _i_obstacle_flag_[7])) {abort();}
+  if(!(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7])) {abort();}
   break;
   case 7: 
-  __VERIFIER_assume(_cmd_turn_[7] == _i_cmd_turn_[8]);
-  __VERIFIER_assume(_cmd_forward_[7] == _i_cmd_forward_[8]);
-  __VERIFIER_assume(_obstacle_flag_[7] == _i_obstacle_flag_[8]);
-  __VERIFIER_assume(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8]);
+  if(!(_cmd_turn_[7] == _i_cmd_turn_[8])) {abort();}
+  if(!(_cmd_forward_[7] == _i_cmd_forward_[8])) {abort();}
+  if(!(_obstacle_flag_[7] == _i_obstacle_flag_[8])) {abort();}
+  if(!(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1877,25 +1877,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 8;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 6: 
-  __VERIFIER_assume(_cmd_turn_[6] == _i_cmd_turn_[7]);
-  __VERIFIER_assume(_cmd_forward_[6] == _i_cmd_forward_[7]);
-  __VERIFIER_assume(_obstacle_flag_[6] == _i_obstacle_flag_[7]);
-  __VERIFIER_assume(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7]);
+  if(!(_cmd_turn_[6] == _i_cmd_turn_[7])) {abort();}
+  if(!(_cmd_forward_[6] == _i_cmd_forward_[7])) {abort();}
+  if(!(_obstacle_flag_[6] == _i_obstacle_flag_[7])) {abort();}
+  if(!(_nxtway_gs_mode_[6] == _i_nxtway_gs_mode_[7])) {abort();}
   break;
   case 7: 
-  __VERIFIER_assume(_cmd_turn_[7] == _i_cmd_turn_[8]);
-  __VERIFIER_assume(_cmd_forward_[7] == _i_cmd_forward_[8]);
-  __VERIFIER_assume(_obstacle_flag_[7] == _i_obstacle_flag_[8]);
-  __VERIFIER_assume(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8]);
+  if(!(_cmd_turn_[7] == _i_cmd_turn_[8])) {abort();}
+  if(!(_cmd_forward_[7] == _i_cmd_forward_[8])) {abort();}
+  if(!(_obstacle_flag_[7] == _i_obstacle_flag_[8])) {abort();}
+  if(!(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8])) {abort();}
   break;
   case 8: 
-  __VERIFIER_assume(_cmd_turn_[8] == _i_cmd_turn_[9]);
-  __VERIFIER_assume(_cmd_forward_[8] == _i_cmd_forward_[9]);
-  __VERIFIER_assume(_obstacle_flag_[8] == _i_obstacle_flag_[9]);
-  __VERIFIER_assume(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9]);
+  if(!(_cmd_turn_[8] == _i_cmd_turn_[9])) {abort();}
+  if(!(_cmd_forward_[8] == _i_cmd_forward_[9])) {abort();}
+  if(!(_obstacle_flag_[8] == _i_obstacle_flag_[9])) {abort();}
+  if(!(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1905,25 +1905,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 9;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 7: 
-  __VERIFIER_assume(_cmd_turn_[7] == _i_cmd_turn_[8]);
-  __VERIFIER_assume(_cmd_forward_[7] == _i_cmd_forward_[8]);
-  __VERIFIER_assume(_obstacle_flag_[7] == _i_obstacle_flag_[8]);
-  __VERIFIER_assume(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8]);
+  if(!(_cmd_turn_[7] == _i_cmd_turn_[8])) {abort();}
+  if(!(_cmd_forward_[7] == _i_cmd_forward_[8])) {abort();}
+  if(!(_obstacle_flag_[7] == _i_obstacle_flag_[8])) {abort();}
+  if(!(_nxtway_gs_mode_[7] == _i_nxtway_gs_mode_[8])) {abort();}
   break;
   case 8: 
-  __VERIFIER_assume(_cmd_turn_[8] == _i_cmd_turn_[9]);
-  __VERIFIER_assume(_cmd_forward_[8] == _i_cmd_forward_[9]);
-  __VERIFIER_assume(_obstacle_flag_[8] == _i_obstacle_flag_[9]);
-  __VERIFIER_assume(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9]);
+  if(!(_cmd_turn_[8] == _i_cmd_turn_[9])) {abort();}
+  if(!(_cmd_forward_[8] == _i_cmd_forward_[9])) {abort();}
+  if(!(_obstacle_flag_[8] == _i_obstacle_flag_[9])) {abort();}
+  if(!(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9])) {abort();}
   break;
   case 9: 
-  __VERIFIER_assume(_cmd_turn_[9] == _i_cmd_turn_[10]);
-  __VERIFIER_assume(_cmd_forward_[9] == _i_cmd_forward_[10]);
-  __VERIFIER_assume(_obstacle_flag_[9] == _i_obstacle_flag_[10]);
-  __VERIFIER_assume(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10]);
+  if(!(_cmd_turn_[9] == _i_cmd_turn_[10])) {abort();}
+  if(!(_cmd_forward_[9] == _i_cmd_forward_[10])) {abort();}
+  if(!(_obstacle_flag_[9] == _i_obstacle_flag_[10])) {abort();}
+  if(!(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1933,25 +1933,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 10;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 8: 
-  __VERIFIER_assume(_cmd_turn_[8] == _i_cmd_turn_[9]);
-  __VERIFIER_assume(_cmd_forward_[8] == _i_cmd_forward_[9]);
-  __VERIFIER_assume(_obstacle_flag_[8] == _i_obstacle_flag_[9]);
-  __VERIFIER_assume(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9]);
+  if(!(_cmd_turn_[8] == _i_cmd_turn_[9])) {abort();}
+  if(!(_cmd_forward_[8] == _i_cmd_forward_[9])) {abort();}
+  if(!(_obstacle_flag_[8] == _i_obstacle_flag_[9])) {abort();}
+  if(!(_nxtway_gs_mode_[8] == _i_nxtway_gs_mode_[9])) {abort();}
   break;
   case 9: 
-  __VERIFIER_assume(_cmd_turn_[9] == _i_cmd_turn_[10]);
-  __VERIFIER_assume(_cmd_forward_[9] == _i_cmd_forward_[10]);
-  __VERIFIER_assume(_obstacle_flag_[9] == _i_obstacle_flag_[10]);
-  __VERIFIER_assume(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10]);
+  if(!(_cmd_turn_[9] == _i_cmd_turn_[10])) {abort();}
+  if(!(_cmd_forward_[9] == _i_cmd_forward_[10])) {abort();}
+  if(!(_obstacle_flag_[9] == _i_obstacle_flag_[10])) {abort();}
+  if(!(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10])) {abort();}
   break;
   case 10: 
-  __VERIFIER_assume(_cmd_turn_[10] == _i_cmd_turn_[11]);
-  __VERIFIER_assume(_cmd_forward_[10] == _i_cmd_forward_[11]);
-  __VERIFIER_assume(_obstacle_flag_[10] == _i_obstacle_flag_[11]);
-  __VERIFIER_assume(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11]);
+  if(!(_cmd_turn_[10] == _i_cmd_turn_[11])) {abort();}
+  if(!(_cmd_forward_[10] == _i_cmd_forward_[11])) {abort();}
+  if(!(_obstacle_flag_[10] == _i_obstacle_flag_[11])) {abort();}
+  if(!(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1961,25 +1961,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 11;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 9: 
-  __VERIFIER_assume(_cmd_turn_[9] == _i_cmd_turn_[10]);
-  __VERIFIER_assume(_cmd_forward_[9] == _i_cmd_forward_[10]);
-  __VERIFIER_assume(_obstacle_flag_[9] == _i_obstacle_flag_[10]);
-  __VERIFIER_assume(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10]);
+  if(!(_cmd_turn_[9] == _i_cmd_turn_[10])) {abort();}
+  if(!(_cmd_forward_[9] == _i_cmd_forward_[10])) {abort();}
+  if(!(_obstacle_flag_[9] == _i_obstacle_flag_[10])) {abort();}
+  if(!(_nxtway_gs_mode_[9] == _i_nxtway_gs_mode_[10])) {abort();}
   break;
   case 10: 
-  __VERIFIER_assume(_cmd_turn_[10] == _i_cmd_turn_[11]);
-  __VERIFIER_assume(_cmd_forward_[10] == _i_cmd_forward_[11]);
-  __VERIFIER_assume(_obstacle_flag_[10] == _i_obstacle_flag_[11]);
-  __VERIFIER_assume(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11]);
+  if(!(_cmd_turn_[10] == _i_cmd_turn_[11])) {abort();}
+  if(!(_cmd_forward_[10] == _i_cmd_forward_[11])) {abort();}
+  if(!(_obstacle_flag_[10] == _i_obstacle_flag_[11])) {abort();}
+  if(!(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11])) {abort();}
   break;
   case 11: 
-  __VERIFIER_assume(_cmd_turn_[11] == _i_cmd_turn_[12]);
-  __VERIFIER_assume(_cmd_forward_[11] == _i_cmd_forward_[12]);
-  __VERIFIER_assume(_obstacle_flag_[11] == _i_obstacle_flag_[12]);
-  __VERIFIER_assume(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12]);
+  if(!(_cmd_turn_[11] == _i_cmd_turn_[12])) {abort();}
+  if(!(_cmd_forward_[11] == _i_cmd_forward_[12])) {abort();}
+  if(!(_obstacle_flag_[11] == _i_obstacle_flag_[12])) {abort();}
+  if(!(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -1989,25 +1989,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 12;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 10: 
-  __VERIFIER_assume(_cmd_turn_[10] == _i_cmd_turn_[11]);
-  __VERIFIER_assume(_cmd_forward_[10] == _i_cmd_forward_[11]);
-  __VERIFIER_assume(_obstacle_flag_[10] == _i_obstacle_flag_[11]);
-  __VERIFIER_assume(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11]);
+  if(!(_cmd_turn_[10] == _i_cmd_turn_[11])) {abort();}
+  if(!(_cmd_forward_[10] == _i_cmd_forward_[11])) {abort();}
+  if(!(_obstacle_flag_[10] == _i_obstacle_flag_[11])) {abort();}
+  if(!(_nxtway_gs_mode_[10] == _i_nxtway_gs_mode_[11])) {abort();}
   break;
   case 11: 
-  __VERIFIER_assume(_cmd_turn_[11] == _i_cmd_turn_[12]);
-  __VERIFIER_assume(_cmd_forward_[11] == _i_cmd_forward_[12]);
-  __VERIFIER_assume(_obstacle_flag_[11] == _i_obstacle_flag_[12]);
-  __VERIFIER_assume(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12]);
+  if(!(_cmd_turn_[11] == _i_cmd_turn_[12])) {abort();}
+  if(!(_cmd_forward_[11] == _i_cmd_forward_[12])) {abort();}
+  if(!(_obstacle_flag_[11] == _i_obstacle_flag_[12])) {abort();}
+  if(!(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12])) {abort();}
   break;
   case 12: 
-  __VERIFIER_assume(_cmd_turn_[12] == _i_cmd_turn_[13]);
-  __VERIFIER_assume(_cmd_forward_[12] == _i_cmd_forward_[13]);
-  __VERIFIER_assume(_obstacle_flag_[12] == _i_obstacle_flag_[13]);
-  __VERIFIER_assume(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13]);
+  if(!(_cmd_turn_[12] == _i_cmd_turn_[13])) {abort();}
+  if(!(_cmd_forward_[12] == _i_cmd_forward_[13])) {abort();}
+  if(!(_obstacle_flag_[12] == _i_obstacle_flag_[13])) {abort();}
+  if(!(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2017,25 +2017,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 13;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 11: 
-  __VERIFIER_assume(_cmd_turn_[11] == _i_cmd_turn_[12]);
-  __VERIFIER_assume(_cmd_forward_[11] == _i_cmd_forward_[12]);
-  __VERIFIER_assume(_obstacle_flag_[11] == _i_obstacle_flag_[12]);
-  __VERIFIER_assume(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12]);
+  if(!(_cmd_turn_[11] == _i_cmd_turn_[12])) {abort();}
+  if(!(_cmd_forward_[11] == _i_cmd_forward_[12])) {abort();}
+  if(!(_obstacle_flag_[11] == _i_obstacle_flag_[12])) {abort();}
+  if(!(_nxtway_gs_mode_[11] == _i_nxtway_gs_mode_[12])) {abort();}
   break;
   case 12: 
-  __VERIFIER_assume(_cmd_turn_[12] == _i_cmd_turn_[13]);
-  __VERIFIER_assume(_cmd_forward_[12] == _i_cmd_forward_[13]);
-  __VERIFIER_assume(_obstacle_flag_[12] == _i_obstacle_flag_[13]);
-  __VERIFIER_assume(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13]);
+  if(!(_cmd_turn_[12] == _i_cmd_turn_[13])) {abort();}
+  if(!(_cmd_forward_[12] == _i_cmd_forward_[13])) {abort();}
+  if(!(_obstacle_flag_[12] == _i_obstacle_flag_[13])) {abort();}
+  if(!(_nxtway_gs_mode_[12] == _i_nxtway_gs_mode_[13])) {abort();}
   break;
   case 13: 
-  __VERIFIER_assume(_cmd_turn_[13] == _i_cmd_turn_[14]);
-  __VERIFIER_assume(_cmd_forward_[13] == _i_cmd_forward_[14]);
-  __VERIFIER_assume(_obstacle_flag_[13] == _i_obstacle_flag_[14]);
-  __VERIFIER_assume(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14]);
+  if(!(_cmd_turn_[13] == _i_cmd_turn_[14])) {abort();}
+  if(!(_cmd_forward_[13] == _i_cmd_forward_[14])) {abort();}
+  if(!(_obstacle_flag_[13] == _i_obstacle_flag_[14])) {abort();}
+  if(!(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2045,25 +2045,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 15;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 13: 
-  __VERIFIER_assume(_cmd_turn_[13] == _i_cmd_turn_[14]);
-  __VERIFIER_assume(_cmd_forward_[13] == _i_cmd_forward_[14]);
-  __VERIFIER_assume(_obstacle_flag_[13] == _i_obstacle_flag_[14]);
-  __VERIFIER_assume(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14]);
+  if(!(_cmd_turn_[13] == _i_cmd_turn_[14])) {abort();}
+  if(!(_cmd_forward_[13] == _i_cmd_forward_[14])) {abort();}
+  if(!(_obstacle_flag_[13] == _i_obstacle_flag_[14])) {abort();}
+  if(!(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14])) {abort();}
   break;
   case 14: 
-  __VERIFIER_assume(_cmd_turn_[14] == _i_cmd_turn_[15]);
-  __VERIFIER_assume(_cmd_forward_[14] == _i_cmd_forward_[15]);
-  __VERIFIER_assume(_obstacle_flag_[14] == _i_obstacle_flag_[15]);
-  __VERIFIER_assume(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15]);
+  if(!(_cmd_turn_[14] == _i_cmd_turn_[15])) {abort();}
+  if(!(_cmd_forward_[14] == _i_cmd_forward_[15])) {abort();}
+  if(!(_obstacle_flag_[14] == _i_obstacle_flag_[15])) {abort();}
+  if(!(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15])) {abort();}
   break;
   case 15: 
-  __VERIFIER_assume(_cmd_turn_[15] == _i_cmd_turn_[16]);
-  __VERIFIER_assume(_cmd_forward_[15] == _i_cmd_forward_[16]);
-  __VERIFIER_assume(_obstacle_flag_[15] == _i_obstacle_flag_[16]);
-  __VERIFIER_assume(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16]);
+  if(!(_cmd_turn_[15] == _i_cmd_turn_[16])) {abort();}
+  if(!(_cmd_forward_[15] == _i_cmd_forward_[16])) {abort();}
+  if(!(_obstacle_flag_[15] == _i_obstacle_flag_[16])) {abort();}
+  if(!(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2073,85 +2073,85 @@ void __startrek_hyperperiod(void)
   __startrek_job = 14;
   __startrek_Assert_t1_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts2();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 13: 
-  __VERIFIER_assume(_cmd_turn_[13] == _i_cmd_turn_[14]);
-  __VERIFIER_assume(_cmd_forward_[13] == _i_cmd_forward_[14]);
-  __VERIFIER_assume(_obstacle_flag_[13] == _i_obstacle_flag_[14]);
-  __VERIFIER_assume(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14]);
+  if(!(_cmd_turn_[13] == _i_cmd_turn_[14])) {abort();}
+  if(!(_cmd_forward_[13] == _i_cmd_forward_[14])) {abort();}
+  if(!(_obstacle_flag_[13] == _i_obstacle_flag_[14])) {abort();}
+  if(!(_nxtway_gs_mode_[13] == _i_nxtway_gs_mode_[14])) {abort();}
   break;
   case 14: 
-  __VERIFIER_assume(_cmd_turn_[14] == _i_cmd_turn_[15]);
-  __VERIFIER_assume(_cmd_forward_[14] == _i_cmd_forward_[15]);
-  __VERIFIER_assume(_obstacle_flag_[14] == _i_obstacle_flag_[15]);
-  __VERIFIER_assume(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15]);
+  if(!(_cmd_turn_[14] == _i_cmd_turn_[15])) {abort();}
+  if(!(_cmd_forward_[14] == _i_cmd_forward_[15])) {abort();}
+  if(!(_obstacle_flag_[14] == _i_obstacle_flag_[15])) {abort();}
+  if(!(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15])) {abort();}
   break;
   case 15: 
-  __VERIFIER_assume(_cmd_turn_[15] == _i_cmd_turn_[16]);
-  __VERIFIER_assume(_cmd_forward_[15] == _i_cmd_forward_[16]);
-  __VERIFIER_assume(_obstacle_flag_[15] == _i_obstacle_flag_[16]);
-  __VERIFIER_assume(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16]);
+  if(!(_cmd_turn_[15] == _i_cmd_turn_[16])) {abort();}
+  if(!(_cmd_forward_[15] == _i_cmd_forward_[16])) {abort();}
+  if(!(_obstacle_flag_[15] == _i_obstacle_flag_[16])) {abort();}
+  if(!(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16])) {abort();}
   break;
   case 16: 
-  __VERIFIER_assume(_cmd_turn_[16] == _i_cmd_turn_[17]);
-  __VERIFIER_assume(_cmd_forward_[16] == _i_cmd_forward_[17]);
-  __VERIFIER_assume(_obstacle_flag_[16] == _i_obstacle_flag_[17]);
-  __VERIFIER_assume(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17]);
+  if(!(_cmd_turn_[16] == _i_cmd_turn_[17])) {abort();}
+  if(!(_cmd_forward_[16] == _i_cmd_forward_[17])) {abort();}
+  if(!(_obstacle_flag_[16] == _i_obstacle_flag_[17])) {abort();}
+  if(!(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17])) {abort();}
   break;
   case 17: 
-  __VERIFIER_assume(_cmd_turn_[17] == _i_cmd_turn_[18]);
-  __VERIFIER_assume(_cmd_forward_[17] == _i_cmd_forward_[18]);
-  __VERIFIER_assume(_obstacle_flag_[17] == _i_obstacle_flag_[18]);
-  __VERIFIER_assume(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18]);
+  if(!(_cmd_turn_[17] == _i_cmd_turn_[18])) {abort();}
+  if(!(_cmd_forward_[17] == _i_cmd_forward_[18])) {abort();}
+  if(!(_obstacle_flag_[17] == _i_obstacle_flag_[18])) {abort();}
+  if(!(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18])) {abort();}
   break;
   case 18: 
-  __VERIFIER_assume(_cmd_turn_[18] == _i_cmd_turn_[19]);
-  __VERIFIER_assume(_cmd_forward_[18] == _i_cmd_forward_[19]);
-  __VERIFIER_assume(_obstacle_flag_[18] == _i_obstacle_flag_[19]);
-  __VERIFIER_assume(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19]);
+  if(!(_cmd_turn_[18] == _i_cmd_turn_[19])) {abort();}
+  if(!(_cmd_forward_[18] == _i_cmd_forward_[19])) {abort();}
+  if(!(_obstacle_flag_[18] == _i_obstacle_flag_[19])) {abort();}
+  if(!(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19])) {abort();}
   break;
   case 19: 
-  __VERIFIER_assume(_cmd_turn_[19] == _i_cmd_turn_[20]);
-  __VERIFIER_assume(_cmd_forward_[19] == _i_cmd_forward_[20]);
-  __VERIFIER_assume(_obstacle_flag_[19] == _i_obstacle_flag_[20]);
-  __VERIFIER_assume(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20]);
+  if(!(_cmd_turn_[19] == _i_cmd_turn_[20])) {abort();}
+  if(!(_cmd_forward_[19] == _i_cmd_forward_[20])) {abort();}
+  if(!(_obstacle_flag_[19] == _i_obstacle_flag_[20])) {abort();}
+  if(!(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20])) {abort();}
   break;
   case 20: 
-  __VERIFIER_assume(_cmd_turn_[20] == _i_cmd_turn_[21]);
-  __VERIFIER_assume(_cmd_forward_[20] == _i_cmd_forward_[21]);
-  __VERIFIER_assume(_obstacle_flag_[20] == _i_obstacle_flag_[21]);
-  __VERIFIER_assume(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21]);
+  if(!(_cmd_turn_[20] == _i_cmd_turn_[21])) {abort();}
+  if(!(_cmd_forward_[20] == _i_cmd_forward_[21])) {abort();}
+  if(!(_obstacle_flag_[20] == _i_obstacle_flag_[21])) {abort();}
+  if(!(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21])) {abort();}
   break;
   case 21: 
-  __VERIFIER_assume(_cmd_turn_[21] == _i_cmd_turn_[22]);
-  __VERIFIER_assume(_cmd_forward_[21] == _i_cmd_forward_[22]);
-  __VERIFIER_assume(_obstacle_flag_[21] == _i_obstacle_flag_[22]);
-  __VERIFIER_assume(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22]);
+  if(!(_cmd_turn_[21] == _i_cmd_turn_[22])) {abort();}
+  if(!(_cmd_forward_[21] == _i_cmd_forward_[22])) {abort();}
+  if(!(_obstacle_flag_[21] == _i_obstacle_flag_[22])) {abort();}
+  if(!(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22])) {abort();}
   break;
   case 22: 
-  __VERIFIER_assume(_cmd_turn_[22] == _i_cmd_turn_[23]);
-  __VERIFIER_assume(_cmd_forward_[22] == _i_cmd_forward_[23]);
-  __VERIFIER_assume(_obstacle_flag_[22] == _i_obstacle_flag_[23]);
-  __VERIFIER_assume(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23]);
+  if(!(_cmd_turn_[22] == _i_cmd_turn_[23])) {abort();}
+  if(!(_cmd_forward_[22] == _i_cmd_forward_[23])) {abort();}
+  if(!(_obstacle_flag_[22] == _i_obstacle_flag_[23])) {abort();}
+  if(!(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23])) {abort();}
   break;
   case 23: 
-  __VERIFIER_assume(_cmd_turn_[23] == _i_cmd_turn_[24]);
-  __VERIFIER_assume(_cmd_forward_[23] == _i_cmd_forward_[24]);
-  __VERIFIER_assume(_obstacle_flag_[23] == _i_obstacle_flag_[24]);
-  __VERIFIER_assume(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24]);
+  if(!(_cmd_turn_[23] == _i_cmd_turn_[24])) {abort();}
+  if(!(_cmd_forward_[23] == _i_cmd_forward_[24])) {abort();}
+  if(!(_obstacle_flag_[23] == _i_obstacle_flag_[24])) {abort();}
+  if(!(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24])) {abort();}
   break;
   case 24: 
-  __VERIFIER_assume(_cmd_turn_[24] == _i_cmd_turn_[25]);
-  __VERIFIER_assume(_cmd_forward_[24] == _i_cmd_forward_[25]);
-  __VERIFIER_assume(_obstacle_flag_[24] == _i_obstacle_flag_[25]);
-  __VERIFIER_assume(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25]);
+  if(!(_cmd_turn_[24] == _i_cmd_turn_[25])) {abort();}
+  if(!(_cmd_forward_[24] == _i_cmd_forward_[25])) {abort();}
+  if(!(_obstacle_flag_[24] == _i_obstacle_flag_[25])) {abort();}
+  if(!(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25])) {abort();}
   break;
   case 25: 
-  __VERIFIER_assume(_cmd_turn_[25] == _i_cmd_turn_[26]);
-  __VERIFIER_assume(_cmd_forward_[25] == _i_cmd_forward_[26]);
-  __VERIFIER_assume(_obstacle_flag_[25] == _i_obstacle_flag_[26]);
-  __VERIFIER_assume(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26]);
+  if(!(_cmd_turn_[25] == _i_cmd_turn_[26])) {abort();}
+  if(!(_cmd_forward_[25] == _i_cmd_forward_[26])) {abort();}
+  if(!(_obstacle_flag_[25] == _i_obstacle_flag_[26])) {abort();}
+  if(!(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26])) {abort();}
   break;
   }
   assert(__startrek_Assert_t1_i0);
@@ -2161,25 +2161,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 16;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 14: 
-  __VERIFIER_assume(_cmd_turn_[14] == _i_cmd_turn_[15]);
-  __VERIFIER_assume(_cmd_forward_[14] == _i_cmd_forward_[15]);
-  __VERIFIER_assume(_obstacle_flag_[14] == _i_obstacle_flag_[15]);
-  __VERIFIER_assume(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15]);
+  if(!(_cmd_turn_[14] == _i_cmd_turn_[15])) {abort();}
+  if(!(_cmd_forward_[14] == _i_cmd_forward_[15])) {abort();}
+  if(!(_obstacle_flag_[14] == _i_obstacle_flag_[15])) {abort();}
+  if(!(_nxtway_gs_mode_[14] == _i_nxtway_gs_mode_[15])) {abort();}
   break;
   case 15: 
-  __VERIFIER_assume(_cmd_turn_[15] == _i_cmd_turn_[16]);
-  __VERIFIER_assume(_cmd_forward_[15] == _i_cmd_forward_[16]);
-  __VERIFIER_assume(_obstacle_flag_[15] == _i_obstacle_flag_[16]);
-  __VERIFIER_assume(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16]);
+  if(!(_cmd_turn_[15] == _i_cmd_turn_[16])) {abort();}
+  if(!(_cmd_forward_[15] == _i_cmd_forward_[16])) {abort();}
+  if(!(_obstacle_flag_[15] == _i_obstacle_flag_[16])) {abort();}
+  if(!(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16])) {abort();}
   break;
   case 16: 
-  __VERIFIER_assume(_cmd_turn_[16] == _i_cmd_turn_[17]);
-  __VERIFIER_assume(_cmd_forward_[16] == _i_cmd_forward_[17]);
-  __VERIFIER_assume(_obstacle_flag_[16] == _i_obstacle_flag_[17]);
-  __VERIFIER_assume(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17]);
+  if(!(_cmd_turn_[16] == _i_cmd_turn_[17])) {abort();}
+  if(!(_cmd_forward_[16] == _i_cmd_forward_[17])) {abort();}
+  if(!(_obstacle_flag_[16] == _i_obstacle_flag_[17])) {abort();}
+  if(!(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2189,25 +2189,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 17;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 15: 
-  __VERIFIER_assume(_cmd_turn_[15] == _i_cmd_turn_[16]);
-  __VERIFIER_assume(_cmd_forward_[15] == _i_cmd_forward_[16]);
-  __VERIFIER_assume(_obstacle_flag_[15] == _i_obstacle_flag_[16]);
-  __VERIFIER_assume(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16]);
+  if(!(_cmd_turn_[15] == _i_cmd_turn_[16])) {abort();}
+  if(!(_cmd_forward_[15] == _i_cmd_forward_[16])) {abort();}
+  if(!(_obstacle_flag_[15] == _i_obstacle_flag_[16])) {abort();}
+  if(!(_nxtway_gs_mode_[15] == _i_nxtway_gs_mode_[16])) {abort();}
   break;
   case 16: 
-  __VERIFIER_assume(_cmd_turn_[16] == _i_cmd_turn_[17]);
-  __VERIFIER_assume(_cmd_forward_[16] == _i_cmd_forward_[17]);
-  __VERIFIER_assume(_obstacle_flag_[16] == _i_obstacle_flag_[17]);
-  __VERIFIER_assume(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17]);
+  if(!(_cmd_turn_[16] == _i_cmd_turn_[17])) {abort();}
+  if(!(_cmd_forward_[16] == _i_cmd_forward_[17])) {abort();}
+  if(!(_obstacle_flag_[16] == _i_obstacle_flag_[17])) {abort();}
+  if(!(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17])) {abort();}
   break;
   case 17: 
-  __VERIFIER_assume(_cmd_turn_[17] == _i_cmd_turn_[18]);
-  __VERIFIER_assume(_cmd_forward_[17] == _i_cmd_forward_[18]);
-  __VERIFIER_assume(_obstacle_flag_[17] == _i_obstacle_flag_[18]);
-  __VERIFIER_assume(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18]);
+  if(!(_cmd_turn_[17] == _i_cmd_turn_[18])) {abort();}
+  if(!(_cmd_forward_[17] == _i_cmd_forward_[18])) {abort();}
+  if(!(_obstacle_flag_[17] == _i_obstacle_flag_[18])) {abort();}
+  if(!(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2217,25 +2217,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 18;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 16: 
-  __VERIFIER_assume(_cmd_turn_[16] == _i_cmd_turn_[17]);
-  __VERIFIER_assume(_cmd_forward_[16] == _i_cmd_forward_[17]);
-  __VERIFIER_assume(_obstacle_flag_[16] == _i_obstacle_flag_[17]);
-  __VERIFIER_assume(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17]);
+  if(!(_cmd_turn_[16] == _i_cmd_turn_[17])) {abort();}
+  if(!(_cmd_forward_[16] == _i_cmd_forward_[17])) {abort();}
+  if(!(_obstacle_flag_[16] == _i_obstacle_flag_[17])) {abort();}
+  if(!(_nxtway_gs_mode_[16] == _i_nxtway_gs_mode_[17])) {abort();}
   break;
   case 17: 
-  __VERIFIER_assume(_cmd_turn_[17] == _i_cmd_turn_[18]);
-  __VERIFIER_assume(_cmd_forward_[17] == _i_cmd_forward_[18]);
-  __VERIFIER_assume(_obstacle_flag_[17] == _i_obstacle_flag_[18]);
-  __VERIFIER_assume(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18]);
+  if(!(_cmd_turn_[17] == _i_cmd_turn_[18])) {abort();}
+  if(!(_cmd_forward_[17] == _i_cmd_forward_[18])) {abort();}
+  if(!(_obstacle_flag_[17] == _i_obstacle_flag_[18])) {abort();}
+  if(!(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18])) {abort();}
   break;
   case 18: 
-  __VERIFIER_assume(_cmd_turn_[18] == _i_cmd_turn_[19]);
-  __VERIFIER_assume(_cmd_forward_[18] == _i_cmd_forward_[19]);
-  __VERIFIER_assume(_obstacle_flag_[18] == _i_obstacle_flag_[19]);
-  __VERIFIER_assume(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19]);
+  if(!(_cmd_turn_[18] == _i_cmd_turn_[19])) {abort();}
+  if(!(_cmd_forward_[18] == _i_cmd_forward_[19])) {abort();}
+  if(!(_obstacle_flag_[18] == _i_obstacle_flag_[19])) {abort();}
+  if(!(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2245,25 +2245,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 19;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 17: 
-  __VERIFIER_assume(_cmd_turn_[17] == _i_cmd_turn_[18]);
-  __VERIFIER_assume(_cmd_forward_[17] == _i_cmd_forward_[18]);
-  __VERIFIER_assume(_obstacle_flag_[17] == _i_obstacle_flag_[18]);
-  __VERIFIER_assume(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18]);
+  if(!(_cmd_turn_[17] == _i_cmd_turn_[18])) {abort();}
+  if(!(_cmd_forward_[17] == _i_cmd_forward_[18])) {abort();}
+  if(!(_obstacle_flag_[17] == _i_obstacle_flag_[18])) {abort();}
+  if(!(_nxtway_gs_mode_[17] == _i_nxtway_gs_mode_[18])) {abort();}
   break;
   case 18: 
-  __VERIFIER_assume(_cmd_turn_[18] == _i_cmd_turn_[19]);
-  __VERIFIER_assume(_cmd_forward_[18] == _i_cmd_forward_[19]);
-  __VERIFIER_assume(_obstacle_flag_[18] == _i_obstacle_flag_[19]);
-  __VERIFIER_assume(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19]);
+  if(!(_cmd_turn_[18] == _i_cmd_turn_[19])) {abort();}
+  if(!(_cmd_forward_[18] == _i_cmd_forward_[19])) {abort();}
+  if(!(_obstacle_flag_[18] == _i_obstacle_flag_[19])) {abort();}
+  if(!(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19])) {abort();}
   break;
   case 19: 
-  __VERIFIER_assume(_cmd_turn_[19] == _i_cmd_turn_[20]);
-  __VERIFIER_assume(_cmd_forward_[19] == _i_cmd_forward_[20]);
-  __VERIFIER_assume(_obstacle_flag_[19] == _i_obstacle_flag_[20]);
-  __VERIFIER_assume(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20]);
+  if(!(_cmd_turn_[19] == _i_cmd_turn_[20])) {abort();}
+  if(!(_cmd_forward_[19] == _i_cmd_forward_[20])) {abort();}
+  if(!(_obstacle_flag_[19] == _i_obstacle_flag_[20])) {abort();}
+  if(!(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2273,25 +2273,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 20;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 18: 
-  __VERIFIER_assume(_cmd_turn_[18] == _i_cmd_turn_[19]);
-  __VERIFIER_assume(_cmd_forward_[18] == _i_cmd_forward_[19]);
-  __VERIFIER_assume(_obstacle_flag_[18] == _i_obstacle_flag_[19]);
-  __VERIFIER_assume(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19]);
+  if(!(_cmd_turn_[18] == _i_cmd_turn_[19])) {abort();}
+  if(!(_cmd_forward_[18] == _i_cmd_forward_[19])) {abort();}
+  if(!(_obstacle_flag_[18] == _i_obstacle_flag_[19])) {abort();}
+  if(!(_nxtway_gs_mode_[18] == _i_nxtway_gs_mode_[19])) {abort();}
   break;
   case 19: 
-  __VERIFIER_assume(_cmd_turn_[19] == _i_cmd_turn_[20]);
-  __VERIFIER_assume(_cmd_forward_[19] == _i_cmd_forward_[20]);
-  __VERIFIER_assume(_obstacle_flag_[19] == _i_obstacle_flag_[20]);
-  __VERIFIER_assume(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20]);
+  if(!(_cmd_turn_[19] == _i_cmd_turn_[20])) {abort();}
+  if(!(_cmd_forward_[19] == _i_cmd_forward_[20])) {abort();}
+  if(!(_obstacle_flag_[19] == _i_obstacle_flag_[20])) {abort();}
+  if(!(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20])) {abort();}
   break;
   case 20: 
-  __VERIFIER_assume(_cmd_turn_[20] == _i_cmd_turn_[21]);
-  __VERIFIER_assume(_cmd_forward_[20] == _i_cmd_forward_[21]);
-  __VERIFIER_assume(_obstacle_flag_[20] == _i_obstacle_flag_[21]);
-  __VERIFIER_assume(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21]);
+  if(!(_cmd_turn_[20] == _i_cmd_turn_[21])) {abort();}
+  if(!(_cmd_forward_[20] == _i_cmd_forward_[21])) {abort();}
+  if(!(_obstacle_flag_[20] == _i_obstacle_flag_[21])) {abort();}
+  if(!(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2302,25 +2302,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 21;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 19: 
-  __VERIFIER_assume(_cmd_turn_[19] == _i_cmd_turn_[20]);
-  __VERIFIER_assume(_cmd_forward_[19] == _i_cmd_forward_[20]);
-  __VERIFIER_assume(_obstacle_flag_[19] == _i_obstacle_flag_[20]);
-  __VERIFIER_assume(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20]);
+  if(!(_cmd_turn_[19] == _i_cmd_turn_[20])) {abort();}
+  if(!(_cmd_forward_[19] == _i_cmd_forward_[20])) {abort();}
+  if(!(_obstacle_flag_[19] == _i_obstacle_flag_[20])) {abort();}
+  if(!(_nxtway_gs_mode_[19] == _i_nxtway_gs_mode_[20])) {abort();}
   break;
   case 20: 
-  __VERIFIER_assume(_cmd_turn_[20] == _i_cmd_turn_[21]);
-  __VERIFIER_assume(_cmd_forward_[20] == _i_cmd_forward_[21]);
-  __VERIFIER_assume(_obstacle_flag_[20] == _i_obstacle_flag_[21]);
-  __VERIFIER_assume(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21]);
+  if(!(_cmd_turn_[20] == _i_cmd_turn_[21])) {abort();}
+  if(!(_cmd_forward_[20] == _i_cmd_forward_[21])) {abort();}
+  if(!(_obstacle_flag_[20] == _i_obstacle_flag_[21])) {abort();}
+  if(!(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21])) {abort();}
   break;
   case 21: 
-  __VERIFIER_assume(_cmd_turn_[21] == _i_cmd_turn_[22]);
-  __VERIFIER_assume(_cmd_forward_[21] == _i_cmd_forward_[22]);
-  __VERIFIER_assume(_obstacle_flag_[21] == _i_obstacle_flag_[22]);
-  __VERIFIER_assume(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22]);
+  if(!(_cmd_turn_[21] == _i_cmd_turn_[22])) {abort();}
+  if(!(_cmd_forward_[21] == _i_cmd_forward_[22])) {abort();}
+  if(!(_obstacle_flag_[21] == _i_obstacle_flag_[22])) {abort();}
+  if(!(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2330,25 +2330,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 22;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 20: 
-  __VERIFIER_assume(_cmd_turn_[20] == _i_cmd_turn_[21]);
-  __VERIFIER_assume(_cmd_forward_[20] == _i_cmd_forward_[21]);
-  __VERIFIER_assume(_obstacle_flag_[20] == _i_obstacle_flag_[21]);
-  __VERIFIER_assume(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21]);
+  if(!(_cmd_turn_[20] == _i_cmd_turn_[21])) {abort();}
+  if(!(_cmd_forward_[20] == _i_cmd_forward_[21])) {abort();}
+  if(!(_obstacle_flag_[20] == _i_obstacle_flag_[21])) {abort();}
+  if(!(_nxtway_gs_mode_[20] == _i_nxtway_gs_mode_[21])) {abort();}
   break;
   case 21: 
-  __VERIFIER_assume(_cmd_turn_[21] == _i_cmd_turn_[22]);
-  __VERIFIER_assume(_cmd_forward_[21] == _i_cmd_forward_[22]);
-  __VERIFIER_assume(_obstacle_flag_[21] == _i_obstacle_flag_[22]);
-  __VERIFIER_assume(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22]);
+  if(!(_cmd_turn_[21] == _i_cmd_turn_[22])) {abort();}
+  if(!(_cmd_forward_[21] == _i_cmd_forward_[22])) {abort();}
+  if(!(_obstacle_flag_[21] == _i_obstacle_flag_[22])) {abort();}
+  if(!(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22])) {abort();}
   break;
   case 22: 
-  __VERIFIER_assume(_cmd_turn_[22] == _i_cmd_turn_[23]);
-  __VERIFIER_assume(_cmd_forward_[22] == _i_cmd_forward_[23]);
-  __VERIFIER_assume(_obstacle_flag_[22] == _i_obstacle_flag_[23]);
-  __VERIFIER_assume(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23]);
+  if(!(_cmd_turn_[22] == _i_cmd_turn_[23])) {abort();}
+  if(!(_cmd_forward_[22] == _i_cmd_forward_[23])) {abort();}
+  if(!(_obstacle_flag_[22] == _i_obstacle_flag_[23])) {abort();}
+  if(!(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2358,25 +2358,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 23;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 21: 
-  __VERIFIER_assume(_cmd_turn_[21] == _i_cmd_turn_[22]);
-  __VERIFIER_assume(_cmd_forward_[21] == _i_cmd_forward_[22]);
-  __VERIFIER_assume(_obstacle_flag_[21] == _i_obstacle_flag_[22]);
-  __VERIFIER_assume(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22]);
+  if(!(_cmd_turn_[21] == _i_cmd_turn_[22])) {abort();}
+  if(!(_cmd_forward_[21] == _i_cmd_forward_[22])) {abort();}
+  if(!(_obstacle_flag_[21] == _i_obstacle_flag_[22])) {abort();}
+  if(!(_nxtway_gs_mode_[21] == _i_nxtway_gs_mode_[22])) {abort();}
   break;
   case 22: 
-  __VERIFIER_assume(_cmd_turn_[22] == _i_cmd_turn_[23]);
-  __VERIFIER_assume(_cmd_forward_[22] == _i_cmd_forward_[23]);
-  __VERIFIER_assume(_obstacle_flag_[22] == _i_obstacle_flag_[23]);
-  __VERIFIER_assume(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23]);
+  if(!(_cmd_turn_[22] == _i_cmd_turn_[23])) {abort();}
+  if(!(_cmd_forward_[22] == _i_cmd_forward_[23])) {abort();}
+  if(!(_obstacle_flag_[22] == _i_obstacle_flag_[23])) {abort();}
+  if(!(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23])) {abort();}
   break;
   case 23: 
-  __VERIFIER_assume(_cmd_turn_[23] == _i_cmd_turn_[24]);
-  __VERIFIER_assume(_cmd_forward_[23] == _i_cmd_forward_[24]);
-  __VERIFIER_assume(_obstacle_flag_[23] == _i_obstacle_flag_[24]);
-  __VERIFIER_assume(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24]);
+  if(!(_cmd_turn_[23] == _i_cmd_turn_[24])) {abort();}
+  if(!(_cmd_forward_[23] == _i_cmd_forward_[24])) {abort();}
+  if(!(_obstacle_flag_[23] == _i_obstacle_flag_[24])) {abort();}
+  if(!(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2386,25 +2386,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 24;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 22: 
-  __VERIFIER_assume(_cmd_turn_[22] == _i_cmd_turn_[23]);
-  __VERIFIER_assume(_cmd_forward_[22] == _i_cmd_forward_[23]);
-  __VERIFIER_assume(_obstacle_flag_[22] == _i_obstacle_flag_[23]);
-  __VERIFIER_assume(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23]);
+  if(!(_cmd_turn_[22] == _i_cmd_turn_[23])) {abort();}
+  if(!(_cmd_forward_[22] == _i_cmd_forward_[23])) {abort();}
+  if(!(_obstacle_flag_[22] == _i_obstacle_flag_[23])) {abort();}
+  if(!(_nxtway_gs_mode_[22] == _i_nxtway_gs_mode_[23])) {abort();}
   break;
   case 23: 
-  __VERIFIER_assume(_cmd_turn_[23] == _i_cmd_turn_[24]);
-  __VERIFIER_assume(_cmd_forward_[23] == _i_cmd_forward_[24]);
-  __VERIFIER_assume(_obstacle_flag_[23] == _i_obstacle_flag_[24]);
-  __VERIFIER_assume(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24]);
+  if(!(_cmd_turn_[23] == _i_cmd_turn_[24])) {abort();}
+  if(!(_cmd_forward_[23] == _i_cmd_forward_[24])) {abort();}
+  if(!(_obstacle_flag_[23] == _i_obstacle_flag_[24])) {abort();}
+  if(!(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24])) {abort();}
   break;
   case 24: 
-  __VERIFIER_assume(_cmd_turn_[24] == _i_cmd_turn_[25]);
-  __VERIFIER_assume(_cmd_forward_[24] == _i_cmd_forward_[25]);
-  __VERIFIER_assume(_obstacle_flag_[24] == _i_obstacle_flag_[25]);
-  __VERIFIER_assume(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25]);
+  if(!(_cmd_turn_[24] == _i_cmd_turn_[25])) {abort();}
+  if(!(_cmd_forward_[24] == _i_cmd_forward_[25])) {abort();}
+  if(!(_obstacle_flag_[24] == _i_obstacle_flag_[25])) {abort();}
+  if(!(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2414,25 +2414,25 @@ void __startrek_hyperperiod(void)
   __startrek_job = 25;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 23: 
-  __VERIFIER_assume(_cmd_turn_[23] == _i_cmd_turn_[24]);
-  __VERIFIER_assume(_cmd_forward_[23] == _i_cmd_forward_[24]);
-  __VERIFIER_assume(_obstacle_flag_[23] == _i_obstacle_flag_[24]);
-  __VERIFIER_assume(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24]);
+  if(!(_cmd_turn_[23] == _i_cmd_turn_[24])) {abort();}
+  if(!(_cmd_forward_[23] == _i_cmd_forward_[24])) {abort();}
+  if(!(_obstacle_flag_[23] == _i_obstacle_flag_[24])) {abort();}
+  if(!(_nxtway_gs_mode_[23] == _i_nxtway_gs_mode_[24])) {abort();}
   break;
   case 24: 
-  __VERIFIER_assume(_cmd_turn_[24] == _i_cmd_turn_[25]);
-  __VERIFIER_assume(_cmd_forward_[24] == _i_cmd_forward_[25]);
-  __VERIFIER_assume(_obstacle_flag_[24] == _i_obstacle_flag_[25]);
-  __VERIFIER_assume(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25]);
+  if(!(_cmd_turn_[24] == _i_cmd_turn_[25])) {abort();}
+  if(!(_cmd_forward_[24] == _i_cmd_forward_[25])) {abort();}
+  if(!(_obstacle_flag_[24] == _i_obstacle_flag_[25])) {abort();}
+  if(!(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25])) {abort();}
   break;
   case 25: 
-  __VERIFIER_assume(_cmd_turn_[25] == _i_cmd_turn_[26]);
-  __VERIFIER_assume(_cmd_forward_[25] == _i_cmd_forward_[26]);
-  __VERIFIER_assume(_obstacle_flag_[25] == _i_obstacle_flag_[26]);
-  __VERIFIER_assume(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26]);
+  if(!(_cmd_turn_[25] == _i_cmd_turn_[26])) {abort();}
+  if(!(_cmd_forward_[25] == _i_cmd_forward_[26])) {abort();}
+  if(!(_obstacle_flag_[25] == _i_obstacle_flag_[26])) {abort();}
+  if(!(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);
@@ -2442,19 +2442,19 @@ void __startrek_hyperperiod(void)
   __startrek_job = 26;
   __startrek_Assert_t2_i0 = 1;
   __startrek_entry_pt_OSEK_Task_ts1();
-  __VERIFIER_assume(__startrek_round == __startrek_job_end);
+  if(!(__startrek_round == __startrek_job_end)) {abort();}
   switch (__startrek_job_end) {
   case 24: 
-  __VERIFIER_assume(_cmd_turn_[24] == _i_cmd_turn_[25]);
-  __VERIFIER_assume(_cmd_forward_[24] == _i_cmd_forward_[25]);
-  __VERIFIER_assume(_obstacle_flag_[24] == _i_obstacle_flag_[25]);
-  __VERIFIER_assume(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25]);
+  if(!(_cmd_turn_[24] == _i_cmd_turn_[25])) {abort();}
+  if(!(_cmd_forward_[24] == _i_cmd_forward_[25])) {abort();}
+  if(!(_obstacle_flag_[24] == _i_obstacle_flag_[25])) {abort();}
+  if(!(_nxtway_gs_mode_[24] == _i_nxtway_gs_mode_[25])) {abort();}
   break;
   case 25: 
-  __VERIFIER_assume(_cmd_turn_[25] == _i_cmd_turn_[26]);
-  __VERIFIER_assume(_cmd_forward_[25] == _i_cmd_forward_[26]);
-  __VERIFIER_assume(_obstacle_flag_[25] == _i_obstacle_flag_[26]);
-  __VERIFIER_assume(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26]);
+  if(!(_cmd_turn_[25] == _i_cmd_turn_[26])) {abort();}
+  if(!(_cmd_forward_[25] == _i_cmd_forward_[26])) {abort();}
+  if(!(_obstacle_flag_[25] == _i_obstacle_flag_[26])) {abort();}
+  if(!(_nxtway_gs_mode_[25] == _i_nxtway_gs_mode_[26])) {abort();}
   break;
   }
   assert(__startrek_Assert_t2_i0);

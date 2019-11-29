@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void);
 extern void __VERIFIER_assert(int cond);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {

@@ -1,6 +1,6 @@
 extern unsigned long __VERIFIER_nondet_ulong();
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __VERIFIER_assert(int cond) {
@@ -1137,9 +1137,9 @@ int main()
     for(int i=0; i<pat_len && i<a_len; i++)
     {
         if(i<different)
-          __VERIFIER_assume(pat[i]==a[i]);
+          if(!(pat[i]==a[i])) {abort();}
         else if(i==different)
-          __VERIFIER_assume(pat[i]!=a[i]);
+          if(!(pat[i]!=a[i])) {abort();}
         else if(i>different)
           __VERIFIER_assert(pat[i]==a[i-1]);
     }

@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
@@ -676,12 +676,12 @@ int mutex;
 int res;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(mutex==0);
+ if(!(mutex==0)) {abort();}
  mutex = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(mutex==1);
+ if(!(mutex==1)) {abort();}
  mutex = 0;
 }
 typedef int (*FuncType)(int, int);

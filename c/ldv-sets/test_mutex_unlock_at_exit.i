@@ -549,7 +549,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 void __VERIFIER_error(void);
-void __VERIFIER_assume(int);
+void abort(void);
 int __VERIFIER_nondet_int(void);
 void *ldv_malloc(size_t size) {
  if(__VERIFIER_nondet_int()) {
@@ -560,7 +560,7 @@ void *ldv_malloc(size_t size) {
 };
 void *ldv_successful_malloc(size_t size) {
  void *ptr = malloc(size);
- __VERIFIER_assume(ptr!=0);
+ if(!(ptr!=0)) {abort();}
  return ptr;
 };
 struct mutex {

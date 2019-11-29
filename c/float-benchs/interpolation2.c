@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main()
@@ -13,7 +13,7 @@ int main()
   float slope[] = { 4, -15, 40, -10, 0 };
   
   t = __VERIFIER_nondet_float();
-  __VERIFIER_assume(t >= min[0] && t <= max[sizeof(max) / sizeof(max[0]) - 1]);
+  if(!(t >= min[0] && t <= max[sizeof(max) / sizeof(max[0]) - 1])) {abort();}
 
   for (i = 0; i < sizeof(min) / sizeof(min[0]); i++)  {
     if (t <= max[i]) break;

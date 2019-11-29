@@ -4,7 +4,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double _EPS = 1e-6;
@@ -41,7 +41,7 @@ int main()
   for (d = 1.; d <= 20.; d++) {
 
     dd = __VERIFIER_nondet_double();
-    __VERIFIER_assume(dd >= d-epsilon && dd <= d+epsilon);
+    if(!(dd >= d-epsilon && dd <= d+epsilon)) {abort();}
 
     r = SqrtR(dd);
 

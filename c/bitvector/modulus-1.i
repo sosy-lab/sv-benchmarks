@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern unsigned int __VERIFIER_nondet_uint(void);
@@ -25,7 +25,7 @@ int main()
     unsigned int s = __VERIFIER_nondet_uint();
     unsigned int d;
     unsigned int m;
-    __VERIFIER_assume(s < 32);
+    if(!(s < 32)) {abort();}
     d = (1 << s) - 1;
     if (d > 0) {
         m = n;

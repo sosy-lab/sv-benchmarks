@@ -4,7 +4,7 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error(void);
 typedef __builtin_va_list __gnuc_va_list;
 
@@ -3586,7 +3586,7 @@ int _IO_getc(struct _IO_FILE *stream) {
 }
 unsigned int sleep(unsigned int sec) {
   unsigned int retval = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(retval <= sec);
+  if(!(retval <= sec)) {abort();}
   return retval;
 }
 static struct utmp dummy_utmp;
@@ -3609,7 +3609,7 @@ int getopt(int argc, char * const argv[], const char *optstring)
   if(optind >= argc || argv[optind][0] != '-')
     return -1;
   size_t opt_index = __VERIFIER_nondet_ulong();
-  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  if(!(opt_index < strlen(optstring) && optstring[opt_index] != ':')) {abort();}
   if(__VERIFIER_nondet_int())
   {
     result = optstring[opt_index];
@@ -3639,8 +3639,8 @@ ssize_t read(int fildes, void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
   unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  __VERIFIER_assume(offset<nbyte);
+  if(!(ret>=-1 && ret<=nbyte)) {abort();}
+  if(!(offset<nbyte)) {abort();}
   *((char*)buf+offset)=__VERIFIER_nondet_char();
   return ret;
 }
@@ -3660,13 +3660,13 @@ int vasprintf(char **ptr, const char *fmt, va_list ap)
       break;
     ++i;
   }
-  __VERIFIER_assume(i<result_buffer_size);
+  if(!(i<result_buffer_size)) {abort();}
   return i;
 }
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  if(!(ret>=-1 && ret<=nbyte)) {abort();}
   return ret;
 }
 int main()
@@ -3679,7 +3679,7 @@ int main()
   bb_errno_location = __VERIFIER_nondet_int();
   optind = 1;
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
+  if(!(argc >= 1 && argc <= 10000)) {abort();}
   char **argv=malloc((argc+1)*sizeof(char*));
   char **mem_track=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;

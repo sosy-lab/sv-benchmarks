@@ -5389,7 +5389,7 @@ extern int dev_printk(char const * , struct device const * , char const * , ...)
 extern int dev_warn(struct device const * , char const * , ...) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -5399,7 +5399,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);
@@ -12224,7 +12224,7 @@ struct bin_attribute pccard_cis_attr = {{"cis", 420U, (_Bool)0, 0, {{{(char)0}, 
                                  {(char)0}, {(char)0}, {(char)0}}}}, 512UL, 0, & pccard_show_cis,
     & pccard_store_cis, 0};
 extern void *calloc(size_t , size_t ) ;
-extern void __VERIFIER_assume(int ) ;
+extern void abort(void);
 void *ldv_init_zalloc(size_t size );
 int main(void)
 {
@@ -12280,7 +12280,7 @@ void *ldv_init_zalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   p = tmp;
-  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  if(!((unsigned long )p != (unsigned long )((void *)0))) {abort();}
   return (p);
 }
 }

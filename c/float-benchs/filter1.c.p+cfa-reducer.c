@@ -2,7 +2,7 @@ int __return_main;
 void __VERIFIER_error();
 int __VERIFIER_nondet_int();
 double __VERIFIER_nondet_double();
-void __VERIFIER_assume(int expression);
+void abort(void);
 void __VERIFIER_assert(int cond);
 int main();
  int main()

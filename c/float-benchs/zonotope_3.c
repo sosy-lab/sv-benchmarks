@@ -6,7 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 float f(float x)
@@ -31,7 +31,7 @@ int main()
   for (i = 1; i <= 100000; i++) {
 
     x = __VERIFIER_nondet_float();
-    __VERIFIER_assume(x >= 0.f && x <= (float)i / 100000.f);
+    if(!(x >= 0.f && x <= (float)i / 100000.f)) {abort();}
 
     y = f(x);
     z = g(x);

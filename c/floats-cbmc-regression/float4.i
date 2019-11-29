@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 
 
 
@@ -954,8 +954,8 @@ int main()
   double f, f2;
   f2 = __VERIFIER_nondet_double();
 
-  __VERIFIER_assume(!(sizeof (f2) == sizeof (float) ? __isnanf (f2) : sizeof (f2) == sizeof (double) ? __isnan (f2) : __isnanl (f2)));
-  __VERIFIER_assume(!(sizeof (f2) == sizeof (float) ? __isinff (f2) : sizeof (f2) == sizeof (double) ? __isinf (f2) : __isinfl (f2)));
+  if(!(!(sizeof (f2) == sizeof (float) ? __isnanf (f2) : sizeof (f2) == sizeof (double) ? __isnan (f2) : __isnanl (f2)))) {abort();}
+  if(!(!(sizeof (f2) == sizeof (float) ? __isinff (f2) : sizeof (f2) == sizeof (double) ? __isinf (f2) : __isinfl (f2)))) {abort();}
   f=f2;
 
 

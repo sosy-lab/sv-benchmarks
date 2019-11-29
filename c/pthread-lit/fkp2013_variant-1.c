@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
     int i;
     x = 0;
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n > 0);
+    if(!(n > 0)) {abort();}
     pthread_create(&t1, 0, thr1, 0);    
     for (i = 0; i < n; i++) {
 	pthread_create(&t2, 0, thr2, 0);

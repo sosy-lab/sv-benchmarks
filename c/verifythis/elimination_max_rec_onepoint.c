@@ -1,7 +1,7 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
 extern void free(void *);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
         if(!cond) __VERIFIER_error();
 }
@@ -13,7 +13,7 @@ int check(int x, int y, int *a, int i, int n) {
 
     /* This should be taken as the precondition */
     __VERIFIER_assert(0 <= x && y < n);
-    __VERIFIER_assume(0 <= i && i < n);
+    if(!(0 <= i && i < n)) {abort();}
 
     int x0 = x;
     int y0 = y;
@@ -34,10 +34,10 @@ int check(int x, int y, int *a, int i, int n) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n >= 0);
+    if(!(n >= 0)) {abort();}
     int i = __VERIFIER_nondet_int();
     /* 1 << 30 will make sure n * sizeof(int) does not overflow */
-    __VERIFIER_assume(0 <= i && i < n && n < (1 << 30));
+    if(!(0 <= i && i < n && n < (1 << 30))) {abort();}
     int *a = calloc(n, sizeof(int));
     int x = check(0, n-1, a, i, n);
     int ai = a[i];

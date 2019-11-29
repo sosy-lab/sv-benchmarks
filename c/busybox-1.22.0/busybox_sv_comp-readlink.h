@@ -6,7 +6,7 @@ ssize_t readlink(const char *path, char *buf, size_t bufsiz)
     return -1;
 
   unsigned long len = __VERIFIER_nondet_ulong();
-  __VERIFIER_assume(len <= bufsiz);
+  if(!(len <= bufsiz)) {abort();}
 
   for(size_t i=0; i<len; ++i)
     buf[i] = __VERIFIER_nondet_char();

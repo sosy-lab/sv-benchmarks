@@ -1,5 +1,5 @@
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern unsigned int __VERIFIER_nondet_uint();
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -721,9 +721,9 @@ unsigned start(unsigned a_in, unsigned b_in)
 void check_gcd(unsigned a_in, unsigned b_in, unsigned gcd)
 {
   unsigned guessed_gcd=__VERIFIER_nondet_uint();
-  __VERIFIER_assume(guessed_gcd>1);
-  __VERIFIER_assume(a_in%guessed_gcd==0);
-  __VERIFIER_assume(b_in%guessed_gcd==0);
+  if(!(guessed_gcd>1)) {abort();}
+  if(!(a_in%guessed_gcd==0)) {abort();}
+  if(!(b_in%guessed_gcd==0)) {abort();}
   __VERIFIER_assert(a_in%gcd==0);
   __VERIFIER_assert(b_in%gcd==0);
   __VERIFIER_assert(gcd>=guessed_gcd);
@@ -732,8 +732,8 @@ int main()
 {
   unsigned a_in=__VERIFIER_nondet_uint();
   unsigned b_in=__VERIFIER_nondet_uint();
-  __VERIFIER_assume(a_in>0);
-  __VERIFIER_assume(b_in>0);
+  if(!(a_in>0)) {abort();}
+  if(!(b_in>0)) {abort();}
   check_gcd(a_in, b_in, start(a_in, b_in));
   return 0;
 }

@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern int __VERIFIER_nondet_int(void);
 int last ;
 void __VERIFIER_assert(int cond) {
@@ -15,7 +15,7 @@ int SIZE = 200000;
 int main()
 {
 	last = __VERIFIER_nondet_int();
-	__VERIFIER_assume(last > 0);
+	if(!(last > 0)) {abort();}
 	int a=0,b=0,c=0,st=0,d=0;
 	while(1) {
 		st=1;  

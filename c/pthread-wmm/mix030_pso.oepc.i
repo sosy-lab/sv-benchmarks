@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
@@ -856,7 +856,7 @@ int main()
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 4;
   __VERIFIER_atomic_end();
-  __VERIFIER_assume(main$tmp_guard0);
+  if(!(main$tmp_guard0)) {abort();}
   __VERIFIER_atomic_begin();
   a = a$w_buff0_used && a$r_buff0_thd0 ? a$w_buff0 : (a$w_buff1_used && a$r_buff1_thd0 ? a$w_buff1 : a);
   a$w_buff0_used = a$w_buff0_used && a$r_buff0_thd0 ? (_Bool)0 : a$w_buff0_used;

@@ -25,7 +25,7 @@
  * */
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 extern short __VERIFIER_nondet_short() ;
@@ -35,7 +35,7 @@ signed long long ARR_SIZE ;
 int main()
 {
 	ARR_SIZE = (signed long long)__VERIFIER_nondet_short() ;
-	__VERIFIER_assume(ARR_SIZE > 0) ;
+	if(!(ARR_SIZE > 0) ) {abort();}
 
 	int array1[ARR_SIZE] ;
 	int array2[ARR_SIZE] ;
@@ -56,8 +56,8 @@ int main()
 		
 		index = (signed long long)__VERIFIER_nondet_short() ;
 		pivot = (signed long long)__VERIFIER_nondet_short() ;
-		__VERIFIER_assume(pivot > 0) ;
-		__VERIFIER_assume(index >= pivot && index < ARR_SIZE-pivot) ;
+		if(!(pivot > 0) ) {abort();}
+		if(!(index >= pivot && index < ARR_SIZE-pivot) ) {abort();}
 		
 		array1[index] = array1[index-pivot] + array1[index+pivot] ;
 		array2[index] = array2[index-pivot] + array2[index+pivot] ;

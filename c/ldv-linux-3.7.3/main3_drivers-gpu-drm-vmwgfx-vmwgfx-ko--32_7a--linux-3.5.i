@@ -8785,7 +8785,7 @@ __inline static unsigned int inl(int port )
 }
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -8795,7 +8795,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);
@@ -25962,7 +25962,7 @@ void mutex_unlock(struct mutex *arg0) {
 void *ldv_xmalloc(size_t size)
 {
   void *res = malloc(size);
-  __VERIFIER_assume(res != (void *)0);
+  if(!(res != (void *)0)) {abort();}
   return res;
 }
 struct timespec ns_to_timespec(const s64 arg0) {

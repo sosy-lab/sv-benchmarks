@@ -1,9 +1,9 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error(void);
 extern float __VERIFIER_nondet_float(void);
 extern double __VERIFIER_nondet_double(void);
 void bug (float min) {
-  __VERIFIER_assume(min == 0x1.fffffep-105f);
+  if(!(min == 0x1.fffffep-105f)) {abort();}
   float modifier = (0x1.0p-23 * (1<<1));
   float ulpdiff = min * modifier;
 
@@ -13,7 +13,7 @@ void bug (float min) {
 }
 
 void bugBrokenOut (float min) {
-  __VERIFIER_assume(min == 0x1.fffffep-105f);
+  if(!(min == 0x1.fffffep-105f)) {abort();}
   float modifier = (0x1.0p-23 * (1<<1));
   double dulpdiff = (double)min * (double)modifier;
   float ulpdiff = (float)dulpdiff;
@@ -24,7 +24,7 @@ void bugBrokenOut (float min) {
 }
 
 void bugCasting (double d) {
-  __VERIFIER_assume(d == 0x1.fffffep-127);
+  if(!(d == 0x1.fffffep-127)) {abort();}
 
   float f = (float) d;
 

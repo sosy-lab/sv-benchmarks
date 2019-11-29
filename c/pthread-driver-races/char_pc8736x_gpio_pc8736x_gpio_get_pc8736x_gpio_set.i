@@ -154,7 +154,7 @@ extern long __VERIFIER_nondet_long(void);
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -377,28 +377,28 @@ void spin_lock_init(spinlock_t *lock)
 void spin_lock(spinlock_t *lock)
 {
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == 0);
+  if(!(lock->lock == 0)) {abort();}
   lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_irqsave(spinlock_t *lock, unsigned long value)
 {
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == 0);
+  if(!(lock->lock == 0)) {abort();}
   lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_irq(spinlock_t *lock)
 {
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == 0);
+  if(!(lock->lock == 0)) {abort();}
   lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_bh(spinlock_t *lock)
 {
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == 0);
+  if(!(lock->lock == 0)) {abort();}
   lock->lock = 1;
   __VERIFIER_atomic_end();
 }
@@ -845,7 +845,7 @@ void mutex_init(struct mutex *lock)
 void mutex_lock(struct mutex *lock)
 {
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->locked == 0);
+  if(!(lock->locked == 0)) {abort();}
   lock->locked = 1;
   __VERIFIER_atomic_end();
 }
@@ -854,7 +854,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
   bool ret = __VERIFIER_nondet_bool();
   if(!ret) {
     __VERIFIER_atomic_begin();
-    __VERIFIER_assume(lock->locked == 0);
+    if(!(lock->locked == 0)) {abort();}
     lock->locked = 1;
     __VERIFIER_atomic_end();
   }
@@ -6628,10 +6628,10 @@ void cpu_relax() {
   return;
 }
 void *external_alloc(unsigned int size);
-void __VERIFIER_assume(int);
+void abort(void);
 struct timespec current_kernel_time() {
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
-  __VERIFIER_assume(tmp != 0);
+  if(!(tmp != 0)) {abort();}
   return *tmp;
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
@@ -6731,10 +6731,10 @@ void smp_rmb() {
   return;
 }
 void *external_alloc(unsigned int size);
-void __VERIFIER_assume(int);
+void abort(void);
 struct timespec timespec_trunc(struct timespec arg0, unsigned arg1) {
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
-  __VERIFIER_assume(tmp != 0);
+  if(!(tmp != 0)) {abort();}
   return *tmp;
 }
 void tty_lock(struct tty_struct *arg0) {
@@ -7048,7 +7048,7 @@ int main(void)
  whoop_poll_table = (poll_table *) malloc(sizeof(poll_table));
  whoop_loff_t = (loff_t *) malloc(sizeof(loff_t));
  whoop_int = __VERIFIER_nondet_int();
- __VERIFIER_assume(whoop_int >= 0);
+ if(!(whoop_int >= 0)) {abort();}
  int _whoop_init_result = _whoop_init();
  pthread_t pthread_t_pc8736x_gpio_set;
  pthread_t pthread_t_pc8736x_gpio_get;

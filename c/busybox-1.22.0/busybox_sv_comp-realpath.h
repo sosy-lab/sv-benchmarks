@@ -4,7 +4,7 @@ char *realpath(const char *path, char *resolved_path)
     return NULL;
 
   unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(offset<PATH_MAX);
+  if(!(offset<PATH_MAX)) {abort();}
 
   if(resolved_path == NULL)
     resolved_path = malloc(offset+1);

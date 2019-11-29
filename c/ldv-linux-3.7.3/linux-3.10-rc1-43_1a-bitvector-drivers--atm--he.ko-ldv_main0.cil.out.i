@@ -5773,7 +5773,7 @@ unsigned long ldv___get_free_pages_12(gfp_t flags , unsigned int ldv_func_arg2 )
 extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void *malloc(size_t size);
 extern void *memcpy(void * , void const * , size_t ) ;
 long ldv_is_err(const void *ptr)
@@ -5784,7 +5784,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  if(!(!ldv_is_err(res))) {abort();}
   return res;
  } else {
   return ((void *)0);
@@ -9705,7 +9705,7 @@ void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
 void *ldv_xmalloc(size_t size)
 {
   void *res = malloc(size);
-  __VERIFIER_assume(res != (void *)0);
+  if(!(res != (void *)0)) {abort();}
   return res;
 }
 ktime_t ktime_get_real() {

@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error(void);
 
 
@@ -1112,8 +1112,8 @@ int main (void)
   float f3 = __VERIFIER_nondet_float();
   float f4 = __VERIFIER_nondet_float();
 
-  __VERIFIER_assume((0x1.fffffep-1f < f3) && (f3 < 0x1.000002p+0f));
-  __VERIFIER_assume((0x1.7ffffep-24f < f4) && (f4 < 0x1.800002p-24f));
+  if(!((0x1.fffffep-1f < f3) && (f3 < 0x1.000002p+0f))) {abort();}
+  if(!((0x1.7ffffep-24f < f4) && (f4 < 0x1.800002p-24f))) {abort();}
 
   roundingTest(f3,f4);
 

@@ -1,4 +1,4 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
@@ -601,7 +601,7 @@ int main()
     if(__VERIFIER_nondet_bool())
       x=n;
   }
-  __VERIFIER_assume(is_list_containing_x(&list, x));
+  if(!(is_list_containing_x(&list, x))) {abort();}
   remove(x);
   __VERIFIER_assert(&list==x || !is_list_containing_x(&list, x));
   re_insert(x);

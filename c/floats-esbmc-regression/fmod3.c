@@ -1,6 +1,6 @@
 #include <math.h>
 
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -9,8 +9,8 @@ double __VERIFIER_nondet_double();
 int main()
 {
   double a = __VERIFIER_nondet_double();
-  __VERIFIER_assume(!__isnan(a));
-  __VERIFIER_assume(a != 0.0);
+  if(!(!__isnan(a))) {abort();}
+  if(!(a != 0.0)) {abort();}
 
   double plus_zero = 0.0;
   double plus_zero_mod = fmod(plus_zero, a);

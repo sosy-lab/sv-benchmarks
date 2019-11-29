@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -676,12 +676,12 @@ volatile _Bool MTX = !1;
 __thread _Bool COND = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(MTX==0);
+ if(!(MTX==0)) {abort();}
  MTX = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(MTX==1);
+ if(!(MTX==1)) {abort();}
  MTX = 0;
 }
 inline int sysmon_queue_power_event(){
@@ -746,7 +746,7 @@ inline void sysmonread_power(){
     break;}
    if (__VERIFIER_nondet_int()) {
     break;}
-   { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
+   { COND = 0; __VERIFIER_atomic_release(); if(!(COND)) {abort();} __VERIFIER_atomic_acquire(); };
       { if(!(COND)) { goto ERROR; } }; }
   __VERIFIER_atomic_release(); }
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
