@@ -29,6 +29,10 @@ sed 's/__builtin___mem/___mem/g' -i \
 sed '1 i int compare(const void *a, const void *b, unsigned long item_size);' -i \
     $SV/c/aws-c-common/./aws_array_list_sort_harness.i
 
+# aws_is_mem_zeroed contains strict-aliasing violation
+sed -e '/^    aws_is_mem_zeroed(.*) {$/,/^    const uint8_t \*buf_u8 = (const uint8_t \*)buf;$/ c \    aws_is_mem_zeroed(const void *buf, size_t bufsize) {\n    size_t i;\n    const uint8_t *buf_u8 = (const uint8_t *)buf;' -i \
+    $SV/c/aws-c-common/*.i
+
 # remove unnecessary code snippet on s_buf_belongs_to_pool function
 cd $SV && patch -p1 < c/aws-c-common/s_buf_belongs_to_pool-fix.diff
     

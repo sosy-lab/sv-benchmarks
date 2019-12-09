@@ -2318,25 +2318,7 @@ static inline
 
 _Bool 
     aws_is_mem_zeroed(const void *buf, size_t bufsize) {
-
-
-
-    const uint64_t *buf_u64 = (const uint64_t *)buf;
-    const size_t num_u64_checks = bufsize / 8;
     size_t i;
-    for (i = 0; i < num_u64_checks; ++i) {
-        if (buf_u64[i]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-
-    buf = buf_u64 + num_u64_checks;
-    bufsize = bufsize % 8;
-
-
     const uint8_t *buf_u8 = (const uint8_t *)buf;
     for (i = 0; i < bufsize; ++i) {
         if (buf_u8[i]) {
