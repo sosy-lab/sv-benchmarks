@@ -25,6 +25,19 @@ sed '/^void .memset(/,+8d' -i \
 sed 's/__builtin___mem/___mem/g' -i \
     $SV/c/aws-c-common/*.i
 
+# Rename functions that are defined in the C11 standard.
+# We need to make sure that we rename only where a body exists (for abort this is always the case).
+sed -e 's/\babort\b/my_abort/g' -i $SV/c/aws-c-common/*.i
+sed -e 's/\bqsort\b/my_qsort/g' -i $SV/c/aws-c-common/aws_array_list_sort_harness.i
+for file in $SV/c/aws-c-common/*.i; do
+  for func in memcpy memmove memset; do
+    if grep -q '^void \*'$func'(.*{' $file; then
+      echo "Replacing $func in $file"
+      sed -e 's/\b'$func'\b/'my_$func'/g' -i $file
+    fi
+  done
+done
+
 # fix typo in qsort stub
 sed '1 i int compare(const void *a, const void *b, unsigned long item_size);' -i \
     $SV/c/aws-c-common/./aws_array_list_sort_harness.i
