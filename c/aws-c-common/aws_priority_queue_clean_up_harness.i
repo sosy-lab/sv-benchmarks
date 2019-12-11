@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -2077,7 +2077,7 @@ extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
 
 
 
-extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void *my_memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
@@ -3192,7 +3192,7 @@ int aws_array_list_init_dynamic(
    ));
     __VERIFIER_assume((item_size > 0));
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 
     size_t allocation_size;
     if (aws_mul_size_checked(initial_item_allocation, item_size, &allocation_size)) {
@@ -3299,7 +3299,7 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
         aws_mem_release(list->alloc, list->data);
     }
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 }
 
 static inline
@@ -3430,7 +3430,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
+        my_memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
         list->length--;
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -4994,7 +4994,7 @@ static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node)
     __VERIFIER_assume((node != 
    ((void *)0)
    ));
-    do { memset(&(*node), 0, sizeof(*node)); } while (0);
+    do { my_memset(&(*node), 0, sizeof(*node)); } while (0);
     __VERIFIER_assert((aws_is_mem_zeroed(&(*node), sizeof(*node))));
 }
 static inline 
@@ -6123,7 +6123,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 
@@ -7400,7 +7400,7 @@ void *memset_impl(void *s, int c, size_t n) {
     return s;
 }
 
-void *memset(void *s, int c, size_t n) {
+void *my_memset(void *s, int c, size_t n) {
     return memset_impl(s, c, n);
 }
 
@@ -7525,7 +7525,7 @@ static
 
         if (aws_array_list_get_at_ptr(&queue->container, &parent_item, parent) ||
             aws_array_list_get_at_ptr(&queue->container, &child_item, index)) {
-            abort();
+            my_abort();
         }
 
         if (queue->pred(parent_item, child_item) > 0) {
@@ -7575,7 +7575,7 @@ int aws_priority_queue_init_dynamic(
     __VERIFIER_assume((item_size > 0));
 
     queue->pred = pred;
-    do { memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
+    do { my_memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
 
     int ret = aws_array_list_init_dynamic(&queue->container, alloc, default_size, item_size);
     if (ret == (0)) {
@@ -7604,7 +7604,7 @@ void aws_priority_queue_init_static(
     __VERIFIER_assume((item_size > 0));
 
     queue->pred = pred;
-    do { memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
+    do { my_memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
 
     aws_array_list_init_static(&queue->container, heap, item_count, item_size);
 
@@ -7775,7 +7775,7 @@ int aws_priority_queue_push_ref(
         }
 
 
-        memset(queue->backpointers.data, 0, queue->backpointers.current_size);
+        my_memset(queue->backpointers.data, 0, queue->backpointers.current_size);
     }
 
 
@@ -8040,7 +8040,7 @@ extern struct aws_logger_vtable g_pipeline_logger_owned_vtable;
 
 
 void aws_secure_zero(void *pBuf, size_t bufsize) {
-    memset(pBuf, 0, bufsize);
+    my_memset(pBuf, 0, bufsize);
 
 
 

@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -5799,7 +5799,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 

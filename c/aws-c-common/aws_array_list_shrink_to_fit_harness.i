@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -2059,11 +2059,11 @@ enum aws_common_error {
 
 
 
-extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+extern void *my_memcpy (void *__restrict __dest, const void *__restrict __src,
        size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
 
-extern void *memmove (void *__dest, const void *__src, size_t __n)
+extern void *my_memmove (void *__dest, const void *__src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
 
@@ -2077,7 +2077,7 @@ extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
 
 
 
-extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void *my_memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
@@ -3192,7 +3192,7 @@ int aws_array_list_init_dynamic(
    ));
     __VERIFIER_assume((item_size > 0));
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 
     size_t allocation_size;
     if (aws_mul_size_checked(initial_item_allocation, item_size, &allocation_size)) {
@@ -3299,7 +3299,7 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
         aws_mem_release(list->alloc, list->data);
     }
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 }
 
 static inline
@@ -3327,7 +3327,7 @@ int aws_array_list_front(const struct aws_array_list *restrict list, void *val) 
 
                                                                                      ;
     if (aws_array_list_length(list) > 0) {
-        memcpy(val, list->data, list->item_size);
+        my_memcpy(val, list->data, list->item_size);
         __VERIFIER_assert(((1)));
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -3363,7 +3363,7 @@ void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) 
         size_t popping_bytes = list->item_size * n;
         size_t remaining_items = aws_array_list_length(list) - n;
         size_t remaining_bytes = remaining_items * list->item_size;
-        memmove(list->data, (uint8_t *)list->data + popping_bytes, remaining_bytes);
+        my_memmove(list->data, (uint8_t *)list->data + popping_bytes, remaining_bytes);
         list->length = remaining_items;
 
 
@@ -3394,7 +3394,7 @@ int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
         uint8_t *next_item_ptr = item_ptr + list->item_size;
         size_t trailing_items = (length - index) - 1;
         size_t trailing_bytes = trailing_items * list->item_size;
-        memmove(item_ptr, next_item_ptr, trailing_bytes);
+        my_memmove(item_ptr, next_item_ptr, trailing_bytes);
 
         aws_array_list_pop_back(list);
     }
@@ -3412,7 +3412,7 @@ int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
     if (aws_array_list_length(list) > 0) {
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memcpy(val, (void *)((uint8_t *)list->data + last_item_offset), list->item_size);
+        my_memcpy(val, (void *)((uint8_t *)list->data + last_item_offset), list->item_size);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
     }
@@ -3430,7 +3430,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
+        my_memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
         list->length--;
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -3499,7 +3499,7 @@ int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val,
 
                                                                                      ;
     if (aws_array_list_length(list) > index) {
-        memcpy(val, (void *)((uint8_t *)list->data + (list->item_size * index)), list->item_size);
+        my_memcpy(val, (void *)((uint8_t *)list->data + (list->item_size * index)), list->item_size);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
     }
@@ -3536,7 +3536,7 @@ int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val,
 
     __VERIFIER_assume((list->data));
 
-    memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
+    my_memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
 
 
 
@@ -4994,7 +4994,7 @@ static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node)
     __VERIFIER_assume((node != 
    ((void *)0)
    ));
-    do { memset(&(*node), 0, sizeof(*node)); } while (0);
+    do { my_memset(&(*node), 0, sizeof(*node)); } while (0);
     __VERIFIER_assert((aws_is_mem_zeroed(&(*node), sizeof(*node))));
 }
 static inline 
@@ -6123,7 +6123,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 
@@ -7406,7 +7406,7 @@ void *memcpy_impl(void *dst, const void *src, size_t n) {
     return dst;
 }
 
-void *memcpy(void *dst, const void *src, size_t n) {
+void *my_memcpy(void *dst, const void *src, size_t n) {
     return memcpy_impl(dst, src, n);
 }
 
@@ -7424,7 +7424,7 @@ void *memmove_impl(void *dest, const void *src, size_t n) {
     return dest;
 }
 
-void *memmove(void *dest, const void *src, size_t n) {
+void *my_memmove(void *dest, const void *src, size_t n) {
     return memmove_impl(dest, src, n);
 }
 
@@ -7442,7 +7442,7 @@ void *memset_impl(void *s, int c, size_t n) {
     return s;
 }
 
-void *memset(void *s, int c, size_t n) {
+void *my_memset(void *s, int c, size_t n) {
     return memset_impl(s, c, n);
 }
 
@@ -7499,7 +7499,7 @@ int aws_array_list_shrink_to_fit(struct aws_array_list *restrict list) {
                     return (-1);
                 }
 
-                memcpy(raw_data, list->data, ideal_size);
+                my_memcpy(raw_data, list->data, ideal_size);
                 aws_mem_release(list->alloc, list->data);
             }
             list->data = raw_data;
@@ -7528,7 +7528,7 @@ int aws_array_list_copy(const struct aws_array_list *restrict from, struct aws_a
 
     if (to->current_size >= copy_size) {
         if (copy_size > 0) {
-            memcpy(to->data, from->data, copy_size);
+            my_memcpy(to->data, from->data, copy_size);
         }
         to->length = from->length;
         __VERIFIER_assert((aws_array_list_is_valid(from)));
@@ -7547,7 +7547,7 @@ int aws_array_list_copy(const struct aws_array_list *restrict from, struct aws_a
             return (-1);
         }
 
-        memcpy(tmp, from->data, copy_size);
+        my_memcpy(tmp, from->data, copy_size);
         if (to->data) {
             aws_mem_release(to->alloc, to->data);
         }
@@ -7598,7 +7598,7 @@ int aws_array_list_ensure_capacity(struct aws_array_list *restrict list, size_t 
         }
 
         if (list->data) {
-            memcpy(temp, list->data, list->current_size);
+            my_memcpy(temp, list->data, list->current_size);
 
 
 
@@ -7626,17 +7626,17 @@ static void aws_array_list_mem_swap(void *restrict item1, void *restrict item2, 
     size_t slice_count = item_size / SLICE;
     uint8_t temp[SLICE];
     for (size_t i = 0; i < slice_count; i++) {
-        memcpy((void *)temp, (void *)item1, SLICE);
-        memcpy((void *)item1, (void *)item2, SLICE);
-        memcpy((void *)item2, (void *)temp, SLICE);
+        my_memcpy((void *)temp, (void *)item1, SLICE);
+        my_memcpy((void *)item1, (void *)item2, SLICE);
+        my_memcpy((void *)item2, (void *)temp, SLICE);
         item1 = (uint8_t *)item1 + SLICE;
         item2 = (uint8_t *)item2 + SLICE;
     }
 
     size_t remainder = item_size & (SLICE - 1);
-    memcpy((void *)temp, (void *)item1, remainder);
-    memcpy((void *)item1, (void *)item2, remainder);
-    memcpy((void *)item2, (void *)temp, remainder);
+    my_memcpy((void *)temp, (void *)item1, remainder);
+    my_memcpy((void *)item1, (void *)item2, remainder);
+    my_memcpy((void *)item2, (void *)temp, remainder);
 }
 
 void aws_array_list_swap(struct aws_array_list *restrict list, size_t a, size_t b) {
@@ -7818,7 +7818,7 @@ extern struct aws_logger_vtable g_pipeline_logger_owned_vtable;
 
 
 void aws_secure_zero(void *pBuf, size_t bufsize) {
-    memset(pBuf, 0, bufsize);
+    my_memset(pBuf, 0, bufsize);
 
 
 

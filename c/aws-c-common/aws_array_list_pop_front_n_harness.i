@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -2063,7 +2063,7 @@ extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
        size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
 
-extern void *memmove (void *__dest, const void *__src, size_t __n)
+extern void *my_memmove (void *__dest, const void *__src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
 
@@ -3363,7 +3363,7 @@ void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) 
         size_t popping_bytes = list->item_size * n;
         size_t remaining_items = aws_array_list_length(list) - n;
         size_t remaining_bytes = remaining_items * list->item_size;
-        memmove(list->data, (uint8_t *)list->data + popping_bytes, remaining_bytes);
+        my_memmove(list->data, (uint8_t *)list->data + popping_bytes, remaining_bytes);
         list->length = remaining_items;
 
 
@@ -3394,7 +3394,7 @@ int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
         uint8_t *next_item_ptr = item_ptr + list->item_size;
         size_t trailing_items = (length - index) - 1;
         size_t trailing_bytes = trailing_items * list->item_size;
-        memmove(item_ptr, next_item_ptr, trailing_bytes);
+        my_memmove(item_ptr, next_item_ptr, trailing_bytes);
 
         aws_array_list_pop_back(list);
     }
@@ -6123,7 +6123,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 
@@ -7396,7 +7396,7 @@ void *memmove_impl(void *dest, const void *src, size_t n) {
     return dest;
 }
 
-void *memmove(void *dest, const void *src, size_t n) {
+void *my_memmove(void *dest, const void *src, size_t n) {
     return memmove_impl(dest, src, n);
 }
 
