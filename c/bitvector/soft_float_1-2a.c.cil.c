@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 
 extern char __VERIFIER_nondet_char(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
@@ -104,7 +104,7 @@ unsigned int addflt(unsigned int a , unsigned int b )
   mb = mb | (1U << 24U);
   __VERIFIER_assert(ea >= eb);
   delta = ea - eb;
-  __VERIFIER_assume(delta < sizeof(mb) * 8);
+  if(!(delta < sizeof(mb) * 8)) {abort();}
   mb = mb >> delta;
   }
   if (! mb) {
