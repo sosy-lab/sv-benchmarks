@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -12,7 +12,7 @@ unsigned int __VERIFIER_nondet_uint();
 
 int main() {
     int MAX = __VERIFIER_nondet_uint();
-    __VERIFIER_assume(MAX > 0);
+    if(!(MAX > 0)) {abort();}
     char str1[MAX], str2[MAX];
     int cont, i, j;
     cont = 0;
