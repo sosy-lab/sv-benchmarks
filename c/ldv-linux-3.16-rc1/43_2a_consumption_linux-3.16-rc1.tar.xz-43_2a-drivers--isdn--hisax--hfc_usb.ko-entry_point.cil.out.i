@@ -9264,7 +9264,14 @@ void __dev_kfree_skb_any(struct sk_buff *arg0, enum skb_free_reason arg1) {
   return;
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 void add_timer(struct timer_list *arg0) {
   return;

@@ -7977,7 +7977,14 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 int __VERIFIER_nondet_int(void);
 int dvb_usb_device_init(struct usb_interface *arg0, struct dvb_usb_device_properties *arg1, struct module *arg2, struct dvb_usb_device **arg3, short *arg4) {

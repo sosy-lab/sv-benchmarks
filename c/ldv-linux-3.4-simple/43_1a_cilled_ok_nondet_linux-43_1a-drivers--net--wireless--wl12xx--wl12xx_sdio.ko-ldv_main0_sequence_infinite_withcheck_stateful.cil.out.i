@@ -7266,7 +7266,14 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
   return __VERIFIER_nondet_int();
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 int __VERIFIER_nondet_int(void);
 int __pm_runtime_idle(struct device *arg0, int arg1) {
