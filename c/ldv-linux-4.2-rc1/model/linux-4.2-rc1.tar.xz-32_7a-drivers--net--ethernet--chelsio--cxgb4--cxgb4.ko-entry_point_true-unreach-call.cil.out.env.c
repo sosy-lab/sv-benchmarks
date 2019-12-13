@@ -192,7 +192,14 @@ int __neigh_event_send(struct neighbour *arg0, struct sk_buff *arg1) {
 // with return type: (struct sk_buff)*
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 
 // Function: __pci_register_driver
