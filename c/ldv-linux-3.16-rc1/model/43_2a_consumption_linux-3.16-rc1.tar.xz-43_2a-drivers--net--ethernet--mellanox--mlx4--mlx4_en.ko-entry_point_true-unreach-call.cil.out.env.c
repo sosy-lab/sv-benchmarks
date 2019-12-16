@@ -97,7 +97,7 @@ void __iowrite64_copy(void *arg0, const void *arg1, size_t arg2) {
 // with return type: (void)*
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add
@@ -1737,7 +1737,7 @@ void vfree(const void *arg0) {
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: vmalloc_node
@@ -1745,7 +1745,7 @@ void *vmalloc(unsigned long arg0) {
 // with return type: (void)*
 void *vmalloc_node(unsigned long arg0, int arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: vxlan_get_rx_port

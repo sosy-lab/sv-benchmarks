@@ -25388,7 +25388,7 @@ void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, con
   return;
 }
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;

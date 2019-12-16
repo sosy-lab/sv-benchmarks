@@ -24,7 +24,7 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add

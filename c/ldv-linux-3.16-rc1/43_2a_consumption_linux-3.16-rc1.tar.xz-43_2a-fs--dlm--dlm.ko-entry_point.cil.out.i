@@ -32329,7 +32329,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void wait_for_completion(struct completion *arg0) {
   return;

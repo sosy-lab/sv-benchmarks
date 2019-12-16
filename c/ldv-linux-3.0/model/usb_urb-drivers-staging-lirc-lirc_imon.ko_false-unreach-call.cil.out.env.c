@@ -50,7 +50,7 @@ unsigned int __kfifo_in_r(struct __kfifo *arg0, const void *arg1, unsigned int a
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __mutex_init

@@ -17654,7 +17654,7 @@ void video_unregister_device(struct video_device *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 struct page *vmalloc_to_page(const void *arg0) {
   return ldv_malloc(sizeof(struct page));

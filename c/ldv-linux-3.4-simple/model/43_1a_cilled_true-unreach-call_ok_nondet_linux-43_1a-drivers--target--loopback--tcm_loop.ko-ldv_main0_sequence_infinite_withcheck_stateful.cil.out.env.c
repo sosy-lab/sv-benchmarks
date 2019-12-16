@@ -712,7 +712,7 @@ int transport_send_check_condition_and_sense(struct se_cmd *arg0, u8 arg1, int a
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: autoremove_wake_function

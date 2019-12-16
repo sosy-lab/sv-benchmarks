@@ -932,6 +932,6 @@ int videobuf_waiton(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, i
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 

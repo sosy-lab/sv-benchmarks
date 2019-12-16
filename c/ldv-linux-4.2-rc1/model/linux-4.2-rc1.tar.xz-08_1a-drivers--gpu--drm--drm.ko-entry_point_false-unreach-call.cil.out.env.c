@@ -95,7 +95,7 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add
@@ -2065,7 +2065,7 @@ unsigned long int vm_mmap(struct file *arg0, unsigned long arg1, unsigned long a
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: vmalloc_32

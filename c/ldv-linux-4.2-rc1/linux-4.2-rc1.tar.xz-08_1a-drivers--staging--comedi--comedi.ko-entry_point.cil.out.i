@@ -14321,7 +14321,7 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
   return;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __might_fault(const char *arg0, int arg1) {
   return;
@@ -14546,7 +14546,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
   return ldv_malloc(0UL);

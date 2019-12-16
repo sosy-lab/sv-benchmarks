@@ -16,7 +16,7 @@ int __hid_register_driver(struct hid_driver *arg0, struct module *arg1, const ch
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: dev_err
