@@ -32540,7 +32540,7 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
   return;
 }
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -32701,10 +32701,10 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void *vmalloc_node(unsigned long arg0, int arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {

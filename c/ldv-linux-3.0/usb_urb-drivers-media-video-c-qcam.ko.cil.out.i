@@ -7248,7 +7248,7 @@ void *ldv_malloc(size_t size )
   return malloc(size);
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;

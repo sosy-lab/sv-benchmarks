@@ -4893,7 +4893,7 @@ void __const_udelay(unsigned long arg0) {
   return;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 int __VERIFIER_nondet_int(void);
 int __register_chrdev(unsigned int arg0, unsigned int arg1, unsigned int arg2, const char *arg3, const struct file_operations *arg4) {

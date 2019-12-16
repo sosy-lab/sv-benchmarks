@@ -7270,7 +7270,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int vmalloc_to_pfn(const void *arg0) {

@@ -145,7 +145,7 @@ void __iowrite64_copy(void *arg0, const void *arg1, size_t arg2) {
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add

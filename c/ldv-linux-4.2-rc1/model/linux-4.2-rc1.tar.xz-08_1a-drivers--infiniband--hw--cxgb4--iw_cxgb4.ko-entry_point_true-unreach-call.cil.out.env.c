@@ -1405,7 +1405,7 @@ struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: wait_for_completion_timeout

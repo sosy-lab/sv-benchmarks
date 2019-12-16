@@ -55471,7 +55471,7 @@ void vfree(void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void warn_slowpath_fmt(char *arg0, int arg1, char *arg2, ...) {
   return;

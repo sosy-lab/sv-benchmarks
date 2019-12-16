@@ -29440,7 +29440,7 @@ struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
   return ldv_malloc(sizeof(struct net_device));
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1) {

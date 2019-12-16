@@ -58108,10 +58108,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -58962,7 +58962,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void vxlan_get_rx_port(struct net_device *arg0) {
   return;

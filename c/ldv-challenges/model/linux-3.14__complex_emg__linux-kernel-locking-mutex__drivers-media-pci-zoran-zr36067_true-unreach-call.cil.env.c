@@ -624,7 +624,7 @@ int videocodec_detach(struct videocodec *arg0) {
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: autoremove_wake_function

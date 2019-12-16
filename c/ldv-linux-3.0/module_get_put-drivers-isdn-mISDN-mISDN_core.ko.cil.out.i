@@ -17786,7 +17786,7 @@ void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;

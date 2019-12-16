@@ -111,7 +111,7 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // with return type: (void)*
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __kmalloc_node
@@ -119,7 +119,7 @@ void *__kmalloc(size_t arg0, gfp_t arg1) {
 // with return type: (void)*
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add
@@ -1851,7 +1851,7 @@ u16 vlan_dev_vlan_id(const struct net_device *arg0) {
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: vzalloc

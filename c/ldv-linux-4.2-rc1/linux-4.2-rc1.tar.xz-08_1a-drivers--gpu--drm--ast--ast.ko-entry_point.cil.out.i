@@ -15174,7 +15174,7 @@ bool vgacon_text_force() {
   return __VERIFIER_nondet_bool();
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;

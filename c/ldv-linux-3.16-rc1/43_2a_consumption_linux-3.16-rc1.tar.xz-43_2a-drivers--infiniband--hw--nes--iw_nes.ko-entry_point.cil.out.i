@@ -35507,7 +35507,7 @@ int unregister_netevent_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {

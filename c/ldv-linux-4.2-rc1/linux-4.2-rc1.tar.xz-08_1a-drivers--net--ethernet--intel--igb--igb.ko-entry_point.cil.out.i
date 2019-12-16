@@ -42075,7 +42075,7 @@ void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __might_fault(const char *arg0, int arg1) {
   return;
@@ -42718,7 +42718,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void *vzalloc(unsigned long arg0) {
   return ldv_malloc(0UL);

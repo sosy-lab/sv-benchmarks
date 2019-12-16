@@ -528,7 +528,7 @@ void usleep_range(unsigned long arg0, unsigned long arg1) {
 // with return type: (void)*
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: warn_slowpath_null

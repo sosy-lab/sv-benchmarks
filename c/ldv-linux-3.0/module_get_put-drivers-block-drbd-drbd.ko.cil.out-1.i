@@ -49086,7 +49086,7 @@ void *ldv_malloc(size_t size )
   return malloc(size);
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -49558,7 +49558,7 @@ void vfree(const void *arg0) {
   return;
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void wait_for_completion(struct completion *arg0) {
   return;

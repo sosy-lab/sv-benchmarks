@@ -5064,7 +5064,7 @@ void *ldv_malloc(size_t size )
   return malloc(size);
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {

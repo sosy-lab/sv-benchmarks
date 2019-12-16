@@ -236,7 +236,7 @@ void __invalid_creds(const struct cred *arg0, const char *arg1, unsigned arg2) {
 // with return type: (void)*
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 
 // Function: __list_add

@@ -26862,7 +26862,7 @@ int videobuf_waiton(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, i
   return __VERIFIER_nondet_int();
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void free(void *);
 void kfree(void const *p) {

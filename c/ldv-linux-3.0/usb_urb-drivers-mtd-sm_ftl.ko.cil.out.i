@@ -6554,7 +6554,7 @@ unsigned int __kfifo_out_r(struct __kfifo *arg0, void *arg1, unsigned int arg2, 
   return __VERIFIER_nondet_uint();
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;

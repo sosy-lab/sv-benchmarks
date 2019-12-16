@@ -38367,7 +38367,7 @@ void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -38959,7 +38959,7 @@ u16 vlan_dev_vlan_id(const struct net_device *arg0) {
   return __VERIFIER_nondet_ushort();
 }
 void *vmalloc(unsigned long arg0) {
-  return ldv_malloc(0UL);
+  return ldv_malloc(arg0);
 }
 void *vzalloc(unsigned long arg0) {
   return ldv_malloc(0UL);
