@@ -115,7 +115,6 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ("forester-heap/sll-01-2.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("forester-heap/sll-rb-cnstr_1-2.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("heap-manipulation/tree-2.yml", "has expected undefined behavior but also a verdict for some other property"),
-    ("list-ext-properties/list-ext.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("list-ext-properties/list-ext_flag.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("termination-crafted/NonTermination3-1.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("termination-numeric/Binomial.yml", "has expected undefined behavior but also a verdict for some other property"),
