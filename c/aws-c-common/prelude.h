@@ -3,7 +3,7 @@
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void abort(void);
+extern void __VERIFIER_assume(int cond);
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -33,12 +33,12 @@ void abort(void) {
     __VERIFIER_assert(cond)
 
 #define __CPROVER_assume(cond) \
-    if(!(cond)
+    __VERIFIER_assume(cond)
 
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
 
 /* Note: may assume that they have no side-effects, i.e., completely functional */
-uint64_t __CPROVER_uninterpreted_hasher(const void *const a) { return (uint64_t)a) {abort();} }
+uint64_t __CPROVER_uninterpreted_hasher(const void *const a) { return (uint64_t)a; }
 bool __CPROVER_uninterpreted_equals(const void *const a, const void *const b) { return a == b; }
 int __CPROVER_uninterpreted_compare(const void *const a, const void *const b) { return a < b ? -1 : a > b ? 1 : 0; }
 
@@ -59,9 +59,9 @@ _Bool __CPROVER_overflow_mult(unsigned long a, unsigned long b) {
 }
 
 #define __CPROVER_precondition(cond, msg) \
-            if(!(cond)
+            __VERIFIER_assume(cond)
 
-_Bool    nondet_bool()     { return __VERIFIER_nondet_bool()) {abort();}    }
+_Bool    nondet_bool()     { return __VERIFIER_nondet_bool();    }
 int      nondet_int()      { return __VERIFIER_nondet_int();     }
 unsigned long nondet_size_t()   { return __VERIFIER_nondet_ulong();   }
 uint16_t nondet_uint16_t() { return __VERIFIER_nondet_short();   }

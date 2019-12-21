@@ -204,7 +204,7 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void abort(void);
+extern void __VERIFIER_assume(int cond);
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -3102,13 +3102,13 @@ int aws_array_list_init_dynamic(
     size_t initial_item_allocation,
     size_t item_size) {
 
-    if(!((list != 
+    __VERIFIER_assume((list != 
    ((void *)0)
-   ))) {abort();}
-    if(!((alloc != 
+   ));
+    __VERIFIER_assume((alloc != 
    ((void *)0)
-   ))) {abort();}
-    if(!((item_size > 0))) {abort();}
+   ));
+    __VERIFIER_assume((item_size > 0));
 
     do { memset(&(*list), 0, sizeof(*list)); } while (0);
 
@@ -3147,21 +3147,21 @@ void aws_array_list_init_static(
     size_t item_count,
     size_t item_size) {
 
-    if(!((list != 
+    __VERIFIER_assume((list != 
    ((void *)0)
-   ))) {abort();}
-    if(!((raw_array != 
+   ));
+    __VERIFIER_assume((raw_array != 
    ((void *)0)
-   ))) {abort();}
-    if(!((item_count > 0))) {abort();}
-    if(!((item_size > 0))) {abort();}
+   ));
+    __VERIFIER_assume((item_count > 0));
+    __VERIFIER_assume((item_size > 0));
 
     list->alloc = 
                  ((void *)0)
                      ;
 
     int no_overflow = !aws_mul_size_checked(item_count, item_size, &list->current_size);
-    if(!((no_overflow))) {abort();}
+    __VERIFIER_assume((no_overflow));
 
     list->item_size = item_size;
     list->length = 0;
@@ -3212,7 +3212,7 @@ void aws_array_list_debug_print(const struct aws_array_list *list) {
 
 static inline
 void aws_array_list_clean_up(struct aws_array_list *restrict list) {
-    if(!((aws_is_mem_zeroed(&(*list), sizeof(*list)) || aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_is_mem_zeroed(&(*list), sizeof(*list)) || aws_array_list_is_valid(list)));
     if (list->alloc && list->data) {
         aws_mem_release(list->alloc, list->data);
     }
@@ -3222,10 +3222,10 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
 
 static inline
 int aws_array_list_push_back(struct aws_array_list *restrict list, const void *val) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val && ((((list->item_size)) == 0) || ((val)))))
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
 
-                                                                                     ) {abort();}
+                                                                                     ;
 
     int err_code = aws_array_list_set_at(list, val, aws_array_list_length(list));
 
@@ -3240,10 +3240,10 @@ int aws_array_list_push_back(struct aws_array_list *restrict list, const void *v
 
 static inline
 int aws_array_list_front(const struct aws_array_list *restrict list, void *val) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val && ((((list->item_size)) == 0) || ((val)))))
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
 
-                                                                                     ) {abort();}
+                                                                                     ;
     if (aws_array_list_length(list) > 0) {
         memcpy(val, list->data, list->item_size);
         __VERIFIER_assert(((1)));
@@ -3257,7 +3257,7 @@ int aws_array_list_front(const struct aws_array_list *restrict list, void *val) 
 
 static inline
 int aws_array_list_pop_front(struct aws_array_list *restrict list) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     if (aws_array_list_length(list) > 0) {
         aws_array_list_pop_front_n(list, 1);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3270,7 +3270,7 @@ int aws_array_list_pop_front(struct aws_array_list *restrict list) {
 
 static inline
 void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     if (n >= aws_array_list_length(list)) {
         aws_array_list_clear(list);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3291,7 +3291,7 @@ void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) 
 }
 
 int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
 
     const size_t length = aws_array_list_length(list);
 
@@ -3323,10 +3323,10 @@ int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
 
 static inline
 int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val && ((((list->item_size)) == 0) || ((val)))))
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
 
-                                                                                     ) {abort();}
+                                                                                     ;
     if (aws_array_list_length(list) > 0) {
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
@@ -3341,10 +3341,10 @@ int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
 
 static inline
 int aws_array_list_pop_back(struct aws_array_list *restrict list) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     if (aws_array_list_length(list) > 0) {
 
-        if(!((list->data))) {abort();}
+        __VERIFIER_assume((list->data));
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
@@ -3360,7 +3360,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
 static inline
 void aws_array_list_clear(struct aws_array_list *restrict list) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     if (list->data) {
 
 
@@ -3374,12 +3374,12 @@ static inline
 void aws_array_list_swap_contents(
     struct aws_array_list *restrict list_a,
     struct aws_array_list *restrict list_b) {
-    if(!((list_a->alloc))) {abort();}
-    if(!((list_a->alloc == list_b->alloc))) {abort();}
-    if(!((list_a->item_size == list_b->item_size))) {abort();}
-    if(!((list_a != list_b))) {abort();}
-    if(!((aws_array_list_is_valid(list_a)))) {abort();}
-    if(!((aws_array_list_is_valid(list_b)))) {abort();}
+    __VERIFIER_assume((list_a->alloc));
+    __VERIFIER_assume((list_a->alloc == list_b->alloc));
+    __VERIFIER_assume((list_a->item_size == list_b->item_size));
+    __VERIFIER_assume((list_a != list_b));
+    __VERIFIER_assume((aws_array_list_is_valid(list_a)));
+    __VERIFIER_assume((aws_array_list_is_valid(list_b)));
 
     struct aws_array_list tmp = *list_a;
     *list_a = *list_b;
@@ -3390,8 +3390,8 @@ void aws_array_list_swap_contents(
 
 static inline
 size_t aws_array_list_capacity(const struct aws_array_list *restrict list) {
-    if(!((list->item_size))) {abort();}
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((list->item_size));
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     size_t capacity = list->current_size / list->item_size;
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return capacity;
@@ -3403,8 +3403,8 @@ size_t aws_array_list_length(const struct aws_array_list *restrict list) {
 
 
 
-    if(!((!list->length || list->data))) {abort();}
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((!list->length || list->data));
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     size_t len = list->length;
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return len;
@@ -3412,10 +3412,10 @@ size_t aws_array_list_length(const struct aws_array_list *restrict list) {
 
 static inline
 int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val, size_t index) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val && ((((list->item_size)) == 0) || ((val)))))
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
 
-                                                                                     ) {abort();}
+                                                                                     ;
     if (aws_array_list_length(list) > index) {
         memcpy(val, (void *)((uint8_t *)list->data + (list->item_size * index)), list->item_size);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3427,10 +3427,10 @@ int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val,
 
 static inline
 int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void **val, size_t index) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val != 
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val != 
    ((void *)0)
-   ))) {abort();}
+   ));
     if (aws_array_list_length(list) > index) {
         *val = (void *)((uint8_t *)list->data + (list->item_size * index));
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3442,17 +3442,17 @@ int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void *
 
 static inline
 int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val, size_t index) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
-    if(!((val && ((((list->item_size)) == 0) || ((val)))))
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
 
-                                                                                     ) {abort();}
+                                                                                     ;
 
     if (aws_array_list_ensure_capacity(list, index)) {
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (-1);
     }
 
-    if(!((list->data))) {abort();}
+    __VERIFIER_assume((list->data));
 
     memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
 
@@ -3473,7 +3473,7 @@ int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val,
 
 static inline
 void aws_array_list_sort(struct aws_array_list *restrict list, aws_array_list_comparator_fn *compare_fn) {
-    if(!((aws_array_list_is_valid(list)))) {abort();}
+    __VERIFIER_assume((aws_array_list_is_valid(list)));
     if (list->data) {
         qsort(list->data, aws_array_list_length(list), list->item_size, compare_fn);
     }
@@ -4297,7 +4297,7 @@ static inline double aws_ntohf64(double x) {
 
 
 static inline uint32_t aws_hton24(uint32_t x) {
-    if(!((x <= 0xFFFFFF))) {abort();}
+    __VERIFIER_assume((x <= 0xFFFFFF));
     if (aws_is_big_endian()) {
         return x;
     } else {
@@ -4309,7 +4309,7 @@ static inline uint32_t aws_hton24(uint32_t x) {
 
 
 static inline uint32_t aws_ntoh24(uint32_t x) {
-    if(!(((x) <= 0xFFFFFFF))) {abort();}
+    __VERIFIER_assume(((x) <= 0xFFFFFFF));
     if (aws_is_big_endian()) {
         return x;
     } else {
@@ -5671,9 +5671,9 @@ void assert_bytes_match(const uint8_t *const a, const uint8_t *const b, const si
                                     ((void *)0)
                                         ) {
         size_t i = nondet_uint64_t();
-        if(!(i < len && len < (
+        __VERIFIER_assume(i < len && len < (
        (18446744073709551615UL) 
-       >> (8 + 1)))) {abort();}
+       >> (8 + 1)));
         __VERIFIER_assert(a[i] == b[i]);
     }
 }
@@ -5683,7 +5683,7 @@ void assert_all_bytes_are(const uint8_t *const a, const uint8_t c, const size_t 
                        ((void *)0)
                            ) {
         size_t i = nondet_uint64_t();
-        if(!(i < len)) {abort();}
+        __VERIFIER_assume(i < len);
         __VERIFIER_assert(a[i] == c);
     }
 }
@@ -5701,7 +5701,7 @@ void assert_byte_from_buffer_matches(const uint8_t *const buffer, const struct s
 void save_byte_from_array(const uint8_t *const array, const size_t size, struct store_byte_from_buffer *const storage) {
     if (size > 0 && array && storage) {
         storage->index = nondet_size_t();
-        if(!(storage->index < size)) {abort();}
+        __VERIFIER_assume(storage->index < size);
         storage->byte = array[storage->index];
     }
 }
@@ -5773,7 +5773,7 @@ void assert_ring_buffer_equivalence(
 void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
     struct hash_table_state *state = map->p_impl;
     size_t size_in_bytes;
-    if(!(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0))) {abort();}
+    __VERIFIER_assume(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0));
     save_byte_from_array((uint8_t *)state, size_in_bytes, storage);
 }
 
@@ -5803,12 +5803,12 @@ int uninterpreted_compare(const void *const a, const void *const b) {
    );
     int rval = __CPROVER_uninterpreted_compare(a, b);
 
-    if(!((!(a == b) || (rval == 0)))) {abort();}
+    __VERIFIER_assume((!(a == b) || (rval == 0)));
 
-    if(!(__CPROVER_uninterpreted_compare(b, a) == -rval)) {abort();}
+    __VERIFIER_assume(__CPROVER_uninterpreted_compare(b, a) == -rval);
 
     if (rval == 0) {
-        if(!(__CPROVER_uninterpreted_hasher(a) == __CPROVER_uninterpreted_hasher(b))) {abort();}
+        __VERIFIER_assume(__CPROVER_uninterpreted_hasher(a) == __CPROVER_uninterpreted_hasher(b));
     }
     return rval;
 }
@@ -5840,12 +5840,12 @@ _Bool
    _Bool 
         rval = __CPROVER_uninterpreted_equals(a, b);
 
-    if(!((!(a == b) || (rval)))) {abort();}
+    __VERIFIER_assume((!(a == b) || (rval)));
 
-    if(!(__CPROVER_uninterpreted_equals(b, a) == rval)) {abort();}
+    __VERIFIER_assume(__CPROVER_uninterpreted_equals(b, a) == rval);
 
     if (rval) {
-        if(!(__CPROVER_uninterpreted_hasher(a) == __CPROVER_uninterpreted_hasher(b))) {abort();}
+        __VERIFIER_assume(__CPROVER_uninterpreted_hasher(a) == __CPROVER_uninterpreted_hasher(b));
     }
     return rval;
 }
@@ -5887,7 +5887,7 @@ _Bool
 
 
 void *memset_impl(void *s, int c, size_t n) {
-    if(!((((n) == 0) || (s)))) {abort();}
+    __VERIFIER_assume((((n) == 0) || (s)));
     if (n > 0) {
         char *sp = (char *)s;
         for (unsigned long i = 0; i < n; i++)
@@ -5898,7 +5898,7 @@ void *memset_impl(void *s, int c, size_t n) {
 
 
 void *memset_override_0_impl(void *dst, int c, size_t n) {
-    if(!((((n) == 0) || (dst)))) {abort();}
+    __VERIFIER_assume((((n) == 0) || (dst)));
 
     __VERIFIER_assert(c == 0);
     size_t num_uint64s = n >> 3;
@@ -5926,11 +5926,11 @@ void memset_override_0_harness() {
     short d1[160];
     short d2[160];
     int c;
-    if(!(c == 0)) {abort();}
+    __VERIFIER_assume(c == 0);
 
     unsigned size;
-    if(!((size & 0x7) == 0)) {abort();}
-    if(!(size < 160)) {abort();}
+    __VERIFIER_assume((size & 0x7) == 0);
+    __VERIFIER_assume(size < 160);
     memset_impl(d1, c, size);
     memset_override_0_impl(d2, c, size);
     assert_bytes_match(d1, d2, size);
