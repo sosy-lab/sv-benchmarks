@@ -6224,6 +6224,18 @@ int main(void)
   int tmp___1 ;
 
   {
+  var_group1 = ldv_malloc(sizeof(struct si4713_device));
+  var_group2 = ldv_malloc(sizeof(struct v4l2_queryctrl));
+  if(!var_group2)
+    return 0;
+  var_group2->id = __VERIFIER_nondet_int();
+  var_group3 = ldv_malloc(sizeof(struct v4l2_ext_controls));
+  if(!var_group3)
+    return 0;
+  var_group3->ctrl_class = __VERIFIER_nondet_int();
+  var_group3->controls = ldv_malloc(sizeof(struct v4l2_ext_control));
+  var_group6 = ldv_malloc(sizeof(struct v4l2_modulator));
+  var_group7 = ldv_malloc(sizeof(struct i2c_client));
   ldv_s_si4713_i2c_driver_i2c_driver = 0;
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
