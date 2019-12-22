@@ -3523,6 +3523,7 @@ void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT ;
+void *ldv_malloc(size_t) ;
 void main(void)
 { struct acpi_device *var_group1 ;
   int var_acpi_fan_remove_4_p1 ;
@@ -3537,6 +3538,12 @@ void main(void)
   int var_acpi_fan_suspend_5_p1_event11 ;
   {
   {
+  var_group1 = ldv_malloc(sizeof(struct acpi_device));
+  if(!var_group1)
+    return;
+  var_group2 = ldv_malloc(sizeof(struct thermal_cooling_device));
+  if(!var_group2)
+    return;
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   tmp___7 = acpi_fan_init();
