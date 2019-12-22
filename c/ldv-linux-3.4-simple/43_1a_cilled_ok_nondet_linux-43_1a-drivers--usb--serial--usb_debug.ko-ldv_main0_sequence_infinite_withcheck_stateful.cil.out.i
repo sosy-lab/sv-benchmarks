@@ -3530,7 +3530,7 @@ int LDV_IN_INTERRUPT ;
 void main(void)
 { struct tty_struct *var_group1 ;
   int var_usb_debug_break_ctl_0_p1 ;
-  struct urb *var_group2 ;
+  struct urb var_group2 ;
   int tmp ;
   int tmp___0 ;
   {
@@ -3559,7 +3559,7 @@ void main(void)
       goto ldv_27713;
       case_1:
       {
-      usb_debug_process_read_urb(var_group2);
+      usb_debug_process_read_urb(&var_group2);
       }
       goto ldv_27713;
       switch_default: ;
