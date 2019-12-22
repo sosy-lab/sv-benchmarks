@@ -26272,7 +26272,7 @@ void unregister_control_device_interface(struct bcm_mini_adapter *Adapter )
 int main(void) 
 { 
   struct inode *var_group1 ;
-  struct file *var_group2 ;
+  struct file var_group2 ;
   int res_bcm_char_open_0 ;
   char *var_bcm_char_read_2_p1 ;
   size_t var_bcm_char_read_2_p2 ;
@@ -26295,7 +26295,7 @@ int main(void)
   case 0: ;
   if (ldv_s_bcm_fops_file_operations == 0) {
     ldv_handler_precall();
-    res_bcm_char_open_0 = bcm_char_open(var_group1, var_group2);
+    res_bcm_char_open_0 = bcm_char_open(var_group1, &var_group2);
     ldv_check_return_value(res_bcm_char_open_0);
     if (res_bcm_char_open_0 != 0) {
       goto ldv_module_exit;
@@ -26310,7 +26310,7 @@ int main(void)
   case 1: ;
   if (ldv_s_bcm_fops_file_operations == 1) {
     ldv_handler_precall();
-    res_bcm_char_read_2 = bcm_char_read(var_group2, var_bcm_char_read_2_p1, var_bcm_char_read_2_p2,
+    res_bcm_char_read_2 = bcm_char_read(&var_group2, var_bcm_char_read_2_p1, var_bcm_char_read_2_p2,
                                         var_bcm_char_read_2_p3);
     ldv_check_return_value((int )res_bcm_char_read_2);
     if (res_bcm_char_read_2 < 0L) {
@@ -26326,7 +26326,7 @@ int main(void)
   case 2: ;
   if (ldv_s_bcm_fops_file_operations == 2) {
     ldv_handler_precall();
-    bcm_char_release(var_group1, var_group2);
+    bcm_char_release(var_group1, &var_group2);
     ldv_s_bcm_fops_file_operations = 0;
   } else {
 
@@ -26334,7 +26334,7 @@ int main(void)
   goto ldv_47101;
   case 3: 
   ldv_handler_precall();
-  bcm_char_ioctl(var_group2, var_bcm_char_ioctl_3_p1, var_bcm_char_ioctl_3_p2);
+  bcm_char_ioctl(&var_group2, var_bcm_char_ioctl_3_p1, var_bcm_char_ioctl_3_p2);
   goto ldv_47101;
   default: ;
   goto ldv_47101;

@@ -7177,8 +7177,8 @@ extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT  ;
 static int res_vp7045_usb_probe_6  ;
 void main(void) 
-{ struct dvb_usb_adapter *var_group1 ;
-  struct dvb_usb_device *var_group2 ;
+{ struct dvb_usb_adapter var_group1 ;
+  struct dvb_usb_device var_group2 ;
   int var_vp7045_power_ctrl_2_p1 ;
   u32 *var_vp7045_rc_query_3_p1 ;
   int *var_vp7045_rc_query_3_p2 ;
@@ -7233,17 +7233,17 @@ void main(void)
       if (0) {
         case_0: /* CIL Label */ 
         {
-        vp7045_frontend_attach(var_group1);
+        vp7045_frontend_attach(&var_group1);
         }
         goto switch_break;
         case_1: /* CIL Label */ 
         {
-        vp7045_power_ctrl(var_group2, var_vp7045_power_ctrl_2_p1);
+        vp7045_power_ctrl(&var_group2, var_vp7045_power_ctrl_2_p1);
         }
         goto switch_break;
         case_2: /* CIL Label */ 
         {
-        vp7045_rc_query(var_group2, var_vp7045_rc_query_3_p1, var_vp7045_rc_query_3_p2);
+        vp7045_rc_query(&var_group2, var_vp7045_rc_query_3_p1, var_vp7045_rc_query_3_p2);
         }
         goto switch_break;
         case_3: /* CIL Label */ 
