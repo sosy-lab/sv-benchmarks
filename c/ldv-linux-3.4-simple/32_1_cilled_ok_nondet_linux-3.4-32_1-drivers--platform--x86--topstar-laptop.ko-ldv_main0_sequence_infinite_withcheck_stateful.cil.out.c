@@ -3685,6 +3685,9 @@ void main(void)
 
   {
   {
+  var_group1 = ldv_malloc(sizeof(struct acpi_device));
+  if(!var_group1)
+    return;
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   tmp___7 = topstar_laptop_init();
