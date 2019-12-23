@@ -8800,10 +8800,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void *ldv_zalloc(size_t size ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *calloc(size_t, size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return calloc(1UL, size);
+  void *p = calloc(1UL, size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
@@ -8850,7 +8853,9 @@ extern void *malloc(size_t) ;
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 const char *acpi_format_exception(acpi_status arg0) {
   return ldv_malloc(sizeof(char));

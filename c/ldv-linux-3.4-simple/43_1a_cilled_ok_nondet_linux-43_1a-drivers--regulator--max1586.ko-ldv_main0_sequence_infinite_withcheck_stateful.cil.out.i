@@ -3395,7 +3395,9 @@ extern void *calloc(size_t, size_t) ;
 void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return calloc(1UL, size);
+  void *p = calloc(1UL, size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
@@ -3424,7 +3426,9 @@ extern void *malloc(size_t) ;
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 void *dev_get_drvdata(const struct device *arg0) {
   return ldv_malloc(0UL);

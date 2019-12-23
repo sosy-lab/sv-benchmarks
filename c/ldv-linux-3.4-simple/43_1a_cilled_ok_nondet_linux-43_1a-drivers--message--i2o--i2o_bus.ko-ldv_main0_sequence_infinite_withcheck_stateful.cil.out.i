@@ -1821,10 +1821,13 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 struct device *get_device(struct device *arg0) {
   return ldv_malloc(sizeof(struct device));

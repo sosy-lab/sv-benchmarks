@@ -3927,10 +3927,13 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *arg0, struct device *arg1, int arg2, size_t arg3) {
   return ldv_malloc(sizeof(struct cyttsp));

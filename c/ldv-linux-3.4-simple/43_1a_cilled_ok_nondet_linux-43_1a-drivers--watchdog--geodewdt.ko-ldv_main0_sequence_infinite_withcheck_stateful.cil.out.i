@@ -2917,10 +2917,13 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
   return ldv_malloc(0UL);

@@ -8785,10 +8785,13 @@ void gigaset_if_freedriver(struct gigaset_driver *drv )
 extern void ldv_check_return_value(int ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 int main(void)
 { struct tty_struct *var_group1 ;
