@@ -1506,7 +1506,7 @@ void main(void)
 { struct file *var_group1 ;
   struct kobject *var_group2 ;
   struct bin_attribute *var_w1_f2d_read_bin_2_p2 ;
-  char *var_w1_f2d_read_bin_2_p3 ;
+  char var_w1_f2d_read_bin_2_p3[8U] ;
   loff_t var_w1_f2d_read_bin_2_p4 ;
   size_t var_w1_f2d_read_bin_2_p5 ;
   struct bin_attribute *var_w1_f2d_write_bin_4_p2 ;
