@@ -16670,7 +16670,13 @@ void gigaset_isdn_unregdrv(void)
 }
 }
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->head = ldv_malloc(arg0);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
