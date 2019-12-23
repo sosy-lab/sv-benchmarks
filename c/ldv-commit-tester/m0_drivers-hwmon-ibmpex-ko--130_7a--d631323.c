@@ -2406,8 +2406,8 @@ int main(void)
   int var_ibmpex_register_bmc_17_p0 ;
   struct device *var_group1 ;
   int var_ibmpex_bmc_gone_19_p0 ;
-  struct ipmi_recv_msg *var_group2 ;
-  void *var_ibmpex_msg_handler_20_p1 ;
+  struct ipmi_recv_msg var_group2 ;
+  struct ibmpex_bmc_data var_ibmpex_msg_handler_20_p1 ;
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -2436,7 +2436,7 @@ int main(void)
   goto ldv_17792;
   case 2: 
   ldv_handler_precall();
-  ibmpex_msg_handler(var_group2, var_ibmpex_msg_handler_20_p1);
+  ibmpex_msg_handler(&var_group2, &var_ibmpex_msg_handler_20_p1);
   goto ldv_17792;
   default: ;
   goto ldv_17792;
