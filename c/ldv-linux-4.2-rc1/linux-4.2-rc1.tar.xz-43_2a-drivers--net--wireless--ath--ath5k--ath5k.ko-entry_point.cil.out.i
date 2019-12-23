@@ -8408,6 +8408,8 @@ extern void *memset(void * , int , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void __VERIFIER_assume(int ) ;
+__inline static bool IS_ERR(void const *ptr ) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   void *p ;
@@ -8421,6 +8423,7 @@ void *ldv_malloc(size_t size )
     tmp = malloc(size);
     p = tmp;
     __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    __VERIFIER_assume(IS_ERR(p) == 0);
     return (p);
   }
 }
@@ -8438,6 +8441,7 @@ void *ldv_zalloc(size_t size )
     tmp = calloc(1UL, size);
     p = tmp;
     __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    __VERIFIER_assume(IS_ERR(p) == 0);
     return (p);
   }
 }

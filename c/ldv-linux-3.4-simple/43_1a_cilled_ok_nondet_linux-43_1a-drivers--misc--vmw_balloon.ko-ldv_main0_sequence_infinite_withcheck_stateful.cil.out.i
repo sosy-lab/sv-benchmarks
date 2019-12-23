@@ -4929,10 +4929,13 @@ int _cond_resched() {
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   return ldv_malloc(sizeof(struct page));

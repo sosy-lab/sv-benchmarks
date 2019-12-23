@@ -3024,10 +3024,13 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+extern void __VERIFIER_assume(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  __VERIFIER_assume(IS_ERR(p) == 0);
+  return p;
 }
 void *dev_get_drvdata(const struct device *arg0) {
   return ldv_malloc(0UL);
