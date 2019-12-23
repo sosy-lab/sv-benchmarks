@@ -30,4 +30,9 @@
   <tasks name="algorithms">
     <include>algorithms/*.yml</include>
   </tasks>
+
+  <tasks name="java-ranger">
+    <include>java-ranger-regression/**/*.yml</include>
+    <include>java-ranger-regression/*.yml</include>
+  </tasks>
 </benchmark>
