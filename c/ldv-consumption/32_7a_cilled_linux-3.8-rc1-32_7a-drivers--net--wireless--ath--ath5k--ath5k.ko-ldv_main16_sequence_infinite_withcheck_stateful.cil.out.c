@@ -29561,38 +29561,38 @@ struct ieee80211_ops  const  ath5k_hw_ops  =
     & ath5k_get_ringparam, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 int main(void) 
 { 
-  struct ieee80211_hw *var_group1 ;
+  struct ieee80211_hw var_group1 ;
   struct ieee80211_tx_control *var_group2 ;
-  struct sk_buff *var_ath5k_tx_0_p2 ;
-  struct ieee80211_vif *var_group3 ;
+  struct sk_buff var_ath5k_tx_0_p2 ;
+  struct ieee80211_vif var_group3 ;
   u32 var_ath5k_config_3_p1 ;
-  struct ieee80211_bss_conf *var_ath5k_bss_info_changed_4_p2 ;
+  struct ieee80211_bss_conf var_ath5k_bss_info_changed_4_p2 ;
   u32 var_ath5k_bss_info_changed_4_p3 ;
-  struct netdev_hw_addr_list *var_group4 ;
+  struct netdev_hw_addr_list var_group4 ;
   unsigned int var_ath5k_configure_filter_6_p1 ;
-  unsigned int *var_ath5k_configure_filter_6_p2 ;
+  unsigned int var_ath5k_configure_filter_6_p2 ;
   u64 var_ath5k_configure_filter_6_p3 ;
   enum set_key_cmd var_ath5k_set_key_7_p1 ;
-  struct ieee80211_vif *var_ath5k_set_key_7_p2 ;
+  struct ieee80211_vif var_ath5k_set_key_7_p2 ;
   struct ieee80211_sta *var_ath5k_set_key_7_p3 ;
-  struct ieee80211_key_conf *var_ath5k_set_key_7_p4 ;
-  struct ieee80211_low_level_stats *var_group5 ;
+  struct ieee80211_key_conf var_ath5k_set_key_7_p4 ;
+  struct ieee80211_low_level_stats var_group5 ;
   u16 var_ath5k_conf_tx_11_p2 ;
-  struct ieee80211_tx_queue_params  const  *var_ath5k_conf_tx_11_p3 ;
+  struct ieee80211_tx_queue_params  const  var_ath5k_conf_tx_11_p3 ;
   u64 var_ath5k_set_tsf_13_p2 ;
   int var_ath5k_get_survey_15_p1 ;
-  struct survey_info *var_ath5k_get_survey_15_p2 ;
+  struct survey_info var_ath5k_get_survey_15_p2 ;
   u8 var_ath5k_set_coverage_class_16_p1 ;
   u32 var_ath5k_set_antenna_17_p1 ;
   u32 var_ath5k_set_antenna_17_p2 ;
-  u32 *var_ath5k_get_antenna_18_p1 ;
-  u32 *var_ath5k_get_antenna_18_p2 ;
+  u32 var_ath5k_get_antenna_18_p1 ;
+  u32 var_ath5k_get_antenna_18_p2 ;
   u32 var_ath5k_set_ringparam_20_p1 ;
   u32 var_ath5k_set_ringparam_20_p2 ;
-  u32 *var_ath5k_get_ringparam_19_p1 ;
-  u32 *var_ath5k_get_ringparam_19_p2 ;
-  u32 *var_ath5k_get_ringparam_19_p3 ;
-  u32 *var_ath5k_get_ringparam_19_p4 ;
+  u32 var_ath5k_get_ringparam_19_p1 ;
+  u32 var_ath5k_get_ringparam_19_p2 ;
+  u32 var_ath5k_get_ringparam_19_p3 ;
+  u32 var_ath5k_get_ringparam_19_p4 ;
   int tmp ;
   int tmp___0 ;
 
@@ -29605,91 +29605,91 @@ int main(void)
   switch (tmp) {
   case 0: 
   ldv_handler_precall();
-  ath5k_tx(var_group1, var_group2, var_ath5k_tx_0_p2);
+  ath5k_tx(&var_group1, var_group2, &var_ath5k_tx_0_p2);
   goto ldv_43266;
   case 1: 
   ldv_handler_precall();
-  ath5k_add_interface(var_group1, var_group3);
+  ath5k_add_interface(&var_group1, &var_group3);
   goto ldv_43266;
   case 2: 
   ldv_handler_precall();
-  ath5k_remove_interface(var_group1, var_group3);
+  ath5k_remove_interface(&var_group1, &var_group3);
   goto ldv_43266;
   case 3: 
   ldv_handler_precall();
-  ath5k_config(var_group1, var_ath5k_config_3_p1);
+  ath5k_config(&var_group1, var_ath5k_config_3_p1);
   goto ldv_43266;
   case 4: 
   ldv_handler_precall();
-  ath5k_bss_info_changed(var_group1, var_group3, var_ath5k_bss_info_changed_4_p2,
+  ath5k_bss_info_changed(&var_group1, &var_group3, &var_ath5k_bss_info_changed_4_p2,
                          var_ath5k_bss_info_changed_4_p3);
   goto ldv_43266;
   case 5: 
   ldv_handler_precall();
-  ath5k_prepare_multicast(var_group1, var_group4);
+  ath5k_prepare_multicast(&var_group1, &var_group4);
   goto ldv_43266;
   case 6: 
   ldv_handler_precall();
-  ath5k_configure_filter(var_group1, var_ath5k_configure_filter_6_p1, var_ath5k_configure_filter_6_p2,
+  ath5k_configure_filter(&var_group1, var_ath5k_configure_filter_6_p1, &var_ath5k_configure_filter_6_p2,
                          var_ath5k_configure_filter_6_p3);
   goto ldv_43266;
   case 7: 
   ldv_handler_precall();
-  ath5k_set_key(var_group1, var_ath5k_set_key_7_p1, var_ath5k_set_key_7_p2, var_ath5k_set_key_7_p3,
-                var_ath5k_set_key_7_p4);
+  ath5k_set_key(&var_group1, var_ath5k_set_key_7_p1, &var_ath5k_set_key_7_p2, var_ath5k_set_key_7_p3,
+                &var_ath5k_set_key_7_p4);
   goto ldv_43266;
   case 8: 
   ldv_handler_precall();
-  ath5k_sw_scan_start(var_group1);
+  ath5k_sw_scan_start(&var_group1);
   goto ldv_43266;
   case 9: 
   ldv_handler_precall();
-  ath5k_sw_scan_complete(var_group1);
+  ath5k_sw_scan_complete(&var_group1);
   goto ldv_43266;
   case 10: 
   ldv_handler_precall();
-  ath5k_get_stats(var_group1, var_group5);
+  ath5k_get_stats(&var_group1, &var_group5);
   goto ldv_43266;
   case 11: 
   ldv_handler_precall();
-  ath5k_conf_tx(var_group1, var_group3, (int )var_ath5k_conf_tx_11_p2, var_ath5k_conf_tx_11_p3);
+  ath5k_conf_tx(&var_group1, &var_group3, (int )var_ath5k_conf_tx_11_p2, &var_ath5k_conf_tx_11_p3);
   goto ldv_43266;
   case 12: 
   ldv_handler_precall();
-  ath5k_get_tsf(var_group1, var_group3);
+  ath5k_get_tsf(&var_group1, &var_group3);
   goto ldv_43266;
   case 13: 
   ldv_handler_precall();
-  ath5k_set_tsf(var_group1, var_group3, var_ath5k_set_tsf_13_p2);
+  ath5k_set_tsf(&var_group1, &var_group3, var_ath5k_set_tsf_13_p2);
   goto ldv_43266;
   case 14: 
   ldv_handler_precall();
-  ath5k_reset_tsf(var_group1, var_group3);
+  ath5k_reset_tsf(&var_group1, &var_group3);
   goto ldv_43266;
   case 15: 
   ldv_handler_precall();
-  ath5k_get_survey(var_group1, var_ath5k_get_survey_15_p1, var_ath5k_get_survey_15_p2);
+  ath5k_get_survey(&var_group1, var_ath5k_get_survey_15_p1, &var_ath5k_get_survey_15_p2);
   goto ldv_43266;
   case 16: 
   ldv_handler_precall();
-  ath5k_set_coverage_class(var_group1, (int )var_ath5k_set_coverage_class_16_p1);
+  ath5k_set_coverage_class(&var_group1, (int )var_ath5k_set_coverage_class_16_p1);
   goto ldv_43266;
   case 17: 
   ldv_handler_precall();
-  ath5k_set_antenna(var_group1, var_ath5k_set_antenna_17_p1, var_ath5k_set_antenna_17_p2);
+  ath5k_set_antenna(&var_group1, var_ath5k_set_antenna_17_p1, var_ath5k_set_antenna_17_p2);
   goto ldv_43266;
   case 18: 
   ldv_handler_precall();
-  ath5k_get_antenna(var_group1, var_ath5k_get_antenna_18_p1, var_ath5k_get_antenna_18_p2);
+  ath5k_get_antenna(&var_group1, &var_ath5k_get_antenna_18_p1, &var_ath5k_get_antenna_18_p2);
   goto ldv_43266;
   case 19: 
   ldv_handler_precall();
-  ath5k_set_ringparam(var_group1, var_ath5k_set_ringparam_20_p1, var_ath5k_set_ringparam_20_p2);
+  ath5k_set_ringparam(&var_group1, var_ath5k_set_ringparam_20_p1, var_ath5k_set_ringparam_20_p2);
   goto ldv_43266;
   case 20: 
   ldv_handler_precall();
-  ath5k_get_ringparam(var_group1, var_ath5k_get_ringparam_19_p1, var_ath5k_get_ringparam_19_p2,
-                      var_ath5k_get_ringparam_19_p3, var_ath5k_get_ringparam_19_p4);
+  ath5k_get_ringparam(&var_group1, &var_ath5k_get_ringparam_19_p1, &var_ath5k_get_ringparam_19_p2,
+                      &var_ath5k_get_ringparam_19_p3, &var_ath5k_get_ringparam_19_p4);
   goto ldv_43266;
   default: ;
   goto ldv_43266;
