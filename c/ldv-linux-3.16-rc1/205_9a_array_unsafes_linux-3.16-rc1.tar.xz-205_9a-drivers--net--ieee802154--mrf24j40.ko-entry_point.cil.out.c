@@ -7411,6 +7411,11 @@ __inline static struct sk_buff *ldv_alloc_skb_13(unsigned int size , gfp_t prior
 
   {
   tmp = ldv_skb_alloc();
+  if(tmp)
+  {
+    tmp->head = ldv_malloc(size);
+    tmp->data = tmp->head;
+  }
   return (tmp);
 }
 }
