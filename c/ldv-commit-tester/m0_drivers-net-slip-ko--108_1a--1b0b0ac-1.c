@@ -7117,16 +7117,15 @@ extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT  ;
 int main(void) 
 { 
-  struct net_device *var_group1 ;
   int res_sl_init_14 ;
   int res_sl_open_11 ;
   int res_sl_close_10 ;
   struct sk_buff *var_group2 ;
-  struct rtnl_link_stats64 *var_group3 ;
+  struct rtnl_link_stats64 var_group3 ;
   int var_sl_change_mtu_12_p1 ;
-  struct ifreq *var_group4 ;
+  struct ifreq var_group4 ;
   int var_sl_ioctl_30_p2 ;
-  struct tty_struct *var_group5 ;
+  struct tty_struct var_group5 ;
   int res_slip_open_21 ;
   struct file *var_group6 ;
   unsigned int var_slip_ioctl_28_p2 ;
@@ -7145,6 +7144,7 @@ int main(void)
   int tmp___1 ;
 
   {
+  var_group2 = dev_alloc_skb(1U);
   ldv_s_sl_netdev_ops_net_device_ops = 0;
   ldv_s_sl_ldisc_tty_ldisc_ops = 0;
   LDV_IN_INTERRUPT = 1;
@@ -7163,7 +7163,7 @@ int main(void)
   case 0: ;
   if (ldv_s_sl_netdev_ops_net_device_ops == 0) {
     ldv_handler_precall();
-    res_sl_init_14 = sl_init(var_group1);
+    res_sl_init_14 = sl_init(*slip_devs);
     ldv_check_return_value(res_sl_init_14);
     if (res_sl_init_14 != 0) {
       goto ldv_module_exit;
@@ -7178,7 +7178,7 @@ int main(void)
   case 1: ;
   if (ldv_s_sl_netdev_ops_net_device_ops == 1) {
     ldv_handler_precall();
-    res_sl_open_11 = sl_open(var_group1);
+    res_sl_open_11 = sl_open(*slip_devs);
     ldv_check_return_value(res_sl_open_11);
     if (res_sl_open_11 < 0) {
       goto ldv_module_exit;
@@ -7193,7 +7193,7 @@ int main(void)
   case 2: ;
   if (ldv_s_sl_netdev_ops_net_device_ops == 2) {
     ldv_handler_precall();
-    res_sl_close_10 = sl_close(var_group1);
+    res_sl_close_10 = sl_close(*slip_devs);
     ldv_check_return_value(res_sl_close_10);
     if (res_sl_close_10 != 0) {
       goto ldv_module_exit;
@@ -7208,7 +7208,7 @@ int main(void)
   case 3: ;
   if (ldv_s_sl_netdev_ops_net_device_ops == 3) {
     ldv_handler_precall();
-    sl_uninit(var_group1);
+    sl_uninit(*slip_devs);
     ldv_s_sl_netdev_ops_net_device_ops = 0;
   } else {
 
@@ -7216,28 +7216,28 @@ int main(void)
   goto ldv_39528;
   case 4: 
   ldv_handler_precall();
-  sl_xmit(var_group2, var_group1);
+  sl_xmit(var_group2, *slip_devs);
   goto ldv_39528;
   case 5: 
   ldv_handler_precall();
-  sl_get_stats64(var_group1, var_group3);
+  sl_get_stats64(*slip_devs, &var_group3);
   goto ldv_39528;
   case 6: 
   ldv_handler_precall();
-  sl_change_mtu(var_group1, var_sl_change_mtu_12_p1);
+  sl_change_mtu(*slip_devs, var_sl_change_mtu_12_p1);
   goto ldv_39528;
   case 7: 
   ldv_handler_precall();
-  sl_tx_timeout(var_group1);
+  sl_tx_timeout(*slip_devs);
   goto ldv_39528;
   case 8: 
   ldv_handler_precall();
-  sl_ioctl(var_group1, var_group4, var_sl_ioctl_30_p2);
+  sl_ioctl(*slip_devs, &var_group4, var_sl_ioctl_30_p2);
   goto ldv_39528;
   case 9: ;
   if (ldv_s_sl_ldisc_tty_ldisc_ops == 0) {
     ldv_handler_precall();
-    res_slip_open_21 = ldv_slip_open_3(var_group5);
+    res_slip_open_21 = ldv_slip_open_3(&var_group5);
     ldv_check_return_value(res_slip_open_21);
     if (res_slip_open_21 != 0) {
       goto ldv_module_exit;
@@ -7252,7 +7252,7 @@ int main(void)
   case 10: ;
   if (ldv_s_sl_ldisc_tty_ldisc_ops == 1) {
     ldv_handler_precall();
-    slip_close(var_group5);
+    slip_close(&var_group5);
     ldv_s_sl_ldisc_tty_ldisc_ops = 0;
   } else {
 
@@ -7260,24 +7260,24 @@ int main(void)
   goto ldv_39528;
   case 11: 
   ldv_handler_precall();
-  slip_hangup(var_group5);
+  slip_hangup(&var_group5);
   goto ldv_39528;
   case 12: 
   ldv_handler_precall();
-  slip_ioctl(var_group5, var_group6, var_slip_ioctl_28_p2, var_slip_ioctl_28_p3);
+  slip_ioctl(&var_group5, var_group6, var_slip_ioctl_28_p2, var_slip_ioctl_28_p3);
   goto ldv_39528;
   case 13: 
   ldv_handler_precall();
-  slip_compat_ioctl(var_group5, var_group6, var_slip_compat_ioctl_29_p2, var_slip_compat_ioctl_29_p3);
+  slip_compat_ioctl(&var_group5, var_group6, var_slip_compat_ioctl_29_p2, var_slip_compat_ioctl_29_p3);
   goto ldv_39528;
   case 14: 
   ldv_handler_precall();
-  slip_receive_buf(var_group5, var_slip_receive_buf_18_p1, var_slip_receive_buf_18_p2,
+  slip_receive_buf(&var_group5, var_slip_receive_buf_18_p1, var_slip_receive_buf_18_p2,
                    var_slip_receive_buf_18_p3);
   goto ldv_39528;
   case 15: 
   ldv_handler_precall();
-  slip_write_wakeup(var_group5);
+  slip_write_wakeup(&var_group5);
   goto ldv_39528;
   case 16: 
   ldv_handler_precall();
