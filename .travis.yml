@@ -1,5 +1,3 @@
-if: type = pull_request
-
 language: c
 env:
   matrix:
