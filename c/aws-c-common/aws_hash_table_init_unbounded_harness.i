@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -2077,7 +2077,7 @@ extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
 
 
 
-extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void *my_memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
@@ -2327,25 +2327,7 @@ static inline
 
 _Bool 
     aws_is_mem_zeroed(const void *buf, size_t bufsize) {
-
-
-
-    const uint64_t *buf_u64 = (const uint64_t *)buf;
-    const size_t num_u64_checks = bufsize / 8;
     size_t i;
-    for (i = 0; i < num_u64_checks; ++i) {
-        if (buf_u64[i]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-
-    buf = buf_u64 + num_u64_checks;
-    bufsize = bufsize % 8;
-
-
     const uint8_t *buf_u8 = (const uint8_t *)buf;
     for (i = 0; i < bufsize; ++i) {
         if (buf_u8[i]) {
@@ -2886,7 +2868,7 @@ int aws_array_list_init_dynamic(
    ))) {abort();}
     if(!((item_size > 0))) {abort();}
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 
     size_t allocation_size;
     if (aws_mul_size_checked(initial_item_allocation, item_size, &allocation_size)) {
@@ -2993,7 +2975,7 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
         aws_mem_release(list->alloc, list->data);
     }
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 }
 
 static inline
@@ -3124,7 +3106,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
+        my_memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
         list->length--;
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -4688,7 +4670,7 @@ static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node)
     if(!((node != 
    ((void *)0)
    ))) {abort();}
-    do { memset(&(*node), 0, sizeof(*node)); } while (0);
+    do { my_memset(&(*node), 0, sizeof(*node)); } while (0);
     __VERIFIER_assert((aws_is_mem_zeroed(&(*node), sizeof(*node))));
 }
 static inline 
@@ -5817,7 +5799,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 
@@ -7415,7 +7397,7 @@ void *memset_impl(void *s, int c, size_t n) {
     return s;
 }
 
-void *memset(void *s, int c, size_t n) {
+void *my_memset(void *s, int c, size_t n) {
     return memset_impl(s, c, n);
 }
 
@@ -7582,7 +7564,7 @@ extern struct aws_logger_vtable g_pipeline_logger_owned_vtable;
 
 
 void aws_secure_zero(void *pBuf, size_t bufsize) {
-    memset(pBuf, 0, bufsize);
+    my_memset(pBuf, 0, bufsize);
 
 
 
@@ -9341,7 +9323,7 @@ void aws_hash_table_move(struct aws_hash_table *restrict to, struct aws_hash_tab
     if(!((aws_hash_table_is_valid(from)))) {abort();}
 
     *to = *from;
-    do { memset(&(*from), 0, sizeof(*from)); } while (0);
+    do { my_memset(&(*from), 0, sizeof(*from)); } while (0);
     __VERIFIER_assert((aws_hash_table_is_valid(to)));
 }
 static int s_find_entry1(
@@ -9689,7 +9671,7 @@ static size_t s_remove_entry(struct hash_table_state *state, struct hash_table_e
     }
 
 
-    do { memset(&(state->slots[index]), 0, sizeof(state->slots[index])); } while (0);
+    do { my_memset(&(state->slots[index]), 0, sizeof(state->slots[index])); } while (0);
     do { __VERIFIER_assert((hash_table_state_is_valid(state) && index <= state->size)); return index; } while (0);
 }
 
@@ -9871,7 +9853,7 @@ struct aws_hash_iter aws_hash_iter_begin(const struct aws_hash_table *map) {
     if(!((aws_hash_table_is_valid(map)))) {abort();}
     struct hash_table_state *state = map->p_impl;
     struct aws_hash_iter iter;
-    do { memset(&(iter), 0, sizeof(iter)); } while (0);
+    do { my_memset(&(iter), 0, sizeof(iter)); } while (0);
     iter.map = map;
     iter.limit = state->size;
     s_get_next_element(&iter, 0);
@@ -9977,7 +9959,7 @@ void aws_hash_table_clear(struct aws_hash_table *map) {
     }
 
 
-    memset(state->slots, 0, sizeof(*state->slots) * state->size);
+    my_memset(state->slots, 0, sizeof(*state->slots) * state->size);
 
     state->entry_count = 0;
     __VERIFIER_assert((aws_hash_table_is_valid(map)));

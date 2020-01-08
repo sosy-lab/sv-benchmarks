@@ -4171,6 +4171,13 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *arg0, struct device *arg1, int arg2, size_t arg3) {
   return ldv_malloc(sizeof(struct cyttsp));
 }

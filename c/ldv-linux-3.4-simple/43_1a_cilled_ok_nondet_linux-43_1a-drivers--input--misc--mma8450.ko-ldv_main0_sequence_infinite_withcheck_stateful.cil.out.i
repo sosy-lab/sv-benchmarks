@@ -3673,6 +3673,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
@@ -3698,6 +3705,13 @@ s32 i2c_smbus_read_i2c_block_data(const struct i2c_client *arg0, u8 arg1, u8 arg
 int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_write_byte_data(const struct i2c_client *arg0, u8 arg1, u8 arg2) {
   return __VERIFIER_nondet_int();
+}
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
 }
 struct input_polled_dev *input_allocate_polled_device() {
   return ldv_malloc(sizeof(struct input_polled_dev));

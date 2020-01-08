@@ -7708,6 +7708,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
@@ -7720,6 +7727,13 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 void dibx000_exit_i2c_master(struct dibx000_i2c_master *arg0) {
   return;
+}
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
 }
 struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   return ldv_malloc(sizeof(struct i2c_adapter));

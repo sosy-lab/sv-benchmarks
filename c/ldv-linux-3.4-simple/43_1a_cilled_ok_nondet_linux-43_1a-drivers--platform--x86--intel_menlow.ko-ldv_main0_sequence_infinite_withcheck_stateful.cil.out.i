@@ -4598,6 +4598,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
@@ -4640,6 +4647,13 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 }
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
+}
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
 }
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   return ldv_malloc(0UL);

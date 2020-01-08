@@ -8403,6 +8403,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
   {
@@ -8422,6 +8429,13 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 }
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
+}
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
 }
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   return ldv_malloc(sizeof(struct resource));

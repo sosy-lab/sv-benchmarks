@@ -3446,6 +3446,13 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct ad714x_chip *ad714x_probe(struct device *arg0, u16 arg1, int arg2, int (*arg3)(struct ad714x_chip *, unsigned short, unsigned short *, size_t ), int (*arg4)(struct ad714x_chip *, unsigned short, unsigned short)) {
   return ldv_malloc(sizeof(struct ad714x_chip));
 }

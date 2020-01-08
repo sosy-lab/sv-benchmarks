@@ -76,6 +76,23 @@ struct mbuf *m_inithdr(struct mbuf *);
 
 /* from sys/kern/uipc_mbuf.c */
 
+struct mbuf *m_get(int nowait, int type) {
+  struct mbuf *m;
+
+  if (nowait == M_NOWAIT && __VERIFIER_nondet_bool()) {
+    return (NULL);
+  }
+
+  m = malloc(sizeof(struct mbuf), 0, 0);
+  m->m_type = type;
+  m->m_next = NULL;
+  m->m_nextpkt = NULL;
+  m->m_data = m->m_dat;
+  m->m_flags = 0;
+
+  return (m);
+}
+
 struct mbuf *m_gethdr(int nowait, int type) {
   struct mbuf *m;
 
@@ -98,6 +115,18 @@ struct mbuf *m_inithdr(struct mbuf *m) {
   return (m);
 }
 
+struct mbuf *m_free(struct mbuf *m) {
+  struct mbuf *n;
+
+  if (m == NULL)
+    return (NULL);
+
+  n = m->m_next;
+  free(m, 0, sizeof(struct mbuf));
+
+  return (n);
+}
+
 struct mbuf *m_freem(struct mbuf *m) {
   struct mbuf *n;
 
@@ -111,6 +140,13 @@ struct mbuf *m_freem(struct mbuf *m) {
   while (m != NULL);
 
   return (n);
+}
+
+int m_leadingspace(struct mbuf *m) {
+  if (M_READONLY(m))
+    return 0;
+
+  return m->m_data - (m->m_flags & M_EXT ? m->m_ext.ext_buf : &m->m_dat[MLEN]);
 }
 
 struct mbuf *m_prepend(struct mbuf *m, int len, int how) {

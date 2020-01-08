@@ -15324,7 +15324,14 @@ void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 void __transport_register_session(struct se_portal_group *arg0, struct se_node_acl *arg1, struct se_session *arg2, void *arg3) {
   return;

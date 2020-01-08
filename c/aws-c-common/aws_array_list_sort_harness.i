@@ -225,7 +225,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1625,7 +1625,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -1711,7 +1711,7 @@ extern void *bsearch (const void *__key, const void *__base,
 
 
 
-extern void qsort (void *__base, size_t __nmemb, size_t __size,
+extern void my_qsort (void *__base, size_t __nmemb, size_t __size,
      __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
 extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
@@ -2328,25 +2328,7 @@ static inline
 
 _Bool 
     aws_is_mem_zeroed(const void *buf, size_t bufsize) {
-
-
-
-    const uint64_t *buf_u64 = (const uint64_t *)buf;
-    const size_t num_u64_checks = bufsize / 8;
     size_t i;
-    for (i = 0; i < num_u64_checks; ++i) {
-        if (buf_u64[i]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-
-    buf = buf_u64 + num_u64_checks;
-    bufsize = bufsize % 8;
-
-
     const uint8_t *buf_u8 = (const uint8_t *)buf;
     for (i = 0; i < bufsize; ++i) {
         if (buf_u8[i]) {
@@ -3576,7 +3558,7 @@ static inline
 void aws_array_list_sort(struct aws_array_list *restrict list, aws_array_list_comparator_fn *compare_fn) {
     if(!((aws_array_list_is_valid(list)))) {abort();}
     if (list->data) {
-        qsort(list->data, aws_array_list_length(list), list->item_size, compare_fn);
+        my_qsort(list->data, aws_array_list_length(list), list->item_size, compare_fn);
     }
     __VERIFIER_assert((aws_array_list_is_valid(list)));
 }
@@ -6142,7 +6124,7 @@ static inline int aws_atomic_priv_xlate_order(enum aws_memory_order order) {
         case aws_memory_order_seq_cst:
             return 5;
         default:
-            abort();
+            my_abort();
     }
 }
 
@@ -7405,7 +7387,7 @@ void aws_raise_error_private(int err) {
 int aws_last_error(void) {
     return tl_last_error;
 }
-void qsort(void *base, unsigned long num, unsigned long size, int (*compar)(const void *, const void *)) {
+void my_qsort(void *base, unsigned long num, unsigned long size, int (*compar)(const void *, const void *)) {
     if(!((((num * size) == 0) || (base)))) {abort();}
     if(!((((num * size) == 0) || (base)))) {abort();}
     unsigned long index_a;

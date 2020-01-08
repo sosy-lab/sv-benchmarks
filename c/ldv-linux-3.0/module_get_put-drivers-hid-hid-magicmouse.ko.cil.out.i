@@ -4148,6 +4148,13 @@ int __VERIFIER_nondet_int(void);
 int __hid_register_driver(struct hid_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

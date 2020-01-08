@@ -187,6 +187,12 @@ int __VERIFIER_nondet_int(void);
 void __VERIFIER_atomic_begin(void);
 void __VERIFIER_atomic_end(void);
 
+extern void *malloc(size_t);
+void *openbsd_kernel_malloc(size_t size, int type, int flags) {
+  return malloc(size);
+}
+extern void free(void *);
+void openbsd_kernel_free(void *addr, int type, size_t size) { free(addr); }
 struct m_tag {
   struct {
     struct m_tag *sle_next;
@@ -295,9 +301,9 @@ extern struct kmemusage *kmemusage;
 extern char *kmembase;
 extern struct kmembuckets bucket[];
 
-void *malloc(size_t, int, int);
+void *openbsd_kernel_malloc(size_t, int, int);
 void *mallocarray(size_t, size_t, int, int);
-void free(void *, int, size_t);
+void openbsd_kernel_free(void *, int, size_t);
 int sysctl_malloc(int *, u_int, void *, size_t *, void *, size_t,
                   struct proc *);
 
@@ -1967,6 +1973,19 @@ void est_init(struct cpu_info *);
 void est_setperf(int);
 struct mbuf *m_inithdr(struct mbuf *);
 
+struct mbuf *m_get(int nowait, int type) {
+  struct mbuf *m;
+  if (nowait == 0x0002 && __VERIFIER_nondet_bool()) {
+    return (((void *)0));
+  }
+  m = openbsd_kernel_malloc(sizeof(struct mbuf), 0, 0);
+  m->m_hdr.mh_type = type;
+  m->m_hdr.mh_next = ((void *)0);
+  m->m_hdr.mh_nextpkt = ((void *)0);
+  m->m_hdr.mh_data = m->M_dat.M_databuf;
+  m->m_hdr.mh_flags = 0;
+  return (m);
+}
 struct mbuf *m_gethdr(int nowait, int type) {
   struct mbuf *m;
 
@@ -1974,7 +1993,7 @@ struct mbuf *m_gethdr(int nowait, int type) {
     return (((void *)0));
   }
 
-  m = malloc(sizeof(struct mbuf), 0, 0);
+  m = openbsd_kernel_malloc(sizeof(struct mbuf), 0, 0);
   m->m_hdr.mh_type = type;
 
   return (m_inithdr(m));
@@ -1990,6 +2009,14 @@ struct mbuf *m_inithdr(struct mbuf *m) {
   return (m);
 }
 
+struct mbuf *m_free(struct mbuf *m) {
+  struct mbuf *n;
+  if (m == ((void *)0))
+    return (((void *)0));
+  n = m->m_hdr.mh_next;
+  openbsd_kernel_free(m, 0, sizeof(struct mbuf));
+  return (n);
+}
 struct mbuf *m_freem(struct mbuf *m) {
   struct mbuf *n;
 
@@ -2005,6 +2032,16 @@ struct mbuf *m_freem(struct mbuf *m) {
   return (n);
 }
 
+int m_leadingspace(struct mbuf *m) {
+  if ((((m)->m_hdr.mh_flags & 0x0001) != 0 &&
+       (((m)->m_hdr.mh_flags & 0x0008) == 0 ||
+        ((m)->M_dat.MH.MH_dat.MH_ext.ext_nextref != (m)))))
+    return 0;
+  return m->m_hdr.mh_data -
+         (m->m_hdr.mh_flags & 0x0001
+              ? m->M_dat.MH.MH_dat.MH_ext.ext_buf
+              : &m->M_dat.M_databuf[(256 - sizeof(struct m_hdr))]);
+}
 struct mbuf *m_prepend(struct mbuf *m, int len, int how) {
   struct mbuf *mn;
 
@@ -5787,7 +5824,8 @@ void ip6_init(void) {
   struct protosw *pr;
   int i;
 
-  struct cpumem *ip6counters = malloc(ip6s_ncounters * sizeof(uint64_t), 0, 0);
+  struct cpumem *ip6counters =
+      openbsd_kernel_malloc(ip6s_ncounters * sizeof(uint64_t), 0, 0);
   explicit_bzero(ip6counters, ip6s_ncounters * sizeof(uint64_t));
 
   pr = pffindproto(24, 255, 3);
@@ -8493,7 +8531,8 @@ int etherip_clone_create(struct if_clone *ifc, int unit) {
   struct ifnet *ifp;
   struct etherip_softc *sc;
 
-  if ((sc = malloc(sizeof(*sc), 2, 0x0002 | 0x0008)) == ((void *)0))
+  if ((sc = openbsd_kernel_malloc(sizeof(*sc), 2, 0x0002 | 0x0008)) ==
+      ((void *)0))
     return 12;
 
   ifp = &sc->sc_ac.ac_if;
@@ -8542,7 +8581,7 @@ int etherip_clone_destroy(struct ifnet *ifp) {
   ifmedia_delete_instance(&sc->sc_media, ((uint64_t)-1));
   ether_ifdetach(ifp);
   if_detach(ifp);
-  free(sc, 2, sizeof(*sc));
+  openbsd_kernel_free(sc, 2, sizeof(*sc));
 
   return 0;
 }

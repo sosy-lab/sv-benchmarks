@@ -890,6 +890,13 @@ unsigned char __VERIFIER_nondet_uchar(void);
 unsigned char spk_serial_in() {
   return __VERIFIER_nondet_uchar();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 const char *spk_synth_immediate(struct spk_synth *arg0, const char *arg1) {
   return ldv_malloc(sizeof(char));
 }

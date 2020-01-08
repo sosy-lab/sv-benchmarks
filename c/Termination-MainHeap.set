@@ -1,4 +1,4 @@
-termination-libowfat/*.yml
+termination-dietlibc/*.yml
 termination-memory-alloca/*.yml
 termination-memory-linkedlists/*.yml
 termination-15/*.yml

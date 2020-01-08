@@ -1403,6 +1403,14 @@ int printk(const char *arg0, ...) {
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+typedef unsigned long size_t;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct rb_node *rb_first(const struct rb_root *arg0) {
   return ldv_malloc(sizeof(struct rb_node));
 }

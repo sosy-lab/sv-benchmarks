@@ -2564,6 +2564,13 @@ void hid_unregister_driver(struct hid_driver *arg0) {
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   return ldv_malloc(0UL);
 }

@@ -2410,6 +2410,13 @@ unsigned long int __phys_addr(unsigned long arg0) {
 struct timespec current_kernel_time() {
   return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct dentry *d_alloc_name(struct dentry *arg0, const char *arg1) {
   return ldv_malloc(sizeof(struct dentry));
 }

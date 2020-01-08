@@ -3631,6 +3631,13 @@ void n_tty_inherit_ops(struct tty_ldisc_ops *arg0) {
 void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, void *arg3) {
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct pps_device *pps_register_source(struct pps_source_info *arg0, int arg1) {
   return ldv_malloc(sizeof(struct pps_device));
 }

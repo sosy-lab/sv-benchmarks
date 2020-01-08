@@ -224,7 +224,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-void abort(void) {
+void my_abort(void) {
     __VERIFIER_error();
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
@@ -1624,7 +1624,7 @@ extern void *aligned_alloc (size_t __alignment, size_t __size)
 
 
 
-extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 
@@ -2327,25 +2327,7 @@ static inline
 
 _Bool 
     aws_is_mem_zeroed(const void *buf, size_t bufsize) {
-
-
-
-    const uint64_t *buf_u64 = (const uint64_t *)buf;
-    const size_t num_u64_checks = bufsize / 8;
     size_t i;
-    for (i = 0; i < num_u64_checks; ++i) {
-        if (buf_u64[i]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-
-    buf = buf_u64 + num_u64_checks;
-    bufsize = bufsize % 8;
-
-
     const uint8_t *buf_u8 = (const uint8_t *)buf;
     for (i = 0; i < bufsize; ++i) {
         if (buf_u8[i]) {

@@ -60,10 +60,13 @@ int main() {
       goto ERROR;
     }
     SLL temp = ptr->next;
-    free(ptr);
+    if (ptr != head) {
+        free(ptr);
+    }
     ptr = temp;
     data_new++;
   } while(ptr != head);
+  free(head);
   return 0;
  ERROR: __VERIFIER_error();
   return 1;

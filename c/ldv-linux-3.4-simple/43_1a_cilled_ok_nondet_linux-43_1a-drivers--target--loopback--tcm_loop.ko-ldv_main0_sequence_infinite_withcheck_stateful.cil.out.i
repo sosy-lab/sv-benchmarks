@@ -11691,6 +11691,13 @@ int ldv_spin_trylock(void)
 }
 }
 void *ldv_zalloc(size_t size ) ;
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *calloc(size_t, size_t) ;
+void *ldv_zalloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return calloc(1UL, size);
+}
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags )
 { void *tmp ;
   {
@@ -11795,6 +11802,13 @@ void *ldv_vmalloc_29(unsigned long ldv_func_arg1 )
   return ((void *)0);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   return ldv_malloc(0UL);
 }
@@ -11816,7 +11830,14 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return ldv_malloc(sizeof(struct sk_buff));
+  struct sk_buff *skb = ldv_malloc(sizeof(struct sk_buff));
+  if(skb) {
+    skb->dev = arg0;
+    skb->head = ldv_malloc(arg1);
+    skb->data = skb->head;
+    skb->tail = 0;
+  }
+  return skb;
 }
 struct device *__root_device_register(const char *arg0, struct module *arg1) {
   return ldv_malloc(sizeof(struct device));
