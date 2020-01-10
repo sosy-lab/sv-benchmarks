@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void avoid_zero(int y)
 {
@@ -6231,7 +6234,7 @@ __inline static void *lowmem_page_address(struct page const *page )
 }
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -6241,7 +6244,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  assume_abort_if_not(!ldv_is_err(res));
   return res;
  } else {
   return ((void *)0);

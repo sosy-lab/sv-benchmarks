@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
@@ -147,9 +150,9 @@ int main()
     for(int i=0; i<pat_len && i<a_len; i++)
     {
         if(i<different)
-          __VERIFIER_assume(pat[i]==a[i]);
+          assume_abort_if_not(pat[i]==a[i]);
         else if(i==different)
-          __VERIFIER_assume(pat[i]!=a[i]);
+          assume_abort_if_not(pat[i]!=a[i]);
         else if(i>different)
           __VERIFIER_assert(pat[i]==a[i-1]);
     }

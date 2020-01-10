@@ -98,7 +98,10 @@ _Bool side2Failed  ;
 msg_t side1_written  ;
 msg_t side2_written  ;
 void assert(_Bool arg ) ;
-extern void __VERIFIER_assume(int arg ) ;
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 static _Bool side1Failed_History_0  ;
 static _Bool side1Failed_History_1  ;
 static _Bool side1Failed_History_2  ;
@@ -487,7 +490,7 @@ int check(void)
   } else {
     tmp = 0;
   }
-  __VERIFIER_assume((_Bool )tmp);
+  assume_abort_if_not((_Bool )tmp);
   tmp___0 = read_manual_selection_history((unsigned char)1);
   if (! tmp___0) {
     tmp___1 = read_side1_failed_history((unsigned char)1);
@@ -596,7 +599,7 @@ int main(void)
   manual_selection_History_1 = __VERIFIER_nondet_char();
   manual_selection_History_2 = __VERIFIER_nondet_char();
   i2 = init();
-  __VERIFIER_assume(i2);
+  assume_abort_if_not(i2);
   cs1_old = nomsg;
   cs1_new = nomsg;
   cs2_old = nomsg;

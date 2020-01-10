@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void avoid_zero(int y)
 {
@@ -6937,7 +6940,7 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }
@@ -6955,7 +6958,7 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }

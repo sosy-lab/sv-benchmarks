@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -678,12 +681,12 @@ int temp;
 int mutex;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(mutex==0);
+ assume_abort_if_not(mutex==0);
  mutex = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(mutex==1);
+ assume_abort_if_not(mutex==1);
  mutex = 0;
 }
 void* thr2(void* arg)

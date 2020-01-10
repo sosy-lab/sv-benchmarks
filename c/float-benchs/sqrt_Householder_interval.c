@@ -11,7 +11,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double _EPS = 1e-6;
@@ -44,7 +47,7 @@ int main()
   double d, r;
 
   d = __VERIFIER_nondet_double();
-  __VERIFIER_assume(d >= 0.1 && d <= 20.0);
+  assume_abort_if_not(d >= 0.1 && d <= 20.0);
 
   r = SqrtR(d);
 

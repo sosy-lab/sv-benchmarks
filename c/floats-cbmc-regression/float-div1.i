@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error(void);
 
 typedef long double float_t;
@@ -363,7 +366,7 @@ extern int matherr (struct exception *__exc);
 void inductiveStepHunt (float startState)
 {
   float target = 0x1.fffffep-3f;
-  __VERIFIER_assume((0 < startState) && ((sizeof (startState) == sizeof (float) ? __fpclassifyf (startState) : sizeof (startState) == sizeof (double) ? __fpclassify (startState) : __fpclassifyl (startState)) == 4) && (0x1p-126f <= startState));
+  assume_abort_if_not((0 < startState) && ((sizeof (startState) == sizeof (float) ? __fpclassifyf (startState) : sizeof (startState) == sizeof (double) ? __fpclassify (startState) : __fpclassifyl (startState)) == 4) && (0x1p-126f <= startState));
   float secondPoint = (target / startState);
   float nextState = (startState + secondPoint) / 2;
   float oneAfter = (target / nextState);
@@ -372,7 +375,7 @@ void inductiveStepHunt (float startState)
 void simplifiedInductiveStepHunt (float nextState)
 {
   float target = 0x1.fffffep-3f;
-  __VERIFIER_assume((0x1.fffffep+123f < nextState) && (nextState < 0x1.000002p+124f));
+  assume_abort_if_not((0x1.fffffep+123f < nextState) && (nextState < 0x1.000002p+124f));
   float oneAfter = (target / nextState);
   if(!(0x1.fffffep-3f / 0x1p+124f == 0x1p-126f)) __VERIFIER_error();
   if(!(oneAfter > 0)) __VERIFIER_error();

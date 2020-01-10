@@ -44916,10 +44916,13 @@ int kstrtol_from_user(const char *arg0, size_t arg1, unsigned int arg2, long *ar
   return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
-void __VERIFIER_assume(int);
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 ktime_t ktime_get_real() {
   union ktime *tmp = (union ktime*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
+  assume_abort_if_not(tmp != 0);
   return *tmp;
 }
 void ldv_after_alloc(void *arg0) {
@@ -45037,10 +45040,10 @@ int netpoll_trap() {
   return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
-void __VERIFIER_assume(int);
+void assume_abort_if_not(int);
 struct timespec ns_to_timespec(const s64 arg0) {
   struct timespec *tmp = (struct timespec*)external_alloc();
-  __VERIFIER_assume(tmp != 0);
+  assume_abort_if_not(tmp != 0);
   return *tmp;
 }
 int __VERIFIER_nondet_int(void);

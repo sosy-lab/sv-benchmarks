@@ -6002,10 +6002,13 @@ extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void __VERIFIER_assume(int expression ) ;
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_successful_zalloc(size_t __size) {
   void *p = calloc(1UL, __size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 void *ldv_malloc(size_t size )
@@ -6020,7 +6023,7 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }
@@ -6037,7 +6040,7 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }
@@ -6130,8 +6133,8 @@ extern int unregister_netdevice_notifier(struct notifier_block * ) ;
 __inline static struct net_device *netdev_notifier_info_to_dev(struct netdev_notifier_info const *info )
 {
   {
-  __VERIFIER_assume(((void*)(&info)) != ((void*) 0));
-  __VERIFIER_assume(((void*)((struct net_device *)info->dev)) != ((void*) 0));
+  assume_abort_if_not(((void*)(&info)) != ((void*) 0));
+  assume_abort_if_not(((void*)((struct net_device *)info->dev)) != ((void*) 0));
   return ((struct net_device *)info->dev);
 }
 }

@@ -220,7 +220,7 @@ signed int __main(signed int argc, char **argv)
   signed int retval = 0;
   mode=__VERIFIER_nondet_uint();
   optind = __VERIFIER_nondet_int();
-  __VERIFIER_assume(optind > 0 && optind < argc);
+  assume_abort_if_not(optind > 0 && optind < argc);
 
   argv = argv + (signed long int)optind;
 

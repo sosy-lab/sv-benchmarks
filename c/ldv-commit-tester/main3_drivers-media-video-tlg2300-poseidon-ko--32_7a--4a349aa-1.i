@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -5407,7 +5410,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 }
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -5417,7 +5420,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  assume_abort_if_not(!ldv_is_err(res));
   return res;
  } else {
   return ((void *)0);
@@ -7705,7 +7708,7 @@ extern unsigned int __VERIFIER_nondet_uint();
 extern void *malloc(size_t );
 void *ldv_successful_malloc(size_t __size) {
   void *p = malloc(__size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));

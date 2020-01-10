@@ -1,7 +1,10 @@
 extern void *calloc(unsigned int nmemb, unsigned int size);
 extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
@@ -19,7 +22,7 @@ int lcp(int *a, int n, int x, int y) {
 void check(int *a, int n, int x, int y, int l) {
     /* is prefix? */
     int i = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= i && i < l);
+    assume_abort_if_not(0 <= i && i < l);
     __VERIFIER_assert(a[x+i] == a[y+i]);
 
     /* maximal */
@@ -30,12 +33,12 @@ void check(int *a, int n, int x, int y, int l) {
 int main() {
     int n = __VERIFIER_nondet_int();
     /* 1 << 30 will make sure n * sizeof(int) does not overflow */
-    __VERIFIER_assume(n >= 0 && n < (1 << 30));
+    assume_abort_if_not(n >= 0 && n < (1 << 30));
     int *a = calloc(n, sizeof(int));
 
     int x = __VERIFIER_nondet_int();
     int y = __VERIFIER_nondet_int();
-    __VERIFIER_assume(x >= 0 && y >= 0);
+    assume_abort_if_not(x >= 0 && y >= 0);
     int l = lcp(a, n, x, y);
     check(a, n, x, y, l);
 

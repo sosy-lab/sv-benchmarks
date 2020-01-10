@@ -5,7 +5,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -18,7 +21,7 @@ float RANDOM_INPUT()
 {
   float x;
   x = __VERIFIER_nondet_float();
-  __VERIFIER_assume(x >= -10.f && x <= 10.f);
+  assume_abort_if_not(x >= -10.f && x <= 10.f);
   return x;
 }
 

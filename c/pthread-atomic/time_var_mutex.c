@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 /* Testcase from Threader's distribution. For details see:
@@ -44,7 +47,7 @@ void *de_allocator(void *_){
  
 int main() {
   pthread_t t1, t2;
-  __VERIFIER_assume(inode == busy);
+  assume_abort_if_not(inode == busy);
   pthread_mutex_init(&m_inode, 0);
   pthread_mutex_init(&m_busy, 0);
   pthread_create(&t1, 0, allocator, 0);

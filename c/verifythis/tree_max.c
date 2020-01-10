@@ -4,7 +4,10 @@ extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();

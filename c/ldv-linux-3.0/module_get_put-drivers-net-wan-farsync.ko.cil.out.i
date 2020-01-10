@@ -8041,12 +8041,15 @@ void ldv_module_put_3(struct module *ldv_func_arg1 )
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 void *__kmalloc(size_t arg0, gfp_t arg1) {

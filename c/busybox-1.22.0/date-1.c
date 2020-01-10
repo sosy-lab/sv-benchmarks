@@ -1660,7 +1660,7 @@ int stat(const char *__file, struct stat *__buf)
   if (__VERIFIER_nondet_char())
     return -1;
 
-  __VERIFIER_assume(__buf->st_mtim.tv_sec >= 0);
+  assume_abort_if_not(__buf->st_mtim.tv_sec >= 0);
   return 0;
 }
 

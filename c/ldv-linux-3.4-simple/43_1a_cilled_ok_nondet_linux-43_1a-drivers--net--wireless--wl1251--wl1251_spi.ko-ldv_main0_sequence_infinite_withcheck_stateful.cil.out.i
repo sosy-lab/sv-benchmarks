@@ -6222,12 +6222,15 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void *ldv_zalloc(size_t size ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *calloc(size_t, size_t) ;
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = calloc(1UL, size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )
@@ -6302,7 +6305,7 @@ void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {

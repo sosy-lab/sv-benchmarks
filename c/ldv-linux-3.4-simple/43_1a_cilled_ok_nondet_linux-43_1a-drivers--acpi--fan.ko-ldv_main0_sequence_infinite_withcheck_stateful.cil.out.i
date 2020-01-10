@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -3479,7 +3482,7 @@ extern unsigned long int __VERIFIER_nondet_ulong();
 extern void *malloc(size_t );
 void *ldv_successful_malloc(size_t __size) {
   void *p = malloc(__size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
@@ -3737,12 +3740,12 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {

@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
   pthread_t t[SIZE];
   int i;
   int n = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(n >= (SIZE/2) && n <= SIZE);
+  assume_abort_if_not(n >= (SIZE/2) && n <= SIZE);
   for (i = 0; i < n; i++) {
     pthread_create(&t[i], 0, thr, 0);
   }

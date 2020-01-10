@@ -181,7 +181,10 @@ struct tty;
 struct uio;
 
 void __VERIFIER_error(void) __attribute__((__noreturn__));
-void __VERIFIER_assume(int expression);
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 _Bool __VERIFIER_nondet_bool(void);
 int __VERIFIER_nondet_int(void);
 void __VERIFIER_atomic_begin(void);
@@ -538,12 +541,12 @@ int main(void) {
   m = m_gethdr((0x0001), (0x0002));
 
   len = __VERIFIER_nondet_int();
-  __VERIFIER_assume(len > 0);
-  __VERIFIER_assume(len <=
+  assume_abort_if_not(len > 0);
+  assume_abort_if_not(len <=
                     ((256 - sizeof(struct m_hdr)) - sizeof(struct pkthdr)));
   off = __VERIFIER_nondet_int();
-  __VERIFIER_assume(off > 0);
-  __VERIFIER_assume(off <= len);
+  assume_abort_if_not(off > 0);
+  assume_abort_if_not(off <= len);
   m->m_hdr.mh_len = m->M_dat.MH.MH_pkthdr.len = len;
 
   ip_deliver(&m, &off, 0, 24);

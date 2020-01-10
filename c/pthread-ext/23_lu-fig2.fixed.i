@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -677,12 +680,12 @@ int mStartLock=0;
 int __COUNT__ =0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(mStartLock==0);
+ assume_abort_if_not(mStartLock==0);
  mStartLock = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(mStartLock==1);
+ assume_abort_if_not(mStartLock==1);
  mStartLock = 0;
 }
 void __VERIFIER_atomic_thr1(int PR_CreateThread__RES)

@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 
 extern short __VERIFIER_nondet_short(void);
 extern char __VERIFIER_nondet_char(void);
@@ -2288,7 +2291,7 @@ NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                   PVOID Context ,
                                                                   PIRP *Irp ) {
 	NTSTATUS rtr = __VERIFIER_nondet_long();
-	__VERIFIER_assume(rtr == 0x00000103 /* STATUS_PENDING */ ||
+	assume_abort_if_not(rtr == 0x00000103 /* STATUS_PENDING */ ||
 			  rtr == 0xC000009A /* STATUS_INSUFFICIENT_RESOURCES */ ||
 			  rtr == 0xC00000F0 /* STATUS_INVALID_PARAMETER_2 */);
 
@@ -2314,7 +2317,7 @@ POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
    }
 
    int value = __VERIFIER_nondet_int();
-   __VERIFIER_assume(value >= 0 && value <= 7);
+   assume_abort_if_not(value >= 0 && value <= 7);
 
    POWER_STATE pwr;
    pwr.SystemState = value;

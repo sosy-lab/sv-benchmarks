@@ -1,5 +1,8 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -677,12 +680,12 @@ __thread _Bool COND = 0;
 _Bool buf = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(MTX==0);
+ assume_abort_if_not(MTX==0);
  MTX = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(MTX==1);
+ assume_abort_if_not(MTX==1);
  MTX = 0;
 }
 inline static int adb_kbd_receive_packet(){
@@ -696,7 +699,7 @@ inline static void akbd_repeat() {
 inline static void akbd_read_char(int wait) {
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
  if (!buf && wait){
-  { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
+  { COND = 0; __VERIFIER_atomic_release(); assume_abort_if_not(COND); __VERIFIER_atomic_acquire(); };
   { if(!(COND)) { goto ERROR; } };}
  if (!buf) {
   __VERIFIER_atomic_release();

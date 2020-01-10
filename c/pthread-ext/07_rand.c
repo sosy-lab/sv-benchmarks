@@ -1,5 +1,8 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 //http://www.ibm.com/developerworks/java/library/j-jtp11234/
@@ -7,7 +10,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
+#define assume(e) assume_abort_if_not(e)
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 int m = 0;

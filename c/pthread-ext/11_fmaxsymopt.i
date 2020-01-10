@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
@@ -675,12 +678,12 @@ extern int pthread_atfork (void (*__prepare) (void),
 volatile int max = 0x80000000, m = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(m==0);
+ assume_abort_if_not(m==0);
  m = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(m==1);
+ assume_abort_if_not(m==1);
  m = 0;
 }
 int storage[2*3];
@@ -706,7 +709,7 @@ inline void findMax(int offset){
 }
 void* thr1(void* arg) {
  int offset=__VERIFIER_nondet_int();
- __VERIFIER_assume(offset % 2 == 0 && offset >= 0 && offset < 2*3);
+ assume_abort_if_not(offset % 2 == 0 && offset >= 0 && offset < 2*3);
  findMax(offset);
   return 0;
 }

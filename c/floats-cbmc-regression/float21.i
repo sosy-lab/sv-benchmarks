@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error(void);
 
 typedef long double float_t;
@@ -369,11 +372,11 @@ int main (void)
   float f;
   if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) == 3)) __VERIFIER_error();
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 3);
+  assume_abort_if_not((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 3);
   if(!(f <= largestSubnormalFloat)) __VERIFIER_error();
   if(!((sizeof (smallestNormalFloat) == sizeof (float) ? __fpclassifyf (smallestNormalFloat) : sizeof (smallestNormalFloat) == sizeof (double) ? __fpclassify (smallestNormalFloat) : __fpclassifyl (smallestNormalFloat)) == 4)) __VERIFIER_error();
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 4);
+  assume_abort_if_not((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 4);
   if(!(smallestNormalFloat <= fabs(f))) __VERIFIER_error();
   if(!(largestSubnormalFloat < smallestNormalFloat)) __VERIFIER_error();
   if(!(((double)largestSubnormalFloat) < ((double)smallestNormalFloat))) __VERIFIER_error();
@@ -384,7 +387,7 @@ int main (void)
   if(!(((double)smallestNormalFloat) - v <= v - ((double)largestSubnormalFloat))) __VERIFIER_error();
   if(!(((float)v) == smallestNormalFloat)) __VERIFIER_error();
   f = __VERIFIER_nondet_float();
-  __VERIFIER_assume((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 3);
+  assume_abort_if_not((sizeof (f) == sizeof (float) ? __fpclassifyf (f) : sizeof (f) == sizeof (double) ? __fpclassify (f) : __fpclassifyl (f)) == 3);
   if(!( ((float)((double)f)) == f )) __VERIFIER_error();
   return 0;
 }

@@ -3301,7 +3301,10 @@ __inline static int i2c_adapter_id(struct i2c_adapter *adap )
 }
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -3312,7 +3315,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		assume_abort_if_not(!ldv_is_err(res));
 
 		return res;
 	} else {

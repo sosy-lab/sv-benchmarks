@@ -1,12 +1,15 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <pthread.h>
 
 int count = 0;
 
-#define assume(e) __VERIFIER_assume(e)
+#define assume(e) assume_abort_if_not(e)
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 

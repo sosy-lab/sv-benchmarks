@@ -6479,12 +6479,15 @@ void *ldv_mempool_alloc_19(mempool_t *ldv_func_arg1 , gfp_t ldv_func_arg2 )
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 struct scsi_device *__scsi_add_device(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3, void *arg4) {

@@ -8,7 +8,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -23,17 +26,17 @@ int main()
   A3 = __VERIFIER_nondet_double();
   B1 = __VERIFIER_nondet_double();
   B2 = __VERIFIER_nondet_double();
-  __VERIFIER_assume(A1 >= 0.69 && A1 <= 0.71);
-  __VERIFIER_assume(A2 >= -1.31 && A2 <= -1.29);
-  __VERIFIER_assume(A3 >= 1.09 && A3 <= 1.11);
-  __VERIFIER_assume(B1 >= 1.39 && B1 <= 1.41);
-  __VERIFIER_assume(B2 >= -0.71 && B2 <= -0.69);
+  assume_abort_if_not(A1 >= 0.69 && A1 <= 0.71);
+  assume_abort_if_not(A2 >= -1.31 && A2 <= -1.29);
+  assume_abort_if_not(A3 >= 1.09 && A3 <= 1.11);
+  assume_abort_if_not(B1 >= 1.39 && B1 <= 1.41);
+  assume_abort_if_not(B2 >= -0.71 && B2 <= -0.69);
 
 
   E = __VERIFIER_nondet_double();
   E0 = __VERIFIER_nondet_double();
-  __VERIFIER_assume(E >= 0. && E <= 1.);
-  __VERIFIER_assume(E0 >= 0. && E0 <= 1.);
+  assume_abort_if_not(E >= 0. && E <= 1.);
+  assume_abort_if_not(E0 >= 0. && E0 <= 1.);
 
   S0 = 0;
   S = 0;
@@ -43,7 +46,7 @@ int main()
     E0 = E;
 
     E = __VERIFIER_nondet_double();
-    __VERIFIER_assume(E >= 0. && E <= 1.);
+    assume_abort_if_not(E >= 0. && E <= 1.);
 
     S1 = S0;
     S0 = S;

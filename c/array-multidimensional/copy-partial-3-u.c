@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -16,7 +19,7 @@ int main()
 	int p=500;
 	int A [n][n][n];
         int B [n][n][n];
-	__VERIFIER_assume(p<n);
+	assume_abort_if_not(p<n);
         
 
 	i=0;

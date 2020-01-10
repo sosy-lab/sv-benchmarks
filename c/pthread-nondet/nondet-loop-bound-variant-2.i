@@ -671,7 +671,10 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 volatile int x;
 volatile int n;
@@ -682,7 +685,7 @@ void* thr1(void* arg) {
 void* thr2(void* arg) {
   int t;
   int k = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(k >= (10/2) && k <= 10);
+  assume_abort_if_not(k >= (10/2) && k <= 10);
   pthread_mutex_lock(&mut);
   t = x;
   if (k == n) {
@@ -694,7 +697,7 @@ int main(int argc, char* argv[]) {
   pthread_t t1, t2;
   x = 0;
   n = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(n >= (10/2) && n < 10);
+  assume_abort_if_not(n >= (10/2) && n < 10);
   pthread_create(&t1, 0, thr1, 0);
   for (int i = 0; i < n; i++) {
     pthread_create(&t2, 0, thr2, 0);

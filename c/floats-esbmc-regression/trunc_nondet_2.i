@@ -989,7 +989,10 @@ extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
 
 
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -998,10 +1001,10 @@ double __VERIFIER_nondet_double();
 int main(void)
 {
   double d = __VERIFIER_nondet_double();
-  __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isinff (d) : sizeof (d) == sizeof (double) ? __isinf (d) : __isinfl (d)));
-  __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isnanf (d) : sizeof (d) == sizeof (double) ? __isnan (d) : __isnanl (d)));
+  assume_abort_if_not(!(sizeof (d) == sizeof (float) ? __isinff (d) : sizeof (d) == sizeof (double) ? __isinf (d) : __isinfl (d)));
+  assume_abort_if_not(!(sizeof (d) == sizeof (float) ? __isnanf (d) : sizeof (d) == sizeof (double) ? __isnan (d) : __isnanl (d)));
 
-  __VERIFIER_assume(d < 9223372036854775807LL && d > (-9223372036854775807LL -1LL));
+  assume_abort_if_not(d < 9223372036854775807LL && d > (-9223372036854775807LL -1LL));
 
   double d1 = (long long) d;
   __VERIFIER_assert(trunc(d) == d1);

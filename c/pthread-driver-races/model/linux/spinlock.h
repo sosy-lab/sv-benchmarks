@@ -39,7 +39,7 @@ void spin_lock(spinlock_t *lock)
   //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->lock);
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == SPIN_LOCK_UNLOCKED);
+  assume_abort_if_not(lock->lock == SPIN_LOCK_UNLOCKED);
   lock->lock = SPIN_LOCK_LOCKED;
   __VERIFIER_atomic_end();
 }
@@ -49,7 +49,7 @@ void spin_lock_irqsave(spinlock_t *lock, unsigned long value)
   //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->lock);
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == SPIN_LOCK_UNLOCKED);
+  assume_abort_if_not(lock->lock == SPIN_LOCK_UNLOCKED);
   lock->lock = SPIN_LOCK_LOCKED;
   __VERIFIER_atomic_end();
 }
@@ -59,7 +59,7 @@ void spin_lock_irq(spinlock_t *lock)
   //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->lock);
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == SPIN_LOCK_UNLOCKED);
+  assume_abort_if_not(lock->lock == SPIN_LOCK_UNLOCKED);
   lock->lock = SPIN_LOCK_LOCKED;
   __VERIFIER_atomic_end();
 }
@@ -69,7 +69,7 @@ void spin_lock_bh(spinlock_t *lock)
   //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->lock);
   __VERIFIER_atomic_begin();
-  __VERIFIER_assume(lock->lock == SPIN_LOCK_UNLOCKED);
+  assume_abort_if_not(lock->lock == SPIN_LOCK_UNLOCKED);
   lock->lock = SPIN_LOCK_LOCKED;
   __VERIFIER_atomic_end();
 }

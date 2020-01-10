@@ -1,11 +1,14 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 //Symmetry-Aware Predicate Abstraction for Shared-Variable Concurrent Programs (Extended Technical Report). CoRR abs/1102.2330 (2011)
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
+#define assume(e) assume_abort_if_not(e)
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 unsigned int r = 0;

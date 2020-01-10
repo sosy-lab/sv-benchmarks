@@ -3880,8 +3880,11 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void __VERIFIER_assume(int ) ;
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
+extern void assume_abort_if_not(int);
 void *ldv_malloc(size_t size )
 {
   void *p ;
@@ -3894,8 +3897,8 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
-    __VERIFIER_assume(IS_ERR(p) == 0);
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not(IS_ERR(p) == 0);
     return (p);
   }
 }
@@ -3912,8 +3915,8 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
-    __VERIFIER_assume(IS_ERR(p) == 0);
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not(IS_ERR(p) == 0);
     return (p);
   }
 }
@@ -3925,7 +3928,7 @@ void *ldv_init_zalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   p = tmp;
-  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
   return (p);
 }
 }

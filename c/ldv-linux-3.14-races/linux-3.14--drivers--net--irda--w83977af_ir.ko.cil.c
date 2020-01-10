@@ -5690,7 +5690,10 @@ extern int ldv_failed_register_netdev(void) ;
 void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
-extern void __VERIFIER_assume(int  ) ;
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
@@ -7738,7 +7741,7 @@ void ldv_dispatch_deregister_9_1(struct net_device *arg0 )
   {
   {
   ret = pthread_join(ldv_thread_3, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7750,7 +7753,7 @@ void ldv_dispatch_insmod_deregister_10_2(void)
   {
   {
   ret = pthread_join(ldv_thread_4, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7767,7 +7770,7 @@ void ldv_dispatch_insmod_register_10_3(void)
   cf_arg_4 = (struct ldv_struct_main_10 *)tmp;
   ret = pthread_create(& ldv_thread_4, (pthread_attr_t const   *)0, & ldv_insmod_4,
                        (void *)cf_arg_4);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7779,7 +7782,7 @@ void ldv_dispatch_irq_deregister_5_1(int arg0 )
   {
   {
   ret = pthread_join(ldv_thread_2, (void **)0);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7801,7 +7804,7 @@ void ldv_dispatch_irq_register_8_3(int arg0 , irqreturn_t (*arg1)(int  , void * 
   cf_arg_2->arg3 = arg3;
   ret = pthread_create(& ldv_thread_2, (pthread_attr_t const   *)0, & ldv_interrupt_scenario_2,
                        (void *)cf_arg_2);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7819,7 +7822,7 @@ void ldv_dispatch_register_7_4(struct net_device *arg0 )
   cf_arg_3->arg0 = arg0;
   ret = pthread_create(& ldv_thread_3, (pthread_attr_t const   *)0, & ldv_random_allocationless_scenario_3,
                        (void *)cf_arg_3);
-  __VERIFIER_assume(ret == 0);
+  assume_abort_if_not(ret == 0);
   }
   return;
 }
@@ -7873,13 +7876,13 @@ int ldv_emg_register_netdev(struct net_device *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      __VERIFIER_assume(ldv_7_ret_default == 0);
+      assume_abort_if_not(ldv_7_ret_default == 0);
       ldv_dispatch_register_7_4(ldv_7_netdev_net_device);
       }
       return (0);
     } else {
       {
-      __VERIFIER_assume(ldv_7_ret_default == 0);
+      assume_abort_if_not(ldv_7_ret_default == 0);
       ldv_failed_register_netdev();
       tmp___0 = ldv_undef_int_negative();
       }
@@ -7959,12 +7962,12 @@ void *ldv_insmod_4(void *arg0 )
   }
   if (tmp___1 != 0) {
     {
-    __VERIFIER_assume(ldv_4_ret_default != 0);
+    assume_abort_if_not(ldv_4_ret_default != 0);
     }
     return ((void *)0);
   } else {
     {
-    __VERIFIER_assume(ldv_4_ret_default == 0);
+    assume_abort_if_not(ldv_4_ret_default == 0);
     ldv_insmod_w83977af_cleanup_4_2(ldv_4_w83977af_cleanup_default);
     }
     return ((void *)0);
@@ -8030,11 +8033,11 @@ void *ldv_interrupt_scenario_2(void *arg0 )
   }
   if (tmp___1 != 0) {
     {
-    __VERIFIER_assume((unsigned int )ldv_2_ret_val_default == 2U);
+    assume_abort_if_not((unsigned int )ldv_2_ret_val_default == 2U);
     }
   } else {
     {
-    __VERIFIER_assume((unsigned int )ldv_2_ret_val_default != 2U);
+    assume_abort_if_not((unsigned int )ldv_2_ret_val_default != 2U);
     }
   }
   return ((void *)0);
@@ -8063,7 +8066,7 @@ void *ldv_main_10(void *arg0 )
   ldv_dispatch_insmod_register_10_3();
   ldv_dispatch_insmod_deregister_10_2();
   ldv_check_final_state();
-  __VERIFIER_assume(0);
+  assume_abort_if_not(0);
   }
   return ((void *)0);
   return ((void *)0);
@@ -8402,7 +8405,7 @@ static int ldv_filter_positive_int(int val )
 
   {
   {
-  __VERIFIER_assume(val <= 0);
+  assume_abort_if_not(val <= 0);
   }
   return (val);
 }
@@ -8495,9 +8498,9 @@ void *ldv_malloc(size_t size )
     {
     tmp = malloc(size);
     res = tmp;
-    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    __VERIFIER_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -8520,9 +8523,9 @@ void *ldv_calloc(size_t nmemb , size_t size )
     {
     tmp = calloc(nmemb, size);
     res = tmp;
-    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    __VERIFIER_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -8562,9 +8565,9 @@ void *ldv_xmalloc(size_t size )
   {
   tmp = malloc(size);
   res = tmp;
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  __VERIFIER_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -8579,9 +8582,9 @@ void *ldv_xzalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   res = tmp;
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  __VERIFIER_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -8621,7 +8624,7 @@ int ldv_undef_int_negative(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  __VERIFIER_assume(ret < 0);
+  assume_abort_if_not(ret < 0);
   }
   return (ret);
 }
@@ -8635,7 +8638,7 @@ int ldv_undef_int_nonpositive(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  __VERIFIER_assume(ret <= 0);
+  assume_abort_if_not(ret <= 0);
   }
   return (ret);
 }

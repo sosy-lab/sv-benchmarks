@@ -72,7 +72,10 @@ _Bool __VERIFIER_nondet_bool(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 extern int __VERIFIER_nondet_int();
-void __VERIFIER_assume(int arg ) ;
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 unsigned char __startrek_task  ;
 unsigned char __startrek_job  ;
 unsigned char __startrek_job_end  ;
@@ -150,7 +153,7 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
   tmp_0 ++;
   tmp_pwm_r_limiter += (tmp[tmp_0] - tmp_theta_0[tmp_0]) * K_F[tmp_0];
   tmp_0 ++;
-  __VERIFIER_assume(((BATTERY_GAIN*args_battery) - BATTERY_OFFSET) != 0);
+  assume_abort_if_not(((BATTERY_GAIN*args_battery) - BATTERY_OFFSET) != 0);
   tmp_pwm_r_limiter = (float )((K_I * ud_err_theta + tmp_pwm_r_limiter) / (unsigned int )(BATTERY_GAIN * (unsigned int const   )args_battery - BATTERY_OFFSET)) * 100.0F;
   tmp_pwm_turn = ((float )args_cmd_turn / 100.0F) * (float )K_PHIDOT;
   tmp_pwm_l_limiter = tmp_pwm_r_limiter + tmp_pwm_turn;
@@ -282,7 +285,7 @@ void OSEK_Task_ts1(void)
   avg_cnt ++;
   tmp___1 = ecrobot_get_systick_ms();
   if (tmp___1 - cal_start_time >= 1000U) {
-    __VERIFIER_assume(avg_cnt != 0);
+    assume_abort_if_not(avg_cnt != 0);
     gyro_offset /= avg_cnt;
     ecrobot_sound_tone(440U, 500U, 30);
     __startrek_write_nxtway_gs_mode(2);
@@ -446,32 +449,32 @@ __inline void __startrek_schedule_jobs(void)
   {
   __startrek_start_t0[0] = __VERIFIER_nondet_uchar();
   __startrek_end_t0[0] = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(0 <= __startrek_start_t0[0]);
-  __VERIFIER_assume(__startrek_end_t0[0] <= 26);
-  __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_end_t0[0]);
+  assume_abort_if_not(0 <= __startrek_start_t0[0]);
+  assume_abort_if_not(__startrek_end_t0[0] <= 26);
+  assume_abort_if_not(__startrek_start_t0[0] <= __startrek_end_t0[0]);
   __startrek_start_t1[0] = __VERIFIER_nondet_uchar();
   __startrek_end_t1[0] = __VERIFIER_nondet_uchar();
   __startrek_start_t1[1] = __VERIFIER_nondet_uchar();
   __startrek_end_t1[1] = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(0 <= __startrek_start_t1[0]);
-  __VERIFIER_assume(__startrek_end_t1[1] <= 26);
-  __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_end_t1[0]);
-  __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_end_t1[1]);
-  __VERIFIER_assume(__startrek_end_t1[0] <= __startrek_start_t1[1] - 1);
+  assume_abort_if_not(0 <= __startrek_start_t1[0]);
+  assume_abort_if_not(__startrek_end_t1[1] <= 26);
+  assume_abort_if_not(__startrek_start_t1[0] <= __startrek_end_t1[0]);
+  assume_abort_if_not(__startrek_start_t1[1] <= __startrek_end_t1[1]);
+  assume_abort_if_not(__startrek_end_t1[0] <= __startrek_start_t1[1] - 1);
   if (__startrek_start_t0[0] <= __startrek_end_t1[0]) {
     if (__startrek_start_t1[0] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t1[0]);
-      __VERIFIER_assume(__startrek_end_t1[0] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_end_t1[0] < __startrek_end_t0[0]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t1[1]) {
     if (__startrek_start_t1[1] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t1[1]);
-      __VERIFIER_assume(__startrek_end_t1[1] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t1[0] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_end_t1[1] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t1[0] < __startrek_start_t0[0]);
       }
     }
   }
@@ -523,669 +526,669 @@ __inline void __startrek_schedule_jobs(void)
   __startrek_end_t2[22] = __startrek_start_t2[22];
   __startrek_start_t2[23] = __VERIFIER_nondet_uchar();
   __startrek_end_t2[23] = __startrek_start_t2[23];
-  __VERIFIER_assume(0 <= __startrek_start_t2[0]);
-  __VERIFIER_assume(__startrek_end_t2[23] <= 26);
-  __VERIFIER_assume(__startrek_end_t2[0] <= __startrek_start_t2[1] - 1);
-  __VERIFIER_assume(__startrek_end_t2[1] <= __startrek_start_t2[2] - 1);
-  __VERIFIER_assume(__startrek_end_t2[2] <= __startrek_start_t2[3] - 1);
-  __VERIFIER_assume(__startrek_end_t2[3] <= __startrek_start_t2[4] - 1);
-  __VERIFIER_assume(__startrek_end_t2[4] <= __startrek_start_t2[5] - 1);
-  __VERIFIER_assume(__startrek_end_t2[5] <= __startrek_start_t2[6] - 1);
-  __VERIFIER_assume(__startrek_end_t2[6] <= __startrek_start_t2[7] - 1);
-  __VERIFIER_assume(__startrek_end_t2[7] <= __startrek_start_t2[8] - 1);
-  __VERIFIER_assume(__startrek_end_t2[8] <= __startrek_start_t2[9] - 1);
-  __VERIFIER_assume(__startrek_end_t2[9] <= __startrek_start_t2[10] - 1);
-  __VERIFIER_assume(__startrek_end_t2[10] <= __startrek_start_t2[11] - 1);
-  __VERIFIER_assume(__startrek_end_t2[11] <= __startrek_start_t2[12] - 1);
-  __VERIFIER_assume(__startrek_end_t2[12] <= __startrek_start_t2[13] - 1);
-  __VERIFIER_assume(__startrek_end_t2[13] <= __startrek_start_t2[14] - 1);
-  __VERIFIER_assume(__startrek_end_t2[14] <= __startrek_start_t2[15] - 1);
-  __VERIFIER_assume(__startrek_end_t2[15] <= __startrek_start_t2[16] - 1);
-  __VERIFIER_assume(__startrek_end_t2[16] <= __startrek_start_t2[17] - 1);
-  __VERIFIER_assume(__startrek_end_t2[17] <= __startrek_start_t2[18] - 1);
-  __VERIFIER_assume(__startrek_end_t2[18] <= __startrek_start_t2[19] - 1);
-  __VERIFIER_assume(__startrek_end_t2[19] <= __startrek_start_t2[20] - 1);
-  __VERIFIER_assume(__startrek_end_t2[20] <= __startrek_start_t2[21] - 1);
-  __VERIFIER_assume(__startrek_end_t2[21] <= __startrek_start_t2[22] - 1);
-  __VERIFIER_assume(__startrek_end_t2[22] <= __startrek_start_t2[23] - 1);
+  assume_abort_if_not(0 <= __startrek_start_t2[0]);
+  assume_abort_if_not(__startrek_end_t2[23] <= 26);
+  assume_abort_if_not(__startrek_end_t2[0] <= __startrek_start_t2[1] - 1);
+  assume_abort_if_not(__startrek_end_t2[1] <= __startrek_start_t2[2] - 1);
+  assume_abort_if_not(__startrek_end_t2[2] <= __startrek_start_t2[3] - 1);
+  assume_abort_if_not(__startrek_end_t2[3] <= __startrek_start_t2[4] - 1);
+  assume_abort_if_not(__startrek_end_t2[4] <= __startrek_start_t2[5] - 1);
+  assume_abort_if_not(__startrek_end_t2[5] <= __startrek_start_t2[6] - 1);
+  assume_abort_if_not(__startrek_end_t2[6] <= __startrek_start_t2[7] - 1);
+  assume_abort_if_not(__startrek_end_t2[7] <= __startrek_start_t2[8] - 1);
+  assume_abort_if_not(__startrek_end_t2[8] <= __startrek_start_t2[9] - 1);
+  assume_abort_if_not(__startrek_end_t2[9] <= __startrek_start_t2[10] - 1);
+  assume_abort_if_not(__startrek_end_t2[10] <= __startrek_start_t2[11] - 1);
+  assume_abort_if_not(__startrek_end_t2[11] <= __startrek_start_t2[12] - 1);
+  assume_abort_if_not(__startrek_end_t2[12] <= __startrek_start_t2[13] - 1);
+  assume_abort_if_not(__startrek_end_t2[13] <= __startrek_start_t2[14] - 1);
+  assume_abort_if_not(__startrek_end_t2[14] <= __startrek_start_t2[15] - 1);
+  assume_abort_if_not(__startrek_end_t2[15] <= __startrek_start_t2[16] - 1);
+  assume_abort_if_not(__startrek_end_t2[16] <= __startrek_start_t2[17] - 1);
+  assume_abort_if_not(__startrek_end_t2[17] <= __startrek_start_t2[18] - 1);
+  assume_abort_if_not(__startrek_end_t2[18] <= __startrek_start_t2[19] - 1);
+  assume_abort_if_not(__startrek_end_t2[19] <= __startrek_start_t2[20] - 1);
+  assume_abort_if_not(__startrek_end_t2[20] <= __startrek_start_t2[21] - 1);
+  assume_abort_if_not(__startrek_end_t2[21] <= __startrek_start_t2[22] - 1);
+  assume_abort_if_not(__startrek_end_t2[22] <= __startrek_start_t2[23] - 1);
   if (__startrek_start_t0[0] <= __startrek_end_t2[0]) {
     if (__startrek_start_t2[0] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[0]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[0]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_end_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[0]) {
     if (__startrek_start_t2[0] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[0]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[0]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_end_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[0]) {
     if (__startrek_start_t2[0] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[0]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[0]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_end_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[1]) {
     if (__startrek_start_t2[1] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[1]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[1]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_end_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[1]) {
     if (__startrek_start_t2[1] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[1]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[1]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_end_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[1]) {
     if (__startrek_start_t2[1] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[1]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[1]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_end_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[2]) {
     if (__startrek_start_t2[2] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[2]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[2]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_end_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[2]) {
     if (__startrek_start_t2[2] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[2]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[2]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[2]) {
     if (__startrek_start_t2[2] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[2]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[2]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[3]) {
     if (__startrek_start_t2[3] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[3]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[0] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[3]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[0] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[3]) {
     if (__startrek_start_t2[3] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[3]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[3]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[3]) {
     if (__startrek_start_t2[3] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[3]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[3]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[4]) {
     if (__startrek_start_t2[4] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[4]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[1] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[4]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[1] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[4]) {
     if (__startrek_start_t2[4] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[4]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[4]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[4]) {
     if (__startrek_start_t2[4] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[4]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[4]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[5]) {
     if (__startrek_start_t2[5] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[5]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[2] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[5]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[2] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[5]) {
     if (__startrek_start_t2[5] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[5]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[5]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[5]) {
     if (__startrek_start_t2[5] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[5]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[5]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[6]) {
     if (__startrek_start_t2[6] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[6]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[3] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[6]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[3] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[6]) {
     if (__startrek_start_t2[6] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[6]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[6]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[6]) {
     if (__startrek_start_t2[6] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[6]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[6]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[7]) {
     if (__startrek_start_t2[7] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[7]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[4] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[7]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[4] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[7]) {
     if (__startrek_start_t2[7] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[7]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[7]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[7]) {
     if (__startrek_start_t2[7] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[7]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[7]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[8]) {
     if (__startrek_start_t2[8] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[8]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[5] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[8]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[5] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[8]) {
     if (__startrek_start_t2[8] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[8]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[8]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[8]) {
     if (__startrek_start_t2[8] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[8]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[8]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[9]) {
     if (__startrek_start_t2[9] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[9]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[6] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[9]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[6] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[9]) {
     if (__startrek_start_t2[9] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[9]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[9]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[9]) {
     if (__startrek_start_t2[9] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[9]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[9]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[10]) {
     if (__startrek_start_t2[10] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[10]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[7] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[10]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[7] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[10]) {
     if (__startrek_start_t2[10] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[10]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[10]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[10]) {
     if (__startrek_start_t2[10] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[10]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[10]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[11]) {
     if (__startrek_start_t2[11] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[11]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[8] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[11]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[8] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[11]) {
     if (__startrek_start_t2[11] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[11]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[11]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[11]) {
     if (__startrek_start_t2[11] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[11]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[11]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[12]) {
     if (__startrek_start_t2[12] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[12]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[9] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[12]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[9] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[12]) {
     if (__startrek_start_t2[12] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[12]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[12]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[12]) {
     if (__startrek_start_t2[12] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[12]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[12]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[13]) {
     if (__startrek_start_t2[13] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[13]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[10] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[13]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[10] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[13]) {
     if (__startrek_start_t2[13] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[13]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[13]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[13]) {
     if (__startrek_start_t2[13] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[13]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[13]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[14]) {
     if (__startrek_start_t2[14] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[14]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[11] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[14]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[11] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[14]) {
     if (__startrek_start_t2[14] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[14]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[14]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[14]) {
     if (__startrek_start_t2[14] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[14]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[14]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[15]) {
     if (__startrek_start_t2[15] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[15]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[12] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[15]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[12] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[15]) {
     if (__startrek_start_t2[15] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[15]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[15]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[15]) {
     if (__startrek_start_t2[15] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[15]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[15]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[16]) {
     if (__startrek_start_t2[16] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[16]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[13] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[16]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[13] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[16]) {
     if (__startrek_start_t2[16] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[16]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[16]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[16]) {
     if (__startrek_start_t2[16] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[16]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[16]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[17]) {
     if (__startrek_start_t2[17] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[17]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[14] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[17]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[14] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[17]) {
     if (__startrek_start_t2[17] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[17]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[17]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[17]) {
     if (__startrek_start_t2[17] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[17]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[17]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[18]) {
     if (__startrek_start_t2[18] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[18]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[15] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[18]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[15] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[18]) {
     if (__startrek_start_t2[18] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[18]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[18]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[18]) {
     if (__startrek_start_t2[18] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[18]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[18]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[19]) {
     if (__startrek_start_t2[19] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[19]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[16] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[19]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[16] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[19]) {
     if (__startrek_start_t2[19] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[19]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[19]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[19]) {
     if (__startrek_start_t2[19] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[19]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[19]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[20]) {
     if (__startrek_start_t2[20] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[20]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[17] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[20]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[17] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[20]) {
     if (__startrek_start_t2[20] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[20]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[20]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[20]) {
     if (__startrek_start_t2[20] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[20]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[20]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[21]) {
     if (__startrek_start_t2[21] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[21]);
-      __VERIFIER_assume(__startrek_end_t2[21] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[18] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[21]);
+      assume_abort_if_not(__startrek_end_t2[21] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[18] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[21]) {
     if (__startrek_start_t2[21] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[21]);
-      __VERIFIER_assume(__startrek_end_t2[21] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[21]);
+      assume_abort_if_not(__startrek_end_t2[21] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[21]) {
     if (__startrek_start_t2[21] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[21]);
-      __VERIFIER_assume(__startrek_end_t2[21] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[21]);
+      assume_abort_if_not(__startrek_end_t2[21] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[22]) {
     if (__startrek_start_t2[22] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[22]);
-      __VERIFIER_assume(__startrek_end_t2[22] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[19] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[22]);
+      assume_abort_if_not(__startrek_end_t2[22] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[19] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[22]) {
     if (__startrek_start_t2[22] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[22]);
-      __VERIFIER_assume(__startrek_end_t2[22] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[22]);
+      assume_abort_if_not(__startrek_end_t2[22] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[22]) {
     if (__startrek_start_t2[22] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[22]);
-      __VERIFIER_assume(__startrek_end_t2[22] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[22]);
+      assume_abort_if_not(__startrek_end_t2[22] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_start_t1[1]);
       }
     }
   }
   if (__startrek_start_t0[0] <= __startrek_end_t2[23]) {
     if (__startrek_start_t2[23] <= __startrek_end_t0[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t0[0] <= __startrek_start_t2[23]);
-      __VERIFIER_assume(__startrek_end_t2[23] < __startrek_end_t0[0]);
-      __VERIFIER_assume(__startrek_end_t2[20] < __startrek_start_t0[0]);
+      assume_abort_if_not(__startrek_start_t0[0] <= __startrek_start_t2[23]);
+      assume_abort_if_not(__startrek_end_t2[23] < __startrek_end_t0[0]);
+      assume_abort_if_not(__startrek_end_t2[20] < __startrek_start_t0[0]);
       }
     }
   }
   if (__startrek_start_t1[0] <= __startrek_end_t2[23]) {
     if (__startrek_start_t2[23] <= __startrek_end_t1[0]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[0] <= __startrek_start_t2[23]);
-      __VERIFIER_assume(__startrek_end_t2[23] < __startrek_end_t1[0]);
-      __VERIFIER_assume(__startrek_end_t2[21] < __startrek_start_t1[0]);
+      assume_abort_if_not(__startrek_start_t1[0] <= __startrek_start_t2[23]);
+      assume_abort_if_not(__startrek_end_t2[23] < __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_end_t2[21] < __startrek_start_t1[0]);
       }
     }
   }
   if (__startrek_start_t1[1] <= __startrek_end_t2[23]) {
     if (__startrek_start_t2[23] <= __startrek_end_t1[1]) {
       {
-      __VERIFIER_assume(__startrek_start_t1[1] <= __startrek_start_t2[23]);
-      __VERIFIER_assume(__startrek_end_t2[23] < __startrek_end_t1[1]);
-      __VERIFIER_assume(__startrek_end_t2[21] < __startrek_start_t1[1]);
+      assume_abort_if_not(__startrek_start_t1[1] <= __startrek_start_t2[23]);
+      assume_abort_if_not(__startrek_end_t2[23] < __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_end_t2[21] < __startrek_start_t1[1]);
       }
     }
   }
@@ -1322,15 +1325,15 @@ __inline static _Bool __startrek_cs_t0(void)
   }
   o2 = __startrek_round;
   __startrek_round = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(__startrek_round > o2);
-  __VERIFIER_assume(__startrek_round <= __startrek_job_end);
+  assume_abort_if_not(__startrek_round > o2);
+  assume_abort_if_not(__startrek_round <= __startrek_job_end);
   if (__startrek_round != __startrek_job_end) {
     {
     if (__startrek_start_t1[0] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end_t1[0]);
+      assume_abort_if_not(__startrek_round > __startrek_end_t1[0]);
     }
     if (__startrek_start_t1[1] < __startrek_round) {
-      __VERIFIER_assume(__startrek_round > __startrek_end_t1[1]);
+      assume_abort_if_not(__startrek_round > __startrek_end_t1[1]);
     }
     }
   }
@@ -1357,8 +1360,8 @@ __inline static _Bool __startrek_cs_t1(void)
   }
   o2 = __startrek_round;
   __startrek_round = __VERIFIER_nondet_uchar();
-  __VERIFIER_assume(__startrek_round > o2);
-  __VERIFIER_assume(__startrek_round <= __startrek_job_end);
+  assume_abort_if_not(__startrek_round > o2);
+  assume_abort_if_not(__startrek_round <= __startrek_job_end);
   if (__startrek_round != __startrek_job_end) {
     {
 
@@ -1380,58 +1383,58 @@ __inline void __startrek_check_assumptions(void)
 
 
   {
-  __VERIFIER_assume(_i_obstacle_flag_[26] == _obstacle_flag_[25]);
-  __VERIFIER_assume(_i_obstacle_flag_[25] == _obstacle_flag_[24]);
-  __VERIFIER_assume(_i_obstacle_flag_[24] == _obstacle_flag_[23]);
-  __VERIFIER_assume(_i_obstacle_flag_[23] == _obstacle_flag_[22]);
-  __VERIFIER_assume(_i_obstacle_flag_[22] == _obstacle_flag_[21]);
-  __VERIFIER_assume(_i_obstacle_flag_[21] == _obstacle_flag_[20]);
-  __VERIFIER_assume(_i_obstacle_flag_[20] == _obstacle_flag_[19]);
-  __VERIFIER_assume(_i_obstacle_flag_[19] == _obstacle_flag_[18]);
-  __VERIFIER_assume(_i_obstacle_flag_[18] == _obstacle_flag_[17]);
-  __VERIFIER_assume(_i_obstacle_flag_[17] == _obstacle_flag_[16]);
-  __VERIFIER_assume(_i_obstacle_flag_[16] == _obstacle_flag_[15]);
-  __VERIFIER_assume(_i_obstacle_flag_[15] == _obstacle_flag_[14]);
-  __VERIFIER_assume(_i_obstacle_flag_[14] == _obstacle_flag_[13]);
-  __VERIFIER_assume(_i_obstacle_flag_[13] == _obstacle_flag_[12]);
-  __VERIFIER_assume(_i_obstacle_flag_[12] == _obstacle_flag_[11]);
-  __VERIFIER_assume(_i_obstacle_flag_[11] == _obstacle_flag_[10]);
-  __VERIFIER_assume(_i_obstacle_flag_[10] == _obstacle_flag_[9]);
-  __VERIFIER_assume(_i_obstacle_flag_[9] == _obstacle_flag_[8]);
-  __VERIFIER_assume(_i_obstacle_flag_[8] == _obstacle_flag_[7]);
-  __VERIFIER_assume(_i_obstacle_flag_[7] == _obstacle_flag_[6]);
-  __VERIFIER_assume(_i_obstacle_flag_[6] == _obstacle_flag_[5]);
-  __VERIFIER_assume(_i_obstacle_flag_[5] == _obstacle_flag_[4]);
-  __VERIFIER_assume(_i_obstacle_flag_[4] == _obstacle_flag_[3]);
-  __VERIFIER_assume(_i_obstacle_flag_[3] == _obstacle_flag_[2]);
-  __VERIFIER_assume(_i_obstacle_flag_[2] == _obstacle_flag_[1]);
-  __VERIFIER_assume(_i_obstacle_flag_[1] == _obstacle_flag_[0]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[26] == _nxtway_gs_mode_[25]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[25] == _nxtway_gs_mode_[24]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[24] == _nxtway_gs_mode_[23]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[23] == _nxtway_gs_mode_[22]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[22] == _nxtway_gs_mode_[21]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[21] == _nxtway_gs_mode_[20]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[20] == _nxtway_gs_mode_[19]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[19] == _nxtway_gs_mode_[18]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[18] == _nxtway_gs_mode_[17]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[17] == _nxtway_gs_mode_[16]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[16] == _nxtway_gs_mode_[15]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[15] == _nxtway_gs_mode_[14]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[14] == _nxtway_gs_mode_[13]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[13] == _nxtway_gs_mode_[12]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[12] == _nxtway_gs_mode_[11]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[11] == _nxtway_gs_mode_[10]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[10] == _nxtway_gs_mode_[9]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[9] == _nxtway_gs_mode_[8]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[8] == _nxtway_gs_mode_[7]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[7] == _nxtway_gs_mode_[6]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[6] == _nxtway_gs_mode_[5]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[5] == _nxtway_gs_mode_[4]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[4] == _nxtway_gs_mode_[3]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[3] == _nxtway_gs_mode_[2]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[2] == _nxtway_gs_mode_[1]);
-  __VERIFIER_assume(_i_nxtway_gs_mode_[1] == _nxtway_gs_mode_[0]);
+  assume_abort_if_not(_i_obstacle_flag_[26] == _obstacle_flag_[25]);
+  assume_abort_if_not(_i_obstacle_flag_[25] == _obstacle_flag_[24]);
+  assume_abort_if_not(_i_obstacle_flag_[24] == _obstacle_flag_[23]);
+  assume_abort_if_not(_i_obstacle_flag_[23] == _obstacle_flag_[22]);
+  assume_abort_if_not(_i_obstacle_flag_[22] == _obstacle_flag_[21]);
+  assume_abort_if_not(_i_obstacle_flag_[21] == _obstacle_flag_[20]);
+  assume_abort_if_not(_i_obstacle_flag_[20] == _obstacle_flag_[19]);
+  assume_abort_if_not(_i_obstacle_flag_[19] == _obstacle_flag_[18]);
+  assume_abort_if_not(_i_obstacle_flag_[18] == _obstacle_flag_[17]);
+  assume_abort_if_not(_i_obstacle_flag_[17] == _obstacle_flag_[16]);
+  assume_abort_if_not(_i_obstacle_flag_[16] == _obstacle_flag_[15]);
+  assume_abort_if_not(_i_obstacle_flag_[15] == _obstacle_flag_[14]);
+  assume_abort_if_not(_i_obstacle_flag_[14] == _obstacle_flag_[13]);
+  assume_abort_if_not(_i_obstacle_flag_[13] == _obstacle_flag_[12]);
+  assume_abort_if_not(_i_obstacle_flag_[12] == _obstacle_flag_[11]);
+  assume_abort_if_not(_i_obstacle_flag_[11] == _obstacle_flag_[10]);
+  assume_abort_if_not(_i_obstacle_flag_[10] == _obstacle_flag_[9]);
+  assume_abort_if_not(_i_obstacle_flag_[9] == _obstacle_flag_[8]);
+  assume_abort_if_not(_i_obstacle_flag_[8] == _obstacle_flag_[7]);
+  assume_abort_if_not(_i_obstacle_flag_[7] == _obstacle_flag_[6]);
+  assume_abort_if_not(_i_obstacle_flag_[6] == _obstacle_flag_[5]);
+  assume_abort_if_not(_i_obstacle_flag_[5] == _obstacle_flag_[4]);
+  assume_abort_if_not(_i_obstacle_flag_[4] == _obstacle_flag_[3]);
+  assume_abort_if_not(_i_obstacle_flag_[3] == _obstacle_flag_[2]);
+  assume_abort_if_not(_i_obstacle_flag_[2] == _obstacle_flag_[1]);
+  assume_abort_if_not(_i_obstacle_flag_[1] == _obstacle_flag_[0]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[26] == _nxtway_gs_mode_[25]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[25] == _nxtway_gs_mode_[24]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[24] == _nxtway_gs_mode_[23]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[23] == _nxtway_gs_mode_[22]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[22] == _nxtway_gs_mode_[21]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[21] == _nxtway_gs_mode_[20]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[20] == _nxtway_gs_mode_[19]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[19] == _nxtway_gs_mode_[18]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[18] == _nxtway_gs_mode_[17]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[17] == _nxtway_gs_mode_[16]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[16] == _nxtway_gs_mode_[15]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[15] == _nxtway_gs_mode_[14]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[14] == _nxtway_gs_mode_[13]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[13] == _nxtway_gs_mode_[12]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[12] == _nxtway_gs_mode_[11]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[11] == _nxtway_gs_mode_[10]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[10] == _nxtway_gs_mode_[9]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[9] == _nxtway_gs_mode_[8]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[8] == _nxtway_gs_mode_[7]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[7] == _nxtway_gs_mode_[6]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[6] == _nxtway_gs_mode_[5]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[5] == _nxtway_gs_mode_[4]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[4] == _nxtway_gs_mode_[3]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[3] == _nxtway_gs_mode_[2]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[2] == _nxtway_gs_mode_[1]);
+  assume_abort_if_not(_i_nxtway_gs_mode_[1] == _nxtway_gs_mode_[0]);
 }
 }
 __inline void __startrek_user_init(void) 
@@ -1469,7 +1472,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t0[0];
     c1 = __startrek_entry_pt_OSEK_Task_Background();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   }
@@ -1483,7 +1486,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t1[0];
     c1 = __startrek_entry_pt_OSEK_Task_ts2();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 1;
@@ -1494,7 +1497,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t1[1];
     c1 = __startrek_entry_pt_OSEK_Task_ts2();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   }
@@ -1508,7 +1511,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[0];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 1;
@@ -1519,7 +1522,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[1];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 2;
@@ -1530,7 +1533,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[2];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 3;
@@ -1541,7 +1544,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[3];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 4;
@@ -1552,7 +1555,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[4];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 5;
@@ -1563,7 +1566,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[5];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 6;
@@ -1574,7 +1577,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[6];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 7;
@@ -1585,7 +1588,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[7];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 8;
@@ -1596,7 +1599,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[8];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 9;
@@ -1607,7 +1610,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[9];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 10;
@@ -1618,7 +1621,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[10];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 11;
@@ -1629,7 +1632,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[11];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 12;
@@ -1640,7 +1643,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[12];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 13;
@@ -1651,7 +1654,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[13];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 14;
@@ -1662,7 +1665,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[14];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 15;
@@ -1673,7 +1676,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[15];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 16;
@@ -1684,7 +1687,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[16];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 17;
@@ -1695,7 +1698,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[17];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 18;
@@ -1706,7 +1709,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[18];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 19;
@@ -1717,7 +1720,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[19];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 20;
@@ -1728,7 +1731,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[20];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 21;
@@ -1739,7 +1742,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[21];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 22;
@@ -1750,7 +1753,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[22];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   __startrek_job = 23;
@@ -1761,7 +1764,7 @@ void __main(void)
     __startrek_job_end = __startrek_end_t2[23];
     c1 = __startrek_entry_pt_OSEK_Task_ts1();
     __startrek_lock = 0;
-    __VERIFIER_assume(__startrek_round == __startrek_job_end);
+    assume_abort_if_not(__startrek_round == __startrek_job_end);
     }
   }
   }
