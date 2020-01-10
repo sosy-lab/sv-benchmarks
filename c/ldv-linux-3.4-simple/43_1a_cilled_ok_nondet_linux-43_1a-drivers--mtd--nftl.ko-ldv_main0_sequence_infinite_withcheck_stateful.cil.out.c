@@ -6821,7 +6821,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void assume_abort_if_not(int);
+
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {

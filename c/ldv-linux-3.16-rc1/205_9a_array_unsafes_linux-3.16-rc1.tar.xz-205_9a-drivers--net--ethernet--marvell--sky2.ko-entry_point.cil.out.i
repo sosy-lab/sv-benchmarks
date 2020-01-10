@@ -7189,7 +7189,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void assume_abort_if_not(int);
+
 void *ldv_malloc(size_t size )
 {
   void *p ;

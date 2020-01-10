@@ -3577,7 +3577,7 @@ int ttm_pool_populate(struct ttm_tt *ttm ) ;
 void ttm_pool_unpopulate(struct ttm_tt *ttm ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void assume_abort_if_not(int);
+
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -9754,7 +9754,7 @@ struct ttm_bo_driver _var_group1_vm_private_data_driver = {
   &io_mem_free_dummy
 };
 extern void *calloc(size_t , size_t ) ;
-extern void assume_abort_if_not(int ) ;
+
 void *ldv_init_zalloc(size_t size );
 int main(void)
 {

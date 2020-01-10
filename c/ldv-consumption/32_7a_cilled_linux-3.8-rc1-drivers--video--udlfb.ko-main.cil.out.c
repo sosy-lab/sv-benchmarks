@@ -4289,7 +4289,7 @@ extern int remap_pfn_range(struct vm_area_struct * , unsigned long  , unsigned l
                            unsigned long  , pgprot_t  ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void assume_abort_if_not(int);
+
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {

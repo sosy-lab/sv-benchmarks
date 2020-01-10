@@ -13140,7 +13140,7 @@ struct bin_attribute pccard_cis_attr  =    {{"cis", 420U, (_Bool)0, 0, {{{(char)
     & pccard_store_cis, 0};
     
 extern void *calloc(size_t  , size_t  ) ;
-extern void assume_abort_if_not(int  ) ;
+
 void *ldv_init_zalloc(size_t size );
 int main(void) 
 { 
