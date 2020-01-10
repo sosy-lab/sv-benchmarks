@@ -4754,7 +4754,7 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 __inline static bool IS_ERR(void const *ptr ) ;
-extern void assume_abort_if_not(int);
+
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;

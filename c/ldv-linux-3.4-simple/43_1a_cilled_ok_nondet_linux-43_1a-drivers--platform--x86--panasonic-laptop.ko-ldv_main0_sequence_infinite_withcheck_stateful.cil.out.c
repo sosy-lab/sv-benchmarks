@@ -4944,7 +4944,7 @@ void *ldv_zalloc(size_t size ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *calloc(size_t, size_t) ;
 __inline static long IS_ERR(void const *ptr ) ;
-extern void assume_abort_if_not(int);
+
 void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;

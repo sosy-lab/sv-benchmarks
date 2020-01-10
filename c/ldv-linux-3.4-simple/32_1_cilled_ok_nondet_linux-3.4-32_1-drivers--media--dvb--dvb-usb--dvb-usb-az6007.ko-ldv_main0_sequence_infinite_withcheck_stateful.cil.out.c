@@ -9986,7 +9986,7 @@ __aligned__(1)))  =
         (char const   )'G',      (char const   )'P',      (char const   )'L',      (char const   )'\000'};
 void ldv_check_final_state(void) ;
 extern void *calloc(size_t  , size_t  ) ;
-extern void assume_abort_if_not(int  ) ;
+
 void *ldv_init_zalloc(size_t size );
 extern void ldv_check_return_value(int res ) ;
 extern void ldv_initialize(void) ;

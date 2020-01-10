@@ -3740,7 +3740,7 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void assume_abort_if_not(int);
+
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;

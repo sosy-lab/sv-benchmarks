@@ -7050,7 +7050,7 @@ extern void ldv_check_return_value(int  ) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT  ;
-extern void assume_abort_if_not(int);
+
 void main(void) 
 { struct inode *var_group1 ;
   struct file *var_group2 ;

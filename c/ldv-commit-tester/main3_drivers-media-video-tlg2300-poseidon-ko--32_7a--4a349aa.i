@@ -5409,7 +5409,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 }
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void assume_abort_if_not(int);
+
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
