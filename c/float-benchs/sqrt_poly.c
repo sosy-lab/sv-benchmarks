@@ -7,7 +7,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double sqrt2 = 1.414213538169860839843750;
@@ -17,7 +20,7 @@ int main()
   double S, I;
 
   I = __VERIFIER_nondet_double();
-  __VERIFIER_assume(I >= 1. && I <= 3.);
+  assume_abort_if_not(I >= 1. && I <= 3.);
 
   if (I >= 2.) S = sqrt2 * (1.+(I/2.- 1.)*(.5-0.125*(I/2.-1.)));
   else S = 1.+(I-1.) * (.5+(I-1.) * (-.125+(I-1.)*.0625));

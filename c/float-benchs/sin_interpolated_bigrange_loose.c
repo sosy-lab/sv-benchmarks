@@ -8,7 +8,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -143,7 +146,7 @@ int main()
   double a, r;
 
   a = __VERIFIER_nondet_double();
-  __VERIFIER_assume(a >= -1e10 && a <= 1e10);
+  assume_abort_if_not(a >= -1e10 && a <= 1e10);
 
   r = SIN(a);
   

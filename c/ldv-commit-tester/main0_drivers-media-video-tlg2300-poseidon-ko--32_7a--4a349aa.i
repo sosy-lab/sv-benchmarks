@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -5406,7 +5409,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 }
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -5416,7 +5419,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  assume_abort_if_not(!ldv_is_err(res));
   return res;
  } else {
   return ((void *)0);
@@ -7720,7 +7723,7 @@ enum v4l2_buf_type nondet_v4l2_buf_type() {
 extern void *malloc(size_t );
 void *ldv_successful_malloc(size_t __size) {
   void *p = malloc(__size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
@@ -7905,12 +7908,12 @@ int main(void)
   union __anonunion_fmt_122 *__anonunion_fmt_122_p1 = ldv_successful_malloc(sizeof(union __anonunion_fmt_122));
   v4l2_format_p1->fmt = *(__anonunion_fmt_122_p1);
   v4l2_fmtdesc_p1->index = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(v4l2_fmtdesc_p1->index < 2);
+  assume_abort_if_not(v4l2_fmtdesc_p1->index < 2);
   v4l2_fmtdesc_p1->type = *(v4l2_buf_type_p1);
   v4l2_fmtdesc_p1->flags = __VERIFIER_nondet_uint();
   v4l2_fmtdesc_p1->pixelformat = __VERIFIER_nondet_uint();
   v4l2_input_p1->index = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(v4l2_input_p1->index < POSEIDON_INPUTS);
+  assume_abort_if_not(v4l2_input_p1->index < POSEIDON_INPUTS);
   v4l2_input_p1->type = __VERIFIER_nondet_uint();
   v4l2_input_p1->audioset = __VERIFIER_nondet_uint();
   v4l2_input_p1->tuner = __VERIFIER_nondet_uint();

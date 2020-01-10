@@ -1,10 +1,13 @@
 extern void __VERIFIER_error(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern float __VERIFIER_nondet_float(void);
 int main()
 {
   float IN = __VERIFIER_nondet_float();
-  __VERIFIER_assume(IN >= 0.0f && IN < 1.0f);
+  assume_abort_if_not(IN >= 0.0f && IN < 1.0f);
 
   float x = IN;
 

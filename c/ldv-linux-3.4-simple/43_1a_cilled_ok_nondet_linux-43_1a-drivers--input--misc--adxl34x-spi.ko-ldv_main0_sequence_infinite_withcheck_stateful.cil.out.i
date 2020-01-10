@@ -3352,12 +3352,15 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 struct adxl34x *adxl34x_probe(struct device *arg0, int arg1, bool arg2, const struct adxl34x_bus_ops *arg3) {

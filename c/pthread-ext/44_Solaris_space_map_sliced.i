@@ -1,5 +1,8 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -676,12 +679,12 @@ volatile _Bool MTX = !1;
 __thread _Bool COND = 0;
 void __VERIFIER_atomic_acquire()
 {
- __VERIFIER_assume(MTX==0);
+ assume_abort_if_not(MTX==0);
  MTX = 1;
 }
 void __VERIFIER_atomic_release()
 {
- __VERIFIER_assume(MTX==1);
+ assume_abort_if_not(MTX==1);
  MTX = 0;
 }
 _Bool LOADED = 0;
@@ -698,7 +701,7 @@ inline void space_map_load_wait(){
  { if(!((MTX==1))) { goto ERROR; } };
  while (LOADING) {
   { if(!(!LOADED)) { goto ERROR; } };
-  { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
+  { COND = 0; __VERIFIER_atomic_release(); assume_abort_if_not(COND); __VERIFIER_atomic_acquire(); };
   { if(!(COND)) { goto ERROR; } }; }
        __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };

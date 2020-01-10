@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 #include <math.h>
 extern void __VERIFIER_error(void);
 extern double __VERIFIER_nondet_double(void);
@@ -7,8 +10,8 @@ int main()
   double f, f2;
   f2 = __VERIFIER_nondet_double();
   // the following rely on f not being a NaN
-  __VERIFIER_assume(!isnan(f2));
-  __VERIFIER_assume(isfinite(f2));
+  assume_abort_if_not(!isnan(f2));
+  assume_abort_if_not(isfinite(f2));
   f=f2;
   
   // addition

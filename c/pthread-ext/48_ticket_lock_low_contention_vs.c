@@ -1,10 +1,13 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <pthread.h>
 
-#define assume(e) __VERIFIER_assume(e)
+#define assume(e) assume_abort_if_not(e)
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 volatile unsigned s = 0; //served

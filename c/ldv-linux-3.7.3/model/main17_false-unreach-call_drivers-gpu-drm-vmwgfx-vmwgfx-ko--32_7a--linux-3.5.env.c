@@ -890,7 +890,7 @@ void mutex_unlock(struct mutex *arg0) {
 void *ldv_xmalloc(size_t size)
 {
   void *res = malloc(size);
-  __VERIFIER_assume(res != (void *)0);
+  assume_abort_if_not(res != (void *)0);
   return res;
 }
 

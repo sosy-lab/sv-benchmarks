@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -4646,7 +4649,7 @@ extern unsigned int __VERIFIER_nondet_uint();
 extern void *malloc(size_t );
 void *ldv_successful_malloc(size_t __size) {
   void *p = malloc(__size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
@@ -4858,12 +4861,12 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void *ldv_zalloc(size_t size ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *calloc(size_t, size_t) ;
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = calloc(1UL, size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 __inline static void *kzalloc(size_t size , gfp_t flags )
@@ -4901,7 +4904,7 @@ void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = malloc(size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 struct backlight_device *backlight_device_register(const char *arg0, struct device *arg1, void *arg2, const struct backlight_ops *arg3, const struct backlight_properties *arg4) {

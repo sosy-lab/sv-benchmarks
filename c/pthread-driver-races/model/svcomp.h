@@ -21,7 +21,10 @@ extern void __VERIFIER_atomic_end(void);
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {

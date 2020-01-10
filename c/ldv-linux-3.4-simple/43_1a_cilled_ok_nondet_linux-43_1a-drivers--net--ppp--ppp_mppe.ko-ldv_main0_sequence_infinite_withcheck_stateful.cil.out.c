@@ -786,7 +786,10 @@ extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -797,7 +800,7 @@ void *ldv_malloc(size_t size)
 {
 	if (__VERIFIER_nondet_int()) {
 		void *res = malloc(size);
-		__VERIFIER_assume(!ldv_is_err(res));
+		assume_abort_if_not(!ldv_is_err(res));
 
 		return res;
 	} else {
@@ -3894,7 +3897,7 @@ void *ldv_zalloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
   void *p = calloc(1UL, size);
-  __VERIFIER_assume(IS_ERR(p) == 0);
+  assume_abort_if_not(IS_ERR(p) == 0);
   return p;
 }
 __inline static void *kzalloc(size_t size , gfp_t flags ) 

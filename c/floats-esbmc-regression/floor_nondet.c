@@ -1,7 +1,10 @@
 #include <math.h>
 #include <fenv.h>
 
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -10,8 +13,8 @@ double __VERIFIER_nondet_double();
 int main(void)
 {
   double d = __VERIFIER_nondet_double();
-  __VERIFIER_assume(!isinf(d));
-  __VERIFIER_assume(!isnan(d));
+  assume_abort_if_not(!isinf(d));
+  assume_abort_if_not(!isnan(d));
 
   int save_round = fegetround();
   fesetround(FE_DOWNWARD);
@@ -21,11 +24,11 @@ int main(void)
   __VERIFIER_assert(floor(d) == result);
 
   double d1 = __VERIFIER_nondet_double();
-  __VERIFIER_assume(isinf(d1));
+  assume_abort_if_not(isinf(d1));
   __VERIFIER_assert(isinf(floor(d1)));
 
   double d2 = __VERIFIER_nondet_double();
-  __VERIFIER_assume(isinf(d2));
+  assume_abort_if_not(isinf(d2));
   __VERIFIER_assert(isinf(floor(d2)));
 
   return 0;

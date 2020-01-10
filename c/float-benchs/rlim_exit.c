@@ -1,7 +1,10 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern float __VERIFIER_nondet_float(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main() 
@@ -15,8 +18,8 @@ int main()
 
     X = __VERIFIER_nondet_float();
     D = __VERIFIER_nondet_float();
-    __VERIFIER_assume(X >= -128.f && X <= 128.f);
-    __VERIFIER_assume(D >= 0.f && D <= 16.f);
+    assume_abort_if_not(X >= -128.f && X <= 128.f);
+    assume_abort_if_not(D >= 0.f && D <= 16.f);
 
     S = Y; 
     Y = X;

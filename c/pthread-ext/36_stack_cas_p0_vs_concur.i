@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -698,7 +701,7 @@ inline void push(int d) {
  int oldTop, newTop,ret;
  __VERIFIER_atomic_index_malloc(&newTop);
  if(newTop == 0)
-  __VERIFIER_assume(0);;
+  assume_abort_if_not(0);;
  memory[newTop+0] = d;
  while (1) {
   oldTop = top;

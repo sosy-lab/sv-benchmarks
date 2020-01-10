@@ -3263,7 +3263,10 @@ extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void *malloc(size_t size);
 long ldv_is_err(const void *ptr)
 {
@@ -3273,7 +3276,7 @@ void *ldv_malloc(size_t size)
 {
  if (__VERIFIER_nondet_int()) {
   void *res = malloc(size);
-  __VERIFIER_assume(!ldv_is_err(res));
+  assume_abort_if_not(!ldv_is_err(res));
   return res;
  } else {
   return ((void *)0);
@@ -6915,7 +6918,7 @@ extern void ldv_check_return_value(int ) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT ;
-extern void __VERIFIER_assume(int);
+extern void assume_abort_if_not(int);
 void main(void)
 { struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -6930,7 +6933,7 @@ void main(void)
   int tmp___0 ;
   int tmp___1 ;
   adapters_count_g = __VERIFIER_nondet_int();
-   __VERIFIER_assume (adapters_count_g >= 0);
+   assume_abort_if_not (adapters_count_g >= 0);
   {
   {
   ldv_s_lsi_fops_file_operations = 0;

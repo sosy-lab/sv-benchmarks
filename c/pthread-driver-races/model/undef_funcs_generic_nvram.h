@@ -123,11 +123,14 @@ void cpu_relax() {
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
 void *external_alloc(unsigned int size);
-void __VERIFIER_assume(int);
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 struct timespec current_kernel_time() {
   // Composite type
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
-  __VERIFIER_assume(tmp != 0);
+  assume_abort_if_not(tmp != 0);
   return *tmp;
 }
 
@@ -368,11 +371,11 @@ void smp_rmb() {
 // with type: struct timespec timespec_trunc(struct timespec t, unsigned gran)
 // with return type: struct timespec
 void *external_alloc(unsigned int size);
-void __VERIFIER_assume(int);
+void assume_abort_if_not(int);
 struct timespec timespec_trunc(struct timespec arg0, unsigned arg1) {
   // Composite type
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
-  __VERIFIER_assume(tmp != 0);
+  assume_abort_if_not(tmp != 0);
   return *tmp;
 }
 

@@ -3,7 +3,10 @@
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -33,7 +36,7 @@ void abort(void) {
     __VERIFIER_assert(cond)
 
 #define __CPROVER_assume(cond) \
-    __VERIFIER_assume(cond)
+    assume_abort_if_not(cond)
 
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
 
@@ -59,7 +62,7 @@ _Bool __CPROVER_overflow_mult(unsigned long a, unsigned long b) {
 }
 
 #define __CPROVER_precondition(cond, msg) \
-            __VERIFIER_assume(cond)
+            assume_abort_if_not(cond)
 
 _Bool    nondet_bool()     { return __VERIFIER_nondet_bool();    }
 int      nondet_int()      { return __VERIFIER_nondet_int();     }

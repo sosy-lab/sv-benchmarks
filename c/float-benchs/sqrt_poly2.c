@@ -5,7 +5,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 extern double __VERIFIER_nondet_double();
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
@@ -53,7 +56,7 @@ int main()
   double x,y;
 
   x = __VERIFIER_nondet_double();
-  __VERIFIER_assume(x >= 1. && x <= 1e10);
+  assume_abort_if_not(x >= 1. && x <= 1e10);
 
   y = sqrt_custom(x);
 

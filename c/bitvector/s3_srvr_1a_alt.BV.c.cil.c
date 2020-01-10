@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern long __VERIFIER_nondet_long(void);
@@ -66,7 +69,7 @@ int ssl3_accept(int initial_state )
   int ag_Z ;
   int __retres70 ;
 
-  __VERIFIER_assume(ag_Z!=0);
+  assume_abort_if_not(ag_Z!=0);
   {
   s__state = initial_state;
   blastFlag = 0;

@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 /* Testcase from Threader's distribution. For details see:
@@ -15,12 +18,12 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 int w=0, r=0, x, y;
 
 void __VERIFIER_atomic_take_write_lock() {
-  __VERIFIER_assume(w==0 && r==0);
+  assume_abort_if_not(w==0 && r==0);
   w = 1;
 } 
 
 void __VERIFIER_atomic_take_read_lock() {
-  __VERIFIER_assume(w==0);
+  assume_abort_if_not(w==0);
   r = r+1;
 }
 

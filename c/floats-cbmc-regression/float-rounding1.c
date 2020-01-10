@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error(void);
 #ifdef __GNUC__
 #include <math.h>
@@ -42,8 +45,8 @@ int main (void)
   float f3 = __VERIFIER_nondet_float();
   float f4 = __VERIFIER_nondet_float();
 
-  __VERIFIER_assume((0x1.fffffep-1f < f3) && (f3 < 0x1.000002p+0f));
-  __VERIFIER_assume((0x1.7ffffep-24f < f4) && (f4 < 0x1.800002p-24f));
+  assume_abort_if_not((0x1.fffffep-1f < f3) && (f3 < 0x1.000002p+0f));
+  assume_abort_if_not((0x1.7ffffep-24f < f4) && (f4 < 0x1.800002p-24f));
 
   roundingTest(f3,f4);
   #endif

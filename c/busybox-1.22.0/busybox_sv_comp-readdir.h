@@ -10,14 +10,14 @@ struct dirent *readdir(DIR *d)
 
     if (__VERIFIER_nondet_int()) {
         *bb_errno = __VERIFIER_nondet_int();
-        __VERIFIER_assume(*bb_errno != 0);
+        assume_abort_if_not(*bb_errno != 0);
         return ((void *)0);
     }
 
     ret.d_ino = __VERIFIER_nondet_long();
     ret.d_off = __VERIFIER_nondet_long();
     ret.d_reclen = __VERIFIER_nondet_short();
-    __VERIFIER_assume(ret.d_reclen < sizeof(ret.d_name)-1);
+    assume_abort_if_not(ret.d_reclen < sizeof(ret.d_name)-1);
 
     for (int i = 0; i < ret.d_reclen; ++i)
         ret.d_name[i] = __VERIFIER_nondet_char();

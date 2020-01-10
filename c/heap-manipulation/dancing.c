@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern _Bool __VERIFIER_nondet_bool(void);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
 // 
@@ -120,7 +123,7 @@ int main()
       x=n;
   }
 
-  __VERIFIER_assume(is_list_containing_x(&list, x));
+  assume_abort_if_not(is_list_containing_x(&list, x));
   remove(x);
   __VERIFIER_assert(&list==x || !is_list_containing_x(&list, x));
   re_insert(x);

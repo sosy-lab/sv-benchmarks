@@ -5,7 +5,10 @@
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -19,11 +22,11 @@ int main() {
     unsigned x, y, u, v;
     a = __VERIFIER_nondet_unsigned_int();
     b = __VERIFIER_nondet_unsigned_int();
-    __VERIFIER_assume(a >= 1);  //infinite loop if remove
-    __VERIFIER_assume(b >= 1);
+    assume_abort_if_not(a >= 1);  //infinite loop if remove
+    assume_abort_if_not(b >= 1);
 
-    __VERIFIER_assume(a <= 65535);
-    __VERIFIER_assume(b <= 65535);
+    assume_abort_if_not(a <= 65535);
+    assume_abort_if_not(b <= 65535);
 
     x = a;
     y = b;

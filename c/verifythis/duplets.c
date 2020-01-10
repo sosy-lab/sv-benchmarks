@@ -9,15 +9,18 @@ void __VERIFIER_assert(int cond) {
 }
 
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 
 void mkdup(int *a, int n) {
     int i = __VERIFIER_nondet_int();
     int j = __VERIFIER_nondet_int();
 
-    __VERIFIER_assume(0 <= i && i < n);
-    __VERIFIER_assume(0 <= j && j < n);
-    __VERIFIER_assume(i != j);
+    assume_abort_if_not(0 <= i && i < n);
+    assume_abort_if_not(0 <= j && j < n);
+    assume_abort_if_not(i != j);
 
     int x = __VERIFIER_nondet_int();
 
@@ -43,7 +46,7 @@ int finddup(int *a, int n, int *_i, int *_j) {
 int main() {
     int n = __VERIFIER_nondet_int();
     /* 1 << 30 will make sure n * sizeof(int) does not overflow */
-    __VERIFIER_assume(n >= 0 && n < (1 << 30));
+    assume_abort_if_not(n >= 0 && n < (1 << 30));
     int *a = calloc(n, sizeof(int));
 
     mkdup(a, n);

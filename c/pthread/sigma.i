@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned int size_t;
 typedef long int wchar_t;
@@ -1101,8 +1104,8 @@ int main()
  pthread_t *t;
  t = (pthread_t *)malloc(sizeof(pthread_t) * SIGMA);
  array = (int *)malloc(sizeof(int) * SIGMA);
- __VERIFIER_assume(t);
- __VERIFIER_assume(array);
+ assume_abort_if_not(t);
+ assume_abort_if_not(array);
  for (tid=0; tid<SIGMA; tid++) {
   array_index++;
   pthread_create(&t[tid], 0, thread, 0);

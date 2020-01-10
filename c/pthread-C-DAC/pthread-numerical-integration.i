@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int expr);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 typedef unsigned char __u_char;
@@ -1362,7 +1365,7 @@ int main(int argc, char *argv[])
     {
       exit(-1);
     }
-    __VERIFIER_assume(numberOfIntervals>0);
+    assume_abort_if_not(numberOfIntervals>0);
     /*if (numberOfIntervals == 0)
     {
         printf("\nNumber of Intervals are assumed to be 8");

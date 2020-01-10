@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned int size_t;
 typedef long int wchar_t;
@@ -547,7 +550,7 @@ extern unsigned long __VERIFIER_nondet_ulong(void);
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
- __VERIFIER_assume(__CS_round+k < 7);
+ assume_abort_if_not(__CS_round+k < 7);
  __CS_round += k;
  __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 7 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
@@ -643,7 +646,7 @@ int __CS_pthread_join(unsigned char thread, void **value_ptr)
   __CS_ret = __CS_ret_ERROR;
   return 0;
  }
- __VERIFIER_assume( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED );
+ assume_abort_if_not( __CS_thread_status[__CS_round][thread] == __THREAD_FINISHED );
  return 0;
 }
 int __CS_pthread_create(unsigned char *id1, void *attr, void *(*t1)(void*), void *arg)
@@ -806,53 +809,53 @@ int main(int argc, char **argv)
   __CS_thread[2](0);
   if (__CS_ret!=__CS_ret_PREEMPTED) __CS_thread_status[__CS_round][2] = __THREAD_FINISHED;
  }
- __VERIFIER_assume(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0]);
- __VERIFIER_assume(__CS_thread_status[1][0] == __CS_cp___CS_thread_status[2][0]);
- __VERIFIER_assume(__CS_thread_status[2][0] == __CS_cp___CS_thread_status[3][0]);
- __VERIFIER_assume(__CS_thread_status[3][0] == __CS_cp___CS_thread_status[4][0]);
- __VERIFIER_assume(__CS_thread_status[4][0] == __CS_cp___CS_thread_status[5][0]);
- __VERIFIER_assume(__CS_thread_status[5][0] == __CS_cp___CS_thread_status[6][0]);
- __VERIFIER_assume(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1]);
- __VERIFIER_assume(__CS_thread_status[1][1] == __CS_cp___CS_thread_status[2][1]);
- __VERIFIER_assume(__CS_thread_status[2][1] == __CS_cp___CS_thread_status[3][1]);
- __VERIFIER_assume(__CS_thread_status[3][1] == __CS_cp___CS_thread_status[4][1]);
- __VERIFIER_assume(__CS_thread_status[4][1] == __CS_cp___CS_thread_status[5][1]);
- __VERIFIER_assume(__CS_thread_status[5][1] == __CS_cp___CS_thread_status[6][1]);
- __VERIFIER_assume(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2]);
- __VERIFIER_assume(__CS_thread_status[1][2] == __CS_cp___CS_thread_status[2][2]);
- __VERIFIER_assume(__CS_thread_status[2][2] == __CS_cp___CS_thread_status[3][2]);
- __VERIFIER_assume(__CS_thread_status[3][2] == __CS_cp___CS_thread_status[4][2]);
- __VERIFIER_assume(__CS_thread_status[4][2] == __CS_cp___CS_thread_status[5][2]);
- __VERIFIER_assume(__CS_thread_status[5][2] == __CS_cp___CS_thread_status[6][2]);
- __VERIFIER_assume(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0]);
- __VERIFIER_assume(__CS_thread_lockedon[1][0] == __CS_cp___CS_thread_lockedon[2][0]);
- __VERIFIER_assume(__CS_thread_lockedon[2][0] == __CS_cp___CS_thread_lockedon[3][0]);
- __VERIFIER_assume(__CS_thread_lockedon[3][0] == __CS_cp___CS_thread_lockedon[4][0]);
- __VERIFIER_assume(__CS_thread_lockedon[4][0] == __CS_cp___CS_thread_lockedon[5][0]);
- __VERIFIER_assume(__CS_thread_lockedon[5][0] == __CS_cp___CS_thread_lockedon[6][0]);
- __VERIFIER_assume(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1]);
- __VERIFIER_assume(__CS_thread_lockedon[1][1] == __CS_cp___CS_thread_lockedon[2][1]);
- __VERIFIER_assume(__CS_thread_lockedon[2][1] == __CS_cp___CS_thread_lockedon[3][1]);
- __VERIFIER_assume(__CS_thread_lockedon[3][1] == __CS_cp___CS_thread_lockedon[4][1]);
- __VERIFIER_assume(__CS_thread_lockedon[4][1] == __CS_cp___CS_thread_lockedon[5][1]);
- __VERIFIER_assume(__CS_thread_lockedon[5][1] == __CS_cp___CS_thread_lockedon[6][1]);
- __VERIFIER_assume(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2]);
- __VERIFIER_assume(__CS_thread_lockedon[1][2] == __CS_cp___CS_thread_lockedon[2][2]);
- __VERIFIER_assume(__CS_thread_lockedon[2][2] == __CS_cp___CS_thread_lockedon[3][2]);
- __VERIFIER_assume(__CS_thread_lockedon[3][2] == __CS_cp___CS_thread_lockedon[4][2]);
- __VERIFIER_assume(__CS_thread_lockedon[4][2] == __CS_cp___CS_thread_lockedon[5][2]);
- __VERIFIER_assume(__CS_thread_lockedon[5][2] == __CS_cp___CS_thread_lockedon[6][2]);
- __VERIFIER_assume(i[0] == __CS_cp_i[1]);
- __VERIFIER_assume(i[1] == __CS_cp_i[2]);
- __VERIFIER_assume(i[2] == __CS_cp_i[3]);
- __VERIFIER_assume(i[3] == __CS_cp_i[4]);
- __VERIFIER_assume(i[4] == __CS_cp_i[5]);
- __VERIFIER_assume(i[5] == __CS_cp_i[6]);
- __VERIFIER_assume(j[0] == __CS_cp_j[1]);
- __VERIFIER_assume(j[1] == __CS_cp_j[2]);
- __VERIFIER_assume(j[2] == __CS_cp_j[3]);
- __VERIFIER_assume(j[3] == __CS_cp_j[4]);
- __VERIFIER_assume(j[4] == __CS_cp_j[5]);
- __VERIFIER_assume(j[5] == __CS_cp_j[6]);
+ assume_abort_if_not(__CS_thread_status[0][0] == __CS_cp___CS_thread_status[1][0]);
+ assume_abort_if_not(__CS_thread_status[1][0] == __CS_cp___CS_thread_status[2][0]);
+ assume_abort_if_not(__CS_thread_status[2][0] == __CS_cp___CS_thread_status[3][0]);
+ assume_abort_if_not(__CS_thread_status[3][0] == __CS_cp___CS_thread_status[4][0]);
+ assume_abort_if_not(__CS_thread_status[4][0] == __CS_cp___CS_thread_status[5][0]);
+ assume_abort_if_not(__CS_thread_status[5][0] == __CS_cp___CS_thread_status[6][0]);
+ assume_abort_if_not(__CS_thread_status[0][1] == __CS_cp___CS_thread_status[1][1]);
+ assume_abort_if_not(__CS_thread_status[1][1] == __CS_cp___CS_thread_status[2][1]);
+ assume_abort_if_not(__CS_thread_status[2][1] == __CS_cp___CS_thread_status[3][1]);
+ assume_abort_if_not(__CS_thread_status[3][1] == __CS_cp___CS_thread_status[4][1]);
+ assume_abort_if_not(__CS_thread_status[4][1] == __CS_cp___CS_thread_status[5][1]);
+ assume_abort_if_not(__CS_thread_status[5][1] == __CS_cp___CS_thread_status[6][1]);
+ assume_abort_if_not(__CS_thread_status[0][2] == __CS_cp___CS_thread_status[1][2]);
+ assume_abort_if_not(__CS_thread_status[1][2] == __CS_cp___CS_thread_status[2][2]);
+ assume_abort_if_not(__CS_thread_status[2][2] == __CS_cp___CS_thread_status[3][2]);
+ assume_abort_if_not(__CS_thread_status[3][2] == __CS_cp___CS_thread_status[4][2]);
+ assume_abort_if_not(__CS_thread_status[4][2] == __CS_cp___CS_thread_status[5][2]);
+ assume_abort_if_not(__CS_thread_status[5][2] == __CS_cp___CS_thread_status[6][2]);
+ assume_abort_if_not(__CS_thread_lockedon[0][0] == __CS_cp___CS_thread_lockedon[1][0]);
+ assume_abort_if_not(__CS_thread_lockedon[1][0] == __CS_cp___CS_thread_lockedon[2][0]);
+ assume_abort_if_not(__CS_thread_lockedon[2][0] == __CS_cp___CS_thread_lockedon[3][0]);
+ assume_abort_if_not(__CS_thread_lockedon[3][0] == __CS_cp___CS_thread_lockedon[4][0]);
+ assume_abort_if_not(__CS_thread_lockedon[4][0] == __CS_cp___CS_thread_lockedon[5][0]);
+ assume_abort_if_not(__CS_thread_lockedon[5][0] == __CS_cp___CS_thread_lockedon[6][0]);
+ assume_abort_if_not(__CS_thread_lockedon[0][1] == __CS_cp___CS_thread_lockedon[1][1]);
+ assume_abort_if_not(__CS_thread_lockedon[1][1] == __CS_cp___CS_thread_lockedon[2][1]);
+ assume_abort_if_not(__CS_thread_lockedon[2][1] == __CS_cp___CS_thread_lockedon[3][1]);
+ assume_abort_if_not(__CS_thread_lockedon[3][1] == __CS_cp___CS_thread_lockedon[4][1]);
+ assume_abort_if_not(__CS_thread_lockedon[4][1] == __CS_cp___CS_thread_lockedon[5][1]);
+ assume_abort_if_not(__CS_thread_lockedon[5][1] == __CS_cp___CS_thread_lockedon[6][1]);
+ assume_abort_if_not(__CS_thread_lockedon[0][2] == __CS_cp___CS_thread_lockedon[1][2]);
+ assume_abort_if_not(__CS_thread_lockedon[1][2] == __CS_cp___CS_thread_lockedon[2][2]);
+ assume_abort_if_not(__CS_thread_lockedon[2][2] == __CS_cp___CS_thread_lockedon[3][2]);
+ assume_abort_if_not(__CS_thread_lockedon[3][2] == __CS_cp___CS_thread_lockedon[4][2]);
+ assume_abort_if_not(__CS_thread_lockedon[4][2] == __CS_cp___CS_thread_lockedon[5][2]);
+ assume_abort_if_not(__CS_thread_lockedon[5][2] == __CS_cp___CS_thread_lockedon[6][2]);
+ assume_abort_if_not(i[0] == __CS_cp_i[1]);
+ assume_abort_if_not(i[1] == __CS_cp_i[2]);
+ assume_abort_if_not(i[2] == __CS_cp_i[3]);
+ assume_abort_if_not(i[3] == __CS_cp_i[4]);
+ assume_abort_if_not(i[4] == __CS_cp_i[5]);
+ assume_abort_if_not(i[5] == __CS_cp_i[6]);
+ assume_abort_if_not(j[0] == __CS_cp_j[1]);
+ assume_abort_if_not(j[1] == __CS_cp_j[2]);
+ assume_abort_if_not(j[2] == __CS_cp_j[3]);
+ assume_abort_if_not(j[3] == __CS_cp_j[4]);
+ assume_abort_if_not(j[4] == __CS_cp_j[5]);
+ assume_abort_if_not(j[5] == __CS_cp_j[6]);
  __VERIFIER_assert(__CS_error != 1);
 }

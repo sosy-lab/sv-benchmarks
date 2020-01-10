@@ -62,7 +62,10 @@ char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 void assert(_Bool arg ) ;
-void __VERIFIER_assume(int arg ) ;
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 typedef char msg_t;
 typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
@@ -595,7 +598,7 @@ int main(void)
   mode3 = __VERIFIER_nondet_bool();
   newmax3 = __VERIFIER_nondet_bool();
   i2 = init();
-  __VERIFIER_assume(i2);
+  assume_abort_if_not(i2);
   p12_old = nomsg;
   p12_new = nomsg;
   p13_old = nomsg;

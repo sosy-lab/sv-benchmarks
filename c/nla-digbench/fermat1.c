@@ -2,7 +2,10 @@
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern double __VERIFIER_nondet_double(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -16,9 +19,9 @@ int main() {
     int u, v, r;
     A = __VERIFIER_nondet_double();
     R = __VERIFIER_nondet_double();
-    __VERIFIER_assume((R - 1) * (R - 1) < A);
-    //__VERIFIER_assume(A <= R * R);
-    __VERIFIER_assume(A % 2 == 1);
+    assume_abort_if_not((R - 1) * (R - 1) < A);
+    //assume_abort_if_not(A <= R * R);
+    assume_abort_if_not(A % 2 == 1);
 
     u = 2 * R + 1;
     v = 1;

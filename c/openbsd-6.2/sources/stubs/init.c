@@ -21,12 +21,12 @@ main(void)
     MGETHDR(m, M_WAIT, M_PKTHDR);
 
     len = __VERIFIER_nondet_int();
-    __VERIFIER_assume(len > 0);
-    __VERIFIER_assume(len <= ((MSIZE - sizeof(struct m_hdr))
+    assume_abort_if_not(len > 0);
+    assume_abort_if_not(len <= ((MSIZE - sizeof(struct m_hdr))
 	- sizeof(struct pkthdr)));
     off = __VERIFIER_nondet_int();
-    __VERIFIER_assume(off > 0);
-    __VERIFIER_assume(off <= len);
+    assume_abort_if_not(off > 0);
+    assume_abort_if_not(off <= len);
     m->m_len = m->m_pkthdr.len = len;
 
     ip_deliver(&m, &off, 0, AF_INET6);

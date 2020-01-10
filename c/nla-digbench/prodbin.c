@@ -3,7 +3,10 @@
 */
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern double __VERIFIER_nondet_double(void);
-extern void __VERIFIER_assume(int expression);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
@@ -18,7 +21,7 @@ int main() {
 
     a = __VERIFIER_nondet_double();
     b = __VERIFIER_nondet_double();
-    __VERIFIER_assume(b >= 1);
+    assume_abort_if_not(b >= 1);
 
     x = a;
     y = b;

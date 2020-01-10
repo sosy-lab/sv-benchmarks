@@ -4,7 +4,10 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error(void);
 typedef __builtin_va_list __gnuc_va_list;
 
@@ -2984,7 +2987,7 @@ ssize_t readlink(const char *path, char *buf, size_t bufsiz)
   if(__VERIFIER_nondet_int() || bufsiz < 1)
     return -1;
   unsigned long len = __VERIFIER_nondet_ulong();
-  __VERIFIER_assume(len <= bufsiz);
+  assume_abort_if_not(len <= bufsiz);
   for(size_t i=0; i<len; ++i)
     buf[i] = __VERIFIER_nondet_char();
   return len;
@@ -2994,7 +2997,7 @@ char *realpath(const char *path, char *resolved_path)
   if(__VERIFIER_nondet_int())
     return ((void *)0);
   unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(offset<4096);
+  assume_abort_if_not(offset<4096);
   if(resolved_path == ((void *)0))
     resolved_path = malloc(offset+1);
   *(resolved_path + offset) = '\0';
@@ -3002,7 +3005,7 @@ char *realpath(const char *path, char *resolved_path)
 }
 unsigned int sleep(unsigned int sec) {
   unsigned int retval = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(retval <= sec);
+  assume_abort_if_not(retval <= sec);
   return retval;
 }
 static struct utmp dummy_utmp;
@@ -3025,7 +3028,7 @@ int getopt(int argc, char * const argv[], const char *optstring)
   if(optind >= argc || argv[optind][0] != '-')
     return -1;
   size_t opt_index = __VERIFIER_nondet_ulong();
-  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  assume_abort_if_not(opt_index < strlen(optstring) && optstring[opt_index] != ':');
   if(__VERIFIER_nondet_int())
   {
     result = optstring[opt_index];
@@ -3055,8 +3058,8 @@ ssize_t read(int fildes, void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
   unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  __VERIFIER_assume(offset<nbyte);
+  assume_abort_if_not(ret>=-1 && ret<=nbyte);
+  assume_abort_if_not(offset<nbyte);
   *((char*)buf+offset)=__VERIFIER_nondet_char();
   return ret;
 }
@@ -3076,13 +3079,13 @@ int vasprintf(char **ptr, const char *fmt, va_list ap)
       break;
     ++i;
   }
-  __VERIFIER_assume(i<result_buffer_size);
+  assume_abort_if_not(i<result_buffer_size);
   return i;
 }
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  assume_abort_if_not(ret>=-1 && ret<=nbyte);
   return ret;
 }
 int main()
@@ -3095,7 +3098,7 @@ int main()
   bb_errno_location = __VERIFIER_nondet_int();
   optind = 1;
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
+  assume_abort_if_not(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
   char **mem_track=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;

@@ -4,7 +4,10 @@
  * */
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 float pi = 3.14159 ;
@@ -16,7 +19,7 @@ int main()
 	float x = __VERIFIER_nondet_float() ;
 	float octant1 = 0 ;
 	float octant2 = pi/8 ;
-	__VERIFIER_assume(x > octant1 && x < octant2) ;
+	assume_abort_if_not(x > octant1 && x < octant2) ;
 	float oddExp = x ;
 	float evenExp = 1.0 ;
 	float term = x ;

@@ -6,7 +6,10 @@
 #include<math.h>
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 float pi = 3.14159 ;
@@ -40,7 +43,7 @@ int main()
 	while(1)
 	{
 		x = __VERIFIER_nondet_int() ;
-		__VERIFIER_assume(x > -180 && x < 180) ;
+		assume_abort_if_not(x > -180 && x < 180) ;
 		angleInRadian = radianMeasure(x) ;
 		sum2 = sum2 + sin(angleInRadian+2*phaseLead);
 		sum1 = sum1 + cos(angleInRadian+3*phaseLag) ;

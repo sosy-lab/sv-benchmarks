@@ -5255,10 +5255,13 @@ extern void *calloc(size_t nmemb , size_t size ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned short __VERIFIER_nondet_ushort(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void __VERIFIER_assume(int expression ) ;
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void *ldv_successful_zalloc(size_t __size) {
   void *p = calloc(1UL, __size);
-  __VERIFIER_assume(p != (void *)0);
+  assume_abort_if_not(p != (void *)0);
   return p;
 }
 void *ldv_malloc(size_t size )
@@ -5273,7 +5276,7 @@ void *ldv_malloc(size_t size )
   } else {
     tmp = malloc(size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }
@@ -5290,7 +5293,7 @@ void *ldv_zalloc(size_t size )
   } else {
     tmp = calloc(1UL, size);
     p = tmp;
-    __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )p != (unsigned long )((void *)0));
     return (p);
   }
 }
@@ -5481,7 +5484,7 @@ static int build_header(struct sk_buff *skb , struct net_device *dev , unsigned 
   soft = & pkt->soft.rfc1051;
   switch ((int )type) {
   case 2048:
-  __VERIFIER_assume(((void*)(soft)) != ((void*) 0));
+  assume_abort_if_not(((void*)(soft)) != ((void*) 0));
   soft->proto = 240U;
   goto ldv_42969;
   case 2054:
@@ -5541,7 +5544,7 @@ static int prepare_tx(struct net_device *dev , struct archdr *pkt , int length ,
     ofs = 256 - length;
     hard->offset[0] = (__u8 )ofs;
   }
-  __VERIFIER_assume(((void*)(*(lp->hw.copy_to_card))) != ((void*)0));
+  assume_abort_if_not(((void*)(*(lp->hw.copy_to_card))) != ((void*)0));
   (*(lp->hw.copy_to_card))(dev, bufnum, 0, (void *)hard, 4);
   (*(lp->hw.copy_to_card))(dev, bufnum, ofs, (void *)(& pkt->soft), length);
   lp->lastload_dest = (int )hard->dest;

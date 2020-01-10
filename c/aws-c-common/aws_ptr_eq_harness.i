@@ -204,7 +204,10 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void __VERIFIER_assume(int cond);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -3082,13 +3085,13 @@ int aws_array_list_init_dynamic(
     size_t initial_item_allocation,
     size_t item_size) {
 
-    __VERIFIER_assume((list != 
+    assume_abort_if_not((list != 
    ((void *)0)
    ));
-    __VERIFIER_assume((alloc != 
+    assume_abort_if_not((alloc != 
    ((void *)0)
    ));
-    __VERIFIER_assume((item_size > 0));
+    assume_abort_if_not((item_size > 0));
 
     do { memset(&(*list), 0, sizeof(*list)); } while (0);
 
@@ -3127,21 +3130,21 @@ void aws_array_list_init_static(
     size_t item_count,
     size_t item_size) {
 
-    __VERIFIER_assume((list != 
+    assume_abort_if_not((list != 
    ((void *)0)
    ));
-    __VERIFIER_assume((raw_array != 
+    assume_abort_if_not((raw_array != 
    ((void *)0)
    ));
-    __VERIFIER_assume((item_count > 0));
-    __VERIFIER_assume((item_size > 0));
+    assume_abort_if_not((item_count > 0));
+    assume_abort_if_not((item_size > 0));
 
     list->alloc = 
                  ((void *)0)
                      ;
 
     int no_overflow = !aws_mul_size_checked(item_count, item_size, &list->current_size);
-    __VERIFIER_assume((no_overflow));
+    assume_abort_if_not((no_overflow));
 
     list->item_size = item_size;
     list->length = 0;
@@ -3192,7 +3195,7 @@ void aws_array_list_debug_print(const struct aws_array_list *list) {
 
 static inline
 void aws_array_list_clean_up(struct aws_array_list *restrict list) {
-    __VERIFIER_assume((aws_is_mem_zeroed(&(*list), sizeof(*list)) || aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_is_mem_zeroed(&(*list), sizeof(*list)) || aws_array_list_is_valid(list)));
     if (list->alloc && list->data) {
         aws_mem_release(list->alloc, list->data);
     }
@@ -3202,8 +3205,8 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
 
 static inline
 int aws_array_list_push_back(struct aws_array_list *restrict list, const void *val) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
 
                                                                                      ;
 
@@ -3220,8 +3223,8 @@ int aws_array_list_push_back(struct aws_array_list *restrict list, const void *v
 
 static inline
 int aws_array_list_front(const struct aws_array_list *restrict list, void *val) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
 
                                                                                      ;
     if (aws_array_list_length(list) > 0) {
@@ -3237,7 +3240,7 @@ int aws_array_list_front(const struct aws_array_list *restrict list, void *val) 
 
 static inline
 int aws_array_list_pop_front(struct aws_array_list *restrict list) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     if (aws_array_list_length(list) > 0) {
         aws_array_list_pop_front_n(list, 1);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3250,7 +3253,7 @@ int aws_array_list_pop_front(struct aws_array_list *restrict list) {
 
 static inline
 void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     if (n >= aws_array_list_length(list)) {
         aws_array_list_clear(list);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
@@ -3271,7 +3274,7 @@ void aws_array_list_pop_front_n(struct aws_array_list *restrict list, size_t n) 
 }
 
 int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
 
     const size_t length = aws_array_list_length(list);
 
@@ -3303,8 +3306,8 @@ int aws_array_list_erase(struct aws_array_list *restrict list, size_t index) {
 
 static inline
 int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
 
                                                                                      ;
     if (aws_array_list_length(list) > 0) {
@@ -3321,10 +3324,10 @@ int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
 
 static inline
 int aws_array_list_pop_back(struct aws_array_list *restrict list) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     if (aws_array_list_length(list) > 0) {
 
-        __VERIFIER_assume((list->data));
+        assume_abort_if_not((list->data));
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
@@ -3340,7 +3343,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
 static inline
 void aws_array_list_clear(struct aws_array_list *restrict list) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     if (list->data) {
 
 
@@ -3354,12 +3357,12 @@ static inline
 void aws_array_list_swap_contents(
     struct aws_array_list *restrict list_a,
     struct aws_array_list *restrict list_b) {
-    __VERIFIER_assume((list_a->alloc));
-    __VERIFIER_assume((list_a->alloc == list_b->alloc));
-    __VERIFIER_assume((list_a->item_size == list_b->item_size));
-    __VERIFIER_assume((list_a != list_b));
-    __VERIFIER_assume((aws_array_list_is_valid(list_a)));
-    __VERIFIER_assume((aws_array_list_is_valid(list_b)));
+    assume_abort_if_not((list_a->alloc));
+    assume_abort_if_not((list_a->alloc == list_b->alloc));
+    assume_abort_if_not((list_a->item_size == list_b->item_size));
+    assume_abort_if_not((list_a != list_b));
+    assume_abort_if_not((aws_array_list_is_valid(list_a)));
+    assume_abort_if_not((aws_array_list_is_valid(list_b)));
 
     struct aws_array_list tmp = *list_a;
     *list_a = *list_b;
@@ -3370,8 +3373,8 @@ void aws_array_list_swap_contents(
 
 static inline
 size_t aws_array_list_capacity(const struct aws_array_list *restrict list) {
-    __VERIFIER_assume((list->item_size));
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((list->item_size));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     size_t capacity = list->current_size / list->item_size;
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return capacity;
@@ -3383,8 +3386,8 @@ size_t aws_array_list_length(const struct aws_array_list *restrict list) {
 
 
 
-    __VERIFIER_assume((!list->length || list->data));
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((!list->length || list->data));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     size_t len = list->length;
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return len;
@@ -3392,8 +3395,8 @@ size_t aws_array_list_length(const struct aws_array_list *restrict list) {
 
 static inline
 int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val, size_t index) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
 
                                                                                      ;
     if (aws_array_list_length(list) > index) {
@@ -3407,8 +3410,8 @@ int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val,
 
 static inline
 int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void **val, size_t index) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val != 
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val != 
    ((void *)0)
    ));
     if (aws_array_list_length(list) > index) {
@@ -3422,8 +3425,8 @@ int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void *
 
 static inline
 int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val, size_t index) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
-    __VERIFIER_assume((val && ((((list->item_size)) == 0) || ((val)))))
+    assume_abort_if_not((aws_array_list_is_valid(list)));
+    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
 
                                                                                      ;
 
@@ -3432,7 +3435,7 @@ int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val,
         return (-1);
     }
 
-    __VERIFIER_assume((list->data));
+    assume_abort_if_not((list->data));
 
     memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
 
@@ -3453,7 +3456,7 @@ int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val,
 
 static inline
 void aws_array_list_sort(struct aws_array_list *restrict list, aws_array_list_comparator_fn *compare_fn) {
-    __VERIFIER_assume((aws_array_list_is_valid(list)));
+    assume_abort_if_not((aws_array_list_is_valid(list)));
     if (list->data) {
         qsort(list->data, aws_array_list_length(list), list->item_size, compare_fn);
     }
@@ -4277,7 +4280,7 @@ static inline double aws_ntohf64(double x) {
 
 
 static inline uint32_t aws_hton24(uint32_t x) {
-    __VERIFIER_assume((x <= 0xFFFFFF));
+    assume_abort_if_not((x <= 0xFFFFFF));
     if (aws_is_big_endian()) {
         return x;
     } else {
@@ -4289,7 +4292,7 @@ static inline uint32_t aws_hton24(uint32_t x) {
 
 
 static inline uint32_t aws_ntoh24(uint32_t x) {
-    __VERIFIER_assume(((x) <= 0xFFFFFFF));
+    assume_abort_if_not(((x) <= 0xFFFFFFF));
     if (aws_is_big_endian()) {
         return x;
     } else {
@@ -4898,7 +4901,7 @@ _Bool
 
 static inline
 const uint8_t *aws_string_bytes(const struct aws_string *str) {
-    __VERIFIER_assume((aws_string_is_valid(str)));
+    assume_abort_if_not((aws_string_is_valid(str)));
     return str->bytes;
 }
 
@@ -6253,7 +6256,7 @@ static void s_suppress_unused_lookup3_func_warnings(void) {
 
 
 static uint64_t s_hash_for(struct hash_table_state *state, const void *key) {
-    __VERIFIER_assume((hash_table_state_is_valid(state)));
+    assume_abort_if_not((hash_table_state_is_valid(state)));
     s_suppress_unused_lookup3_func_warnings();
 
     if (key == 
@@ -6302,7 +6305,7 @@ static
 static 
       _Bool 
            s_hash_keys_eq(struct hash_table_state *state, const void *a, const void *b) {
-    __VERIFIER_assume((hash_table_state_is_valid(state)));
+    assume_abort_if_not((hash_table_state_is_valid(state)));
     
    _Bool 
         rval = s_safe_eq_check(state->equals_fn, a, b);
@@ -6310,7 +6313,7 @@ static
 }
 
 static size_t s_index_for(struct hash_table_state *map, struct hash_table_entry *entry) {
-    __VERIFIER_assume((hash_table_state_is_valid(map)));
+    assume_abort_if_not((hash_table_state_is_valid(map)));
     size_t index = entry - map->slots;
     do { __VERIFIER_assert((index < map->size && hash_table_state_is_valid(map))); return index; } while (0);
 }
@@ -6380,16 +6383,16 @@ int aws_hash_table_init(
     aws_hash_callback_eq_fn *equals_fn,
     aws_hash_callback_destroy_fn *destroy_key_fn,
     aws_hash_callback_destroy_fn *destroy_value_fn) {
-    __VERIFIER_assume((map != 
+    assume_abort_if_not((map != 
    ((void *)0)
    ));
-    __VERIFIER_assume((alloc != 
+    assume_abort_if_not((alloc != 
    ((void *)0)
    ));
-    __VERIFIER_assume((hash_fn != 
+    assume_abort_if_not((hash_fn != 
    ((void *)0)
    ));
-    __VERIFIER_assume((equals_fn != 
+    assume_abort_if_not((equals_fn != 
    ((void *)0)
    ));
 
@@ -6416,10 +6419,10 @@ int aws_hash_table_init(
 }
 
 void aws_hash_table_clean_up(struct aws_hash_table *map) {
-    __VERIFIER_assume((map != 
+    assume_abort_if_not((map != 
    ((void *)0)
    ));
-    __VERIFIER_assume((map->p_impl == 
+    assume_abort_if_not((map->p_impl == 
    ((void *)0) 
    || aws_hash_table_is_valid(map)))
 
@@ -6444,21 +6447,21 @@ void aws_hash_table_clean_up(struct aws_hash_table *map) {
 }
 
 void aws_hash_table_swap(struct aws_hash_table *restrict a, struct aws_hash_table *restrict b) {
-    __VERIFIER_assume((a != b));
+    assume_abort_if_not((a != b));
     struct aws_hash_table tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
 void aws_hash_table_move(struct aws_hash_table *restrict to, struct aws_hash_table *restrict from) {
-    __VERIFIER_assume((to != 
+    assume_abort_if_not((to != 
    ((void *)0)
    ));
-    __VERIFIER_assume((from != 
+    assume_abort_if_not((from != 
    ((void *)0)
    ));
-    __VERIFIER_assume((to != from));
-    __VERIFIER_assume((aws_hash_table_is_valid(from)));
+    assume_abort_if_not((to != from));
+    assume_abort_if_not((aws_hash_table_is_valid(from)));
 
     *to = *from;
     do { memset(&(*from), 0, sizeof(*from)); } while (0);
@@ -6562,8 +6565,8 @@ static int s_find_entry1(
 }
 
 int aws_hash_table_find(const struct aws_hash_table *map, const void *key, struct aws_hash_element **p_elem) {
-    __VERIFIER_assume((aws_hash_table_is_valid(map)));
-    __VERIFIER_assume((((((sizeof(*(p_elem)))) == 0) || (((p_elem))))));
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((((((sizeof(*(p_elem)))) == 0) || (((p_elem))))));
 
     struct hash_table_state *state = map->p_impl;
     uint64_t hash_code = s_hash_for(state, key);
@@ -6586,7 +6589,7 @@ static struct hash_table_entry *s_emplace_item(
     struct hash_table_state *state,
     struct hash_table_entry entry,
     size_t probe_idx) {
-    __VERIFIER_assume((hash_table_state_is_valid(state)));
+    assume_abort_if_not((hash_table_state_is_valid(state)));
 
     if (entry.hash_code == 0) {
         do { __VERIFIER_assert((hash_table_state_is_valid(state))); return 
@@ -6774,9 +6777,9 @@ int aws_hash_table_put(struct aws_hash_table *map, const void *key, void *value,
 
 
 static size_t s_remove_entry(struct hash_table_state *state, struct hash_table_entry *entry) {
-    __VERIFIER_assume((hash_table_state_is_valid(state)));
-    __VERIFIER_assume((state->entry_count > 0));
-    __VERIFIER_assume((entry >= &state->slots[0] && entry < &state->slots[state->size]))
+    assume_abort_if_not((hash_table_state_is_valid(state)));
+    assume_abort_if_not((state->entry_count > 0));
+    assume_abort_if_not((entry >= &state->slots[0] && entry < &state->slots[state->size]))
 
                                                                                     ;
     state->entry_count--;
@@ -6818,12 +6821,12 @@ int aws_hash_table_remove(
     const void *key,
     struct aws_hash_element *p_value,
     int *was_present) {
-    __VERIFIER_assume((aws_hash_table_is_valid(map)));
-    __VERIFIER_assume((p_value == 
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((p_value == 
    ((void *)0) 
    || ((((sizeof(*(p_value)))) == 0) || (((p_value))))))
                                                                                                                     ;
-    __VERIFIER_assume((was_present == 
+    assume_abort_if_not((was_present == 
    ((void *)0) 
    || ((((sizeof(*(was_present)))) == 0) || (((was_present))))))
 
@@ -6865,8 +6868,8 @@ int aws_hash_table_remove(
 }
 
 int aws_hash_table_remove_element(struct aws_hash_table *map, struct aws_hash_element *p_value) {
-    __VERIFIER_assume((aws_hash_table_is_valid(map)));
-    __VERIFIER_assume((p_value != 
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((p_value != 
    ((void *)0)
    ));
 
@@ -6912,9 +6915,9 @@ _Bool
     const struct aws_hash_table *a,
     const struct aws_hash_table *b,
     aws_hash_callback_eq_fn *value_eq) {
-    __VERIFIER_assume((aws_hash_table_is_valid(a)));
-    __VERIFIER_assume((aws_hash_table_is_valid(b)));
-    __VERIFIER_assume((value_eq != 
+    assume_abort_if_not((aws_hash_table_is_valid(a)));
+    assume_abort_if_not((aws_hash_table_is_valid(b)));
+    assume_abort_if_not((value_eq != 
    ((void *)0)
    ));
 
@@ -6959,10 +6962,10 @@ _Bool
    ; } while (0);
 }
 static inline void s_get_next_element(struct aws_hash_iter *iter, size_t start_slot) {
-    __VERIFIER_assume((iter != 
+    assume_abort_if_not((iter != 
    ((void *)0)
    ));
-    __VERIFIER_assume((aws_hash_table_is_valid(iter->map)));
+    assume_abort_if_not((aws_hash_table_is_valid(iter->map)));
     struct hash_table_state *state = iter->map->p_impl;
     size_t limit = iter->limit;
 
@@ -6988,7 +6991,7 @@ static inline void s_get_next_element(struct aws_hash_iter *iter, size_t start_s
 }
 
 struct aws_hash_iter aws_hash_iter_begin(const struct aws_hash_table *map) {
-    __VERIFIER_assume((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
     struct hash_table_state *state = map->p_impl;
     struct aws_hash_iter iter;
     do { memset(&(iter), 0, sizeof(iter)); } while (0);
@@ -7005,8 +7008,8 @@ struct aws_hash_iter aws_hash_iter_begin(const struct aws_hash_table *map) {
 
 _Bool 
     aws_hash_iter_done(const struct aws_hash_iter *iter) {
-    __VERIFIER_assume((aws_hash_iter_is_valid(iter)));
-    __VERIFIER_assume((iter->status == AWS_HASH_ITER_STATUS_DONE || iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
+    assume_abort_if_not((iter->status == AWS_HASH_ITER_STATUS_DONE || iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
 
                                                                            ;
 
@@ -7029,7 +7032,7 @@ _Bool
 }
 
 void aws_hash_iter_next(struct aws_hash_iter *iter) {
-    __VERIFIER_assume((aws_hash_iter_is_valid(iter)));
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
 
 
     s_get_next_element(iter, iter->slot + 1);
@@ -7044,10 +7047,10 @@ void aws_hash_iter_next(struct aws_hash_iter *iter) {
 void aws_hash_iter_delete(struct aws_hash_iter *iter, 
                                                      _Bool 
                                                           destroy_contents) {
-    __VERIFIER_assume((iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+    assume_abort_if_not((iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
                                                                                                                 ;
-    __VERIFIER_assume((aws_hash_iter_is_valid(iter)));
-    __VERIFIER_assume((iter->map->p_impl->entry_count > 0))
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
+    assume_abort_if_not((iter->map->p_impl->entry_count > 0))
 
                                                                                         ;
 
@@ -7077,7 +7080,7 @@ void aws_hash_iter_delete(struct aws_hash_iter *iter,
 }
 
 void aws_hash_table_clear(struct aws_hash_table *map) {
-    __VERIFIER_assume((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
     struct hash_table_state *state = map->p_impl;
 
 
@@ -7104,7 +7107,7 @@ void aws_hash_table_clear(struct aws_hash_table *map) {
 }
 
 uint64_t aws_hash_c_string(const void *item) {
-    __VERIFIER_assume((aws_c_string_is_valid(item)));
+    assume_abort_if_not((aws_c_string_is_valid(item)));
     const char *str = item;
 
 
@@ -7115,7 +7118,7 @@ uint64_t aws_hash_c_string(const void *item) {
 }
 
 uint64_t aws_hash_string(const void *item) {
-    __VERIFIER_assume((aws_string_is_valid(item)));
+    assume_abort_if_not((aws_string_is_valid(item)));
     const struct aws_string *str = item;
 
 
@@ -7125,7 +7128,7 @@ uint64_t aws_hash_string(const void *item) {
 }
 
 uint64_t aws_hash_byte_cursor_ptr(const void *item) {
-    __VERIFIER_assume((aws_byte_cursor_is_valid(item)));
+    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
     const struct aws_byte_cursor *cur = item;
 
 
@@ -7148,8 +7151,8 @@ uint64_t aws_hash_ptr(const void *item) {
 
 _Bool 
     aws_hash_callback_c_str_eq(const void *a, const void *b) {
-    __VERIFIER_assume((aws_c_string_is_valid(a)));
-    __VERIFIER_assume((aws_c_string_is_valid(b)));
+    assume_abort_if_not((aws_c_string_is_valid(a)));
+    assume_abort_if_not((aws_c_string_is_valid(b)));
     
    _Bool 
         rval = !strcmp(a, b);
@@ -7159,8 +7162,8 @@ _Bool
 
 _Bool 
     aws_hash_callback_string_eq(const void *a, const void *b) {
-    __VERIFIER_assume((aws_string_is_valid(a)));
-    __VERIFIER_assume((aws_string_is_valid(b)));
+    assume_abort_if_not((aws_string_is_valid(a)));
+    assume_abort_if_not((aws_string_is_valid(b)));
     
    _Bool 
         rval = aws_string_eq(a, b);
@@ -7168,7 +7171,7 @@ _Bool
 }
 
 void aws_hash_callback_string_destroy(void *a) {
-    __VERIFIER_assume((aws_string_is_valid(a)));
+    assume_abort_if_not((aws_string_is_valid(a)));
     aws_string_destroy(a);
 }
 
@@ -7463,7 +7466,7 @@ static inline void aws_linked_list_swap_contents(struct aws_linked_list *a, stru
 
 
 static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node) {
-    __VERIFIER_assume((node != 
+    assume_abort_if_not((node != 
    ((void *)0)
    ));
     do { memset(&(*node), 0, sizeof(*node)); } while (0);
@@ -7472,7 +7475,7 @@ static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node)
 static inline 
                _Bool 
                     aws_linked_list_empty(const struct aws_linked_list *list) {
-    __VERIFIER_assume((list));
+    assume_abort_if_not((list));
     return list->head.next == &list->tail;
 }
 
@@ -7561,7 +7564,7 @@ static inline
 
 
 static inline void aws_linked_list_init(struct aws_linked_list *list) {
-    __VERIFIER_assume((list));
+    assume_abort_if_not((list));
     list->head.next = &list->tail;
     list->head.prev = 
                      ((void *)0)
@@ -7578,7 +7581,7 @@ static inline void aws_linked_list_init(struct aws_linked_list *list) {
 
 
 static inline struct aws_linked_list_node *aws_linked_list_begin(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     struct aws_linked_list_node *rval = list->head.next;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((rval == list->head.next));
@@ -7589,7 +7592,7 @@ static inline struct aws_linked_list_node *aws_linked_list_begin(const struct aw
 
 
 static inline const struct aws_linked_list_node *aws_linked_list_end(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     const struct aws_linked_list_node *rval = &list->tail;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((rval == &list->tail));
@@ -7602,7 +7605,7 @@ static inline const struct aws_linked_list_node *aws_linked_list_end(const struc
 
 
 static inline struct aws_linked_list_node *aws_linked_list_rbegin(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     struct aws_linked_list_node *rval = list->tail.prev;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((rval == list->tail.prev));
@@ -7614,7 +7617,7 @@ static inline struct aws_linked_list_node *aws_linked_list_rbegin(const struct a
 
 
 static inline const struct aws_linked_list_node *aws_linked_list_rend(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     const struct aws_linked_list_node *rval = &list->head;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((rval == &list->head));
@@ -7625,7 +7628,7 @@ static inline const struct aws_linked_list_node *aws_linked_list_rend(const stru
 
 
 static inline struct aws_linked_list_node *aws_linked_list_next(const struct aws_linked_list_node *node) {
-    __VERIFIER_assume((aws_linked_list_node_next_is_valid(node)));
+    assume_abort_if_not((aws_linked_list_node_next_is_valid(node)));
     struct aws_linked_list_node *rval = node->next;
     __VERIFIER_assert((aws_linked_list_node_next_is_valid(node)));
     __VERIFIER_assert((aws_linked_list_node_prev_is_valid(rval)));
@@ -7637,7 +7640,7 @@ static inline struct aws_linked_list_node *aws_linked_list_next(const struct aws
 
 
 static inline struct aws_linked_list_node *aws_linked_list_prev(const struct aws_linked_list_node *node) {
-    __VERIFIER_assume((aws_linked_list_node_prev_is_valid(node)));
+    assume_abort_if_not((aws_linked_list_node_prev_is_valid(node)));
     struct aws_linked_list_node *rval = node->prev;
     __VERIFIER_assert((aws_linked_list_node_prev_is_valid(node)));
     __VERIFIER_assert((aws_linked_list_node_next_is_valid(rval)));
@@ -7651,8 +7654,8 @@ static inline struct aws_linked_list_node *aws_linked_list_prev(const struct aws
 static inline void aws_linked_list_insert_after(
     struct aws_linked_list_node *after,
     struct aws_linked_list_node *to_add) {
-    __VERIFIER_assume((aws_linked_list_node_next_is_valid(after)));
-    __VERIFIER_assume((to_add != 
+    assume_abort_if_not((aws_linked_list_node_next_is_valid(after)));
+    assume_abort_if_not((to_add != 
    ((void *)0)
    ));
     to_add->prev = after;
@@ -7669,10 +7672,10 @@ static inline void aws_linked_list_insert_after(
 
 
 static inline void aws_linked_list_swap_nodes(struct aws_linked_list_node *a, struct aws_linked_list_node *b) {
-    __VERIFIER_assume((aws_linked_list_node_prev_is_valid(a)));
-    __VERIFIER_assume((aws_linked_list_node_next_is_valid(a)));
-    __VERIFIER_assume((aws_linked_list_node_prev_is_valid(b)));
-    __VERIFIER_assume((aws_linked_list_node_next_is_valid(b)));
+    assume_abort_if_not((aws_linked_list_node_prev_is_valid(a)));
+    assume_abort_if_not((aws_linked_list_node_next_is_valid(a)));
+    assume_abort_if_not((aws_linked_list_node_prev_is_valid(b)));
+    assume_abort_if_not((aws_linked_list_node_next_is_valid(b)));
 
     if (a == b) {
         return;
@@ -7702,8 +7705,8 @@ static inline void aws_linked_list_swap_nodes(struct aws_linked_list_node *a, st
 static inline void aws_linked_list_insert_before(
     struct aws_linked_list_node *before,
     struct aws_linked_list_node *to_add) {
-    __VERIFIER_assume((aws_linked_list_node_prev_is_valid(before)));
-    __VERIFIER_assume((to_add != 
+    assume_abort_if_not((aws_linked_list_node_prev_is_valid(before)));
+    assume_abort_if_not((to_add != 
    ((void *)0)
    ));
     to_add->next = before;
@@ -7721,8 +7724,8 @@ static inline void aws_linked_list_insert_before(
 
 
 static inline void aws_linked_list_remove(struct aws_linked_list_node *node) {
-    __VERIFIER_assume((aws_linked_list_node_prev_is_valid(node)));
-    __VERIFIER_assume((aws_linked_list_node_next_is_valid(node)));
+    assume_abort_if_not((aws_linked_list_node_prev_is_valid(node)));
+    assume_abort_if_not((aws_linked_list_node_next_is_valid(node)));
     node->prev->next = node->next;
     node->next->prev = node->prev;
     aws_linked_list_node_reset(node);
@@ -7737,8 +7740,8 @@ static inline void aws_linked_list_remove(struct aws_linked_list_node *node) {
 
 
 static inline void aws_linked_list_push_back(struct aws_linked_list *list, struct aws_linked_list_node *node) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
-    __VERIFIER_assume((node != 
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((node != 
    ((void *)0)
    ));
     aws_linked_list_insert_before(&list->tail, node);
@@ -7750,8 +7753,8 @@ static inline void aws_linked_list_push_back(struct aws_linked_list *list, struc
 
 
 static inline struct aws_linked_list_node *aws_linked_list_back(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
-    __VERIFIER_assume((!aws_linked_list_empty(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((!aws_linked_list_empty(list)));
     struct aws_linked_list_node *rval = list->tail.prev;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((aws_linked_list_node_prev_is_valid(rval)));
@@ -7763,8 +7766,8 @@ static inline struct aws_linked_list_node *aws_linked_list_back(const struct aws
 
 
 static inline struct aws_linked_list_node *aws_linked_list_pop_back(struct aws_linked_list *list) {
-    __VERIFIER_assume((!aws_linked_list_empty(list)));
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((!aws_linked_list_empty(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     struct aws_linked_list_node *back = aws_linked_list_back(list);
     aws_linked_list_remove(back);
     __VERIFIER_assert((back->next == 
@@ -7780,8 +7783,8 @@ static inline struct aws_linked_list_node *aws_linked_list_pop_back(struct aws_l
 
 
 static inline void aws_linked_list_push_front(struct aws_linked_list *list, struct aws_linked_list_node *node) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
-    __VERIFIER_assume((node != 
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((node != 
    ((void *)0)
    ));
     aws_linked_list_insert_before(list->head.next, node);
@@ -7793,8 +7796,8 @@ static inline void aws_linked_list_push_front(struct aws_linked_list *list, stru
 
 
 static inline struct aws_linked_list_node *aws_linked_list_front(const struct aws_linked_list *list) {
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
-    __VERIFIER_assume((!aws_linked_list_empty(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((!aws_linked_list_empty(list)));
     struct aws_linked_list_node *rval = list->head.next;
     __VERIFIER_assert((aws_linked_list_is_valid(list)));
     __VERIFIER_assert((aws_linked_list_node_prev_is_valid(rval)));
@@ -7806,8 +7809,8 @@ static inline struct aws_linked_list_node *aws_linked_list_front(const struct aw
 
 
 static inline struct aws_linked_list_node *aws_linked_list_pop_front(struct aws_linked_list *list) {
-    __VERIFIER_assume((!aws_linked_list_empty(list)));
-    __VERIFIER_assume((aws_linked_list_is_valid(list)));
+    assume_abort_if_not((!aws_linked_list_empty(list)));
+    assume_abort_if_not((aws_linked_list_is_valid(list)));
     struct aws_linked_list_node *front = aws_linked_list_front(list);
     aws_linked_list_remove(front);
     __VERIFIER_assert((front->next == 
@@ -7820,8 +7823,8 @@ static inline struct aws_linked_list_node *aws_linked_list_pop_front(struct aws_
 }
 
 static inline void aws_linked_list_swap_contents(struct aws_linked_list *a, struct aws_linked_list *b) {
-    __VERIFIER_assume((aws_linked_list_is_valid(a)));
-    __VERIFIER_assume((aws_linked_list_is_valid(b)));
+    assume_abort_if_not((aws_linked_list_is_valid(a)));
+    assume_abort_if_not((aws_linked_list_is_valid(b)));
     struct aws_linked_list_node *a_first = a->head.next;
     struct aws_linked_list_node *a_last = a->tail.prev;
 

@@ -1,7 +1,10 @@
 int __return_main;
 void __VERIFIER_error();
 double __VERIFIER_nondet_double();
-void __VERIFIER_assume(int expression);
+void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 void __VERIFIER_assert(int cond);
 int main();
 int __return_76;

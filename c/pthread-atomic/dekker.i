@@ -1,4 +1,7 @@
-extern void __VERIFIER_assume(int);
+extern void abort(void); 
+void assume_abort_if_not(int cond) { 
+  if(!cond) {abort();}
+}
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -706,7 +709,7 @@ void *thr2(void *_) {
 }
 int main() {
   pthread_t t1, t2;
-  __VERIFIER_assume(0<=turn && turn<=1);
+  assume_abort_if_not(0<=turn && turn<=1);
   pthread_create(&t1, 0, thr1, 0);
   pthread_create(&t2, 0, thr2, 0);
   pthread_join(t1, 0);

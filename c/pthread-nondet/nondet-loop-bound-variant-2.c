@@ -14,7 +14,7 @@ void* thr1(void* arg) {
 void* thr2(void* arg) {
   int t;
   int k = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(k >= (SIZE/2) && k <= SIZE);
+  assume_abort_if_not(k >= (SIZE/2) && k <= SIZE);
   pthread_mutex_lock(&mut);
   t = x;
   if (k == n) {
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
   pthread_t t1, t2;
   x = 0;
   n = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(n >= (SIZE/2) && n < SIZE);
+  assume_abort_if_not(n >= (SIZE/2) && n < SIZE);
   pthread_create(&t1, 0, thr1, 0);
 
   for (int i = 0; i < n; i++) {
