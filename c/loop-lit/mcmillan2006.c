@@ -1,10 +1,6 @@
 // Source: Ken McMillan: "Lazy Abstraction With Interpolants", CAV 2006
 extern void *malloc (unsigned int __size) __attribute__ ((__nothrow__, __leaf__)) __attribute__ ((__malloc__)) ;
 extern int __VERIFIER_nondet_int();
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
-  if(!cond) {abort();}
-}
 
 #include "assert.h"
 
