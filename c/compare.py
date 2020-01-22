@@ -34,7 +34,7 @@ LARGE_CATEGORY_BLACKLIST = {
 # no original source available, there are only preprocessed files.
 # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
 # for loops/s3.i: this single file is special
-# for Juliet there are c files, but each was preprocessed into two tasks, one valid and one invalid 
+# for Juliet there are c files, but each was preprocessed into two tasks, one valid and one invalid
 TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i', 'Juliet_Test/']
 
 CBMC_GIT_PATH = "../cbmc.git/"
@@ -161,11 +161,19 @@ parser.add_argument("--skip-large", dest="SKIP_LARGE", action="store_true",
                     help="ignore large benchmark sets (see internal blacklist)")
 parser.add_argument(dest="setfiles", type=str, nargs='*', default=["*.set"],
                     help='set files to be analysed')
+parser.add_argument("-d", "--directory", dest="directories", type=str, action='append', default=None,
+                    help='directories with files to be analysed')
 args = parser.parse_args()
 
 build_goto_cc()
 
 EC=0
+
+if args.directories:
+  print("Analyzing only files from the following directories:\n    " + "\n    ".join(args.directories))
+  for directory in args.directories:
+    if not os.path.isdir(directory):
+      print("Directory '{}' does not exist.".format(directory))
 
 for setfile in get_setfiles(args):
   setname = os.path.basename(setfile)[:-4] # remove ending ".set"
@@ -183,6 +191,8 @@ for setfile in get_setfiles(args):
 
   i = 0
   for taskfile in get_tasks_from_set(setfile):
+    if args.directories and os.path.dirname(taskfile) not in args.directories:
+      continue
 
     if taskfile.endswith(".yml"):
       inputFiles = get_inputfiles_from_yml(taskfile)

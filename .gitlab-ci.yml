@@ -6,46 +6,85 @@ sanity-checks:
   image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks:latest
   script: "c/check.py"
 
-.compile-check: &compile-check
+.branch-compile-check: &branch-compile-check
   stage: checks
+  except: 
+    refs:
+      - master
+  script:
+    - "${CC} -v --version"
+    - "cd c"
+    - "./diff_ci.sh 'make -j2 -C'"
+
+.clang-3-9: &clang-3-9
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9
+  variables:
+    CC: clang-3.9
+
+.gcc-5: &gcc-5
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
+  variables:
+    CC: gcc-5 
+    
+branch-compile-clang:3.9:
+  <<: *branch-compile-check
+  <<: *clang-3-9
+
+branch-compile-gcc:5:
+  <<: *branch-compile-check
+  <<: *gcc-5
+
+.master-compile-check: &master-compile-check
+  stage: checks
+  only: 
+    refs:
+      - master
   script:
     - "${CC} -v --version"
     - "cd c"
     - "make -j2"
     
-.compile-check-juliet: &compile-check-juliet
+.master-compile-check-juliet: &master-compile-check-juliet
   stage: checks
+  only: 
+    refs:
+      - master
   script:
     - "${CC} -v --version"
     - "cd c/Juliet_Test"
     - "make -j2"    
 
-compile-clang:3.9:
-  <<: *compile-check
-  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9
-  variables:
-    CC: clang-3.9
+master-compile-clang:3.9:
+  <<: *master-compile-check
+  <<: *clang-3-9
 
-compile-gcc:5:
-  <<: *compile-check
-  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
-  variables:
-    CC: gcc-5    
+master-compile-gcc:5:
+  <<: *master-compile-check
+  <<: *gcc-5    
     
-compile-clang:3.9-juliet:
-  <<: *compile-check-juliet
-  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9
-  variables:
-    CC: clang-3.9
+master-compile-clang:3.9-juliet:
+  <<: *master-compile-check-juliet
+  <<: *clang-3-9
 
-compile-gcc:5-juliet:
-  <<: *compile-check-juliet
-  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
-  variables:
-    CC: gcc-5
+master-compile-gcc:5-juliet:
+  <<: *master-compile-check-juliet
+  <<: *gcc-5
 
-preprocessing-consistency:
+branch-preprocessing-consistency:
   stage: checks
+  except: 
+    refs:
+      - master
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency:latest
+  script:
+    - "cd c"
+    - "./diff_ci.sh './compare.py --keep-going --skip-large --directory'"
+
+master-preprocessing-consistency:
+  stage: checks
+  only: 
+    refs:
+      - master
   image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency:latest
   script:
     - "goto-diff --version"
