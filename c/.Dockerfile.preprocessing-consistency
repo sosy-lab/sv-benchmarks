@@ -21,6 +21,7 @@ RUN make -C cbmc/src -j2 goto-diff.dir goto-cc.dir
 FROM ubuntu:trusty
 
 RUN apt-get update && apt-get install -y \
+  git \
   libc6-dev-i386 \
   jq \
   python3-pip
