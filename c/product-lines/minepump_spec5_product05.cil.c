@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern int __VERIFIER_nondet_int(void);
 extern int printf (__const char *__restrict __format, ...);
@@ -670,7 +671,7 @@ void __automaton_fail(void)
 { 
 
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
   return;
 }
 }

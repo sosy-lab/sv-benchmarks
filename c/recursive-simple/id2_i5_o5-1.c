@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 int id(int x);
 int id2(int x);
@@ -18,6 +19,6 @@ int main(void) {
   int input = 5;
   int result = id(input);
   if (result == 5) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
 }

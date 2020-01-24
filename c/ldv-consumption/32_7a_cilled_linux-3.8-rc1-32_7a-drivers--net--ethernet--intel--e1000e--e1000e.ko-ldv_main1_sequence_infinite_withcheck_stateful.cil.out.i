@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -33941,7 +33942,7 @@ __inline static void ldv_error(void) __attribute__((__no_instrument_function__))
 __inline static void ldv_error(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern int __VERIFIER_nondet_int(void) ;

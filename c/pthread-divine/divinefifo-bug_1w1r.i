@@ -979,7 +979,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-void __VERIFIER_error( void );
+void abort(void); 
+void reach_error(){}
 struct FifoNode_ {
     int *read;
     int buffer[ 2 ];
@@ -1002,13 +1003,13 @@ _Bool fifo_empty( Fifo *self ) {
 }
 Fifo *fifo_init( Fifo *self ) {
     self->head = self->tail = fifo_node_init( malloc( sizeof( FifoNode ) ) );
-    (!(fifo_empty( self )) ? __VERIFIER_error() : (void)0);
+    (!(fifo_empty( self )) ? reach_error() : (void)0);
     return self;
 }
 void *fifo_destroy( Fifo *self ) {
     while ( self->head != self->tail ) {
         FifoNode *next = self->head->next;
-        (!(next != 0) ? __VERIFIER_error() : (void)0);
+        (!(next != 0) ? reach_error() : (void)0);
         free( self->head );
         self->head = next;
     }
@@ -1040,12 +1041,12 @@ int fifo_size( Fifo *self ) {
 void fifo_drop_head( Fifo *self ) {
     FifoNode *old = self->head;
     self->head = self->head->next;
-    (!(!!self->head) ? __VERIFIER_error() : (void)0);
+    (!(!!self->head) ? reach_error() : (void)0);
     free( old );
 }
 void fifo_pop( Fifo *self ) {
   again:
-    (!(!fifo_empty( self )) ? __VERIFIER_error() : (void)0);
+    (!(!fifo_empty( self )) ? reach_error() : (void)0);
     ++self->head->read;
     if ( self->head->read == self->head->buffer + 2 ) {
         if ( self->head->next != ((void *)0) )
@@ -1061,8 +1062,8 @@ void fifo_pop( Fifo *self ) {
 }
 int *fifo_front( Fifo *self, _Bool wait ) {
     while ( wait && fifo_empty( self ) ) ;
-    (!(!!self->head) ? __VERIFIER_error() : (void)0);
-    (!(!fifo_empty( self )) ? __VERIFIER_error() : (void)0);
+    (!(!!self->head) ? reach_error() : (void)0);
+    (!(!fifo_empty( self )) ? reach_error() : (void)0);
     if ( self->head->read == self->head->buffer + 2 ) {
         fifo_drop_head( self );
     }
@@ -1082,11 +1083,11 @@ int main() {
     for ( int i = 0; i < 7; ++i ) {
         int got = *fifo_front( &q, 1 );
         fifo_pop( &q );
-        (!(got == 42 + i) ? __VERIFIER_error() : (void)0);
+        (!(got == 42 + i) ? reach_error() : (void)0);
     }
-    (!(fifo_empty( &q )) ? __VERIFIER_error() : (void)0);
+    (!(fifo_empty( &q )) ? reach_error() : (void)0);
     pthread_join( p, 0 );
-    (!(fifo_empty( &q )) ? __VERIFIER_error() : (void)0);
+    (!(fifo_empty( &q )) ? reach_error() : (void)0);
     fifo_destroy( &q );
     return 0;
 }

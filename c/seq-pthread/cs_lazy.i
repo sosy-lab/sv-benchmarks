@@ -1,5 +1,6 @@
 extern void abort(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern void __assert_fail (const char *__assertion, const char *__file,
       unsigned int __line, const char *__function)
@@ -522,7 +523,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: __VERIFIER_error();
+          ERROR: {reach_error();abort();}
                    }
       return;
 }

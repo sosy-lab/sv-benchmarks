@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -2903,11 +2904,11 @@ static void do_display(struct termios *mode, signed int all)
     if(2l * (signed long int)i >= 0l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed long int)i < 17l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     ch = mode->c_cc[(signed long int)control_info[(signed long int)i].offset];
     if((signed int)ch == 0)
       strcpy(((struct globals *)&bb_common_bufsiz1)->buf, "<undef>");
@@ -2931,11 +2932,11 @@ static void do_display(struct termios *mode, signed int all)
     if(8l * (signed long int)i >= 0l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed long int)i < 86l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((8 & (signed int)mode_info[(signed long int)i].flags) == 0)
     {
       if(!((signed int)mode_info[(signed long int)i].type == prev_type))
@@ -2944,30 +2945,30 @@ static void do_display(struct termios *mode, signed int all)
         if(8l * (signed long int)i >= 0l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         if((signed long int)i < 86l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         prev_type = (signed int)mode_info[(signed long int)i].type;
       }
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if((signed long int)i < 86l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       bitsp=get_ptr_to_tcflag((unsigned int)mode_info[(signed long int)i].type, mode);
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if((signed long int)i < 86l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if(!((signed int)mode_info[(signed long int)i].mask == 0))
         tmp_if_expr$2 = (unsigned int)mode_info[(signed long int)i].mask;
       else
@@ -2975,22 +2976,22 @@ static void do_display(struct termios *mode, signed int all)
         if(8l * (signed long int)i >= 0l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         if((signed long int)i < 86l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         tmp_if_expr$2 = mode_info[(signed long int)i].bits;
       }
       mask = (unsigned long int)tmp_if_expr$2;
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if((signed long int)i < 86l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if((mask & (unsigned long int)*bitsp) == (unsigned long int)mode_info[(signed long int)i].bits)
       {
         if(!(all == 0))
@@ -3000,11 +3001,11 @@ static void do_display(struct termios *mode, signed int all)
           if(8l * (signed long int)i >= 0l)
             (void)0;
           else
-            __VERIFIER_error();
+            {reach_error();abort();}
           if((signed long int)i < 86l)
             (void)0;
           else
-            __VERIFIER_error();
+            {reach_error();abort();}
           tmp_if_expr$4 = (((signed int)mode_info[(signed long int)i].flags & 2) != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         if(!(tmp_if_expr$4 == (_Bool)0))
@@ -3020,11 +3021,11 @@ static void do_display(struct termios *mode, signed int all)
           if(8l * (signed long int)i >= 0l)
             (void)0;
           else
-            __VERIFIER_error();
+            {reach_error();abort();}
           if((signed long int)i < 86l)
             (void)0;
           else
-            __VERIFIER_error();
+            {reach_error();abort();}
           tmp_if_expr$6 = (((signed int)mode_info[(signed long int)i].flags & 4) != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         else
@@ -3038,11 +3039,11 @@ static void do_display(struct termios *mode, signed int all)
             if(8l * (signed long int)i >= 0l)
               (void)0;
             else
-              __VERIFIER_error();
+              {reach_error();abort();}
             if((signed long int)i < 86l)
               (void)0;
             else
-              __VERIFIER_error();
+              {reach_error();abort();}
             tmp_if_expr$7 = (((signed int)mode_info[(signed long int)i].flags & (1 | 4)) == (1 | 4) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           else
@@ -3129,7 +3130,7 @@ static unsigned int * get_ptr_to_tcflag(unsigned int type, struct termios *mode)
     if((signed long int)type < 4l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     static const unsigned char tcflag_offsets[4l] = { (const unsigned char)8ul, (const unsigned char)0ul, (const unsigned char)4ul, (const unsigned char)12ul };
     return (unsigned int *)((char *)mode + (signed long int)tcflag_offsets[(signed long int)type]);
   }
@@ -3265,11 +3266,11 @@ static void sane_mode(struct termios *mode)
     if(2l * (signed long int)i >= 0l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed long int)i < 17l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     mode->c_cc[(signed long int)control_info[(signed long int)i].offset] = control_info[(signed long int)i].saneval;
   }
   i = 0;
@@ -3280,22 +3281,22 @@ static void sane_mode(struct termios *mode)
     if(8l * (signed long int)i >= 0l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed long int)i < 86l)
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     bitsp=get_ptr_to_tcflag((unsigned int)mode_info[(signed long int)i].type, mode);
     if(!(bitsp == ((unsigned int *)((void *)0))))
     {
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       if((signed long int)i < 86l)
         (void)0;
       else
-        __VERIFIER_error();
+        {reach_error();abort();}
       val = (unsigned int)((unsigned long int)*bitsp & ~((unsigned long int)mode_info[(signed long int)i].mask));
       if(!((1 & (signed int)mode_info[(signed long int)i].flags) == 0))
         *bitsp = val | mode_info[(signed long int)i].bits;
@@ -3304,11 +3305,11 @@ static void sane_mode(struct termios *mode)
         if(8l * (signed long int)i >= 0l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         if((signed long int)i < 86l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         if(!((2 & (signed int)mode_info[(signed long int)i].flags) == 0))
         {
           *bitsp = val & ~mode_info[(signed long int)i].bits;
@@ -3392,7 +3393,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                 {
                   if(__result == 0)
                   {
-                    __VERIFIER_error();
+                    {reach_error();abort();}
                     __result = (signed int)((const char *)"^-")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
                 }
@@ -4206,7 +4207,7 @@ static void wrapf(const char *message, ...)
   if((signed long int)(4294967295u + buflen) < 128l)
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   if((signed int)buf[(signed long int)(4294967295u + buflen)] == 10)
     ((struct globals *)&bb_common_bufsiz1)->current_col = (unsigned int)0;
 }

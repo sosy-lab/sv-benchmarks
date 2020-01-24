@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -4281,7 +4282,7 @@ struct request *ldv_blk_make_request_5(struct request_queue *ldv_func_arg1 , str
 __inline static void ldv_error(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 long ldv__builtin_expect(long exp , long c )

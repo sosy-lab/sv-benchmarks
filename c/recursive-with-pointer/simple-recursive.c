@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 void foo(int *p);
 
 void plus(int *p){
@@ -13,7 +14,7 @@ void foo(int *p) {
       return;
   }else
   {
-      ERRORLABEL:__VERIFIER_error();
+      ERRORLABEL:{reach_error();abort();}
   }
 }
 

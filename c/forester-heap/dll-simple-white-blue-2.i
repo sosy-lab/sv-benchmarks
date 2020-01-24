@@ -971,7 +971,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -1048,7 +1049,7 @@ int main()
     while (x)
  {
   if (x->data == 1)
-   do { if (!(0)) __VERIFIER_error();} while (0);
+   do { if (!(0)) {reach_error();abort();}} while (0);
         x = x->next;
     }
 

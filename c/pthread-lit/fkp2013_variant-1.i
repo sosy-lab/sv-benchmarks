@@ -669,14 +669,15 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return;
 }

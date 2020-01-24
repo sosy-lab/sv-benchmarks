@@ -552,7 +552,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-void __VERIFIER_error(void);
+void abort(void); 
+void reach_error(){}
 void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -659,15 +660,15 @@ struct ldv_list_head mutexes = { &(mutexes), &(mutexes) };
 void ldv_initialize() {
 }
 void mutex_lock(struct mutex *m) {
- if (ldv_is_in_set(m, &mutexes)) __VERIFIER_error();
+ if (ldv_is_in_set(m, &mutexes)) {reach_error();abort();}
  ldv_set_add(m, &mutexes);
 }
 void mutex_unlock(struct mutex *m) {
- if (!ldv_is_in_set(m, &mutexes)) __VERIFIER_error();
+ if (!ldv_is_in_set(m, &mutexes)) {reach_error();abort();}
  ldv_set_del(m, &mutexes);
 }
 void ldv_check_final_state() {
- if(!ldv_set_empty(&mutexes)) __VERIFIER_error();
+ if(!ldv_set_empty(&mutexes)) {reach_error();abort();}
 }
 struct mutex_list_elem {
  struct mutex m;

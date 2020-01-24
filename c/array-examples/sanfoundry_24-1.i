@@ -1,6 +1,7 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
-void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: {reach_error();abort();} } }
 void printEven( int i ) {
   __VERIFIER_assert( ( i % 2 ) == 0 );
 }

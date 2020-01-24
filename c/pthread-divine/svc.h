@@ -1,9 +1,10 @@
 #ifndef SVC_H
 #define SVC_H
 
-void __VERIFIER_error( void );
+void abort(void); 
+void reach_error(){}
 
 #undef assert
-#define assert( X ) (!(X) ? __VERIFIER_error() : (void)0)
+#define assert( X ) (!(X) ? reach_error() : (void)0)
 
 #endif // SVC_H

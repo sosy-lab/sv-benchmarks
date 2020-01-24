@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 int main() {
 	unsigned a, b, c, d, e;
@@ -12,7 +13,7 @@ int main() {
 				for (d = 0; d < uint32_max - 1; ++d) {
 					for (e = 0; e < uint32_max - 1; ++e) {
 						if ((a == b) && (b == c) && (c == d) && (d == e) && (e == (uint32_max - 2))) {
-							__VERIFIER_error();
+							{reach_error();abort();}
 						}
 					}
 				}

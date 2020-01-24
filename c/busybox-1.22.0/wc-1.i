@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -3021,7 +3022,7 @@ signed int __main(signed int argc, char **argv)
         if((signed long int)u < 5l)
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         totals[(signed long int)u] = totals[(signed long int)u] + pcounts[(signed long int)u];
         u = u + 1u;
         if(!(u < 5u))

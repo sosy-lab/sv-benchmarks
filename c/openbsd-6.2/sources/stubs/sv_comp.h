@@ -1,6 +1,7 @@
 #include "sys/types.h"
 
-void __VERIFIER_error(void) __attribute__((__noreturn__));
+void abort(void); 
+void reach_error(){}
 void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}

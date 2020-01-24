@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 int main (int argc, char **argv) {
   float f =  0x1.9e0c22p-101f;
@@ -7,7 +8,7 @@ int main (int argc, char **argv) {
 
   float result = f * g;
 
-  if(!(result == target)) __VERIFIER_error();
+  if(!(result == target)) {reach_error();abort();}
 
   return 0;
 }

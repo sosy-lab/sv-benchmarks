@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned short __u16;
 typedef int __s32;
 typedef unsigned int __u32;
@@ -2726,7 +2727,7 @@ void main(void)
 void ldv_blast_assert(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern int __VERIFIER_nondet_int(void) ;

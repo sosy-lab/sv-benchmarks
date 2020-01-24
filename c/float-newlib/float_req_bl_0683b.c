@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -252,7 +253,7 @@ int main() {
 
     // x is +inf, y > 0.0 and y != -inf, the result shall be 0.0
     if (!(res == 0.0f && __signbit_float(res) == 0)) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

@@ -1,7 +1,8 @@
 /* shift_add algorithm for computing the 
    product of two natural numbers
 */
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double(void);
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
@@ -10,7 +11,7 @@ void assume_abort_if_not(int cond) {
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
-        __VERIFIER_error();
+        {reach_error();abort();}
     }
     return;
 }

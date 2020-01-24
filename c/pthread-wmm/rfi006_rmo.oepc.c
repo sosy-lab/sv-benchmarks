@@ -4,8 +4,9 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern _Bool __VERIFIER_nondet_bool(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
+extern void abort(void); 
+void reach_error(){}
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();} }; return; }
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 

@@ -971,7 +971,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef struct TSLL
 {
  struct TSLL* next;
@@ -994,10 +995,10 @@ int main()
  x = head;
  while (x->next != ((void*)0) && __VERIFIER_nondet_int())
  {
-  do { if (!(x != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(x != ((void*)0))) {reach_error();abort();}} while (0);
   x = x->next;
  }
- do { if (!(x != ((void*)0))) __VERIFIER_error();} while (0);
+ do { if (!(x != ((void*)0))) {reach_error();abort();}} while (0);
 
  x->data = 1;
 
@@ -1032,7 +1033,7 @@ int main()
   int t2 = 0;
   if (t1 == 2)
    t2 = x->next->data;
-  do { if (!(t1 != 2 || t2 == 1)) __VERIFIER_error();} while (0);
+  do { if (!(t1 != 2 || t2 == 1)) {reach_error();abort();}} while (0);
 
 
   if (x->data == 2)

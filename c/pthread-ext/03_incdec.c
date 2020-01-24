@@ -3,7 +3,8 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
 //Listing 2. A counter using locks
@@ -11,7 +12,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <pthread.h>
 
 #define assume(e) assume_abort_if_not(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 #define atomic_assert(e) {__VERIFIER_atomic_acquire();assert(e);__VERIFIER_atomic_release();}
 

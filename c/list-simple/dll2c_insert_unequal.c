@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /*
  * Create circular dll of size 2: 1-1
  * Insert node at middle index 1 with data = 5. Check result: 1-5-1
@@ -121,6 +122,6 @@ int main(void) {
 
   dll_circular_destroy(s);
   return 0;
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
   return 1;
 }

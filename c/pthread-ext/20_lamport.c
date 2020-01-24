@@ -1,8 +1,9 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 int x;
 int y;

@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -711,7 +712,7 @@ inline int PseudoRandomUsingAtomic_nex()
  return nex_return;
 }
 void* thr1(void* arg){
-  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: {reach_error();abort();}(void)0; } };
   return 0;
 }
 int main()

@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -698,14 +699,14 @@ void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
 void __VERIFIER_atomic_check_progress1(int readerstart1) {
   if (__VERIFIER_nondet_int()) {
     assume_abort_if_not(readerstart1 == 1 && readerprogress1 == 1);
-    if (!(0)) ERROR: __VERIFIER_error();
+    if (!(0)) ERROR: {reach_error();abort();}
   }
   return;
 }
 void __VERIFIER_atomic_check_progress2(int readerstart2) {
   if (__VERIFIER_nondet_int()) {
     assume_abort_if_not(readerstart2 == 1 && readerprogress2 == 1);
-    if (!(0)) ERROR: __VERIFIER_error();
+    if (!(0)) ERROR: {reach_error();abort();}
   }
   return;
 }

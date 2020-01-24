@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
@@ -13,7 +14,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error()
+#define assert(e) if (!(e)) ERROR: reach_error()
 
 int w=0, r=0, x, y;
 

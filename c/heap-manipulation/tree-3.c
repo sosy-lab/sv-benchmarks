@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdlib.h>
 
@@ -9,7 +10,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
-ERROR: __VERIFIER_error();
+ERROR: {reach_error();abort();}
 }
 
 #define ___MY_ASSERT(cond) do {     \

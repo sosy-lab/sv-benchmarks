@@ -17,17 +17,17 @@ void ldv_initialize() {
 
 void mutex_lock(struct mutex *m) {
 	
-	if (ldv_is_in_set(m, &mutexes)) __VERIFIER_error();
+	if (ldv_is_in_set(m, &mutexes)) {reach_error();abort();}
 	ldv_set_add(m, &mutexes);
 }
 
 void mutex_unlock(struct mutex *m) {
-	if (!ldv_is_in_set(m, &mutexes)) __VERIFIER_error();
+	if (!ldv_is_in_set(m, &mutexes)) {reach_error();abort();}
 	ldv_set_del(m, &mutexes);
 }
 
 
 void ldv_check_final_state() {
-	if(!ldv_set_empty(&mutexes)) __VERIFIER_error();
+	if(!ldv_set_empty(&mutexes)) {reach_error();abort();}
 }
 

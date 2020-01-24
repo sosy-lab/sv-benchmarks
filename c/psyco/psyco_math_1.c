@@ -1,5 +1,6 @@
 int __VERIFIER_nondet_int();
-extern void __VERIFIER_error() __attribute__((noreturn));
+extern void abort(void); 
+void reach_error(){}
 
 // method ids
 int m_isPowerOfTwo = 1;
@@ -357,5 +358,5 @@ int main() {
 
   return 0;
 
- ERROR:  __VERIFIER_error();
+ ERROR:  {reach_error();abort();}
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 int sep (int x[20])
 {
@@ -34,7 +35,7 @@ int main ()
   ret5 = sep(x);
 
   if(ret != ret2 || ret !=ret5){
-    __VERIFIER_error();
+    {reach_error();abort();}
   }
   return 1;
 }

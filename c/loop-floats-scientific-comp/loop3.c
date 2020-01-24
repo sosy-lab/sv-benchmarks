@@ -3,12 +3,13 @@
  * sin(x) < cos(x) for x in (0,pi/4)
  * */
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: {reach_error();abort();} } }
 
 float pi = 3.14159 ;
 extern float __VERIFIER_nondet_float() ;

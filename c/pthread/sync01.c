@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdio.h> 
 #include <pthread.h>
@@ -59,7 +60,7 @@ int main()
 
   if (num!=1)
   {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
     ;
   }
 

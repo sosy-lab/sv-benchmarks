@@ -1,7 +1,8 @@
 #define N 10000
 #define fun bor
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 
 int bor (int x[N])
@@ -39,7 +40,7 @@ int main ()
   ret5 = fun(x);
 
   if(ret != ret2 || ret !=ret5){ 
-    __VERIFIER_error();
+    {reach_error();abort();}
   }
   return 1;
 }

@@ -1,10 +1,11 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern unsigned int __VERIFIER_nondet_uint();
 
 #include <pthread.h>
 
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void* thr1(void* arg){
   unsigned int x=__VERIFIER_nondet_uint(), y=__VERIFIER_nondet_uint(), z=__VERIFIER_nondet_uint();

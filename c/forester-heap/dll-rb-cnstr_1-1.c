@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) {reach_error();abort();}} while (0)
 /**
  * Red-black list, i.e. a list with coloured nodes (black or red) that satisfies
  * the condition B . (B + RB)*
@@ -6,7 +6,8 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef enum {RED, BLACK} Colour;
 

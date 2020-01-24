@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
 
@@ -1779,7 +1780,7 @@ void Operation(Obj *r) {
     r->field++;
 }
 void Check(Obj *r) {
-    if(!(r->field == 1)) __VERIFIER_error();
+    if(!(r->field == 1)) {reach_error();abort();}
 }
 typedef struct WorkStealQueue {
     pthread_mutex_t cs;
@@ -1886,7 +1887,7 @@ void SyncPush(Obj* elem) {
     writeV(&q.tail, h + count);
     if (count >= q.mask) {
         long newsize = (q.mask == 0 ? q.InitialSize : 2 * (q.mask + 1));
-        if(!(newsize < q.MaxSize)) __VERIFIER_error();
+        if(!(newsize < q.MaxSize)) {reach_error();abort();}
         Obj *newtasks[16];
         long i;
         for (i = 0; i < count; i++) {
@@ -1900,7 +1901,7 @@ void SyncPush(Obj* elem) {
         writeV(&q.head, 0);
         writeV(&q.tail, count);
     }
-    if(!(count < q.mask)) __VERIFIER_error();
+    if(!(count < q.mask)) {reach_error();abort();}
     long t = readV(&q.tail);
     long temp = t & q.mask;
     q.elems[temp] = elem;

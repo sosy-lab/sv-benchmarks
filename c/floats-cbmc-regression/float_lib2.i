@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 typedef long double float_t;
 typedef long double double_t;
@@ -362,13 +363,13 @@ extern int matherr (struct exception *__exc);
 int main (void)
 {
   float largestSubnormalFloat = 0x1.fffffcp-127f;
-  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 0)) __VERIFIER_error();
-  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 1)) __VERIFIER_error();
-  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 2)) __VERIFIER_error();
-  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 4)) __VERIFIER_error();
-  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) == 3)) __VERIFIER_error();
-  if(!(__fpclassifyf(largestSubnormalFloat) == 3)) __VERIFIER_error();
+  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 0)) {reach_error();abort();}
+  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 1)) {reach_error();abort();}
+  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 2)) {reach_error();abort();}
+  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) != 4)) {reach_error();abort();}
+  if(!((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) == 3)) {reach_error();abort();}
+  if(!(__fpclassifyf(largestSubnormalFloat) == 3)) {reach_error();abort();}
   char b = ((sizeof (largestSubnormalFloat) == sizeof (float) ? __fpclassifyf (largestSubnormalFloat) : sizeof (largestSubnormalFloat) == sizeof (double) ? __fpclassify (largestSubnormalFloat) : __fpclassifyl (largestSubnormalFloat)) == 4);
-  if(!(!b)) __VERIFIER_error();
+  if(!(!b)) {reach_error();abort();}
   return 0;
 }

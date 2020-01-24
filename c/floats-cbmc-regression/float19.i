@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 
 
@@ -954,7 +955,7 @@ extern int matherr (struct exception *__exc);
 void f00 (float f)
 {
   if (f > 0x1.FFFFFEp+127) {
-    if(!((sizeof (f) == sizeof (float) ? __isinff (f) : sizeof (f) == sizeof (double) ? __isinf (f) : __isinfl (f)))) __VERIFIER_error();
+    if(!((sizeof (f) == sizeof (float) ? __isinff (f) : sizeof (f) == sizeof (double) ? __isinf (f) : __isinfl (f)))) {reach_error();abort();}
   }
 }
 

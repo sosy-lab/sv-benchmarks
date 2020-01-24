@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 void *malloc(unsigned int size);
 extern int __VERIFIER_nondet_int(void);
 struct _IO_FILE;
@@ -150,7 +151,7 @@ struct smp_func_def_rrlen smp_def_rrlen_arr [32] = {{0x0, 0, 6}, {0x1, 0, 14}, {
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return;
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 long ldv__builtin_expect(long val, long res);
 
@@ -30068,7 +30069,7 @@ void main(void) {
 
 
 void ldv_blast_assert(void) {
-ERROR: __VERIFIER_error();
+ERROR: {reach_error();abort();}
 }
 
 int __VERIFIER_nondet_int(void);

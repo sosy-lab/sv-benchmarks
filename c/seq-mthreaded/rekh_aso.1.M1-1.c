@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /**********************************************************************
 
@@ -88,7 +89,7 @@ unsigned char __startrek_hyper_period  ;
 #pragma merger(0,"/tmp/aaaa/aso.ok1.i","-S")
 extern void __startrek_cpu_lock(void) ;
 extern void __startrek_cpu_unlock(void) ;
-void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error();} }
+void assert(_Bool arg) { if (!arg) { ERROR: {reach_error();abort();}} }
 static unsigned int ud_err_theta  ;
 static unsigned int ud_psi  ;
 static unsigned int ud_theta_lpf  ;

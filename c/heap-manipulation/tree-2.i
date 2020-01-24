@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -551,7 +552,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
-ERROR: __VERIFIER_error();
+ERROR: {reach_error();abort();}
 }
 struct node {
     struct node *left;

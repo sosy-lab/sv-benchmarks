@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 float __VERIFIER_nondet_float();
 void abort(void); 
 void assume_abort_if_not(int cond) { 
@@ -54,7 +55,7 @@ int __return_87;
  __VERIFIER_assert__cond = __tmp_2;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

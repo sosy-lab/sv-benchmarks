@@ -1,10 +1,11 @@
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 void f(int n) {
   if (n<3) return;
   n--;
   f(n);
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 
 int main(void) {

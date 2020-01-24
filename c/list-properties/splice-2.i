@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 typedef unsigned int size_t;
 typedef long int wchar_t;
@@ -570,5 +571,5 @@ int main() {
     p = p->n;
   }
   return 0;
-  ERROR: __VERIFIER_error(); return 1;
+  ERROR: {reach_error();abort();} return 1;
 }

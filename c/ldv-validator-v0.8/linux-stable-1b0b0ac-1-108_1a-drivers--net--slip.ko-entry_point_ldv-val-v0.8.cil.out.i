@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -7638,7 +7639,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 void ldv_check_callback_ret_val(int ret_val )

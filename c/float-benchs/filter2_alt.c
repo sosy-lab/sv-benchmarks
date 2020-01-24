@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* This example comes from "Varieties of Static Analyzers: A Comparison 
    with ASTRÉE" by Cousot, Cousot, Feret, Mauborgne, Miné, Monniaux, 
    and Rival, published in TASE 07.
@@ -9,7 +10,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 
 typedef enum { FALSE = 0, TRUE = 1 } BOOLEAN;

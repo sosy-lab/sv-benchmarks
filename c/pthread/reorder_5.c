@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -2614,7 +2615,7 @@ void *setThread(void *param) {
 void *checkThread(void *param) {
     if (! ((a == 0 && b == 0) || (a == 1 && b == -1))) {
         fprintf(stderr, "Bug found!\n");
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     }
 
     return ((void *)0);

@@ -406,13 +406,13 @@ static signed int cmpfunc(const void *a, const void *b)
 
   else
     /* assertion !(a == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   if(!(b == NULL))
     (void)0;
 
   else
     /* assertion !(b == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   return ((struct cut_list *)a)->startpos - ((struct cut_list *)b)->startpos;
 }
 

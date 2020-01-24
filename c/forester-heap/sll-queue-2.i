@@ -971,7 +971,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef struct TSLL
 {
@@ -1010,36 +1011,36 @@ int main()
    status = 3;
   }
 
-  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(item != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(item != ((void*)0))) {reach_error();abort();}} while (0);
  }
 
- do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
+ do { if (!(head != ((void*)0))) {reach_error();abort();}} while (0);
  if (status == 1)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next != ((void*)0))) {reach_error();abort();}} while (0);
  }
  if (status == 2)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next->next != ((void*)0))) {reach_error();abort();}} while (0);
  }
  if (status == 3)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next->next->next != ((void*)0))) __VERIFIER_error();} while (0);
-  do { if (!(head->next->next->next->data != 3)) __VERIFIER_error();} while (0);
+  do { if (!(head != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next->next != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next->next->next != ((void*)0))) {reach_error();abort();}} while (0);
+  do { if (!(head->next->next->next->data != 3)) {reach_error();abort();}} while (0);
  }
 
  item = head->next;
 
  while(item && __VERIFIER_nondet_int())
  {
-  do { if (!(!status || item->data > 0)) __VERIFIER_error();} while (0);
+  do { if (!(!status || item->data > 0)) {reach_error();abort();}} while (0);
   item = item->next;
  }
 

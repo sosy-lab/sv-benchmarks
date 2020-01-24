@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -965,5 +966,5 @@ int main()
    }
    while( f < 3.14159265358979323846 );
 
-   if(!( n < 11 )) __VERIFIER_error();
+   if(!( n < 11 )) {reach_error();abort();}
 }

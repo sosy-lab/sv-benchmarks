@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -3312,7 +3313,7 @@ __unused__, __section__("___ksymtab_gpl+i1480_fw_upload"))) = {(unsigned long )(
 void ldv_blast_assert(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern void *ldv_undefined_pointer(void) ;

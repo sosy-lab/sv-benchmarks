@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -2742,11 +2743,11 @@ static signed int check_operator(const char *s)
   if(2l * (signed long int)n >= 0l)
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   if((signed long int)n < 40l)
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   return (signed int)ops_table[(signed long int)n].op_num;
 }
 static signed int fflush_all(void)
@@ -3192,7 +3193,7 @@ signed int __main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    __VERIFIER_error();
+                    {reach_error();abort();}
                     __result = (signed int)((const char *)"]]")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
                 }

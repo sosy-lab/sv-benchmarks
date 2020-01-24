@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern long __VERIFIER_nondet_long(void);
 
 
@@ -746,7 +747,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__));
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
 }
 
 

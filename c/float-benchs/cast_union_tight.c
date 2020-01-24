@@ -1,10 +1,11 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from "Abstract Domains for Bit-Level Machine Integer and
    Floating-point Operations" by Miné, published in WING 12.
 */
 
 extern int  __VERIFIER_nondet_int(void);
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 union u { 
   int i[2];

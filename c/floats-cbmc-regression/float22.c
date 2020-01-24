@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 /*
 ** float-union-assignment.cpp
 **
@@ -51,7 +52,7 @@ void testOne (void) {
    f1 = returnsStructure(0);
    f2 = returnsStructure(1);
 
-   if(!(f1.ieee.negative != f2.ieee.negative)) __VERIFIER_error();
+   if(!(f1.ieee.negative != f2.ieee.negative)) {reach_error();abort();}
 
    return;
 }
@@ -63,12 +64,12 @@ void testTwo (void) {
    f1 = returnsStructure(0);
    f2 = returnsStructure(1);
 
-   if(!(f1.ieee.negative != f2.ieee.negative)) __VERIFIER_error();
+   if(!(f1.ieee.negative != f2.ieee.negative)) {reach_error();abort();}
 
    f1.f = returnsField(0);
    f2.f = returnsField(1);
 
-   if(!(f1.ieee.negative != f2.ieee.negative)) __VERIFIER_error();
+   if(!(f1.ieee.negative != f2.ieee.negative)) {reach_error();abort();}
 
    return;
 }
@@ -80,7 +81,7 @@ int testThree (void) {
    f1.f = returnsField(0);
    f2.f = returnsField(1);
 
-   if(!(f1.ieee.negative != f2.ieee.negative)) __VERIFIER_error();
+   if(!(f1.ieee.negative != f2.ieee.negative)) {reach_error();abort();}
 
    return 1;
 }

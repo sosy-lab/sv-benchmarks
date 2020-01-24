@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 #include <math.h>
@@ -12,55 +13,55 @@ int main()
 
   // first check constants
   
-  if(!(isnormal(FLT_MAX))) __VERIFIER_error();
-  if(!(isinf(HUGE_VAL))) __VERIFIER_error();
-  if(!(isinf(HUGE_VALF))) __VERIFIER_error();
-//  if(!(isinf(HUGE_VALL))) __VERIFIER_error();
-  if(!(isinf(INFINITY))) __VERIFIER_error();
-  if(!(isnan(NAN))) __VERIFIER_error();
+  if(!(isnormal(FLT_MAX))) {reach_error();abort();}
+  if(!(isinf(HUGE_VAL))) {reach_error();abort();}
+  if(!(isinf(HUGE_VALF))) {reach_error();abort();}
+//  if(!(isinf(HUGE_VALL))) {reach_error();abort();}
+  if(!(isinf(INFINITY))) {reach_error();abort();}
+  if(!(isnan(NAN))) {reach_error();abort();}
 
   // check +
-  if(!(isinf(INFINITY+INFINITY))) __VERIFIER_error();
-  if(!(isnan(-INFINITY+INFINITY))) __VERIFIER_error();
-  if(!(INFINITY+INFINITY>0)) __VERIFIER_error();
-  if(!(isnan(NAN+d))) __VERIFIER_error();
-  if(!(isnan(NAN+INFINITY))) __VERIFIER_error();
+  if(!(isinf(INFINITY+INFINITY))) {reach_error();abort();}
+  if(!(isnan(-INFINITY+INFINITY))) {reach_error();abort();}
+  if(!(INFINITY+INFINITY>0)) {reach_error();abort();}
+  if(!(isnan(NAN+d))) {reach_error();abort();}
+  if(!(isnan(NAN+INFINITY))) {reach_error();abort();}
 
   // check -
-  if(!(isnan(INFINITY-INFINITY))) __VERIFIER_error();
-  if(!(isinf(-INFINITY-INFINITY))) __VERIFIER_error();
-  if(!(-INFINITY-INFINITY<0)) __VERIFIER_error();
-  if(!(isnan(NAN-d))) __VERIFIER_error();
-  if(!(isnan(NAN-INFINITY))) __VERIFIER_error();
+  if(!(isnan(INFINITY-INFINITY))) {reach_error();abort();}
+  if(!(isinf(-INFINITY-INFINITY))) {reach_error();abort();}
+  if(!(-INFINITY-INFINITY<0)) {reach_error();abort();}
+  if(!(isnan(NAN-d))) {reach_error();abort();}
+  if(!(isnan(NAN-INFINITY))) {reach_error();abort();}
 
   // check *
-  if(!(isinf(INFINITY*INFINITY))) __VERIFIER_error();
-  if(!(isinf(-INFINITY*INFINITY))) __VERIFIER_error();
-  if(!(INFINITY*INFINITY>0)) __VERIFIER_error();
-  if(!(-INFINITY*INFINITY<0)) __VERIFIER_error();
-  if(!(isnan(NAN*d))) __VERIFIER_error();
-  if(!(isnan(NAN*INFINITY))) __VERIFIER_error();
-  if(!(isnan(INFINITY*0))) __VERIFIER_error();
-  if(!(signbit(1.0*-0.0))) __VERIFIER_error();
-  if(!(!signbit(1.0*0.0))) __VERIFIER_error();
+  if(!(isinf(INFINITY*INFINITY))) {reach_error();abort();}
+  if(!(isinf(-INFINITY*INFINITY))) {reach_error();abort();}
+  if(!(INFINITY*INFINITY>0)) {reach_error();abort();}
+  if(!(-INFINITY*INFINITY<0)) {reach_error();abort();}
+  if(!(isnan(NAN*d))) {reach_error();abort();}
+  if(!(isnan(NAN*INFINITY))) {reach_error();abort();}
+  if(!(isnan(INFINITY*0))) {reach_error();abort();}
+  if(!(signbit(1.0*-0.0))) {reach_error();abort();}
+  if(!(!signbit(1.0*0.0))) {reach_error();abort();}
 
   // check /
-  if(!(isnan(INFINITY/INFINITY))) __VERIFIER_error();
-  if(!(isnan(-INFINITY/INFINITY))) __VERIFIER_error();
+  if(!(isnan(INFINITY/INFINITY))) {reach_error();abort();}
+  if(!(isnan(-INFINITY/INFINITY))) {reach_error();abort();}
   // work around compiler warning
   int zero=0;
-  if(!(isinf(INFINITY/zero))) __VERIFIER_error();
-  if(!(0.0/INFINITY==0)) __VERIFIER_error();
-  if(!(1.0/INFINITY==0)) __VERIFIER_error();
-  if(!(signbit(-1.0/INFINITY))) __VERIFIER_error();
-  if(!(signbit(1.0/-INFINITY))) __VERIFIER_error();
-  if(!(INFINITY/-2<0)) __VERIFIER_error();
-  if(!(isinf(1.0/0.0))) __VERIFIER_error();
-  if(!(isinf(INFINITY/2))) __VERIFIER_error();
-  if(!(isnan(0.0/0.0))) __VERIFIER_error();
-  if(!(isnan(NAN/d))) __VERIFIER_error();
-  if(!(isnan(NAN/INFINITY))) __VERIFIER_error();
-  if(!(signbit(-0.0/1))) __VERIFIER_error();
+  if(!(isinf(INFINITY/zero))) {reach_error();abort();}
+  if(!(0.0/INFINITY==0)) {reach_error();abort();}
+  if(!(1.0/INFINITY==0)) {reach_error();abort();}
+  if(!(signbit(-1.0/INFINITY))) {reach_error();abort();}
+  if(!(signbit(1.0/-INFINITY))) {reach_error();abort();}
+  if(!(INFINITY/-2<0)) {reach_error();abort();}
+  if(!(isinf(1.0/0.0))) {reach_error();abort();}
+  if(!(isinf(INFINITY/2))) {reach_error();abort();}
+  if(!(isnan(0.0/0.0))) {reach_error();abort();}
+  if(!(isnan(NAN/d))) {reach_error();abort();}
+  if(!(isnan(NAN/INFINITY))) {reach_error();abort();}
+  if(!(signbit(-0.0/1))) {reach_error();abort();}
 
   #endif
 }

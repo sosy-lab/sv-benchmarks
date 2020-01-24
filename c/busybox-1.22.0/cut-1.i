@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2406,11 +2407,11 @@ static signed int cmpfunc(const void *a, const void *b)
   if(!(a == ((void *)0)))
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   if(!(b == ((void *)0)))
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   return ((struct cut_list *)a)->startpos - ((struct cut_list *)b)->startpos;
 }
 static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lists, unsigned int nlists)

@@ -672,7 +672,8 @@ extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef struct identify_s {
   int id1;
   int id2;
@@ -916,7 +917,7 @@ int ASIdle(event_t *e) {
     rc = event_precess(e);
   } break;
   case _EVENT_OPEN:
-    ERRORLABEL:__VERIFIER_error();
+    ERRORLABEL:{reach_error();abort();}
     status_update(AS_START);
     rc = event_precess(e);
     break;

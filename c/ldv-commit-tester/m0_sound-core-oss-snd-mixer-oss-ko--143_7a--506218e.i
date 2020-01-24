@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef short __s16;
 typedef unsigned short __u16;
@@ -6058,7 +6059,7 @@ void ldv_up_read_26(struct rw_semaphore *ldv_func_arg1 )
 __inline static void ldv_error(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 long ldv__builtin_expect(long exp , long c )

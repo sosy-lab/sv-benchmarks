@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from the Habilitation Report "Static Analysis of Numerical
    Programs and Systems" by Sylvie Putot.
    Inspired from http://www.netlib.org/fdlibm/k_cos.c
@@ -9,7 +10,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 double C1 =  4.16666666666666019037e-02;
 double C2 = -1.38888888888741095749e-03;

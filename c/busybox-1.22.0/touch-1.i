@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -3455,7 +3456,7 @@ signed int __main(signed int argc, char **argv)
     if(!(((16 & opts) != 0 ? lutimes : utimes) == ((void *)0)))
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     result=((opts & 16) != 0 ? lutimes : utimes)(*argv, tmp_if_expr$2);
     if(!(result == 0))
     {

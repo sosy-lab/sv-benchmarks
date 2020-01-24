@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) {reach_error();abort();}} while (0)
 /*
  * There are three buckets -- with id 0, 1 and 2.
  * When a new node is generated a random id from the set {0,1,2}
@@ -9,7 +9,8 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef struct TSLL
 {

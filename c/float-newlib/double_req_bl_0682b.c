@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 typedef int __int32_t;
@@ -282,7 +283,7 @@ int main() {
 
     // x is -inf, y > 0.0 and y != inf, the result shall be pi
     if (res != pi) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

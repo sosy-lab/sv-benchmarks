@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -11119,7 +11120,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 void ldv_blast_assert(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern int __VERIFIER_nondet_int(void) ;

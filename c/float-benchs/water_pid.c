@@ -1,9 +1,10 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from "Some future challenges in the validation of control
    systems" by Goubault, Martel, and Putot, published at ERTS 06
 */
 
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 
 typedef double NUM;

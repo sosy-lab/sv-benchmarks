@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,7 +48,7 @@ void *funcB(void *param) {
 
     if (t2 != (t1 + 1)) {
         fprintf(stderr, "Bug found!\n");
-	ERROR: __VERIFIER_error();
+	ERROR: {reach_error();abort();}
           ;
     }
 

@@ -207,7 +207,7 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
 
     else
       /* assertion ri != 0l */
-      __VERIFIER_error();
+      {reach_error();abort();}
     return li / ri;
   }
 
@@ -216,7 +216,7 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
 
   else
     /* assertion ri != 0l */
-    __VERIFIER_error();
+    {reach_error();abort();}
   return li % ri;
 }
 

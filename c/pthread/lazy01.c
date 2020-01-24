@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <pthread.h>
 #include <assert.h>
@@ -28,7 +29,7 @@ void *thread3(void *arg)
 {
   pthread_mutex_lock(&mutex);
   if (data >= 3){
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
     ;
   }
   pthread_mutex_unlock(&mutex);    

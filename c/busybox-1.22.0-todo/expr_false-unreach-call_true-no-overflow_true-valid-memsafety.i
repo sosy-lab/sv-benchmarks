@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -2392,13 +2393,13 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
     if(!(ri == 0l))
       (void)0;
     else
-      __VERIFIER_error();
+      {reach_error();abort();}
     return li / ri;
   }
   if(!(ri == 0l))
     (void)0;
   else
-    __VERIFIER_error();
+    {reach_error();abort();}
   return li % ri;
 }
 static void bb_error_msg(const char *s, ...)

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 long ldv__builtin_expect(long val, long res);
 typedef __signed__ char __s8;
 typedef unsigned char __u8;
@@ -18286,7 +18287,7 @@ void main(void) {
  return;
 }
 void ldv_blast_assert(void) {
-ERROR: __VERIFIER_error();
+ERROR: {reach_error();abort();}
 }
 int __VERIFIER_nondet_int(void);
 unsigned long ldv_undefined_ulong(void);

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 #include <math.h>
 
@@ -7,7 +8,7 @@ extern float __VERIFIER_nondet_float(void);
 void f00 (float f)
 {
   if (f > 0x1.FFFFFEp+127) {
-    if(!(isinf(f))) __VERIFIER_error();
+    if(!(isinf(f))) {reach_error();abort();}
   }
 }
 

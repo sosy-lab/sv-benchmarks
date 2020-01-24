@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -693,7 +694,7 @@ void __VERIFIER_atomic_thr1(int PR_CreateThread__RES)
       if( __COUNT__ == 0 ) {
  mThread = PR_CreateThread__RES;
  __COUNT__ = __COUNT__ + 1;
-      } else { { if(!(0)) { ERROR: __VERIFIER_error();(void)0; } }; }
+      } else { { if(!(0)) { ERROR: {reach_error();abort();}(void)0; } }; }
 }
 void* thr1(void* arg) {
   int PR_CreateThread__RES = 1;
@@ -707,7 +708,7 @@ void __VERIFIER_atomic_thr2(int self)
 {
       if( __COUNT__ == 1 ) {
  __COUNT__ = __COUNT__ + 1;
-      } else { { if(!(0)) { ERROR: __VERIFIER_error();(void)0; } }; }
+      } else { { if(!(0)) { ERROR: {reach_error();abort();}(void)0; } }; }
 }
 void* thr2(void* arg) {
   int self = mThread;

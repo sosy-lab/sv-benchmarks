@@ -10,7 +10,7 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
   if(flags & MAP_ANONYMOUS)
   {
     if(fd != -1)
-      __VERIFIER_error();
+      {reach_error();abort();}
 
     void *res=calloc(length, 1);
     if(res == NULL)

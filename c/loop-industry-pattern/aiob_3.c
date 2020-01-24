@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 struct Velocity_Mode;
 struct PCMode;
@@ -184,7 +185,7 @@ void  __VERIFIER_assert(int  Id_MCDC_98)
 {
 if( ! (Id_MCDC_98))
 {
-ERROR : __VERIFIER_error();
+ERROR : {reach_error();abort();}
 }
 return ;
 }

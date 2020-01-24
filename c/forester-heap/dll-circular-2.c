@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) {reach_error();abort();}} while (0)
 /*
  * A circular list where a head of list is marked
  * by integer value 0. The rest of list forms
@@ -9,7 +9,8 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef struct TSLL
 {

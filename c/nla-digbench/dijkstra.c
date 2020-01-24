@@ -1,6 +1,7 @@
 /* Compute the floor of the square root, by Dijkstra */
 
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
@@ -9,7 +10,7 @@ void assume_abort_if_not(int cond) {
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
-        __VERIFIER_error();
+        {reach_error();abort();}
     }
     return;
 }

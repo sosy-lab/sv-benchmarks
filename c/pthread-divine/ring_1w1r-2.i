@@ -789,7 +789,8 @@ extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-void __VERIFIER_error( void );
+void abort(void); 
+void reach_error(){}
 typedef struct _ring {
     volatile long reader;
     long q[ 4 ];
@@ -818,12 +819,12 @@ void *reader_fn( void *arg ) {
         if ( ring_empty( r ) )
             continue;
         val = ring_dequeue( r );
-        (!(val == last + 1) ? __VERIFIER_error() : (void)0);
+        (!(val == last + 1) ? reach_error() : (void)0);
         last = val;
         ++i;
     }
-    (!(last == 8) ? __VERIFIER_error() : (void)0);
-    (!(ring_empty( r )) ? __VERIFIER_error() : (void)0);
+    (!(last == 8) ? reach_error() : (void)0);
+    (!(ring_empty( r )) ? reach_error() : (void)0);
     return 0;
 }
 void *writer_fn( void *arg ) {

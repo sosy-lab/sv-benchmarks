@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -1007,7 +1008,7 @@ void * thread_routine(void * arg)
     h = (w * 7) % 128;
     if (h<0)
     {
-      ERROR: __VERIFIER_error();
+      ERROR: {reach_error();abort();}
       ;
     }
     while ( cas(table, h, 0, w) == 0){

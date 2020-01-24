@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 int main()
 {
   unsigned int i, j;
@@ -7,5 +8,5 @@ int main()
   i=100.0;
   d=i;
   j=d;
-  if(!(j==100)) __VERIFIER_error();
+  if(!(j==100)) {reach_error();abort();}
 }

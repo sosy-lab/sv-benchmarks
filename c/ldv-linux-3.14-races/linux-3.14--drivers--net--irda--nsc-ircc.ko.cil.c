@@ -11540,7 +11540,8 @@ int ldv_undef_int_nonpositive(void)
   return (ret);
 }
 }
-extern void __VERIFIER_error(void) ;
+extern void abort(void); 
+void reach_error(){}
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;
 pthread_mutex_t pmutex_i_mutex_of_inode  ;
@@ -11815,7 +11816,7 @@ void ldv_assert(char const   *desc , int expr )
   {
   if (expr == 0) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
 

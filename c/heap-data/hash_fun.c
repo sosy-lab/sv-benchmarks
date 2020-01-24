@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdlib.h>
 
@@ -36,7 +37,7 @@ int main() {
 
     while (list) {
         if (!(list->hash >= base && list->hash < base + INTERVAL_SIZE))
-            __VERIFIER_error();
+            {reach_error();abort();}
         list = list->next;
     }
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern void *malloc(unsigned int sz );
 extern char __VERIFIER_nondet_char(void);
@@ -2095,7 +2096,7 @@ void errorFn(void)
 { 
 
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 NTSTATUS myStatus  ;

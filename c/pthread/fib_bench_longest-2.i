@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 typedef unsigned char __u_char;
@@ -672,7 +673,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 int i=1, j=1;
 void *
 t1(void* arg)
@@ -709,7 +710,7 @@ main(int argc, char **argv)
   int condJ = j >= 46368;
   __VERIFIER_atomic_end();
   if (condI || condJ) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return 0;
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Updates all nodes in a backward traversal. Check result: 3-2
@@ -86,6 +87,6 @@ int main() {
   }
   dll_destroy(s);
   return 0;
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
   return 1;
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /*
  * Implementation the Ackermann function.
@@ -41,6 +42,6 @@ int main() {
     if (m < 0 || n < 0 || result >= 0) {
         return 0;
     } else {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     }
 }

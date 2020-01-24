@@ -2,10 +2,11 @@
     Copyright (C) Dmitry Vyukov. All rights reserved.
 */
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
-#define assert(X) if(!(X)) __VERIFIER_error()
+#define assert(X) if(!(X)) reach_error()
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 unsigned char __VERIFIER_nondet_uchar();
@@ -376,7 +377,7 @@ int __return_1462;
  assert__arg = __tmp_3;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -617,7 +618,7 @@ int __return_1462;
  assert__arg = __tmp_4;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -705,7 +706,7 @@ int __return_1462;
  assert__arg = __tmp_5;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -752,7 +753,7 @@ int __return_1462;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -867,7 +868,7 @@ int __return_1462;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -914,7 +915,7 @@ int __return_1462;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -988,7 +989,7 @@ int __return_1462;
  assert__arg = __tmp_9;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

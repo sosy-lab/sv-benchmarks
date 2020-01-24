@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) {reach_error();abort();}} while (0)
 /*
  * A list with nodes which can point to an optional
  * external node. Whether an optional node is allocated
@@ -11,7 +11,8 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #define ALLOC_DATA(X) \
 	if (__VERIFIER_nondet_int()) \

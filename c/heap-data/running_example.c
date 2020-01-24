@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdlib.h>
 
@@ -26,7 +27,7 @@ int main() {
     while (1) {
         for (p = list; p!= NULL; p = p->next) {
             if (!(p->val <= 20 && p->val >= 10))
-                __VERIFIER_error();
+                {reach_error();abort();}
             if (p->val < 20) p->val++;
             else p->val /= 2;
         }

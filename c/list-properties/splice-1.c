@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern int __VERIFIER_nondet_int();
 /*
@@ -81,6 +82,6 @@ int main() {
 
   return 0;
 
-  ERROR: __VERIFIER_error(); return 1;
+  ERROR: {reach_error();abort();} return 1;
   
 }

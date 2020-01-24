@@ -1,4 +1,5 @@
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 int sum(int n, int m) {
     if (n <= 0) {
@@ -13,6 +14,6 @@ int main(void) {
   int b = 0;
   int result = sum(a, b);
   if (result != a + b) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
 }

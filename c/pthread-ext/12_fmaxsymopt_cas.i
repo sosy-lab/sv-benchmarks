@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -716,7 +717,7 @@ inline void findMax(int offset){
    break;
   }
  }
- { if(!(my_max <= max)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(my_max <= max)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 void* thr1(void* arg) {
  int offset=__VERIFIER_nondet_int();

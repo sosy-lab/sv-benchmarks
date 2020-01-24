@@ -462,7 +462,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
 
   else
     /* assertion !(vparam == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   if(((struct param_t *)vparam)->ugid.uid == 4294967295u)
   {
 
@@ -476,7 +476,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
 
     else
       /* assertion !(vparam == ((void*)0)) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     tmp_if_expr$1 = ((struct param_t *)vparam)->ugid.uid;
   }
   u = tmp_if_expr$1;
@@ -487,7 +487,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
 
   else
     /* assertion !(vparam == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   if(((struct param_t *)vparam)->ugid.gid == 4294967295u)
   {
 
@@ -501,7 +501,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
 
     else
       /* assertion !(vparam == ((void*)0)) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     tmp_if_expr$2 = ((struct param_t *)vparam)->ugid.gid;
   }
   g = tmp_if_expr$2;
@@ -511,13 +511,13 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
 
   else
     /* assertion !(vparam == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   if(!(((struct param_t *)vparam)->chown_func == ((signed int (*)(const char *, unsigned int, unsigned int))NULL)))
     (void)0;
 
   else
     /* assertion !(((struct param_t *)vparam)->chown_func == ((signed int (*)(const char *, unsigned int, unsigned int))((void*)0))) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   return_value=((struct param_t *)vparam)->chown_func(fileName, u, g);
   _Bool tmp_if_expr$5;
   _Bool tmp_if_expr$4;

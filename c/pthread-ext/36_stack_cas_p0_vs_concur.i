@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -711,7 +712,7 @@ inline void push(int d) {
  }
 }
 void* thr1(void* arg){
-  while(1){push(10); { if(!(top != 0)) { ERROR: __VERIFIER_error();(void)0; } };}
+  while(1){push(10); { if(!(top != 0)) { ERROR: {reach_error();abort();}(void)0; } };}
   return 0;
 }
 int main()

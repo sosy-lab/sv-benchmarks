@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 typedef unsigned char __u_char;
@@ -713,7 +714,7 @@ int c = 0;
 void* thr1(void* arg){
  acquire_lock();
  c++;
- { if(!(c == 1)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } };
  c--;
  release_lock();
   return 0;

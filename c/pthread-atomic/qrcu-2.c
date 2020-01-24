@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern int __VERIFIER_nondet_int();
 /* Testcase from Threader's distribution. For details see:
@@ -14,7 +15,7 @@ extern int __VERIFIER_nondet_int();
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error()
+#define assert(e) if (!(e)) ERROR: reach_error()
 
 int idx=0; // boolean to control which of the two elements will be used by readers
   // (idx <= 0) then ctr1 is used

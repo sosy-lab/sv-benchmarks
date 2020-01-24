@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -100,7 +101,7 @@ int f00 (float a, float b) {
   float sum = a + b;
   union mix m;
   m.f = sum;
-  if(!(m.i != 0x80000000)) __VERIFIER_error();
+  if(!(m.i != 0x80000000)) {reach_error();abort();}
 
   return 1;
 }

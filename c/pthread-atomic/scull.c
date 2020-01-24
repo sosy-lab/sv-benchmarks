@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern int __VERIFIER_nondet_int();
 /* Testcase from Threader's distribution. For details see:
@@ -81,7 +82,7 @@ extern int __VERIFIER_nondet_int();
 
 
 
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error()
+#define assert(e) if (!(e)) ERROR: reach_error()
 
 inode i;
 pthread_mutex_t lock;

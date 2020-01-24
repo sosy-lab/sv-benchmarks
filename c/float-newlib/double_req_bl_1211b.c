@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 typedef int __int32_t;
@@ -147,7 +148,7 @@ int main() {
 
   // x is inf, *iptr is inf, result shall be -0
   if (isinf_double(iptr) && !(res == -0.0 && __signbit_double(res) == 1)) {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 1;
   }
 

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /*
  * Recursive implementation of the greatest common denominator
@@ -36,7 +37,7 @@ int main() {
     }
     int z = gcd(m, n);
     if (z < 1 && m > 0 && n > 0) {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     } else {
         return 0;
     }

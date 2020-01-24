@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 /*
 ** subnormal-boundary.c
 **
@@ -31,38 +32,38 @@ int main (void)
 
 
   // Check the encodings are correct
-  if(!(fpclassify(largestSubnormalFloat) == FP_SUBNORMAL)) __VERIFIER_error();
+  if(!(fpclassify(largestSubnormalFloat) == FP_SUBNORMAL)) {reach_error();abort();}
 
   f = __VERIFIER_nondet_float();
   assume_abort_if_not(fpclassify(f) == FP_SUBNORMAL);
-  if(!(f <= largestSubnormalFloat)) __VERIFIER_error();
+  if(!(f <= largestSubnormalFloat)) {reach_error();abort();}
 
 
-  if(!(fpclassify(smallestNormalFloat) == FP_NORMAL)) __VERIFIER_error();
+  if(!(fpclassify(smallestNormalFloat) == FP_NORMAL)) {reach_error();abort();}
 
   f = __VERIFIER_nondet_float();
   assume_abort_if_not(fpclassify(f) == FP_NORMAL);
-  if(!(smallestNormalFloat <= fabs(f))) __VERIFIER_error();
+  if(!(smallestNormalFloat <= fabs(f))) {reach_error();abort();}
 
-  if(!(largestSubnormalFloat < smallestNormalFloat)) __VERIFIER_error();
+  if(!(largestSubnormalFloat < smallestNormalFloat)) {reach_error();abort();}
 
 
   // Check the ordering as doubles
-  if(!(((double)largestSubnormalFloat) < ((double)smallestNormalFloat))) __VERIFIER_error();
-  if(!(((double)largestSubnormalFloat) < v)) __VERIFIER_error();
-  if(!(v < ((double)smallestNormalFloat))) __VERIFIER_error();
+  if(!(((double)largestSubnormalFloat) < ((double)smallestNormalFloat))) {reach_error();abort();}
+  if(!(((double)largestSubnormalFloat) < v)) {reach_error();abort();}
+  if(!(v < ((double)smallestNormalFloat))) {reach_error();abort();}
 
 
   // Check coercion to float
-  if(!((float)((double)largestSubnormalFloat) == largestSubnormalFloat)) __VERIFIER_error();
-  if(!((float)((double)smallestNormalFloat) == smallestNormalFloat)) __VERIFIER_error();
+  if(!((float)((double)largestSubnormalFloat) == largestSubnormalFloat)) {reach_error();abort();}
+  if(!((float)((double)smallestNormalFloat) == smallestNormalFloat)) {reach_error();abort();}
 
-  if(!(((double)smallestNormalFloat) - v <= v - ((double)largestSubnormalFloat))) __VERIFIER_error();
-  if(!(((float)v) == smallestNormalFloat)) __VERIFIER_error();
+  if(!(((double)smallestNormalFloat) - v <= v - ((double)largestSubnormalFloat))) {reach_error();abort();}
+  if(!(((float)v) == smallestNormalFloat)) {reach_error();abort();}
 
   f = __VERIFIER_nondet_float();
   assume_abort_if_not(fpclassify(f) == FP_SUBNORMAL);
-  if(!( ((float)((double)f)) == f )) __VERIFIER_error();
+  if(!( ((float)((double)f)) == f )) {reach_error();abort();}
   
   #endif
 

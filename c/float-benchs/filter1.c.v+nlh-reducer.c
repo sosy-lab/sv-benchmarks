@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 int __VERIFIER_nondet_int();
 double __VERIFIER_nondet_double();
 void abort(void); 
@@ -54,7 +55,7 @@ int __return_134;
  __VERIFIER_assert__cond = __tmp_1;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -100,7 +101,7 @@ int __return_134;
  __VERIFIER_assert__cond = __tmp_2;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

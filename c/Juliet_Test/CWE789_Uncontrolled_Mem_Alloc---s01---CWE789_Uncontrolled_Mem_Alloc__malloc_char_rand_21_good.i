@@ -1484,7 +1484,8 @@ void *ldv_realloc(void *ptr, size_t size)
 }
 
 
-void __VERIFIER_error(void);
+void abort(void); 
+void reach_error(){}
 
 
 void ldv_error(void);
@@ -1493,7 +1494,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  __VERIFIER_error();
+  {reach_error();abort();}
   
   return;
 }

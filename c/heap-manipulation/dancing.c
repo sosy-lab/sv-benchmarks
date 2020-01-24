@@ -57,11 +57,12 @@ Implement the data structure with these operations, and specify and
 verify that they behave in the way described above.
 */
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return;
 }

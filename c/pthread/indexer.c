@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdlib.h>
 #include <pthread.h>
@@ -50,7 +51,7 @@ void * thread_routine(void * arg)
     
     if (h<0)
     {
-      ERROR: __VERIFIER_error();
+      ERROR: {reach_error();abort();}
       ;
     }
 

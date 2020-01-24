@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 char __VERIFIER_nondet_char();
 unsigned char __VERIFIER_nondet_uchar();
 _Bool __VERIFIER_nondet_bool();
@@ -2894,7 +2895,7 @@ int __return_8141;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -3415,7 +3416,7 @@ int __return_8141;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

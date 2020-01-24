@@ -4,7 +4,8 @@ int calculate_output3(int);
 int calculate_output4(int);
 int calculate_output5(int);
 int calculate_output6(int);
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);
 
@@ -94,7 +95,7 @@ extern void exit(int);
 		error_26: exit(0);
 		}
 		if((((( a14 <=  -148  &&  a27 <=  -78 ) && (a8==5)) && (a9==5)) &&   ((-178 < a21) && (-144 >= a21)) )){
-		error_27: __VERIFIER_error();
+		error_27: {reach_error();abort();}
 		}
 		if((((( a14 <=  -148  &&  a27 <=  -78 ) && (a8==4)) && (a9==2)) &&  a21 <=  -178 )){
 		globalError: exit(0);

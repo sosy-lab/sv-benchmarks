@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <stdlib.h>
 #include <limits.h>
@@ -32,9 +33,9 @@ int main() {
     Node *i = l;
     while (i != NULL) {
         if (i->val < min)
-            __VERIFIER_error();
+            {reach_error();abort();}
         if (i->val > max)
-            __VERIFIER_error();
+            {reach_error();abort();}
         i = i->next;
     }
 }

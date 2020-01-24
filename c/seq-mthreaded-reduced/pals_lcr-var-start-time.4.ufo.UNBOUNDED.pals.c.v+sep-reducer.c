@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 unsigned char __VERIFIER_nondet_uchar();
@@ -1899,7 +1900,7 @@ int __return_16570;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2420,7 +2421,7 @@ int __return_16570;
  assert__arg = __tmp_10;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -4473,7 +4474,7 @@ int __return_16570;
  assert__arg = __tmp_21;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -5144,7 +5145,7 @@ int __return_16570;
  assert__arg = __tmp_25;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -5616,7 +5617,7 @@ int __return_16570;
  assert__arg = __tmp_29;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -6492,7 +6493,7 @@ int __return_16570;
  assert__arg = __tmp_34;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -7157,7 +7158,7 @@ int __return_16570;
  assert__arg = __tmp_38;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -7743,7 +7744,7 @@ int __return_16570;
  assert__arg = __tmp_42;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -10582,7 +10583,7 @@ int __return_16570;
  assert__arg = __tmp_62;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -10843,7 +10844,7 @@ int __return_16570;
  assert__arg = __tmp_64;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -11514,7 +11515,7 @@ int __return_16570;
  assert__arg = __tmp_68;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -11986,7 +11987,7 @@ int __return_16570;
  assert__arg = __tmp_72;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -13868,7 +13869,7 @@ int __return_16570;
  assert__arg = __tmp_84;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -16127,7 +16128,7 @@ int __return_16570;
  assert__arg = __tmp_98;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -18276,7 +18277,7 @@ int __return_16570;
  assert__arg = __tmp_112;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -20489,7 +20490,7 @@ int __return_16570;
  assert__arg = __tmp_126;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -23004,7 +23005,7 @@ int __return_16570;
  assert__arg = __tmp_141;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

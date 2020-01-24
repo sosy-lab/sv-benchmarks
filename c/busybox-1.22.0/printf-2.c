@@ -445,7 +445,7 @@ static void conv_strtod(const char *arg, void *result)
 
   else
     /* assertion !(result == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   *((double *)result)=strtod(arg, &end);
 
   if(!((signed int)*end == 0))
@@ -457,7 +457,7 @@ static void conv_strtod(const char *arg, void *result)
 
     else
       /* assertion !(result == ((void*)0)) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     *((double *)result) = (double)0;
   }
 
@@ -471,7 +471,7 @@ static void conv_strtoll(const char *arg, void *result)
 
   else
     /* assertion !(result == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   *((signed long long int *)result)=bb_strtoll(arg, (char **)NULL, 0);
 }
 
@@ -483,7 +483,7 @@ static void conv_strtoull(const char *arg, void *result)
 
   else
     /* assertion !(result == ((void*)0)) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   *((unsigned long long int *)result)=bb_strtoull(arg, (char **)NULL, 0);
 
   if(!(*bb_errno == 0))
@@ -495,7 +495,7 @@ static void conv_strtoull(const char *arg, void *result)
 
     else
       /* assertion !(result == ((void*)0)) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     *((unsigned long long int *)result) = (unsigned long long int)return_value_bb_strtoll$1;
   }
 
@@ -599,7 +599,7 @@ static signed int multiconvert(const char *arg, void *result, void (*convert)(co
 
   else
     /* assertion !(convert == ((void (*)(const char *, void *))((void*)0))) */
-    __VERIFIER_error();
+    {reach_error();abort();}
   convert(arg, result);
 
   if(!(*bb_errno == 0))
@@ -705,7 +705,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 105) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 100)
       tmp_if_expr$1 = (_Bool)1;
 
@@ -719,7 +719,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$2 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
 
@@ -730,7 +730,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$3 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
 
@@ -746,7 +746,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 117) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 88)
       tmp_if_expr$5 = (_Bool)1;
 
@@ -773,7 +773,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$8 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
 
@@ -784,7 +784,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$9 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
 
@@ -800,7 +800,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$11 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
 
@@ -821,7 +821,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 101) ==> !(format == ((char *)((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 69)
       tmp_if_expr$14 = (_Bool)1;
 

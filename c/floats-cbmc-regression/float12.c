@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
 int main()
@@ -10,5 +11,5 @@ int main()
   d=f;
   
   if(f==x)
-    if(!(d==x)) __VERIFIER_error();
+    if(!(d==x)) {reach_error();abort();}
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 extern int __VERIFIER_nondet_int();
 /*
@@ -30,7 +31,7 @@ int main() {
   }
   while (p!=0) {
     if (p->h != 1) {
-	ERROR: __VERIFIER_error();
+	ERROR: {reach_error();abort();}
     }
     p = p->n;
   }

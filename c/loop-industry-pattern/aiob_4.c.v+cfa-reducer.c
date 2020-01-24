@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 struct Velocity_Mode ;
 struct PCMode ;
 struct DeviceControl ;
@@ -188,7 +189,7 @@ unsigned int Id_MCDC_93 = 0U;
  __VERIFIER_assert__Id_MCDC_92 = __tmp_2;
  if (__VERIFIER_assert__Id_MCDC_92 == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

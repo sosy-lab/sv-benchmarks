@@ -1,12 +1,13 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 //http://www.ibm.com/developerworks/java/library/j-jtp11234/
 //Listing 5. Implementing a thread-safe PRNG with synchronization and atomic variables
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 inline int nC(int s2){ 
 	int nC_return;

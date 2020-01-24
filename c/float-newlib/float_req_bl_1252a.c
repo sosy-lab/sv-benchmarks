@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;
@@ -76,7 +77,7 @@ int main() {
 
   // x is -0 and y is +0, the result shall be +0
   if (!(res == 0.0f && __signbit_float(res) == 0)) {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 1;
   }
 

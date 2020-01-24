@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 void g(int **p1, int **p2) {
@@ -41,6 +42,6 @@ int main() {
 
     return 0;
 
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
     return 1;
 }

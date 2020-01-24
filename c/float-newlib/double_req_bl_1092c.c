@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;
@@ -104,7 +105,7 @@ int main() {
   double res = ceil_double(x);
   // x is +inf , the result shall be +inf
   if (!isinf_double(res)) {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 1;
   }
   return 0;

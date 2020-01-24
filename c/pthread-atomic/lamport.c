@@ -1,11 +1,12 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error()
+#define assert(e) if (!(e)) ERROR: reach_error()
 
 int x, y;
 int b1, b2; // boolean flags

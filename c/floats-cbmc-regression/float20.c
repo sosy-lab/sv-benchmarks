@@ -1,5 +1,6 @@
 extern void abort(void);
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 extern double __VERIFIER_nondet_double(void);
 /*
@@ -19,7 +20,7 @@ void bug (float min) {
   float modifier = (0x1.0p-23 * (1<<FULP));
   float ulpdiff = min * modifier;
 
-  if(!(ulpdiff == 0x1p-126f)) __VERIFIER_error();    // Should be true
+  if(!(ulpdiff == 0x1p-126f)) {reach_error();abort();}    // Should be true
 
   return;
 }
@@ -30,7 +31,7 @@ void bugBrokenOut (float min) {
   double dulpdiff = (double)min * (double)modifier;  // Fine up to here
   float ulpdiff = (float)dulpdiff;  // Error
 
-  if(!(ulpdiff == 0x1p-126f)) __VERIFIER_error(); // Should be true
+  if(!(ulpdiff == 0x1p-126f)) {reach_error();abort();} // Should be true
 
   return;
 }
@@ -40,7 +41,7 @@ void bugCasting (double d) {
 
   float f = (float) d;
 
-  if(!(f == 0x1p-126f)) __VERIFIER_error(); // Should be true
+  if(!(f == 0x1p-126f)) {reach_error();abort();} // Should be true
 
   return;
 }

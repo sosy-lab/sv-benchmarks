@@ -3,7 +3,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -689,13 +690,13 @@ void __VERIFIER_atomic_release()
 }
 inline int sysmon_queue_power_event(){
  { if(!((MTX==1))) { goto ERROR; } };
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
  if (__VERIFIER_nondet_int())
   return 0;
  return 1; }
 inline int sysmon_get_power_event(){
  { if(!((MTX==1))) { goto ERROR; } };
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
  if (__VERIFIER_nondet_int())
   return 0;
  return 1; }
@@ -726,20 +727,20 @@ inline int sysmon_power_daemon_task(){
   COND = 1;
   __VERIFIER_atomic_release();}
  out:
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
  return __VERIFIER_nondet_int(); }
 inline void sysmonopen_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  if (__VERIFIER_nondet_int())
   { if(!((MTX==1))) { goto ERROR; } };
  __VERIFIER_atomic_release();
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void sysmonclose_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  { if(!((MTX==1))) { goto ERROR; } };
  __VERIFIER_atomic_release();
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void sysmonread_power(){
  if (__VERIFIER_nondet_int()){
@@ -752,28 +753,28 @@ inline void sysmonread_power(){
    { COND = 0; __VERIFIER_atomic_release(); assume_abort_if_not(COND); __VERIFIER_atomic_acquire(); };
       { if(!(COND)) { goto ERROR; } }; }
   __VERIFIER_atomic_release(); }
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void sysmonpoll_power(){
  if(__VERIFIER_nondet_int()){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   __VERIFIER_atomic_release(); }
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void filt_sysmon_power_rdetach(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release();
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void filt_sysmon_power_read(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release();
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void sysmonkqfilter_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release();
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline void sysmonioctl_power(){
  switch (__VERIFIER_nondet_int()) {
@@ -786,7 +787,7 @@ inline void sysmonioctl_power(){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   __VERIFIER_atomic_release();
   break; }
-  { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(1)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 void* thr1(void* arg){
   while(1)

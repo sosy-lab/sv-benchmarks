@@ -682,7 +682,8 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void __VERIFIER_error( void );
+void abort(void); 
+void reach_error(){}
 pthread_mutex_t lock;
 pthread_cond_t cond;
 int x;
@@ -690,7 +691,7 @@ void *thread( void *arg ) {
     (void)arg;
     pthread_mutex_lock( &lock );
     pthread_cond_wait( &cond, &lock );
-    (!(x == 42) ? __VERIFIER_error() : (void)0);
+    (!(x == 42) ? reach_error() : (void)0);
     pthread_mutex_unlock( &lock );
     return ((void *)0);
 }

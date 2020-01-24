@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from "Towards an industrial use of FLUCTUAT on safety-critical 
    avionics software" by Delmas, Goubault, Putot, Souryis, Tekkal,
    and Védrine. Published in FMICS 09.
@@ -12,7 +13,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 
 const double T[362] = {
