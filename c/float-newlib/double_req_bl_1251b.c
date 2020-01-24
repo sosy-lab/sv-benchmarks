@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 typedef int __int32_t;
@@ -75,7 +76,7 @@ int main() {
 
     // y is NAN and x is not NAN, the result shall be x
     if (res != x) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

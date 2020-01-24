@@ -13,7 +13,8 @@
 #define N 5
 #define fun avg
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 int avg (int x[N])
 {
@@ -46,7 +47,7 @@ int main ()
   ret5 = fun(x);
 
   if(ret != ret2 || ret !=ret5){ 
-    __VERIFIER_error();
+    {reach_error();abort();}
   }
   return 1;
 }

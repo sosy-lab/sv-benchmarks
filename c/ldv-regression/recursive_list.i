@@ -1,11 +1,12 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 typedef unsigned int size_t;
 extern  __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__));
 
 void err()
-{ ERROR: __VERIFIER_error();}
+{ ERROR: {reach_error();abort();}}
 
 struct list {
  int n;

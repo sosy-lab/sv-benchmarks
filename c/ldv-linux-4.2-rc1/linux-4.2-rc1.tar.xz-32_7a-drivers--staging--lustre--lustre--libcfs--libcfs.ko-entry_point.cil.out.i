@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void avoid_zero(int y)
 {
@@ -31812,7 +31813,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 __inline static int ldv_undef_int_negative(void)

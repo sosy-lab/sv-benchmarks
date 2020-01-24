@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;
@@ -92,7 +93,7 @@ int main() {
 
   // x is NAN, result shall be NAN
   if (!isnan_double(res)) {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 1;
   }
 

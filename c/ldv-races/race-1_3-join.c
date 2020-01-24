@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 int __VERIFIER_nondet_int(void);
-void ldv_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
+void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
 pthread_t t1;
 pthread_mutex_t mutex;

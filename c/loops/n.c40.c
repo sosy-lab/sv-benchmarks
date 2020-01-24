@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 int __VERIFIER_nondet_int();
 
@@ -17,7 +18,7 @@ int main() {
   
   if(k >= 0 && k < i)
     if(y[k] == 0)
-      {ERROR: __VERIFIER_error();}
+      {ERROR: {reach_error();abort();}}
 
   return 0;
 }

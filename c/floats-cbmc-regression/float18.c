@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #define _USE_MATH_DEFINES 
 #include <math.h>
 #ifndef M_PI
@@ -18,7 +19,7 @@ int main()
    }
    while( f < M_PI );
 
-   if(!( n < 11 )) __VERIFIER_error();
+   if(!( n < 11 )) {reach_error();abort();}
 }
 
 

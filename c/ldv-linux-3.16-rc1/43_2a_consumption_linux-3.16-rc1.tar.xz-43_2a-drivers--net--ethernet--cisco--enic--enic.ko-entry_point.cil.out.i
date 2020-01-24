@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -6938,7 +6939,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 __inline static void ldv_stop(void)

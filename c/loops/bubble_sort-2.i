@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
@@ -32,7 +33,7 @@ extern int __VERIFIER_nondet_int(void);
 static void fail(void)
 {
   {
-  ERROR: __VERIFIER_error();((0) ? (void) (0) : __assert_fail ("0", "test-0180.c", 11, __PRETTY_FUNCTION__));
+  ERROR: {reach_error();abort();}((0) ? (void) (0) : __assert_fail ("0", "test-0180.c", 11, __PRETTY_FUNCTION__));
   goto ERROR;
 }
 }

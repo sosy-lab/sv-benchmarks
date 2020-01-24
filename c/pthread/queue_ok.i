@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1011,7 +1012,7 @@ void *t2(void *arg)
     {
       if (empty(&queue)!=(-1))
         if (!dequeue(&queue)==stored_elements[i]) {
-          ERROR: __VERIFIER_error();
+          ERROR: {reach_error();abort();}
         }
     }
     dequeue_flag=(0);
@@ -1027,7 +1028,7 @@ int main(void)
   dequeue_flag=(0);
   init(&queue);
   if (!empty(&queue)==(-1)) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   pthread_mutex_init(&m, 0);
   pthread_create(&id1, ((void *)0), t1, &queue);

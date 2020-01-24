@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 void assert(_Bool arg);
@@ -435,7 +436,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_2;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -766,7 +767,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_4;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -1380,7 +1381,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -1901,7 +1902,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_12;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -3524,7 +3525,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_24;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -5437,7 +5438,7 @@ int __tmp_5374_0;
  assert__arg = __tmp_38;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

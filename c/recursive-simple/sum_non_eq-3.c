@@ -1,5 +1,6 @@
 extern unsigned int __VERIFIER_nondet_uint(void);
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 unsigned int sum(unsigned int n, unsigned int m) {
     if (n == 0) {
@@ -14,6 +15,6 @@ int main(void) {
   unsigned int b = __VERIFIER_nondet_uint();
   unsigned int result = sum(a, b);
   if (result == a + b) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
 }

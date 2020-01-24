@@ -27644,7 +27644,8 @@ void ldv_check_final_state(void)
   return;
 }
 }
-extern void __VERIFIER_error(void) ;
+extern void abort(void); 
+void reach_error(){}
 void ldv_assert_linux_drivers_clk1__more_at_exit(int expr ) 
 { 
 
@@ -27652,7 +27653,7 @@ void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
 

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 int __tmpTR__int_1;
 struct timeval;
 struct timezone;
@@ -190,7 +191,7 @@ int  fstTTL = 1;
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return;
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -11,7 +12,7 @@ void f(void g(int)) {
 
 void h(int i) {
  if(i==1) {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
  } else {
 
  }

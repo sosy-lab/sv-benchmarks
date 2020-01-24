@@ -3,7 +3,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -689,15 +690,15 @@ void __VERIFIER_atomic_release()
  MTX = 0;
 }
 inline static int adb_kbd_receive_packet(){
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: {reach_error();abort();}(void)0; } };;
  __VERIFIER_atomic_release();
  COND = 1;
  return 0; }
 inline static void akbd_repeat() {
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: {reach_error();abort();}(void)0; } };;
  __VERIFIER_atomic_release(); }
 inline static void akbd_read_char(int wait) {
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: {reach_error();abort();}(void)0; } };;
  if (!buf && wait){
   { COND = 0; __VERIFIER_atomic_release(); assume_abort_if_not(COND); __VERIFIER_atomic_acquire(); };
   { if(!(COND)) { goto ERROR; } };}
@@ -706,7 +707,7 @@ inline static void akbd_read_char(int wait) {
   return; }
  __VERIFIER_atomic_release(); }
 inline static void akbd_clear_state(){
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: {reach_error();abort();}(void)0; } };;
  buf = 0;
  __VERIFIER_atomic_release(); }
 void* thr1(void* arg){
@@ -719,7 +720,7 @@ void* thr1(void* arg){
     case 2: akbd_read_char(__VERIFIER_nondet_int()); break;
     case 3: akbd_clear_state(); break;
     case 4: while(1){
-        __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
+        __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: {reach_error();abort();}(void)0; } };;
         buf = !buf;
         __VERIFIER_atomic_release();
       }

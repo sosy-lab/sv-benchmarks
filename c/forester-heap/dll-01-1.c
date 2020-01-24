@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) {reach_error();abort();}} while (0)
 /*
  * A list with inner list of length 0 or 1.
  *
@@ -7,7 +7,8 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #define CREATE_INNER(N)                                         \
     __VERIFIER_assert(N != NULL);                               \

@@ -977,7 +977,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef enum {RED, BLACK} Colour;
 
@@ -1020,24 +1021,24 @@ int main()
    end->next = ((void*)0);
    end->colour = BLACK;
   }
-  do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
-  do { if (!(((void*)0) == end->next)) __VERIFIER_error();} while (0);
-  do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
+  do { if (!(BLACK == end->colour)) {reach_error();abort();}} while (0);
+  do { if (!(((void*)0) == end->next)) {reach_error();abort();}} while (0);
+  do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
  }
 
  end = ((void*)0);
  end = list;
 
 
- do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
- do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
+ do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
+ do { if (!(BLACK == end->colour)) {reach_error();abort();}} while (0);
  while (((void*)0) != end)
  {
   if (RED == end->colour)
   {
    end = end->next;
-   do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
-   do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
+   do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
+   do { if (!(BLACK == end->colour)) {reach_error();abort();}} while (0);
   }
 
   end = end->next;

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -5604,7 +5605,7 @@ void ldv_class_destroy_12(struct class *ldv_func_arg1 )
 __inline static void ldv_error(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 __inline static void ldv_stop(void)

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -962,5 +963,5 @@ int main()
   double d = (double)f;
   float ff = (float)d;
 
-  if(!((f == ff) || ((sizeof (f) == sizeof (float) ? __isnanf (f) : sizeof (f) == sizeof (double) ? __isnan (f) : __isnanl (f)) && (sizeof (ff) == sizeof (float) ? __isnanf (ff) : sizeof (ff) == sizeof (double) ? __isnan (ff) : __isnanl (ff))))) __VERIFIER_error();
+  if(!((f == ff) || ((sizeof (f) == sizeof (float) ? __isnanf (f) : sizeof (f) == sizeof (double) ? __isnan (f) : __isnanl (f)) && (sizeof (ff) == sizeof (float) ? __isnanf (ff) : sizeof (ff) == sizeof (double) ? __isnan (ff) : __isnanl (ff))))) {reach_error();abort();}
 }

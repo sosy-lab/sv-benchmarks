@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -694,7 +695,7 @@ void *reader(void *arg) {
   __VERIFIER_atomic_take_read_lock();
   l = x;
   y = l;
-  if (!(y == x)) ERROR: __VERIFIER_error();
+  if (!(y == x)) ERROR: {reach_error();abort();}
   l = r-1;
   r = l;
   return 0;

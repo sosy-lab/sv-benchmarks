@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 typedef long double float_t;
 typedef long double double_t;
@@ -370,15 +371,15 @@ void inductiveStepHunt (float startState)
   float secondPoint = (target / startState);
   float nextState = (startState + secondPoint) / 2;
   float oneAfter = (target / nextState);
-  if(!(oneAfter > 0)) __VERIFIER_error();
+  if(!(oneAfter > 0)) {reach_error();abort();}
 }
 void simplifiedInductiveStepHunt (float nextState)
 {
   float target = 0x1.fffffep-3f;
   assume_abort_if_not((0x1.fffffep+123f < nextState) && (nextState < 0x1.000002p+124f));
   float oneAfter = (target / nextState);
-  if(!(0x1.fffffep-3f / 0x1p+124f == 0x1p-126f)) __VERIFIER_error();
-  if(!(oneAfter > 0)) __VERIFIER_error();
+  if(!(0x1.fffffep-3f / 0x1p+124f == 0x1p-126f)) {reach_error();abort();}
+  if(!(oneAfter > 0)) {reach_error();abort();}
 }
 int main (void)
 {

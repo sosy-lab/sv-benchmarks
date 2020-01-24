@@ -466,13 +466,13 @@ static signed int check_operator(const char *s)
 
   else
     /* assertion 2 * (signed long int)n >= 0 */
-    __VERIFIER_error();
+    {reach_error();abort();}
   if((signed long int)n < 40l)
     (void)0;
 
   else
     /* assertion (signed long int)n < 40l */
-    __VERIFIER_error();
+    {reach_error();abort();}
   return (signed int)ops_table[(signed long int)n].op_num;
 }
 
@@ -1082,7 +1082,7 @@ signed int __main(signed int argc, char **argv)
                   {
 
                     /* assertion (_Bool)0 */
-                    __VERIFIER_error();
+                    {reach_error();abort();}
 
                     __result = (signed int)((const char *)"]]")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }

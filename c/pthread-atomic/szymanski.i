@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -683,7 +684,7 @@ void *thr1(void *_) {
   flag1 = 4;
   while (flag2 >= 2);
   x = 0;
-  if (!(x<=0)) ERROR: __VERIFIER_error();
+  if (!(x<=0)) ERROR: {reach_error();abort();}
   while (2 <= flag2 && flag2 <= 3);
   flag1 = 0;
   return 0;
@@ -699,7 +700,7 @@ void *thr2(void *_) {
   flag2 = 4;
   while (flag1 >= 2);
   x = 1;
-  if (!(x>=1)) ERROR: __VERIFIER_error();
+  if (!(x>=1)) ERROR: {reach_error();abort();}
   while (2 <= flag1 && flag1 <= 3);
   flag2 = 0;
   return 0;

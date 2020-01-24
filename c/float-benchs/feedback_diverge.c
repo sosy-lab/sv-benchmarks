@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from "The ASTRÉE Analyzer" by Cousot, Cousot, Feret, Mauborgne, 
    Miné, Monniaux, and Rival, published in ESOP 05.
  */
@@ -9,7 +10,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 void wait_for_clock() { }
 

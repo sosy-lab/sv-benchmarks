@@ -37,108 +37,108 @@ explicit_bzero(void *b, size_t len)
 void
 panic(const char *fmt,...)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 splassert_fail(int a, int b, const char *c)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ether_fakeaddr(struct ifnet *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ifmedia_init(struct ifmedia *a, uint64_t b, ifm_change_cb_t c, ifm_stat_cb_t d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ifmedia_add(struct ifmedia *a, uint64_t b, int c, void *d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ifmedia_set(struct ifmedia * a, uint64_t b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 if_attach(struct ifnet *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 
 void
 ether_ifattach(struct ifnet *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ifmedia_delete_instance(struct ifmedia * a, uint64_t b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 ether_ifdetach(struct ifnet *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 if_detach(struct ifnet *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 if_clone_attach(struct if_clone *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 ifmedia_ioctl(struct ifnet *a, struct ifreq *b, struct ifmedia *c, u_long d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 suser(struct proc *p, u_int flags)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 rtable_exists(unsigned int a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 ether_ioctl(struct ifnet *a, struct arpcom *b, u_long c, caddr_t d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 struct mbuf *
 ifq_dequeue(struct ifqueue *a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     struct mbuf *m;
     return m;
 }
@@ -146,21 +146,21 @@ ifq_dequeue(struct ifqueue *a)
 int
 bpf_mtap(caddr_t a, const struct mbuf *b, u_int c)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 unhandled_af(int a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     LOOP: goto LOOP;
 }
 
 u_int16_t
 ip_randomid(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -173,7 +173,7 @@ int
 ip_output(struct mbuf *a, struct mbuf *b, struct route *c, int d,
     struct ip_moptions *e, struct inpcb *f, u_int32_t g)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -183,7 +183,7 @@ int
 in6_embedscope(struct in6_addr *a, const struct sockaddr_in6 *b,
     struct inpcb *c)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -191,7 +191,7 @@ int
 ip6_output(struct mbuf *a, struct ip6_pktopts *b, struct route_in6 *c, int d,
     struct ip6_moptions *e, struct inpcb *f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -225,14 +225,14 @@ in6_recoverscope(struct sockaddr_in6 *a, const struct in6_addr *b)
 int
 sysctl_int(void *a, size_t *b, void *c, size_t d, int * e)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 

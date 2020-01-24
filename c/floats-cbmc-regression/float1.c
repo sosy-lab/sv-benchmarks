@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 int main() {
   double x;
   int y;
@@ -7,12 +8,12 @@ int main() {
   x-=0.6;
   y=x; // this yields 1.4, which is cut off
   
-  if(!(y==1)) __VERIFIER_error();
+  if(!(y==1)) {reach_error();abort();}
 
   x=2;  
   x-=0.4;
   y=x; // this yields 1.6, which is cut off, too!
        // This is what the standard says!
   
-  if(!(y==1)) __VERIFIER_error();
+  if(!(y==1)) {reach_error();abort();}
 }

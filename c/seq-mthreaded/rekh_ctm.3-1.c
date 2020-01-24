@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /**********************************************************************
 
@@ -88,7 +89,7 @@ unsigned char __startrek_hyper_period  ;
 extern void __startrek_cpu_lock(void) ;
 extern void __startrek_cpu_unlock(void) ;
 extern void abort(void);
-void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error();} }
+void assert(_Bool arg) { if (!arg) { ERROR: {reach_error();abort();}} }
 int __startrek_pi_locks_held  =    0;
 char __startrek_task_base_priority  =    0;
 __inline static char __startrek_read___startrek_current_priority(void) ;

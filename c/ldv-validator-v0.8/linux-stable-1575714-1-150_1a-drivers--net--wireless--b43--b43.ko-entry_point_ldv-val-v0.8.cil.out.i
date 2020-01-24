@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 struct va_list;
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -38727,7 +38728,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 unsigned short ldv_sdio_element = 0U;

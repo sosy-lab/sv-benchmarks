@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Insert node at middle index 1 with data = 1. Check result: 1-1-1
@@ -103,6 +104,6 @@ int main() {
   dll_destroy(s);
 
   return 0;
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
   return 1;
 }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -674,7 +675,7 @@ _Bool s = 0;
 __thread _Bool l = 0;
 void* thr1(void* arg)
 {
- { if(!(!l || s)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
   s = s || 1;
  l = 1;
   return 0;

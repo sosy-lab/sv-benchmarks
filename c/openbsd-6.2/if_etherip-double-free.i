@@ -180,7 +180,8 @@ struct buf;
 struct tty;
 struct uio;
 
-void __VERIFIER_error(void) __attribute__((__noreturn__));
+void abort(void); 
+void reach_error(){}
 void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -675,7 +676,7 @@ void hashfree(void *, int, int);
 int sys_nosys(struct proc *, void *, register_t *);
 
 void panic(const char *, ...)
-    __attribute__((__noreturn__, __format__(printf, 1, 2)));
+    __attribute__((__format__(printf, 1, 2)));
 void __assert(const char *, const char *, int, const char *)
     __attribute__((__noreturn__));
 int printf(const char *, ...) __attribute__((__format__(printf, 1, 2)));
@@ -5888,144 +5889,144 @@ bad:
 }
 
 void *in6_domifattach(struct ifnet *a) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return ((void *)0);
 }
 
-void in6_domifdetach(struct ifnet *a, void *b) { __VERIFIER_error(); }
+void in6_domifdetach(struct ifnet *a, void *b) { {reach_error();abort();} }
 
 int ip6_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int ip6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int frag6_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
-void frag6_slowtimo(void) { __VERIFIER_error(); }
+void frag6_slowtimo(void) { {reach_error();abort();} }
 
-void frag6_drain(void) { __VERIFIER_error(); }
+void frag6_drain(void) { {reach_error();abort();} }
 
 int udp_attach(struct socket *a, int b) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int udp_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int udp_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int udp_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
                struct mbuf *e, struct proc *f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 void udp6_ctlinput(int a, struct sockaddr *b, u_int c, void *d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
 int tcp_attach(struct socket *a, int b) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int tcp_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int tcp_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int tcp_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int tcp_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
                struct mbuf *e, struct proc *f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 void tcp6_ctlinput(int a, struct sockaddr *b, u_int c, void *d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
 int rip6_attach(struct socket *a, int b) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 void rip6_ctlinput(int a, struct sockaddr *b, u_int c, void *d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
 int rip6_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
-void rip6_init(void) { __VERIFIER_error(); }
+void rip6_init(void) { {reach_error();abort();} }
 
 int rip6_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int rip6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int rip6_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
                 struct mbuf *e, struct proc *f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
-void icmp6_fasttimo(void) { __VERIFIER_error(); }
+void icmp6_fasttimo(void) { {reach_error();abort();} }
 
-void icmp6_init(void) { __VERIFIER_error(); }
+void icmp6_init(void) { {reach_error();abort();} }
 
 int icmp6_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int icmp6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int dest6_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int route6_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int ipip_input(struct mbuf **a, int *b, int c, int d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 struct ifnet;
@@ -6458,77 +6459,77 @@ void explicit_bzero(void *b, size_t len) {
     *d++ = 0;
 }
 
-void panic(const char *fmt, ...) { __VERIFIER_error(); }
+void panic(const char *fmt, ...) { {reach_error();abort();} }
 
-void splassert_fail(int a, int b, const char *c) { __VERIFIER_error(); }
+void splassert_fail(int a, int b, const char *c) { {reach_error();abort();} }
 
-void ether_fakeaddr(struct ifnet *a) { __VERIFIER_error(); }
+void ether_fakeaddr(struct ifnet *a) { {reach_error();abort();} }
 
 void ifmedia_init(struct ifmedia *a, uint64_t b, ifm_change_cb_t c,
                   ifm_stat_cb_t d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
 void ifmedia_add(struct ifmedia *a, uint64_t b, int c, void *d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
-void ifmedia_set(struct ifmedia *a, uint64_t b) { __VERIFIER_error(); }
+void ifmedia_set(struct ifmedia *a, uint64_t b) { {reach_error();abort();} }
 
-void if_attach(struct ifnet *a) { __VERIFIER_error(); }
+void if_attach(struct ifnet *a) { {reach_error();abort();} }
 
-void ether_ifattach(struct ifnet *a) { __VERIFIER_error(); }
+void ether_ifattach(struct ifnet *a) { {reach_error();abort();} }
 
 void ifmedia_delete_instance(struct ifmedia *a, uint64_t b) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 
-void ether_ifdetach(struct ifnet *a) { __VERIFIER_error(); }
+void ether_ifdetach(struct ifnet *a) { {reach_error();abort();} }
 
-void if_detach(struct ifnet *a) { __VERIFIER_error(); }
+void if_detach(struct ifnet *a) { {reach_error();abort();} }
 
-void if_clone_attach(struct if_clone *a) { __VERIFIER_error(); }
+void if_clone_attach(struct if_clone *a) { {reach_error();abort();} }
 
 int ifmedia_ioctl(struct ifnet *a, struct ifreq *b, struct ifmedia *c,
                   u_long d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int suser(struct proc *p, u_int flags) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int rtable_exists(unsigned int a) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int ether_ioctl(struct ifnet *a, struct arpcom *b, u_long c, caddr_t d) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 struct mbuf *ifq_dequeue(struct ifqueue *a) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   struct mbuf *m;
   return m;
 }
 
 int bpf_mtap(caddr_t a, const struct mbuf *b, u_int c) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 void unhandled_af(int a) {
-  __VERIFIER_error();
+  {reach_error();abort();}
 LOOP:
   goto LOOP;
 }
 
 u_int16_t ip_randomid(void) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
@@ -6536,7 +6537,7 @@ void pf_pkt_addr_changed(struct mbuf *a) {}
 
 int ip_output(struct mbuf *a, struct mbuf *b, struct route *c, int d,
               struct ip_moptions *e, struct inpcb *f, u_int32_t g) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
@@ -6544,13 +6545,13 @@ int ip6_defhlim = 0;
 
 int in6_embedscope(struct in6_addr *a, const struct sockaddr_in6 *b,
                    struct inpcb *c) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int ip6_output(struct mbuf *a, struct ip6_pktopts *b, struct route_in6 *c,
                int d, struct ip6_moptions *e, struct inpcb *f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
@@ -6565,12 +6566,12 @@ void if_input(struct ifnet *a, struct mbuf_list *b) {}
 void in6_recoverscope(struct sockaddr_in6 *a, const struct in6_addr *b) {}
 
 int sysctl_int(void *a, size_t *b, void *c, size_t d, int *e) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 
 int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
-  __VERIFIER_error();
+  {reach_error();abort();}
   return 0;
 }
 

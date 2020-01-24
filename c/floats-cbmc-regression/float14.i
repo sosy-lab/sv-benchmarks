@@ -946,18 +946,19 @@ struct exception
 
 extern int matherr (struct exception *__exc);
 
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 int main()
 {
   float temp;
 
   temp = 1.8e307f + 1.5e50f;
-  if(!((sizeof (temp) == sizeof (float) ? __isinff (temp) : sizeof (temp) == sizeof (double) ? __isinf (temp) : __isinfl (temp)))) __VERIFIER_error();
+  if(!((sizeof (temp) == sizeof (float) ? __isinff (temp) : sizeof (temp) == sizeof (double) ? __isinf (temp) : __isinfl (temp)))) {reach_error();abort();}
 
   float x;
 
   x=temp-temp;
 
 
-  if(!((sizeof (temp) == sizeof (float) ? __isinff (temp) : sizeof (temp) == sizeof (double) ? __isinf (temp) : __isinfl (temp)))) __VERIFIER_error();
+  if(!((sizeof (temp) == sizeof (float) ? __isinff (temp) : sizeof (temp) == sizeof (double) ? __isinf (temp) : __isinfl (temp)))) {reach_error();abort();}
 }

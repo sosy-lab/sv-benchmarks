@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -918,7 +919,7 @@ static unsigned int arr[(400)];
 pthread_mutex_t m;
 _Bool flag=(0);
 void error(void)
-{ ERROR: __VERIFIER_error(); return;
+{ ERROR: {reach_error();abort();} return;
 }
 void inc_top(void)
 {

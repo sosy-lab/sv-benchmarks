@@ -3,7 +3,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -696,7 +697,7 @@ inline int PseudoRandomUsingAtomic_nextInt(int n) {
   nexts = __VERIFIER_nondet_int();
  }
  while(nexts == read || nexts == 0);
- { if(!(nexts != read)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(nexts != read)) { ERROR: {reach_error();abort();}(void)0; } };
  seed = nexts;
  __VERIFIER_atomic_release();
  nextInt_return = nexts % n;
@@ -705,7 +706,7 @@ inline int PseudoRandomUsingAtomic_nextInt(int n) {
 inline void PseudoRandomUsingAtomic_monitor(){
  while(1)
  {
-  { if(!(seed != 0)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(seed != 0)) { ERROR: {reach_error();abort();}(void)0; } };
  }
 }
 inline void PseudoRandomUsingAtomic_constructor(int init){
@@ -714,7 +715,7 @@ inline void PseudoRandomUsingAtomic_constructor(int init){
 inline void PseudoRandomUsingAtomic__threadmain(){
  int myrand;
  myrand = PseudoRandomUsingAtomic_nextInt(10);
- { if(!(myrand <= 10)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(myrand <= 10)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 volatile int state = 0;
 void* thr1(void* arg)

@@ -10738,13 +10738,14 @@ int ldv_thread_join_N(struct ldv_thread_set *ldv_thread_set , void (*function)(v
   return (0);
 }
 }
-extern void __VERIFIER_error(void) ;
+extern void abort(void); 
+void reach_error(){}
 void ldv_assert_linux_usb_dev__less_initial_decrement(int expr )
 {
   {
   if (! expr) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
   }
@@ -10756,7 +10757,7 @@ void ldv_assert_linux_usb_dev__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
   }
@@ -10768,7 +10769,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
   }
@@ -10780,7 +10781,7 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error();
+    {reach_error();abort();}
     }
   } else {
   }

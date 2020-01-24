@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /*
  * Recursive implementation of prime number test
@@ -93,7 +94,7 @@ int main() {
     }
 
     if (result == 1 && mult(f1, f2) == n && f1 > 1 && f2 > 1) {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     } else {
         return 0;
     }

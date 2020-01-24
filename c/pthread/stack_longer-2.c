@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -20,7 +21,7 @@ _Bool flag=FALSE;
 
 void error(void) 
 { 
-  ERROR: __VERIFIER_error();  return;
+  ERROR: {reach_error();abort();}  return;
 }
 
 void inc_top(void)

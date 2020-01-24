@@ -686,7 +686,7 @@ signed int __main(signed int argc, char **argv)
                   {
 
                     /* assertion (_Bool)0 */
-                    __VERIFIER_error();
+                    {reach_error();abort();}
 
                     __result = (signed int)((const char *)"%f")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }

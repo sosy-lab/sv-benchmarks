@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
 
@@ -1889,7 +1890,7 @@ void* thread(void* arg)
                 break;
         }
         stack.array[elem].Value = idx;
-        if(!(stack.array[elem].Value == idx)) __VERIFIER_error();
+        if(!(stack.array[elem].Value == idx)) {reach_error();abort();}
         Push(elem);
     }
     return ((void *)0);

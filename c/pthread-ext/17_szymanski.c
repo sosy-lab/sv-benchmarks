@@ -1,8 +1,9 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 int flag1 = 0, flag2 = 0; // N integer flags 
 int x; // variable to test mutual exclusion

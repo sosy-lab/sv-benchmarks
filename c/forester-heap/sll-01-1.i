@@ -978,7 +978,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef struct TSLL
 {
  struct TSLL* next;
@@ -990,7 +991,7 @@ int main()
 
  SLL* list = malloc(sizeof(SLL));
  list->next = ((void*)0);
- do { if (!(list != ((void*)0))) __VERIFIER_error();} while (0); if (__VERIFIER_nondet_int()) { list->inner = ((void*)0); } else { list->inner = malloc(sizeof(SLL)); list->inner->next = ((void*)0); list->inner->inner = ((void*)0); } do { if (!(list->inner != ((void*)0) || list->inner == ((void*)0))) __VERIFIER_error();} while (0);;
+ do { if (!(list != ((void*)0))) {reach_error();abort();}} while (0); if (__VERIFIER_nondet_int()) { list->inner = ((void*)0); } else { list->inner = malloc(sizeof(SLL)); list->inner->next = ((void*)0); list->inner->inner = ((void*)0); } do { if (!(list->inner != ((void*)0) || list->inner == ((void*)0))) {reach_error();abort();}} while (0);;
 
  SLL* end = list;
 
@@ -1001,15 +1002,15 @@ int main()
   end->next = malloc(sizeof(SLL));
   end = end->next;
   end->next = ((void*)0);
-  do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
-  do { if (!(end != ((void*)0))) __VERIFIER_error();} while (0); if (__VERIFIER_nondet_int()) { end->inner = ((void*)0); } else { end->inner = malloc(sizeof(SLL)); end->inner->next = ((void*)0); end->inner->inner = ((void*)0); } do { if (!(end->inner != ((void*)0) || end->inner == ((void*)0))) __VERIFIER_error();} while (0);;
+  do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
+  do { if (!(end != ((void*)0))) {reach_error();abort();}} while (0); if (__VERIFIER_nondet_int()) { end->inner = ((void*)0); } else { end->inner = malloc(sizeof(SLL)); end->inner->next = ((void*)0); end->inner->inner = ((void*)0); } do { if (!(end->inner != ((void*)0) || end->inner == ((void*)0))) {reach_error();abort();}} while (0);;
  }
 
  end = ((void*)0);
  end = list;
 
 
- do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
+ do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
 
  while (((void*)0) != end)
  {
@@ -1021,12 +1022,12 @@ int main()
     len = 1;
    else
     len = 2;
-   do { if (!(((void*)0) != inner)) __VERIFIER_error();} while (0);
-   do { if (!(((void*)0) == inner->inner)) __VERIFIER_error();} while (0);
-   do { if (!(((void*)0) == inner->next)) __VERIFIER_error();} while (0);
+   do { if (!(((void*)0) != inner)) {reach_error();abort();}} while (0);
+   do { if (!(((void*)0) == inner->inner)) {reach_error();abort();}} while (0);
+   do { if (!(((void*)0) == inner->next)) {reach_error();abort();}} while (0);
    inner = inner->inner;
   }
-  do { if (!(len <= 1)) __VERIFIER_error();} while (0);
+  do { if (!(len <= 1)) {reach_error();abort();}} while (0);
 
   end = end->next;
  }
@@ -1038,9 +1039,9 @@ int main()
 
   if (((void*)0) != end)
   {
-   do { if (!(((void*)0) != end)) __VERIFIER_error();} while (0);
-   do { if (!(((void*)0) == end->inner)) __VERIFIER_error();} while (0);
-   do { if (!(((void*)0) == end->next)) __VERIFIER_error();} while (0);
+   do { if (!(((void*)0) != end)) {reach_error();abort();}} while (0);
+   do { if (!(((void*)0) == end->inner)) {reach_error();abort();}} while (0);
+   do { if (!(((void*)0) == end->next)) {reach_error();abort();}} while (0);
    free(end);
    end = ((void*)0);
   }

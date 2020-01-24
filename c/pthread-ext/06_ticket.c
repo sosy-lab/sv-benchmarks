@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 
@@ -14,7 +15,7 @@ extern void __VERIFIER_atomic_end();
 #include <pthread.h>
 
 #define assume(e) assume_abort_if_not(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 volatile unsigned next_ticket = 0;
 volatile unsigned now_serving = 0;

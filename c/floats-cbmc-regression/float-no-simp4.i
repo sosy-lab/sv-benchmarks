@@ -950,7 +950,8 @@ struct exception
 
 extern int matherr (struct exception *__exc);
 
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 int main()
@@ -959,36 +960,36 @@ int main()
   double _d1 = __VERIFIER_nondet_double();
   d1=_d1;
   assume_abort_if_not(((sizeof (d1) == sizeof (float) ? __fpclassifyf (d1) : sizeof (d1) == sizeof (double) ? __fpclassify (d1) : __fpclassifyl (d1)) == 4));
-  if(!(!(sizeof (d1) == sizeof (float) ? __isnanf (d1) : sizeof (d1) == sizeof (double) ? __isnan (d1) : __isnanl (d1)))) __VERIFIER_error();
-  if(!(!(sizeof (d1) == sizeof (float) ? __isinff (d1) : sizeof (d1) == sizeof (double) ? __isinf (d1) : __isinfl (d1)))) __VERIFIER_error();
-  if(!((sizeof (d1) == sizeof (float) ? __finitef (d1) : sizeof (d1) == sizeof (double) ? __finite (d1) : __finitel (d1)))) __VERIFIER_error();
+  if(!(!(sizeof (d1) == sizeof (float) ? __isnanf (d1) : sizeof (d1) == sizeof (double) ? __isnan (d1) : __isnanl (d1)))) {reach_error();abort();}
+  if(!(!(sizeof (d1) == sizeof (float) ? __isinff (d1) : sizeof (d1) == sizeof (double) ? __isinf (d1) : __isinfl (d1)))) {reach_error();abort();}
+  if(!((sizeof (d1) == sizeof (float) ? __finitef (d1) : sizeof (d1) == sizeof (double) ? __finite (d1) : __finitel (d1)))) {reach_error();abort();}
 
   double d2 = __VERIFIER_nondet_double();
   double _d2 = __VERIFIER_nondet_double();
   d2=_d2;
   assume_abort_if_not((sizeof (d2) == sizeof (float) ? __isinff (d2) : sizeof (d2) == sizeof (double) ? __isinf (d2) : __isinfl (d2)));
-  if(!(!((sizeof (d2) == sizeof (float) ? __fpclassifyf (d2) : sizeof (d2) == sizeof (double) ? __fpclassify (d2) : __fpclassifyl (d2)) == 4))) __VERIFIER_error();
-  if(!(!(sizeof (d2) == sizeof (float) ? __isnanf (d2) : sizeof (d2) == sizeof (double) ? __isnan (d2) : __isnanl (d2)))) __VERIFIER_error();
+  if(!(!((sizeof (d2) == sizeof (float) ? __fpclassifyf (d2) : sizeof (d2) == sizeof (double) ? __fpclassify (d2) : __fpclassifyl (d2)) == 4))) {reach_error();abort();}
+  if(!(!(sizeof (d2) == sizeof (float) ? __isnanf (d2) : sizeof (d2) == sizeof (double) ? __isnan (d2) : __isnanl (d2)))) {reach_error();abort();}
 
   double d3 = __VERIFIER_nondet_double();
   double _d3 = __VERIFIER_nondet_double();
   d3=_d3;
   assume_abort_if_not((sizeof (d3) == sizeof (float) ? __isnanf (d3) : sizeof (d3) == sizeof (double) ? __isnan (d3) : __isnanl (d3)));
-  if(!(!((sizeof (d3) == sizeof (float) ? __fpclassifyf (d3) : sizeof (d3) == sizeof (double) ? __fpclassify (d3) : __fpclassifyl (d3)) == 4))) __VERIFIER_error();
-  if(!(!(sizeof (d3) == sizeof (float) ? __isinff (d3) : sizeof (d3) == sizeof (double) ? __isinf (d3) : __isinfl (d3)))) __VERIFIER_error();
-  if(!(d3!=d3)) __VERIFIER_error();
+  if(!(!((sizeof (d3) == sizeof (float) ? __fpclassifyf (d3) : sizeof (d3) == sizeof (double) ? __fpclassify (d3) : __fpclassifyl (d3)) == 4))) {reach_error();abort();}
+  if(!(!(sizeof (d3) == sizeof (float) ? __isinff (d3) : sizeof (d3) == sizeof (double) ? __isinf (d3) : __isinfl (d3)))) {reach_error();abort();}
+  if(!(d3!=d3)) {reach_error();abort();}
 
 
   double d4 = __VERIFIER_nondet_double();
   double _d4 = __VERIFIER_nondet_double();
   d4=_d4;
   assume_abort_if_not((sizeof (d4) == sizeof (float) ? __finitef (d4) : sizeof (d4) == sizeof (double) ? __finite (d4) : __finitel (d4)));
-  if(!(!(sizeof (d4) == sizeof (float) ? __isnanf (d4) : sizeof (d4) == sizeof (double) ? __isnan (d4) : __isnanl (d4)))) __VERIFIER_error();
-  if(!(!(sizeof (d4) == sizeof (float) ? __isinff (d4) : sizeof (d4) == sizeof (double) ? __isinf (d4) : __isinfl (d4)))) __VERIFIER_error();
+  if(!(!(sizeof (d4) == sizeof (float) ? __isnanf (d4) : sizeof (d4) == sizeof (double) ? __isnan (d4) : __isnanl (d4)))) {reach_error();abort();}
+  if(!(!(sizeof (d4) == sizeof (float) ? __isinff (d4) : sizeof (d4) == sizeof (double) ? __isinf (d4) : __isinfl (d4)))) {reach_error();abort();}
 
   double d5 = __VERIFIER_nondet_double();
   double _d5 = __VERIFIER_nondet_double();
   d5=_d5;
   assume_abort_if_not(!(sizeof (d5) == sizeof (float) ? __isnanf (d5) : sizeof (d5) == sizeof (double) ? __isnan (d5) : __isnanl (d5)) && !(sizeof (d5) == sizeof (float) ? __isinff (d5) : sizeof (d5) == sizeof (double) ? __isinf (d5) : __isinfl (d5)));
-  if(!((sizeof (d5) == sizeof (float) ? __finitef (d5) : sizeof (d5) == sizeof (double) ? __finite (d5) : __finitel (d5)))) __VERIFIER_error();
+  if(!((sizeof (d5) == sizeof (float) ? __finitef (d5) : sizeof (d5) == sizeof (double) ? __finite (d5) : __finitel (d5)))) {reach_error();abort();}
 }

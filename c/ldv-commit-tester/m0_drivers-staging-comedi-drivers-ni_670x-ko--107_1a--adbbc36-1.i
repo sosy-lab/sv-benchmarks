@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned short __u16;
 typedef unsigned int __u32;
 typedef unsigned long long __u64;
@@ -2129,7 +2130,7 @@ int main(void)
 __inline static void ldv_error(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 long ldv__builtin_expect(long exp , long c )

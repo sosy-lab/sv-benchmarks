@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /*
  * DLL circular example:
  * Build circular dll (1-1-1-1-1).
@@ -72,6 +73,6 @@ int main() {
     free(ptr);
     ptr = temp;
   } while(ptr != NULL);
-  return 0; __VERIFIER_error();
+  return 0; {reach_error();abort();}
  ERROR: return 1;
 }

@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -30,7 +31,7 @@ int __return_100;
  __VERIFIER_assert__cond = __tmp_1;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -43,7 +44,7 @@ int __return_100;
  __VERIFIER_assert__cond = __tmp_2;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -59,7 +60,7 @@ int __return_100;
  __VERIFIER_assert__cond = __tmp_3;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

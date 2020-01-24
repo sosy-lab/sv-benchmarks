@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -955,7 +956,7 @@ int main (int argc, char **argv) {
 
   float result = f + g;
 
-  if(!(result == target && (sizeof (result) == sizeof (float) ? __signbitf (result) : sizeof (result) == sizeof (double) ? __signbit (result) : __signbitl (result)) == (sizeof (target) == sizeof (float) ? __signbitf (target) : sizeof (target) == sizeof (double) ? __signbit (target) : __signbitl (target)))) __VERIFIER_error();
+  if(!(result == target && (sizeof (result) == sizeof (float) ? __signbitf (result) : sizeof (result) == sizeof (double) ? __signbit (result) : __signbitl (result)) == (sizeof (target) == sizeof (float) ? __signbitf (target) : sizeof (target) == sizeof (double) ? __signbit (target) : __signbitl (target)))) {reach_error();abort();}
 
   return 0;
 }

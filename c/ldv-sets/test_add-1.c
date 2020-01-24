@@ -12,7 +12,7 @@ void foo()
 {
 	int j = __VERIFIER_nondet_int();
 	ldv_set_add(j, &s1);
-	if (ldv_is_in_set(j, &s1)) __VERIFIER_error();
+	if (ldv_is_in_set(j, &s1)) {reach_error();abort();}
 }
 
 int main()

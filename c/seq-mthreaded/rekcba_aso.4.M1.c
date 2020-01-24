@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /**********************************************************************
 
@@ -93,7 +94,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error();} }
+void assert(_Bool arg) { if (!arg) { ERROR: {reach_error();abort();}} }
 extern void __startrek_get_pi_lock(char lock_id ) ;
 extern void __startrek_release_pi_lock(char lock_id ) ;
 int __startrek_pi_locks_held  =    0;

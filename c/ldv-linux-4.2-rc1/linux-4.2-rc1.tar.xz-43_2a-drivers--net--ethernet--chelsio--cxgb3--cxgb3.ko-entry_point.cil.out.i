@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u8;
 typedef unsigned short __u16;
 typedef int __s32;
@@ -35059,7 +35060,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 bool ldv_is_err(void const *ptr )

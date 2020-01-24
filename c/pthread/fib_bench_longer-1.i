@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 typedef unsigned char __u_char;
@@ -708,7 +709,7 @@ main(int argc, char **argv)
   int condJ = j > 377;
   __VERIFIER_atomic_end();
   if (condI || condJ) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return 0;
 }

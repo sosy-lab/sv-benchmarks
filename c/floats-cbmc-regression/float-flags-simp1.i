@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double();
 
 
@@ -957,55 +958,55 @@ int main()
 
 
 
-  if(!(((sizeof (3.40282346638528859812e+38F) == sizeof (float) ? __fpclassifyf (3.40282346638528859812e+38F) : sizeof (3.40282346638528859812e+38F) == sizeof (double) ? __fpclassify (3.40282346638528859812e+38F) : __fpclassifyl (3.40282346638528859812e+38F)) == 4))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_huge_val())) == sizeof (float) ? __isinff ((__builtin_huge_val())) : sizeof ((__builtin_huge_val())) == sizeof (double) ? __isinf ((__builtin_huge_val())) : __isinfl ((__builtin_huge_val()))))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_huge_valf())) == sizeof (float) ? __isinff ((__builtin_huge_valf())) : sizeof ((__builtin_huge_valf())) == sizeof (double) ? __isinf ((__builtin_huge_valf())) : __isinfl ((__builtin_huge_valf()))))) __VERIFIER_error();
+  if(!(((sizeof (3.40282346638528859812e+38F) == sizeof (float) ? __fpclassifyf (3.40282346638528859812e+38F) : sizeof (3.40282346638528859812e+38F) == sizeof (double) ? __fpclassify (3.40282346638528859812e+38F) : __fpclassifyl (3.40282346638528859812e+38F)) == 4))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_huge_val())) == sizeof (float) ? __isinff ((__builtin_huge_val())) : sizeof ((__builtin_huge_val())) == sizeof (double) ? __isinf ((__builtin_huge_val())) : __isinfl ((__builtin_huge_val()))))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_huge_valf())) == sizeof (float) ? __isinff ((__builtin_huge_valf())) : sizeof ((__builtin_huge_valf())) == sizeof (double) ? __isinf ((__builtin_huge_valf())) : __isinfl ((__builtin_huge_valf()))))) {reach_error();abort();}
 
-  if(!((sizeof ((__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())) : sizeof ((__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())) : __isinfl ((__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))) == sizeof (float) ? __isnanf ((__builtin_nanf (""))) : sizeof ((__builtin_nanf (""))) == sizeof (double) ? __isnan ((__builtin_nanf (""))) : __isnanl ((__builtin_nanf ("")))))) __VERIFIER_error();
-
-
-  if(!((sizeof ((__builtin_inff())+(__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())+(__builtin_inff())) : sizeof ((__builtin_inff())+(__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())+(__builtin_inff())) : __isinfl ((__builtin_inff())+(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (-(__builtin_inff())+(__builtin_inff())) == sizeof (float) ? __isnanf (-(__builtin_inff())+(__builtin_inff())) : sizeof (-(__builtin_inff())+(__builtin_inff())) == sizeof (double) ? __isnan (-(__builtin_inff())+(__builtin_inff())) : __isnanl (-(__builtin_inff())+(__builtin_inff()))))) __VERIFIER_error();
-  if(!((__builtin_inff())+(__builtin_inff())>0)) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))+d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))+d) : sizeof ((__builtin_nanf (""))+d) == sizeof (double) ? __isnan ((__builtin_nanf (""))+d) : __isnanl ((__builtin_nanf (""))+d)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))+(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))+(__builtin_inff())) : sizeof ((__builtin_nanf (""))+(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))+(__builtin_inff())) : __isnanl ((__builtin_nanf (""))+(__builtin_inff()))))) __VERIFIER_error();
+  if(!((sizeof ((__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())) : sizeof ((__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())) : __isinfl ((__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))) == sizeof (float) ? __isnanf ((__builtin_nanf (""))) : sizeof ((__builtin_nanf (""))) == sizeof (double) ? __isnan ((__builtin_nanf (""))) : __isnanl ((__builtin_nanf ("")))))) {reach_error();abort();}
 
 
-  if(!((sizeof ((__builtin_inff())-(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_inff())-(__builtin_inff())) : sizeof ((__builtin_inff())-(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_inff())-(__builtin_inff())) : __isnanl ((__builtin_inff())-(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (-(__builtin_inff())-(__builtin_inff())) == sizeof (float) ? __isinff (-(__builtin_inff())-(__builtin_inff())) : sizeof (-(__builtin_inff())-(__builtin_inff())) == sizeof (double) ? __isinf (-(__builtin_inff())-(__builtin_inff())) : __isinfl (-(__builtin_inff())-(__builtin_inff()))))) __VERIFIER_error();
-  if(!(-(__builtin_inff())-(__builtin_inff())<0)) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))-d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))-d) : sizeof ((__builtin_nanf (""))-d) == sizeof (double) ? __isnan ((__builtin_nanf (""))-d) : __isnanl ((__builtin_nanf (""))-d)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))-(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))-(__builtin_inff())) : sizeof ((__builtin_nanf (""))-(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))-(__builtin_inff())) : __isnanl ((__builtin_nanf (""))-(__builtin_inff()))))) __VERIFIER_error();
+  if(!((sizeof ((__builtin_inff())+(__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())+(__builtin_inff())) : sizeof ((__builtin_inff())+(__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())+(__builtin_inff())) : __isinfl ((__builtin_inff())+(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (-(__builtin_inff())+(__builtin_inff())) == sizeof (float) ? __isnanf (-(__builtin_inff())+(__builtin_inff())) : sizeof (-(__builtin_inff())+(__builtin_inff())) == sizeof (double) ? __isnan (-(__builtin_inff())+(__builtin_inff())) : __isnanl (-(__builtin_inff())+(__builtin_inff()))))) {reach_error();abort();}
+  if(!((__builtin_inff())+(__builtin_inff())>0)) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))+d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))+d) : sizeof ((__builtin_nanf (""))+d) == sizeof (double) ? __isnan ((__builtin_nanf (""))+d) : __isnanl ((__builtin_nanf (""))+d)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))+(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))+(__builtin_inff())) : sizeof ((__builtin_nanf (""))+(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))+(__builtin_inff())) : __isnanl ((__builtin_nanf (""))+(__builtin_inff()))))) {reach_error();abort();}
 
 
-  if(!((sizeof ((__builtin_inff())*(__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())*(__builtin_inff())) : sizeof ((__builtin_inff())*(__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())*(__builtin_inff())) : __isinfl ((__builtin_inff())*(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (-(__builtin_inff())*(__builtin_inff())) == sizeof (float) ? __isinff (-(__builtin_inff())*(__builtin_inff())) : sizeof (-(__builtin_inff())*(__builtin_inff())) == sizeof (double) ? __isinf (-(__builtin_inff())*(__builtin_inff())) : __isinfl (-(__builtin_inff())*(__builtin_inff()))))) __VERIFIER_error();
-  if(!((__builtin_inff())*(__builtin_inff())>0)) __VERIFIER_error();
-  if(!(-(__builtin_inff())*(__builtin_inff())<0)) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))*d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))*d) : sizeof ((__builtin_nanf (""))*d) == sizeof (double) ? __isnan ((__builtin_nanf (""))*d) : __isnanl ((__builtin_nanf (""))*d)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))*(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))*(__builtin_inff())) : sizeof ((__builtin_nanf (""))*(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))*(__builtin_inff())) : __isnanl ((__builtin_nanf (""))*(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_inff())*0) == sizeof (float) ? __isnanf ((__builtin_inff())*0) : sizeof ((__builtin_inff())*0) == sizeof (double) ? __isnan ((__builtin_inff())*0) : __isnanl ((__builtin_inff())*0)))) __VERIFIER_error();
-  if(!((sizeof (1.0*-0.0) == sizeof (float) ? __signbitf (1.0*-0.0) : sizeof (1.0*-0.0) == sizeof (double) ? __signbit (1.0*-0.0) : __signbitl (1.0*-0.0)))) __VERIFIER_error();
-  if(!(!(sizeof (1.0*0.0) == sizeof (float) ? __signbitf (1.0*0.0) : sizeof (1.0*0.0) == sizeof (double) ? __signbit (1.0*0.0) : __signbitl (1.0*0.0)))) __VERIFIER_error();
+  if(!((sizeof ((__builtin_inff())-(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_inff())-(__builtin_inff())) : sizeof ((__builtin_inff())-(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_inff())-(__builtin_inff())) : __isnanl ((__builtin_inff())-(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (-(__builtin_inff())-(__builtin_inff())) == sizeof (float) ? __isinff (-(__builtin_inff())-(__builtin_inff())) : sizeof (-(__builtin_inff())-(__builtin_inff())) == sizeof (double) ? __isinf (-(__builtin_inff())-(__builtin_inff())) : __isinfl (-(__builtin_inff())-(__builtin_inff()))))) {reach_error();abort();}
+  if(!(-(__builtin_inff())-(__builtin_inff())<0)) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))-d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))-d) : sizeof ((__builtin_nanf (""))-d) == sizeof (double) ? __isnan ((__builtin_nanf (""))-d) : __isnanl ((__builtin_nanf (""))-d)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))-(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))-(__builtin_inff())) : sizeof ((__builtin_nanf (""))-(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))-(__builtin_inff())) : __isnanl ((__builtin_nanf (""))-(__builtin_inff()))))) {reach_error();abort();}
 
 
-  if(!((sizeof ((__builtin_inff())/(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_inff())/(__builtin_inff())) : sizeof ((__builtin_inff())/(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_inff())/(__builtin_inff())) : __isnanl ((__builtin_inff())/(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (-(__builtin_inff())/(__builtin_inff())) == sizeof (float) ? __isnanf (-(__builtin_inff())/(__builtin_inff())) : sizeof (-(__builtin_inff())/(__builtin_inff())) == sizeof (double) ? __isnan (-(__builtin_inff())/(__builtin_inff())) : __isnanl (-(__builtin_inff())/(__builtin_inff()))))) __VERIFIER_error();
+  if(!((sizeof ((__builtin_inff())*(__builtin_inff())) == sizeof (float) ? __isinff ((__builtin_inff())*(__builtin_inff())) : sizeof ((__builtin_inff())*(__builtin_inff())) == sizeof (double) ? __isinf ((__builtin_inff())*(__builtin_inff())) : __isinfl ((__builtin_inff())*(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (-(__builtin_inff())*(__builtin_inff())) == sizeof (float) ? __isinff (-(__builtin_inff())*(__builtin_inff())) : sizeof (-(__builtin_inff())*(__builtin_inff())) == sizeof (double) ? __isinf (-(__builtin_inff())*(__builtin_inff())) : __isinfl (-(__builtin_inff())*(__builtin_inff()))))) {reach_error();abort();}
+  if(!((__builtin_inff())*(__builtin_inff())>0)) {reach_error();abort();}
+  if(!(-(__builtin_inff())*(__builtin_inff())<0)) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))*d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))*d) : sizeof ((__builtin_nanf (""))*d) == sizeof (double) ? __isnan ((__builtin_nanf (""))*d) : __isnanl ((__builtin_nanf (""))*d)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))*(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))*(__builtin_inff())) : sizeof ((__builtin_nanf (""))*(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))*(__builtin_inff())) : __isnanl ((__builtin_nanf (""))*(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_inff())*0) == sizeof (float) ? __isnanf ((__builtin_inff())*0) : sizeof ((__builtin_inff())*0) == sizeof (double) ? __isnan ((__builtin_inff())*0) : __isnanl ((__builtin_inff())*0)))) {reach_error();abort();}
+  if(!((sizeof (1.0*-0.0) == sizeof (float) ? __signbitf (1.0*-0.0) : sizeof (1.0*-0.0) == sizeof (double) ? __signbit (1.0*-0.0) : __signbitl (1.0*-0.0)))) {reach_error();abort();}
+  if(!(!(sizeof (1.0*0.0) == sizeof (float) ? __signbitf (1.0*0.0) : sizeof (1.0*0.0) == sizeof (double) ? __signbit (1.0*0.0) : __signbitl (1.0*0.0)))) {reach_error();abort();}
+
+
+  if(!((sizeof ((__builtin_inff())/(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_inff())/(__builtin_inff())) : sizeof ((__builtin_inff())/(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_inff())/(__builtin_inff())) : __isnanl ((__builtin_inff())/(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (-(__builtin_inff())/(__builtin_inff())) == sizeof (float) ? __isnanf (-(__builtin_inff())/(__builtin_inff())) : sizeof (-(__builtin_inff())/(__builtin_inff())) == sizeof (double) ? __isnan (-(__builtin_inff())/(__builtin_inff())) : __isnanl (-(__builtin_inff())/(__builtin_inff()))))) {reach_error();abort();}
 
   int zero=0;
-  if(!((sizeof ((__builtin_inff())/zero) == sizeof (float) ? __isinff ((__builtin_inff())/zero) : sizeof ((__builtin_inff())/zero) == sizeof (double) ? __isinf ((__builtin_inff())/zero) : __isinfl ((__builtin_inff())/zero)))) __VERIFIER_error();
-  if(!(0.0/(__builtin_inff())==0)) __VERIFIER_error();
-  if(!(1.0/(__builtin_inff())==0)) __VERIFIER_error();
-  if(!((sizeof (-1.0/(__builtin_inff())) == sizeof (float) ? __signbitf (-1.0/(__builtin_inff())) : sizeof (-1.0/(__builtin_inff())) == sizeof (double) ? __signbit (-1.0/(__builtin_inff())) : __signbitl (-1.0/(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (1.0/-(__builtin_inff())) == sizeof (float) ? __signbitf (1.0/-(__builtin_inff())) : sizeof (1.0/-(__builtin_inff())) == sizeof (double) ? __signbit (1.0/-(__builtin_inff())) : __signbitl (1.0/-(__builtin_inff()))))) __VERIFIER_error();
-  if(!((__builtin_inff())/-2<0)) __VERIFIER_error();
-  if(!((sizeof (1.0/0.0) == sizeof (float) ? __isinff (1.0/0.0) : sizeof (1.0/0.0) == sizeof (double) ? __isinf (1.0/0.0) : __isinfl (1.0/0.0)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_inff())/2) == sizeof (float) ? __isinff ((__builtin_inff())/2) : sizeof ((__builtin_inff())/2) == sizeof (double) ? __isinf ((__builtin_inff())/2) : __isinfl ((__builtin_inff())/2)))) __VERIFIER_error();
-  if(!((sizeof (0.0/0.0) == sizeof (float) ? __isnanf (0.0/0.0) : sizeof (0.0/0.0) == sizeof (double) ? __isnan (0.0/0.0) : __isnanl (0.0/0.0)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))/d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))/d) : sizeof ((__builtin_nanf (""))/d) == sizeof (double) ? __isnan ((__builtin_nanf (""))/d) : __isnanl ((__builtin_nanf (""))/d)))) __VERIFIER_error();
-  if(!((sizeof ((__builtin_nanf (""))/(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))/(__builtin_inff())) : sizeof ((__builtin_nanf (""))/(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))/(__builtin_inff())) : __isnanl ((__builtin_nanf (""))/(__builtin_inff()))))) __VERIFIER_error();
-  if(!((sizeof (-0.0/1) == sizeof (float) ? __signbitf (-0.0/1) : sizeof (-0.0/1) == sizeof (double) ? __signbit (-0.0/1) : __signbitl (-0.0/1)))) __VERIFIER_error();
+  if(!((sizeof ((__builtin_inff())/zero) == sizeof (float) ? __isinff ((__builtin_inff())/zero) : sizeof ((__builtin_inff())/zero) == sizeof (double) ? __isinf ((__builtin_inff())/zero) : __isinfl ((__builtin_inff())/zero)))) {reach_error();abort();}
+  if(!(0.0/(__builtin_inff())==0)) {reach_error();abort();}
+  if(!(1.0/(__builtin_inff())==0)) {reach_error();abort();}
+  if(!((sizeof (-1.0/(__builtin_inff())) == sizeof (float) ? __signbitf (-1.0/(__builtin_inff())) : sizeof (-1.0/(__builtin_inff())) == sizeof (double) ? __signbit (-1.0/(__builtin_inff())) : __signbitl (-1.0/(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (1.0/-(__builtin_inff())) == sizeof (float) ? __signbitf (1.0/-(__builtin_inff())) : sizeof (1.0/-(__builtin_inff())) == sizeof (double) ? __signbit (1.0/-(__builtin_inff())) : __signbitl (1.0/-(__builtin_inff()))))) {reach_error();abort();}
+  if(!((__builtin_inff())/-2<0)) {reach_error();abort();}
+  if(!((sizeof (1.0/0.0) == sizeof (float) ? __isinff (1.0/0.0) : sizeof (1.0/0.0) == sizeof (double) ? __isinf (1.0/0.0) : __isinfl (1.0/0.0)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_inff())/2) == sizeof (float) ? __isinff ((__builtin_inff())/2) : sizeof ((__builtin_inff())/2) == sizeof (double) ? __isinf ((__builtin_inff())/2) : __isinfl ((__builtin_inff())/2)))) {reach_error();abort();}
+  if(!((sizeof (0.0/0.0) == sizeof (float) ? __isnanf (0.0/0.0) : sizeof (0.0/0.0) == sizeof (double) ? __isnan (0.0/0.0) : __isnanl (0.0/0.0)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))/d) == sizeof (float) ? __isnanf ((__builtin_nanf (""))/d) : sizeof ((__builtin_nanf (""))/d) == sizeof (double) ? __isnan ((__builtin_nanf (""))/d) : __isnanl ((__builtin_nanf (""))/d)))) {reach_error();abort();}
+  if(!((sizeof ((__builtin_nanf (""))/(__builtin_inff())) == sizeof (float) ? __isnanf ((__builtin_nanf (""))/(__builtin_inff())) : sizeof ((__builtin_nanf (""))/(__builtin_inff())) == sizeof (double) ? __isnan ((__builtin_nanf (""))/(__builtin_inff())) : __isnanl ((__builtin_nanf (""))/(__builtin_inff()))))) {reach_error();abort();}
+  if(!((sizeof (-0.0/1) == sizeof (float) ? __signbitf (-0.0/1) : sizeof (-0.0/1) == sizeof (double) ? __signbit (-0.0/1) : __signbitl (-0.0/1)))) {reach_error();abort();}
 
 
 }

@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int();
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 int fibo1(int n);
 int fibo2(int n);
@@ -36,7 +37,7 @@ int main(void) {
     int x = 15;
     int result = fibo1(x);
     if (result != 610) {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     }
     return 0;
 }

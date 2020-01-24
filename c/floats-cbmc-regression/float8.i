@@ -950,7 +950,8 @@ struct exception
 
 extern int matherr (struct exception *__exc);
 
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern double __VERIFIER_nondet_double(void);
 int main()
 {
@@ -959,5 +960,5 @@ int main()
   assume_abort_if_not((sizeof (q) == sizeof (float) ? __finitef (q) : sizeof (q) == sizeof (double) ? __finite (q) : __finitel (q)));
   d=q;
   r=d+0;
-  if(!(r==d)) __VERIFIER_error();
+  if(!(r==d)) {reach_error();abort();}
 }

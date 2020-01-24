@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error();
+extern void abort(void); 
+void reach_error(){}
 
 int sum(int n, int m) {
     if (n == 0) {
@@ -14,6 +15,6 @@ int main(void) {
   int b = __VERIFIER_nondet_int();
   int result = sum(a, b);
   if (result != a + b) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
 }

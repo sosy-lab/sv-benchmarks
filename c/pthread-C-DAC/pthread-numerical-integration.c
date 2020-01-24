@@ -16,13 +16,14 @@
                    
 *******************************************************************************/
 /*                                                                                                                                                                                   Modifications are made to remove non-standard library depedencies by Yihao from VSL of University of Delaware.                                                                    **/
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
 extern int __VERIFIER_nondet_int(void);
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>

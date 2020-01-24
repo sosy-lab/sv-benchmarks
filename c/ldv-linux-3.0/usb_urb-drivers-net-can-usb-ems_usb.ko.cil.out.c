@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef void (*ctor_fn_t)(void);
 typedef signed char __s8;
@@ -6877,7 +6878,7 @@ void ldv_blast_assert(void)
 {
 
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern void *ldv_undefined_pointer(void) ;

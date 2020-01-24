@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 int main(void)
 {
@@ -6,7 +7,7 @@ int main(void)
   double d  = -0x1.0p-127;
   double fp = (double)f;
 
-  if(!(d == fp)) __VERIFIER_error();
+  if(!(d == fp)) {reach_error();abort();}
 
   return 0;
 }

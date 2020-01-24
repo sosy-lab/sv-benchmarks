@@ -6,9 +6,10 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 
-extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 void __VERIFIER_assert(int cond) {
-    if(!cond) __VERIFIER_error();
+    if(!cond) {reach_error();abort();}
 }
 
 void upsweep(int *a, int left, int right) {

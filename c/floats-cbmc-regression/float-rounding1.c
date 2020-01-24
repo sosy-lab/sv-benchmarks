@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #ifdef __GNUC__
 #include <math.h>
 #include <fenv.h>
@@ -19,14 +20,14 @@ void roundingTest (float f1, float f2) {
 
  // With round to nearest, should get 0x1.000002p+0f
   float roundToNearestSum = f1 + f2;
-  if(!(roundToNearestSum == 0x1.000002p+0f)) __VERIFIER_error();
+  if(!(roundToNearestSum == 0x1.000002p+0f)) {reach_error();abort();}
 
   // Change the rounding mode
   fesetround(FE_DOWNWARD);
 
   // Should now round down to 0x1p+0;
   float roundDownSum = f1 + f2;
-  if(!(roundDownSum == 0x1.0p+0f)) __VERIFIER_error();
+  if(!(roundDownSum == 0x1.0p+0f)) {reach_error();abort();}
 
   return;
 }

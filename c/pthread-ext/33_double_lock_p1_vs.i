@@ -3,7 +3,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -717,7 +718,7 @@ void* thr1(void* arg)
     __VERIFIER_atomic_acquire(&mutexa);
     { if(!(count >= -1)) { goto ERROR; } };
     __VERIFIER_atomic_acquire(&mutexb);
-    { if(!(count == 0)) { ERROR: __VERIFIER_error();(void)0; } };
+    { if(!(count == 0)) { ERROR: {reach_error();abort();}(void)0; } };
     __VERIFIER_atomic_release(&mutexb);
     __VERIFIER_atomic_release(&mutexa);
   }

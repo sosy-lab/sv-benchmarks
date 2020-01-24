@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 char __VERIFIER_nondet_char();
 unsigned char __VERIFIER_nondet_uchar();
 _Bool __VERIFIER_nondet_bool();
@@ -1840,7 +1841,7 @@ int __return_5405;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -1897,7 +1898,7 @@ int __return_5405;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2037,7 +2038,7 @@ int __return_5405;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2094,7 +2095,7 @@ int __return_5405;
  assert__arg = __tmp_9;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2317,7 +2318,7 @@ int __return_5405;
  assert__arg = __tmp_10;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2374,7 +2375,7 @@ int __return_5405;
  assert__arg = __tmp_11;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2514,7 +2515,7 @@ int __return_5405;
  assert__arg = __tmp_12;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -2593,7 +2594,7 @@ int __return_5405;
  assert__arg = __tmp_13;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -3840,7 +3841,7 @@ int __return_5405;
  assert__arg = __tmp_14;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -3897,7 +3898,7 @@ int __return_5405;
  assert__arg = __tmp_15;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -4037,7 +4038,7 @@ int __return_5405;
  assert__arg = __tmp_16;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -4386,7 +4387,7 @@ int __return_5405;
  assert__arg = __tmp_17;
  if (assert__arg == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

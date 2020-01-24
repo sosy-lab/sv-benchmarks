@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -7,7 +8,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
   {
  if (i == 0)
  {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
  }
   }
 

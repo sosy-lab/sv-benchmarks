@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -226,7 +227,7 @@ int main() {
 
     // x is +-0, y is > 0, the result shall be +pi/2
     if (res != pi_o_2) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

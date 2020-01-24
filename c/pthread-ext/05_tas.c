@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 //Simple test_and_set lock with exponential backoff
 //
@@ -11,7 +12,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #define locked 1
 volatile int lock = unlocked;
 
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
+#define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void __VERIFIER_atomic_TAS(
   volatile int *v,

@@ -1,10 +1,11 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /* Example from "Compositional analysis of floating-point linear numerical
    filters" by Monniaux, published in CAV 05.
 */
 
 
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 
 typedef enum { FALSE = 0, TRUE = 1 } BOOLEAN;
 

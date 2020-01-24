@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2895,7 +2896,7 @@ signed int __main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    __VERIFIER_error();
+                    {reach_error();abort();}
                     __result = (signed int)((const char *)"%f")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
                 }

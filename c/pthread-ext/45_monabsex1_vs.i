@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -677,7 +678,7 @@ void* thr1(void* arg)
  int l = __VERIFIER_nondet_int();
   l = 4;
  s = l;
- { if(!(s == l)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(s == l)) { ERROR: {reach_error();abort();}(void)0; } };
   return 0;
 }
 int main()

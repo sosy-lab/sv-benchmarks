@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #include <math.h>
 #include <float.h>
 
@@ -11,14 +12,14 @@ int main() {
 
   #else
   // Be careful, result of DBL_MAX+DBL_MAX depens on rounding mode!
-  if(!(fpclassify(DBL_MAX+DBL_MAX)==FP_INFINITE)) __VERIFIER_error();
-  if(!(fpclassify(0*(LDBL_MAX+LDBL_MAX))==FP_NAN)) __VERIFIER_error();
-  if(!(fpclassify(1.0)==FP_NORMAL)) __VERIFIER_error();
-  if(!(fpclassify(DBL_MIN)==FP_NORMAL)) __VERIFIER_error();
-  if(!(fpclassify(DBL_MIN/2)==FP_SUBNORMAL)) __VERIFIER_error();
-  if(!(fpclassify(-0.0)==FP_ZERO)) __VERIFIER_error();
+  if(!(fpclassify(DBL_MAX+DBL_MAX)==FP_INFINITE)) {reach_error();abort();}
+  if(!(fpclassify(0*(LDBL_MAX+LDBL_MAX))==FP_NAN)) {reach_error();abort();}
+  if(!(fpclassify(1.0)==FP_NORMAL)) {reach_error();abort();}
+  if(!(fpclassify(DBL_MIN)==FP_NORMAL)) {reach_error();abort();}
+  if(!(fpclassify(DBL_MIN/2)==FP_SUBNORMAL)) {reach_error();abort();}
+  if(!(fpclassify(-0.0)==FP_ZERO)) {reach_error();abort();}
   #endif
 
-  if(!(signbit(-1.0)!=0)) __VERIFIER_error();
-  if(!(signbit(1.0)==0)) __VERIFIER_error();
+  if(!(signbit(-1.0)!=0)) {reach_error();abort();}
+  if(!(signbit(1.0)==0)) {reach_error();abort();}
 }

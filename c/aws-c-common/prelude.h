@@ -2,7 +2,8 @@
 
 typedef _Bool bool;
 
-extern void __VERIFIER_error() __attribute__((noreturn));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -17,7 +18,7 @@ extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 
 void __VERIFIER_assert(int cond) {
-    if(!cond) __VERIFIER_error(); 
+    if(!cond) {reach_error();abort();} 
 }
 
 #define __CPROVER_size_t unsigned long
@@ -27,7 +28,7 @@ void __VERIFIER_assert(int cond) {
 
 /* See Makefile.common, needed? */
 void abort(void) {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 /* See: include/aws/common/assert.h */

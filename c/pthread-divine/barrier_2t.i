@@ -682,7 +682,8 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void __VERIFIER_error( void );
+void abort(void); 
+void reach_error(){}
 typedef struct _barrier {
     int thread_count;
     int seen;
@@ -692,7 +693,7 @@ typedef struct _barrier {
     pthread_cond_t let_in, let_out;
 } Barrier;
 void barrier_init( Barrier *b, int thread_count ) {
-    (!(thread_count > 1) ? __VERIFIER_error() : (void)0);
+    (!(thread_count > 1) ? reach_error() : (void)0);
     b->thread_count = thread_count;
     b->seen = 0;
     b->pass = 0;
@@ -741,33 +742,33 @@ void *worker_fn( void *arg ) {
     const int tid = a->tid;
     pre[ tid ] = 1;
     for ( int i = 0; i < 2; ++i ) {
-        (!(!in[ i ]) ? __VERIFIER_error() : (void)0);
-        (!(!post[ i ]) ? __VERIFIER_error() : (void)0);
+        (!(!in[ i ]) ? reach_error() : (void)0);
+        (!(!post[ i ]) ? reach_error() : (void)0);
     }
     sig1[ tid ] = barrier_wait( a->b1 );
     int sig = 0;
     for ( int i = 0; i < 2; ++i ) {
-        (!(pre[ i ]) ? __VERIFIER_error() : (void)0);
+        (!(pre[ i ]) ? reach_error() : (void)0);
         sig += sig1[ i ];
     }
-    (!(sig <= 1) ? __VERIFIER_error() : (void)0);
-    (!(!in[ tid ]) ? __VERIFIER_error() : (void)0);
+    (!(sig <= 1) ? reach_error() : (void)0);
+    (!(!in[ tid ]) ? reach_error() : (void)0);
     in[ tid ] = 1;
     sig2[ tid ] = barrier_wait( a->b2 );
-    (!(!post[ tid ]) ? __VERIFIER_error() : (void)0);
+    (!(!post[ tid ]) ? reach_error() : (void)0);
     post[ tid ] = 1;
     sig = 0;
     for ( int i = 0; i < 2; ++i ) {
-        (!(pre[ i ]) ? __VERIFIER_error() : (void)0);
-        (!(in[ i ]) ? __VERIFIER_error() : (void)0);
+        (!(pre[ i ]) ? reach_error() : (void)0);
+        (!(in[ i ]) ? reach_error() : (void)0);
         sig += sig1[ i ];
     }
-    (!(sig == 1) ? __VERIFIER_error() : (void)0);
+    (!(sig == 1) ? reach_error() : (void)0);
     sig = 0;
     for ( int i = 0; i < 2; ++i ) {
         sig += sig2[ i ];
     }
-    (!(sig <= 1) ? __VERIFIER_error() : (void)0);
+    (!(sig <= 1) ? reach_error() : (void)0);
     return ((void *)0);
 }
 int main() {
@@ -787,8 +788,8 @@ int main() {
         pthread_join( worker[ i ], ((void *)0) );
     int sig = 0;
     for ( int i = 0; i < 2; ++i ) {
-        (!(post[ i ]) ? __VERIFIER_error() : (void)0);
+        (!(post[ i ]) ? reach_error() : (void)0);
         sig += sig2[ i ];
     }
-    (!(sig == 1) ? __VERIFIER_error() : (void)0);
+    (!(sig == 1) ? reach_error() : (void)0);
 }

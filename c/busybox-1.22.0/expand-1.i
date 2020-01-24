@@ -8,7 +8,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2465,7 +2466,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
         if(!(tab_size == 0u))
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         len = tab_size - len % tab_size;
         printf("%s%*s", ptr_strbeg, len, "");
         ptr_strbeg = ptr + (signed long int)1;
@@ -3200,7 +3201,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         column = column + (tab_size - column % tab_size);
         ptr = ptr + 1l;
       }
@@ -3209,7 +3210,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         n = column / tab_size;
         if(!(n == 0u))
         {
@@ -3246,7 +3247,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          __VERIFIER_error();
+          {reach_error();abort();}
         column = (column + len) % tab_size;
       }
     }

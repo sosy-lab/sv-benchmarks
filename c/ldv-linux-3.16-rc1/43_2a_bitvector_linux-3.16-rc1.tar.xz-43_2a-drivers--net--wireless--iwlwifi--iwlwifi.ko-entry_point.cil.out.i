@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 struct kernel_symbol {
    unsigned long value ;
    char const *name ;
@@ -7760,7 +7761,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  __VERIFIER_error();
+  {reach_error();abort();}
 }
 }
 long ldv__builtin_expect(long exp , long c )

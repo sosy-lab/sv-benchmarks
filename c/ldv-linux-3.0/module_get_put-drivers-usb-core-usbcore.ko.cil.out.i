@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -4865,7 +4866,7 @@ int LDV_IN_INTERRUPT ;
 void ldv_blast_assert(void)
 {
   {
-  ERROR: __VERIFIER_error();
+  ERROR: {reach_error();abort();}
 }
 }
 extern int ldv_undefined_int(void) ;

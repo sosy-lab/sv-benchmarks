@@ -671,7 +671,8 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 int i = 3, j = 6;
 void *t1(void *arg) {
   for (int k = 0; k < 20; k++) {
@@ -700,7 +701,7 @@ int main(int argc, char **argv) {
   int condJ = j > (2*20 +6);
   __VERIFIER_atomic_end();
   if (condI || condJ) {
-    ERROR: __VERIFIER_error();
+    ERROR: {reach_error();abort();}
   }
   return 0;
 }

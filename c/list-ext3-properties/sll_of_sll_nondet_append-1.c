@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int();
 /*
  * Build NULL-terminated sll of the following form:
@@ -109,6 +110,6 @@ int main() {
   }
   sll_hierarchical_destroy(head);
   return 0;
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
   return 1;
 }

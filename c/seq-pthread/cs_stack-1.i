@@ -6,7 +6,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
@@ -765,7 +766,7 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: __VERIFIER_error();
+          ERROR: {reach_error();abort();}
                    }
       return;
 }

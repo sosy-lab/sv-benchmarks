@@ -3,7 +3,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -689,7 +690,7 @@ void* thr1(void* arg)
 while(1){
   unsigned l;
   { __VERIFIER_atomic_fetch_and_inc(&l); while(1) { ; if(s == l) break; }};
-  c = 1; { if(!(c == 1)) { ERROR: __VERIFIER_error();(void)0; } }; c = 0;
+  c = 1; { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } }; c = 0;
   { s++;};
   }
 return 0;

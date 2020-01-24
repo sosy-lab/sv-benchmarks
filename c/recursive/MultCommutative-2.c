@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /*
  * Recursive implementation multiplication by repeated addition
@@ -34,7 +35,7 @@ int main() {
     int res1 = mult(m, n);
     int res2 = mult(n, m);
     if (res1 != res2 && m > 0 && n > 0) {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     } else {
         return 0;
     }

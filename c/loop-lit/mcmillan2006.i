@@ -1,12 +1,13 @@
 extern void *malloc (unsigned int __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-      ERROR: __VERIFIER_error();
+      ERROR: {reach_error();abort();}
   }
   return;
 }

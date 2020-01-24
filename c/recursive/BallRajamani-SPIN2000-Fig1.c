@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 /*
  * Program depicted in Fig.1 of 
@@ -28,6 +29,6 @@ int main() {
     A(g,h);
     A(g,h);
     if (g) {
-        ERROR: __VERIFIER_error();
+        ERROR: {reach_error();abort();}
     }
 }

@@ -1,5 +1,6 @@
 int __return_main;
-void __VERIFIER_error();
+void abort(void); 
+void reach_error(){}
 void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -42,7 +43,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_1;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -54,7 +55,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_2;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -71,7 +72,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_3;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -83,7 +84,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_4;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -95,7 +96,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_5;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -107,7 +108,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_6;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -136,7 +137,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_7;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -148,7 +149,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_8;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -160,7 +161,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_9;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -172,7 +173,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_10;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -188,7 +189,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_11;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -200,7 +201,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_12;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -212,7 +213,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_13;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -224,7 +225,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_14;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -240,7 +241,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_15;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 
@@ -252,7 +253,7 @@ int __return_334;
  __VERIFIER_assert__cond = __tmp_16;
  if (__VERIFIER_assert__cond == 0)
  {
- __VERIFIER_error();
+ {reach_error();abort();}
  return __return_main;
  }
  else 

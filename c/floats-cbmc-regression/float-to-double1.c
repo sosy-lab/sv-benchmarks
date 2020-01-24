@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #include <math.h>
 
 #ifdef _WIN32
@@ -15,5 +16,5 @@ int main()
   double d = (double)f;
   float ff = (float)d;
 
-  if(!((f == ff) || (isnan(f) && isnan(ff)))) __VERIFIER_error();
+  if(!((f == ff) || (isnan(f) && isnan(ff)))) {reach_error();abort();}
 }

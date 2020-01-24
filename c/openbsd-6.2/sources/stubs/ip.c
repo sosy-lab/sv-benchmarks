@@ -282,67 +282,67 @@ bad:
 void *
 in6_domifattach(struct ifnet * a)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return NULL;
 }
 
 void
 in6_domifdetach(struct ifnet *a, void *b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 ip6_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 ip6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 frag6_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 frag6_slowtimo(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 frag6_drain(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 udp_attach(struct socket *a, int b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 udp_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 udp_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -350,41 +350,41 @@ int
 udp_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
     struct mbuf *e, struct proc *f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 udp6_ctlinput(int a, struct sockaddr *b, u_int c, void *d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 tcp_attach(struct socket *a, int b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 tcp_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 tcp_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 tcp_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -392,53 +392,53 @@ int
 tcp_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
     struct mbuf *e, struct proc *f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 tcp6_ctlinput(int a, struct sockaddr *b, u_int c, void *d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 rip6_attach(struct socket *a, int b)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 rip6_ctlinput(int a, struct sockaddr *b, u_int c, void *d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 rip6_ctloutput(int a, struct socket *b, int c, int d, struct mbuf *e)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 rip6_init(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 rip6_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 rip6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
@@ -446,53 +446,53 @@ int
 rip6_usrreq(struct socket *a, int b, struct mbuf *c, struct mbuf *d,
     struct mbuf *e, struct proc *f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 void
 icmp6_fasttimo(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 void
 icmp6_init(void)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 
 int
 icmp6_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 icmp6_sysctl(int *a, u_int b, void *c, size_t *d, void *e, size_t f)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 dest6_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 route6_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }
 
 int
 ipip_input(struct mbuf **a, int *b, int c, int d)
 {
-    __VERIFIER_error();
+    {reach_error();abort();}
     return 0;
 }

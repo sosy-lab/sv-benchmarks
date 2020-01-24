@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 /*
 ** largestSubnormalFloat.c
 **
@@ -15,17 +16,17 @@ int main (void)
   #ifdef __GNUC__
   float largestSubnormalFloat = 0x1.fffffcp-127f;
 
-  if(!(fpclassify(largestSubnormalFloat) != FP_NAN)) __VERIFIER_error();
-  if(!(fpclassify(largestSubnormalFloat) != FP_INFINITE)) __VERIFIER_error();
-  if(!(fpclassify(largestSubnormalFloat) != FP_ZERO)) __VERIFIER_error();
-  if(!(fpclassify(largestSubnormalFloat) != FP_NORMAL)) __VERIFIER_error();
-  if(!(fpclassify(largestSubnormalFloat) == FP_SUBNORMAL)) __VERIFIER_error();
+  if(!(fpclassify(largestSubnormalFloat) != FP_NAN)) {reach_error();abort();}
+  if(!(fpclassify(largestSubnormalFloat) != FP_INFINITE)) {reach_error();abort();}
+  if(!(fpclassify(largestSubnormalFloat) != FP_ZERO)) {reach_error();abort();}
+  if(!(fpclassify(largestSubnormalFloat) != FP_NORMAL)) {reach_error();abort();}
+  if(!(fpclassify(largestSubnormalFloat) == FP_SUBNORMAL)) {reach_error();abort();}
 
-  if(!(__fpclassifyf(largestSubnormalFloat) == FP_SUBNORMAL)) __VERIFIER_error();
+  if(!(__fpclassifyf(largestSubnormalFloat) == FP_SUBNORMAL)) {reach_error();abort();}
 
   char b = isnormal(largestSubnormalFloat);
 
-  if(!(!b)) __VERIFIER_error();
+  if(!(!b)) {reach_error();abort();}
   #endif
 
   return 0;

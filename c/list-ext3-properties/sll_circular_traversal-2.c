@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 /*
  * SLL circular traversal example:
  * Build circular sll (1-1-1-1-1).
@@ -66,6 +67,6 @@ int main() {
     /* Cause violation: Use wrong loop condition, should be: ptr != head */
   } while(ptr != NULL);
   return 0;
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
   return 1;
 }

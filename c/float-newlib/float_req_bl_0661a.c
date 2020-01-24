@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -225,7 +226,7 @@ int main() {
     float res = __ieee754_atan2f(y, x);
     // x is > 0, y is -0.0f, the result shall be -0
     if (res != -0.0f) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -71,13 +72,13 @@ int main() {
 
     // x is NAN and y is not NAN, the result shall be y
     if (isnan_float(x) && !isnan_float(y) && res != y) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
 
     // y is NAN and x is not NAN, the result shall be x
     if (!isnan_float(x) && isnan_float(y) && res != x) {
-      __VERIFIER_error();
+      {reach_error();abort();}
       return 1;
     }
   }

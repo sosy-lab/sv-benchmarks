@@ -1,5 +1,6 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+extern void abort(void); 
+void reach_error(){}
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 extern int __VERIFIER_nondet_int(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;

@@ -2,7 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #include <math.h>
 
 #ifdef __GNUC__
@@ -18,7 +19,7 @@ void inductiveStepHunt (float startState)
 
   float oneAfter = (target / nextState);
 
-  if(!(oneAfter > 0)) __VERIFIER_error();
+  if(!(oneAfter > 0)) {reach_error();abort();}
 }
 
 void simplifiedInductiveStepHunt (float nextState)
@@ -32,9 +33,9 @@ void simplifiedInductiveStepHunt (float nextState)
 
   // Is true and correctly proven by constant evaluation
   // Note that this is the smallest normal number
-  if(!(0x1.fffffep-3f / 0x1p+124f == 0x1p-126f)) __VERIFIER_error();
+  if(!(0x1.fffffep-3f / 0x1p+124f == 0x1p-126f)) {reach_error();abort();}
 
-  if(!(oneAfter > 0)) __VERIFIER_error();
+  if(!(oneAfter > 0)) {reach_error();abort();}
 }
 #endif
 

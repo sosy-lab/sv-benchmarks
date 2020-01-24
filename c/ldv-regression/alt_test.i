@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
@@ -1598,7 +1599,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error();
+ ERROR: {reach_error();abort();}
 }
 
 

@@ -1143,7 +1143,7 @@ signed int __main(signed int argc, char **argv)
 
         else
           /* assertion (signed long int)u < 5l */
-          __VERIFIER_error();
+          {reach_error();abort();}
         totals[(signed long int)u] = totals[(signed long int)u] + pcounts[(signed long int)u];
         u = u + 1u;
         if(!(u < 5u))

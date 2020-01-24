@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 int __VERIFIER_nondet_int();
 
 double d = 0.0;
@@ -21,5 +22,5 @@ int main()
 
   d += (x > 3);
 
-  if(!(d == 2.0)) __VERIFIER_error();
+  if(!(d == 2.0)) {reach_error();abort();}
 }

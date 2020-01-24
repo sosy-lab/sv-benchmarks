@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 #include <math.h>
 
 int main (int argc, char **argv) {
@@ -8,7 +9,7 @@ int main (int argc, char **argv) {
 
   float result = f + g;
 
-  if(!(result == target && signbit(result) == signbit(target))) __VERIFIER_error();
+  if(!(result == target && signbit(result) == signbit(target))) {reach_error();abort();}
 
   return 0;
 }

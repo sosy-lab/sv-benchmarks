@@ -1282,7 +1282,7 @@ signed int __main(signed int argc, char **argv)
 
     else
       /* assertion !(((16 & opts) != 0 ? lutimes : utimes) == ((signed int (*)(const char *, struct timeval *))((void*)0))) */
-      __VERIFIER_error();
+      {reach_error();abort();}
 
     result=((opts & 16) != 0 ? lutimes : utimes)(*argv, tmp_if_expr$2);
     if(!(result == 0))

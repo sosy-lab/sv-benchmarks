@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
@@ -237,7 +238,7 @@ int PopOpen;
 int PopDone[3];
 
 void checkInvariant() {
-    if (!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
+    if (!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) {reach_error();abort();}
 }
 void Incr_Push(int localPush1) {
     __VERIFIER_atomic_begin();

@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 #include <pthread.h>
 #include <stdio.h>
 #include <assert.h>
@@ -116,7 +117,7 @@ void *t2(void *arg)
     {
       if (empty(&queue)!=EMPTY)
         if (!dequeue(&queue)==stored_elements[i]) {
-          ERROR:__VERIFIER_error();
+          ERROR:{reach_error();abort();}
         }
     }
     dequeue_flag=FALSE;
@@ -137,7 +138,7 @@ int main(void)
   init(&queue);
 
   if (!empty(&queue)==EMPTY) {
-	ERROR:__VERIFIER_error();
+	ERROR:{reach_error();abort();}
   }
 
   pthread_mutex_init(&m, 0);

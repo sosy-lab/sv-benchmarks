@@ -1,4 +1,5 @@
-extern void __VERIFIER_error(void);
+extern void abort(void); 
+void reach_error(){}
 
 void multiply(void)
 {
@@ -20,7 +21,7 @@ void multiply(void)
 
   float res = f1 * f2;
 
-  if(!(res == 0x1.0p-126f)) __VERIFIER_error();
+  if(!(res == 0x1.0p-126f)) {reach_error();abort();}
 }
 
 void divide(void)
@@ -30,7 +31,7 @@ void divide(void)
 
   float res = f2 / f1;
 
-  if(!(res == 0x1.0p-126f)) __VERIFIER_error();
+  if(!(res == 0x1.0p-126f)) {reach_error();abort();}
 }
 
 void cast(void)
@@ -39,7 +40,7 @@ void cast(void)
 
   float f = (float)d;
 
-  if(!(f == 0x1.0p-126f)) __VERIFIER_error();
+  if(!(f == 0x1.0p-126f)) {reach_error();abort();}
 }
 
 int main()

@@ -1,7 +1,8 @@
 extern unsigned __VERIFIER_nondet_uint();
 extern int __VERIFIER_nondet_int();
 extern char *__VERIFIER_nondet_charp();
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -585,14 +586,14 @@ void append_to_queue(Packet p, Node *q) {
 void process_prio_queue(Node q) {
     for (Node node = q; node != ((void *)0); node = node->next) {
         if (!(node->packet.prio == 1 || node->packet.size < 500))
-            __VERIFIER_error();
+            {reach_error();abort();}
         send(node->packet);
     }
 }
 void process_normal_queue(Node q) {
     for (Node node = q; node != ((void *)0); node = node->next) {
         if (!(node->packet.prio == 0 && node->packet.size >= 500))
-            __VERIFIER_error();
+            {reach_error();abort();}
         send(node->packet);
     }
 }

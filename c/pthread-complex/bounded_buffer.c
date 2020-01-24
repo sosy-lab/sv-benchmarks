@@ -1,4 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 
 #include <stdio.h>
@@ -212,7 +213,7 @@ int bounded_buf_get(bounded_buf_t *bbuf, void **item)
     {
         if(bbuf->head == bbuf->rear)
         {
-            ERROR: __VERIFIER_error();
+            ERROR: {reach_error();abort();}
         }
         *item = bbuf->buf[bbuf->head];
         bbuf->head = (bbuf->head+1) % bbuf->max_size;

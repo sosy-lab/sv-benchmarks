@@ -978,7 +978,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef struct TSLL
 {
@@ -1002,7 +1003,7 @@ int main()
   x->next = malloc(sizeof(SLL));
   x = x->next;
   x->data = 0;
-  do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
+  do { if (!(((void*)0) != x)) {reach_error();abort();}} while (0);
  }
  x->data = 1;
  x->next = malloc(sizeof(SLL));
@@ -1010,16 +1011,16 @@ int main()
 
  x = head;
 
- do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
+ do { if (!(((void*)0) != x)) {reach_error();abort();}} while (0);
 
  while (1 != x->data)
  {
-  do { if (!(0 == x->data)) __VERIFIER_error();} while (0);
+  do { if (!(0 == x->data)) {reach_error();abort();}} while (0);
   x = x->next;
  }
- do { if (!(2 == x->data)) __VERIFIER_error();} while (0);
+ do { if (!(2 == x->data)) {reach_error();abort();}} while (0);
  x = x->next;
- do { if (!(2 == x->data)) __VERIFIER_error();} while (0);
+ do { if (!(2 == x->data)) {reach_error();abort();}} while (0);
 
  x = head;
 
@@ -1029,7 +1030,7 @@ int main()
   x = x->next;
   free(head);
  }
- do { if (!(1 == x->data)) __VERIFIER_error();} while (0);
+ do { if (!(1 == x->data)) {reach_error();abort();}} while (0);
  free(x->next);
  free(x);
 

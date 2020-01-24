@@ -971,7 +971,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ )) __attribute__ ((__nonnull__ (1)));
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 typedef struct TSLL
 {
@@ -1013,7 +1014,7 @@ int main()
 
  x = head;
 
- do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
+ do { if (!(((void*)0) != x)) {reach_error();abort();}} while (0);
  marked = 0;
 
  while (x->next != ((void*)0) && x->next->data == 0)
@@ -1024,7 +1025,7 @@ int main()
  while (x->next != ((void*)0) && __VERIFIER_nondet_int())
  {
   x = x->next;
-  do { if (!(x->data != 1)) __VERIFIER_error();} while (0);
+  do { if (!(x->data != 1)) {reach_error();abort();}} while (0);
  }
 
  SLL* tmp = malloc(sizeof(SLL));
@@ -1048,15 +1049,15 @@ int main()
  while (x != ((void*)0) && x->data != 1)
  {
   marked = x->data;
-  do { if (!(x->data == 0)) __VERIFIER_error();} while (0);
-  do { if (!(marked == 0)) __VERIFIER_error();} while (0);
+  do { if (!(x->data == 0)) {reach_error();abort();}} while (0);
+  do { if (!(marked == 0)) {reach_error();abort();}} while (0);
   x = x->next;
  }
  while (x != ((void*)0))
  {
   marked = x->data;
-  do { if (!(x->data == 1)) __VERIFIER_error();} while (0);
-  do { if (!(marked == 1)) __VERIFIER_error();} while (0);
+  do { if (!(x->data == 1)) {reach_error();abort();}} while (0);
+  do { if (!(marked == 1)) {reach_error();abort();}} while (0);
   x = x->next;
  }
  x = head;

@@ -1,11 +1,12 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 
 
 
 
 
 void err()
-{ ERROR: __VERIFIER_error();}
+{ ERROR: {reach_error();abort();}}
 
 
 int * return_self (int * p)

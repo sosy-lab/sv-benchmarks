@@ -203,7 +203,8 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 
 typedef _Bool bool;
 
-extern void __VERIFIER_error() __attribute__((noreturn));
+extern void abort(void); 
+void reach_error(){}
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
@@ -218,7 +219,7 @@ extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 
 void __VERIFIER_assert(int cond) {
-    if(!cond) __VERIFIER_error();
+    if(!cond) {reach_error();abort();}
 }
 
 
@@ -228,7 +229,7 @@ void __VERIFIER_assert(int cond) {
 
 
 void my_abort(void) {
-    __VERIFIER_error();
+    {reach_error();abort();}
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
 

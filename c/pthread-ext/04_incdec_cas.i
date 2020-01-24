@@ -1,5 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void abort(void); 
+void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -692,7 +693,7 @@ volatile unsigned inc_flag = 0;
 volatile unsigned dec_flag = 0;
 void __VERIFIER_atomic_assert1(unsigned inc__v)
 {
- { if(!(dec_flag || value > inc__v)) { ERROR: __VERIFIER_error();(void)0; } };
+ { if(!(dec_flag || value > inc__v)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline unsigned inc() {
  unsigned inc__v, inc__vn, inc__casret;
@@ -710,7 +711,7 @@ inline unsigned inc() {
 }
 void __VERIFIER_atomic_assert2(unsigned dec__v)
 {
-  { if(!(inc_flag || value < dec__v)) { ERROR: __VERIFIER_error();(void)0; } };
+  { if(!(inc_flag || value < dec__v)) { ERROR: {reach_error();abort();}(void)0; } };
 }
 inline unsigned dec() {
  unsigned dec__v, dec__vn, dec__casret;
