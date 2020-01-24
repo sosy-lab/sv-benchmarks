@@ -154,7 +154,7 @@ void	 hashfree(void *, int, int);
 int	sys_nosys(struct proc *, void *, register_t *);
 
 void	panic(const char *, ...)
-    __attribute__((__noreturn__,__format__(__kprintf__,1,2)));
+    __attribute__((__format__(__kprintf__,1,2)));
 void	__assert(const char *, const char *, int, const char *)
     __attribute__((__noreturn__));
 int	printf(const char *, ...)
