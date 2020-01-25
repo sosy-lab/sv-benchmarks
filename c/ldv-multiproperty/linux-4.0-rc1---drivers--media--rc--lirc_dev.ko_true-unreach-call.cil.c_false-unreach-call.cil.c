@@ -11523,7 +11523,7 @@ void ldv_linux_lib_idr_check_final_state(void)
   return;
 }
 }
-extern void __VERIFIER_error_linux_net_rtnetlink(void) ;
+void reach_error_linux_net_rtnetlink(void) {}
 void ldv_assert_linux_net_rtnetlink__double_lock(int expr ) 
 { 
 
@@ -11531,7 +11531,7 @@ void ldv_assert_linux_net_rtnetlink__double_lock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_rtnetlink();
+    reach_error_linux_net_rtnetlink();
     }
   } else {
 
@@ -11546,7 +11546,7 @@ void ldv_assert_linux_net_rtnetlink__lock_on_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_rtnetlink();
+    reach_error_linux_net_rtnetlink();
     }
   } else {
 
@@ -11561,7 +11561,7 @@ void ldv_assert_linux_net_rtnetlink__double_unlock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_rtnetlink();
+    reach_error_linux_net_rtnetlink();
     }
   } else {
 
@@ -11569,7 +11569,7 @@ void ldv_assert_linux_net_rtnetlink__double_unlock(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_locking_rwlock(void) ;
+void reach_error_linux_kernel_locking_rwlock(void) {}
 void ldv_assert_linux_kernel_locking_rwlock__read_lock_on_write_lock(int expr ) 
 { 
 
@@ -11577,7 +11577,7 @@ void ldv_assert_linux_kernel_locking_rwlock__read_lock_on_write_lock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11592,7 +11592,7 @@ void ldv_assert_linux_kernel_locking_rwlock__more_read_unlocks(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11607,7 +11607,7 @@ void ldv_assert_linux_kernel_locking_rwlock__read_lock_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11622,7 +11622,7 @@ void ldv_assert_linux_kernel_locking_rwlock__double_write_lock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11637,7 +11637,7 @@ void ldv_assert_linux_kernel_locking_rwlock__double_write_unlock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11652,7 +11652,7 @@ void ldv_assert_linux_kernel_locking_rwlock__write_lock_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_rwlock();
+    reach_error_linux_kernel_locking_rwlock();
     }
   } else {
 
@@ -11660,7 +11660,7 @@ void ldv_assert_linux_kernel_locking_rwlock__write_lock_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_lib_idr(void) ;
+void reach_error_linux_lib_idr(void) {}
 void ldv_assert_linux_lib_idr__double_init(int expr ) 
 { 
 
@@ -11668,7 +11668,7 @@ void ldv_assert_linux_lib_idr__double_init(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_lib_idr();
+    reach_error_linux_lib_idr();
     }
   } else {
 
@@ -11683,7 +11683,7 @@ void ldv_assert_linux_lib_idr__not_initialized(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_lib_idr();
+    reach_error_linux_lib_idr();
     }
   } else {
 
@@ -11698,7 +11698,7 @@ void ldv_assert_linux_lib_idr__destroyed_before_usage(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_lib_idr();
+    reach_error_linux_lib_idr();
     }
   } else {
 
@@ -11713,7 +11713,7 @@ void ldv_assert_linux_lib_idr__more_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_lib_idr();
+    reach_error_linux_lib_idr();
     }
   } else {
 
@@ -11721,7 +11721,7 @@ void ldv_assert_linux_lib_idr__more_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_sched_completion(void) ;
+void reach_error_linux_kernel_sched_completion(void) {}
 void ldv_assert_linux_kernel_sched_completion__double_init(int expr ) 
 { 
 
@@ -11729,7 +11729,7 @@ void ldv_assert_linux_kernel_sched_completion__double_init(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_sched_completion();
+    reach_error_linux_kernel_sched_completion();
     }
   } else {
 
@@ -11744,7 +11744,7 @@ void ldv_assert_linux_kernel_sched_completion__wait_without_init(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_sched_completion();
+    reach_error_linux_kernel_sched_completion();
     }
   } else {
 
@@ -11752,7 +11752,7 @@ void ldv_assert_linux_kernel_sched_completion__wait_without_init(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_net_register(void) ;
+void reach_error_linux_net_register(void) {}
 void ldv_assert_linux_net_register__wrong_return_value(int expr ) 
 { 
 
@@ -11760,7 +11760,7 @@ void ldv_assert_linux_net_register__wrong_return_value(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_register();
+    reach_error_linux_net_register();
     }
   } else {
 
@@ -11768,7 +11768,7 @@ void ldv_assert_linux_net_register__wrong_return_value(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_fs_char_dev(void) ;
+void reach_error_linux_fs_char_dev(void) {}
 void ldv_assert_linux_fs_char_dev__double_registration(int expr ) 
 { 
 
@@ -11776,7 +11776,7 @@ void ldv_assert_linux_fs_char_dev__double_registration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_fs_char_dev();
+    reach_error_linux_fs_char_dev();
     }
   } else {
 
@@ -11791,7 +11791,7 @@ void ldv_assert_linux_fs_char_dev__double_deregistration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_fs_char_dev();
+    reach_error_linux_fs_char_dev();
     }
   } else {
 
@@ -11806,7 +11806,7 @@ void ldv_assert_linux_fs_char_dev__registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_fs_char_dev();
+    reach_error_linux_fs_char_dev();
     }
   } else {
 
@@ -11814,7 +11814,7 @@ void ldv_assert_linux_fs_char_dev__registered_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_rcu_srcu(void) ;
+void reach_error_linux_kernel_rcu_srcu(void) {}
 void ldv_assert_linux_kernel_rcu_srcu__more_unlocks(int expr ) 
 { 
 
@@ -11822,7 +11822,7 @@ void ldv_assert_linux_kernel_rcu_srcu__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_srcu();
+    reach_error_linux_kernel_rcu_srcu();
     }
   } else {
 
@@ -11837,7 +11837,7 @@ void ldv_assert_linux_kernel_rcu_srcu__locked_at_read_section(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_srcu();
+    reach_error_linux_kernel_rcu_srcu();
     }
   } else {
 
@@ -11852,7 +11852,7 @@ void ldv_assert_linux_kernel_rcu_srcu__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_srcu();
+    reach_error_linux_kernel_rcu_srcu();
     }
   } else {
 
@@ -11860,7 +11860,7 @@ void ldv_assert_linux_kernel_rcu_srcu__locked_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_module(void) ;
+void reach_error_linux_kernel_module(void) {}
 void ldv_assert_linux_kernel_module__less_initial_decrement(int expr ) 
 { 
 
@@ -11868,7 +11868,7 @@ void ldv_assert_linux_kernel_module__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_module();
+    reach_error_linux_kernel_module();
     }
   } else {
 
@@ -11883,7 +11883,7 @@ void ldv_assert_linux_kernel_module__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_module();
+    reach_error_linux_kernel_module();
     }
   } else {
 
@@ -11891,7 +11891,7 @@ void ldv_assert_linux_kernel_module__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_alloc_spinlock(void) ;
+void reach_error_linux_alloc_spinlock(void) {}
 void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr ) 
 { 
 
@@ -11899,7 +11899,7 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_spinlock();
+    reach_error_linux_alloc_spinlock();
     }
   } else {
 
@@ -11914,7 +11914,7 @@ void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_spinlock();
+    reach_error_linux_alloc_spinlock();
     }
   } else {
 
@@ -11922,7 +11922,7 @@ void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_lib_find_bit(void) ;
+void reach_error_linux_lib_find_bit(void) {}
 void ldv_assert_linux_lib_find_bit__offset_out_of_range(int expr ) 
 { 
 
@@ -11930,7 +11930,7 @@ void ldv_assert_linux_lib_find_bit__offset_out_of_range(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_lib_find_bit();
+    reach_error_linux_lib_find_bit();
     }
   } else {
 
@@ -11938,7 +11938,7 @@ void ldv_assert_linux_lib_find_bit__offset_out_of_range(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_mmc_sdio_func(void) ;
+void reach_error_linux_mmc_sdio_func(void) {}
 void ldv_assert_linux_mmc_sdio_func__wrong_params(int expr ) 
 { 
 
@@ -11946,7 +11946,7 @@ void ldv_assert_linux_mmc_sdio_func__wrong_params(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_mmc_sdio_func();
+    reach_error_linux_mmc_sdio_func();
     }
   } else {
 
@@ -11961,7 +11961,7 @@ void ldv_assert_linux_mmc_sdio_func__double_claim(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_mmc_sdio_func();
+    reach_error_linux_mmc_sdio_func();
     }
   } else {
 
@@ -11976,7 +11976,7 @@ void ldv_assert_linux_mmc_sdio_func__release_without_claim(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_mmc_sdio_func();
+    reach_error_linux_mmc_sdio_func();
     }
   } else {
 
@@ -11991,7 +11991,7 @@ void ldv_assert_linux_mmc_sdio_func__unreleased_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_mmc_sdio_func();
+    reach_error_linux_mmc_sdio_func();
     }
   } else {
 
@@ -11999,7 +11999,7 @@ void ldv_assert_linux_mmc_sdio_func__unreleased_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_usb_coherent(void) ;
+void reach_error_linux_usb_coherent(void) {}
 void ldv_assert_linux_usb_coherent__less_initial_decrement(int expr ) 
 { 
 
@@ -12007,7 +12007,7 @@ void ldv_assert_linux_usb_coherent__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_coherent();
+    reach_error_linux_usb_coherent();
     }
   } else {
 
@@ -12022,7 +12022,7 @@ void ldv_assert_linux_usb_coherent__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_coherent();
+    reach_error_linux_usb_coherent();
     }
   } else {
 
@@ -12030,7 +12030,7 @@ void ldv_assert_linux_usb_coherent__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_rcu_update_lock(void) ;
+void reach_error_linux_kernel_rcu_update_lock(void) {}
 void ldv_assert_linux_kernel_rcu_update_lock__more_unlocks(int expr ) 
 { 
 
@@ -12038,7 +12038,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock();
+    reach_error_linux_kernel_rcu_update_lock();
     }
   } else {
 
@@ -12053,7 +12053,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__locked_at_read_section(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock();
+    reach_error_linux_kernel_rcu_update_lock();
     }
   } else {
 
@@ -12068,7 +12068,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock();
+    reach_error_linux_kernel_rcu_update_lock();
     }
   } else {
 
@@ -12076,7 +12076,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__locked_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_net_sock(void) ;
+void reach_error_linux_net_sock(void) {}
 void ldv_assert_linux_net_sock__all_locked_sockets_must_be_released(int expr ) 
 { 
 
@@ -12084,7 +12084,7 @@ void ldv_assert_linux_net_sock__all_locked_sockets_must_be_released(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_sock();
+    reach_error_linux_net_sock();
     }
   } else {
 
@@ -12099,7 +12099,7 @@ void ldv_assert_linux_net_sock__double_release(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_net_sock();
+    reach_error_linux_net_sock();
     }
   } else {
 
@@ -12107,7 +12107,7 @@ void ldv_assert_linux_net_sock__double_release(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_rcu_update_lock_bh(void) ;
+void reach_error_linux_kernel_rcu_update_lock_bh(void) {}
 void ldv_assert_linux_kernel_rcu_update_lock_bh__more_unlocks(int expr ) 
 { 
 
@@ -12115,7 +12115,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_bh();
+    reach_error_linux_kernel_rcu_update_lock_bh();
     }
   } else {
 
@@ -12130,7 +12130,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__locked_at_read_section(int expr
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_bh();
+    reach_error_linux_kernel_rcu_update_lock_bh();
     }
   } else {
 
@@ -12145,7 +12145,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_bh();
+    reach_error_linux_kernel_rcu_update_lock_bh();
     }
   } else {
 
@@ -12153,7 +12153,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__locked_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_usb_dev(void) ;
+void reach_error_linux_usb_dev(void) {}
 void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr ) 
 { 
 
@@ -12161,7 +12161,7 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_dev();
+    reach_error_linux_usb_dev();
     }
   } else {
 
@@ -12176,7 +12176,7 @@ void ldv_assert_linux_usb_dev__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_dev();
+    reach_error_linux_usb_dev();
     }
   } else {
 
@@ -12191,7 +12191,7 @@ void ldv_assert_linux_usb_dev__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_dev();
+    reach_error_linux_usb_dev();
     }
   } else {
 
@@ -12206,7 +12206,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_dev();
+    reach_error_linux_usb_dev();
     }
   } else {
 
@@ -12214,7 +12214,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_locking_mutex(void) ;
+void reach_error_linux_kernel_locking_mutex(void) {}
 void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr ) 
 { 
 
@@ -12222,7 +12222,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_mutex();
+    reach_error_linux_kernel_locking_mutex();
     }
   } else {
 
@@ -12237,7 +12237,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock_try(int expr 
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_mutex();
+    reach_error_linux_kernel_locking_mutex();
     }
   } else {
 
@@ -12252,7 +12252,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_unlock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_mutex();
+    reach_error_linux_kernel_locking_mutex();
     }
   } else {
 
@@ -12267,7 +12267,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_mutex();
+    reach_error_linux_kernel_locking_mutex();
     }
   } else {
 
@@ -12275,7 +12275,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_locked_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_usb_gadget(void) ;
+void reach_error_linux_usb_gadget(void) {}
 void ldv_assert_linux_usb_gadget__class_registration_with_usb_gadget(int expr ) 
 { 
 
@@ -12283,7 +12283,7 @@ void ldv_assert_linux_usb_gadget__class_registration_with_usb_gadget(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12298,7 +12298,7 @@ void ldv_assert_linux_usb_gadget__class_deregistration_with_usb_gadget(int expr 
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12313,7 +12313,7 @@ void ldv_assert_linux_usb_gadget__chrdev_registration_with_usb_gadget(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12328,7 +12328,7 @@ void ldv_assert_linux_usb_gadget__chrdev_deregistration_with_usb_gadget(int expr
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12343,7 +12343,7 @@ void ldv_assert_linux_usb_gadget__double_usb_gadget_registration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12358,7 +12358,7 @@ void ldv_assert_linux_usb_gadget__double_usb_gadget_deregistration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12373,7 +12373,7 @@ void ldv_assert_linux_usb_gadget__usb_gadget_registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_gadget();
+    reach_error_linux_usb_gadget();
     }
   } else {
 
@@ -12381,7 +12381,7 @@ void ldv_assert_linux_usb_gadget__usb_gadget_registered_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_alloc_usb_lock(void) ;
+void reach_error_linux_alloc_usb_lock(void) {}
 void ldv_assert_linux_alloc_usb_lock__wrong_flags(int expr ) 
 { 
 
@@ -12389,7 +12389,7 @@ void ldv_assert_linux_alloc_usb_lock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_usb_lock();
+    reach_error_linux_alloc_usb_lock();
     }
   } else {
 
@@ -12404,7 +12404,7 @@ void ldv_assert_linux_alloc_usb_lock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_usb_lock();
+    reach_error_linux_alloc_usb_lock();
     }
   } else {
 
@@ -12412,7 +12412,7 @@ void ldv_assert_linux_alloc_usb_lock__nonatomic(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_block_request(void) ;
+void reach_error_linux_block_request(void) {}
 void ldv_assert_linux_block_request__double_get(int expr ) 
 { 
 
@@ -12420,7 +12420,7 @@ void ldv_assert_linux_block_request__double_get(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_request();
+    reach_error_linux_block_request();
     }
   } else {
 
@@ -12435,7 +12435,7 @@ void ldv_assert_linux_block_request__double_put(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_request();
+    reach_error_linux_block_request();
     }
   } else {
 
@@ -12450,7 +12450,7 @@ void ldv_assert_linux_block_request__get_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_request();
+    reach_error_linux_block_request();
     }
   } else {
 
@@ -12458,7 +12458,7 @@ void ldv_assert_linux_block_request__get_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_alloc_irq(void) ;
+void reach_error_linux_alloc_irq(void) {}
 void ldv_assert_linux_alloc_irq__wrong_flags(int expr ) 
 { 
 
@@ -12466,7 +12466,7 @@ void ldv_assert_linux_alloc_irq__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_irq();
+    reach_error_linux_alloc_irq();
     }
   } else {
 
@@ -12481,7 +12481,7 @@ void ldv_assert_linux_alloc_irq__nonatomic(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_alloc_irq();
+    reach_error_linux_alloc_irq();
     }
   } else {
 
@@ -12489,7 +12489,7 @@ void ldv_assert_linux_alloc_irq__nonatomic(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_drivers_base_class(void) ;
+void reach_error_linux_drivers_base_class(void) {}
 void ldv_assert_linux_drivers_base_class__double_registration(int expr ) 
 { 
 
@@ -12497,7 +12497,7 @@ void ldv_assert_linux_drivers_base_class__double_registration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_drivers_base_class();
+    reach_error_linux_drivers_base_class();
     }
   } else {
 
@@ -12512,7 +12512,7 @@ void ldv_assert_linux_drivers_base_class__double_deregistration(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_drivers_base_class();
+    reach_error_linux_drivers_base_class();
     }
   } else {
 
@@ -12527,7 +12527,7 @@ void ldv_assert_linux_drivers_base_class__registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_drivers_base_class();
+    reach_error_linux_drivers_base_class();
     }
   } else {
 
@@ -12535,7 +12535,7 @@ void ldv_assert_linux_drivers_base_class__registered_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_block_queue(void) ;
+void reach_error_linux_block_queue(void) {}
 void ldv_assert_linux_block_queue__double_allocation(int expr ) 
 { 
 
@@ -12543,7 +12543,7 @@ void ldv_assert_linux_block_queue__double_allocation(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_queue();
+    reach_error_linux_block_queue();
     }
   } else {
 
@@ -12558,7 +12558,7 @@ void ldv_assert_linux_block_queue__use_before_allocation(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_queue();
+    reach_error_linux_block_queue();
     }
   } else {
 
@@ -12573,7 +12573,7 @@ void ldv_assert_linux_block_queue__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_queue();
+    reach_error_linux_block_queue();
     }
   } else {
 
@@ -12581,7 +12581,7 @@ void ldv_assert_linux_block_queue__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_block_genhd(void) ;
+void reach_error_linux_block_genhd(void) {}
 void ldv_assert_linux_block_genhd__double_allocation(int expr ) 
 { 
 
@@ -12589,7 +12589,7 @@ void ldv_assert_linux_block_genhd__double_allocation(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_genhd();
+    reach_error_linux_block_genhd();
     }
   } else {
 
@@ -12604,7 +12604,7 @@ void ldv_assert_linux_block_genhd__use_before_allocation(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_genhd();
+    reach_error_linux_block_genhd();
     }
   } else {
 
@@ -12619,7 +12619,7 @@ void ldv_assert_linux_block_genhd__delete_before_add(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_genhd();
+    reach_error_linux_block_genhd();
     }
   } else {
 
@@ -12634,7 +12634,7 @@ void ldv_assert_linux_block_genhd__free_before_allocation(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_genhd();
+    reach_error_linux_block_genhd();
     }
   } else {
 
@@ -12649,7 +12649,7 @@ void ldv_assert_linux_block_genhd__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_block_genhd();
+    reach_error_linux_block_genhd();
     }
   } else {
 
@@ -12657,7 +12657,7 @@ void ldv_assert_linux_block_genhd__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_arch_io(void) ;
+void reach_error_linux_arch_io(void) {}
 void ldv_assert_linux_arch_io__less_initial_decrement(int expr ) 
 { 
 
@@ -12665,7 +12665,7 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_arch_io();
+    reach_error_linux_arch_io();
     }
   } else {
 
@@ -12680,7 +12680,7 @@ void ldv_assert_linux_arch_io__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_arch_io();
+    reach_error_linux_arch_io();
     }
   } else {
 
@@ -12688,7 +12688,7 @@ void ldv_assert_linux_arch_io__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_usb_register(void) ;
+void reach_error_linux_usb_register(void) {}
 void ldv_assert_linux_usb_register__wrong_return_value(int expr ) 
 { 
 
@@ -12696,7 +12696,7 @@ void ldv_assert_linux_usb_register__wrong_return_value(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_register();
+    reach_error_linux_usb_register();
     }
   } else {
 
@@ -12704,7 +12704,7 @@ void ldv_assert_linux_usb_register__wrong_return_value(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_fs_sysfs(void) ;
+void reach_error_linux_fs_sysfs(void) {}
 void ldv_assert_linux_fs_sysfs__less_initial_decrement(int expr ) 
 { 
 
@@ -12712,7 +12712,7 @@ void ldv_assert_linux_fs_sysfs__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_fs_sysfs();
+    reach_error_linux_fs_sysfs();
     }
   } else {
 
@@ -12727,7 +12727,7 @@ void ldv_assert_linux_fs_sysfs__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_fs_sysfs();
+    reach_error_linux_fs_sysfs();
     }
   } else {
 
@@ -12735,7 +12735,7 @@ void ldv_assert_linux_fs_sysfs__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_locking_spinlock(void) ;
+void reach_error_linux_kernel_locking_spinlock(void) {}
 void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(int expr ) 
 { 
 
@@ -12743,7 +12743,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_spinlock();
+    reach_error_linux_kernel_locking_spinlock();
     }
   } else {
 
@@ -12758,7 +12758,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(int ex
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_spinlock();
+    reach_error_linux_kernel_locking_spinlock();
     }
   } else {
 
@@ -12773,7 +12773,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(int expr
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_spinlock();
+    reach_error_linux_kernel_locking_spinlock();
     }
   } else {
 
@@ -12788,7 +12788,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_locked_at_exit(int exp
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_locking_spinlock();
+    reach_error_linux_kernel_locking_spinlock();
     }
   } else {
 
@@ -12796,7 +12796,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_locked_at_exit(int exp
   return;
 }
 }
-extern void __VERIFIER_error_linux_usb_urb(void) ;
+void reach_error_linux_usb_urb(void) {}
 void ldv_assert_linux_usb_urb__less_initial_decrement(int expr ) 
 { 
 
@@ -12804,7 +12804,7 @@ void ldv_assert_linux_usb_urb__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_urb();
+    reach_error_linux_usb_urb();
     }
   } else {
 
@@ -12819,7 +12819,7 @@ void ldv_assert_linux_usb_urb__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_usb_urb();
+    reach_error_linux_usb_urb();
     }
   } else {
 
@@ -12827,7 +12827,7 @@ void ldv_assert_linux_usb_urb__more_initial_at_exit(int expr )
   return;
 }
 }
-extern void __VERIFIER_error_linux_kernel_rcu_update_lock_sched(void) ;
+void reach_error_linux_kernel_rcu_update_lock_sched(void) {}
 void ldv_assert_linux_kernel_rcu_update_lock_sched__more_unlocks(int expr ) 
 { 
 
@@ -12835,7 +12835,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_sched();
+    reach_error_linux_kernel_rcu_update_lock_sched();
     }
   } else {
 
@@ -12850,7 +12850,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_read_section(int e
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_sched();
+    reach_error_linux_kernel_rcu_update_lock_sched();
     }
   } else {
 
@@ -12865,7 +12865,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    __VERIFIER_error_linux_kernel_rcu_update_lock_sched();
+    reach_error_linux_kernel_rcu_update_lock_sched();
     }
   } else {
 
