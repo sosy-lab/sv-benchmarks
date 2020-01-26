@@ -7,6 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 unsigned int __VERIFIER_nondet_uint();
+extern int __VERIFIER_nondet_int();
 int main() {
    unsigned int SIZE=__VERIFIER_nondet_uint();
    int i, j, k, key;
