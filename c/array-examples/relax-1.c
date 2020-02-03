@@ -101,7 +101,7 @@ _Bool is_relaxed_prefix(
   int pat[], unsigned long pat_length,
   int a[], unsigned long a_length)
 {
-  if(pat_length>a_length+1)
+  if(pat_length>a_length)
     return 0;
 
   int shift=0;
