@@ -7,10 +7,10 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int SIZE = 20000001;
-int __VERIFIER_nondet_int();
+unsigned int __VERIFIER_nondet_uint();
 int main() {
   unsigned int n,i,k;
-  n = __VERIFIER_nondet_int();
+  n = __VERIFIER_nondet_uint();
   if (!(n <= SIZE)) return 0;
   k = n;
   i = 0;
