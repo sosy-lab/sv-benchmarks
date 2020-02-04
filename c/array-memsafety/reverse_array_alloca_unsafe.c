@@ -12,7 +12,7 @@ int main() {
 	
 	for(int i = 0; i < length; i++)
 	{
-	  arr[i] = __VERIFIER_nondet_nt();
+	  arr[i] = __VERIFIER_nondet_int();
   }
 
   // make sure the marker occurs only once
