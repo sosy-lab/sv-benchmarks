@@ -8,7 +8,7 @@ int bAnd (int x[100])
 {
   int i;
   long long res;
-  res = x[0];
+  res = x[0]
   for (i = 1; i < 100; i++) {
     res = res & x[i];
   }
