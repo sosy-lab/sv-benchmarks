@@ -9,7 +9,7 @@ int bAnd (int x[N])
 {
   int i;
   long long res;
-  res = x[0];
+  res = x[1];
   for (i = 1; i < N; i++) {
     res = res & x[i];
   }
