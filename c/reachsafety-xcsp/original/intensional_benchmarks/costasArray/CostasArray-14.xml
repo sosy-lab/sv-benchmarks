@@ -1,0 +1,115 @@
+<instance format="XCSP3" type="CSP">
+  <variables>
+    <array id="x" size="[14]"> 1..14 </array>
+    <array id="y" size="[88]"> -13..-1 1..13 </array>
+  </variables>
+  <constraints>
+    <group>
+      <allDifferent> %... </allDifferent>
+      <args> x[] </args>
+      <args> y[0..12] </args>
+      <args> y[13..24] </args>
+      <args> y[25..35] </args>
+      <args> y[36..45] </args>
+      <args> y[46..54] </args>
+      <args> y[55..62] </args>
+      <args> y[63..69] </args>
+      <args> y[70..75] </args>
+      <args> y[76..80] </args>
+      <args> y[81..84] </args>
+      <args> y[85..87] </args>
+    </group>
+    <group>
+      <intension> eq(sub(%0,%1),%2) </intension>
+      <args> x[0] x[1] y[0] </args>
+      <args> x[1] x[2] y[1] </args>
+      <args> x[2] x[3] y[2] </args>
+      <args> x[3] x[4] y[3] </args>
+      <args> x[4] x[5] y[4] </args>
+      <args> x[5] x[6] y[5] </args>
+      <args> x[6] x[7] y[6] </args>
+      <args> x[7] x[8] y[7] </args>
+      <args> x[8] x[9] y[8] </args>
+      <args> x[9] x[10] y[9] </args>
+      <args> x[10] x[11] y[10] </args>
+      <args> x[11] x[12] y[11] </args>
+      <args> x[12] x[13] y[12] </args>
+      <args> x[0] x[2] y[13] </args>
+      <args> x[1] x[3] y[14] </args>
+      <args> x[2] x[4] y[15] </args>
+      <args> x[3] x[5] y[16] </args>
+      <args> x[4] x[6] y[17] </args>
+      <args> x[5] x[7] y[18] </args>
+      <args> x[6] x[8] y[19] </args>
+      <args> x[7] x[9] y[20] </args>
+      <args> x[8] x[10] y[21] </args>
+      <args> x[9] x[11] y[22] </args>
+      <args> x[10] x[12] y[23] </args>
+      <args> x[11] x[13] y[24] </args>
+      <args> x[0] x[3] y[25] </args>
+      <args> x[1] x[4] y[26] </args>
+      <args> x[2] x[5] y[27] </args>
+      <args> x[3] x[6] y[28] </args>
+      <args> x[4] x[7] y[29] </args>
+      <args> x[5] x[8] y[30] </args>
+      <args> x[6] x[9] y[31] </args>
+      <args> x[7] x[10] y[32] </args>
+      <args> x[8] x[11] y[33] </args>
+      <args> x[9] x[12] y[34] </args>
+      <args> x[10] x[13] y[35] </args>
+      <args> x[0] x[4] y[36] </args>
+      <args> x[1] x[5] y[37] </args>
+      <args> x[2] x[6] y[38] </args>
+      <args> x[3] x[7] y[39] </args>
+      <args> x[4] x[8] y[40] </args>
+      <args> x[5] x[9] y[41] </args>
+      <args> x[6] x[10] y[42] </args>
+      <args> x[7] x[11] y[43] </args>
+      <args> x[8] x[12] y[44] </args>
+      <args> x[9] x[13] y[45] </args>
+      <args> x[0] x[5] y[46] </args>
+      <args> x[1] x[6] y[47] </args>
+      <args> x[2] x[7] y[48] </args>
+      <args> x[3] x[8] y[49] </args>
+      <args> x[4] x[9] y[50] </args>
+      <args> x[5] x[10] y[51] </args>
+      <args> x[6] x[11] y[52] </args>
+      <args> x[7] x[12] y[53] </args>
+      <args> x[8] x[13] y[54] </args>
+      <args> x[0] x[6] y[55] </args>
+      <args> x[1] x[7] y[56] </args>
+      <args> x[2] x[8] y[57] </args>
+      <args> x[3] x[9] y[58] </args>
+      <args> x[4] x[10] y[59] </args>
+      <args> x[5] x[11] y[60] </args>
+      <args> x[6] x[12] y[61] </args>
+      <args> x[7] x[13] y[62] </args>
+      <args> x[0] x[7] y[63] </args>
+      <args> x[1] x[8] y[64] </args>
+      <args> x[2] x[9] y[65] </args>
+      <args> x[3] x[10] y[66] </args>
+      <args> x[4] x[11] y[67] </args>
+      <args> x[5] x[12] y[68] </args>
+      <args> x[6] x[13] y[69] </args>
+      <args> x[0] x[8] y[70] </args>
+      <args> x[1] x[9] y[71] </args>
+      <args> x[2] x[10] y[72] </args>
+      <args> x[3] x[11] y[73] </args>
+      <args> x[4] x[12] y[74] </args>
+      <args> x[5] x[13] y[75] </args>
+      <args> x[0] x[9] y[76] </args>
+      <args> x[1] x[10] y[77] </args>
+      <args> x[2] x[11] y[78] </args>
+      <args> x[3] x[12] y[79] </args>
+      <args> x[4] x[13] y[80] </args>
+      <args> x[0] x[10] y[81] </args>
+      <args> x[1] x[11] y[82] </args>
+      <args> x[2] x[12] y[83] </args>
+      <args> x[3] x[13] y[84] </args>
+      <args> x[0] x[11] y[85] </args>
+      <args> x[1] x[12] y[86] </args>
+      <args> x[2] x[13] y[87] </args>
+    </group>
+    <intension> ne(sub(x[0],x[12]),sub(x[1],x[13])) </intension>
+  </constraints>
+</instance>

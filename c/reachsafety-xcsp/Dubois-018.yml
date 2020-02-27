@@ -1,0 +1,6 @@
+format_version: '1.0'
+
+input_files: 'Dubois-018.c'
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
