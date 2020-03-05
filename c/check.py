@@ -158,6 +158,10 @@ KNOWN_GLOBAL_PROBLEMS = [
     ]
 
 
+class CheckFailed(Exception):
+    pass
+
+
 class Checks(object):
     """Collections of checks that should be implemented in methods named "check*" in subclasses."""
 
@@ -177,7 +181,8 @@ class Checks(object):
             test()
         if not self._quiet and not (self._errors or self._warnings) and self.name:
             logging.info("%s: OK", self.name)
-        return not self._errors
+        if self._errors:
+            raise CheckFailed()
 
     def error(self, msg, *args):
         """Mark the current check as failed."""
@@ -206,17 +211,25 @@ class DirectoryChecks(Checks):
         self.all_patterns = all_patterns
 
     def run(self):
-        ok = super(DirectoryChecks, self).run()
+        try:
+            super(DirectoryChecks, self).run()
+        except CheckFailed:
+            ok = False
 
         for entry in self.content:
             if BENCHMARK_PATTERN.match(entry):
                 dir_and_name = os.path.join(self.name, entry)
-                ok &= TaskDefinitionFileChecks(
-                    path=os.path.join(self.path, entry),
-                    name=dir_and_name,
-                    contained_in_category=self.all_patterns.match(dir_and_name)
-                    ).run()
-        return ok
+                try:
+                    TaskDefinitionFileChecks(
+                        path=os.path.join(self.path, entry),
+                        name=dir_and_name,
+                        contained_in_category=self.all_patterns.match(dir_and_name)
+                        ).run()
+                except CheckFailed:
+                    ok = False
+
+        if not ok:
+            raise CheckFailed()
 
     def check_has_benchmarks(self):
         for entry in self.content:
@@ -299,17 +312,23 @@ class TaskDefinitionFileChecks(FileChecks):
             return None
         input_files = self._get_input_files()
         properties_and_verdicts = self._get_properties()
+        ok = True
         for f in input_files:
             f_path = os.path.join(self.directory, f)
             if not os.path.exists(f_path):
                 self.error("references inaccessible file: " + f_path)
             else:
-                InputFileChecks(
-                    path=f_path,
-                    name=f_path,
-                    contained_in_category=self.contained_in_category,
-                    properties_and_verdicts=properties_and_verdicts,
-                ).run()
+                try:
+                    InputFileChecks(
+                        path=f_path,
+                        name=f_path,
+                        contained_in_category=self.contained_in_category,
+                        properties_and_verdicts=properties_and_verdicts,
+                    ).run()
+                except CheckFailed:
+                    ok = False
+        if not ok:
+            raise CheckFailed()
 
     def check_properties(self):
         prop_and_verdict = self._get_properties()
@@ -318,6 +337,7 @@ class TaskDefinitionFileChecks(FileChecks):
             contained_in_category=self.contained_in_category,
             name=self.name,
         ).run()
+
 
     def _get_input_files(self) -> list:
         if 'input_files' not in self.content:
@@ -614,18 +634,24 @@ def main():
     for entry in entries:
         path = os.path.join(main_directory, entry)
         if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-                ok &= DirectoryChecks(path, all_patterns, entry).run()
-            elif entry.endswith(".set"):
-                check = SetFileChecks(path, entry)
-                all_matched_files.update(check.matched_files)
-                ok &= check.run()
-            else:
-                logging.debug("%s: skipped", entry)
+            try:
+                if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
+                    DirectoryChecks(path, all_patterns, entry).run()
+                elif entry.endswith(".set"):
+                    check = SetFileChecks(path, entry)
+                    all_matched_files.update(check.matched_files)
+                    check.run()
+                else:
+                    logging.debug("%s: skipped", entry)
+            except CheckFailed:
+                ok = False
         else:
             logging.debug("%s: skipped", entry)
 
-    ok &= GlobalChecks(all_matched_files, main_directory).run()
+    try:
+        GlobalChecks(all_matched_files, main_directory).run()
+    except CheckFailed:
+        ok = False
 
     if not ok:
         sys.exit(1)
