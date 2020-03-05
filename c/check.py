@@ -8,6 +8,8 @@ import logging
 import os
 import re
 import sys
+from multiprocessing import Pool
+from functools import partial
 
 from typing import List, Tuple
 
@@ -619,6 +621,23 @@ def _check_known_errors_consistent(main_dir):
         assert os.path.exists(path), "Whitelisted file doesn't exist: %s" % path
 
 
+def _check_benchmark_entry(entry, main_directory, all_patterns):
+    path = os.path.join(main_directory, entry)
+    try:
+        if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
+            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
+                check = DirectoryChecks(path, all_patterns, entry)
+                return check.run(), set()
+            elif entry.endswith(".set"):
+                check = SetFileChecks(path, entry)
+                return check.run(), check.matched_files
+        logging.debug("%s: skipped", entry)
+    except CheckFailed:
+        return False, set()
+    else:
+        return True, set()
+
+
 def main():
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
@@ -632,25 +651,14 @@ def main():
         for entry in entries if entry.endswith(".set")
         for pattern in read_set_file(os.path.join(main_directory, entry)))
     all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
-    all_matched_files = set()
 
-    ok = True
-    for entry in entries:
-        path = os.path.join(main_directory, entry)
-        if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            try:
-                if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-                    DirectoryChecks(path, all_patterns, entry).run()
-                elif entry.endswith(".set"):
-                    check = SetFileChecks(path, entry)
-                    all_matched_files.update(check.matched_files)
-                    check.run()
-                else:
-                    logging.debug("%s: skipped", entry)
-            except CheckFailed:
-                ok = False
-        else:
-            logging.debug("%s: skipped", entry)
+    check_func = partial(
+        _check_benchmark_entry, main_directory=main_directory, all_patterns=all_patterns
+    )
+    with Pool(4) as p:
+        check_results, matched_file_sets = zip(*p.map(check_func, entries))
+    ok = all(check_results)
+    all_matched_files = set(f for f_set in matched_file_sets for f in f_set)
 
     try:
         GlobalChecks(all_matched_files, main_directory).run()
