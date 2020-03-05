@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import collections
 import fnmatch
 import functools
@@ -638,7 +639,7 @@ def _check_benchmark_entry(entry, main_directory, all_patterns):
         return True, set()
 
 
-def main():
+def main(num_processes):
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
@@ -655,7 +656,7 @@ def main():
     check_func = functools.partial(
         _check_benchmark_entry, main_directory=main_directory, all_patterns=all_patterns
     )
-    with multiprocessing.Pool(4) as p:
+    with multiprocessing.Pool(num_processes) as p:
         check_results, matched_file_sets = zip(*p.map(check_func, entries))
     ok = all(check_results)
     all_matched_files = set(f for f_set in matched_file_sets for f in f_set)
@@ -669,5 +670,20 @@ def main():
         sys.exit(1)
     sys.exit(0)
 
+
+def _parse_arguments(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--num-processes",
+        type=int,
+        default=4,
+        help="Number of concurrent processes to use",
+    )
+
+    return parser.parse_args(args)
+
+
 if __name__ == "__main__":
-    main()
+    args = _parse_arguments(sys.argv[1:])
+
+    main(num_processes=args.num_processes)
