@@ -178,7 +178,10 @@ class Checks(object):
         attrs = [getattr(self, a) for a in dir(self)]
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
-            test()
+            try:
+                test()
+            except CheckFailed:
+                self._errors = True
         if not self._quiet and not (self._errors or self._warnings) and self.name:
             logging.info("%s: OK", self.name)
         if self._errors:
