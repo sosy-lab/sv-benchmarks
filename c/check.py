@@ -2,14 +2,14 @@
 
 import collections
 import fnmatch
+import functools
 import glob
 import hashlib
 import logging
+import multiprocessing
 import os
 import re
 import sys
-from multiprocessing import Pool
-from functools import partial
 
 from typing import List, Tuple
 
@@ -652,10 +652,10 @@ def main():
         for pattern in read_set_file(os.path.join(main_directory, entry)))
     all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
 
-    check_func = partial(
+    check_func = functools.partial(
         _check_benchmark_entry, main_directory=main_directory, all_patterns=all_patterns
     )
-    with Pool(4) as p:
+    with multiprocessing.Pool(4) as p:
         check_results, matched_file_sets = zip(*p.map(check_func, entries))
     ok = all(check_results)
     all_matched_files = set(f for f_set in matched_file_sets for f in f_set)
