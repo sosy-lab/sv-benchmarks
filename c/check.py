@@ -211,6 +211,7 @@ class DirectoryChecks(Checks):
         self.all_patterns = all_patterns
 
     def run(self):
+        ok = True
         try:
             super(DirectoryChecks, self).run()
         except CheckFailed:
