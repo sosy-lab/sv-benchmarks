@@ -417,7 +417,7 @@ class PropertiesChecks(Checks):
                         "has expected undefined behavior but also a verdict for some other property")
 
         if violates("unreach-call") and fulfills("valid-memcleanup"):
-            # __VERIFIER_error() aborts the program, and if there is still any
+            # calling the error function aborts the program, and if there is still any
             # allocated memory this would violate memcleanup.
             # We think this is probable (though not guaranteed), so we issue a warning.
             self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
@@ -450,11 +450,11 @@ class InputFileChecks(FileChecks):
         if not "unreach-call" in dict(self.prop_and_verdict):
             return
         if not self.contained_in_category:
-            # Some such files have calls to __VERIFIER_error inside #include
+            # Some such files have calls to reach_error inside #include
             return
 
-        if not any("__VERIFIER_error()" in line for line in self.lines if not "extern" in line):
-            self.error("has property unreach-call, but does not call __VERIFIER_error")
+        if not any("reach_error" in line for line in self.lines if not "void reach_error" in line):
+            self.error("has property unreach-call, but does not call reach_error")
 
     def check_no_include_or_define(self):
         if not self.contained_in_category:
