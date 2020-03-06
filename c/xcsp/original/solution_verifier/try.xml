@@ -1,0 +1,71 @@
+<instance format="XCSP3" type="CSP">
+  <variables>
+    <array id="l" size="[26]"> 0..9 </array>
+    <array id="C" size="[6]"> 0 1 </array>
+  </variables>
+  <constraints>
+    <group>
+      <intension> ne(%0,%1) </intension>
+      <args> l[1] 0 </args>
+      <args> l[6] 0 </args>
+      <args> l[14] 0 </args>
+    </group>
+    <group>
+      <intension> eq(%0,%1) </intension>
+      <args> C[0] 0 </args>
+      <args> C[5] l[14] </args>
+    </group>
+    <allDifferent> l[0..2] l[4] l[6] l[10..11] l[13..14] l[17] </allDifferent>
+    <group>
+      <intension> eq(mod(add(%0,%1,%2),%3),%4) </intension>
+      <args> C[0] l[10] l[13] 10 l[4] </args>
+      <args> C[1] l[2] l[4] 10 l[6] </args>
+      <args> C[2] l[0] l[4] 10 l[13] </args>
+      <args> C[3] l[11] l[17] 10 l[0] </args>
+      <args> C[4] l[1] l[6] 10 l[17] </args>
+    </group>
+    <group>
+      <intension> eq(div(add(%0,%1,%2),%3),%4) </intension>
+      <args> C[0] l[10] l[13] 10 C[1] </args>
+      <args> C[1] l[2] l[4] 10 C[2] </args>
+      <args> C[2] l[0] l[4] 10 C[3] </args>
+      <args> C[3] l[11] l[17] 10 C[4] </args>
+      <args> C[4] l[1] l[6] 10 C[5] </args>
+    </group>
+	<group>
+		<intension> eq(%0,%1) </intension>
+ 		<args> l[0] 2 </args>
+ 		<args> l[1] 7 </args>
+ 		<args> l[2] 0 </args>
+ 		<args> l[3] 0 </args>
+ 		<args> l[4] 4 </args>
+ 		<args> l[5] 0 </args>
+ 		<args> l[6] 5 </args>
+ 		<args> l[7] 0 </args>
+ 		<args> l[8] 0 </args>
+ 		<args> l[9] 0 </args>
+ 		<args> l[10] 8 </args>
+ 		<args> l[11] 9 </args>
+ 		<args> l[12] 0 </args>
+ 		<args> l[13] 6 </args>
+ 		<args> l[14] 1 </args>
+ 		<args> l[15] 0 </args>
+ 		<args> l[16] 0 </args>
+ 		<args> l[17] 3 </args>
+ 		<args> l[18] 0 </args>
+ 		<args> l[19] 0 </args>
+ 		<args> l[20] 0 </args>
+ 		<args> l[21] 0 </args>
+ 		<args> l[22] 0 </args>
+ 		<args> l[23] 0 </args>
+ 		<args> l[24] 0 </args>
+ 		<args> l[25] 0 </args>
+ 		<args> C[0] 0 </args>
+ 		<args> C[1] 1 </args>
+ 		<args> C[2] 0 </args>
+ 		<args> C[3] 0 </args>
+ 		<args> C[4] 1 </args>
+ 		<args> C[5] 1 </args>
+	</group>
+  </constraints>
+</instance>
