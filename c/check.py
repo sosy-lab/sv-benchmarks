@@ -44,7 +44,7 @@ IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
 UNUSED_DIRECTORIES = set(["ldv-multiproperty", "regression"])
 """Directories which expected to contain tasks that are not included in any category"""
 
-EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties"])
+EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties", "original"])
 """Directories that can appear inside directories with tasks but contain other files"""
 
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
