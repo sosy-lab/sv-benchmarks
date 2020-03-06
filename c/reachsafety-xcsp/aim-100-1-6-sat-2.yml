@@ -1,6 +1,0 @@
-format_version: '1.0'
-
-input_files: 'aim-100-1-6-sat-2.c'
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
