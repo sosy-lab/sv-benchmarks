@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
+import argparse
 import collections
 import fnmatch
+import functools
 import glob
 import hashlib
 import logging
+import multiprocessing
 import os
 import re
 import sys
@@ -174,7 +177,7 @@ class Checks(object):
         self._warnings = False
 
     def run(self):
-        """Run all checks of this instance and return success status."""
+        """Run all checks of this instance. Raise an exception if any check fails."""
         attrs = [getattr(self, a) for a in dir(self)]
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
@@ -619,7 +622,37 @@ def _check_known_errors_consistent(main_dir):
         assert os.path.exists(path), "Whitelisted file doesn't exist: %s" % path
 
 
-def main():
+def _run_directory_checks(directory, all_patterns, entry):
+    try:
+        DirectoryChecks(directory, all_patterns, entry).run()
+    except CheckFailed:
+        return False, set()
+    else:
+        return True, set()
+
+
+def _run_set_file_checks(set_file, all_patterns, entry):
+    try:
+        check = SetFileChecks(set_file, entry)
+        check.run()
+    except CheckFailed:
+        return False, check.matched_files
+    else:
+        return True, check.matched_files
+
+
+def _check_benchmark_entry(entry, main_directory, all_patterns):
+    path = os.path.join(main_directory, entry)
+    if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
+        if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
+            return _run_directory_checks(path, all_patterns, entry)
+        elif entry.endswith(".set"):
+            return _run_set_file_checks(path, all_patterns, entry)
+    logging.debug("%s: skipped", entry)
+    return True, set()
+
+
+def main(num_processes):
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
@@ -632,25 +665,14 @@ def main():
         for entry in entries if entry.endswith(".set")
         for pattern in read_set_file(os.path.join(main_directory, entry)))
     all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
-    all_matched_files = set()
 
-    ok = True
-    for entry in entries:
-        path = os.path.join(main_directory, entry)
-        if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            try:
-                if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-                    DirectoryChecks(path, all_patterns, entry).run()
-                elif entry.endswith(".set"):
-                    check = SetFileChecks(path, entry)
-                    all_matched_files.update(check.matched_files)
-                    check.run()
-                else:
-                    logging.debug("%s: skipped", entry)
-            except CheckFailed:
-                ok = False
-        else:
-            logging.debug("%s: skipped", entry)
+    check_func = functools.partial(
+        _check_benchmark_entry, main_directory=main_directory, all_patterns=all_patterns
+    )
+    with multiprocessing.Pool(num_processes) as p:
+        check_results, matched_file_sets = zip(*p.map(check_func, entries))
+    ok = all(check_results)
+    all_matched_files = set(f for f_set in matched_file_sets for f in f_set)
 
     try:
         GlobalChecks(all_matched_files, main_directory).run()
@@ -661,5 +683,20 @@ def main():
         sys.exit(1)
     sys.exit(0)
 
+
+def _parse_arguments(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--num-processes",
+        type=int,
+        default=4,
+        help="Number of concurrent processes to use",
+    )
+
+    return parser.parse_args(args)
+
+
 if __name__ == "__main__":
-    main()
+    args = _parse_arguments(sys.argv[1:])
+
+    main(num_processes=args.num_processes)
