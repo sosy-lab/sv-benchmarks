@@ -622,25 +622,32 @@ def _check_known_errors_consistent(main_dir):
         assert os.path.exists(path), "Whitelisted file doesn't exist: %s" % path
 
 
+def _run_directory_checks(directory, all_patterns, entry):
+    try:
+        DirectoryChecks(directory, all_patterns, entry).run()
+    except CheckFailed:
+        return False, set()
+    else:
+        return True, set()
+
+
+def _run_set_file_checks(set_file, all_patterns, entry):
+    try:
+        check = SetFileChecks(set_file, entry)
+        check.run()
+    except CheckFailed:
+        return False, check.matched_files
+    else:
+        return True, check.matched_files
+
+
 def _check_benchmark_entry(entry, main_directory, all_patterns):
     path = os.path.join(main_directory, entry)
     if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
         if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-            try:
-                DirectoryChecks(path, all_patterns, entry).run()
-            except CheckFailed:
-                return False, set()
-            else:
-                return True, set()
-
+            return _run_directory_checks(path, all_patterns, entry)
         elif entry.endswith(".set"):
-            try:
-                check = SetFileChecks(path, entry)
-                check.run()
-            except CheckFailed:
-                return False, check.matched_files
-            else:
-                return True, set()
+            return _run_set_file_checks(path, all_patterns, entry)
     logging.debug("%s: skipped", entry)
     return True, set()
 
