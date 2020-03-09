@@ -177,7 +177,7 @@ class Checks(object):
         self._warnings = False
 
     def run(self):
-        """Run all checks of this instance and return success status."""
+        """Run all checks of this instance. Raise an exception if any check fails."""
         attrs = [getattr(self, a) for a in dir(self)]
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
