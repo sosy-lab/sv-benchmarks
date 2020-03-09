@@ -624,19 +624,25 @@ def _check_known_errors_consistent(main_dir):
 
 def _check_benchmark_entry(entry, main_directory, all_patterns):
     path = os.path.join(main_directory, entry)
-    try:
-        if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
-            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-                check = DirectoryChecks(path, all_patterns, entry)
-                return check.run(), set()
-            elif entry.endswith(".set"):
+    if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
+        if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
+            try:
+                DirectoryChecks(path, all_patterns, entry).run()
+            except CheckFailed:
+                return False, set()
+            else:
+                return True, set()
+
+        elif entry.endswith(".set"):
+            try:
                 check = SetFileChecks(path, entry)
-                return check.run(), check.matched_files
-        logging.debug("%s: skipped", entry)
-    except CheckFailed:
-        return False, set()
-    else:
-        return True, set()
+                check.run()
+            except CheckFailed:
+                return False, check.matched_files
+            else:
+                return True, set()
+    logging.debug("%s: skipped", entry)
+    return True, set()
 
 
 def main(num_processes):
