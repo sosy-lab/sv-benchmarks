@@ -206,7 +206,7 @@ typedef _Bool bool;
 extern void abort(void); 
 void reach_error(){}
 extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
 }
 extern const void *__VERIFIER_base_pointer(const void *ptr);
@@ -218,7 +218,7 @@ extern unsigned int __VERIFIER_nondet_uint();
 extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 
-void __VERIFIER_assert(int cond) {
+void __VERIFIER_assert(_Bool cond) {
     if(!cond) {reach_error();abort();}
 }
 
@@ -10196,7 +10196,7 @@ void aws_hash_table_clean_up_harness() {
     struct hash_table_state *state = map.p_impl;
     size_t empty_slot_idx;
     size_t size_in_bytes = sizeof(struct hash_table_state) + sizeof(struct hash_table_entry) * state->size;
-    __CPROVER_allocated_memory(state, size_in_bytes);
+    __CPROVER_allocated_memory((unsigned long)state, size_in_bytes);
 
     assume_abort_if_not(aws_hash_table_has_an_empty_slot(&map, &empty_slot_idx));
     aws_hash_table_clean_up(&map);

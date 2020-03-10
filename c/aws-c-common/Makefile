@@ -3,7 +3,6 @@ LEVEL := ../
 CC.Arch := 64
 
 COMMON_WARNINGS := \
-	-Wno-error=int-conversion \
 	-Wno-error=address \
 	-Wno-error=incompatible-pointer-types
 
