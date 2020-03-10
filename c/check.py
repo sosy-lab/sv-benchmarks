@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
+import argparse
 import collections
 import fnmatch
+import functools
 import glob
 import hashlib
 import logging
+import multiprocessing
 import os
 import re
 import sys
@@ -159,6 +162,10 @@ KNOWN_GLOBAL_PROBLEMS = [
     ]
 
 
+class CheckFailed(Exception):
+    pass
+
+
 class Checks(object):
     """Collections of checks that should be implemented in methods named "check*" in subclasses."""
 
@@ -171,14 +178,18 @@ class Checks(object):
         self._warnings = False
 
     def run(self):
-        """Run all checks of this instance and return success status."""
+        """Run all checks of this instance. Raise an exception if any check fails."""
         attrs = [getattr(self, a) for a in dir(self)]
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
-            test()
+            try:
+                test()
+            except CheckFailed:
+                self._errors = True
         if not self._quiet and not (self._errors or self._warnings) and self.name:
             logging.info("%s: OK", self.name)
-        return not self._errors
+        if self._errors:
+            raise CheckFailed()
 
     def error(self, msg, *args):
         """Mark the current check as failed."""
@@ -207,17 +218,26 @@ class DirectoryChecks(Checks):
         self.all_patterns = all_patterns
 
     def run(self):
-        ok = super(DirectoryChecks, self).run()
+        ok = True
+        try:
+            super(DirectoryChecks, self).run()
+        except CheckFailed:
+            ok = False
 
         for entry in self.content:
             if BENCHMARK_PATTERN.match(entry):
                 dir_and_name = os.path.join(self.name, entry)
-                ok &= TaskDefinitionFileChecks(
-                    path=os.path.join(self.path, entry),
-                    name=dir_and_name,
-                    contained_in_category=self.all_patterns.match(dir_and_name)
-                    ).run()
-        return ok
+                try:
+                    TaskDefinitionFileChecks(
+                        path=os.path.join(self.path, entry),
+                        name=dir_and_name,
+                        contained_in_category=self.all_patterns.match(dir_and_name)
+                        ).run()
+                except CheckFailed:
+                    ok = False
+
+        if not ok:
+            raise CheckFailed()
 
     def check_has_benchmarks(self):
         for entry in self.content:
@@ -300,17 +320,23 @@ class TaskDefinitionFileChecks(FileChecks):
             return None
         input_files = self._get_input_files()
         properties_and_verdicts = self._get_properties()
+        ok = True
         for f in input_files:
             f_path = os.path.join(self.directory, f)
             if not os.path.exists(f_path):
                 self.error("references inaccessible file: " + f_path)
             else:
-                InputFileChecks(
-                    path=f_path,
-                    name=f_path,
-                    contained_in_category=self.contained_in_category,
-                    properties_and_verdicts=properties_and_verdicts,
-                ).run()
+                try:
+                    InputFileChecks(
+                        path=f_path,
+                        name=f_path,
+                        contained_in_category=self.contained_in_category,
+                        properties_and_verdicts=properties_and_verdicts,
+                    ).run()
+                except CheckFailed:
+                    ok = False
+        if not ok:
+            raise CheckFailed()
 
     def check_properties(self):
         prop_and_verdict = self._get_properties()
@@ -319,6 +345,7 @@ class TaskDefinitionFileChecks(FileChecks):
             contained_in_category=self.contained_in_category,
             name=self.name,
         ).run()
+
 
     def _get_input_files(self) -> list:
         if 'input_files' not in self.content:
@@ -418,7 +445,7 @@ class PropertiesChecks(Checks):
                         "has expected undefined behavior but also a verdict for some other property")
 
         if violates("unreach-call") and fulfills("valid-memcleanup"):
-            # __VERIFIER_error() aborts the program, and if there is still any
+            # calling the error function aborts the program, and if there is still any
             # allocated memory this would violate memcleanup.
             # We think this is probable (though not guaranteed), so we issue a warning.
             self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
@@ -451,11 +478,11 @@ class InputFileChecks(FileChecks):
         if not "unreach-call" in dict(self.prop_and_verdict):
             return
         if not self.contained_in_category:
-            # Some such files have calls to __VERIFIER_error inside #include
+            # Some such files have calls to reach_error inside #include
             return
 
-        if not any("__VERIFIER_error()" in line for line in self.lines if not "extern" in line):
-            self.error("has property unreach-call, but does not call __VERIFIER_error")
+        if not any("reach_error" in line for line in self.lines if not "void reach_error" in line):
+            self.error("has property unreach-call, but does not call reach_error")
 
     def check_no_include_or_define(self):
         if not self.contained_in_category:
@@ -596,7 +623,37 @@ def _check_known_errors_consistent(main_dir):
         assert os.path.exists(path), "Whitelisted file doesn't exist: %s" % path
 
 
-def main():
+def _run_directory_checks(directory, all_patterns, entry):
+    try:
+        DirectoryChecks(directory, all_patterns, entry).run()
+    except CheckFailed:
+        return False, set()
+    else:
+        return True, set()
+
+
+def _run_set_file_checks(set_file, all_patterns, entry):
+    try:
+        check = SetFileChecks(set_file, entry)
+        check.run()
+    except CheckFailed:
+        return False, check.matched_files
+    else:
+        return True, check.matched_files
+
+
+def _check_benchmark_entry(entry, main_directory, all_patterns):
+    path = os.path.join(main_directory, entry)
+    if not (entry[0] == "." or entry == "bin" or entry.endswith("-todo")):
+        if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
+            return _run_directory_checks(path, all_patterns, entry)
+        elif entry.endswith(".set"):
+            return _run_set_file_checks(path, all_patterns, entry)
+    logging.debug("%s: skipped", entry)
+    return True, set()
+
+
+def main(num_processes):
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
@@ -609,28 +666,38 @@ def main():
         for entry in entries if entry.endswith(".set")
         for pattern in read_set_file(os.path.join(main_directory, entry)))
     all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
-    all_matched_files = set()
 
-    ok = True
-    for entry in entries:
-        path = os.path.join(main_directory, entry)
-        if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
-                ok &= DirectoryChecks(path, all_patterns, entry).run()
-            elif entry.endswith(".set"):
-                check = SetFileChecks(path, entry)
-                all_matched_files.update(check.matched_files)
-                ok &= check.run()
-            else:
-                logging.debug("%s: skipped", entry)
-        else:
-            logging.debug("%s: skipped", entry)
+    check_func = functools.partial(
+        _check_benchmark_entry, main_directory=main_directory, all_patterns=all_patterns
+    )
+    with multiprocessing.Pool(num_processes) as p:
+        check_results, matched_file_sets = zip(*p.map(check_func, entries))
+    ok = all(check_results)
+    all_matched_files = set(f for f_set in matched_file_sets for f in f_set)
 
-    ok &= GlobalChecks(all_matched_files, main_directory).run()
+    try:
+        GlobalChecks(all_matched_files, main_directory).run()
+    except CheckFailed:
+        ok = False
 
     if not ok:
         sys.exit(1)
     sys.exit(0)
 
+
+def _parse_arguments(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--num-processes",
+        type=int,
+        default=4,
+        help="Number of concurrent processes to use",
+    )
+
+    return parser.parse_args(args)
+
+
 if __name__ == "__main__":
-    main()
+    args = _parse_arguments(sys.argv[1:])
+
+    main(num_processes=args.num_processes)
