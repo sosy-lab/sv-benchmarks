@@ -207,7 +207,7 @@ typedef _Bool bool;
 extern void abort(void); 
 void reach_error(){}
 extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
 }
 extern const void *__VERIFIER_base_pointer(const void *ptr);
@@ -219,7 +219,7 @@ extern unsigned int __VERIFIER_nondet_uint();
 extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 
-void __VERIFIER_assert(int cond) {
+void __VERIFIER_assert(_Bool cond) {
     if(!cond) {reach_error();abort();}
 }
 
