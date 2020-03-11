@@ -114,6 +114,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file makeall"),
     ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
     ("aws-c-common", "unexpected file yml.sh"),
+    ("xcsp", "unexpected file create_from_xmls.py")
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
@@ -152,7 +153,6 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
 
     ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca.yml", "has unknown property alloca"),
     ("termination-memory-alloca/aviad_true-alloca.yml", "has unknown property alloca"),
-    ("xcsp/create_from_xmls.py", "script for creating the tasks"),
     ]
 
 KNOWN_SET_PROBLEMS = [
