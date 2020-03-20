@@ -1,0 +1,6 @@
+The collection of SMT formulas representing boolean programs from SLAM
+that were once available at
+https://svn.sosy-lab.org/software/sv-benchmarks/trunk/clauses/BOOL/slam.zip
+are now available at Zenodo:
+https://doi.org/10.5281/zenodo.3718984
+
