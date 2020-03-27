@@ -18,12 +18,12 @@ property=${1:-}
 directory=${2:-./}
 
 if [ -z "$property" ]; then
-  echo "Usage: $0 <PROPERTY_NAME> [BENCHMARK_DIRECTORY]"
+  echo "Usage: $0 <PROPERTY_FILE> [BENCHMARK_DIRECTORY]"
   exit 1
 fi
 
 for task in "$directory"/**/*.yml; do
-  for prp in $(yq --raw-output "select(.properties != null) | .properties[].property_file" "$task" ); do
+  for prp in $(yq r "$task" 'properties[*].property_file' ); do
     if [ $property -ef "$(dirname "$task")/$prp" ]; then
       echo "$task"
       break
