@@ -1,8 +1,10 @@
 int __VERIFIER_nondet_int();
 void reach_error() {}
 void assume(int cond) {
-  if (!cond)
-    abort();
+  if (!cond) {
+  ERROR:
+    return;
+  }
 }
 int dist(int a, int b) {
   int dis = (a - b >= 0) ? a - b : b - a;
