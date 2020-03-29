@@ -1,6 +1,0 @@
-format_version: '1.0'
-
-input_files: 'rand-2-23-23-253-131-4.c'
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

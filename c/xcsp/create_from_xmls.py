@@ -70,7 +70,7 @@ if len(sys.argv) == 3:
             filedata = file.read()
 
         # header
-        newfile = "int __VERIFIER_nondet_int();\nvoid reach_error() {}\nvoid assume(int cond) { if (!cond) {ERROR: return;} }\n"
+        newfile = "extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));\nint __VERIFIER_nondet_int();\nvoid reach_error() {}\nvoid assume(int cond) { if (!cond) abort(); }\n"
         # change all lines containing klee_assume, asserts and klee_make_symbolic to the syntax of the verifiers
         for line in filedata.split("\n"):
             line = line.replace("klee_assume(", "assume(")

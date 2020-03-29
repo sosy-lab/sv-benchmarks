@@ -1,10 +1,10 @@
+extern void abort(void) __attribute__((__nothrow__, __leaf__))
+__attribute__((__noreturn__));
 int __VERIFIER_nondet_int();
 void reach_error() {}
 void assume(int cond) {
-  if (!cond) {
-  ERROR:
-    return;
-  }
+  if (!cond)
+    abort();
 }
 int dist(int a, int b) {
   int dis = (a - b >= 0) ? a - b : b - a;
