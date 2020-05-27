@@ -4,7 +4,7 @@ bitvector/*.yml
 bitvector-regression/*.yml
 bitvector-loops/*.yml
 ntdrivers-simplified/*.yml
-ssh-simplified/*.yml
+openssl-simplified/*.yml
 locks/*.yml
 ntdrivers/*.yml
 eca-rers2012/*.yml
