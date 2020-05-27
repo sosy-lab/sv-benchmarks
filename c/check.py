@@ -127,12 +127,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
     # historical
     ("ntdrivers", "missing license"),
     ("ntdrivers-simplified", "missing license"),
-    ("ssh", "missing license"),
-    ("ssh-simplified", "missing license"),
     ("ntdrivers", "missing readme"),
     ("ntdrivers-simplified", "missing readme"),
-    ("ssh", "missing readme"),
-    ("ssh-simplified", "missing readme"),
 
     ("openbsd-6.2", "unexpected subdirectory sources"),
     ("openbsd-6.2", "unexpected file prepreprocess.py"),

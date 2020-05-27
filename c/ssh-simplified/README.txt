@@ -1,2 +1,3 @@
-Contributed by: [BLAST](https://www.sosy-lab.org/~dbeyer/Blast/) project
-
+The verification tasks in this directory are derived
+from the verification tasks in `../ssh/` (based on OpenSSL sources)
+and were further simplified.
