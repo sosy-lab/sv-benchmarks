@@ -104,3 +104,15 @@ java:
       - "java/results/*.results.Werror.xml*"
       - "java/results/*.html"
     when: always
+
+
+# check license declarations etc.
+reuse:
+  stage: checks
+  image:
+    name: fsfe/reuse:latest
+    entrypoint: [""]
+  script:
+    - reuse lint
+  # needs more work
+  allow_failure: true

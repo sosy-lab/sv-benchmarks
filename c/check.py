@@ -55,23 +55,10 @@ PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
 
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
-    ("bitvector", "missing license"),
-    ("ddv-machzwd", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
-    ("ldv-memsafety", "missing license"),
     ("ldv-memsafety", "missing readme"),
     ("ldv-races", "missing readme"),
-    ("ldv-regression", "missing license"),
     ("ldv-validator-v0.8", "missing readme"),
-    ("list-properties", "missing license"),
-    ("locks", "missing license"),
-    ("loops", "missing license"),
-    ("memsafety-ext", "missing license"),
-    ("product-lines", "missing license"),
-    ("pthread", "missing license"),
-    ("pthread-ext", "missing license"),
-    ("seq-pthread", "missing license"),
-    ("systemc", "missing license"),
     ("Juliet_Test", "unexpected subdirectory Juliet_Test_Suite_v1.3_for_C_Cpp"),
 
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
@@ -92,10 +79,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("eca-rers2018", "unexpected file createYml.py"),
 
     # historical
-    ("ntdrivers", "missing license"),
-    ("ntdrivers-simplified", "missing license"),
-    ("ssh", "missing license"),
-    ("ssh-simplified", "missing license"),
     ("ntdrivers", "missing readme"),
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
@@ -261,7 +244,7 @@ class DirectoryChecks(Checks):
                 return
         self.error("missing readme")
 
-    def check_has_license(self):
+    def disabled_check_has_license(self):
         for entry in self.content:
             if LICENSE_PATTERN.match(entry):
                 return
