@@ -5,4 +5,4 @@ input_files: 'race-1_1-join.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
+    expected_verdict: false
