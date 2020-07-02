@@ -1,6 +1,8 @@
 format_version: "1.0"
 input_files: Problem17.c
 properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
   - property_file: properties/unreach-call-0.prp
     expected_verdict: true
   - property_file: properties/unreach-call-1.prp

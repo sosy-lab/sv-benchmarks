@@ -12,7 +12,9 @@ def getSolutions():
 def createYml(solutions, problem):
     lst = ['format_version: "1.0"',
            'input_files: Problem%s.c' % problem,
-           'properties:']
+           'properties:',
+           '  - property_file: ../properties/unreach-call.prp',
+           '    expected_verdict: false']
     for prop in range(0,100):
         lst.append('  - property_file: properties/unreach-call-%d.prp' % prop)
         lst.append('    expected_verdict: %s' % solutions.get((problem, prop)))
