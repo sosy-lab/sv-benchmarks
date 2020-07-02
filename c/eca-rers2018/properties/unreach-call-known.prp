@@ -1,0 +1,1 @@
+CHECK( init(main()), LTL(G ! call(unreach_error())) )
