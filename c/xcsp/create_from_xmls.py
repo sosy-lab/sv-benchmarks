@@ -4,7 +4,9 @@ from os import listdir
 from os.path import isfile, isdir, join
 import os
 import sys
+import shlex
 import fileinput
+import subprocess
 
 ''' small output dialog on terminal with progression bar'''
 def progressBar(value, endvalue, bar_length=20):
@@ -21,7 +23,7 @@ def findAllFiles(path):
     files = [(path, path  + "/" + str(f), str(f)) for f in listdir(path) if isfile(join(path, f)) and str(f).endswith(".xml")]
     subfolder = [f for f in listdir(path) if isdir(join(path, f))]
     for folder in subfolder:
-        files = files + findAllFiles(path + "/" + str(folder))
+        files.extend(findAllFiles(path + "/" + str(folder)))
     return files
 
 ''' 
@@ -62,13 +64,11 @@ if len(sys.argv) == 3:
         if os.path.exists(ymlFilePath):
             os.remove(ymlFilePath)
 
-        os.system('./test ' + str(l[1]) + " >> " + fileToWrite)
-
-        # read in the translated .c-file
-        filedata = ""
-        with open(str(fileToWrite), 'r') as file :
-            filedata = file.read()
-
+	cmd = shlex.split("./test " + str(l[1]))
+	filedata = subprocess.check_output(cmd);
+	if filedata.count("dist") is 1:
+		filedata = filedata.replace("int dist(int a, int b)\n{ int dis = (a-b >= 0) ? a-b : b-a;\n return dis;\n}", "")
+	
         # header
         newfile = "extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));\nint __VERIFIER_nondet_int();\nvoid reach_error() {}\nvoid assume(int cond) { if (!cond) abort(); }\n"
         # change all lines containing klee_assume, asserts and klee_make_symbolic to the syntax of the verifiers
@@ -95,11 +95,12 @@ if len(sys.argv) == 3:
         if "Dubois" in l[2] or "unsat" in l[2]:
             verdict = "false"
         ymlfile = "format_version: '1.0'\n\ninput_files: \'" + l[2][:-3] + "c\'\nproperties:\n  - property_file: ../properties/unreach-call.prp\n    expected_verdict: "+ verdict
-        with open(ymlFilePath, 'w') as file:
+        with open(ymlFilePath, 'w+') as file:
             file.write(ymlfile)
         
         # format the file
-        os.system('clang-format -i ' + fileToWrite)
+	fileFormat = shlex.split("clang-format -i " + fileToWrite)
+        subprocess.Popen(fileFormat)
         done = done + 1
         progressBar(done, number)
     print("")

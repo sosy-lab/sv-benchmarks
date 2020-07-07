@@ -6,10 +6,6 @@ void assume(int cond) {
   if (!cond)
     abort();
 }
-int dist(int a, int b) {
-  int dis = (a - b >= 0) ? a - b : b - a;
-  return dis;
-}
 int main() {
   int cond0;
   int dummy = 0;
