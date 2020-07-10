@@ -3,7 +3,7 @@ format_version: '1.0'
 input_files: 'linux-4.0-rc1---drivers--scsi--advansys.ko.cil.c'
 
 properties:
-  - property_file: ALL-multi.prp
+  - property_file: ../properties/unreach-call.prp
     expected_verdict: false
   - property_file: properties/unreach-call-usb_urb.prp
     expected_verdict: true

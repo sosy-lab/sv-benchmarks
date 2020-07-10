@@ -41,7 +41,6 @@ for i in range(100):
 
 # properties of ldv-multiproperty
 PROPERTIES |= {
-    "ALL-multi",
     "unreach-call-alloc_irq",
     "unreach-call-alloc_spinlock",
     "unreach-call-alloc_usb_lock",
@@ -121,7 +120,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
-    ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
 
     ("eca-rers2018", "unexpected file RERS_18_solutions_dot_petri.csv"),
     ("eca-rers2018", "unexpected file createYml.py"),
