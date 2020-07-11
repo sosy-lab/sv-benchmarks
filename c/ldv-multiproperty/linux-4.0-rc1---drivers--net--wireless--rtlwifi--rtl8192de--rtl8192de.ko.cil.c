@@ -9040,7 +9040,10 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 long ldv__builtin_expect(long exp , long c ) ;
-void ldv_assume(int expression ) ;
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
 void ldv_linux_alloc_usb_lock_check_alloc_flags(gfp_t flags ) ;
@@ -9105,7 +9108,7 @@ void *ldv_create_class(void)
   res1 = tmp;
   tmp___0 = ldv_linux_usb_gadget_create_class(res1);
   res2 = tmp___0;
-  ldv_assume((unsigned long )res1 == (unsigned long )res2);
+  assume_abort_if_not((unsigned long )res1 == (unsigned long )res2);
   }
   return (res1);
 }
@@ -9123,7 +9126,7 @@ int ldv_register_class(void)
   res1 = tmp;
   tmp___0 = ldv_linux_usb_gadget_register_class();
   res2 = tmp___0;
-  ldv_assume(res1 == res2);
+  assume_abort_if_not(res1 == res2);
   }
   return (res1);
 }
@@ -31065,7 +31068,6 @@ bool rtl92d_phy_rf6052_config(struct ieee80211_hw *hw )
   return (rtstatus);
 }
 }
-void ldv_stop(void) ;
 void ldv_linux_arch_io_check_final_state(void) ;
 void ldv_linux_block_genhd_check_final_state(void) ;
 void ldv_linux_block_queue_check_final_state(void) ;
@@ -31713,14 +31715,14 @@ int ldv___pci_register_driver(int arg0 , struct pci_driver *arg1 , struct module
   }
   if (tmp != 0) {
     {
-    ldv_assume(arg0 == 0);
+    assume_abort_if_not(arg0 == 0);
     ldv_5_pci_driver_pci_driver = arg1;
     ldv_dispatch_register_5_2(ldv_5_pci_driver_pci_driver);
     }
     return (arg0);
   } else {
     {
-    ldv_assume(arg0 != 0);
+    assume_abort_if_not(arg0 != 0);
     }
     return (arg0);
   }
@@ -31832,14 +31834,14 @@ void ldv_entry_EMGentry_6(void *arg0 )
   }
   if (tmp___0 != 0) {
     {
-    ldv_assume(ldv_6_ret_default != 0);
+    assume_abort_if_not(ldv_6_ret_default != 0);
     ldv_ldv_check_final_state_127();
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     return;
   } else {
     {
-    ldv_assume(ldv_6_ret_default == 0);
+    assume_abort_if_not(ldv_6_ret_default == 0);
     tmp = ldv_undef_int();
     }
     if (tmp != 0) {
@@ -31855,7 +31857,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
     {
     ldv_EMGentry_exit_rtl92de_module_exit_6_2(ldv_6_exit_rtl92de_module_exit_default);
     ldv_ldv_check_final_state_128();
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     return;
   }
@@ -32035,12 +32037,12 @@ void ldv_ieee80211_ieee80211_instance_0(void *arg0 )
     }
     if (tmp != 0) {
       {
-      ldv_assume(ldv_0_ret_default == 0);
+      assume_abort_if_not(ldv_0_ret_default == 0);
       }
       goto ldv_started_0;
     } else {
       {
-      ldv_assume(ldv_0_ret_default != 0);
+      assume_abort_if_not(ldv_0_ret_default != 0);
       }
       goto ldv_main_0;
     }
@@ -33445,7 +33447,7 @@ void ldv_ieee80211_ieee80211_instance_0(void *arg0 )
   goto ldv_main_0;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -34135,12 +34137,12 @@ void ldv_pci_pci_instance_1(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_1_ret_default == 0);
+      assume_abort_if_not(ldv_1_ret_default == 0);
       }
       goto ldv_call_1;
     } else {
       {
-      ldv_assume(ldv_1_ret_default != 0);
+      assume_abort_if_not(ldv_1_ret_default != 0);
       }
       goto ldv_main_1;
     }
@@ -34229,7 +34231,7 @@ void ldv_pci_pci_instance_1(void *arg0 )
   goto ldv_main_1;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -34565,12 +34567,12 @@ void ldv_pm_platform_instance_3(void *arg0 )
     }
     if (tmp___0 != 0) {
       {
-      ldv_assume(ldv_3_probed_default == 0);
+      assume_abort_if_not(ldv_3_probed_default == 0);
       }
       goto ldv_call_3;
     } else {
       {
-      ldv_assume(ldv_3_probed_default != 0);
+      assume_abort_if_not(ldv_3_probed_default != 0);
       }
       goto ldv_main_3;
     }
@@ -34627,7 +34629,7 @@ void ldv_pm_platform_instance_3(void *arg0 )
   goto ldv_call_3;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -34859,7 +34861,7 @@ void ldv_pm_pm_ops_instance_2(void *arg0 )
   goto ldv_58687;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break___0: /* CIL Label */ ;
   }
@@ -34876,7 +34878,7 @@ void ldv_pm_pm_ops_instance_2(void *arg0 )
   return;
   switch_default___0: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -38098,7 +38100,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   {
   {
   is_got = ldv_malloc(sizeof(struct class));
-  ldv_assume((int )((long )is_got));
+  assume_abort_if_not((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
   if (tmp == 0L) {
@@ -38290,7 +38292,7 @@ int ldv_linux_fs_char_dev_register_chrdev(int major )
     if (major == 0) {
       {
       is_reg = ldv_undef_int();
-      ldv_assume(is_reg > 0);
+      assume_abort_if_not(is_reg > 0);
       }
     } else {
 
@@ -38774,7 +38776,7 @@ static int ldv_filter_positive_int(int val )
 
   {
   {
-  ldv_assume(val <= 0);
+  assume_abort_if_not(val <= 0);
   }
   return (val);
 }
@@ -38854,8 +38856,8 @@ unsigned long ldv_linux_lib_find_bit_find_next_bit(unsigned long size , unsigned
   tmp = ldv_undef_ulong();
   nondet = tmp;
   ldv_assert_linux_lib_find_bit__offset_out_of_range(offset <= size);
-  ldv_assume(nondet <= size);
-  ldv_assume(1);
+  assume_abort_if_not(nondet <= size);
+  assume_abort_if_not(1);
   }
   return (nondet);
 }
@@ -38869,8 +38871,8 @@ unsigned long ldv_linux_lib_find_bit_find_first_bit(unsigned long size )
   {
   tmp = ldv_undef_ulong();
   nondet = tmp;
-  ldv_assume(nondet <= size);
-  ldv_assume(1);
+  assume_abort_if_not(nondet <= size);
+  assume_abort_if_not(1);
   }
   return (nondet);
 }
@@ -38881,7 +38883,7 @@ void ldv_linux_lib_find_bit_initialize(void)
 
   {
   {
-  ldv_assume(nr_cpu_ids > 0);
+  assume_abort_if_not(nr_cpu_ids > 0);
   }
   return;
 }
@@ -39287,7 +39289,7 @@ void *ldv_linux_usb_gadget_create_class(void *is_got )
 
   {
   {
-  ldv_assume((int )((long )is_got));
+  assume_abort_if_not((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
   if (tmp == 0L) {
@@ -39367,7 +39369,7 @@ int ldv_linux_usb_gadget_register_chrdev(int major )
     if (major == 0) {
       {
       is_reg = ldv_undef_int();
-      ldv_assume(is_reg > 0);
+      assume_abort_if_not(is_reg > 0);
       }
     } else {
 
@@ -39548,29 +39550,6 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 extern void ldv_assert(char const   * , int  ) ;
 void ldv__builtin_trap(void) ;
-void ldv_assume(int expression ) 
-{ 
-
-
-  {
-  if (expression == 0) {
-    ldv_assume_label: ;
-    goto ldv_assume_label;
-  } else {
-
-  }
-  return;
-}
-}
-void ldv_stop(void) 
-{ 
-
-
-  {
-  ldv_stop_label: ;
-  goto ldv_stop_label;
-}
-}
 long ldv__builtin_expect(long exp , long c ) 
 { 
 
@@ -39610,9 +39589,9 @@ void *ldv_malloc(size_t size )
     {
     tmp = malloc(size);
     res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    ldv_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -39635,9 +39614,9 @@ void *ldv_calloc(size_t nmemb , size_t size )
     {
     tmp = calloc(nmemb, size);
     res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    ldv_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -39677,9 +39656,9 @@ void *ldv_xmalloc(size_t size )
   {
   tmp = malloc(size);
   res = tmp;
-  ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  ldv_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -39694,9 +39673,9 @@ void *ldv_xzalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   res = tmp;
-  ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  ldv_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -39735,7 +39714,7 @@ int ldv_undef_int_negative(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  ldv_assume(ret < 0);
+  assume_abort_if_not(ret < 0);
   }
   return (ret);
 }
@@ -39749,7 +39728,7 @@ int ldv_undef_int_nonpositive(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  ldv_assume(ret <= 0);
+  assume_abort_if_not(ret <= 0);
   }
   return (ret);
 }
@@ -40144,7 +40123,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock__xmit_lock_of_netdev_queue(void
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
   ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue = 2;
   }
   return;
@@ -40157,7 +40136,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock__xmit_lock_of_netdev_queue(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 2);
   ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue = 1;
   }
   return;
@@ -40170,7 +40149,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock__xmit_lock_of_netdev_queue(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40188,7 +40167,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait__xmit_lock_of_netdev_que
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
   }
   return;
 }
@@ -40241,7 +40220,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock__xmit_lock_of_netdev_q
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin__xmit_lock_of_netdev_queue == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40261,7 +40240,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_addr_list_lock_of_net_device(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
   ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device = 2;
   }
   return;
@@ -40274,7 +40253,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_addr_list_lock_of_net_device(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 2);
   ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device = 1;
   }
   return;
@@ -40287,7 +40266,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_addr_list_lock_of_net_device(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40305,7 +40284,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_addr_list_lock_of_net_de
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
   }
   return;
 }
@@ -40358,7 +40337,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_addr_list_lock_of_net_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_addr_list_lock_of_net_device == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40378,7 +40357,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_alloc_lock_of_task_struct(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct = 2;
   }
   return;
@@ -40391,7 +40370,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_alloc_lock_of_task_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
   ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct = 1;
   }
   return;
@@ -40404,7 +40383,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_alloc_lock_of_task_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40422,7 +40401,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_alloc_lock_of_task_struc
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   }
   return;
 }
@@ -40475,7 +40454,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_alloc_lock_of_task_str
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40495,7 +40474,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_cck_and_rw_pagea_lock_of_rtl_lo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
   ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks = 2;
   }
   return;
@@ -40508,7 +40487,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_cck_and_rw_pagea_lock_of_rtl_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 2);
   ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks = 1;
   }
   return;
@@ -40521,7 +40500,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_cck_and_rw_pagea_lock_of_rtl_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40539,7 +40518,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_cck_and_rw_pagea_lock_of
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
   }
   return;
 }
@@ -40592,7 +40571,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_cck_and_rw_pagea_lock_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_cck_and_rw_pagea_lock_of_rtl_locks == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40612,7 +40591,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_globalmutex_for_fwdownload(void
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload = 2;
   }
   return;
@@ -40625,7 +40604,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_globalmutex_for_fwdownload(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 2);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload = 1;
   }
   return;
@@ -40638,7 +40617,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_globalmutex_for_fwdownload(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40656,7 +40635,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_globalmutex_for_fwdownlo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
   }
   return;
 }
@@ -40709,7 +40688,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_globalmutex_for_fwdown
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_fwdownload == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40729,7 +40708,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_globalmutex_for_power_and_efuse
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse = 2;
   }
   return;
@@ -40742,7 +40721,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_globalmutex_for_power_and_efu
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 2);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse = 1;
   }
   return;
@@ -40755,7 +40734,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_globalmutex_for_power_and_efu
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40773,7 +40752,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_globalmutex_for_power_an
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
   }
   return;
 }
@@ -40826,7 +40805,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_globalmutex_for_power_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_for_power_and_efuse == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40846,7 +40825,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_globalmutex_power(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_power = 2;
   }
   return;
@@ -40859,7 +40838,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_globalmutex_power(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 2);
   ldv_linux_kernel_locking_spinlock_spin_globalmutex_power = 1;
   }
   return;
@@ -40872,7 +40851,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_globalmutex_power(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -40890,7 +40869,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_globalmutex_power(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
   }
   return;
 }
@@ -40943,7 +40922,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_globalmutex_power(void
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_globalmutex_power == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -40963,7 +40942,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_h2c_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
   ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks = 2;
   }
   return;
@@ -40976,7 +40955,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_h2c_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 2);
   ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks = 1;
   }
   return;
@@ -40989,7 +40968,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_h2c_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41007,7 +40986,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_h2c_lock_of_rtl_locks(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
   }
   return;
 }
@@ -41060,7 +41039,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_h2c_lock_of_rtl_locks(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_h2c_lock_of_rtl_locks == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41080,7 +41059,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode = 2;
   }
   return;
@@ -41093,7 +41072,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
   ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode = 1;
   }
   return;
@@ -41106,7 +41085,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41124,7 +41103,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   }
   return;
 }
@@ -41177,7 +41156,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41197,7 +41176,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_irq_th_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
   ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks = 2;
   }
   return;
@@ -41210,7 +41189,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_irq_th_lock_of_rtl_locks(void
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 2);
   ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks = 1;
   }
   return;
@@ -41223,7 +41202,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_irq_th_lock_of_rtl_locks(void
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41241,7 +41220,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_irq_th_lock_of_rtl_locks
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
   }
   return;
 }
@@ -41294,7 +41273,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_irq_th_lock_of_rtl_loc
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_irq_th_lock_of_rtl_locks == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41314,7 +41293,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock = 2;
   }
   return;
@@ -41327,7 +41306,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock = 1;
   }
   return;
@@ -41340,7 +41319,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41358,7 +41337,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   }
   return;
 }
@@ -41411,7 +41390,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41431,7 +41410,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN = 2;
   }
   return;
@@ -41444,7 +41423,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN = 1;
   }
   return;
@@ -41457,7 +41436,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41475,7 +41454,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock_of_NOT_ARG_SIGN(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   }
   return;
 }
@@ -41528,7 +41507,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock_of_NOT_ARG_SIGN(v
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41548,7 +41527,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_node_size_lock_of_pglist_data(v
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data = 2;
   }
   return;
@@ -41561,7 +41540,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_node_size_lock_of_pglist_data
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
   ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data = 1;
   }
   return;
@@ -41574,7 +41553,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_node_size_lock_of_pglist_data
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41592,7 +41571,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_node_size_lock_of_pglist
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   }
   return;
 }
@@ -41645,7 +41624,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_node_size_lock_of_pgli
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41665,7 +41644,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   ldv_linux_kernel_locking_spinlock_spin_ptl = 2;
   }
   return;
@@ -41678,7 +41657,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
   ldv_linux_kernel_locking_spinlock_spin_ptl = 1;
   }
   return;
@@ -41691,7 +41670,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41709,7 +41688,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   }
   return;
 }
@@ -41762,7 +41741,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41782,7 +41761,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_rf_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
   ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks = 2;
   }
   return;
@@ -41795,7 +41774,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_rf_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 2);
   ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks = 1;
   }
   return;
@@ -41808,7 +41787,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_rf_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41826,7 +41805,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_rf_lock_of_rtl_locks(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
   }
   return;
 }
@@ -41879,7 +41858,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_rf_lock_of_rtl_locks(v
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_lock_of_rtl_locks == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -41899,7 +41878,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_rf_ps_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
   ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks = 2;
   }
   return;
@@ -41912,7 +41891,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_rf_ps_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 2);
   ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks = 1;
   }
   return;
@@ -41925,7 +41904,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_rf_ps_lock_of_rtl_locks(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -41943,7 +41922,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_rf_ps_lock_of_rtl_locks(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
   }
   return;
 }
@@ -41996,7 +41975,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_rf_ps_lock_of_rtl_lock
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_rf_ps_lock_of_rtl_locks == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -42016,7 +41995,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_siglock_of_sighand_struct(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct = 2;
   }
   return;
@@ -42029,7 +42008,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_siglock_of_sighand_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
   ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct = 1;
   }
   return;
@@ -42042,7 +42021,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_siglock_of_sighand_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -42060,7 +42039,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_siglock_of_sighand_struc
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   }
   return;
 }
@@ -42113,7 +42092,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_siglock_of_sighand_str
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -42133,7 +42112,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_tx_global_lock_of_net_device(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
   ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device = 2;
   }
   return;
@@ -42146,7 +42125,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_tx_global_lock_of_net_device(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 2);
   ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device = 1;
   }
   return;
@@ -42159,7 +42138,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_tx_global_lock_of_net_device(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -42177,7 +42156,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_tx_global_lock_of_net_de
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
   }
   return;
 }
@@ -42230,7 +42209,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_tx_global_lock_of_net_
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_tx_global_lock_of_net_device == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {

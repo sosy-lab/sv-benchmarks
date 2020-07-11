@@ -4165,8 +4165,10 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 long ldv__builtin_expect(long exp , long c ) ;
-void ldv_assume(int expression ) ;
-void ldv_stop(void) ;
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
 void ldv_linux_alloc_usb_lock_check_alloc_flags(gfp_t flags ) ;
@@ -4254,7 +4256,7 @@ void *ldv_create_class(void)
   res1 = tmp;
   tmp___0 = ldv_linux_usb_gadget_create_class(res1);
   res2 = tmp___0;
-  ldv_assume((unsigned long )res1 == (unsigned long )res2);
+  assume_abort_if_not((unsigned long )res1 == (unsigned long )res2);
   }
   return (res1);
 }
@@ -4272,7 +4274,7 @@ int ldv_register_class(void)
   res1 = tmp;
   tmp___0 = ldv_linux_usb_gadget_register_class();
   res2 = tmp___0;
-  ldv_assume(res1 == res2);
+  assume_abort_if_not(res1 == res2);
   }
   return (res1);
 }
@@ -8329,14 +8331,14 @@ int ldv___hid_register_driver(int arg0 , struct hid_driver *arg1 , struct module
   }
   if (tmp != 0) {
     {
-    ldv_assume(arg0 == 0);
+    assume_abort_if_not(arg0 == 0);
     ldv_54_struct_hid_driver_struct_hid_driver = arg1;
     ldv_dispatch_register_54_2(ldv_54_struct_hid_driver_struct_hid_driver);
     }
     return (arg0);
   } else {
     {
-    ldv_assume(arg0 != 0);
+    assume_abort_if_not(arg0 != 0);
     }
     return (arg0);
   }
@@ -8784,14 +8786,14 @@ void ldv_entry_EMGentry_55(void *arg0 )
   }
   if (tmp___0 != 0) {
     {
-    ldv_assume(ldv_55_ret_default != 0);
+    assume_abort_if_not(ldv_55_ret_default != 0);
     ldv_ldv_check_final_state_168();
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     return;
   } else {
     {
-    ldv_assume(ldv_55_ret_default == 0);
+    assume_abort_if_not(ldv_55_ret_default == 0);
     tmp = ldv_undef_int();
     }
     if (tmp != 0) {
@@ -8809,7 +8811,7 @@ void ldv_entry_EMGentry_55(void *arg0 )
     {
     ldv_EMGentry_exit_wiimote_hid_driver_exit_55_2(ldv_55_exit_wiimote_hid_driver_exit_default);
     ldv_ldv_check_final_state_169();
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     return;
   }
@@ -11620,14 +11622,14 @@ int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 )
   }
   if (tmp != 0) {
     {
-    ldv_assume(arg0 == 0);
+    assume_abort_if_not(arg0 == 0);
     ldv_52_timer_list_timer_list = arg1;
     ldv_dispatch_instance_register_52_2(ldv_52_timer_list_timer_list);
     }
     return (arg0);
   } else {
     {
-    ldv_assume(arg0 != 0);
+    assume_abort_if_not(arg0 != 0);
     }
     return (arg0);
   }
@@ -11810,12 +11812,12 @@ void ldv_struct_hid_driver_io_instance_6(void *arg0 )
     }
     if (tmp___2 != 0) {
       {
-      ldv_assume(ldv_6_ret_default == 0);
+      assume_abort_if_not(ldv_6_ret_default == 0);
       }
       goto ldv_call_6;
     } else {
       {
-      ldv_assume(ldv_6_ret_default != 0);
+      assume_abort_if_not(ldv_6_ret_default != 0);
       }
       goto ldv_main_6;
     }
@@ -16892,12 +16894,12 @@ void ldv_struct_wiiproto_handler_io_instance_10(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_10_ret_default == 0);
+      assume_abort_if_not(ldv_10_ret_default == 0);
       }
       goto ldv_call_10;
     } else {
       {
-      ldv_assume(ldv_10_ret_default != 0);
+      assume_abort_if_not(ldv_10_ret_default != 0);
       }
       goto ldv_main_10;
     }
@@ -17058,7 +17060,7 @@ void ldv_struct_wiiproto_handler_io_instance_10(void *arg0 )
     goto ldv_36354;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -17130,12 +17132,12 @@ void ldv_struct_wiiproto_handler_io_instance_11(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_11_ret_default == 0);
+      assume_abort_if_not(ldv_11_ret_default == 0);
       }
       goto ldv_call_11;
     } else {
       {
-      ldv_assume(ldv_11_ret_default != 0);
+      assume_abort_if_not(ldv_11_ret_default != 0);
       }
       goto ldv_main_11;
     }
@@ -17287,7 +17289,7 @@ void ldv_struct_wiiproto_handler_io_instance_11(void *arg0 )
     goto ldv_36399;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -17359,12 +17361,12 @@ void ldv_struct_wiiproto_handler_io_instance_12(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_12_ret_default == 0);
+      assume_abort_if_not(ldv_12_ret_default == 0);
       }
       goto ldv_call_12;
     } else {
       {
-      ldv_assume(ldv_12_ret_default != 0);
+      assume_abort_if_not(ldv_12_ret_default != 0);
       }
       goto ldv_main_12;
     }
@@ -17514,7 +17516,7 @@ void ldv_struct_wiiproto_handler_io_instance_12(void *arg0 )
     goto ldv_36444;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -17586,12 +17588,12 @@ void ldv_struct_wiiproto_handler_io_instance_13(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_13_ret_default == 0);
+      assume_abort_if_not(ldv_13_ret_default == 0);
       }
       goto ldv_call_13;
     } else {
       {
-      ldv_assume(ldv_13_ret_default != 0);
+      assume_abort_if_not(ldv_13_ret_default != 0);
       }
       goto ldv_main_13;
     }
@@ -17743,7 +17745,7 @@ void ldv_struct_wiiproto_handler_io_instance_13(void *arg0 )
     goto ldv_36489;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -17815,12 +17817,12 @@ void ldv_struct_wiiproto_handler_io_instance_14(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_14_ret_default == 0);
+      assume_abort_if_not(ldv_14_ret_default == 0);
       }
       goto ldv_call_14;
     } else {
       {
-      ldv_assume(ldv_14_ret_default != 0);
+      assume_abort_if_not(ldv_14_ret_default != 0);
       }
       goto ldv_main_14;
     }
@@ -17972,7 +17974,7 @@ void ldv_struct_wiiproto_handler_io_instance_14(void *arg0 )
     goto ldv_36534;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -18044,12 +18046,12 @@ void ldv_struct_wiiproto_handler_io_instance_15(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_15_ret_default == 0);
+      assume_abort_if_not(ldv_15_ret_default == 0);
       }
       goto ldv_call_15;
     } else {
       {
-      ldv_assume(ldv_15_ret_default != 0);
+      assume_abort_if_not(ldv_15_ret_default != 0);
       }
       goto ldv_main_15;
     }
@@ -18210,7 +18212,7 @@ void ldv_struct_wiiproto_handler_io_instance_15(void *arg0 )
     goto ldv_36579;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -18282,12 +18284,12 @@ void ldv_struct_wiiproto_handler_io_instance_16(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_16_ret_default == 0);
+      assume_abort_if_not(ldv_16_ret_default == 0);
       }
       goto ldv_call_16;
     } else {
       {
-      ldv_assume(ldv_16_ret_default != 0);
+      assume_abort_if_not(ldv_16_ret_default != 0);
       }
       goto ldv_main_16;
     }
@@ -18439,7 +18441,7 @@ void ldv_struct_wiiproto_handler_io_instance_16(void *arg0 )
     goto ldv_36624;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -18511,12 +18513,12 @@ void ldv_struct_wiiproto_handler_io_instance_17(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_17_ret_default == 0);
+      assume_abort_if_not(ldv_17_ret_default == 0);
       }
       goto ldv_call_17;
     } else {
       {
-      ldv_assume(ldv_17_ret_default != 0);
+      assume_abort_if_not(ldv_17_ret_default != 0);
       }
       goto ldv_main_17;
     }
@@ -18668,7 +18670,7 @@ void ldv_struct_wiiproto_handler_io_instance_17(void *arg0 )
     goto ldv_36669;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -18740,12 +18742,12 @@ void ldv_struct_wiiproto_handler_io_instance_18(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_18_ret_default == 0);
+      assume_abort_if_not(ldv_18_ret_default == 0);
       }
       goto ldv_call_18;
     } else {
       {
-      ldv_assume(ldv_18_ret_default != 0);
+      assume_abort_if_not(ldv_18_ret_default != 0);
       }
       goto ldv_main_18;
     }
@@ -18906,7 +18908,7 @@ void ldv_struct_wiiproto_handler_io_instance_18(void *arg0 )
     goto ldv_36714;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -18978,12 +18980,12 @@ void ldv_struct_wiiproto_handler_io_instance_19(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_19_ret_default == 0);
+      assume_abort_if_not(ldv_19_ret_default == 0);
       }
       goto ldv_call_19;
     } else {
       {
-      ldv_assume(ldv_19_ret_default != 0);
+      assume_abort_if_not(ldv_19_ret_default != 0);
       }
       goto ldv_main_19;
     }
@@ -19135,7 +19137,7 @@ void ldv_struct_wiiproto_handler_io_instance_19(void *arg0 )
     goto ldv_36759;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -19207,12 +19209,12 @@ void ldv_struct_wiiproto_handler_io_instance_20(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_20_ret_default == 0);
+      assume_abort_if_not(ldv_20_ret_default == 0);
       }
       goto ldv_call_20;
     } else {
       {
-      ldv_assume(ldv_20_ret_default != 0);
+      assume_abort_if_not(ldv_20_ret_default != 0);
       }
       goto ldv_main_20;
     }
@@ -19373,7 +19375,7 @@ void ldv_struct_wiiproto_handler_io_instance_20(void *arg0 )
     goto ldv_36804;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -19445,12 +19447,12 @@ void ldv_struct_wiiproto_handler_io_instance_21(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_21_ret_default == 0);
+      assume_abort_if_not(ldv_21_ret_default == 0);
       }
       goto ldv_call_21;
     } else {
       {
-      ldv_assume(ldv_21_ret_default != 0);
+      assume_abort_if_not(ldv_21_ret_default != 0);
       }
       goto ldv_main_21;
     }
@@ -19593,7 +19595,7 @@ void ldv_struct_wiiproto_handler_io_instance_21(void *arg0 )
     goto ldv_36849;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -19665,12 +19667,12 @@ void ldv_struct_wiiproto_handler_io_instance_22(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_22_ret_default == 0);
+      assume_abort_if_not(ldv_22_ret_default == 0);
       }
       goto ldv_call_22;
     } else {
       {
-      ldv_assume(ldv_22_ret_default != 0);
+      assume_abort_if_not(ldv_22_ret_default != 0);
       }
       goto ldv_main_22;
     }
@@ -19831,7 +19833,7 @@ void ldv_struct_wiiproto_handler_io_instance_22(void *arg0 )
     goto ldv_36894;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -19903,12 +19905,12 @@ void ldv_struct_wiiproto_handler_io_instance_23(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_23_ret_default == 0);
+      assume_abort_if_not(ldv_23_ret_default == 0);
       }
       goto ldv_call_23;
     } else {
       {
-      ldv_assume(ldv_23_ret_default != 0);
+      assume_abort_if_not(ldv_23_ret_default != 0);
       }
       goto ldv_main_23;
     }
@@ -20060,7 +20062,7 @@ void ldv_struct_wiiproto_handler_io_instance_23(void *arg0 )
     goto ldv_36939;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -20132,12 +20134,12 @@ void ldv_struct_wiiproto_handler_io_instance_24(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_24_ret_default == 0);
+      assume_abort_if_not(ldv_24_ret_default == 0);
       }
       goto ldv_call_24;
     } else {
       {
-      ldv_assume(ldv_24_ret_default != 0);
+      assume_abort_if_not(ldv_24_ret_default != 0);
       }
       goto ldv_main_24;
     }
@@ -20287,7 +20289,7 @@ void ldv_struct_wiiproto_handler_io_instance_24(void *arg0 )
     goto ldv_36984;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -20359,12 +20361,12 @@ void ldv_struct_wiiproto_handler_io_instance_25(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_25_ret_default == 0);
+      assume_abort_if_not(ldv_25_ret_default == 0);
       }
       goto ldv_call_25;
     } else {
       {
-      ldv_assume(ldv_25_ret_default != 0);
+      assume_abort_if_not(ldv_25_ret_default != 0);
       }
       goto ldv_main_25;
     }
@@ -20516,7 +20518,7 @@ void ldv_struct_wiiproto_handler_io_instance_25(void *arg0 )
     goto ldv_37029;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -20588,12 +20590,12 @@ void ldv_struct_wiiproto_handler_io_instance_26(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_26_ret_default == 0);
+      assume_abort_if_not(ldv_26_ret_default == 0);
       }
       goto ldv_call_26;
     } else {
       {
-      ldv_assume(ldv_26_ret_default != 0);
+      assume_abort_if_not(ldv_26_ret_default != 0);
       }
       goto ldv_main_26;
     }
@@ -20745,7 +20747,7 @@ void ldv_struct_wiiproto_handler_io_instance_26(void *arg0 )
     goto ldv_37074;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -20817,12 +20819,12 @@ void ldv_struct_wiiproto_handler_io_instance_27(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_27_ret_default == 0);
+      assume_abort_if_not(ldv_27_ret_default == 0);
       }
       goto ldv_call_27;
     } else {
       {
-      ldv_assume(ldv_27_ret_default != 0);
+      assume_abort_if_not(ldv_27_ret_default != 0);
       }
       goto ldv_main_27;
     }
@@ -20983,7 +20985,7 @@ void ldv_struct_wiiproto_handler_io_instance_27(void *arg0 )
     goto ldv_37119;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -21055,12 +21057,12 @@ void ldv_struct_wiiproto_handler_io_instance_28(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_28_ret_default == 0);
+      assume_abort_if_not(ldv_28_ret_default == 0);
       }
       goto ldv_call_28;
     } else {
       {
-      ldv_assume(ldv_28_ret_default != 0);
+      assume_abort_if_not(ldv_28_ret_default != 0);
       }
       goto ldv_main_28;
     }
@@ -21212,7 +21214,7 @@ void ldv_struct_wiiproto_handler_io_instance_28(void *arg0 )
     goto ldv_37164;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -21284,12 +21286,12 @@ void ldv_struct_wiiproto_handler_io_instance_29(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_29_ret_default == 0);
+      assume_abort_if_not(ldv_29_ret_default == 0);
       }
       goto ldv_call_29;
     } else {
       {
-      ldv_assume(ldv_29_ret_default != 0);
+      assume_abort_if_not(ldv_29_ret_default != 0);
       }
       goto ldv_main_29;
     }
@@ -21441,7 +21443,7 @@ void ldv_struct_wiiproto_handler_io_instance_29(void *arg0 )
     goto ldv_37209;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -21513,12 +21515,12 @@ void ldv_struct_wiiproto_handler_io_instance_30(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_30_ret_default == 0);
+      assume_abort_if_not(ldv_30_ret_default == 0);
       }
       goto ldv_call_30;
     } else {
       {
-      ldv_assume(ldv_30_ret_default != 0);
+      assume_abort_if_not(ldv_30_ret_default != 0);
       }
       goto ldv_main_30;
     }
@@ -21679,7 +21681,7 @@ void ldv_struct_wiiproto_handler_io_instance_30(void *arg0 )
     goto ldv_37254;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -21751,12 +21753,12 @@ void ldv_struct_wiiproto_handler_io_instance_31(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_31_ret_default == 0);
+      assume_abort_if_not(ldv_31_ret_default == 0);
       }
       goto ldv_call_31;
     } else {
       {
-      ldv_assume(ldv_31_ret_default != 0);
+      assume_abort_if_not(ldv_31_ret_default != 0);
       }
       goto ldv_main_31;
     }
@@ -21908,7 +21910,7 @@ void ldv_struct_wiiproto_handler_io_instance_31(void *arg0 )
     goto ldv_37299;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -21980,12 +21982,12 @@ void ldv_struct_wiiproto_handler_io_instance_32(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_32_ret_default == 0);
+      assume_abort_if_not(ldv_32_ret_default == 0);
       }
       goto ldv_call_32;
     } else {
       {
-      ldv_assume(ldv_32_ret_default != 0);
+      assume_abort_if_not(ldv_32_ret_default != 0);
       }
       goto ldv_main_32;
     }
@@ -22146,7 +22148,7 @@ void ldv_struct_wiiproto_handler_io_instance_32(void *arg0 )
     goto ldv_37344;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -22218,12 +22220,12 @@ void ldv_struct_wiiproto_handler_io_instance_33(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_33_ret_default == 0);
+      assume_abort_if_not(ldv_33_ret_default == 0);
       }
       goto ldv_call_33;
     } else {
       {
-      ldv_assume(ldv_33_ret_default != 0);
+      assume_abort_if_not(ldv_33_ret_default != 0);
       }
       goto ldv_main_33;
     }
@@ -22366,7 +22368,7 @@ void ldv_struct_wiiproto_handler_io_instance_33(void *arg0 )
     goto ldv_37389;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -22438,12 +22440,12 @@ void ldv_struct_wiiproto_handler_io_instance_34(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_34_ret_default == 0);
+      assume_abort_if_not(ldv_34_ret_default == 0);
       }
       goto ldv_call_34;
     } else {
       {
-      ldv_assume(ldv_34_ret_default != 0);
+      assume_abort_if_not(ldv_34_ret_default != 0);
       }
       goto ldv_main_34;
     }
@@ -22604,7 +22606,7 @@ void ldv_struct_wiiproto_handler_io_instance_34(void *arg0 )
     goto ldv_37434;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -22676,12 +22678,12 @@ void ldv_struct_wiiproto_handler_io_instance_35(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_35_ret_default == 0);
+      assume_abort_if_not(ldv_35_ret_default == 0);
       }
       goto ldv_call_35;
     } else {
       {
-      ldv_assume(ldv_35_ret_default != 0);
+      assume_abort_if_not(ldv_35_ret_default != 0);
       }
       goto ldv_main_35;
     }
@@ -22833,7 +22835,7 @@ void ldv_struct_wiiproto_handler_io_instance_35(void *arg0 )
     goto ldv_37479;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -22905,12 +22907,12 @@ void ldv_struct_wiiproto_handler_io_instance_36(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_36_ret_default == 0);
+      assume_abort_if_not(ldv_36_ret_default == 0);
       }
       goto ldv_call_36;
     } else {
       {
-      ldv_assume(ldv_36_ret_default != 0);
+      assume_abort_if_not(ldv_36_ret_default != 0);
       }
       goto ldv_main_36;
     }
@@ -23062,7 +23064,7 @@ void ldv_struct_wiiproto_handler_io_instance_36(void *arg0 )
     goto ldv_37524;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -23134,12 +23136,12 @@ void ldv_struct_wiiproto_handler_io_instance_37(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_37_ret_default == 0);
+      assume_abort_if_not(ldv_37_ret_default == 0);
       }
       goto ldv_call_37;
     } else {
       {
-      ldv_assume(ldv_37_ret_default != 0);
+      assume_abort_if_not(ldv_37_ret_default != 0);
       }
       goto ldv_main_37;
     }
@@ -23291,7 +23293,7 @@ void ldv_struct_wiiproto_handler_io_instance_37(void *arg0 )
     goto ldv_37569;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -23363,12 +23365,12 @@ void ldv_struct_wiiproto_handler_io_instance_38(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_38_ret_default == 0);
+      assume_abort_if_not(ldv_38_ret_default == 0);
       }
       goto ldv_call_38;
     } else {
       {
-      ldv_assume(ldv_38_ret_default != 0);
+      assume_abort_if_not(ldv_38_ret_default != 0);
       }
       goto ldv_main_38;
     }
@@ -23520,7 +23522,7 @@ void ldv_struct_wiiproto_handler_io_instance_38(void *arg0 )
     goto ldv_37614;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -23592,12 +23594,12 @@ void ldv_struct_wiiproto_handler_io_instance_39(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_39_ret_default == 0);
+      assume_abort_if_not(ldv_39_ret_default == 0);
       }
       goto ldv_call_39;
     } else {
       {
-      ldv_assume(ldv_39_ret_default != 0);
+      assume_abort_if_not(ldv_39_ret_default != 0);
       }
       goto ldv_main_39;
     }
@@ -23749,7 +23751,7 @@ void ldv_struct_wiiproto_handler_io_instance_39(void *arg0 )
     goto ldv_37659;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -23821,12 +23823,12 @@ void ldv_struct_wiiproto_handler_io_instance_40(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_40_ret_default == 0);
+      assume_abort_if_not(ldv_40_ret_default == 0);
       }
       goto ldv_call_40;
     } else {
       {
-      ldv_assume(ldv_40_ret_default != 0);
+      assume_abort_if_not(ldv_40_ret_default != 0);
       }
       goto ldv_main_40;
     }
@@ -23978,7 +23980,7 @@ void ldv_struct_wiiproto_handler_io_instance_40(void *arg0 )
     goto ldv_37704;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24050,12 +24052,12 @@ void ldv_struct_wiiproto_handler_io_instance_41(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_41_ret_default == 0);
+      assume_abort_if_not(ldv_41_ret_default == 0);
       }
       goto ldv_call_41;
     } else {
       {
-      ldv_assume(ldv_41_ret_default != 0);
+      assume_abort_if_not(ldv_41_ret_default != 0);
       }
       goto ldv_main_41;
     }
@@ -24207,7 +24209,7 @@ void ldv_struct_wiiproto_handler_io_instance_41(void *arg0 )
     goto ldv_37749;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24279,12 +24281,12 @@ void ldv_struct_wiiproto_handler_io_instance_42(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_42_ret_default == 0);
+      assume_abort_if_not(ldv_42_ret_default == 0);
       }
       goto ldv_call_42;
     } else {
       {
-      ldv_assume(ldv_42_ret_default != 0);
+      assume_abort_if_not(ldv_42_ret_default != 0);
       }
       goto ldv_main_42;
     }
@@ -24436,7 +24438,7 @@ void ldv_struct_wiiproto_handler_io_instance_42(void *arg0 )
     goto ldv_37794;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24508,12 +24510,12 @@ void ldv_struct_wiiproto_handler_io_instance_43(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_43_ret_default == 0);
+      assume_abort_if_not(ldv_43_ret_default == 0);
       }
       goto ldv_call_43;
     } else {
       {
-      ldv_assume(ldv_43_ret_default != 0);
+      assume_abort_if_not(ldv_43_ret_default != 0);
       }
       goto ldv_main_43;
     }
@@ -24665,7 +24667,7 @@ void ldv_struct_wiiproto_handler_io_instance_43(void *arg0 )
     goto ldv_37839;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24737,12 +24739,12 @@ void ldv_struct_wiiproto_handler_io_instance_44(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_44_ret_default == 0);
+      assume_abort_if_not(ldv_44_ret_default == 0);
       }
       goto ldv_call_44;
     } else {
       {
-      ldv_assume(ldv_44_ret_default != 0);
+      assume_abort_if_not(ldv_44_ret_default != 0);
       }
       goto ldv_main_44;
     }
@@ -24894,7 +24896,7 @@ void ldv_struct_wiiproto_handler_io_instance_44(void *arg0 )
     goto ldv_37884;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24966,12 +24968,12 @@ void ldv_struct_wiiproto_handler_io_instance_45(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_45_ret_default == 0);
+      assume_abort_if_not(ldv_45_ret_default == 0);
       }
       goto ldv_call_45;
     } else {
       {
-      ldv_assume(ldv_45_ret_default != 0);
+      assume_abort_if_not(ldv_45_ret_default != 0);
       }
       goto ldv_main_45;
     }
@@ -25123,7 +25125,7 @@ void ldv_struct_wiiproto_handler_io_instance_45(void *arg0 )
     goto ldv_37929;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -25195,12 +25197,12 @@ void ldv_struct_wiiproto_handler_io_instance_46(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_46_ret_default == 0);
+      assume_abort_if_not(ldv_46_ret_default == 0);
       }
       goto ldv_call_46;
     } else {
       {
-      ldv_assume(ldv_46_ret_default != 0);
+      assume_abort_if_not(ldv_46_ret_default != 0);
       }
       goto ldv_main_46;
     }
@@ -25352,7 +25354,7 @@ void ldv_struct_wiiproto_handler_io_instance_46(void *arg0 )
     goto ldv_37974;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -25424,12 +25426,12 @@ void ldv_struct_wiiproto_handler_io_instance_47(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_47_ret_default == 0);
+      assume_abort_if_not(ldv_47_ret_default == 0);
       }
       goto ldv_call_47;
     } else {
       {
-      ldv_assume(ldv_47_ret_default != 0);
+      assume_abort_if_not(ldv_47_ret_default != 0);
       }
       goto ldv_main_47;
     }
@@ -25581,7 +25583,7 @@ void ldv_struct_wiiproto_handler_io_instance_47(void *arg0 )
     goto ldv_38019;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -25653,12 +25655,12 @@ void ldv_struct_wiiproto_handler_io_instance_48(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_48_ret_default == 0);
+      assume_abort_if_not(ldv_48_ret_default == 0);
       }
       goto ldv_call_48;
     } else {
       {
-      ldv_assume(ldv_48_ret_default != 0);
+      assume_abort_if_not(ldv_48_ret_default != 0);
       }
       goto ldv_main_48;
     }
@@ -25810,7 +25812,7 @@ void ldv_struct_wiiproto_handler_io_instance_48(void *arg0 )
     goto ldv_38064;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -25882,12 +25884,12 @@ void ldv_struct_wiiproto_handler_io_instance_49(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_49_ret_default == 0);
+      assume_abort_if_not(ldv_49_ret_default == 0);
       }
       goto ldv_call_49;
     } else {
       {
-      ldv_assume(ldv_49_ret_default != 0);
+      assume_abort_if_not(ldv_49_ret_default != 0);
       }
       goto ldv_main_49;
     }
@@ -26039,7 +26041,7 @@ void ldv_struct_wiiproto_handler_io_instance_49(void *arg0 )
     goto ldv_38109;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -26111,12 +26113,12 @@ void ldv_struct_wiiproto_handler_io_instance_7(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_7_ret_default == 0);
+      assume_abort_if_not(ldv_7_ret_default == 0);
       }
       goto ldv_call_7;
     } else {
       {
-      ldv_assume(ldv_7_ret_default != 0);
+      assume_abort_if_not(ldv_7_ret_default != 0);
       }
       goto ldv_main_7;
     }
@@ -26268,7 +26270,7 @@ void ldv_struct_wiiproto_handler_io_instance_7(void *arg0 )
     goto ldv_38154;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -26340,12 +26342,12 @@ void ldv_struct_wiiproto_handler_io_instance_8(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_8_ret_default == 0);
+      assume_abort_if_not(ldv_8_ret_default == 0);
       }
       goto ldv_call_8;
     } else {
       {
-      ldv_assume(ldv_8_ret_default != 0);
+      assume_abort_if_not(ldv_8_ret_default != 0);
       }
       goto ldv_main_8;
     }
@@ -26506,7 +26508,7 @@ void ldv_struct_wiiproto_handler_io_instance_8(void *arg0 )
     goto ldv_38199;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -26578,12 +26580,12 @@ void ldv_struct_wiiproto_handler_io_instance_9(void *arg0 )
     }
     if (tmp___1 != 0) {
       {
-      ldv_assume(ldv_9_ret_default == 0);
+      assume_abort_if_not(ldv_9_ret_default == 0);
       }
       goto ldv_call_9;
     } else {
       {
-      ldv_assume(ldv_9_ret_default != 0);
+      assume_abort_if_not(ldv_9_ret_default != 0);
       }
       goto ldv_main_9;
     }
@@ -26726,7 +26728,7 @@ void ldv_struct_wiiproto_handler_io_instance_9(void *arg0 )
     goto ldv_38244;
     switch_default: /* CIL Label */ 
     {
-    ldv_stop();
+    assume_abort_if_not(0);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -27655,12 +27657,12 @@ void ldv_file_operations_file_operations_instance_0(void *arg0 )
     }
     if (tmp___2 != 0) {
       {
-      ldv_assume(ldv_0_ret_default == 0);
+      assume_abort_if_not(ldv_0_ret_default == 0);
       }
       goto ldv_call_0;
     } else {
       {
-      ldv_assume(ldv_0_ret_default != 0);
+      assume_abort_if_not(ldv_0_ret_default != 0);
       }
       goto ldv_main_0;
     }
@@ -27699,7 +27701,7 @@ void ldv_file_operations_file_operations_instance_0(void *arg0 )
   ldv_0_ldv_param_4_1_default = (char *)tmp___5;
   tmp___6 = ldv_xmalloc(8UL);
   ldv_0_ldv_param_4_3_default = (long long *)tmp___6;
-  ldv_assume(ldv_0_size_cnt_write_size <= 2147479552UL);
+  assume_abort_if_not(ldv_0_size_cnt_write_size <= 2147479552UL);
   ldv_file_operations_instance_write_0_4((long (*)(struct file * , char * , unsigned long  ,
                                                    long long * ))ldv_0_container_file_operations->write,
                                          ldv_0_resource_file, ldv_0_ldv_param_4_1_default,
@@ -27739,7 +27741,7 @@ void ldv_file_operations_file_operations_instance_0(void *arg0 )
   goto ldv_32439;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -27802,12 +27804,12 @@ void ldv_file_operations_file_operations_instance_1(void *arg0 )
     }
     if (tmp___2 != 0) {
       {
-      ldv_assume(ldv_1_ret_default == 0);
+      assume_abort_if_not(ldv_1_ret_default == 0);
       }
       goto ldv_call_1;
     } else {
       {
-      ldv_assume(ldv_1_ret_default != 0);
+      assume_abort_if_not(ldv_1_ret_default != 0);
       }
       goto ldv_main_1;
     }
@@ -27846,7 +27848,7 @@ void ldv_file_operations_file_operations_instance_1(void *arg0 )
   ldv_1_ldv_param_4_1_default = (char *)tmp___5;
   tmp___6 = ldv_xmalloc(8UL);
   ldv_1_ldv_param_4_3_default = (long long *)tmp___6;
-  ldv_assume(ldv_1_size_cnt_write_size <= 2147479552UL);
+  assume_abort_if_not(ldv_1_size_cnt_write_size <= 2147479552UL);
   }
   if ((unsigned long )ldv_1_container_file_operations->write != (unsigned long )((ssize_t (*)(struct file * ,
                                                                                               char const   * ,
@@ -27902,7 +27904,7 @@ void ldv_file_operations_file_operations_instance_1(void *arg0 )
   goto ldv_32469;
   switch_default: /* CIL Label */ 
   {
-  ldv_stop();
+  assume_abort_if_not(0);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -28558,7 +28560,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   {
   {
   is_got = ldv_malloc(sizeof(struct class));
-  ldv_assume((int )((long )is_got));
+  assume_abort_if_not((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
   if (tmp == 0L) {
@@ -28750,7 +28752,7 @@ int ldv_linux_fs_char_dev_register_chrdev(int major )
     if (major == 0) {
       {
       is_reg = ldv_undef_int();
-      ldv_assume(is_reg > 0);
+      assume_abort_if_not(is_reg > 0);
       }
     } else {
 
@@ -29235,7 +29237,7 @@ static int ldv_filter_positive_int(int val )
 
   {
   {
-  ldv_assume(val <= 0);
+  assume_abort_if_not(val <= 0);
   }
   return (val);
 }
@@ -29313,8 +29315,8 @@ unsigned long ldv_linux_lib_find_bit_find_next_bit(unsigned long size , unsigned
   tmp = ldv_undef_ulong();
   nondet = tmp;
   ldv_assert_linux_lib_find_bit__offset_out_of_range(offset <= size);
-  ldv_assume(nondet <= size);
-  ldv_assume(1);
+  assume_abort_if_not(nondet <= size);
+  assume_abort_if_not(1);
   }
   return (nondet);
 }
@@ -29328,8 +29330,8 @@ unsigned long ldv_linux_lib_find_bit_find_first_bit(unsigned long size )
   {
   tmp = ldv_undef_ulong();
   nondet = tmp;
-  ldv_assume(nondet <= size);
-  ldv_assume(1);
+  assume_abort_if_not(nondet <= size);
+  assume_abort_if_not(1);
   }
   return (nondet);
 }
@@ -29340,7 +29342,7 @@ void ldv_linux_lib_find_bit_initialize(void)
 
   {
   {
-  ldv_assume(nr_cpu_ids > 0);
+  assume_abort_if_not(nr_cpu_ids > 0);
   }
   return;
 }
@@ -29746,7 +29748,7 @@ void *ldv_linux_usb_gadget_create_class(void *is_got )
 
   {
   {
-  ldv_assume((int )((long )is_got));
+  assume_abort_if_not((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
   if (tmp == 0L) {
@@ -29826,7 +29828,7 @@ int ldv_linux_usb_gadget_register_chrdev(int major )
     if (major == 0) {
       {
       is_reg = ldv_undef_int();
-      ldv_assume(is_reg > 0);
+      assume_abort_if_not(is_reg > 0);
       }
     } else {
 
@@ -29988,29 +29990,6 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 extern void ldv_assert(char const   * , int  ) ;
 void ldv__builtin_trap(void) ;
-void ldv_assume(int expression ) 
-{ 
-
-
-  {
-  if (expression == 0) {
-    ldv_assume_label: ;
-    goto ldv_assume_label;
-  } else {
-
-  }
-  return;
-}
-}
-void ldv_stop(void) 
-{ 
-
-
-  {
-  ldv_stop_label: ;
-  goto ldv_stop_label;
-}
-}
 long ldv__builtin_expect(long exp , long c ) 
 { 
 
@@ -30050,9 +30029,9 @@ void *ldv_malloc(size_t size )
     {
     tmp = malloc(size);
     res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    ldv_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -30075,9 +30054,9 @@ void *ldv_calloc(size_t nmemb , size_t size )
     {
     tmp = calloc(nmemb, size);
     res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+    assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
     tmp___0 = ldv_is_err((void const   *)res);
-    ldv_assume(tmp___0 == 0L);
+    assume_abort_if_not(tmp___0 == 0L);
     }
     return (res);
   } else {
@@ -30117,9 +30096,9 @@ void *ldv_xmalloc(size_t size )
   {
   tmp = malloc(size);
   res = tmp;
-  ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  ldv_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -30134,9 +30113,9 @@ void *ldv_xzalloc(size_t size )
   {
   tmp = calloc(1UL, size);
   res = tmp;
-  ldv_assume((unsigned long )res != (unsigned long )((void *)0));
+  assume_abort_if_not((unsigned long )res != (unsigned long )((void *)0));
   tmp___0 = ldv_is_err((void const   *)res);
-  ldv_assume(tmp___0 == 0L);
+  assume_abort_if_not(tmp___0 == 0L);
   }
   return (res);
 }
@@ -30175,7 +30154,7 @@ int ldv_undef_int_negative(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  ldv_assume(ret < 0);
+  assume_abort_if_not(ret < 0);
   }
   return (ret);
 }
@@ -30189,7 +30168,7 @@ int ldv_undef_int_nonpositive(void)
   {
   tmp = ldv_undef_int();
   ret = tmp;
-  ldv_assume(ret <= 0);
+  assume_abort_if_not(ret <= 0);
   }
   return (ret);
 }
@@ -30681,7 +30660,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_alloc_lock_of_task_struct(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct = 2;
   }
   return;
@@ -30694,7 +30673,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_alloc_lock_of_task_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 2);
   ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct = 1;
   }
   return;
@@ -30707,7 +30686,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_alloc_lock_of_task_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -30725,7 +30704,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_alloc_lock_of_task_struc
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   }
   return;
 }
@@ -30778,7 +30757,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_alloc_lock_of_task_str
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_alloc_lock_of_task_struct == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -30798,7 +30777,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode = 2;
   }
   return;
@@ -30811,7 +30790,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 2);
   ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode = 1;
   }
   return;
@@ -30824,7 +30803,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -30842,7 +30821,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   }
   return;
 }
@@ -30895,7 +30874,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_i_lock_of_inode(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_i_lock_of_inode == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -30915,7 +30894,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock = 2;
   }
   return;
@@ -30928,7 +30907,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock = 1;
   }
   return;
@@ -30941,7 +30920,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -30959,7 +30938,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   }
   return;
 }
@@ -31012,7 +30991,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31032,7 +31011,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN = 2;
   }
   return;
@@ -31045,7 +31024,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN = 1;
   }
   return;
@@ -31058,7 +31037,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock_of_NOT_ARG_SIGN(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31076,7 +31055,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock_of_NOT_ARG_SIGN(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   }
   return;
 }
@@ -31129,7 +31108,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock_of_NOT_ARG_SIGN(v
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_NOT_ARG_SIGN == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31149,7 +31128,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock_of_wiimote_queue(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue = 2;
   }
   return;
@@ -31162,7 +31141,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock_of_wiimote_queue(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue = 1;
   }
   return;
@@ -31175,7 +31154,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock_of_wiimote_queue(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31193,7 +31172,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock_of_wiimote_queue(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
   }
   return;
 }
@@ -31246,7 +31225,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock_of_wiimote_queue(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_queue == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31266,7 +31245,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_lock_of_wiimote_state(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state = 2;
   }
   return;
@@ -31279,7 +31258,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_lock_of_wiimote_state(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 2);
   ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state = 1;
   }
   return;
@@ -31292,7 +31271,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_lock_of_wiimote_state(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31310,7 +31289,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_lock_of_wiimote_state(vo
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
   }
   return;
 }
@@ -31363,7 +31342,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_lock_of_wiimote_state(
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_lock_of_wiimote_state == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31383,7 +31362,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_node_size_lock_of_pglist_data(v
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data = 2;
   }
   return;
@@ -31396,7 +31375,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_node_size_lock_of_pglist_data
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 2);
   ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data = 1;
   }
   return;
@@ -31409,7 +31388,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_node_size_lock_of_pglist_data
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31427,7 +31406,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_node_size_lock_of_pglist
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   }
   return;
 }
@@ -31480,7 +31459,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_node_size_lock_of_pgli
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_node_size_lock_of_pglist_data == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31500,7 +31479,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   ldv_linux_kernel_locking_spinlock_spin_ptl = 2;
   }
   return;
@@ -31513,7 +31492,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 2);
   ldv_linux_kernel_locking_spinlock_spin_ptl = 1;
   }
   return;
@@ -31526,7 +31505,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31544,7 +31523,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   }
   return;
 }
@@ -31597,7 +31576,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_ptl(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_ptl == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
@@ -31617,7 +31596,7 @@ void ldv_linux_kernel_locking_spinlock_spin_lock_siglock_of_sighand_struct(void)
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct = 2;
   }
   return;
@@ -31630,7 +31609,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_siglock_of_sighand_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 2);
   ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct = 1;
   }
   return;
@@ -31643,7 +31622,7 @@ int ldv_linux_kernel_locking_spinlock_spin_trylock_siglock_of_sighand_struct(voi
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   is_spin_held_by_another_thread = ldv_undef_int();
   }
   if (is_spin_held_by_another_thread != 0) {
@@ -31661,7 +31640,7 @@ void ldv_linux_kernel_locking_spinlock_spin_unlock_wait_siglock_of_sighand_struc
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   }
   return;
 }
@@ -31714,7 +31693,7 @@ int ldv_linux_kernel_locking_spinlock_atomic_dec_and_lock_siglock_of_sighand_str
   {
   {
   ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
-  ldv_assume(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
+  assume_abort_if_not(ldv_linux_kernel_locking_spinlock_spin_siglock_of_sighand_struct == 1);
   atomic_value_after_dec = ldv_undef_int();
   }
   if (atomic_value_after_dec == 0) {
