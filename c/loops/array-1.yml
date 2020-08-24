@@ -13,6 +13,6 @@ properties:
   - property_file: ../properties/coverage-statements.prp
 
 options:
-  - language: C
-  - data_model: ILP32
+  language: C
+  data_model: ILP32
 
