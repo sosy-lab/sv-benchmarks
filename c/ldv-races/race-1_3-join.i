@@ -1678,17 +1678,9 @@ extern int fdatasync (int __fildes);
 int getentropy (void *__buffer, size_t __length) ;
 
 extern void abort(void);
-
-extern void __assert_fail (const char *__assertion, const char *__file,
-      unsigned int __line, const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert_perror_fail (int __errnum, const char *__file,
-      unsigned int __line, const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert (const char *__assertion, const char *__file, int __line)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-
-void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "race-1_3-join.c", 8, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 pthread_t t1;
@@ -1696,7 +1688,9 @@ pthread_mutex_t mutex;
 int pdev;
 void *thread1(void *arg) {
    pthread_mutex_lock(&mutex);
+   __VERIFIER_atomic_begin();
    pdev = 6;
+   __VERIFIER_atomic_end();
    pthread_mutex_unlock(&mutex);
    return 0;
 }
@@ -1715,8 +1709,12 @@ int module_init() {
 }
 void module_exit() {
    void *status;
+   __VERIFIER_atomic_begin();
    pdev = 4;
+   __VERIFIER_atomic_end();
+   __VERIFIER_atomic_begin();
    ldv_assert(pdev==4);
+   __VERIFIER_atomic_end();
    pthread_join(t1, &status);
    pthread_mutex_destroy(&mutex);
    pdev = 5;

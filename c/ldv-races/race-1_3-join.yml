@@ -6,6 +6,8 @@ input_files: 'race-1_3-join.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true
 
 options:
   language: C

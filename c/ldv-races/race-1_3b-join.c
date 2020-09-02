@@ -4,8 +4,6 @@
 #include <unistd.h>
 
 extern void abort(void);
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 #include <assert.h>
 void reach_error() { assert(0); }
 int __VERIFIER_nondet_int(void);
@@ -17,9 +15,7 @@ int pdev;
 
 void *thread1(void *arg) {
    pthread_mutex_lock(&mutex);
-   __VERIFIER_atomic_begin();
    pdev = 6;
-   __VERIFIER_atomic_end();
    pthread_mutex_unlock(&mutex);
    return 0;
 }
@@ -33,12 +29,8 @@ int module_init() {
       //enable thread 1
       pthread_create(&t1, NULL, thread1, NULL);
       //race
-      __VERIFIER_atomic_begin();
-      pdev = 2;
-      __VERIFIER_atomic_end();
-      __VERIFIER_atomic_begin();
-      ldv_assert(pdev==2);
-      __VERIFIER_atomic_end();
+      //pdev = 2;
+      //ldv_assert(pdev==2);
       return 0;
    }
    //not a race
@@ -51,8 +43,8 @@ int module_init() {
 void module_exit() {
    void *status;
    //race
-   //pdev = 4;
-   //ldv_assert(pdev==4);
+   pdev = 4;
+   ldv_assert(pdev==4);
    pthread_join(t1, &status);
    pthread_mutex_destroy(&mutex);
    //not a race
