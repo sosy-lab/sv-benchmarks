@@ -1,10 +1,8 @@
 format_version: '1.0'
 
 # old file name: qw2004_false-unreach-call.i
-input_files: 'qw2004-2.i'
+input_files: 'qw2004-2b.i'
 
 properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: false
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false

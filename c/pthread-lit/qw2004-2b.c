@@ -10,9 +10,6 @@ volatile int pendingIo;
 volatile int stoppingEvent;
 volatile int stopped;
 
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-
 int BCSP_IoIncrement() {
     if (stoppingFlag) {
 	return -1;
@@ -34,9 +31,7 @@ void BCSP_IoDecrement() {
     int pending;
     pending = dec();
     if (pending == 0) {
-        __VERIFIER_atomic_begin();
-        stoppingEvent = 1;
-        __VERIFIER_atomic_end();
+	stoppingEvent = 1;
     }
 }
 
@@ -53,9 +48,7 @@ void* BCSP_PnpAdd(void* arg) {
 void* BCSP_PnpStop(void* arg) {
     stoppingFlag = 1;
     BCSP_IoDecrement();
-    __VERIFIER_atomic_begin();
     assume_abort_if_not(stoppingEvent);
-    __VERIFIER_atomic_end();
     stopped = 1;
     return 0;
 }
