@@ -5,8 +5,6 @@ void reach_error(){}
 #include <pthread.h>
 #include <string.h>
 
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
 char *v;
@@ -19,17 +17,13 @@ void *thread1(void * arg)
 
 void *thread2(void *arg)
 {
-  __VERIFIER_atomic_begin();
   v[0] = 'X';
-  __VERIFIER_atomic_end();
   return 0;
 }
 
 void *thread3(void *arg)
 {
-  __VERIFIER_atomic_begin();
   v[0] = 'Y';
-  __VERIFIER_atomic_end();
   return 0;
 }
 

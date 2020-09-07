@@ -1679,8 +1679,6 @@ int getentropy (void *__buffer, size_t __length) ;
 
 extern void abort(void); 
 void reach_error(){}
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 pthread_t t1,t2;
@@ -1695,42 +1693,26 @@ struct my_data {
  struct device dev;
  struct A shared;
 };
+struct device *my_dev;
 void *my_callback(void *arg) {
- struct device *dev = (struct device*)arg;
  struct my_data *data;
- data = ({ const typeof( ((struct my_data *)0)->dev ) *__mptr = (dev); (struct my_data *)( (char *)__mptr - ((unsigned long) &((struct my_data *)0)->dev) );});
- pthread_mutex_lock (&data->lock);
- __VERIFIER_atomic_begin();
+ data = ({ const typeof( ((struct my_data *)0)->dev ) *__mptr = (my_dev); (struct my_data *)( (char *)__mptr - ((unsigned long) &((struct my_data *)0)->dev) );});
  data->shared.a = 1;
- __VERIFIER_atomic_end();
- __VERIFIER_atomic_begin();
  data->shared.b = data->shared.b + 1;
- __VERIFIER_atomic_end();
- pthread_mutex_unlock (&data->lock);
  return 0;
 }
 int my_drv_probe(struct my_data *data) {
- struct device *d = &data->dev;
  pthread_mutex_init(&data->lock, ((void *)0));
  data->shared.a = 0;
  data->shared.b = 0;
+ ldv_assert(data->shared.a==0);
+ ldv_assert(data->shared.b==0);
  int res = __VERIFIER_nondet_int();
  if(res)
   goto exit;
- pthread_create(&t1, ((void *)0), my_callback, (void *)d);
- pthread_create(&t2, ((void *)0), my_callback, (void *)d);
- __VERIFIER_atomic_begin();
- data->shared.a = 3;
- __VERIFIER_atomic_end();
- __VERIFIER_atomic_begin();
- data->shared.b = 3;
- __VERIFIER_atomic_end();
- __VERIFIER_atomic_begin();
- ldv_assert(data->shared.a==3);
- __VERIFIER_atomic_end();
- __VERIFIER_atomic_begin();
- ldv_assert(data->shared.b==3);
- __VERIFIER_atomic_end();
+ my_dev = &data->dev;
+ pthread_create(&t1, ((void *)0), my_callback, ((void *)0));
+ pthread_create(&t2, ((void *)0), my_callback, ((void *)0));
  return 0;
 exit:
  pthread_mutex_destroy(&data->lock);

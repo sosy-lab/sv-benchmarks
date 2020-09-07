@@ -1679,6 +1679,8 @@ int getentropy (void *__buffer, size_t __length) ;
 
 extern void abort(void); 
 void reach_error(){}
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 pthread_t t1,t2;
@@ -1697,8 +1699,12 @@ void *my_callback(void *arg) {
  struct device *dev = (struct device*)arg;
  struct my_data *data;
  data = ({ const typeof( ((struct my_data *)0)->dev ) *__mptr = (dev); (struct my_data *)( (char *)__mptr - ((unsigned long) &((struct my_data *)0)->dev) );});
+ __VERIFIER_atomic_begin();
  data->shared.a = 1;
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
  data->shared.b = data->shared.b + 1;
+ __VERIFIER_atomic_end();
  return 0;
 }
 int my_drv_probe(struct my_data *data) {

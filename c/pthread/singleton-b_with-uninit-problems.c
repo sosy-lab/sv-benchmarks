@@ -58,7 +58,7 @@ int main(void)
   pthread_create(&t, 0, thread0, 0);
   pthread_join(t, 0);
 
-  __VERIFIER_assert(v[0] == 'X'); // <-- wrong, the only thread that writes 'Y' can be the last to write
+  __VERIFIER_assert(v[0] == 'X' || v[0] == 'Y');
 
   return 0;
 }

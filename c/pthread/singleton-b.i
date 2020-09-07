@@ -1086,8 +1086,6 @@ extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 char *v;
 void *thread1(void * arg)
@@ -1097,16 +1095,12 @@ void *thread1(void * arg)
 }
 void *thread2(void *arg)
 {
-  __VERIFIER_atomic_begin();
   v[0] = 'X';
-  __VERIFIER_atomic_end();
   return 0;
 }
 void *thread3(void *arg)
 {
-  __VERIFIER_atomic_begin();
   v[0] = 'Y';
-  __VERIFIER_atomic_end();
   return 0;
 }
 void *thread0(void *arg)
