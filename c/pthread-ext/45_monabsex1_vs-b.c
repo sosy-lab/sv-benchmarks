@@ -1,5 +1,3 @@
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void); 
 void reach_error(){}
@@ -13,15 +11,11 @@ int s;
 void* thr1(void* arg)
 {
 	int l = __VERIFIER_nondet_int();
-    l = 4;
-    __VERIFIER_atomic_begin();
+  l = 4;
 	s = l;
-    __VERIFIER_atomic_end();
-    __VERIFIER_atomic_begin();
 	assert(s == l);
-    __VERIFIER_atomic_end();
 
-    return 0;
+  return 0;
 }
 
 int main()

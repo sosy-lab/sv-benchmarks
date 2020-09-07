@@ -2,8 +2,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
+extern int __VERIFIER_nondet_int(void);
 extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
@@ -677,7 +676,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-volatile unsigned value, m = 0;
+int m = 0;
 void __VERIFIER_atomic_acquire()
 {
  assume_abort_if_not(m==0);
@@ -688,23 +687,30 @@ void __VERIFIER_atomic_release()
  assume_abort_if_not(m==1);
  m = 0;
 }
-void * thr1(void* arg) {
- unsigned v = 0;
- __VERIFIER_atomic_acquire();
- if(value == 0u-1) {
-  __VERIFIER_atomic_release();
-  return 0;
- }else{
-  v = value;
-  value = v + 1;
-  __VERIFIER_atomic_release();
-  __VERIFIER_atomic_begin();
-  { if(!(value > v)) { ERROR: {reach_error();abort();}(void)0; } };
-  __VERIFIER_atomic_end();
-  return 0;
- }
+inline int calculateNext(int s2){
+ int cnex;
+ do cnex = __VERIFIER_nondet_int();
+ while(cnex == s2 || cnex == 0);
+ return cnex;
 }
-int main(){
+int seed = 1;
+inline int PseudoRandomUsingAtomic_nextInt() {
+ int read, nexts, nextInt_return;
+ { if(!(seed != 0)) { ERROR: {reach_error();abort();}(void)0; } };
+ __VERIFIER_atomic_acquire();
+ read = seed;
+ nexts = calculateNext(read);
+ seed = nexts;
+ __VERIFIER_atomic_release();
+ nextInt_return = ((10>=nexts)?(nexts):(10));
+ return nextInt_return;
+}
+void* thr1(void* arg){
+  PseudoRandomUsingAtomic_nextInt();
+  return 0;
+}
+int main()
+{
   pthread_t t;
  while(1) { pthread_create(&t, 0, thr1, 0); }
 }

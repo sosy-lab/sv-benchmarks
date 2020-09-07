@@ -675,11 +675,15 @@ extern int pthread_atfork (void (*__prepare) (void),
 int s;
 void* thr1(void* arg)
 {
- int l = __VERIFIER_nondet_int();
-  l = 4;
- s = l;
- { if(!(s == l)) { ERROR: {reach_error();abort();}(void)0; } };
-  return 0;
+    int l = __VERIFIER_nondet_int();
+    l = 4;
+    __VERIFIER_atomic_begin();
+    s = l;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    { if(!(s == l)) { ERROR: {reach_error();abort();}(void)0; } };
+    __VERIFIER_atomic_end();
+    return 0;
 }
 int main()
 {

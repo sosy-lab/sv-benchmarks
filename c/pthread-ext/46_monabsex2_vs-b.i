@@ -1,10 +1,4 @@
 extern void abort(void); 
-void assume_abort_if_not(int cond) { 
-  if(!cond) {abort();}
-}
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -677,34 +671,17 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-volatile unsigned value, m = 0;
-void __VERIFIER_atomic_acquire()
+_Bool s = 0;
+__thread _Bool l = 0;
+void* thr1(void* arg)
 {
- assume_abort_if_not(m==0);
- m = 1;
+ { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
+  s = s || 1;
+ l = 1;
+  return 0;
 }
-void __VERIFIER_atomic_release()
+int main()
 {
- assume_abort_if_not(m==1);
- m = 0;
-}
-void * thr1(void* arg) {
- unsigned v = 0;
- __VERIFIER_atomic_acquire();
- if(value == 0u-1) {
-  __VERIFIER_atomic_release();
-  return 0;
- }else{
-  v = value;
-  value = v + 1;
-  __VERIFIER_atomic_release();
-  __VERIFIER_atomic_begin();
-  { if(!(value > v)) { ERROR: {reach_error();abort();}(void)0; } };
-  __VERIFIER_atomic_end();
-  return 0;
- }
-}
-int main(){
   pthread_t t;
- while(1) { pthread_create(&t, 0, thr1, 0); }
+  while(1) pthread_create(&t, 0, thr1, 0);
 }

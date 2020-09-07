@@ -2,8 +2,6 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 extern void abort(void); 
 void reach_error(){}
 
@@ -42,11 +40,9 @@ void * thr1(void* arg) {
 		v = value;
 		value = v + 1;
 		__VERIFIER_atomic_release();
-        
-        __VERIFIER_atomic_begin();
+
 		assert(value > v);
-        __VERIFIER_atomic_end();
-        
+
 		return 0;
 	}
 }

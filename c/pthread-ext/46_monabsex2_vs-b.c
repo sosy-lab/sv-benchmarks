@@ -1,6 +1,4 @@
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-extern void abort(void);
+extern void abort(void); 
 void reach_error(){}
 
 #include <pthread.h>
@@ -12,15 +10,11 @@ __thread _Bool l = 0;
 
 void* thr1(void* arg)
 {
-    __VERIFIER_atomic_begin();
-    assert(!l || s);
-    __VERIFIER_atomic_end();
-    __VERIFIER_atomic_begin();
-    s = s || 1;
-    __VERIFIER_atomic_end();
+	assert(!l || s);
+  s = s || 1;
 	l = 1; //overapproximates
 
-    return 0;
+  return 0;
 }
 
 int main()

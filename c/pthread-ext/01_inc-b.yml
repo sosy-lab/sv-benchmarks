@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+# old file name: 01_inc_true-unreach-call.i
+input_files: '01_inc-b.i'
+
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
