@@ -2,9 +2,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-extern void abort(void);
+extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -686,6 +684,9 @@ void __VERIFIER_atomic_take_read_lock() {
   assume_abort_if_not(w==0);
   r = r+1;
 }
+void __VERIFIER_atomic_release_read_lock() {
+  r = r-1;
+}
 void *writer(void *arg) {
   __VERIFIER_atomic_take_write_lock();
   x = 3;
@@ -695,21 +696,10 @@ void *writer(void *arg) {
 void *reader(void *arg) {
   int l;
   __VERIFIER_atomic_take_read_lock();
-  __VERIFIER_atomic_begin();
   l = x;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
   y = l;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
   if (!(y == x)) ERROR: {reach_error();abort();}
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  l = r-1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  r = l;
-  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_release_read_lock();
   return 0;
 }
 int main() {

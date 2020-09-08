@@ -18,8 +18,10 @@ void* thr1(void* arg)
     __VERIFIER_atomic_begin();
     s = s || 1;
     __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	l = 1; //overapproximates
-
+    __VERIFIER_atomic_end();
+    
     return 0;
 }
 

@@ -677,13 +677,15 @@ _Bool s = 0;
 __thread _Bool l = 0;
 void* thr1(void* arg)
 {
- __VERIFIER_atomic_begin();
- { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
- __VERIFIER_atomic_end();
- __VERIFIER_atomic_begin();
- s = s || 1;
- __VERIFIER_atomic_end();
- l = 1;
+  __VERIFIER_atomic_begin();
+  { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  s = s || 1;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  l = 1;
+  __VERIFIER_atomic_end();
   return 0;
 }
 int main()
