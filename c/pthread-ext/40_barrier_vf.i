@@ -1,4 +1,6 @@
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
