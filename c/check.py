@@ -33,7 +33,7 @@ EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile|.gitignore)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
-PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
+PROPERTIES = set(["def-behavior", "no-overflow", "no-data-race", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
     "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements"])
 # multiple properties for eca-rers2018-files
 for i in range(100):
@@ -445,6 +445,7 @@ class PropertiesChecks(Checks):
             violates("valid-deref")
             or violates("valid-free")
             or violates("no-overflow")
+            or violates("no-data-race")
             or violates("def-behavior")
         ):
             if (
