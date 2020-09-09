@@ -2,9 +2,7 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-extern void abort(void);
+extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -681,71 +679,33 @@ int flag1 = 0, flag2 = 0;
 int turn;
 int x;
 void *thr1(void *_) {
-  __VERIFIER_atomic_begin();
   flag1 = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  int f2 = flag2;
-  __VERIFIER_atomic_end();
-  while (f2 >= 1) {
-      __VERIFIER_atomic_begin();
-      int t = turn;
-      __VERIFIER_atomic_end();
-      if (t != 0) {
-          __VERIFIER_atomic_begin();
-          flag1 = 0;
-          __VERIFIER_atomic_end();
-          __VERIFIER_atomic_begin();
-          t = turn;
-          __VERIFIER_atomic_end();
-          while (t != 0) {};
-          __VERIFIER_atomic_begin();
-          flag1 = 1;
-          __VERIFIER_atomic_end();
-      }
+  while (flag2 >= 1) {
+    if (turn != 0) {
+      flag1 = 0;
+      while (turn != 0) {};
+      flag1 = 1;
+    }
   }
   x = 0;
   if (!(x<=0)) ERROR: {reach_error();abort();}
-  __VERIFIER_atomic_begin();
   turn = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
   flag1 = 0;
-  __VERIFIER_atomic_end();
   return 0;
 }
 void *thr2(void *_) {
-  __VERIFIER_atomic_begin();
   flag2 = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  int f1 = flag1;
-  __VERIFIER_atomic_end();
-  while (f1 >= 1) {
-      __VERIFIER_atomic_begin();
-      int t = turn;
-      __VERIFIER_atomic_end();
-      if (t != 1) {
-          __VERIFIER_atomic_begin();
-          flag2 = 0;
-          __VERIFIER_atomic_end();
-          __VERIFIER_atomic_begin();
-          t = turn;
-          __VERIFIER_atomic_end();
-          while (t != 1) {};
-          __VERIFIER_atomic_begin();
-          flag2 = 1;
-          __VERIFIER_atomic_end();
-      }
+  while (flag1 >= 1) {
+    if (turn != 1) {
+      flag2 = 0;
+      while (turn != 1) {};
+      flag2 = 1;
+    }
   }
   x = 1;
   if (!(x>=1)) ERROR: {reach_error();abort();}
-  __VERIFIER_atomic_begin();
   turn = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
   flag2 = 0;
-  __VERIFIER_atomic_end();
   return 0;
 }
 int main() {

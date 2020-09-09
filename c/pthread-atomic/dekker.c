@@ -2,7 +2,9 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void reach_error(){}
 
 /* Testcase from Threader's distribution. For details see:
@@ -17,39 +19,77 @@ int turn; // integer variable to hold the ID of the thread whose turn is it
 int x; // boolean variable to test mutual exclusion
 
 void *thr1(void *_) {
-  flag1 = 1;
-  while (flag2 >= 1) {
-    if (turn != 0) {
-      flag1 = 0;
-      while (turn != 0) {};
-      flag1 = 1;
+    __VERIFIER_atomic_begin();
+    flag1 = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    int f2 = flag2;
+    __VERIFIER_atomic_end();
+    while (f2 >= 1) {
+        __VERIFIER_atomic_begin();
+        int t = turn;
+        __VERIFIER_atomic_end();
+        if (t != 0) {
+            __VERIFIER_atomic_begin();
+            flag1 = 0;
+            __VERIFIER_atomic_end();
+            __VERIFIER_atomic_begin();
+            t = turn;
+            __VERIFIER_atomic_end();
+            while (t != 0) {};
+            __VERIFIER_atomic_begin();
+            flag1 = 1;
+            __VERIFIER_atomic_end();
+        }
     }
-  }
-  // begin: critical section
-  x = 0;
-  assert(x<=0);
-  // end: critical section
-  turn = 1;
-  flag1 = 0;
-  return 0;
+    // begin: critical section
+    x = 0;
+    assert(x<=0);
+    // end: critical section
+    __VERIFIER_atomic_begin();
+    turn = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    flag1 = 0;
+    __VERIFIER_atomic_end();
+    return 0;
 }
 
 void *thr2(void *_) {
-  flag2 = 1;
-  while (flag1 >= 1) {
-    if (turn != 1) {
-      flag2 = 0;
-      while (turn != 1) {};
-      flag2 = 1;
+    __VERIFIER_atomic_begin();
+    flag2 = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    int f1 = flag1;
+    __VERIFIER_atomic_end();
+    while (f1 >= 1) {
+        __VERIFIER_atomic_begin();
+        int t = turn;
+        __VERIFIER_atomic_end();
+        if (t != 1) {
+            __VERIFIER_atomic_begin();
+            flag2 = 0;
+            __VERIFIER_atomic_end();
+            __VERIFIER_atomic_begin();
+            t = turn;
+            __VERIFIER_atomic_end();
+            while (t != 1) {};
+            __VERIFIER_atomic_begin();
+            flag2 = 1;
+            __VERIFIER_atomic_end();
+        }
     }
-  }
-  // begin: critical section
-  x = 1;
-  assert(x>=1);
-  // end: critical section
-  turn = 1;
-  flag2 = 0;
-  return 0;
+    // begin: critical section
+    x = 1;
+    assert(x>=1);
+    // end: critical section
+    __VERIFIER_atomic_begin();
+    turn = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    flag2 = 0;
+    __VERIFIER_atomic_end();
+    return 0;
 }
 
 int main() {
