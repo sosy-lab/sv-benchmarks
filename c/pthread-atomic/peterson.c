@@ -1,4 +1,6 @@
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void reach_error(){}
 
 /* Testcase from Threader's distribution. For details see:
