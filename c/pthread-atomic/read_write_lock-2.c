@@ -2,7 +2,9 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void reach_error(){}
 
 /* Testcase from Threader's distribution. For details see:
@@ -38,11 +40,21 @@ void *writer(void *arg) { //writer
 void *reader(void *arg) { //reader
   int l;
   __VERIFIER_atomic_take_read_lock();
+  __VERIFIER_atomic_begin();
   l = x;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   y = l;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   assert(y == x);
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   l = r-1;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   r = l;
+  __VERIFIER_atomic_end();
   return 0;
 }
 

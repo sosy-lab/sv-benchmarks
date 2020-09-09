@@ -2,6 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
@@ -696,8 +698,12 @@ void *writer(void *arg) {
 void *reader(void *arg) {
   int l;
   __VERIFIER_atomic_take_read_lock();
+  __VERIFIER_atomic_begin();
   l = x;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   y = l;
+  __VERIFIER_atomic_end();
   if (!(y == x)) ERROR: {reach_error();abort();}
   __VERIFIER_atomic_release_read_lock();
   return 0;

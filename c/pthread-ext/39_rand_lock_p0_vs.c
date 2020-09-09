@@ -2,6 +2,8 @@ extern void abort(void);
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void); 
 void reach_error(){}
@@ -44,7 +46,9 @@ int seed = 1;
 inline int PseudoRandomUsingAtomic_nextInt() {
 	int read, nexts, nextInt_return;
 
+    __VERIFIER_atomic_begin();
 	assert(seed != 0);
+    __VERIFIER_atomic_end();
 
 	__VERIFIER_atomic_acquire();
 	read = seed;

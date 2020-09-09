@@ -1,4 +1,6 @@
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -675,9 +677,15 @@ _Bool s = 0;
 __thread _Bool l = 0;
 void* thr1(void* arg)
 {
- { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
+  __VERIFIER_atomic_begin();
+  { if(!(!l || s)) { ERROR: {reach_error();abort();}(void)0; } };
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   s = s || 1;
- l = 1;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  l = 1;
+  __VERIFIER_atomic_end();
   return 0;
 }
 int main()

@@ -6,3 +6,5 @@ input_files: '45_monabsex1_vs.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true

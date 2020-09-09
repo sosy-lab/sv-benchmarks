@@ -9,7 +9,9 @@
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 
-extern void abort(void); 
+extern void abort(void);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
@@ -38,8 +40,12 @@ void *my_callback(void *arg) {
 	
 	//race
 	//pthread_mutex_lock (&data->lock);
+    __VERIFIER_atomic_begin();
 	data->shared.a = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	data->shared.b = data->shared.b + 1;
+    __VERIFIER_atomic_end();
 	//pthread_mutex_unlock (&data->lock);
 	return 0;
 }

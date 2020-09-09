@@ -6,3 +6,5 @@ input_files: 'qw2004-2.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true

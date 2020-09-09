@@ -11,6 +11,8 @@
 
 extern void abort(void); 
 void reach_error(){}
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
@@ -37,8 +39,12 @@ void *my_callback(void *arg) {
 	data = container_of(dev, struct my_data, dev);
 	
 	pthread_mutex_lock (&data->lock);
-	data->shared.a = 1;
-	data->shared.b = data->shared.b + 1;
+    __VERIFIER_atomic_begin();
+    data->shared.a = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    data->shared.b = data->shared.b + 1;
+    __VERIFIER_atomic_end();
 	pthread_mutex_unlock (&data->lock);
 	return 0;
 }
@@ -69,11 +75,19 @@ void my_drv_disconnect(struct my_data *data) {
 	void *status;
 	pthread_join(t1, &status);
 	//race on data->shared.a and data->shared.b
+    __VERIFIER_atomic_begin();
 	data->shared.a = 3;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	data->shared.b = 3;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	ldv_assert(data->shared.a==3);
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	ldv_assert(data->shared.b==3);
-
+    __VERIFIER_atomic_end();
+    
 	pthread_join(t2, &status);
 	pthread_mutex_destroy(&data->lock);
 }
