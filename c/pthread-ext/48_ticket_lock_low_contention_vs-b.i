@@ -1,5 +1,4 @@
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
+extern void abort(void); 
 void assume_abort_if_not(int cond) { 
   if(!cond) {abort();}
 }
@@ -689,7 +688,7 @@ unsigned c = 0;
 void* thr1(void* arg)
 {
   unsigned l;
-  { __VERIFIER_atomic_fetch_and_inc(&l); __VERIFIER_atomic_begin(); while (l != s); __VERIFIER_atomic_end(); };
+  { __VERIFIER_atomic_fetch_and_inc(&l); while (l != s) ; };
   c = 1; { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } }; c = 0;
   { s++;};
   return 0;
