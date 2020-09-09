@@ -5,4 +5,4 @@ input_files: 'singleton-b.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
-     expected_verdict: false
+    expected_verdict: false
