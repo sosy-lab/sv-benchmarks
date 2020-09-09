@@ -1,10 +1,8 @@
 format_version: '1.0'
 
 # old file name: peterson_true-unreach-call.i
-input_files: 'peterson.i'
+input_files: 'peterson-b.i'
 
 properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false

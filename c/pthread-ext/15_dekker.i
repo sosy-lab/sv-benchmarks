@@ -1,4 +1,6 @@
-extern void abort(void); 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -676,12 +678,17 @@ int turn = 0;
 int x;
 void* thr1(void* arg) {
   flag1 = 1;
-  while (flag2 >= 1) {
-    if (turn != 0) {
-      flag1 = 0;
-      while (turn != 0) {};
-      flag1 = 1;
-    }
+  __VERIFIER_atomic_begin();
+  int f21 = flag2;
+  __VERIFIER_atomic_end();
+  while (f21 >= 1) {
+      int t1 = turn;
+      if (t1 != 0) {
+          flag1 = 0;
+          t1 = turn;
+          while (t1 != 0) {};
+          flag1 = 1;
+      }
   }
   x = 0;
   { if(!(x<=0)) { ERROR: {reach_error();abort();}(void)0; } };
@@ -690,13 +697,18 @@ void* thr1(void* arg) {
   return 0;
 }
 void* thr2(void* arg) {
+  __VERIFIER_atomic_begin();
   flag2 = 1;
-  while (flag1 >= 1) {
-    if (turn != 1) {
-      flag2 = 0;
-      while (turn != 1) {};
-      flag2 = 1;
-    }
+  __VERIFIER_atomic_end();
+  int f12 = flag1;
+  while (f12 >= 1) {
+      int t2 = turn;
+      if (t2 != 1) {
+          flag2 = 0;
+          int t2 = turn;
+          while (t2 != 1) {};
+          flag2 = 1;
+      }
   }
   x = 1;
   { if(!(x>=1)) { ERROR: {reach_error();abort();}(void)0; } };

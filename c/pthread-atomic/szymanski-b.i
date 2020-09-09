@@ -1,6 +1,4 @@
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-extern void abort(void);
+extern void abort(void); 
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -673,43 +671,45 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-int turn;
-int x;
 int flag1 = 0, flag2 = 0;
-void* thr1(void* arg) {
+int x;
+void *thr1(void *_) {
   flag1 = 1;
-  __VERIFIER_atomic_begin();
-  turn = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  int f21 = flag2;
-  __VERIFIER_atomic_end();
-  int t1 = turn;
-  do {} while (f21==1 && t1==1);
+  while (flag2 >= 3);
+  flag1 = 3;
+  if (flag2 == 1) {
+    flag1 = 2;
+    while (flag2 != 4);
+  }
+  flag1 = 4;
+  while (flag2 >= 2);
   x = 0;
-  { if(!(x<=0)) { ERROR: {reach_error();abort();}(void)0; } };
+  if (!(x<=0)) ERROR: {reach_error();abort();}
+  while (2 <= flag2 && flag2 <= 3);
   flag1 = 0;
   return 0;
 }
-void* thr2(void* arg) {
-  __VERIFIER_atomic_begin();
+void *thr2(void *_) {
   flag2 = 1;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
-  turn = 0;
-  __VERIFIER_atomic_end();
-  int f12 = flag1;
-  int t2 = turn;
-  do {} while (f12==1 && t2==0);
+  while (flag1 >= 3);
+  flag2 = 3;
+  if (flag1 == 1) {
+    flag2 = 2;
+    while (flag1 != 4);
+  }
+  flag2 = 4;
+  while (flag1 >= 2);
   x = 1;
-  { if(!(x>=1)) { ERROR: {reach_error();abort();}(void)0; } };
+  if (!(x>=1)) ERROR: {reach_error();abort();}
+  while (2 <= flag1 && flag1 <= 3);
   flag2 = 0;
   return 0;
 }
-int main()
-{
-  pthread_t t;
-  pthread_create(&t, 0, thr1, 0);
-  thr2(0);
+int main() {
+  pthread_t t1, t2;
+  pthread_create(&t1, 0, thr1, 0);
+  pthread_create(&t2, 0, thr2, 0);
+  pthread_join(t1, 0);
+  pthread_join(t2, 0);
   return 0;
 }

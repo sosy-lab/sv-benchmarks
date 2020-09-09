@@ -1,10 +1,8 @@
 format_version: '1.0'
 
 # old file name: 15_dekker_true-unreach-call.i
-input_files: '15_dekker.i'
+input_files: '15_dekker-b.i'
 
 properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false

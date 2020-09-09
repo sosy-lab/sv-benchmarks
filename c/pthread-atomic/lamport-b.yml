@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: dekker_true-unreach-call.i
-input_files: 'dekker.i'
+# old file name: lamport_true-unreach-call.i
+input_files: 'lamport-b.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
