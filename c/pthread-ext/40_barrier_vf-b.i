@@ -689,24 +689,14 @@ void __VERIFIER_atomic_release()
  MTX = 0;
 }
 void Barrier2() {
-    __VERIFIER_atomic_acquire();
-    count++;
-    if (count == 3) {
-        __VERIFIER_atomic_begin();
-        (COND = 1);
-        __VERIFIER_atomic_end();
-        count = 0; }
-    else {
-        __VERIFIER_atomic_release();
-        __VERIFIER_atomic_begin();
-        assume_abort_if_not(COND);
-        __VERIFIER_atomic_end();
-        __VERIFIER_atomic_begin();
-        COND = 0;
-        __VERIFIER_atomic_end();
-        __VERIFIER_atomic_acquire();
-    };
-    __VERIFIER_atomic_release(); }
+  __VERIFIER_atomic_acquire();
+  count++;
+  if (count == 3) {
+    (COND = 1);
+    count = 0; }
+  else
+    { __VERIFIER_atomic_release(); assume_abort_if_not(COND); COND = 0; __VERIFIER_atomic_acquire(); };
+  __VERIFIER_atomic_release(); }
 void* thr1(void* arg){
   Barrier2();
   { if(!(0)) { ERROR: {reach_error();abort();}(void)0; } };
