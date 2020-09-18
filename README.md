@@ -135,13 +135,13 @@ a simple task-definition mechanism is used.
 For each program, the repository contains a .yml file that specifies the following items:
   - `format_version`: the version of the format (a version string)
   - `input_files`: the subject program files or directories
-    (a list of file or directory names that a program consists of)
+    (a file or directory name, or a list of files or directory names, that the program consists of)
   - `properties`: the properties that constitute the specification of the program,
     each consisting of the following items:
     - `property_file`: file that contains a property definition
     - `expected_verdict`: the intended verification result (`true` or `false`)
-    - `subproperty`: a subproperty of the property that is violated
-      in cases where the property is a conjunction of subproperties (optionally for verdict `false`) 
+    - `subproperty` (optional): a subproperty of the property that is violated
+      in cases where the property is a conjunction of subproperties (for verdict `false`)
   - `options`: parameters that are relevant for verification or give extra information:
     - `language`: programming language that the program is written in (`C` or `Java`)
     - `data_model` data model of the computer architecture
@@ -150,18 +150,19 @@ For each program, the repository contains a .yml file that specifies the followi
 The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
 and contains a description of the format with an example in Sect. 4 and Fig. 3.
 Format 1.1 adds the `options` dictionary.
-Here an example:
+Here as example an extract of the task-definition file [c/list-properties/list-1.yml]:
 
 ```
 format_version: '1.1'
 
-input_files: 'floppy.i.cil-3.c'
+input_files: 'list-1.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
   - property_file: ../properties/valid-memsafety.prp
-    expected_verdict: true
+    expected_verdict: false
+    subproperty: valid-memtrack
 
 options:
   language: C
