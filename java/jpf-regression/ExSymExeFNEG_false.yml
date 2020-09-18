@@ -1,4 +1,4 @@
-format_version: "1.0"
+format_version: "1.1"
 input_files:
   - ../common/
   - ExSymExeFNEG_false/
@@ -6,3 +6,5 @@ properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false
 
+options:
+  language: Java
