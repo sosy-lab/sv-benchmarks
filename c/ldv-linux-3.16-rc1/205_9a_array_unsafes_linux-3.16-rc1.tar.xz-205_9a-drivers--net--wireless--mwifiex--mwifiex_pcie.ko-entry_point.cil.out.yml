@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: 205_9a_array_unsafes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-entry_point_false-unreach-call.cil.out.i
 input_files: '205_9a_array_unsafes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-entry_point.cil.out.i'
@@ -6,3 +6,7 @@ input_files: '205_9a_array_unsafes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--wi
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

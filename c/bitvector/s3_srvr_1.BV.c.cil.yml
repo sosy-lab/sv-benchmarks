@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: s3_srvr_1_true-unreach-call_true-no-overflow.BV.c.cil.c
 input_files: 's3_srvr_1.BV.c.cil.c'
@@ -6,3 +6,7 @@ input_files: 's3_srvr_1.BV.c.cil.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

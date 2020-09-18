@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: sum10_false-def-behavior.i
 input_files: 'sum10-2.i'
@@ -6,3 +6,7 @@ input_files: 'sum10-2.i'
 properties:
   - property_file: ../properties/def-behavior.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

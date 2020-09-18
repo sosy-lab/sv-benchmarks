@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'CWE121_Stack_Based_Buffer_Overflow---s04---CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_loop_11_good.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'cmp-freed-ptr.i'
 
@@ -6,3 +6,7 @@ properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
     subproperty: valid-free
+
+options:
+  language: C
+  data_model: ILP32

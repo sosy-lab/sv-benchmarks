@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: tree_false-unreach-call_false-valid-deref.i
 input_files: 'tree-2.i'
@@ -13,3 +13,7 @@ properties:
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
   - property_file: ../properties/coverage-error-call.prp
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: 38_rand_cas_vs_concur_true-unreach-call.i
 input_files: '38_rand_cas_vs_concur.i'
@@ -6,3 +6,7 @@ input_files: '38_rand_cas_vs_concur.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

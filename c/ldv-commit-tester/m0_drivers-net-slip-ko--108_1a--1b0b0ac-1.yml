@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: m0_false-unreach-call_drivers-net-slip-ko--108_1a--1b0b0ac-1.i
 input_files: 'm0_drivers-net-slip-ko--108_1a--1b0b0ac-1.i'
@@ -6,3 +6,7 @@ input_files: 'm0_drivers-net-slip-ko--108_1a--1b0b0ac-1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

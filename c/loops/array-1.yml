@@ -15,4 +15,3 @@ properties:
 options:
   language: C
   data_model: ILP32
-

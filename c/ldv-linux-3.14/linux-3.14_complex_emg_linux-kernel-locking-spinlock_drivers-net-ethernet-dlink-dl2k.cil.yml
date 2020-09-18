@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-dlink-dl2k_true-unreach-call.cil.i
 input_files: 'linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-ethernet-dlink-dl2k.cil.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-e
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

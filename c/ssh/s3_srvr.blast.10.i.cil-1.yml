@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: s3_srvr.blast.10_true-unreach-call.i.cil.c
 input_files: 's3_srvr.blast.10.i.cil-1.c'
@@ -6,3 +6,7 @@ input_files: 's3_srvr.blast.10.i.cil-1.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

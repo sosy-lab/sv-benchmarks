@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: pals_lcr-var-start-time.4_true-unreach-call.ufo.BOUNDED-8.pals_true-termination.c
 input_files: 'pals_lcr-var-start-time.4.ufo.BOUNDED-8.pals.c'
@@ -11,3 +11,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'CWE590_Free_Memory_Not_on_Heap---s05---CWE590_Free_Memory_Not_on_Heap__free_long_static_11_bad.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

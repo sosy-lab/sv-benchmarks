@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: 32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--scsi--aic7xxx_old.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-drivers--scsi--aic7xxx_old.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
@@ -6,3 +6,7 @@ input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-drivers--scsi--aic7xxx_old.ko-ldv
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

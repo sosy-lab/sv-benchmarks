@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: fermat-alloca_true-termination.c.i
 input_files: 'fermat-alloca.i'
@@ -6,3 +6,7 @@ input_files: 'fermat-alloca.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

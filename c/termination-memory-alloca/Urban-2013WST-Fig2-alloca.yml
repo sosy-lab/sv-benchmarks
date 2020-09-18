@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: Urban-2013WST-Fig2-alloca_true-termination.c.i
 input_files: 'Urban-2013WST-Fig2-alloca.i'
@@ -6,3 +6,7 @@ input_files: 'Urban-2013WST-Fig2-alloca.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

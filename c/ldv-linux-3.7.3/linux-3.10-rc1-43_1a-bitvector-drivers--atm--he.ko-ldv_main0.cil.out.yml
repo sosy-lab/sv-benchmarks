@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-3.10-rc1-43_1a-bitvector-drivers--atm--he.ko-ldv_main0_true-unreach-call.cil.out.i
 input_files: 'linux-3.10-rc1-43_1a-bitvector-drivers--atm--he.ko-ldv_main0.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.10-rc1-43_1a-bitvector-drivers--atm--he.ko-ldv_main0.cil.o
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

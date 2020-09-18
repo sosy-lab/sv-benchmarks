@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: pals_STARTPALS_ActiveStandby_false-unreach-call.4_2.ufo.UNBOUNDED.pals.c
 input_files: 'pals_STARTPALS_ActiveStandby.4_2.ufo.UNBOUNDED.pals.c'
@@ -9,3 +9,7 @@ properties:
   - property_file: ../properties/termination.prp
     expected_verdict: false
   - property_file: ../properties/coverage-error-call.prp
+
+options:
+  language: C
+  data_model: ILP32

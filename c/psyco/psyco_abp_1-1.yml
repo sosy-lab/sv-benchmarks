@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: psyco_abp_1_false-unreach-call_false-termination_true-no-overflow.c
 input_files: 'psyco_abp_1-1.c'
@@ -10,3 +10,7 @@ properties:
     expected_verdict: false
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

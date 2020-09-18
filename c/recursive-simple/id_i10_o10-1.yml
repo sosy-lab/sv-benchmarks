@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: id_i10_o10_false-unreach-call_true-termination.c
 input_files: 'id_i10_o10-1.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

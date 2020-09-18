@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: bubblesort_unsafe_false-valid-deref.c
 input_files: 'bubblesort_unsafe.c'
@@ -7,3 +7,7 @@ properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
     subproperty: valid-deref
+
+options:
+  language: C
+  data_model: ILP32

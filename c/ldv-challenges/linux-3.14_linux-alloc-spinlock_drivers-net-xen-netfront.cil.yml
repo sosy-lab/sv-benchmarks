@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-3.14__linux-alloc-spinlock__drivers-net-xen-netfront_false-unreach-call.cil.i
 input_files: 'linux-3.14_linux-alloc-spinlock_drivers-net-xen-netfront.cil.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.14_linux-alloc-spinlock_drivers-net-xen-netfront.cil.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

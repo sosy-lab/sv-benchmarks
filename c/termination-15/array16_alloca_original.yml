@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: array16_alloca_original_false-termination.c.i
 input_files: 'array16_alloca_original.i'
@@ -6,3 +6,7 @@ input_files: 'array16_alloca_original.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

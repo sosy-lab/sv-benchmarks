@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-stable-a9e7fb5-1-32_7a-drivers--media--rc--imon.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-stable-a9e7fb5-1-32_7a-drivers--media--rc--imon.ko-entry_point.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-stable-a9e7fb5-1-32_7a-drivers--media--rc--imon.ko-entry_poi
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

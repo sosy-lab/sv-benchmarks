@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: module_get_put-drivers-net-atl1c-atl1c.ko_true-unreach-call.cil.out.i
 input_files: 'module_get_put-drivers-net-atl1c-atl1c.ko.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'module_get_put-drivers-net-atl1c-atl1c.ko.cil.out.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

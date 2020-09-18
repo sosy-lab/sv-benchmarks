@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: main3_false-unreach-call_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa.i
 input_files: 'main3_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa.i'
@@ -6,3 +6,7 @@ input_files: 'main3_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

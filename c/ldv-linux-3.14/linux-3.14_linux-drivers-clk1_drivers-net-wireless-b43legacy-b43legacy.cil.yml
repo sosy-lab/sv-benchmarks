@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-3.14__linux-drivers-clk1__drivers-net-wireless-b43legacy-b43legacy_true-unreach-call.cil.i
 input_files: 'linux-3.14_linux-drivers-clk1_drivers-net-wireless-b43legacy-b43legacy.cil.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.14_linux-drivers-clk1_drivers-net-wireless-b43legacy-b43le
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-3.12-rc1.tar.xz-144_2a-drivers--net--wireless--libertas--usb8xxx.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-3.12-rc1.tar.xz-144_2a-drivers--net--wireless--libertas--usb8xxx.ko-entry_point.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.12-rc1.tar.xz-144_2a-drivers--net--wireless--libertas--usb
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

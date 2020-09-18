@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: Problem07_label36_false-unreach-call.c
 input_files: 'Problem07_label36.c'
@@ -10,3 +10,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: ILP32

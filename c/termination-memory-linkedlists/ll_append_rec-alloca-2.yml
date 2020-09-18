@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: ll_append_rec-alloca_false-termination.c.i
 input_files: 'll_append_rec-alloca-2.i'
@@ -6,3 +6,7 @@ input_files: 'll_append_rec-alloca-2.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

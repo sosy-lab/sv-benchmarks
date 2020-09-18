@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: LeikeHeizmann-WST2014-Ex5_false-no-overflow.c
 input_files: 'LeikeHeizmann-WST2014-Ex5.c'
@@ -6,3 +6,7 @@ input_files: 'LeikeHeizmann-WST2014-Ex5.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-4.0-rc1---fs--squashfs--squashfs.ko_true-unreach-call.cil.i
 input_files: 'linux-4.0-rc1---fs--squashfs--squashfs.ko.cil.i'
@@ -6,3 +6,7 @@ input_files: 'linux-4.0-rc1---fs--squashfs--squashfs.ko.cil.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: dll2n_update_all_true-unreach-call_true-valid-memsafety.i
 input_files: 'dll2n_update_all.i'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

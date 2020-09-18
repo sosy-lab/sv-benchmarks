@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: ArraysOfVariableLength6_true-valid-memsafety_true-termination.c
 input_files: 'ArraysOfVariableLength6.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

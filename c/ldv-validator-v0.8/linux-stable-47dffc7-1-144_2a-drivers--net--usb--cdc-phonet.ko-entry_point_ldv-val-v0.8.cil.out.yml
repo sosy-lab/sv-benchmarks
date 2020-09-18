@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-stable-47dffc7-1-144_2a-drivers--net--usb--cdc-phonet.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.i
 input_files: 'linux-stable-47dffc7-1-144_2a-drivers--net--usb--cdc-phonet.ko-entry_point_ldv-val-v0.8.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-stable-47dffc7-1-144_2a-drivers--net--usb--cdc-phonet.ko-ent
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: pals_lcr-var-start-time.4_false-unreach-call.1.ufo.BOUNDED-8.pals.c.v+nlh-reducer.c
 input_files: 'pals_lcr-var-start-time.4.1.ufo.BOUNDED-8.pals.c.v+nlh-reducer.c'
@@ -6,3 +6,7 @@ input_files: 'pals_lcr-var-start-time.4.1.ufo.BOUNDED-8.pals.c.v+nlh-reducer.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

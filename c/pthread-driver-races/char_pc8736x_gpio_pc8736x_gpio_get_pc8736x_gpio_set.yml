@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: char_pc8736x_gpio_pc8736x_gpio_get_pc8736x_gpio_set_true-unreach-call.i
 input_files: 'char_pc8736x_gpio_pc8736x_gpio_get_pc8736x_gpio_set.i'
@@ -6,3 +6,7 @@ input_files: 'char_pc8736x_gpio_pc8736x_gpio_get_pc8736x_gpio_set.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

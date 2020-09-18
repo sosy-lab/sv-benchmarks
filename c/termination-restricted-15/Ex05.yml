@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: Ex05_false-termination_true-no-overflow.c
 input_files: 'Ex05.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/termination.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

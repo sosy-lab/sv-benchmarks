@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: m0_true-unreach-call_drivers-staging-comedi-drivers-ni_65xx-ko--107_1a--adbbc36.i
 input_files: 'm0_drivers-staging-comedi-drivers-ni_65xx-ko--107_1a--adbbc36.i'
@@ -6,3 +6,7 @@ input_files: 'm0_drivers-staging-comedi-drivers-ni_65xx-ko--107_1a--adbbc36.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

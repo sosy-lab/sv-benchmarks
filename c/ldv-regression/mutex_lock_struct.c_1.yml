@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: mutex_lock_struct_true-termination.c_true-unreach-call_1.i
 input_files: 'mutex_lock_struct.c_1.i'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

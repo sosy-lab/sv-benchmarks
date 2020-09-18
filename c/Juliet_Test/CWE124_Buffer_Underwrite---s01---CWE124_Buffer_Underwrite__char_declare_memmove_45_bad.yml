@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'CWE124_Buffer_Underwrite---s01---CWE124_Buffer_Underwrite__char_declare_memmove_45_bad.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

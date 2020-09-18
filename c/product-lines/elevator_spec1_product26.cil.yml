@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: elevator_spec1_product26_false-unreach-call_true-termination.cil.c
 input_files: 'elevator_spec1_product26.cil.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: true
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

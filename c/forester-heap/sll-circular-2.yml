@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: sll-circular_false-unreach-call_false-valid-memcleanup.i
 input_files: 'sll-circular-2.i'
@@ -12,3 +12,7 @@ properties:
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
   - property_file: ../properties/coverage-error-call.prp
+
+options:
+  language: C
+  data_model: ILP32

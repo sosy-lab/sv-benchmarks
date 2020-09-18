@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: PodelskiRybalchenko-TACAS2011-Fig3_false-no-overflow.c
 input_files: 'PodelskiRybalchenko-TACAS2011-Fig3.c'
@@ -6,3 +6,7 @@ input_files: 'PodelskiRybalchenko-TACAS2011-Fig3.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

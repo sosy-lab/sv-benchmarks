@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: test-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.i
 input_files: 'test-incomplete-1.i'
@@ -11,3 +11,7 @@ properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
   - property_file: ../properties/coverage-error-call.prp
+
+options:
+  language: C
+  data_model: ILP32

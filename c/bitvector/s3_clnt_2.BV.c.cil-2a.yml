@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # this is a version of s3_clnt_2.BV.c.cil-2.yml with fixed overflow
 input_files: 's3_clnt_2.BV.c.cil-2a.c'
@@ -12,3 +12,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: ILP32

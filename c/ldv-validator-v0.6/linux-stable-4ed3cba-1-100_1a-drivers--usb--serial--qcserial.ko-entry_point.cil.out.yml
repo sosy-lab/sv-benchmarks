@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-stable-4ed3cba-1-100_1a-drivers--usb--serial--qcserial.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-stable-4ed3cba-1-100_1a-drivers--usb--serial--qcserial.ko-entry_point.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-stable-4ed3cba-1-100_1a-drivers--usb--serial--qcserial.ko-en
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

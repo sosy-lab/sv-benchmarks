@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: linux-stable-39a1d13-1-101_1a-drivers--block--virtio_blk.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.i
 input_files: 'linux-stable-39a1d13-1-101_1a-drivers--block--virtio_blk.ko-entry_point_ldv-val-v0.8.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-stable-39a1d13-1-101_1a-drivers--block--virtio_blk.ko-entry_
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

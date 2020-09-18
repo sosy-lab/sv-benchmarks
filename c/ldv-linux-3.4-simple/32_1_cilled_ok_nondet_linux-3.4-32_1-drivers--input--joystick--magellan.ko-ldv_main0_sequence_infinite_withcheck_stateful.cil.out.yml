@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: 32_1_cilled_true-unreach-call_ok_nondet_linux-3.4-32_1-drivers--input--joystick--magellan.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 input_files: '32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--input--joystick--magellan.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
@@ -6,3 +6,7 @@ input_files: '32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--input--joystick--mag
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

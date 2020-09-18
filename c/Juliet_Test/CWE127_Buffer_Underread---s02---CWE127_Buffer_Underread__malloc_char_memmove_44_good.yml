@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'CWE127_Buffer_Underread---s02---CWE127_Buffer_Underread__malloc_char_memmove_44_good.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '1.1'
 
 input_files: 'CWE126_Buffer_Overread---s02---CWE126_Buffer_Overread__malloc_char_loop_41_bad.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: sorting_bubblesort_false-unreach-call2_ground.i
 input_files: 'sorting_bubblesort_2_ground.i'
@@ -10,3 +10,7 @@ properties:
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
   - property_file: ../properties/coverage-error-call.prp
+
+options:
+  language: C
+  data_model: ILP32

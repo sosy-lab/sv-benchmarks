@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: aiob_4_true-unreach-call.c.v+lh-reducer.c
 input_files: 'aiob_4.c.v+lh-reducer.c'
@@ -6,3 +6,7 @@ input_files: 'aiob_4.c.v+lh-reducer.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

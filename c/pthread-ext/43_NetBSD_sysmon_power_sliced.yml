@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '1.1'
 
 # old file name: 43_NetBSD__sysmon_power__sliced_true-unreach-call.i
 input_files: '43_NetBSD_sysmon_power_sliced.i'
@@ -6,3 +6,7 @@ input_files: '43_NetBSD_sysmon_power_sliced.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32
