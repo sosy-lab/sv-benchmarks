@@ -132,12 +132,42 @@ currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-
 
 In order to obtain verification tasks from the programs and specifications in the repository,
 a simple task-definition mechanism is used.
-For each program, the repository contains a .yml file that specifies 
-  - the subject files (the parts that a program consists of),
-  - the results (for each specification of the program, the expected outcome is indicated), and
-  - the parameters to be used for verification.
+For each program, the repository contains a .yml file that specifies the following items:
+  - `format_version`: the version of the format (a version string)
+  - `input_files`: the subject program files or directories
+    (a list of file or directory names that a program consists of)
+  - `properties`: the properties that constitute the specification of the program,
+    each consisting of the following items:
+    - `property_file`: file that contains a property definition
+    - `expected_verdict`: the intended verification result (`true` or `false`)
+    - `subproperty`: a subproperty of the property that is violated
+      in cases where the property is a conjunction of subproperties (optionally for verdict `false`) 
+  - `options`: parameters that are relevant for verification or give extra information:
+    - `language`: programming language that the program is written in (`C` or `Java`)
+    - `data_model` data model of the computer architecture
+      (`ILP32`, `LP64`, see http://www.unix.org/whitepapers/64bit.html)
   
-The [SV-COMP 2019 report] contains a description of the format with an example in Sect. 4 and Fig. 3.
+The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
+and contains a description of the format with an example in Sect. 4 and Fig. 3.
+Format 1.1 adds the `options` dictionary.
+Here an example:
+
+```
+format_version: '1.1'
+
+input_files: 'floppy.i.cil-3.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32
+```
+
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses
