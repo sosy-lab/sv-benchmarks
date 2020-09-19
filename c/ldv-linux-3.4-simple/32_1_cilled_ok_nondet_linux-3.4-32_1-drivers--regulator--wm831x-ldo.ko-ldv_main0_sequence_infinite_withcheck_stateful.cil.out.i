@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned short __u16;
 typedef int __s32;

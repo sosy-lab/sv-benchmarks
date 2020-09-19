@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "An Accurate Join for Zonotopes, Preserving Affine 
    Input/Output Relations", by Gougault, Le Gall and Putot, published

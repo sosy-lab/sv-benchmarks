@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void) ;
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct __va_list_tag;
 typedef struct __va_list_tag __va_list_tag;
@@ -5091,8 +5091,8 @@ __inline static char const *kobject_name(struct kobject const *kobj )
 extern struct module __this_module ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef short __s16;
@@ -2147,8 +2147,8 @@ extern int __attribute__((__warn_unused_result__)) __pci_register_driver(struct 
 extern void pci_unregister_driver(struct pci_driver *dev ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

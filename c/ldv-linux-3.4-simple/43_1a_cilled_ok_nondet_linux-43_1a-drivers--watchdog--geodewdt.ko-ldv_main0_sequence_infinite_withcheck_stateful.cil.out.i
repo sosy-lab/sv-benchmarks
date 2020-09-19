@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -2918,8 +2918,8 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void *ldv_malloc(size_t size )

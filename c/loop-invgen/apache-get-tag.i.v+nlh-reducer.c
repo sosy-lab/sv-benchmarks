@@ -1,8 +1,8 @@
 int __return_main;
-void abort(void); 
+void abort(void);
 void reach_error(){}
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond);

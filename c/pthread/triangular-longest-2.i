@@ -671,7 +671,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int i = 3, j = 6;
 void *t1(void *arg) {

@@ -986,11 +986,11 @@ extern int fesetenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
 extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 

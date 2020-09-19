@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct Velocity_Mode;
 struct PCMode;

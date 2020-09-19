@@ -4,7 +4,7 @@
 *                                                       *
 ********************************************************/
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);

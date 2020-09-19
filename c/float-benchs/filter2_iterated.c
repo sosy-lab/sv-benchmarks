@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "Compositional analysis of floating-point linear numerical
    filters" by Monniaux, published in CAV 05.

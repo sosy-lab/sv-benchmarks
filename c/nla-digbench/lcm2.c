@@ -1,10 +1,10 @@
 /* Algorithm for computing simultaneously the GCD and the LCM, by Dijkstra */
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) {

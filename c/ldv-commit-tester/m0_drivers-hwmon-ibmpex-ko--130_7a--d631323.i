@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef short __s16;
@@ -1615,8 +1615,8 @@ int ldv_device_create_file_dev_attr_of_sensor_device_attribute(struct device_att
 int ldv_device_create_file_dev_attr_of_sensor_device_attribute_2(struct device_attribute const *attr ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

@@ -28693,7 +28693,7 @@ int ldv_exclusive_spin_is_locked(void)
   return (0);
 }
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
 {

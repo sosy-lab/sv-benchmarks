@@ -1677,7 +1677,7 @@ extern int lockf (int __fd, int __cmd, __off_t __len) ;
 extern int fdatasync (int __fildes);
 int getentropy (void *__buffer, size_t __length) ;
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }

@@ -1,7 +1,7 @@
 extern unsigned __VERIFIER_nondet_uint();
 extern int __VERIFIER_nondet_int();
 extern char *__VERIFIER_nondet_charp();
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 #include <stdlib.h>

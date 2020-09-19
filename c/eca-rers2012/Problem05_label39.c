@@ -6,7 +6,7 @@ int calculate_output5(int);
 int calculate_output6(int);
 int calculate_output7(int);
 int calculate_output8(int);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);

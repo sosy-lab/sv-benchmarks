@@ -44647,7 +44647,7 @@ void ldv_check_final_state(void)
   return;
 }
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
 {

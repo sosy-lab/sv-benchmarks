@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct module;
 typedef signed char __s8;
@@ -3430,8 +3430,8 @@ extern void vfree(void const * ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int __VERIFIER_nondet_int();
 extern _Bool __VERIFIER_nondet_bool(void);

@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u8;
 typedef unsigned short __u16;
@@ -2192,8 +2192,8 @@ struct i2c_client *i2c_setup_smbus_alert(struct i2c_adapter *adapter , struct i2
 int i2c_handle_smbus_alert(struct i2c_client *ara ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

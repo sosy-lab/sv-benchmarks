@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;

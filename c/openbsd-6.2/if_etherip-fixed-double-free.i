@@ -180,10 +180,10 @@ struct buf;
 struct tty;
 struct uio;
 
-void abort(void); 
+void abort(void);
 void reach_error(){}
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 _Bool __VERIFIER_nondet_bool(void);

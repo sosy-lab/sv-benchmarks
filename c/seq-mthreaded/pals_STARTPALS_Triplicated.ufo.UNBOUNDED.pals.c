@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 /**********************************************************************
@@ -78,8 +78,8 @@ int8_t g3v_old ;
 int8_t g3v_new ;
 extern _Bool __VERIFIER_nondet_bool() ;
 extern msg_t __VERIFIER_nondet_char() ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 _Bool gate1Failed  ;

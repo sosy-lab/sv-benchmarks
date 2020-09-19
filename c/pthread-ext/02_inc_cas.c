@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html

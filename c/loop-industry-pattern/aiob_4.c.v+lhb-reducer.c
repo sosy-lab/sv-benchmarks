@@ -1,5 +1,5 @@
 int __return_main;
-void abort(void); 
+void abort(void);
 void reach_error(){}
 struct Velocity_Mode ;
 struct PCMode ;

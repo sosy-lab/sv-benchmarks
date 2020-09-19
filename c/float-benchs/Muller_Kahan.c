@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example proposed by Muller in "Arithmétique des Ordinateurs", Masson, 1989.
    See also: "Static Analysis of Finite precision Computations" by Goubault

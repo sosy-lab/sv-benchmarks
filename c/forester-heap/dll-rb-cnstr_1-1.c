@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 typedef enum {RED, BLACK} Colour;

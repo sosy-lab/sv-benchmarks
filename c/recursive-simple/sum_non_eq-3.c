@@ -1,5 +1,5 @@
 extern unsigned int __VERIFIER_nondet_uint(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 unsigned int sum(unsigned int n, unsigned int m) {

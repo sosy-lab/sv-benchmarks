@@ -1,11 +1,11 @@
 int __return_main;
-void abort(void); 
+void abort(void);
 void reach_error(){}
 char __VERIFIER_nondet_char();
 _Bool __VERIFIER_nondet_bool();
 void assert(_Bool arg);
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 typedef char msg_t;

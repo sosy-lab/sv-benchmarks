@@ -9,7 +9,7 @@ void assume_cycle_if_not(int cond) {
     if(!cond) while(1);
 }
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int cond) {
     if(!cond) {reach_error();abort();}

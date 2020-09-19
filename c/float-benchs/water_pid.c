@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "Some future challenges in the validation of control
    systems" by Goubault, Martel, and Putot, published at ERTS 06
