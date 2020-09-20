@@ -6632,7 +6632,6 @@ void cpu_relax() {
   return;
 }
 void *external_alloc(unsigned int size);
-void assume_abort_if_not(int);
 struct timespec current_kernel_time() {
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
   assume_abort_if_not(tmp != 0);
