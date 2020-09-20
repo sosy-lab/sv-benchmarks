@@ -48,7 +48,7 @@ int __return_132;
  __VERIFIER_assert__cond = __tmp_1;
  if (__VERIFIER_assert__cond == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

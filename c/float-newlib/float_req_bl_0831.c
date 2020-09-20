@@ -120,7 +120,7 @@ int main() {
 
   // x is NAN, the result shall be x
   if (!isnan_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

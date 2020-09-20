@@ -8568,7 +8568,7 @@ __inline static void ldv_error(void)
 
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 int URB_STATE  =    0;

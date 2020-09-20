@@ -1368,7 +1368,7 @@ signed int __main(signed int argc, char **argv)
               {
                 if(__result == 0)
                 {
-                  {reach_error();abort();}
+                  {reach_error();}
                 }
               }
             }

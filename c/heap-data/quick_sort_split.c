@@ -53,12 +53,12 @@ int main() {
     // Check that low and high contain expected elements
     while (low) {
         if (!(low->expected_list == LOW))
-            {reach_error();abort();}
+            {reach_error();}
         low = low->next;
     }
     while (high) {
         if (!(high->expected_list == HIGH))
-            {reach_error();abort();}
+            {reach_error();}
         high = high->next;
     }
 }

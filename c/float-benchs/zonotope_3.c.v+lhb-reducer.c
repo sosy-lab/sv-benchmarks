@@ -564,7 +564,7 @@ int __return_120502;
  __VERIFIER_assert__cond = __tmp_45;
  if (__VERIFIER_assert__cond == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

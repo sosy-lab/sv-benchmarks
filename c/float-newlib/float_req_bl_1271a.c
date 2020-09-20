@@ -238,7 +238,7 @@ int main() {
     float res = __ieee754_hypotf(x, y);
     // y is not +-inf, x is Nan, result shall be Nan
     if (!isnan_float(res)) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

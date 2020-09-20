@@ -202,7 +202,7 @@ int __return_6075;
  assert__arg = __tmp_1;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

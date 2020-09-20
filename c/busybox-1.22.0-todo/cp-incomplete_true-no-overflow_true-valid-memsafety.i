@@ -4272,7 +4272,7 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
   if(flags & 0x20)
   {
     if(fd != -1)
-      {reach_error();abort();}
+      {reach_error();}
     void *res=calloc(length, 1);
     if(res == ((void *)0))
       return ((void *) -1);

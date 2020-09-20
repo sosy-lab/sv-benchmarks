@@ -227,7 +227,7 @@ int main() {
     float res = __ieee754_atan2f(y, x);
     // x is > 0, y is -0.0f, the result shall be -0
     if (res != -0.0f) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

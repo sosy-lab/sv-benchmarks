@@ -88,7 +88,7 @@ int main() {
 
   // x is +-inf, result shall be x.
   if (!isinf_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

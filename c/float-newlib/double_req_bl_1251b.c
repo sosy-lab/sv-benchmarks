@@ -77,7 +77,7 @@ int main() {
 
     // y is NAN and x is not NAN, the result shall be x
     if (res != x) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

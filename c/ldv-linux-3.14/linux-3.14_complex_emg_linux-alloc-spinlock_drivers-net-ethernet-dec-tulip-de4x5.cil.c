@@ -20065,7 +20065,7 @@ void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 
@@ -20080,7 +20080,7 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

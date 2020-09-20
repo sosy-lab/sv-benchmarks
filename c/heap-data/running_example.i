@@ -586,7 +586,7 @@ int main() {
     while (1) {
         for (p = list; p!= ((void *)0); p = p->next) {
             if (!(p->val <= 20 && p->val >= 10))
-                {reach_error();abort();}
+                {reach_error();}
             if (p->val < 20) p->val++;
             else p->val /= 2;
         }

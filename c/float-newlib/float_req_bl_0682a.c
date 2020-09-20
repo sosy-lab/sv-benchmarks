@@ -241,7 +241,7 @@ int main() {
 
     // x is -inf, y < 0.0 and y != inf, the result shall be -pi
     if (res != -pi) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

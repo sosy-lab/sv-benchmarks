@@ -14,7 +14,7 @@ int main() {
 				for (d = 0; d < uint32_max - 1; ++d) {
 					for (e = 0; e < uint32_max - 1; ++e) {
 						if ((a == b) && (b == c) && (c == d) && (d == e) && (e == (uint32_max - 2))) {
-							{reach_error();abort();}
+							{reach_error();}
 						}
 					}
 				}

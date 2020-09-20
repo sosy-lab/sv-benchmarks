@@ -121,7 +121,7 @@ int main() {
 
   // x is NAN, *iptr is NAN result shall be that *iptr and x is NAN
   if (isnan_double(iptr) && !isnan_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

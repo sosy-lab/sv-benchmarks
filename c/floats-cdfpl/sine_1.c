@@ -39,7 +39,7 @@ int main()
   float result = x - (x*x*x)/6.0f + (x*x*x*x*x)/120.0f + (x*x*x*x*x*x*x)/5040.0f;
 
   if(!(result <= VAL && result >= -VAL))
-    {reach_error();abort();}
+    {reach_error();}
   
   return 0;
 }

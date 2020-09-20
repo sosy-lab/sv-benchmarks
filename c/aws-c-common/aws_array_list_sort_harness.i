@@ -230,7 +230,7 @@ void __VERIFIER_assert(_Bool cond) {
 
 
 void my_abort(void) {
-    {reach_error();abort();}
+    {reach_error();}
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
 

@@ -65,7 +65,7 @@ int main() {
   double res = fmin_double(x, y);
 
   if (!isnan_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

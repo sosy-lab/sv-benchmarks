@@ -79,7 +79,7 @@ int main() {
 
   // result shall be x
   if (!(res == -0.0f && __signbit_float(res) == 1)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

@@ -144,7 +144,7 @@ int main() {
   double res = atan_double(x);
   // if x is +inf the result shall be pi/2
   if (res != -pi_o_2) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

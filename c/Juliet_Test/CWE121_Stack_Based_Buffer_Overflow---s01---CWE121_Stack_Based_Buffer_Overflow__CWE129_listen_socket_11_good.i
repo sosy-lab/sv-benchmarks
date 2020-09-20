@@ -1601,7 +1601,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  {reach_error();abort();}
+  {reach_error();}
   
   return;
 }

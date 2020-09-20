@@ -11431,7 +11431,7 @@ __inline static void ldv_error(void)
 
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 Set LDV_PCI_DMA_BUFS  ;

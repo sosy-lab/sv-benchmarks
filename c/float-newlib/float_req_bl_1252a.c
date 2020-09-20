@@ -78,7 +78,7 @@ int main() {
 
   // x is -0 and y is +0, the result shall be +0
   if (!(res == 0.0f && __signbit_float(res) == 0)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

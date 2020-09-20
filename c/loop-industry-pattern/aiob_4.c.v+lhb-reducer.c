@@ -464,7 +464,7 @@ const UINT32 *__tmp_1075_2;
  __VERIFIER_assert__Id_MCDC_92 = __tmp_12;
  if (__VERIFIER_assert__Id_MCDC_92 == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

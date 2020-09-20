@@ -3032,7 +3032,7 @@ signed int __main(signed int argc, char **argv)
         if((signed long int)u < 5l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         totals[(signed long int)u] = totals[(signed long int)u] + pcounts[(signed long int)u];
         u = u + 1u;
         if(!(u < 5u))

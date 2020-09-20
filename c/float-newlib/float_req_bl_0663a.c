@@ -228,7 +228,7 @@ int main() {
 
     // x is +-0, y is > 0, the result shall be +pi/2
     if (res != pi_o_2) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

@@ -589,7 +589,7 @@ int main() {
     }
     while (list) {
         if (!(list->hash >= base && list->hash < base + 100))
-            {reach_error();abort();}
+            {reach_error();}
         list = list->next;
     }
 }

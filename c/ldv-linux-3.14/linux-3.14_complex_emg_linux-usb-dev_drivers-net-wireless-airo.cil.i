@@ -23602,7 +23602,7 @@ void ldv_assert_linux_usb_dev__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -23614,7 +23614,7 @@ void ldv_assert_linux_usb_dev__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -23626,7 +23626,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -23638,7 +23638,7 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }

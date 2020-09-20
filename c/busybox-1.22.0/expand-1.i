@@ -2476,7 +2476,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
         if(!(tab_size == 0u))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         len = tab_size - len % tab_size;
         printf("%s%*s", ptr_strbeg, len, "");
         ptr_strbeg = ptr + (signed long int)1;
@@ -3211,7 +3211,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         column = column + (tab_size - column % tab_size);
         ptr = ptr + 1l;
       }
@@ -3220,7 +3220,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         n = column / tab_size;
         if(!(n == 0u))
         {
@@ -3257,7 +3257,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         if(!(tab_size == 0u))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         column = (column + len) % tab_size;
       }
     }

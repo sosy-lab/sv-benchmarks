@@ -1240,7 +1240,7 @@ int __return_2666;
  assert__arg = __tmp_5;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1773,7 +1773,7 @@ int __return_2666;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -2037,7 +2037,7 @@ int __return_2666;
  assert__arg = __tmp_10;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -2286,7 +2286,7 @@ int __return_2666;
  assert__arg = __tmp_12;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -2587,7 +2587,7 @@ int __return_2666;
  assert__arg = __tmp_14;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -2847,7 +2847,7 @@ int __return_2666;
  assert__arg = __tmp_16;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -3112,7 +3112,7 @@ int __return_2666;
  assert__arg = __tmp_18;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -3362,7 +3362,7 @@ int __return_2666;
  assert__arg = __tmp_20;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -3637,7 +3637,7 @@ int __return_2666;
  assert__arg = __tmp_22;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -3892,7 +3892,7 @@ int __return_2666;
  assert__arg = __tmp_24;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -4152,7 +4152,7 @@ int __return_2666;
  assert__arg = __tmp_26;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

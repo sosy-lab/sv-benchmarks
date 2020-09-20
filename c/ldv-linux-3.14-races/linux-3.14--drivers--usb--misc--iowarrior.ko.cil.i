@@ -6828,7 +6828,7 @@ void ldv_assert(char const *desc , int expr )
   {
   if (expr == 0) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }

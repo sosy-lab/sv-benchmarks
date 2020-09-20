@@ -646,7 +646,7 @@ int main() {
 
   // x is -INF, the result shall be NAN
   if (!isnan_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

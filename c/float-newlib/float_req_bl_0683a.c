@@ -254,7 +254,7 @@ int main() {
 
     // x is -inf, y < 0.0 and y != -inf, the result shall be -0.0
     if (!(res == -0.0f && __signbit_float(res) == 1)) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

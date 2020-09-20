@@ -227,7 +227,7 @@ int main() {
 
   // x is +inf, y is +inf, the result shall be +pi/4
   if (res != pi_o_4) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

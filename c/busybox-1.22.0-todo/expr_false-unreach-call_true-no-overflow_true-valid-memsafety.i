@@ -2403,13 +2403,13 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
     if(!(ri == 0l))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     return li / ri;
   }
   if(!(ri == 0l))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return li % ri;
 }
 static void bb_error_msg(const char *s, ...)

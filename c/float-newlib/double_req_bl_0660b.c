@@ -258,7 +258,7 @@ int main() {
 
     // x is < 0, y is +0.0, the result shall be +pi
     if (res != pi) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

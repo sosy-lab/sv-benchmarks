@@ -526,7 +526,7 @@ int __return_1499;
  assert__arg = __tmp_2;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -739,7 +739,7 @@ int __return_1499;
  assert__arg = __tmp_3;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

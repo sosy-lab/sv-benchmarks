@@ -58,7 +58,7 @@ int main() {
   float res = fmin_float(x, y);
 
   if (!isnan_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

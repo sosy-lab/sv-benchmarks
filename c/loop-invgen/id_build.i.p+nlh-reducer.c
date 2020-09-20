@@ -1760,7 +1760,7 @@ int __return_1719;
  __VERIFIER_assert__cond = __tmp_136;
  if (__VERIFIER_assert__cond == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1777,7 +1777,7 @@ int __return_1719;
  __VERIFIER_assert__cond = __tmp_137;
  if (__VERIFIER_assert__cond == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

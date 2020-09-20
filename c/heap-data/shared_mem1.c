@@ -46,6 +46,6 @@ int main() {
         list = list->next;
 
         if (!(m->val > 90 && m->val < 110))
-            {reach_error();abort();}
+            {reach_error();}
     }
 }

@@ -610,7 +610,7 @@ int main() {
 
   // x is +-0, the result shall be 1.0
   if (res != 1.0f) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

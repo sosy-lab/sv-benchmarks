@@ -2417,11 +2417,11 @@ static signed int cmpfunc(const void *a, const void *b)
   if(!(a == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(!(b == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return ((struct cut_list *)a)->startpos - ((struct cut_list *)b)->startpos;
 }
 static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lists, unsigned int nlists)

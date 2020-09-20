@@ -185,7 +185,7 @@ int main() {
 
     // x is not +-inf, y is +-inf, result shall be x
     if (res != x) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

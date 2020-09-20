@@ -85,7 +85,7 @@ int main() {
 
   // x is NAN, *iptr is NAN result shall be that *iptr and res is NAN
   if (isnan_float(iptr) && !isnan_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

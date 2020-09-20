@@ -234,7 +234,7 @@ int main() {
   float res = __ieee754_hypotf(x, y);
 
   if (!isinf_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

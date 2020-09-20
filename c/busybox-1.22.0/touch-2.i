@@ -3487,7 +3487,7 @@ signed int __main(signed int argc, char **argv)
     if(!(((16 & opts) != 0 ? lutimes : utimes) == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     result=((opts & 16) != 0 ? lutimes : utimes)(*argv, tmp_if_expr$2);
     if(!(result == 0))
     {

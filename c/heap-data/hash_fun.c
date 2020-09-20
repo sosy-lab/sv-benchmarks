@@ -38,7 +38,7 @@ int main() {
 
     while (list) {
         if (!(list->hash >= base && list->hash < base + INTERVAL_SIZE))
-            {reach_error();abort();}
+            {reach_error();}
         list = list->next;
     }
 }

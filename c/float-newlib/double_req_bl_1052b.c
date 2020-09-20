@@ -105,7 +105,7 @@ int main() {
 
   // x is +-0 or -inf, result shall be -inf.
   if (!isinf_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

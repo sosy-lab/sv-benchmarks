@@ -656,7 +656,7 @@ int main() {
 
   // x is +0, the result shall be +0.
   if (!(res == 0.0 && __signbit_double(res) == 0)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

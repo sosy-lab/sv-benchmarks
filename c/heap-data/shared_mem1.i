@@ -599,6 +599,6 @@ int main() {
             list->mem->val -= list->x;
         list = list->next;
         if (!(m->val > 90 && m->val < 110))
-            {reach_error();abort();}
+            {reach_error();}
     }
 }

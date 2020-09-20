@@ -626,7 +626,7 @@ int main() {
 
     // result shall be -inf
     if (!isinf_float(res)) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

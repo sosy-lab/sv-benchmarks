@@ -440,7 +440,7 @@ int __return_8349;
  assert__arg = __tmp_3;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -980,7 +980,7 @@ int __return_8349;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1155,7 +1155,7 @@ int __return_8349;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1238,7 +1238,7 @@ int __return_8349;
  assert__arg = __tmp_9;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

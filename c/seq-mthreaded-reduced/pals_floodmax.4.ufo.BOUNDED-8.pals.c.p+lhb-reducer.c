@@ -1805,7 +1805,7 @@ int __return_5461;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -2027,7 +2027,7 @@ int __return_5461;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
