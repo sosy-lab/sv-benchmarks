@@ -19,6 +19,13 @@ unsigned long int invalidate_mapping_pages(struct address_space *arg0, unsigned 
   // Simple type
   return __VERIFIER_nondet_ulong();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Skip function: kfree
 

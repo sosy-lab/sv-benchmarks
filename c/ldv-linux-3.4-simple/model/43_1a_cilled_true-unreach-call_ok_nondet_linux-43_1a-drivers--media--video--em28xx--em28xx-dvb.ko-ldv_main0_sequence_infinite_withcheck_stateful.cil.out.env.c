@@ -17,6 +17,13 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )

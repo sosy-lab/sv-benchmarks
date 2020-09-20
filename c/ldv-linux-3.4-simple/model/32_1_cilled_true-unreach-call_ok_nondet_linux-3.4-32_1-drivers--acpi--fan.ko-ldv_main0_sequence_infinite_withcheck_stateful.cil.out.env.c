@@ -90,6 +90,13 @@ void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: thermal_cooling_device_register
 // with type: struct thermal_cooling_device *thermal_cooling_device_register(char *, void *, const struct thermal_cooling_device_ops *)

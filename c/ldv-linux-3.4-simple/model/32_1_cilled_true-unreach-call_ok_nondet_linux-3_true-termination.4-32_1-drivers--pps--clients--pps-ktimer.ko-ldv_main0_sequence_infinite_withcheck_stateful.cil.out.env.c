@@ -60,6 +60,13 @@ void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, v
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: pps_register_source
 // with type: struct pps_device *pps_register_source(struct pps_source_info *info, int default_params)

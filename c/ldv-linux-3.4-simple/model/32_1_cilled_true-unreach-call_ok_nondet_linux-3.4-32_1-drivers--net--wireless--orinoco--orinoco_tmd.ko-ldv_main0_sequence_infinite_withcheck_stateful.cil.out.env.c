@@ -18,6 +18,13 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: alloc_orinocodev
 // with type: struct orinoco_private *alloc_orinocodev(int sizeof_card, struct device *device, int (*hard_reset)(struct orinoco_private *), int (*stop_fw)(struct orinoco_private *, int))

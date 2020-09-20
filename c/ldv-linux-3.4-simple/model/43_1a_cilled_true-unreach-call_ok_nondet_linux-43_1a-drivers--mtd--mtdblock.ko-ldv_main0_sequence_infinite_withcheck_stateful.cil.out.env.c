@@ -69,6 +69,13 @@ int deregister_mtd_blktrans(struct mtd_blktrans_ops *arg0) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Skip function: kfree
 

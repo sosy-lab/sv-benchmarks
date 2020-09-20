@@ -10,6 +10,13 @@ int amd_decode_mce(struct notifier_block *arg0, unsigned long arg1, void *arg2) 
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: edac_get_sysfs_subsys
 // with type: struct bus_type *edac_get_sysfs_subsys()

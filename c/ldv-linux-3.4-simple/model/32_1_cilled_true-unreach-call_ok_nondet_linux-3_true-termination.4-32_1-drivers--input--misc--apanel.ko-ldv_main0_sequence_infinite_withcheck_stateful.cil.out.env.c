@@ -36,6 +36,13 @@ int check_signature(const volatile void *arg0, const unsigned char *arg1, int ar
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)

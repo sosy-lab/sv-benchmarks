@@ -28,6 +28,13 @@ void input_unregister_device(struct input_dev *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Skip function: kfree
 

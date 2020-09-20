@@ -14,6 +14,13 @@ acpi_status acpi_get_table(acpi_string arg0, u32 arg1, struct acpi_table_header 
   // Simple type
   return __VERIFIER_nondet_uint();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)

@@ -26,6 +26,13 @@ int parport_claim(struct pardevice *arg0) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: parport_find_base
 // with type: struct parport *parport_find_base(unsigned long)

@@ -91,6 +91,13 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Skip function: kfree
 

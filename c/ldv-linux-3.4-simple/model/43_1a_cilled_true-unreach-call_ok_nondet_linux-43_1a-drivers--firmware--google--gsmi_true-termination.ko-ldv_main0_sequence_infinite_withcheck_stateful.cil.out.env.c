@@ -44,6 +44,13 @@ int atomic_notifier_chain_unregister(struct atomic_notifier_head *arg0, struct n
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
