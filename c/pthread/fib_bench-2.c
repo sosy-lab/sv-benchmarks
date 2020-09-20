@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();

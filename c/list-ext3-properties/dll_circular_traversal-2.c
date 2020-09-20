@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 /*
  * DLL circular example:
  * Build circular dll (1-1-1-1-1).

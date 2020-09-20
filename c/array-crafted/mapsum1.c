@@ -2,7 +2,8 @@
 #define fun mapsum
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 extern int __VERIFIER_nondet_int();
 
 int mapsum (int x[N])

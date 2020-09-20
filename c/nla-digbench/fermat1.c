@@ -1,7 +1,8 @@
 /* program computing a divisor for factorisation, by Knuth 4.5.4 Alg C ? */
 
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "fermat1.c", 5, "reach_error"); }
 extern double __VERIFIER_nondet_double(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
