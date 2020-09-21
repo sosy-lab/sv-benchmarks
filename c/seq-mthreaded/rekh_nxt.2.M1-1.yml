@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: rekh_nxt_false-unreach-call.2.M1.c
 input_files: 'rekh_nxt.2.M1-1.c'

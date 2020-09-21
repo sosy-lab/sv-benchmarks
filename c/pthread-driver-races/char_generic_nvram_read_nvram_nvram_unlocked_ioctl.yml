@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: char_generic_nvram_read_nvram_nvram_unlocked_ioctl_true-unreach-call.i
 input_files: 'char_generic_nvram_read_nvram_nvram_unlocked_ioctl.i'

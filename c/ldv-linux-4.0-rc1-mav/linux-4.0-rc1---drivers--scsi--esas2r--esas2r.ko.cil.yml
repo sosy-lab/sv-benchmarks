@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-4.0-rc1---drivers--scsi--esas2r--esas2r.ko_false-unreach-call.cil.i
 input_files: 'linux-4.0-rc1---drivers--scsi--esas2r--esas2r.ko.cil.i'

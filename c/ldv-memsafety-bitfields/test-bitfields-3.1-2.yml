@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: test-bitfields-3.1_false-valid-deref.i
 input_files: 'test-bitfields-3.1-2.i'

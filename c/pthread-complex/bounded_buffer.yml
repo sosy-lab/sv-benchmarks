@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: bounded_buffer_false-unreach-call.i
 input_files: 'bounded_buffer.i'

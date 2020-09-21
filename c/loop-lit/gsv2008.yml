@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: gsv2008_true-unreach-call_true-termination.c.i
 input_files: 'gsv2008.i'

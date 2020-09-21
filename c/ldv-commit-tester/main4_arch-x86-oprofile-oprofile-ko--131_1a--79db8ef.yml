@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: main4_true-unreach-call_arch-x86-oprofile-oprofile-ko--131_1a--79db8ef.i
 input_files: 'main4_arch-x86-oprofile-oprofile-ko--131_1a--79db8ef.i'

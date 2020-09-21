@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: dll_nondet_free_order_true-valid-memsafety.i
 input_files: 'dll_nondet_free_order-1.i'

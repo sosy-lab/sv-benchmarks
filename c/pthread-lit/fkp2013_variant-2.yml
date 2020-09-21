@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: fkp2013_variant_false-unreach-call.i
 input_files: 'fkp2013_variant-2.i'

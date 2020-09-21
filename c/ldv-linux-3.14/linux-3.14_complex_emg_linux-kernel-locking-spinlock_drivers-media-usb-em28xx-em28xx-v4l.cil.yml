@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-usb-em28xx-em28xx-v4l_true-unreach-call.cil.i
 input_files: 'linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-em28xx-em28xx-v4l.cil.i'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-3_false-termination.8-rc1-32_7a-drivers--md--persistent-data--dm-persistent-data.ko-ldv_main3_true-unreach-call.cil.out.i
 input_files: 'linux-3.8-rc1-32_7a-drivers--md--persistent-data--dm-persistent-data.ko-ldv_main3.cil.out.i'

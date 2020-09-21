@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'aws_byte_buf_append_with_lookup_harness.i'
 

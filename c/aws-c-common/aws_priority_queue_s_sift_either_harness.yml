@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'aws_priority_queue_s_sift_either_harness.i'
 

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wireless-rtlwifi-rtl8723ae-rtl8723ae_true-unreach-call.cil.i
 input_files: 'linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wireless-rtlwifi-rtl8723ae-rtl8723ae.cil.i'

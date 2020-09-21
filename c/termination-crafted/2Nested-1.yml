@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: 2Nested_true-termination_true-valid-memsafety.c
 input_files: '2Nested-1.c'

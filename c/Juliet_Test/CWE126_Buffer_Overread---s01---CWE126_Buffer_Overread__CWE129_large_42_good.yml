@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'CWE126_Buffer_Overread---s01---CWE126_Buffer_Overread__CWE129_large_42_good.i'
 

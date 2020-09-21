@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: fib_bench_longest_true-unreach-call.i
 input_files: 'fib_bench_longest-1.i'

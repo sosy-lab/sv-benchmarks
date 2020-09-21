@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: Et1_true_false-no-overflow.c
 input_files: 'Et1_true.c'

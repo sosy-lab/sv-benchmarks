@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_54_bad.i'
 

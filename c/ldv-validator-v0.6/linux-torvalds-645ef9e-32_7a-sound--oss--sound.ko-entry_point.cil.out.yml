@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-torvalds-645ef9e-32_7a-sound--oss--sound.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-torvalds-645ef9e-32_7a-sound--oss--sound.ko-entry_point.cil.out.i'

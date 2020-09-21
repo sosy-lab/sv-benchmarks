@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: test-0019_1_false-valid-memtrack_true-termination.i
 input_files: 'test-0019_1-1.i'

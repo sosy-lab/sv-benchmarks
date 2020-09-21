@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-3.14__linux-kernel-locking-mutex__drivers-net-wireless-b43legacy-b43legacy_true-unreach-call.cil.i
 input_files: 'linux-3.14_linux-kernel-locking-mutex_drivers-net-wireless-b43legacy-b43legacy.cil.i'

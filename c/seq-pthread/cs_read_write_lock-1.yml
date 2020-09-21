@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: cs_read_write_lock_true-unreach-call.i
 input_files: 'cs_read_write_lock-1.i'

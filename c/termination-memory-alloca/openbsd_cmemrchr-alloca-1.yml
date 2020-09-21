@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: openbsd_cmemrchr-alloca_true-termination.c.i
 input_files: 'openbsd_cmemrchr-alloca-1.i'

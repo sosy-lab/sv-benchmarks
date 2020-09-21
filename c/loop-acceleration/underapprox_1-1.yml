@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: underapprox_false-unreach-call1_true-termination.c
 input_files: 'underapprox_1-1.c'

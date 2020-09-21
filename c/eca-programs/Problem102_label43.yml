@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: Problem102_label43_false-unreach-call.c
 input_files: 'Problem102_label43.c'

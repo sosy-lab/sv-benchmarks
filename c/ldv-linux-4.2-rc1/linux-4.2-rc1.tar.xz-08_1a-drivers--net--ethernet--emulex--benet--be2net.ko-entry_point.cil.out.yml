@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-4.2-rc1.tar.xz-08_1a-drivers--net--ethernet--emulex--benet--be2net.ko-entry_point_true-unreach-call.cil.out.i
 input_files: 'linux-4.2-rc1.tar.xz-08_1a-drivers--net--ethernet--emulex--benet--be2net.ko-entry_point.cil.out.i'

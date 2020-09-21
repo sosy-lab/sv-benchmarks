@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: filter1_true-unreach-call.c.p+cfa-reducer.c
 input_files: 'filter1.c.p+cfa-reducer.c'

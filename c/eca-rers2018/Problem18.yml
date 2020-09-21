@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 input_files: Problem18.c
 properties:
   - property_file: properties/unreach-call-0.prp

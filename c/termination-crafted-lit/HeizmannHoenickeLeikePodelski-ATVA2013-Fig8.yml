@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: HeizmannHoenickeLeikePodelski-ATVA2013-Fig8_false-no-overflow.c
 input_files: 'HeizmannHoenickeLeikePodelski-ATVA2013-Fig8.c'

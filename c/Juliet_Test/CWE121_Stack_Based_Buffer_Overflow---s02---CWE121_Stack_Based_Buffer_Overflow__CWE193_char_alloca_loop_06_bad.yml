@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'CWE121_Stack_Based_Buffer_Overflow---s02---CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_loop_06_bad.i'
 

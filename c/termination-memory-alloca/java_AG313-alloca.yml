@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: java_AG313-alloca_true-termination.c.i
 input_files: 'java_AG313-alloca.i'

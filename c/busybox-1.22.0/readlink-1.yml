@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: readlink_false-no-overflow.i
 input_files: 'readlink-1.i'

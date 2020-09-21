@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: count_up_and_down_alloca_true-termination.c.i
 input_files: 'count_up_and_down_alloca.i'

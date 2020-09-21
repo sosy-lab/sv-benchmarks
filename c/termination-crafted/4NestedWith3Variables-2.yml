@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: 4NestedWith3Variables_false-no-overflow.c
 input_files: '4NestedWith3Variables-2.c'

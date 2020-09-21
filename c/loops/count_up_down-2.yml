@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: count_up_down_false-unreach-call_true-termination.c
 input_files: 'count_up_down-2.c'

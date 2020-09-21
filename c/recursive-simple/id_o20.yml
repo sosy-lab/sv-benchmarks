@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: id_o20_false-unreach-call_true-termination_true-no-overflow.c
 input_files: 'id_o20.c'

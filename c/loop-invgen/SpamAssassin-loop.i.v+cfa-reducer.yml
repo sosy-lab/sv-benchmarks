@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: SpamAssassin-loop_true-unreach-call.i.v+cfa-reducer.c
 input_files: 'SpamAssassin-loop.i.v+cfa-reducer.c'

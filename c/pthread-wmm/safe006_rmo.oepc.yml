@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: safe006_rmo.oepc_false-unreach-call.i
 input_files: 'safe006_rmo.oepc.i'

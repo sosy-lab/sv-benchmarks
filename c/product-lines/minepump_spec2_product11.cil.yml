@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: minepump_spec2_product11_true-unreach-call_false-termination.cil.c
 input_files: 'minepump_spec2_product11.cil.c'

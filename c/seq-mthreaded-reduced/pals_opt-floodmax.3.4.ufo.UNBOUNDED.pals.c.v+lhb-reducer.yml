@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: pals_opt-floodmax.3_false-unreach-call.4.ufo.UNBOUNDED.pals.c.v+lhb-reducer.c
 input_files: 'pals_opt-floodmax.3.4.ufo.UNBOUNDED.pals.c.v+lhb-reducer.c'

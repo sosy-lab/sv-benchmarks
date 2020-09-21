@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i'

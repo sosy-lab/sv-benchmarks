@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: copy-3-n-u_true-unreach-call.c
 input_files: 'copy-3-n-u.c'

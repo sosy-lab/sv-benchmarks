@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: avg10_false-def-behavior.i
 input_files: 'avg10-1.i'

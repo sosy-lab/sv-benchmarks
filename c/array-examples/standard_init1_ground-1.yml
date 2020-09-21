@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: standard_init1_false-unreach-call_ground.i
 input_files: 'standard_init1_ground-1.i'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: Cairo_step2_true-no-overflow_false-termination_true-valid-memsafety.c
 input_files: 'Cairo_step2-3.c'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: list_and_tree_cnstr_true-unreach-call_false-termination.i
 input_files: 'list_and_tree_cnstr-2.i'

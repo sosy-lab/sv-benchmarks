@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: rangesum05_false-unreach-call_true-termination.i
 input_files: 'rangesum05.i'

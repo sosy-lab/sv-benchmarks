@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: add_first_alloca_true-termination.c.i
 input_files: 'add_first_alloca.i'

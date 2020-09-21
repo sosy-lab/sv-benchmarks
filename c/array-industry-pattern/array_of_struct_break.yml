@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: array_of_struct_break_true-unreach-call.i
 input_files: 'array_of_struct_break.i'

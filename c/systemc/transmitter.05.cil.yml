@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: transmitter.05_false-unreach-call_false-termination.cil.c
 input_files: 'transmitter.05.cil.c'

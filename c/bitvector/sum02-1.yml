@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: sum02_false-unreach-call_true-no-overflow.c
 input_files: 'sum02-1.c'

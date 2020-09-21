@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: optional_data_creation_test04_false-valid-memtrack.i
 input_files: 'optional_data_creation_test04-1.i'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: PodelskiRybalchenko-TACAS2011-Fig1_true-termination_true-no-overflow.c
 input_files: 'PodelskiRybalchenko-TACAS2011-Fig1.c'

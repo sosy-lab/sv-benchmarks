@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: s3_srvr.blast.11_true-unreach-call.i.cil.c
 input_files: 's3_srvr.blast.11.i.cil-2.c'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: terminator_03_true-unreach-call_true-termination.i
 input_files: 'terminator_03-2.i'

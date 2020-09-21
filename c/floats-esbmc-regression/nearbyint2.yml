@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: nearbyint2_true-unreach-call.i
 input_files: 'nearbyint2.i'

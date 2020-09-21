@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: pals_lcr-var-start-time.5_false-unreach-call.1.ufo.BOUNDED-10.pals_true-termination.c
 input_files: 'pals_lcr-var-start-time.5.1.ufo.BOUNDED-10.pals.c'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: memleaks_test14_2_false-valid-memtrack.i
 input_files: 'memleaks_test14_2.i'

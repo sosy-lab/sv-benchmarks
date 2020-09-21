@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: jm2006_true-unreach-call.c.i.v+cfa-reducer.c
 input_files: 'jm2006.c.i.v+cfa-reducer.c'

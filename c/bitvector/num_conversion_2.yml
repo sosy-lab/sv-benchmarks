@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: num_conversion_2_true-unreach-call_true-no-overflow.c
 input_files: 'num_conversion_2.c'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: psyco_cev_1_false-unreach-call.c
 input_files: 'psyco_cev_1.c'

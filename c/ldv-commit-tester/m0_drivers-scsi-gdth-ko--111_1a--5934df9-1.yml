@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: m0_false-unreach-call_drivers-scsi-gdth-ko--111_1a--5934df9-1.i
 input_files: 'm0_drivers-scsi-gdth-ko--111_1a--5934df9-1.i'

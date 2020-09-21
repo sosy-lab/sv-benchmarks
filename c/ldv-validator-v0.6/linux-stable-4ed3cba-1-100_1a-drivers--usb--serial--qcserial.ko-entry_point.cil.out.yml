@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: linux-stable-4ed3cba-1-100_1a-drivers--usb--serial--qcserial.ko-entry_point_false-unreach-call.cil.out.i
 input_files: 'linux-stable-4ed3cba-1-100_1a-drivers--usb--serial--qcserial.ko-entry_point.cil.out.i'

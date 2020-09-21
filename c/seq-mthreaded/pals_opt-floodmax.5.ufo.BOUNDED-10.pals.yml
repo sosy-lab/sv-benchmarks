@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: pals_opt-floodmax.5_true-unreach-call.ufo.BOUNDED-10.pals_true-termination.c
 input_files: 'pals_opt-floodmax.5.ufo.BOUNDED-10.pals.c'

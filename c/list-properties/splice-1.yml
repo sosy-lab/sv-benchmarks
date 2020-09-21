@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: splice_false-unreach-call_false-valid-memcleanup.i
 input_files: 'splice-1.i'

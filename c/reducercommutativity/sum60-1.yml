@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: sum60_false-def-behavior.i
 input_files: 'sum60-1.i'

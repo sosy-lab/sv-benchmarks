@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: ColonSipma-TACAS2001-Fig1_false-no-overflow.c
 input_files: 'ColonSipma-TACAS2001-Fig1.c'

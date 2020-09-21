@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: memsetNonZero_false-valid-deref-write.c
 input_files: 'memsetNonZero_-write.c'

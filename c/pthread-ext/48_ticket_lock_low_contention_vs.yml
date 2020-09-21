@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: 48_ticket_lock_low_contention_vs_true-unreach-call.i
 input_files: '48_ticket_lock_low_contention_vs.i'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: nondet-loop-bound_true-unreach-call.i
 input_files: 'nondet-loop-bound-2.i'

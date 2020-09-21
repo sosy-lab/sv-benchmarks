@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: nondet_ll_search-alloca_false-termination.c.i
 input_files: 'nondet_ll_search-alloca-1.i'

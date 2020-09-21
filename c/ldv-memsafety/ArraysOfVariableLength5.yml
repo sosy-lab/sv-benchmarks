@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: ArraysOfVariableLength5_true-valid-memsafety.c
 input_files: 'ArraysOfVariableLength5.c'

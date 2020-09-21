@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: Nyala-2lex_false-def-behavior.c
 input_files: 'Nyala-2lex-1.c'

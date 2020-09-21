@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: test_while_int_true-termination.c_false-unreach-call.i
 input_files: 'test_while_int.i'

@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: uudecode_false-no-overflow.i
 input_files: 'uudecode-2.i'

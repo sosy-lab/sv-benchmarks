@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: fibo_2calls_5_false-unreach-call_true-termination.c
 input_files: 'fibo_2calls_5-2.c'

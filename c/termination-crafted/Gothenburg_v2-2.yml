@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: Gothenburg_v2_false-no-overflow.c
 input_files: 'Gothenburg_v2-2.c'

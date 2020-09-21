@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: BradleyMannaSipma-CAV2005-Fig1-modified_false-termination_true-no-overflow.c
 input_files: 'BradleyMannaSipma-CAV2005-Fig1-modified.c'

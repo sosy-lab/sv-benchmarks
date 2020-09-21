@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: safe008_tso.oepc_true-unreach-call.i
 input_files: 'safe008_tso.oepc.i'

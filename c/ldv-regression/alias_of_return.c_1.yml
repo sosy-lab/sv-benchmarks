@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: alias_of_return_true-termination.c_true-unreach-call_1.i
 input_files: 'alias_of_return.c_1.i'

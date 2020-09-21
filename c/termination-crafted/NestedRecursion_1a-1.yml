@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: NestedRecursion_1a_false-no-overflow.c
 input_files: 'NestedRecursion_1a-1.c'

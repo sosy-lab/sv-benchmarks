@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: test-0513_true-valid-memsafety.i
 input_files: 'test-0513.i'

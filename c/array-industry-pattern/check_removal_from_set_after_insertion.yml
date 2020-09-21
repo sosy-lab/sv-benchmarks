@@ -1,4 +1,4 @@
-format_version: '1.1'
+format_version: '2.0'
 
 # old file name: check_removal_from_set_after_insertion_false-unreach-call.c
 input_files: 'check_removal_from_set_after_insertion.c'
