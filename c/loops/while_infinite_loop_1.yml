@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: while_infinite_loop_1_true-unreach-call_false-termination.c
 input_files: 'while_infinite_loop_1.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: false
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

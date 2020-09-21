@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: s3_srvr_6_false-unreach-call_false-termination.cil.c
 input_files: 's3_srvr_6.cil-1.c'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: false
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

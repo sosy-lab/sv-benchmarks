@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: b.03-no-inv_assume-alloca_true-termination_true-no-overflow.c.i
 input_files: 'b.03-no-inv_assume-alloca.i'
@@ -11,3 +11,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: LP64

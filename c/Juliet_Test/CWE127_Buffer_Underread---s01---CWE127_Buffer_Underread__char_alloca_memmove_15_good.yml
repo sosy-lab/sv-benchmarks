@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '2.0'
 
 input_files: 'CWE127_Buffer_Underread---s01---CWE127_Buffer_Underread__char_alloca_memmove_15_good.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: LP64

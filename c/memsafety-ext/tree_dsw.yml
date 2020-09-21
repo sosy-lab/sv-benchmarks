@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: tree_dsw_true-valid-memsafety_false-termination.i
 input_files: 'tree_dsw.i'
@@ -8,3 +8,7 @@ properties:
     expected_verdict: false
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32
