@@ -15,7 +15,7 @@ public class Main {
         char c8 = Verifier.nondetChar();
         DumpXML d = new DumpXML();
         int out1 = d.mainProcess(c0, c1, c2, c3, c4, c5, c6, c7, c8);
-        d.numIdentifiers = 0; // commenting this line out causes the equivalence check to fail
+        DumpXML.numIdentifiers = 0; // commenting this line out causes the equivalence check to fail
         int out2 = d.mainProcess(c0, c1, c2, c3, c4, c5, c6, c7, c8);
         checkEquality(out1, out2);
     }
