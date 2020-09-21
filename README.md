@@ -140,7 +140,7 @@ For each program, the repository contains a .yml file that specifies the followi
     each consisting of the following items:
     - `property_file`: file that contains a property definition
       (cf. common property files [for C][C-props] and [for Java][Java-props])
-    - `expected_verdict`: the intended verification result (`true` or `false`)
+    - `expected_verdict`: the intended verification result (`true` or `false`, optional for coverage properties)
     - `subproperty` (optional): a subproperty of the property that is violated
       in cases where the property is a conjunction of subproperties (for verdict `false`)
   - `options`: parameters that are relevant for verification or give extra information:
