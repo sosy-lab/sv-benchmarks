@@ -1,0 +1,67 @@
+format_version: '1.0'
+
+input_files: 'linux-4.0-rc1---drivers--infiniband--ulp--srp--ib_srp.ko.cil.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: properties/unreach-call-usb_urb.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-net_register.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_rcu_update_lock_bh.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-alloc_spinlock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-block_queue.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-usb_register.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-drivers_base_class.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_locking_spinlock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_rcu_update_lock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_module.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-fs_sysfs.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-fs_char_dev.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_rcu_update_lock_sched.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_locking_rwlock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-alloc_irq.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-arch_io.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-block_genhd.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-mmc_sdio_func.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-net_sock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-usb_gadget.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-block_request.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-net_rtnetlink.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_sched_completion.prp
+    expected_verdict: false
+  - property_file: properties/unreach-call-usb_dev.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_rcu_srcu.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-kernel_locking_mutex.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-lib_find_bit.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-lib_idr.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-alloc_usb_lock.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-usb_coherent.prp
+    expected_verdict: true

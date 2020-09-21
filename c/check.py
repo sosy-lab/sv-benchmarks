@@ -30,7 +30,7 @@ README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
 BENCHMARK_PATTERN = re.compile('^.*\.yml$')
 EXPECTED_FILE_PATTERN = re.compile(
-    '^(.*\.(c|h|i|verdict|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile|.gitignore)$',
+    '^(.*\.(c|h|i|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile|.gitignore)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
 PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
@@ -39,9 +39,43 @@ PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", 
 for i in range(100):
     PROPERTIES.add("unreach-call-%d" % i)
 
-# Ignore ldv-multiproperty and regression
+# properties of ldv-multiproperty
+PROPERTIES |= {
+    "unreach-call-alloc_irq",
+    "unreach-call-alloc_spinlock",
+    "unreach-call-alloc_usb_lock",
+    "unreach-call-arch_io",
+    "unreach-call-block_genhd",
+    "unreach-call-block_queue",
+    "unreach-call-block_request",
+    "unreach-call-drivers_base_class",
+    "unreach-call-fs_char_dev",
+    "unreach-call-fs_sysfs",
+    "unreach-call-kernel_locking_mutex",
+    "unreach-call-kernel_locking_rwlock",
+    "unreach-call-kernel_locking_spinlock",
+    "unreach-call-kernel_module",
+    "unreach-call-kernel_rcu_srcu",
+    "unreach-call-kernel_rcu_update_lock",
+    "unreach-call-kernel_rcu_update_lock_bh",
+    "unreach-call-kernel_rcu_update_lock_sched",
+    "unreach-call-kernel_sched_completion",
+    "unreach-call-lib_find_bit",
+    "unreach-call-lib_idr",
+    "unreach-call-mmc_sdio_func",
+    "unreach-call-net_register",
+    "unreach-call-net_rtnetlink",
+    "unreach-call-net_sock",
+    "unreach-call-usb_coherent",
+    "unreach-call-usb_dev",
+    "unreach-call-usb_gadget",
+    "unreach-call-usb_register",
+    "unreach-call-usb_urb",
+}
+
+# Ignore regression
 # as long as no yml-task definitions exist for the tasks in these directories
-IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
+IGNORED_DIRECTORIES = set(["properties", "regression"])
 """Directories which are completely ignored by this script"""
 
 UNUSED_DIRECTORIES = set(["ldv-multiproperty", "regression"])
@@ -86,7 +120,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
-    ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
 
     ("eca-rers2018", "unexpected file RERS_18_solutions_dot_petri.csv"),
     ("eca-rers2018", "unexpected file createYml.py"),
@@ -127,29 +160,6 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ("termination-crafted/NonTermination3-1.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("termination-numeric/Binomial.yml", "has expected undefined behavior but also a verdict for some other property"),
     ("termination-numeric/TerminatorRec02.yml", "has expected undefined behavior but also a verdict for some other property"),
-
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--char--ipmi--ipmi_msghandler.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--applesmc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--nct6775.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--rc--lirc_dev.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--mmc--card--mmc_test.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--mtd--devices--docg3.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--atheros--atl1e--atl1e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--dec--tulip--dmfe.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--ethoc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--icplus--ipg.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--intel--igbvf--igbvf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--wireless--rtl818x--rtl8180--rtl818x_pci.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--scsi--BusLogic.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--usb--host--u132-hcd.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--vme--bridges--vme_ca91cx42.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---drivers--xen--xen-pciback--xen-pciback.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---fs--nfs--nfsv2.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---fs--squashfs--squashfs.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---net--rose--rose.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
-    ("ldv-multiproperty/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
 
     ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca.yml", "has unknown property alloca"),
     ("termination-memory-alloca/aviad_true-alloca.yml", "has unknown property alloca"),
