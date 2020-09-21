@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /*
  * Create NULL-terminated dll of size 2: 1-1

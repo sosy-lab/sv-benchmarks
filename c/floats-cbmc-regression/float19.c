@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 #include <math.h>

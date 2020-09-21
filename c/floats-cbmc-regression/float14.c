@@ -1,5 +1,5 @@
 #include <math.h>
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int main()
 {

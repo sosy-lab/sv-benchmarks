@@ -4,7 +4,7 @@
  * It implements partial copy and 
  * check property accordingly
  */
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: {reach_error();abort();} } }
 int __VERIFIER_nondet_int();

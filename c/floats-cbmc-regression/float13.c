@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 const float plus_infinity = 1.0f/0.0f;

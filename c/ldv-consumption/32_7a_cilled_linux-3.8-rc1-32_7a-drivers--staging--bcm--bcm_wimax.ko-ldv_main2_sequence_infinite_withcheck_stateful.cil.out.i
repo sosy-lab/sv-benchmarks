@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -6862,8 +6862,8 @@ extern void __wake_up(wait_queue_head_t * , unsigned int , int , void * ) ;
 extern ssize_t vfs_read(struct file * , char * , size_t , loff_t * ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

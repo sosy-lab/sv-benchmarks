@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 extern long __VERIFIER_nondet_long(void);

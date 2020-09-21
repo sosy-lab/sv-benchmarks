@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "Static Analysis of Numerical Algorithms", by
    Goubault and Putot. Published in SAS 06.
@@ -8,8 +8,8 @@ void reach_error(){}
 
 
 extern double __VERIFIER_nondet_double();
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }

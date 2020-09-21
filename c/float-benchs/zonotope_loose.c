@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "A Logical Product Approach to Zonotope Intersection", by
    Ghorbal, Goubault, Putot, published in CAV 10.
@@ -6,8 +6,8 @@ void reach_error(){}
 
 
 extern double __VERIFIER_nondet_double();
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }

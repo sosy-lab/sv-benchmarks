@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -3224,8 +3224,8 @@ extern int i2c_transfer(struct i2c_adapter *adap , struct i2c_msg *msgs , int nu
 extern struct kernel_param_ops param_ops_int ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

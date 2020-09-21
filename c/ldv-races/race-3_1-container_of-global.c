@@ -13,7 +13,7 @@
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 #endif
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }

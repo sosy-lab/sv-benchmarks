@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 extern unsigned short __VERIFIER_nondet_ushort(void);

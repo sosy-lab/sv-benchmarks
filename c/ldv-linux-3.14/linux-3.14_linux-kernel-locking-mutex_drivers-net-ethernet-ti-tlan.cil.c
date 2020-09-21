@@ -11972,7 +11972,7 @@ void ldv_check_final_state(void)
   return;
 }
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr ) 
 { 

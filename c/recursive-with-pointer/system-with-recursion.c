@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef struct identify_s {
   int id1;

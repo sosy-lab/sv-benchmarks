@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 /**********************************************************************
@@ -94,8 +94,8 @@ unsigned char __startrek_hyper_period  ;
 #pragma merger(0,"/tmp/aaaa/aso.bug3.i","-S")
 extern void __startrek_cpu_lock(void) ;
 extern void __startrek_cpu_unlock(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void assert(_Bool arg) { if (!arg) { ERROR: {reach_error();abort();}} }

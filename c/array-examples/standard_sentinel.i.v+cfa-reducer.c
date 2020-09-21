@@ -1,5 +1,5 @@
 int __return_main;
-void abort(void); 
+void abort(void);
 void reach_error(){}
 int __VERIFIER_nondet_int();
 void __VERIFIER_assert(int cond);

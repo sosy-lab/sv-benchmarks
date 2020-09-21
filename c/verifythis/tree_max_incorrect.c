@@ -4,7 +4,7 @@ extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int cond) {
     if(!cond) {reach_error();abort();}

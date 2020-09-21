@@ -3573,8 +3573,8 @@ int ldv_post_probe(int probe_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
 extern int ldv_failed_usb_register_driver(void) ;
 void ldv_check_final_state(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 int ldv_undef_int(void) ;
@@ -6593,7 +6593,7 @@ int ldv_undef_int_nonpositive(void)
   return (ret);
 }
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;

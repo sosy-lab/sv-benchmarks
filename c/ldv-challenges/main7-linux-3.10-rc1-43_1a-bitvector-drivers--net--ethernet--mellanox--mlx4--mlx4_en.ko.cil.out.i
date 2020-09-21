@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct __va_list_tag;
 typedef struct __va_list_tag __va_list_tag;
@@ -7427,8 +7427,8 @@ void *ldv_vmalloc_73(unsigned long ldv_func_arg1 ) ;
 extern void vfree(void const * ) ;
 unsigned long ldv___get_free_pages_52(gfp_t flags , unsigned int ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

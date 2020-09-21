@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 int sum(int n, int m) {

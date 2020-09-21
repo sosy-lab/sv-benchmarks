@@ -1,5 +1,5 @@
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern unsigned long __VERIFIER_nondet_ulong(void);
@@ -86,7 +86,7 @@ whether _a_ contains _pat_ in the above relaxed sense, i.e., whether
 _pat_ is a relaxed prefix of any suffix of _a_.
 */
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 void __VERIFIER_assert(int cond) {

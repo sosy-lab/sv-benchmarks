@@ -13,7 +13,7 @@
 #define N 10
 #define fun sep
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 int sep (int x[N])

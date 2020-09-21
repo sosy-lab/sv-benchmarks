@@ -1,11 +1,11 @@
 extern int __VERIFIER_nondet_int(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned int size_t;
 typedef long int wchar_t;

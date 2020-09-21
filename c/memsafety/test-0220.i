@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned int size_t;
 typedef long int wchar_t;

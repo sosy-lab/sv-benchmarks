@@ -1,7 +1,7 @@
 #define N 1000
 #define fun bAnd
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int __VERIFIER_nondet_int();
 

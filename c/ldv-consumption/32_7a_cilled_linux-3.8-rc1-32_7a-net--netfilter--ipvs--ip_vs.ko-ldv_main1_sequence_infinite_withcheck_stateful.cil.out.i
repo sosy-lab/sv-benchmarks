@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -13311,8 +13311,8 @@ extern int proc_dointvec_jiffies(struct ctl_table * , int , void * , size_t * , 
 extern bool try_module_get(struct module * ) ;
 extern bool ns_capable(struct user_namespace * , int ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

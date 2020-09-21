@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 /* Example from "Abstract Domains for Bit-Level Machine Integer and
    Floating-point Operations" by Miné, published in WING 12.

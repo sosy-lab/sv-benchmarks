@@ -13,7 +13,7 @@
 #define N 20
 #define fun max
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 int max (int x[N])

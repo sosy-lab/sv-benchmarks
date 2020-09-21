@@ -13,7 +13,7 @@
 #define N 40
 #define fun avg
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 int avg (int x[N])

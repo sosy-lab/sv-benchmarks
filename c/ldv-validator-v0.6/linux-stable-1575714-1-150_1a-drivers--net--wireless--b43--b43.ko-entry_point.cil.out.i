@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct __va_list_tag;
 typedef struct __va_list_tag __va_list_tag;
@@ -6640,8 +6640,8 @@ extern u32 __VERIFIER_nondet_u32(void) ;
 extern u16 __VERIFIER_nondet_u16(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 __inline static long IS_ERR(void const *ptr ) ;

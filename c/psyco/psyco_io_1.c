@@ -1,5 +1,5 @@
 int __VERIFIER_nondet_int();
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 // method ids

@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 struct kernel_symbol {
    unsigned long value ;
@@ -7308,8 +7308,8 @@ extern u16 __VERIFIER_nondet_u16(void) ;
 extern u8 __VERIFIER_nondet_u8(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 __inline static bool IS_ERR(void const *ptr ) ;

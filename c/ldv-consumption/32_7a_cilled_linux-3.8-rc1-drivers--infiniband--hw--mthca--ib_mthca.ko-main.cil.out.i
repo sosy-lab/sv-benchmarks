@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u8;
 typedef unsigned short __u16;
@@ -5981,8 +5981,8 @@ extern void *dma_pool_alloc(struct dma_pool * , gfp_t , dma_addr_t * ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

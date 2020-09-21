@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u8;
 typedef short __s16;
@@ -3793,8 +3793,8 @@ extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern unsigned char __VERIFIER_nondet_uchar();
 extern unsigned int __VERIFIER_nondet_uint();
 extern _Bool __VERIFIER_nondet_bool(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void *ldv_successful_malloc(size_t __size) {

@@ -1,9 +1,9 @@
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern _Bool __VERIFIER_nondet_bool(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();} }; return; }
 extern void __VERIFIER_atomic_begin();

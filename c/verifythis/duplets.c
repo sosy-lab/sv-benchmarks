@@ -3,15 +3,15 @@
 
 extern void *calloc(unsigned int nmemb, unsigned int size);
 extern void free(void *);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void __VERIFIER_assert(int cond) {
     if(!cond) {reach_error();abort();}
 }
 
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 

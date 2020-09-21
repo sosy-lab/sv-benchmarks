@@ -1,7 +1,7 @@
 #define N 100
 #define fun mapavg
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int __VERIFIER_nondet_int();
 

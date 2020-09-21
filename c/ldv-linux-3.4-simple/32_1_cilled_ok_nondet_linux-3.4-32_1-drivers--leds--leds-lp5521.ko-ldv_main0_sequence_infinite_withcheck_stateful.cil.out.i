@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef unsigned char __u8;
 typedef unsigned short __u16;
@@ -2249,8 +2249,8 @@ extern int led_classdev_register(struct device *parent , struct led_classdev *le
 extern void led_classdev_unregister(struct led_classdev *led_cdev ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

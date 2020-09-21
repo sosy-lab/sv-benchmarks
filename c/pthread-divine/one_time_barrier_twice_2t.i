@@ -682,7 +682,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void abort(void); 
+void abort(void);
 void reach_error(){}
 typedef struct _barrier {
     int thread_count;

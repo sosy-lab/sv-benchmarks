@@ -19758,7 +19758,7 @@ int ldv_exclusive_spin_is_locked(void)
   return (0);
 }
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(int expr )
 {

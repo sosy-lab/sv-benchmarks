@@ -1,5 +1,5 @@
 int calculate_output(int);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);

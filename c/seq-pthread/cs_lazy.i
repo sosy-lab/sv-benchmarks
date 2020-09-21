@@ -1,5 +1,5 @@
 extern void abort(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 
 extern void __assert_fail (const char *__assertion, const char *__file,

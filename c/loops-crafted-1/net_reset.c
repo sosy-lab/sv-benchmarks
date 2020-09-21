@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int __tmpTR__int_1;
 struct timeval;

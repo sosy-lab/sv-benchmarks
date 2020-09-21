@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }

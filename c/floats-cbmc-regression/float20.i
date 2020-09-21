@@ -1,5 +1,5 @@
 extern void abort(void);
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 extern double __VERIFIER_nondet_double(void);

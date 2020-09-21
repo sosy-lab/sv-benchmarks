@@ -1,4 +1,4 @@
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 extern char __VERIFIER_nondet_char();
 void __VERIFIER_assert(int cond) {
