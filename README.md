@@ -133,7 +133,7 @@ currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-
 In order to obtain verification tasks from the programs and specifications in the repository,
 a simple task-definition mechanism is used.
 For each program, the repository contains a .yml file that specifies the following items:
-  - `format_version`: the version of the format (a version string. One of `1.0`, `1.1`)
+  - `format_version`: the version of the format (a version string. One of `1.0`, `2.0`)
   - `input_files`: the subject program files or directories
     (a file or directory name, or a list of files or directory names, that the program consists of)
   - `properties`: the properties that constitute the specification of the program,
@@ -153,11 +153,11 @@ For each program, the repository contains a .yml file that specifies the followi
   
 The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
 and contains a description of the format with an example in Sect. 4 and Fig. 3.
-Format 1.1 adds the `options` dictionary.
+Format 2.0 adds the `options` dictionary.
 Here as example an extract of the task-definition file [c/list-properties/list-1.yml]:
 
 ```
-format_version: '1.1'
+format_version: '2.0'
 
 input_files: 'list-1.i'
 
