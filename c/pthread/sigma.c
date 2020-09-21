@@ -3,7 +3,8 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #include <stdlib.h>
 #include <pthread.h>

@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Append node with data = 5. Check result: 1-1-5

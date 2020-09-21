@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "minepump_spec4_product52.cil.c", 3, "reach_error"); }
 
 extern int __VERIFIER_nondet_int(void);
 extern int printf (__const char *__restrict __format, ...);
