@@ -47,7 +47,7 @@ IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
 UNUSED_DIRECTORIES = set(["ldv-multiproperty", "regression"])
 """Directories which expected to contain tasks that are not included in any category"""
 
-EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties"])
+EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties", "original"])
 """Directories that can appear inside directories with tasks but contain other files"""
 
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
@@ -114,6 +114,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file makeall"),
     ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
     ("aws-c-common", "unexpected file yml.sh"),
+    ("xcsp", "unexpected file create_from_xmls.py")
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [

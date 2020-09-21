@@ -1,0 +1,402 @@
+<instance format="XCSP3" type="CSP">
+  <variables>
+    <array id="x" size="[200]"> 0 1 </array>
+  </variables>
+  <constraints>
+    <extension>
+      <list> x[65] x[101] x[162] </list>
+      <conflicts> (0,1,0)(0,1,1) </conflicts>
+    </extension>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (0,0,0) </conflicts>
+      </extension>
+      <args> x[42] x[168] x[173] </args>
+      <args> x[47] x[134] x[143] </args>
+      <args> x[122] x[129] x[137] </args>
+      <args> x[172] x[188..189] </args>
+      <args> x[121] x[131] x[189] </args>
+      <args> x[65] x[101] x[114] </args>
+      <args> x[5] x[57] x[179] </args>
+      <args> x[94] x[106] x[168] </args>
+      <args> x[15] x[50] x[119] </args>
+      <args> x[11] x[103] x[106] </args>
+      <args> x[37] x[150] x[176] </args>
+      <args> x[54] x[77] x[150] </args>
+      <args> x[21] x[34] x[193] </args>
+      <args> x[126] x[162] x[196] </args>
+      <args> x[9] x[29] x[66] </args>
+      <args> x[130] x[137] x[146] </args>
+      <args> x[58] x[75] x[136] </args>
+      <args> x[91] x[95] x[184] </args>
+      <args> x[100] x[135] x[151] </args>
+      <args> x[24] x[85] x[146] </args>
+      <args> x[0] x[133] x[155] </args>
+      <args> x[36] x[44] x[64] </args>
+      <args> x[17] x[35] x[170] </args>
+      <args> x[17] x[31] x[181] </args>
+      <args> x[76] x[153] x[199] </args>
+      <args> x[120] x[167] x[198] </args>
+      <args> x[16] x[107] x[141] </args>
+      <args> x[125] x[149] x[171] </args>
+      <args> x[139] x[147] x[151] </args>
+      <args> x[110] x[140] x[166] </args>
+      <args> x[29] x[33] x[153] </args>
+      <args> x[67] x[136] x[156] </args>
+      <args> x[29] x[85] x[110] </args>
+      <args> x[35] x[46] x[186] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (1,1,1) </conflicts>
+      </extension>
+      <args> x[60] x[69] x[96] </args>
+      <args> x[47] x[67] x[171] </args>
+      <args> x[73] x[123] x[158] </args>
+      <args> x[109] x[121] x[172] </args>
+      <args> x[65] x[140] x[145] </args>
+      <args> x[48] x[117] x[154] </args>
+      <args> x[48] x[115] x[178] </args>
+      <args> x[24] x[57] x[106] </args>
+      <args> x[26..27] x[94] </args>
+      <args> x[7] x[59] x[78] </args>
+      <args> x[103] x[125] x[166] </args>
+      <args> x[95] x[99] x[165] </args>
+      <args> x[55] x[137] x[189] </args>
+      <args> x[11] x[112] x[194] </args>
+      <args> x[12] x[98] x[162] </args>
+      <args> x[12] x[96] x[184] </args>
+      <args> x[87] x[106] x[186] </args>
+      <args> x[38] x[102] x[197] </args>
+      <args> x[59] x[65] x[70] </args>
+      <args> x[84] x[144] x[152] </args>
+      <args> x[8] x[121] x[185] </args>
+      <args> x[25] x[76] x[105] </args>
+      <args> x[49] x[68] x[186] </args>
+      <args> x[116] x[157] x[167] </args>
+      <args> x[10] x[56] x[77] </args>
+      <args> x[6] x[146] x[153] </args>
+      <args> x[71] x[112] x[161] </args>
+      <args> x[71] x[112] x[157] </args>
+      <args> x[32] x[82] x[194] </args>
+      <args> x[48] x[88] x[190] </args>
+      <args> x[80] x[104] x[193] </args>
+      <args> x[119] x[141] x[190] </args>
+      <args> x[45] x[132] x[183] </args>
+      <args> x[35] x[130] x[178] </args>
+      <args> x[14] x[72] x[155] </args>
+      <args> x[22] x[63] x[93] </args>
+      <args> x[85] x[141] x[164] </args>
+      <args> x[80] x[97] x[127] </args>
+      <args> x[17] x[22] x[131] </args>
+      <args> x[22] x[24] x[83] </args>
+      <args> x[3] x[61] x[131] </args>
+      <args> x[52] x[79] x[197] </args>
+    </group>
+    <extension>
+      <list> x[61] x[100] </list>
+      <conflicts> (1,0) </conflicts>
+    </extension>
+    <extension>
+      <list> x[88] x[123] x[156] </list>
+      <conflicts> (0,0,1)(0,1,1) </conflicts>
+    </extension>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (1,0,1) </conflicts>
+      </extension>
+      <args> x[122] x[129] x[143] </args>
+      <args> x[129] x[137] x[171] </args>
+      <args> x[171] x[173..174] </args>
+      <args> x[27] x[94] x[168] </args>
+      <args> x[32] x[52] x[99] </args>
+      <args> x[52] x[95] x[166] </args>
+      <args> x[81] x[108] x[118] </args>
+      <args> x[53] x[118] x[157] </args>
+      <args> x[18] x[68] x[192] </args>
+      <args> x[18] x[80] x[192] </args>
+      <args> x[70] x[128] x[151] </args>
+      <args> x[124] x[183] x[198] </args>
+      <args> x[26] x[32] x[113] </args>
+      <args> x[68] x[170] x[186] </args>
+      <args> x[3] x[22] x[155] </args>
+      <args> x[64] x[91] x[182] </args>
+      <args> x[47] x[70] x[195] </args>
+      <args> x[0] x[25] x[170] </args>
+      <args> x[33] x[84] x[122] </args>
+      <args> x[39] x[87] x[151] </args>
+      <args> x[53] x[184] x[195] </args>
+      <args> x[100] x[104] x[193] </args>
+      <args> x[4] x[14] x[192] </args>
+      <args> x[23] x[104] x[159] </args>
+      <args> x[10] x[97] x[122] </args>
+      <args> x[4] x[69] x[198] </args>
+      <args> x[20] x[81] x[88] </args>
+      <args> x[31] x[71] x[159] </args>
+      <args> x[0] x[45] x[133] </args>
+      <args> x[9] x[83] x[91] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (1,0,0) </conflicts>
+      </extension>
+      <args> x[60] x[69] x[117] </args>
+      <args> x[69] x[96] x[171] </args>
+      <args> x[65] x[145] x[191] </args>
+      <args> x[34] x[56] x[117] </args>
+      <args> x[48] x[154] x[178] </args>
+      <args> x[50] x[119] x[142] </args>
+      <args> x[54] x[77] x[140] </args>
+      <args> x[11] x[82] x[112] </args>
+      <args> x[38] x[80] x[199] </args>
+      <args> x[139] x[159] x[182] </args>
+      <args> x[87] x[116] x[125] </args>
+      <args> x[116] x[125] x[134] </args>
+      <args> x[58] x[127] x[162] </args>
+      <args> x[8] x[131] x[148] </args>
+      <args> x[58] x[61] x[138] </args>
+      <args> x[66] x[93] x[113] </args>
+      <args> x[62] x[181] x[194] </args>
+      <args> x[55] x[177] x[184] </args>
+      <args> x[45] x[155] x[163] </args>
+      <args> x[6] x[14] x[107] </args>
+      <args> x[17] x[33] x[102] </args>
+      <args> x[126] x[139] x[195] </args>
+      <args> x[35] x[138] x[185] </args>
+      <args> x[29] x[83] x[147] </args>
+      <args> x[1] x[17] x[145] </args>
+      <args> x[50] x[60] x[180] </args>
+      <args> x[138] x[149] x[181] </args>
+      <args> x[25] x[97] x[102] </args>
+      <args> x[152..154] </args>
+      <args> x[143] x[169] x[196] </args>
+      <args> x[40] x[132] x[198] </args>
+      <args> x[14] x[127] x[176] </args>
+      <args> x[19] x[167] x[198] </args>
+      <args> x[6] x[39] x[125] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (0,1,0) </conflicts>
+      </extension>
+      <args> x[60] x[168] x[171] </args>
+      <args> x[42] x[168] x[171] </args>
+      <args> x[121] x[131] x[188] </args>
+      <args> x[34] x[115] x[117] </args>
+      <args> x[78] x[119] x[142] </args>
+      <args> x[12] x[95] x[165] </args>
+      <args> x[11] x[103] x[158] </args>
+      <args> x[108] x[150] x[176] </args>
+      <args> x[74] x[92] x[144] </args>
+      <args> x[99] x[139] x[192] </args>
+      <args> x[28] x[51] x[77] </args>
+      <args> x[30] x[108] x[174] </args>
+      <args> x[30] x[108..109] </args>
+      <args> x[8] x[113] x[185] </args>
+      <args> x[19] x[65] x[70] </args>
+      <args> x[87] x[174] x[183] </args>
+      <args> x[34] x[113] x[161] </args>
+      <args> x[101] x[138] x[165] </args>
+      <args> x[6] x[77] x[90] </args>
+      <args> x[53] x[84] x[124] </args>
+      <args> x[72] x[83] x[102] </args>
+      <args> x[76] x[146] x[192] </args>
+      <args> x[29] x[79] x[111] </args>
+      <args> x[26] x[127] x[178] </args>
+      <args> x[6] x[39] x[62] </args>
+      <args> x[51] x[134] x[153] </args>
+      <args> x[40] x[62] x[175] </args>
+      <args> x[51] x[110] x[144] </args>
+      <args> x[112] x[163] x[190] </args>
+      <args> x[16..17] x[37] </args>
+      <args> x[88] x[97] x[147] </args>
+      <args> x[6] x[36] x[195] </args>
+      <args> x[36] x[169] x[190] </args>
+      <args> x[3] x[23] x[48] </args>
+      <args> x[40] x[60] x[97] </args>
+      <args> x[7] x[43] x[81] </args>
+      <args> x[166] x[180] x[198] </args>
+      <args> x[1] x[16] x[133] </args>
+      <args> x[10] x[21] x[25] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (1,0,0)(1,1,0) </conflicts>
+      </extension>
+      <args> x[114] x[187] x[191] </args>
+      <args> x[20] x[82] x[164] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (0,1,1) </conflicts>
+      </extension>
+      <args> x[47] x[67] x[134] </args>
+      <args> x[123] x[158] x[173] </args>
+      <args> x[120..121] x[172] </args>
+      <args> x[13] x[109] x[188] </args>
+      <args> x[7] x[148] x[191] </args>
+      <args> x[48] x[115] x[117] </args>
+      <args> x[26..27] x[57] </args>
+      <args> x[7] x[13] x[179] </args>
+      <args> x[15] x[92] x[160] </args>
+      <args> x[20] x[120] x[128] </args>
+      <args> x[64] x[175] x[177] </args>
+      <args> x[44] x[46] x[105] </args>
+      <args> x[54] x[78] x[150] </args>
+      <args> x[43] x[55] x[179] </args>
+      <args> x[6] x[12] x[98] </args>
+      <args> x[19] x[170] x[178] </args>
+      <args> x[96] x[140] x[197] </args>
+      <args> x[0] x[43] x[180] </args>
+      <args> x[58] x[75] x[165] </args>
+      <args> x[28] x[41] x[76] </args>
+      <args> x[10] x[28] x[41] </args>
+      <args> x[56] x[96] x[184] </args>
+      <args> x[1] x[21] x[148] </args>
+      <args> x[79] x[81] x[199] </args>
+      <args> x[89] x[100] x[153] </args>
+      <args> x[63] x[90] x[126] </args>
+      <args> x[46] x[130] x[196] </args>
+      <args> x[35] x[181] x[193] </args>
+      <args> x[39] x[76] x[120] </args>
+      <args> x[39] x[88] x[111] </args>
+      <args> x[62..63] x[74] </args>
+      <args> x[9] x[133] x[136] </args>
+      <args> x[122] x[164] x[185] </args>
+      <args> x[98] x[110] x[163] </args>
+      <args> x[16] x[167] x[181] </args>
+      <args> x[38] x[44] x[169] </args>
+    </group>
+    <extension>
+      <list> x[2] x[73] x[86] </list>
+      <conflicts> (0,0,1)(1,0,1) </conflicts>
+    </extension>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (1,1,0) </conflicts>
+      </extension>
+      <args> x[137] x[171] x[174] </args>
+      <args> x[73] x[86] x[158] </args>
+      <args> x[5] x[13] x[57] </args>
+      <args> x[34] x[56] x[179] </args>
+      <args> x[7] x[38] x[59] </args>
+      <args> x[28] x[37] x[176] </args>
+      <args> x[44] x[90] x[174] </args>
+      <args> x[120] x[142] x[164] </args>
+      <args> x[28] x[51] x[100] </args>
+      <args> x[54] x[140] x[196] </args>
+      <args> x[107] x[137] x[157] </args>
+      <args> x[30] x[49] x[55] </args>
+      <args> x[149] x[155] x[182] </args>
+      <args> x[102] x[172] x[197] </args>
+      <args> x[118] x[140] x[197] </args>
+      <args> x[91] x[145] x[194] </args>
+      <args> x[47] x[63] x[177] </args>
+      <args> x[66] x[94] x[113] </args>
+      <args> x[16] x[52] x[135] </args>
+      <args> x[71] x[146] x[169] </args>
+      <args> x[22] x[75] x[152] </args>
+      <args> x[20] x[126] x[146] </args>
+      <args> x[29] x[83] x[116] </args>
+      <args> x[21] x[111] x[141] </args>
+      <args> x[93] x[164] x[191] </args>
+      <args> x[72] x[135] x[180] </args>
+      <args> x[32..33] x[175] </args>
+      <args> x[127] x[149] x[175] </args>
+      <args> x[44] x[89] x[169] </args>
+      <args> x[85] x[130] x[156] </args>
+      <args> x[9] x[74] x[186] </args>
+      <args> x[32] x[40] x[59] </args>
+      <args> x[101] x[104] x[135] </args>
+      <args> x[36] x[97] x[122] </args>
+      <args> x[51] x[61] x[116] </args>
+      <args> x[30..31] x[185] </args>
+      <args> x[19] x[33] x[100] </args>
+      <args> x[1] x[132] x[180] </args>
+    </group>
+    <extension>
+      <list> x[5] x[42] x[160] </list>
+      <conflicts> (0,1,0)(1,1,0) </conflicts>
+    </extension>
+    <extension>
+      <list> x[2] x[64] x[147] </list>
+      <conflicts> (0,1,1)(1,1,1) </conflicts>
+    </extension>
+    <extension>
+      <list> x[4] x[41] x[161] </list>
+      <conflicts> (0,0,0)(0,0,1) </conflicts>
+    </extension>
+    <extension>
+      <list> x[15] x[78] x[187] </list>
+      <conflicts> (1,0,0)(1,0,1) </conflicts>
+    </extension>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (0,0,1) </conflicts>
+      </extension>
+      <args> x[67] x[143] x[168] </args>
+      <args> x[86] x[160] x[173] </args>
+      <args> x[13] x[109] x[160] </args>
+      <args> x[13] x[188..189] </args>
+      <args> x[114] x[140] x[145] </args>
+      <args> x[86] x[148] x[191] </args>
+      <args> x[24] x[94] x[106] </args>
+      <args> x[92] x[128] x[142] </args>
+      <args> x[78] x[92] x[128] </args>
+      <args> x[38] x[59] x[78] </args>
+      <args> x[99] x[103] x[125] </args>
+      <args> x[12] x[52] x[99] </args>
+      <args> x[74..75] x[144] </args>
+      <args> x[108] x[118] x[187] </args>
+      <args> x[54] x[77] x[118] </args>
+      <args> x[49] x[55] x[179] </args>
+      <args> x[37] x[43] x[55] </args>
+      <args> x[159] x[172] x[182] </args>
+      <args> x[105] x[124] x[154] </args>
+      <args> x[21] x[157] x[193] </args>
+      <args> x[89] x[133] x[176] </args>
+      <args> x[26] x[32] x[46] </args>
+      <args> x[31] x[104] x[188] </args>
+      <args> x[29] x[71] x[156] </args>
+      <args> x[22] x[53] x[124] </args>
+      <args> x[46] x[91] x[196] </args>
+      <args> x[10] x[37] x[75] </args>
+      <args> x[49] x[90] x[136] </args>
+      <args> x[66] x[93] x[135] </args>
+      <args> x[49] x[68] x[177] </args>
+      <args> x[130] x[152] x[175] </args>
+      <args> x[84] x[193] x[199] </args>
+      <args> x[45] x[62] x[71] </args>
+      <args> x[20] x[98] x[176] </args>
+      <args> x[50] x[63] x[128] </args>
+      <args> x[6] x[132] x[167] </args>
+      <args> x[126] x[165] x[183] </args>
+      <args> x[79] x[163] x[169] </args>
+      <args> x[97] x[111] x[164] </args>
+      <args> x[85] x[105] x[129] </args>
+      <args> x[46] x[89] x[104] </args>
+      <args> x[3] x[72] x[89] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <conflicts> (0,0,0)(0,1,0) </conflicts>
+      </extension>
+      <args> x[27] x[37] x[115] </args>
+      <args> x[18] x[107] x[120] </args>
+    </group>
+    <extension>
+      <list> x[8] x[23] x[61] </list>
+      <conflicts> (0,0,0)(1,0,0) </conflicts>
+    </extension>
+  </constraints>
+</instance>
