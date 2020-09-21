@@ -139,6 +139,7 @@ For each program, the repository contains a .yml file that specifies the followi
   - `properties`: the properties that constitute the specification of the program,
     each consisting of the following items:
     - `property_file`: file that contains a property definition
+      (cf. common property files [for C][C-props] and [for Java][Java-props])
     - `expected_verdict`: the intended verification result (`true` or `false`)
     - `subproperty` (optional): a subproperty of the property that is violated
       in cases where the property is a conjunction of subproperties (for verdict `false`)
@@ -146,6 +147,9 @@ For each program, the repository contains a .yml file that specifies the followi
     - `language`: programming language that the program is written in (`C` or `Java`)
     - `data_model` data model of the computer architecture
       (`ILP32`, `LP64`, see http://www.unix.org/whitepapers/64bit.html)
+
+[C-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/c/properties
+[Java-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/java/properties
   
 The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
 and contains a description of the format with an example in Sect. 4 and Fig. 3.
