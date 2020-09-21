@@ -53,6 +53,13 @@ void blk_cleanup_queue(struct request_queue *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: blk_fetch_request
 // with type: struct request *blk_fetch_request(struct request_queue *)

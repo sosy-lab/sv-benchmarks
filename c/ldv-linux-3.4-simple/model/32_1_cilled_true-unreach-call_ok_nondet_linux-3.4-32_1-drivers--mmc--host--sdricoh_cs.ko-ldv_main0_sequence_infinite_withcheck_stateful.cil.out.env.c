@@ -61,6 +61,13 @@ int mmc_add_host(struct mmc_host *arg0) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: mmc_alloc_host
 // with type: struct mmc_host *mmc_alloc_host(int extra, struct device *)

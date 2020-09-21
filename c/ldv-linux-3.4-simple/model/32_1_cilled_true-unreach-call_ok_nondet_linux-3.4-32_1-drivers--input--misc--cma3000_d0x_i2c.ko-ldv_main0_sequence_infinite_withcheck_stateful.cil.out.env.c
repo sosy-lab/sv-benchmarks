@@ -9,6 +9,13 @@ void cma3000_exit(struct cma3000_accl_data *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: cma3000_init
 // with type: struct cma3000_accl_data *cma3000_init(struct device *dev, int irq, const struct cma3000_bus_ops *bops)

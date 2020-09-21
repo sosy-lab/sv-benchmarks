@@ -10,6 +10,13 @@ int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)

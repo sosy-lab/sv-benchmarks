@@ -19,6 +19,13 @@ unsigned int __kfifo_out_r(struct __kfifo *arg0, void *arg1, unsigned int arg2, 
   // Simple type
   return __VERIFIER_nondet_uint();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)

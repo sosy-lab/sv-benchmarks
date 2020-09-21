@@ -17,6 +17,13 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)

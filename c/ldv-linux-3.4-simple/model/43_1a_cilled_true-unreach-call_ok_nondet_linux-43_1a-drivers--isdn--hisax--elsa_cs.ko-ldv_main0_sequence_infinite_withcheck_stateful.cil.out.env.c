@@ -27,6 +27,13 @@ int hisax_init_pcmcia(void *arg0, int *arg1, IsdnCard_t *arg2) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Skip function: kfree
 

@@ -26,6 +26,13 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)

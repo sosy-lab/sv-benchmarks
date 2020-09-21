@@ -10,6 +10,13 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)

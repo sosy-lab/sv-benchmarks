@@ -69,6 +69,14 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+typedef unsigned long size_t;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)

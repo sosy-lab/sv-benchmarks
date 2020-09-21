@@ -44,6 +44,13 @@ unsigned char spk_serial_in() {
   // Simple type
   return __VERIFIER_nondet_uchar();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: spk_synth_immediate
 // with type: const char *spk_synth_immediate(struct spk_synth *synth, const char *buff)

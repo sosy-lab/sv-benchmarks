@@ -20,6 +20,14 @@ void clockevents_register_device(struct clock_event_device *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+typedef unsigned long size_t;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: cs5535_mfgpt_alloc_timer
 // with type: struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int timer, int domain)

@@ -62,6 +62,13 @@ void ldv_initialize() {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max)

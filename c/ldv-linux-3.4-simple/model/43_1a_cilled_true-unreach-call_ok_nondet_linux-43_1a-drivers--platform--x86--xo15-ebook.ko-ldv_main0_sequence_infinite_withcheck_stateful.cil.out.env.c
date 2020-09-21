@@ -18,6 +18,13 @@ void acpi_bus_unregister_driver(struct acpi_driver *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: acpi_device_hid
 // with type: const char *acpi_device_hid(struct acpi_device *)

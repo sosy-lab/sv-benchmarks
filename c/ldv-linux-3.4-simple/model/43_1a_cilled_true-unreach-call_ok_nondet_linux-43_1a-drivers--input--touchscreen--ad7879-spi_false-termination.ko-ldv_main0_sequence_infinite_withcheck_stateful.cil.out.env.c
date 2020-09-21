@@ -18,6 +18,13 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: ad7879_probe
 // with type: struct ad7879 *ad7879_probe(struct device *, u8 , unsigned int, const struct ad7879_bus_ops *)
