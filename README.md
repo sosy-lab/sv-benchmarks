@@ -148,9 +148,12 @@ For each program, the repository contains a .yml file that specifies the followi
     - `data_model` data model of the computer architecture
       (`ILP32`, `LP64`, see http://www.unix.org/whitepapers/64bit.html)
 
+Optional items are explicitly marked as optional, all other items are mandatory.
+The dictionary `options` can contain additional data that are not mentioned above.
+
 [C-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/c/properties
 [Java-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/java/properties
-  
+
 The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
 and contains a description of the format with an example in Sect. 4 and Fig. 3.
 Format 2.0 adds the `options` dictionary.
