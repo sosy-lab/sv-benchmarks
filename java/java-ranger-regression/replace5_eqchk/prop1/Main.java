@@ -8,9 +8,9 @@ public class Main {
         char c2 = Verifier.nondetChar();
         char c3 = Verifier.nondetChar();
         char c4 = Verifier.nondetChar();
-        replace r = new replace();
+        Replace r = new Replace();
         Outputs out1 = new Outputs(r.mainProcess(c0, c1, c2, c3, c4));
-        replace.reset(); // not resetting the internal state of replace causes a verification failure
+        Replace.reset(); // not resetting the internal state of replace causes a verification failure
         Outputs out2 = new Outputs(r.mainProcess(c0, c1, c2, c3, c4));
         checkEquality(out1, out2);
     }
