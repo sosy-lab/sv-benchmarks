@@ -123,6 +123,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("eca-rers2018", "unexpected file RERS_18_solutions_dot_petri.csv"),
     ("eca-rers2018", "unexpected file createYml.py"),
+    ("nla-digbench-scaling", "unexpected file generate.py"),
 
     # historical
     ("ntdrivers", "missing license"),
