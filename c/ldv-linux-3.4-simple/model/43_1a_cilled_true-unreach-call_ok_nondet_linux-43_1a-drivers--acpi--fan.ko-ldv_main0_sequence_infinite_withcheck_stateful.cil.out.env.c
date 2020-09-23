@@ -58,10 +58,13 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+__inline static  IS_ERR(void const *ptr ) ;
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  assume_abort_if_not(IS_ERR(p) == 0);
+  return p;
 }
 
 // Skip function: free

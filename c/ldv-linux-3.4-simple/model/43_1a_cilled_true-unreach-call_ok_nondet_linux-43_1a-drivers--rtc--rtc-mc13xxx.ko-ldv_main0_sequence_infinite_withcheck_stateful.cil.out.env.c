@@ -12,10 +12,13 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 }
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
+__inline static  IS_ERR(void const *ptr ) ;
 void *ldv_malloc(size_t size )
 {
   if(__VERIFIER_nondet_bool()) return 0;
-  return malloc(size);
+  void *p = malloc(size);
+  assume_abort_if_not(IS_ERR(p) == 0);
+  return p;
 }
 
 // Function: dev_get_drvdata
