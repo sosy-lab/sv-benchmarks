@@ -26,5 +26,11 @@ dirs=`echo $relevant_diff | xargs dirname | cut -d/ -f2- | sort | uniq`
 printf "The CI commands will run in the following directories \n$dirs \n"
 for d in $dirs
 do
-  $cmdToExecute $d
+  if [ ! -f "$d/Makefile" ]; then
+    parent=`dirname $d`
+    # Execute the make only when the directory is not already present.
+    [[ "${dirs[@]}" =~ $parent ]] || $cmdToExecute $parent
+  else
+    $cmdToExecute $d
+  fi
 done
