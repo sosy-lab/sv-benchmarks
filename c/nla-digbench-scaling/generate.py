@@ -42,6 +42,10 @@ nladir = "../nla-digbench"
 cfiles = [f for f in listdir(nladir) if isfile(join(nladir, f)) and ".c" in f]
 for file in cfiles:
     fullpath = join(nladir, file)
+    fullpathToPreprocessed = fullpath[:-2]+".i"
+    if isfile(fullpathToPreprocessed):
+      fullpath = fullpathToPreprocessed
+      file = file[:-2]+".i"
     for (template, name) in [
         (looptemplate(fullpath), "_unwindbound"),
         (valuetemplate(fullpath), "_valuebound"),
@@ -59,7 +63,7 @@ for file in cfiles:
             break
         for i in [1, 2, 5, 10, 20, 50, 100]:
             content = re.sub("__BOUND", str(i), template)
-            filename = file[:-2] + name + str(i) + ".c"
+            filename = file[:-2] + name + str(i) + file[-2:]
             ymlname = filename[:-2] + ".yml"
             print("Writing file: %s" % filename)
             open(filename, "w").write(content)

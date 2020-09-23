@@ -8,4 +8,4 @@ As such, we apply the same license.
 
 The tasks can easily be generated again by calling `make tasks`,
 which will call the script `generate.py` in this directory.
-That script is also published under the same license as the benchmark tasks.
+This script is also published under the same license as the benchmark tasks.
