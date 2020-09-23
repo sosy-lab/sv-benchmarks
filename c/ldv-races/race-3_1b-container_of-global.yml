@@ -5,7 +5,7 @@ input_files: 'race-3_1b-container_of-global.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false
 
 options:
   language: C
