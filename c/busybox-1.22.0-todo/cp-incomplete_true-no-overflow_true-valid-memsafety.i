@@ -4,12 +4,22 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "cp-incomplete_true-no-overflow_true-valid-memsafety.c", , __extension__ __PRETTY_FUNCTION__); })); }
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -4262,7 +4272,7 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
   if(flags & 0x20)
   {
     if(fd != -1)
-      {reach_error();abort();}
+      {reach_error();}
     void *res=calloc(length, 1);
     if(res == ((void *)0))
       return ((void *) -1);

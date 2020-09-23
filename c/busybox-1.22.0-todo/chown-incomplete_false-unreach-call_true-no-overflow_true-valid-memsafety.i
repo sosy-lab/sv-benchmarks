@@ -4,12 +4,22 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "chown-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.c", , __extension__ __PRETTY_FUNCTION__); })); }
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2770,7 +2780,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(((struct param_t *)vparam)->ugid.uid == 4294967295u)
   {
     tmp_if_expr$1 = statbuf->st_uid;
@@ -2780,7 +2790,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     if(!(vparam == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     tmp_if_expr$1 = ((struct param_t *)vparam)->ugid.uid;
   }
   u = tmp_if_expr$1;
@@ -2789,7 +2799,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(((struct param_t *)vparam)->ugid.gid == 4294967295u)
   {
     tmp_if_expr$2 = statbuf->st_gid;
@@ -2799,7 +2809,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     if(!(vparam == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     tmp_if_expr$2 = ((struct param_t *)vparam)->ugid.gid;
   }
   g = tmp_if_expr$2;
@@ -2807,11 +2817,11 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(!(((struct param_t *)vparam)->chown_func == ((signed int (*)(const char *, unsigned int, unsigned int))((void *)0))))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return_value=((struct param_t *)vparam)->chown_func(fileName, u, g);
   _Bool tmp_if_expr$5;
   _Bool tmp_if_expr$4;

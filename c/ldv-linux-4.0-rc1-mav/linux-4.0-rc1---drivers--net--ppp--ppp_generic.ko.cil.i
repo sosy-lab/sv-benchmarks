@@ -18161,14 +18161,24 @@ void ldv_linux_lib_idr_check_final_state(void)
   return;
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.c", 19473, __extension__ __PRETTY_FUNCTION__); })); }
 void ldv_assert_linux_net_rtnetlink__double_lock(int expr )
 {
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18180,7 +18190,7 @@ void ldv_assert_linux_net_rtnetlink__lock_on_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18192,7 +18202,7 @@ void ldv_assert_linux_net_rtnetlink__double_unlock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18205,7 +18215,7 @@ void ldv_assert_linux_kernel_locking_rwlock__read_lock_on_write_lock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18217,7 +18227,7 @@ void ldv_assert_linux_kernel_locking_rwlock__more_read_unlocks(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18229,7 +18239,7 @@ void ldv_assert_linux_kernel_locking_rwlock__read_lock_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18241,7 +18251,7 @@ void ldv_assert_linux_kernel_locking_rwlock__double_write_lock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18253,7 +18263,7 @@ void ldv_assert_linux_kernel_locking_rwlock__double_write_unlock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18265,7 +18275,7 @@ void ldv_assert_linux_kernel_locking_rwlock__write_lock_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18278,7 +18288,7 @@ void ldv_assert_linux_lib_idr__double_init(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18290,7 +18300,7 @@ void ldv_assert_linux_lib_idr__not_initialized(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18302,7 +18312,7 @@ void ldv_assert_linux_lib_idr__destroyed_before_usage(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18314,7 +18324,7 @@ void ldv_assert_linux_lib_idr__more_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18327,7 +18337,7 @@ void ldv_assert_linux_kernel_sched_completion__double_init(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18339,7 +18349,7 @@ void ldv_assert_linux_kernel_sched_completion__wait_without_init(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18352,7 +18362,7 @@ void ldv_assert_linux_net_register__wrong_return_value(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18365,7 +18375,7 @@ void ldv_assert_linux_fs_char_dev__double_registration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18377,7 +18387,7 @@ void ldv_assert_linux_fs_char_dev__double_deregistration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18389,7 +18399,7 @@ void ldv_assert_linux_fs_char_dev__registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18402,7 +18412,7 @@ void ldv_assert_linux_kernel_rcu_srcu__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18414,7 +18424,7 @@ void ldv_assert_linux_kernel_rcu_srcu__locked_at_read_section(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18426,7 +18436,7 @@ void ldv_assert_linux_kernel_rcu_srcu__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18439,7 +18449,7 @@ void ldv_assert_linux_kernel_module__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18451,7 +18461,7 @@ void ldv_assert_linux_kernel_module__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18464,7 +18474,7 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18476,7 +18486,7 @@ void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18489,7 +18499,7 @@ void ldv_assert_linux_lib_find_bit__offset_out_of_range(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18502,7 +18512,7 @@ void ldv_assert_linux_mmc_sdio_func__wrong_params(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18514,7 +18524,7 @@ void ldv_assert_linux_mmc_sdio_func__double_claim(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18526,7 +18536,7 @@ void ldv_assert_linux_mmc_sdio_func__release_without_claim(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18538,7 +18548,7 @@ void ldv_assert_linux_mmc_sdio_func__unreleased_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18551,7 +18561,7 @@ void ldv_assert_linux_usb_coherent__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18563,7 +18573,7 @@ void ldv_assert_linux_usb_coherent__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18576,7 +18586,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18588,7 +18598,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__locked_at_read_section(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18600,7 +18610,7 @@ void ldv_assert_linux_kernel_rcu_update_lock__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18613,7 +18623,7 @@ void ldv_assert_linux_net_sock__all_locked_sockets_must_be_released(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18625,7 +18635,7 @@ void ldv_assert_linux_net_sock__double_release(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18638,7 +18648,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18650,7 +18660,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__locked_at_read_section(int expr
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18662,7 +18672,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_bh__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18675,7 +18685,7 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18687,7 +18697,7 @@ void ldv_assert_linux_usb_dev__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18699,7 +18709,7 @@ void ldv_assert_linux_usb_dev__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18711,7 +18721,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18724,7 +18734,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18736,7 +18746,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock_try(int expr 
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18748,7 +18758,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_unlock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18760,7 +18770,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18773,7 +18783,7 @@ void ldv_assert_linux_usb_gadget__class_registration_with_usb_gadget(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18785,7 +18795,7 @@ void ldv_assert_linux_usb_gadget__class_deregistration_with_usb_gadget(int expr 
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18797,7 +18807,7 @@ void ldv_assert_linux_usb_gadget__chrdev_registration_with_usb_gadget(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18809,7 +18819,7 @@ void ldv_assert_linux_usb_gadget__chrdev_deregistration_with_usb_gadget(int expr
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18821,7 +18831,7 @@ void ldv_assert_linux_usb_gadget__double_usb_gadget_registration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18833,7 +18843,7 @@ void ldv_assert_linux_usb_gadget__double_usb_gadget_deregistration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18845,7 +18855,7 @@ void ldv_assert_linux_usb_gadget__usb_gadget_registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18858,7 +18868,7 @@ void ldv_assert_linux_alloc_usb_lock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18870,7 +18880,7 @@ void ldv_assert_linux_alloc_usb_lock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18883,7 +18893,7 @@ void ldv_assert_linux_block_request__double_get(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18895,7 +18905,7 @@ void ldv_assert_linux_block_request__double_put(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18907,7 +18917,7 @@ void ldv_assert_linux_block_request__get_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18920,7 +18930,7 @@ void ldv_assert_linux_alloc_irq__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18932,7 +18942,7 @@ void ldv_assert_linux_alloc_irq__nonatomic(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18945,7 +18955,7 @@ void ldv_assert_linux_drivers_base_class__double_registration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18957,7 +18967,7 @@ void ldv_assert_linux_drivers_base_class__double_deregistration(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18969,7 +18979,7 @@ void ldv_assert_linux_drivers_base_class__registered_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18982,7 +18992,7 @@ void ldv_assert_linux_block_queue__double_allocation(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18994,7 +19004,7 @@ void ldv_assert_linux_block_queue__use_before_allocation(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19006,7 +19016,7 @@ void ldv_assert_linux_block_queue__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19019,7 +19029,7 @@ void ldv_assert_linux_block_genhd__double_allocation(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19031,7 +19041,7 @@ void ldv_assert_linux_block_genhd__use_before_allocation(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19043,7 +19053,7 @@ void ldv_assert_linux_block_genhd__delete_before_add(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19055,7 +19065,7 @@ void ldv_assert_linux_block_genhd__free_before_allocation(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19067,7 +19077,7 @@ void ldv_assert_linux_block_genhd__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19080,7 +19090,7 @@ void ldv_assert_linux_arch_io__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19092,7 +19102,7 @@ void ldv_assert_linux_arch_io__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19105,7 +19115,7 @@ void ldv_assert_linux_usb_register__wrong_return_value(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19118,7 +19128,7 @@ void ldv_assert_linux_fs_sysfs__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19130,7 +19140,7 @@ void ldv_assert_linux_fs_sysfs__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19143,7 +19153,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19155,7 +19165,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_lock_try(int ex
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19167,7 +19177,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_double_unlock(int expr
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19179,7 +19189,7 @@ void ldv_assert_linux_kernel_locking_spinlock__one_thread_locked_at_exit(int exp
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19192,7 +19202,7 @@ void ldv_assert_linux_usb_urb__less_initial_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19204,7 +19214,7 @@ void ldv_assert_linux_usb_urb__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19217,7 +19227,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__more_unlocks(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19229,7 +19239,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_read_section(int e
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -19241,7 +19251,7 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }

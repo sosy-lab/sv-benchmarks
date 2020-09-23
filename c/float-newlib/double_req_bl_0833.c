@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "double_req_bl_0833.c", 3, "reach_error"); }
 extern double __VERIFIER_nondet_double();
 
 typedef int __int32_t;
@@ -151,7 +152,7 @@ int main() {
   double res = __ieee754_exp(x);
 
   if (!(res == 0.0 && __signbit_double(res) == 0)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

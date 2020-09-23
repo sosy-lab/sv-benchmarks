@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: usb_urb-drivers-usb-misc-iowarrior.ko_false-unreach-call.cil.out.i
 input_files: 'usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: LP64

@@ -1239,8 +1239,8 @@ int ldv_asprintf(char **ptr)
 }
 
 
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 
@@ -1523,7 +1523,7 @@ void *ldv_realloc(void *ptr, size_t size)
 }
 
 
-void abort(void); 
+void abort(void);
 void reach_error(){}
 
 
@@ -1533,7 +1533,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  {reach_error();abort();}
+  {reach_error();}
   
   return;
 }

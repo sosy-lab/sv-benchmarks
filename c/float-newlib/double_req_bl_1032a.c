@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "double_req_bl_1032a.c", 3, "reach_error"); }
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;
@@ -89,7 +90,7 @@ int main() {
 
   // result shall be x
   if (!(res == 0.0 && __signbit_double(res) == 0)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: sll_shallow_copy_true-valid-memsafety.i
 input_files: 'sll_shallow_copy-1.i'
@@ -6,3 +6,7 @@ input_files: 'sll_shallow_copy-1.i'
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

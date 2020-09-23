@@ -1,5 +1,5 @@
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern _Bool __VERIFIER_nondet_bool(void);
@@ -57,8 +57,9 @@ Implement the data structure with these operations, and specify and
 verify that they behave in the way described above.
 */
 
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {

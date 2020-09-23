@@ -84,6 +84,13 @@ int virtqueue_add_buf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *vq, unsigned int *len)

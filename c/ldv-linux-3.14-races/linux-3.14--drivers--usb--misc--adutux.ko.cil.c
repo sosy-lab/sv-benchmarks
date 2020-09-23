@@ -3661,8 +3661,8 @@ int ldv_post_probe(int probe_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
 extern int ldv_failed_usb_register_driver(void) ;
 void ldv_check_final_state(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 int ldv_undef_int(void) ;
@@ -7099,8 +7099,9 @@ int ldv_undef_int_nonpositive(void)
   return (ret);
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;
 pthread_mutex_t pmutex_adutux_mutex  ;
@@ -7541,7 +7542,7 @@ void ldv_assert(char const   *desc , int expr )
   {
   if (expr == 0) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

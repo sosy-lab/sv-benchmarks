@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "float_req_bl_0621a.c", 3, "reach_error"); }
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -129,7 +130,7 @@ int main() {
   float res = atan_float(x);
   // if x is +inf the result shall be +pi/2
   if (res != pi_o_2) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

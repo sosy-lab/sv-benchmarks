@@ -1,5 +1,15 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "main0_drivers-net-wireless-mwl8k-ko---32_7a--linux-3.7.3.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -6561,8 +6571,8 @@ extern int pci_request_regions(struct pci_dev * , char const * ) ;
 extern void pci_release_regions(struct pci_dev * ) ;
 extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

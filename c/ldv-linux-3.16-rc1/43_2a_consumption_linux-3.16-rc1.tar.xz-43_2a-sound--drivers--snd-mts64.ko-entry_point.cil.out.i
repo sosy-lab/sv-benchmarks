@@ -1,5 +1,15 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-sound--drivers--snd-mts64.ko-entry_point.cil.out.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
 struct kernel_symbol {
    unsigned long value ;
    char const *name ;
@@ -3636,8 +3646,8 @@ extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void *ldv_malloc(size_t size )
@@ -3694,7 +3704,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 __inline static void ldv_stop(void)

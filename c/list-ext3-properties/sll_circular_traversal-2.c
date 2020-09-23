@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 /*
  * SLL circular traversal example:
  * Build circular sll (1-1-1-1-1).

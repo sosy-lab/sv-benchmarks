@@ -1,6 +1,7 @@
 extern int __VERIFIER_nondet_int();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #include <stdlib.h>
 
@@ -43,7 +44,7 @@ struct process_node *choose_next(struct process_node **q) {
 void check_queue(struct process_node *q) {
     for (struct process_node *n = q; n != NULL; n = n->next)
         if (!(n->time_to_wait >= 1))
-            {reach_error();abort();}
+            {reach_error();}
 }
 
 

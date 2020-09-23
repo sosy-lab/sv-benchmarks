@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 typedef struct identify_s {
   int id1;
   int id2;

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: float-rounding1_true-unreach-call.i
 input_files: 'float-rounding1.i'
@@ -6,3 +6,7 @@ input_files: 'float-rounding1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

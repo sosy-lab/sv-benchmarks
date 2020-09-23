@@ -44,6 +44,13 @@ int platform_device_add_data(struct platform_device *arg0, const void *arg1, siz
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *name, int id)

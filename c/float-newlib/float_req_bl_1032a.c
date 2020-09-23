@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "float_req_bl_1032a.c", 3, "reach_error"); }
 extern float __VERIFIER_nondet_float();
 
 typedef int __int32_t;
@@ -78,7 +79,7 @@ int main() {
 
   // result shall be x
   if (!(res == 0.0f && __signbit_float(res) == 0)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

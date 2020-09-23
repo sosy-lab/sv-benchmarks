@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: id_o200_false-unreach-call_true-termination_true-no-overflow.c
 input_files: 'id_o200.c'
@@ -14,3 +14,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: ILP32

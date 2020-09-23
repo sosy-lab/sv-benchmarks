@@ -1,6 +1,7 @@
 int __return_main;
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "aiob_4.c.v+nlh-reducer.c", 4, "reach_error"); }
 struct Velocity_Mode ;
 struct PCMode ;
 struct DeviceControl ;
@@ -1283,7 +1284,7 @@ unsigned int Id_MCDC_93 = 0U;
  __VERIFIER_assert__Id_MCDC_92 = __tmp_44;
  if (__VERIFIER_assert__Id_MCDC_92 == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

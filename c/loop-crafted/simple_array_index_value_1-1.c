@@ -2,8 +2,9 @@
 International Conference on Tools and Algorithms for the Construction and Analysis of Systems. Springer, Berlin, Heidelberg, 2017.*/
 
 #define SIZE 1000
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 void __VERIFIER_assert(int cond)
 {
   if (!(cond)) {

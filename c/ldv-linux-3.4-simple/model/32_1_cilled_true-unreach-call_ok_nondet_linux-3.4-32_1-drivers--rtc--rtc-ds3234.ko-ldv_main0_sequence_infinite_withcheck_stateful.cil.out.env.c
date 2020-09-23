@@ -28,6 +28,13 @@ unsigned char bin2bcd(unsigned int arg0) {
   // Simple type
   return __VERIFIER_nondet_uchar();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)

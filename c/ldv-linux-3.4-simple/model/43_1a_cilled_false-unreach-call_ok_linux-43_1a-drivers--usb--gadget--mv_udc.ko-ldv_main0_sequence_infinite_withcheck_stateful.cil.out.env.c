@@ -9,6 +9,16 @@ void ___udelay(unsigned long arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+__inline static  IS_ERR(void const *ptr ) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  void *p = malloc(size);
+  assume_abort_if_not(IS_ERR(p) == 0);
+  return p;
+}
 
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(char *, unsigned int, int, struct lock_class_key *, char *, ...)

@@ -147,10 +147,6 @@ void cpu_relax() {
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
 void *external_alloc(unsigned int size);
-void abort(void); 
-void assume_abort_if_not(int cond) { 
-  if(!cond) {abort();}
-}
 struct timespec current_kernel_time() {
   // Composite type
   struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));

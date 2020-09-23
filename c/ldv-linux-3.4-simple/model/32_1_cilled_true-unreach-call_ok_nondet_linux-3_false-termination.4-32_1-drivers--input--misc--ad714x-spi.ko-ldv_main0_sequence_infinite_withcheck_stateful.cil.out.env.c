@@ -27,6 +27,13 @@ int ad714x_enable(struct ad714x_chip *arg0) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: ad714x_probe
 // with type: struct ad714x_chip *ad714x_probe(struct device *dev, u16 bus_type, int irq, int (*read)(struct ad714x_chip *, unsigned short, unsigned short *, size_t ), int (*write)(struct ad714x_chip *, unsigned short, unsigned short))

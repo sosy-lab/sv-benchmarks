@@ -18455,14 +18455,24 @@ int ldv_thread_join_N(struct ldv_thread_set *ldv_thread_set , void (*function)(v
   return (0);
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe.cil.c", 19627, __extension__ __PRETTY_FUNCTION__); })); }
 void ldv_assert_linux_usb_dev__less_initial_decrement(int expr )
 {
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18474,7 +18484,7 @@ void ldv_assert_linux_usb_dev__more_initial_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18486,7 +18496,7 @@ void ldv_assert_linux_usb_dev__probe_failed(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }
@@ -18498,7 +18508,7 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }

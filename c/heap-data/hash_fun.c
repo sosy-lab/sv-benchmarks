@@ -1,6 +1,7 @@
 extern int __VERIFIER_nondet_int();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #include <stdlib.h>
 
@@ -37,7 +38,7 @@ int main() {
 
     while (list) {
         if (!(list->hash >= base && list->hash < base + INTERVAL_SIZE))
-            {reach_error();abort();}
+            {reach_error();}
         list = list->next;
     }
 }

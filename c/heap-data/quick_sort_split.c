@@ -1,6 +1,7 @@
 extern int __VERIFIER_nondet_int();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #include <stdlib.h>
 
@@ -52,12 +53,12 @@ int main() {
     // Check that low and high contain expected elements
     while (low) {
         if (!(low->expected_list == LOW))
-            {reach_error();abort();}
+            {reach_error();}
         low = low->next;
     }
     while (high) {
         if (!(high->expected_list == HIGH))
-            {reach_error();abort();}
+            {reach_error();}
         high = high->next;
     }
 }

@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# old file name: s3_clnt.blast.01_false-unreach-call.i.cil.c
+input_files: 's3_clnt.blast.01.i.cil-2.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

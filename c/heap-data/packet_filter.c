@@ -1,8 +1,9 @@
 extern unsigned __VERIFIER_nondet_uint();
 extern int __VERIFIER_nondet_int();
 extern char *__VERIFIER_nondet_charp();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #include <stdlib.h>
 
@@ -45,7 +46,7 @@ void append_to_queue(Packet p, Node *q) {
 void process_prio_queue(Node q) {
     for (Node node = q; node != NULL; node = node->next) {
         if (!(node->packet.prio == HIGH || node->packet.size < 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }
@@ -53,7 +54,7 @@ void process_prio_queue(Node q) {
 void process_normal_queue(Node q) {
     for (Node node = q; node != NULL; node = node->next) {
         if (!(node->packet.prio == LOW && node->packet.size >= 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }

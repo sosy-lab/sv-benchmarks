@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "sqrt_Householder_interval.c", 3, "reach_error"); }
 /* Example from "Static Analysis of the Accuracy in Control Systems: 
    Principles and Experiments" by Goubault Putot, Baufreton, Gassino,
    published in FMICS 07.
@@ -12,8 +13,8 @@ void reach_error(){}
  */
 
 extern double __VERIFIER_nondet_double();
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }

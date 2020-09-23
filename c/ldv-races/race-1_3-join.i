@@ -1677,7 +1677,9 @@ extern int lockf (int __fd, int __cmd, __off_t __len) ;
 extern int fdatasync (int __fildes);
 int getentropy (void *__buffer, size_t __length) ;
 
-extern void abort(void); 
+extern void abort(void);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
@@ -1686,7 +1688,9 @@ pthread_mutex_t mutex;
 int pdev;
 void *thread1(void *arg) {
    pthread_mutex_lock(&mutex);
+   __VERIFIER_atomic_begin();
    pdev = 6;
+   __VERIFIER_atomic_end();
    pthread_mutex_unlock(&mutex);
    return 0;
 }
@@ -1705,8 +1709,12 @@ int module_init() {
 }
 void module_exit() {
    void *status;
+   __VERIFIER_atomic_begin();
    pdev = 4;
+   __VERIFIER_atomic_end();
+   __VERIFIER_atomic_begin();
    ldv_assert(pdev==4);
+   __VERIFIER_atomic_end();
    pthread_join(t1, &status);
    pthread_mutex_destroy(&mutex);
    pdev = 5;

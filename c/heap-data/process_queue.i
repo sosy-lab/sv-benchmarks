@@ -1,6 +1,16 @@
 extern int __VERIFIER_nondet_int();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "process_queue.c", 4, __extension__ __PRETTY_FUNCTION__); })); }
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -587,7 +597,7 @@ struct process_node *choose_next(struct process_node **q) {
 void check_queue(struct process_node *q) {
     for (struct process_node *n = q; n != ((void *)0); n = n->next)
         if (!(n->time_to_wait >= 1))
-            {reach_error();abort();}
+            {reach_error();}
 }
 int main() {
     struct process_node *queue = ((void *)0);

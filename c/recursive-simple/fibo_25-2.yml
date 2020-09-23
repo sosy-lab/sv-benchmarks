@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: fibo_25_true-unreach-call.c
 input_files: 'fibo_25-2.c'
@@ -6,3 +6,7 @@ input_files: 'fibo_25-2.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32
