@@ -43,13 +43,12 @@ cfiles = [f for f in listdir(nladir) if isfile(join(nladir, f)) and ".c" in f]
 for file in cfiles:
     fullpath = join(nladir, file)
     fullpathToPreprocessed = fullpath[:-2]+".i"
-    if isfile(fullpathToPreprocessed):
-      fullpath = fullpathToPreprocessed
-      file = file[:-2]+".i"
-    for (template, name) in [
-        (looptemplate(fullpath), "_unwindbound"),
-        (valuetemplate(fullpath), "_valuebound"),
+    iFileExists = isfile(fullpathToPreprocessed)
+    for (templatefun, name) in [
+        (looptemplate, "_unwindbound"),
+        (valuetemplate, "_valuebound"),
     ]:
+        template = templatefun(fullpath)
         abort = False
         ymlcontent = open(join(nladir, file[:-2] + ".yml"), "r").read()
         ymlcontent = re.sub(
@@ -63,9 +62,18 @@ for file in cfiles:
             break
         for i in [1, 2, 5, 10, 20, 50, 100]:
             content = re.sub("__BOUND", str(i), template)
-            filename = file[:-2] + name + str(i) + file[-2:]
-            ymlname = filename[:-2] + ".yml"
-            print("Writing file: %s" % filename)
-            open(filename, "w").write(content)
+            filename_in_yml = file if not iFileExists else file[:-2]+".i"
+            new_filename_in_yml = file[:-2] + name + str(i) + filename_in_yml[-2:]
+            ymlname = new_filename_in_yml[:-2] + ".yml"
+            if iFileExists:
+                iFileContent = re.sub("__BOUND", str(i), templatefun(fullpathToPreprocessed))
+                new_c_filename = file[:-2] + name + str(i) + ".c"
+                print("Writing file: %s" % new_c_filename)
+                open(new_c_filename,"w").write(content)
+                print("Writing file: %s" % new_filename_in_yml)
+                open(new_filename_in_yml,"w").write(iFileContent)
+            else:
+                print("Writing file: %s" % new_filename_in_yml)
+                open(new_filename_in_yml, "w").write(content)
             print("Writing file: %s" % ymlname)
-            open(ymlname, "w").write(re.sub(file, filename, ymlcontent))
+            open(ymlname, "w").write(re.sub(filename_in_yml, new_filename_in_yml, ymlcontent))
