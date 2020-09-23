@@ -81626,7 +81626,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 
@@ -81641,7 +81641,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock_try(int expr 
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 
@@ -81656,7 +81656,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_double_unlock(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 
@@ -81671,7 +81671,7 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_locked_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

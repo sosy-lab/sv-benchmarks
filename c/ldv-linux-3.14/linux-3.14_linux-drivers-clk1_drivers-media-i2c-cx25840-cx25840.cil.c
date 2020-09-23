@@ -18433,7 +18433,7 @@ void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

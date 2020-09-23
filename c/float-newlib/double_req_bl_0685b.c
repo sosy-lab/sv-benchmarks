@@ -257,7 +257,7 @@ int main() {
 
   // x is -inf, y is -inf, the result shall be -3pi/4
   if (res != -3 * pi_o_4) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

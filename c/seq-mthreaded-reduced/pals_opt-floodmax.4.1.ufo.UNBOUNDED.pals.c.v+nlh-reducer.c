@@ -2044,7 +2044,7 @@ int __return_6146;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

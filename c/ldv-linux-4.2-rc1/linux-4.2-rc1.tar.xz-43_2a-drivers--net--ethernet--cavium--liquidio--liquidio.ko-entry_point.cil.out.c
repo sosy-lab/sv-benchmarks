@@ -25487,7 +25487,7 @@ __inline static void ldv_error(void)
 
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 bool ldv_is_err(void const   *ptr ) 

@@ -42,7 +42,7 @@ int main ()
   ret5 = avg(x);
 
   if(ret != ret2 || ret !=ret5){
-    {reach_error();abort();}
+    {reach_error();}
   }
   return 1;
 }

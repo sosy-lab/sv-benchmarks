@@ -58,7 +58,7 @@ int main() {
 
     // x is not inf, is not nan, the result shall be not 0.
     if (res == 0.0) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

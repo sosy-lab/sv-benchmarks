@@ -41745,7 +41745,7 @@ __inline static void ldv_error(void)
 
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 unsigned short ldv_sdio_element  =    0U;

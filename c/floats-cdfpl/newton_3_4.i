@@ -39,7 +39,7 @@ int main()
 
 
   if(!(x < 0.1))
-    {reach_error();abort();}
+    {reach_error();}
 
   return 0;
 }

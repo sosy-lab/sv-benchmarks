@@ -243,7 +243,7 @@ int main() {
 
     // x is not +-inf, y is +inf, the result shall be pi/2
     if (res != pi_o_2) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

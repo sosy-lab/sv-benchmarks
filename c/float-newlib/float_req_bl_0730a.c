@@ -106,7 +106,7 @@ int main() {
 
   // x +inf the result shall be x
   if (!isinf_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

@@ -7181,7 +7181,7 @@ __inline static void ldv_error(void)
 
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 long ldv__builtin_expect(long exp , long c ) 

@@ -12,7 +12,7 @@ void assume_abort_if_not(int cond) {
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
     ERROR:
-        {reach_error();abort();}
+        {reach_error();}
     }
     return;
 }

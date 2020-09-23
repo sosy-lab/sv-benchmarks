@@ -190,7 +190,7 @@ unsigned int Id_MCDC_93 = 0U;
  __VERIFIER_assert__Id_MCDC_92 = __tmp_2;
  if (__VERIFIER_assert__Id_MCDC_92 == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

@@ -597,7 +597,7 @@ struct process_node *choose_next(struct process_node **q) {
 void check_queue(struct process_node *q) {
     for (struct process_node *n = q; n != ((void *)0); n = n->next)
         if (!(n->time_to_wait >= 1))
-            {reach_error();abort();}
+            {reach_error();}
 }
 int main() {
     struct process_node *queue = ((void *)0);

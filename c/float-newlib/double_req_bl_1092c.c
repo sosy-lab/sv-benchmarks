@@ -106,7 +106,7 @@ int main() {
   double res = ceil_double(x);
   // x is +inf , the result shall be +inf
   if (!isinf_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

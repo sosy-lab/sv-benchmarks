@@ -2645,7 +2645,7 @@ static void conv_strtod(const char *arg, void *result)
   if(!(result == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   *((double *)result)=strtod(arg, &end);
   if(!((signed int)*end == 0))
   {
@@ -2653,7 +2653,7 @@ static void conv_strtod(const char *arg, void *result)
     if(!(result == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     *((double *)result) = (double)0;
   }
 }
@@ -2662,7 +2662,7 @@ static void conv_strtoll(const char *arg, void *result)
   if(!(result == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   *((signed long long int *)result)=bb_strtoll(arg, (char **)((void *)0), 0);
 }
 static void conv_strtoull(const char *arg, void *result)
@@ -2670,7 +2670,7 @@ static void conv_strtoull(const char *arg, void *result)
   if(!(result == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   *((unsigned long long int *)result)=bb_strtoull(arg, (char **)((void *)0), 0);
   if(!(*bb_errno == 0))
   {
@@ -2679,7 +2679,7 @@ static void conv_strtoull(const char *arg, void *result)
     if(!(result == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     *((unsigned long long int *)result) = (unsigned long long int)return_value_bb_strtoll$1;
   }
 }
@@ -2757,7 +2757,7 @@ static signed int multiconvert(const char *arg, void *result, void (*convert)(co
   if(!(convert == ((void (*)(const char *, void *))((void *)0))))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   convert(arg, result);
   if(!(*bb_errno == 0))
   {
@@ -2841,7 +2841,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 105 || !(format == ((char *)((void *)0))))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 100)
       tmp_if_expr$1 = (_Bool)1;
     else
@@ -2851,7 +2851,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88 || !(format == ((char *)((void *)0))))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$2 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
     else
@@ -2859,7 +2859,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(!(format == ((char *)((void *)0))) || !tmp_if_expr$2)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$3 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
     else
@@ -2871,7 +2871,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(!(format == ((char *)((void *)0))) || !tmp_if_expr$4)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 88)
       tmp_if_expr$5 = (_Bool)1;
     else
@@ -2891,7 +2891,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71 || !(format == ((char *)((void *)0))))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$8 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
     else
@@ -2899,7 +2899,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(!(format == ((char *)((void *)0))) || !tmp_if_expr$8)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$9 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
     else
@@ -2911,7 +2911,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(!(format == ((char *)((void *)0))) || !tmp_if_expr$10)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$11 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
     else
@@ -2927,7 +2927,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(!(format == ((char *)((void *)0))) || !tmp_if_expr$13)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 69)
       tmp_if_expr$14 = (_Bool)1;
     else

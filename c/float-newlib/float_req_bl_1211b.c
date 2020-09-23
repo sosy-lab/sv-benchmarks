@@ -109,7 +109,7 @@ int main() {
 
   // x is inf, *iptr is inf, result shall be -+0
   if (isinf_float(iptr) && !(res == -0.0f && __signbit_float(res) == 1)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

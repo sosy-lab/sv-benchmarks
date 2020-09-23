@@ -602,12 +602,12 @@ int main() {
     }
     while (low) {
         if (!(low->expected_list == -1))
-            {reach_error();abort();}
+            {reach_error();}
         low = low->next;
     }
     while (high) {
         if (!(high->expected_list == 1))
-            {reach_error();abort();}
+            {reach_error();}
         high = high->next;
     }
 }

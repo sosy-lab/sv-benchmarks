@@ -902,7 +902,7 @@ int __return_2463;
  assert__arg = __tmp_4;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

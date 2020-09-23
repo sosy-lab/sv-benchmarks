@@ -85,7 +85,7 @@ int main() {
 
   // x is +-0, result shall be x.
   if (!(res == -0.0 && __signbit_double(res) == 1)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 

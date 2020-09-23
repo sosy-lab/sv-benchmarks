@@ -2765,7 +2765,7 @@ static char append_char(unsigned int mode)
   if((signed long int)(15u & mode >> 12) < 17l)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return ""[(signed long int)(mode >> 12 & (unsigned int)15)];
 }
 static const char * bb_basename(const char *name)
@@ -2975,7 +2975,7 @@ static char bold(unsigned int mode)
   if((signed long int)(15u & mode >> 12) < 17l)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return "\001"[(signed long int)(mode >> 12 & (unsigned int)15)];
 }
 static unsigned int calc_name_len(const char *name)
@@ -3129,7 +3129,7 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
     if(!(column_width == 0u))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     ncols = (unsigned int)((struct globals *)&bb_common_bufsiz1)->terminal_width / column_width;
   }
   if(ncols > 1u)
@@ -3137,7 +3137,7 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
     if(!(ncols == 0u))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     nrows = nfiles / ncols;
     if(!(ncols * nrows >= nfiles))
       nrows = nrows + 1u;
@@ -3414,7 +3414,7 @@ static char fgcolor(unsigned int mode)
   if((signed long int)(15u & mode >> 12) < 17l)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return "\037##%\"%##"[(signed long int)(mode >> 12 & (unsigned int)15)];
 }
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len)
@@ -4022,7 +4022,7 @@ signed int __main(signed int argc, char **argv)
     if((signed long int)i < 25l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(opt_flags[(signed long int)i] == 2147483648u)
       break;
     if(!((opt & (unsigned int)(1 << i)) == 0u))
@@ -4629,13 +4629,13 @@ static signed int sortcmp(const void *a, const void *b)
   if(!(a == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   d1 = *((struct dnode **)a);
   struct dnode *d2;
   if(!(b == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   d2 = *((struct dnode **)b);
   unsigned int sort_opts = ((struct globals *)&bb_common_bufsiz1)->all_fmt & (unsigned int)117440512;
   signed long int dif = (signed long int)0;

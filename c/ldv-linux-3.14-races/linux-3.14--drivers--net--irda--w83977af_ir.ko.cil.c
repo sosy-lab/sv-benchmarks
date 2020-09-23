@@ -8920,7 +8920,7 @@ void ldv_assert(int expr )
   {
   if (expr == 0) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

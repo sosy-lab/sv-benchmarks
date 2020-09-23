@@ -586,9 +586,9 @@ int main() {
     Node *i = l;
     while (i != ((void *)0)) {
         if (i->val < min)
-            {reach_error();abort();}
+            {reach_error();}
         if (i->val > max)
-            {reach_error();abort();}
+            {reach_error();}
         i = i->next;
     }
 }

@@ -25,7 +25,7 @@ int main()
   float result = x - (x*x*x)/6.0f + (x*x*x*x*x)/120.0f + (x*x*x*x*x*x*x)/5040.0f;
 
   if(!(result <= 1.2f && result >= -1.2f))
-    {reach_error();abort();}
+    {reach_error();}
 
   return 0;
 }

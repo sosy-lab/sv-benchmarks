@@ -71,7 +71,7 @@ int main() {
   double res = fmax_double(x, y);
 
   if (!isnan_double(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

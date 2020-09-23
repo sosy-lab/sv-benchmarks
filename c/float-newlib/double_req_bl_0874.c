@@ -594,7 +594,7 @@ int main() {
 
     // result shall be -inf
     if (!isinf_double(res)) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

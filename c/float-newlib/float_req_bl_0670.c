@@ -233,7 +233,7 @@ int main() {
 
     // x is NAN, y is any or vice versa, the result shall be NAN
     if (!isnan_float(res)) {
-      {reach_error();abort();}
+      {reach_error();}
       return 1;
     }
   }

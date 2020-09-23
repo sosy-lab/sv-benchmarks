@@ -41,7 +41,7 @@ int main() {
     i = l;
     while (i != NULL) {
         if (i->order > i->stock)
-            {reach_error();abort();}
+            {reach_error();}
         i = i->next;
     }
 }

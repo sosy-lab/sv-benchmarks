@@ -598,5 +598,5 @@ int main() {
         list = list->next;
     }
     if (!(m->val == 100))
-        {reach_error();abort();}
+        {reach_error();}
 }

@@ -587,7 +587,7 @@ int main() {
     Node *i = l;
     while (i != ((void *)0)) {
         if (((i->event1 == 1) && (i->event2 == 3)) || ((i->event1 == 0) && (i->event2 == 2)))
-            {reach_error();abort();}
+            {reach_error();}
         i = i->next;
     }
 }

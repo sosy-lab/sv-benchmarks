@@ -46,7 +46,7 @@ void append_to_queue(Packet p, Node *q) {
 void process_prio_queue(Node q) {
     for (Node node = q; node != NULL; node = node->next) {
         if (!(node->packet.prio == HIGH || node->packet.size < 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }
@@ -54,7 +54,7 @@ void process_prio_queue(Node q) {
 void process_normal_queue(Node q) {
     for (Node node = q; node != NULL; node = node->next) {
         if (!(node->packet.prio == LOW && node->packet.size >= 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }

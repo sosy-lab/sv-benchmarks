@@ -593,7 +593,7 @@ int main() {
     i = l;
     while (i != ((void *)0)) {
         if (i->order > i->stock)
-            {reach_error();abort();}
+            {reach_error();}
         i = i->next;
     }
 }

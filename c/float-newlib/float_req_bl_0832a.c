@@ -121,7 +121,7 @@ int main() {
 
   // x is +0, result shall be 1.
   if (res != 1.0f) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
 
