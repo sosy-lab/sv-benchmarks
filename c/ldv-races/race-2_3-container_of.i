@@ -1689,6 +1689,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "race-2_3-container_of.c", 14, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 pthread_t t1,t2;
@@ -1723,10 +1725,18 @@ int my_drv_probe(struct my_data *data) {
   goto exit;
  pthread_create(&t1, ((void *)0), my_callback, (void *)d);
  pthread_create(&t2, ((void *)0), my_callback, (void *)d);
+ __VERIFIER_atomic_begin();
  data->shared.a = 3;
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
  data->shared.b = 3;
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
  ldv_assert(data->shared.a==3);
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
  ldv_assert(data->shared.b==3);
+ __VERIFIER_atomic_end();
  return 0;
 exit:
  pthread_mutex_destroy(&data->lock);

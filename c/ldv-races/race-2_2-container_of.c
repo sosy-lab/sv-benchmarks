@@ -12,6 +12,8 @@
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
@@ -39,8 +41,12 @@ void *my_callback(void *arg) {
 	
 	//race
 	//pthread_mutex_lock (&data->lock);
+    __VERIFIER_atomic_begin();
 	data->shared.a = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
 	data->shared.b = data->shared.b + 1;
+    __VERIFIER_atomic_end();
 	//pthread_mutex_unlock (&data->lock);
 	return 0;
 }
