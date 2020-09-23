@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# old file name: race-3_2-container_of-global_false-unreach-call.i
+input_files: 'race-3_2b-container_of-global.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32
