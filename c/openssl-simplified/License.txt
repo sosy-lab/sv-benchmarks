@@ -1,0 +1,9 @@
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+Copyright (c) 1998-2001 The OpenSSL Project
+Copyright © 2002-2004 The Regents of the University of California
+and others
+
+License:
+The original code is under the OpenSSL license (License.OpenSSL.txt)
+and modifications are under the PostgreSQL (License.PostgreSQL.txt)
+and Apache-2.0 (License.Apache-2.0.txt) licenses.
