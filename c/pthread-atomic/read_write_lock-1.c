@@ -43,8 +43,12 @@ void *writer(void *arg) { //writer
 void *reader(void *arg) { //reader
   int l;
   __VERIFIER_atomic_take_read_lock();
+  __VERIFIER_atomic_begin();
   l = x;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   y = l;
+  __VERIFIER_atomic_end();
   assert(y == x);
   __VERIFIER_atomic_release_read_lock();
   return 0;

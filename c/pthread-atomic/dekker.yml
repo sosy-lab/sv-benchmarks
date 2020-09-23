@@ -6,6 +6,8 @@ input_files: 'dekker.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/no-data-trace.prp
+    expected_verdict: true
 
 options:
   language: C

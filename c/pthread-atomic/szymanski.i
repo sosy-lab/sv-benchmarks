@@ -10,6 +10,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "szymanski.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -684,34 +686,52 @@ extern int pthread_atfork (void (*__prepare) (void),
 int flag1 = 0, flag2 = 0;
 int x;
 void *thr1(void *_) {
+  __VERIFIER_atomic_begin();
   flag1 = 1;
-  while (flag2 >= 3);
+  __VERIFIER_atomic_end();
+  int f21 = flag2;
+  while (f21 >= 3);
   flag1 = 3;
-  if (flag2 == 1) {
+  f21 = flag2;
+  if (f21 == 1) {
+    __VERIFIER_atomic_begin();
     flag1 = 2;
-    while (flag2 != 4);
+    __VERIFIER_atomic_end();
+    f21 = flag2;
+    while (f21 != 4);
   }
   flag1 = 4;
-  while (flag2 >= 2);
+  f21 = flag2;
+  while (f21 >= 2);
   x = 0;
   if (!(x<=0)) ERROR: {reach_error();abort();}
-  while (2 <= flag2 && flag2 <= 3);
+  f21 = flag2;
+  while (2 <= f21 && f21 <= 3);
   flag1 = 0;
   return 0;
 }
 void *thr2(void *_) {
   flag2 = 1;
-  while (flag1 >= 3);
+  __VERIFIER_atomic_begin();
+  int f12 = flag1;
+  __VERIFIER_atomic_end();
+  while (f12 >= 3);
   flag2 = 3;
-  if (flag1 == 1) {
+  f12 = flag1;
+  if (f12 == 1) {
     flag2 = 2;
-    while (flag1 != 4);
+    f12 = flag1;
+    while (f12 != 4);
   }
   flag2 = 4;
-  while (flag1 >= 2);
+  f12 = flag1;
+  while (f12 >= 2);
   x = 1;
   if (!(x>=1)) ERROR: {reach_error();abort();}
-  while (2 <= flag1 && flag1 <= 3);
+  __VERIFIER_atomic_begin();
+  f12 = flag1;
+  __VERIFIER_atomic_end();
+  while (2 <= f12 && f12 <= 3);
   flag2 = 0;
   return 0;
 }

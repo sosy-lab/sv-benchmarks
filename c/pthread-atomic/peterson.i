@@ -10,6 +10,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "peterson.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -686,19 +688,31 @@ int turn;
 int x;
 void *thr1(void *_) {
   flag1 = 1;
+  __VERIFIER_atomic_begin();
   turn = 1;
-  while (flag2==1 && turn==1) {};
+  __VERIFIER_atomic_end();
+  int f21 = flag2;
+  int t1 = turn;
+  while (f21==1 && t1==1) {};
   x = 0;
-  if (!(x<=0)) ERROR: {reach_error();abort();}
+  assert(x<=0);
+  __VERIFIER_atomic_begin();
   flag1 = 0;
+  __VERIFIER_atomic_end();
   return 0;
 }
 void *thr2(void *_) {
   flag2 = 1;
   turn = 0;
-  while (flag1==1 && turn==0) {};
+  __VERIFIER_atomic_begin();
+  int f12 = flag1;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int t2 = turn;
+  __VERIFIER_atomic_end();
+  while (f12==1 && t2==0) {};
   x = 1;
-  if (!(x>=1)) ERROR: {reach_error();abort();}
+  assert(x>=1);
   flag2 = 0;
   return 0;
 }
