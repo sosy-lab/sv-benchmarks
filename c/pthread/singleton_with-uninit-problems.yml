@@ -6,7 +6,7 @@ input_files: 'singleton_with-uninit-problems.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/no-data-races.prp
+  - property_file: ../properties/no-data-race.prp
     expected_verdict: true
 
 options:
