@@ -15,7 +15,7 @@
 - [ ] programs and expected answer added to a `.yml` file according to [task definitions](https://github.com/sosy-lab/sv-benchmarks#task-definitions)
 
 <!-- For C programs: -->
-- [ ] [architecture](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#architecture) (32 bit vs. 64 bit) matches the corresponding `.cfg` file
+- [ ] [architecture](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#architecture) (32 bit vs. 64 bit) considered and specified in the `.yml` files
 - [ ] original sources present
 - [ ] [preprocessed](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#preprocessing) files present
 - [ ] preprocessed files generated with correct architecture
