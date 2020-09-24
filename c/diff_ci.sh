@@ -24,7 +24,7 @@ find_parent_with_Makefile() {
     fi
   done
   echo "No Makefile found in any parent."
-  exit
+  exit 1
 }
 #following variable contains the names of the files in the diff with master:
 # i) which are either c, header or preprocesses files in the c folder, and
@@ -39,5 +39,7 @@ for d in $dirs
 do
   parent_with_Makefile=$d
   find_parent_with_Makefile
+  # Execute the command only if the directory is not present in dirs.
+  # Assumes that directory names do not have spaces.
   [[ " ${dirs[@]} " =~ " $parent_with_Makefile " ]] || $cmdToExecute $parent_with_Makefile
 done
