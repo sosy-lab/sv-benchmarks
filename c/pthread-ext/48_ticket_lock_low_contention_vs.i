@@ -714,7 +714,7 @@ unsigned c = 0;
 void* thr1(void* arg)
 {
   unsigned l;
-  { __VERIFIER_atomic_fetch_and_inc(&l); __VERIFIER_atomic_begin(); while (l != s) ; __VERIFIER_atomic_end(); };
+  { __VERIFIER_atomic_fetch_and_inc(&l); __VERIFIER_atomic_begin(); while (l != s) {} ; __VERIFIER_atomic_end(); };
   c = 1; { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } }; c = 0;
   { __VERIFIER_atomic_begin(); s++; __VERIFIER_atomic_end(); };
   return 0;

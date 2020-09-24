@@ -28,7 +28,7 @@ void __VERIFIER_atomic_fetch_and_inc(unsigned * l)
 {\
   __VERIFIER_atomic_fetch_and_inc(&l); \
   __VERIFIER_atomic_begin(); \
-  while (l != s) \
+  while (l != s) {} \
     ; /* spin */ \
 __VERIFIER_atomic_end(); \
 }
