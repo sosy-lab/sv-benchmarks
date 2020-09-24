@@ -680,7 +680,7 @@ extern void __assert_perror_fail (int __errnum, const char *__file,
 extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
-void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "nondet-loop-bound-1.c", , __extension__ __PRETTY_FUNCTION__); })); }
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "assert.h", 2, __extension__ __PRETTY_FUNCTION__); })); }
 unsigned int __VERIFIER_nondet_uint();
 extern void abort(void);
 void assume_abort_if_not(int cond) {
