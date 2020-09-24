@@ -5,6 +5,8 @@ void assume_abort_if_not(int cond) {
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
 //A counter using locks
@@ -41,9 +43,11 @@ void * thr1(void* arg) {
 		v = value;
 		value = v + 1;
 		__VERIFIER_atomic_release();
-
+        
+        __VERIFIER_atomic_begin();
 		assert(value > v);
-
+        __VERIFIER_atomic_end();
+        
 		return 0;
 	}
 }

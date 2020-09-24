@@ -5,6 +5,8 @@ void assume_abort_if_not(int cond) {
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 #include <pthread.h>
 
@@ -29,11 +31,19 @@ void __VERIFIER_atomic_release()
 
 #define cnd_wait(c,m){ \
   __VERIFIER_atomic_release(); \
+__VERIFIER_atomic_begin(); \
   assume(c); \
+  __VERIFIER_atomic_end(); \
+  __VERIFIER_atomic_begin(); \
   c = 0; \
+  __VERIFIER_atomic_end(); \
   __VERIFIER_atomic_acquire(); }
 
-#define cnd_broadcast(c) (c = 1) //BP must be post-processed manually by changing "b*_COND := 1" to "b*_COND$ := 1"
+#define cnd_broadcast(c){ \
+  __VERIFIER_atomic_begin(); \
+  (c = 1); \
+  __VERIFIER_atomic_begin(); \
+  } //BP must be post-processed manually by changing "b*_COND := 1" to "b*_COND$ := 1"
 
 void Barrier2() {  
   __VERIFIER_atomic_acquire();

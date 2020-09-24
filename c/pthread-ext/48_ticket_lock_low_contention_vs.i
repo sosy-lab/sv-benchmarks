@@ -15,6 +15,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "48_ticket_lock_low_contention_vs.c", 8, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -697,11 +699,11 @@ void __VERIFIER_atomic_fetch_and_inc(unsigned * l)
 unsigned c = 0;
 void* thr1(void* arg)
 {
-  unsigned l;
-  { __VERIFIER_atomic_fetch_and_inc(&l); while (l != s) ; };
-  c = 1; { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } }; c = 0;
-  { s++;};
-  return 0;
+    unsigned l;
+      { __VERIFIER_atomic_fetch_and_inc(&l); __VERIFIER_atomic_begin(); while (l != s){}; __VERIFIER_atomic_end(); };
+    c = 1; { if(!(c == 1)) { ERROR: {reach_error();abort();}(void)0; } }; c = 0;
+    { s++;};
+    return 0;
 }
 int main()
 {

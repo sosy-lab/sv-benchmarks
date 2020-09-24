@@ -10,6 +10,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "20_lamport.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -686,56 +688,84 @@ int y;
 int b1, b2;
 int X;
 void* thr1(void* arg) {
-  while (1) {
-    b1 = 1;
-    x = 1;
-    if (y != 0) {
-      b1 = 0;
-      while (y != 0) {};
-      continue;
+    while (1) {
+        b1 = 1;
+        __VERIFIER_atomic_begin();
+        x = 1;
+        __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
+        int y1 = y;
+        __VERIFIER_atomic_end();
+        if (y1 != 0) {
+            b1 = 0;
+            __VERIFIER_atomic_begin();
+            y1 = y;
+            __VERIFIER_atomic_end();
+            while (y1 != 0) {};
+            continue;
+        }
+        y = 1;
+        int x1 = x;
+        if (x1 != 1) {
+            b1 = 0;
+            __VERIFIER_atomic_begin();
+            int b21 = b2;
+            __VERIFIER_atomic_end();
+            while (b21 >= 1) {};
+            y1 = y;
+            if (y1 != 1) {
+                y1 = y;
+                while (y != 0) {};
+                continue;
+            }
+        }
+        break;
     }
-    y = 1;
-    if (x != 1) {
-      b1 = 0;
-      while (b2 >= 1) {};
-      if (y != 1) {
- while (y != 0) {};
- continue;
-      }
-    }
-    break;
-  }
-  X = 0;
-  { if(!(X <= 0)) { ERROR: {reach_error();abort();}(void)0; } };
-  y = 0;
-  b1 = 0;
-  return 0;
+    X = 0;
+    { if(!(X <= 0)) { ERROR: {reach_error();abort();}(void)0; } };
+    y = 0;
+    b1 = 0;
+    return 0;
 }
 void* thr2(void* arg) {
-  while (1) {
-    b2 = 1;
-    x = 2;
-    if (y != 0) {
-      b2 = 0;
-      while (y != 0) {};
-      continue;
+    while (1) {
+        b2 = 1;
+        __VERIFIER_atomic_begin();
+        x = 2;
+        __VERIFIER_atomic_end();
+        int y2 = y;
+        if (y2 != 0) {
+            b2 = 0;
+            y2 = y;
+            while (y2 != 0) {};
+            continue;
+        }
+        __VERIFIER_atomic_begin();
+        y = 2;
+        __VERIFIER_atomic_end();
+        int x2 = x;
+        if (x2 != 2) {
+            b2 = 0;
+            int b12 = b1;
+            while (b12 >= 1) {};
+            y2 = y;
+            if (y2 != 2) {
+                y2 = y;
+                while (y2 != 0) {};
+                continue;
+            }
+        }
+        break;
     }
-    y = 2;
-    if (x != 2) {
-      b2 = 0;
-      while (b1 >= 1) {};
-      if (y != 2) {
- while (y != 0) {};
- continue;
-      }
-    }
-    break;
-  }
-  X = 1;
-  { if(!(X >= 1)) { ERROR: {reach_error();abort();}(void)0; } };
-  y = 0;
-  b2 = 0;
-  return 0;
+    X = 1;
+    { if(!(X >= 1)) { ERROR: {reach_error();abort();}(void)0; } };
+    __VERIFIER_atomic_begin();
+    y = 0;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    b2 = 0;
+    __VERIFIER_atomic_end();
+    return 0;
 }
 int main()
 {

@@ -3,6 +3,8 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 extern void abort(void);
 
 extern void __assert_fail (const char *__assertion, const char *__file,
@@ -706,7 +708,9 @@ inline int calculateNext(int s2){
 int seed = 1;
 inline int PseudoRandomUsingAtomic_nextInt() {
  int read, nexts, nextInt_return;
+ __VERIFIER_atomic_begin();
  { if(!(seed != 0)) { ERROR: {reach_error();abort();}(void)0; } };
+ __VERIFIER_atomic_end();
  __VERIFIER_atomic_acquire();
  read = seed;
  nexts = calculateNext(read);
