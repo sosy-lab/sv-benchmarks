@@ -15,6 +15,17 @@ else
   exit
 fi
 
+find_parent_with_Makefile() {
+  while [[ "$parent_with_Makefile" != "." ]]; do
+    if [ -e "$parent_with_Makefile/Makefile" ]; then
+      return 0
+    else
+      parent_with_Makefile=${parent_with_Makefile%/*}
+    fi
+  done
+  echo "No Makefile found in any parent."
+  exit
+}
 #following variable contains the names of the files in the diff with master:
 # i) which are either c, header or preprocesses files in the c folder, and
 # ii) deleted files are not considered
@@ -23,14 +34,10 @@ relevant_diff=`git diff --name-only --diff-filter=d origin/master... -- './*.i' 
 # dirs is the list of directories from the changed files
 dirs=`echo $relevant_diff | xargs dirname | cut -d/ -f2- | sort | uniq`
 
-printf "The CI commands will run in the following directories \n$dirs \n"
+printf "Selected following directories for diff build: \n$dirs \n"
 for d in $dirs
 do
-  if [ ! -f "$d/Makefile" ]; then
-    parent=`dirname $d`
-    # Execute the make only when the directory is not already present.
-    [[ "${dirs[@]}" =~ $parent ]] || $cmdToExecute $parent
-  else
-    $cmdToExecute $d
-  fi
+  parent_with_Makefile=$d
+  find_parent_with_Makefile
+  [[ " ${dirs[@]} " =~ " $parent_with_Makefile " ]] || $cmdToExecute $parent_with_Makefile
 done
