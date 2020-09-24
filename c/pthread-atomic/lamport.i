@@ -719,7 +719,7 @@ void *thr1(void *_) {
         break;
     }
     X = 0;
-    assert(X <= 0);
+    if (!(X <= 0)) ERROR: {reach_error();abort();}
     __VERIFIER_atomic_begin();
     y = 0;
     __VERIFIER_atomic_end();
@@ -761,7 +761,7 @@ void *thr2(void *_) {
         break;
     }
     X = 1;
-    assert(X >= 1);
+    if (!(X >= 1)) ERROR: {reach_error();abort();}
     y = 0;
     b2 = 0;
     return 0;

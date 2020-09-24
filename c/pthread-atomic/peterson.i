@@ -695,7 +695,7 @@ void *thr1(void *_) {
   int t1 = turn;
   while (f21==1 && t1==1) {};
   x = 0;
-  assert(x<=0);
+  if (!(x<=0)) ERROR: {reach_error();abort();}
   __VERIFIER_atomic_begin();
   flag1 = 0;
   __VERIFIER_atomic_end();
@@ -712,7 +712,7 @@ void *thr2(void *_) {
   __VERIFIER_atomic_end();
   while (f12==1 && t2==0) {};
   x = 1;
-  assert(x>=1);
+  if (!(x>=1)) ERROR: {reach_error();abort();}
   flag2 = 0;
   return 0;
 }

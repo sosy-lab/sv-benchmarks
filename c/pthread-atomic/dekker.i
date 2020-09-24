@@ -705,7 +705,7 @@ void *thr1(void *_) {
         }
     }
     x = 0;
-    assert(x<=0);
+    if (!(x<=0)) ERROR: {reach_error();abort();}
     turn = 1;
     flag1 = 0;
     return 0;
@@ -725,7 +725,7 @@ void *thr2(void *_) {
         }
     }
     x = 1;
-    assert(x>=1);
+    if (!(x>=1)) ERROR: {reach_error();abort();}
     turn = 1;
     flag2 = 0;
     return 0;
