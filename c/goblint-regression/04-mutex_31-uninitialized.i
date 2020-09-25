@@ -1,3 +1,4 @@
+extern void* __VERIFIER_nondet_pointer();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -909,7 +910,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 
 int myglobal;
 void *t_fun(void *arg) {
-  pthread_mutex_t *m;
+  pthread_mutex_t *m = __VERIFIER_nondet_pointer();
   pthread_mutex_lock(m);
   myglobal++;
   pthread_mutex_unlock(m);
@@ -917,7 +918,7 @@ void *t_fun(void *arg) {
 }
 int main () {
   pthread_t id;
-  pthread_mutex_t *m;
+  pthread_mutex_t *m = __VERIFIER_nondet_pointer();
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(m);
   myglobal++;

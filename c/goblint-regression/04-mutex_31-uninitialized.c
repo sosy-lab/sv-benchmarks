@@ -1,10 +1,12 @@
+extern void* __VERIFIER_nondet_pointer();
+
 #include<pthread.h>
 #include<stdio.h>
 
 int myglobal;
 
 void *t_fun(void *arg) {
-  pthread_mutex_t *m;
+  pthread_mutex_t *m = __VERIFIER_nondet_pointer();
   pthread_mutex_lock(m);
   myglobal++; // RACE!
   pthread_mutex_unlock(m);
@@ -13,8 +15,8 @@ void *t_fun(void *arg) {
 
 int main () {
   pthread_t id;
-  pthread_mutex_t *m;
-  
+  pthread_mutex_t *m = __VERIFIER_nondet_pointer();
+
   pthread_create(&id, NULL, t_fun, NULL);
   pthread_mutex_lock(m);
   myglobal++; // RACE!

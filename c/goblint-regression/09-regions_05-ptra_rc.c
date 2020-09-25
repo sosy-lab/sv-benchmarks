@@ -1,3 +1,5 @@
+extern void* __VERIFIER_nondet_pointer();
+
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>
@@ -20,7 +22,7 @@ pthread_mutex_t B_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void *t_fun(void *arg) {
   int *ip;
-  struct s *t, *sp;
+  struct s *t, *sp = __VERIFIER_nondet_pointer();
   struct s *p = malloc(sizeof(struct s));
   init(p,7);
 
