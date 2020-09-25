@@ -143,7 +143,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file makeall"),
     ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
     ("aws-c-common", "unexpected file yml.sh"),
-    ("xcsp", "unexpected file create_from_xmls.py")
+    ("xcsp", "unexpected file create_from_xmls.py"),
+
+    ("goblint-regression", "unexpected file convert-goblint-regression.py")
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
