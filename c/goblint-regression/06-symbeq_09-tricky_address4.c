@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int();
+
 #include<pthread.h>
 #include<stdio.h>
 
@@ -7,7 +9,7 @@ struct s {
 } a[10];
 
 void *t_fun(void *arg) {
-  int i;
+  int i = __VERIFIER_nondet_int();
   struct s *p = &a[i];
   pthread_mutex_lock(&p->mutex);
   i++;
@@ -17,10 +19,10 @@ void *t_fun(void *arg) {
 }
 
 int main () {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_t t1;
   pthread_create(&t1, NULL, t_fun, NULL);
-  
+
   pthread_mutex_lock(&a[i].mutex);
   a[i].datum++; // RACE!
   pthread_mutex_unlock(&a[i].mutex);

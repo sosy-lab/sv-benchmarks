@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
@@ -916,7 +917,7 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main() {
-  int *i,j;
+  int *i,j = __VERIFIER_nondet_int();
   pthread_t id;
   if (j) i = &data.x;
   else i = &data.y;

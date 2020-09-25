@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int();
+
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>
@@ -26,7 +28,7 @@ void list_add(struct s *node, struct s *list) {
 }
 
 void *t_fun(void *arg) {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_mutex_lock(&c.mutex[i+1]);
   list_add(new(3), c.slots[i]);
   pthread_mutex_unlock(&c.mutex[i+1]);
@@ -34,15 +36,15 @@ void *t_fun(void *arg) {
 }
 
 int main () {
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct s *p;
   pthread_t t1;
- 
+
   c.slots[j] = new(1);
   list_add(new(2), c.slots[j]);
 
   pthread_create(&t1, NULL, t_fun, NULL);
-  
+
   pthread_mutex_lock(&c.mutex[j]);
   p = c.slots[j]->next; // RACE
   printf("%d\n", p->datum);

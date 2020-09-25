@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1008,20 +1009,20 @@ static inline void list_add(struct list_head *new, struct list_head *head) {
   head->next = new;
 }
 inline static struct list_head *lookup1 (int d) {
-  int hvalue1;
+  int hvalue1 = __VERIFIER_nondet_int();
   struct list_head *p;
   p = c.slot[hvalue1].next;
   return p;
 }
 inline static struct list_head *lookup2 (int d) {
-  int hvalue2;
+  int hvalue2 = __VERIFIER_nondet_int();
   struct list_head *p;
   p = c.slot[hvalue2].next;
   return p;
 }
 void *f(void *arg) {
   struct s *pos ;
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct list_head const *p ;
   struct list_head const *q ;
   while (j < 10) {
@@ -1039,7 +1040,7 @@ void *f(void *arg) {
   return 0;
 }
 int main() {
-  int x;
+  int x = __VERIFIER_nondet_int();
   struct list_head *pp;
   pthread_t t1, t2;
   for (int i = 0; i < 10; i++) {

@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1009,7 +1010,7 @@ static inline void list_add(struct list_head *new, struct list_head *head) {
 }
 void *f(void *arg) {
   struct s *pos ;
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct list_head const *p ;
   struct list_head const *q ;
   while (j < 10) {
@@ -1028,7 +1029,7 @@ void *f(void *arg) {
 }
 void *g(void *arg) {
   struct s *pos ;
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct list_head const *p ;
   struct list_head const *q ;
   while (j < 10) {

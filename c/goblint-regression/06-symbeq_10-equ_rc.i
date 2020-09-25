@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -990,7 +991,7 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
-  int x;
+  int x = __VERIFIER_nondet_int();
   pthread_t id;
   struct s *s;
   int *d;

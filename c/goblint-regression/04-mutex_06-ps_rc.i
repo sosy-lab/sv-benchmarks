@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
@@ -927,7 +928,7 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main() {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_t id;
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
   printf("Do the work? ");

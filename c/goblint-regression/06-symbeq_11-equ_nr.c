@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int();
+
 #include<pthread.h>
 #include<stdlib.h>
 
@@ -16,7 +18,7 @@ void *t_fun(void *arg) {
 }
 
 int main () {
-  int x;
+  int x = __VERIFIER_nondet_int();
   pthread_t id;
 
   // struct s *s = malloc(sizeof(struct s));

@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int();
+
 #include<pthread.h>
 #include<stdlib.h>
 
@@ -39,15 +41,15 @@ static inline void list_add(struct list_head *new, struct list_head *head) {
 }
 
 inline static struct list_head *lookup (int d) {
-  int hvalue;
+  int hvalue = __VERIFIER_nondet_int();
   struct list_head *p;
   p = c.slot[hvalue].next;
   return p;
 }
 
-void *f(void *arg) { 
+void *f(void *arg) {
   struct s *pos ;
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct list_head  const  *p ;
   struct list_head  const  *q ;
 
@@ -69,7 +71,7 @@ void *f(void *arg) {
 
 int main() {
   struct list_head *p;
-  int x;
+  int x = __VERIFIER_nondet_int();
   pthread_t t1, t2;
   for (int i = 0; i < 10; i++) {
     INIT_LIST_HEAD(&c.slot[i]);

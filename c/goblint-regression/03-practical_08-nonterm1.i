@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -911,7 +912,7 @@ int myglobal;
 pthread_mutex_t mutex1 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 pthread_mutex_t mutex2 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 void fun(void) {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_mutex_lock(&mutex2);
   myglobal=myglobal+1;
   pthread_mutex_unlock(&mutex2);

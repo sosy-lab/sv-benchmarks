@@ -23,7 +23,7 @@ void *t_fun(void *arg) {
   struct s *t, *sp;
   struct s *p = malloc(sizeof(struct s));
   init(p,7);
-  
+
   ip = &p->datum;
   sp = list_entry(ip, struct s, datum);
 
@@ -49,10 +49,10 @@ int main () {
   init(B,5);
 
   pthread_create(&t1, NULL, t_fun, NULL);
-  
+
   ip = &p->datum;
   sp = list_entry(ip, struct s, datum);
-  
+
   pthread_mutex_lock(&A_mutex);
   sp = A->next; // NORACE
   printf("%d\n", p->datum); // NORACE

@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -917,7 +918,7 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main(void) {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_t id;
   pthread_mutex_t *m = &mutex1;
   if (i) m = &mutex2;

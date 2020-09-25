@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -983,14 +984,15 @@ void *f(void *x){
   pthread_mutex_lock(q);
   glob++;
   pthread_mutex_unlock(q);
+  return ((void *)0);
 }
 int main() {
   pthread_t t1, t2;
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_mutex_t *a;
   for (i=0; i < 10; i++){
     a = malloc(sizeof(pthread_mutex_t));
-    pthread_mutex_init(&a,0);
+    pthread_mutex_init(a,0);
     if (i==3)
       p = a;
     if (i==7)

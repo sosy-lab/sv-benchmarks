@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int();
+
 #include<pthread.h>
 #include<stdlib.h>
 
@@ -18,7 +20,7 @@ void update(int *p) {
 }
 
 int main () {
-  int x;
+  int x = __VERIFIER_nondet_int();
   pthread_t id;
 
   struct s *s;
@@ -26,9 +28,9 @@ int main () {
 
   pthread_mutex_t *m;
 
-  if (x) 
-    s = &A; 
-  else 
+  if (x)
+    s = &A;
+  else
     s = &B;
 
   m = &s->mutex;

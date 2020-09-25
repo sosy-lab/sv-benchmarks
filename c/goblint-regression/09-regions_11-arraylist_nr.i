@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1231,14 +1232,14 @@ void list_add(struct s *node, struct s *list) {
 pthread_mutex_t mutex[10];
 struct s *slot[10];
 void *t_fun(void *arg) {
-  int i;
+  int i = __VERIFIER_nondet_int();
   pthread_mutex_lock(&mutex[i]);
   list_add(new(3), slot[i]);
   pthread_mutex_unlock(&mutex[i]);
   return ((void *)0);
 }
 int main () {
-  int j;
+  int j = __VERIFIER_nondet_int();
   struct s *p;
   pthread_t t1;
   slot[j] = new(1);

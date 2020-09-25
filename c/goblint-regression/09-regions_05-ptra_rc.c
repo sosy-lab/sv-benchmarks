@@ -23,7 +23,7 @@ void *t_fun(void *arg) {
   struct s *t, *sp;
   struct s *p = malloc(sizeof(struct s));
   init(p,7);
-  
+
   pthread_mutex_lock(&B_mutex);
   t = A->next;
   A->next = sp; // RACE!
@@ -46,7 +46,7 @@ int main () {
   init(B,5);
 
   pthread_create(&t1, NULL, t_fun, NULL);
-  
+
   ip = &p->datum;
   sp = list_entry(ip, struct s, datum);
 
