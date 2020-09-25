@@ -3,7 +3,9 @@ input_files: Problem12.c
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: properties/unreach-call-known.prp
+  - property_file: properties/unreach-call-a.prp
+    expected_verdict: false
+  - property_file: properties/unreach-call-b.prp
     expected_verdict: true
   - property_file: properties/unreach-call-0.prp
     expected_verdict: true
