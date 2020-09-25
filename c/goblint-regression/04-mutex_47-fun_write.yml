@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '04-mutex_47-fun_write.c'
+input_files: '04-mutex_47-fun_write.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

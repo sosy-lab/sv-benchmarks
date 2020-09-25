@@ -1,4 +1,3 @@
-// Including stdlib messed up our locking functions ...
 #include <stdlib.h>
 #include <pthread.h>
 

@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '09-regions_04-list2_nr.c'
+input_files: '09-regions_04-list2_nr.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

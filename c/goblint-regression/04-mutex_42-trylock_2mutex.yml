@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '04-mutex_42-trylock_2mutex.c'
+input_files: '04-mutex_42-trylock_2mutex.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

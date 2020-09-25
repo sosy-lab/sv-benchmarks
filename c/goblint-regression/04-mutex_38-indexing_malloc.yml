@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '04-mutex_38-indexing_malloc.c'
+input_files: '04-mutex_38-indexing_malloc.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

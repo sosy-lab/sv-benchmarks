@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '04-mutex_16-ps_add1_rc.c'
+input_files: '04-mutex_16-ps_add1_rc.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

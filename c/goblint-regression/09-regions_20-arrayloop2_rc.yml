@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '09-regions_20-arrayloop2_rc.c'
+input_files: '09-regions_20-arrayloop2_rc.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

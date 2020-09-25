@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '05-lval_ls_11-fldsense_rc.c'
+input_files: '05-lval_ls_11-fldsense_rc.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

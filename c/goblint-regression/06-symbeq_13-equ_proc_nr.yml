@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '06-symbeq_13-equ_proc_nr.c'
+input_files: '06-symbeq_13-equ_proc_nr.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

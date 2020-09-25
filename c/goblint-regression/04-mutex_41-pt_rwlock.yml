@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '04-mutex_41-pt_rwlock.c'
+input_files: '04-mutex_41-pt_rwlock.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp

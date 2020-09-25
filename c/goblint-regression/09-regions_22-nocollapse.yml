@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: '09-regions_22-nocollapse.c'
+input_files: '09-regions_22-nocollapse.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
