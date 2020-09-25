@@ -27855,8 +27855,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void ldv_assert_linux_kernel_locking_mutex__one_thread_double_lock(int expr ) 
 { 
 

@@ -6,8 +6,7 @@
 #include<math.h>
 
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}

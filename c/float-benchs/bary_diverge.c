@@ -1,6 +1,5 @@
 extern void abort(void);
-extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "bary_diverge.c", 3, "reach_error"); }
+void reach_error(){}
 /* This example comes from "Varieties of Static Analyzers: A Comparison 
    with ASTRÉE" by Cousot, Cousot, Feret, Mauborgne, Miné, Monniaux, 
    and Rival, published in TASE 07.

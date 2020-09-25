@@ -10,8 +10,7 @@
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 

@@ -6594,8 +6594,7 @@ int ldv_undef_int_nonpositive(void)
 }
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;
 pthread_mutex_t pmutex_i_mutex_of_inode  ;

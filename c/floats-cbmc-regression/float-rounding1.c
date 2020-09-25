@@ -3,8 +3,7 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 #ifdef __GNUC__
 #include <math.h>
 #include <fenv.h>

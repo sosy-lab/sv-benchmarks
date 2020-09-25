@@ -1,7 +1,6 @@
 int __return_main;
 void abort(void);
-extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "inv_sqrt_Quake.c.v+cfa-reducer.c", 4, "reach_error"); }
+void reach_error(){}
 float __VERIFIER_nondet_float();
 void abort(void);
 void assume_abort_if_not(int cond) {

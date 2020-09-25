@@ -1,6 +1,5 @@
 extern void abort(void);
-extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "sin_interpolated_bigrange_loose.c", 3, "reach_error"); }
+void reach_error(){}
 /* Example from "Towards an industrial use of FLUCTUAT on safety-critical 
    avionics software" by Delmas, Goubault, Putot, Souryis, Tekkal,
    and Védrine. Published in FMICS 09.

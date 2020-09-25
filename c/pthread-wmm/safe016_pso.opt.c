@@ -4,8 +4,7 @@ void assume_abort_if_not(int cond) {
 }
 extern _Bool __VERIFIER_nondet_bool(void);
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();} }; return; }
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();

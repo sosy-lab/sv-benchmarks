@@ -1,6 +1,5 @@
 extern void abort(void);
-extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "zonotope_3.c", 3, "reach_error"); }
+void reach_error(){}
 /* Example from "An Accurate Join for Zonotopes, Preserving Affine 
    Input/Output Relations", by Gougault, Le Gall and Putot, published
    in NSAD 12.

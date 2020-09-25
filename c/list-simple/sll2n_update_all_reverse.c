@@ -1,6 +1,5 @@
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 /*
  * Create NULL-terminated sll of size 2: 1-1
  * Updates all nodes in a backward traversal. Check result: 3-2

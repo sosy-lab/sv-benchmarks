@@ -1,7 +1,6 @@
 extern void abort(void);
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 extern float __VERIFIER_nondet_float(void);
 extern double __VERIFIER_nondet_double(void);
 /*
