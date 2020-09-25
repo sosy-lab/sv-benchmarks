@@ -5,3 +5,7 @@ input_files: '09-regions_17-arrayloop_nr.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -5,3 +5,7 @@ input_files: '00-sanity_11-loop_race.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

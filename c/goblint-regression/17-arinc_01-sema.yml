@@ -5,3 +5,7 @@ input_files: '17-arinc_01-sema.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

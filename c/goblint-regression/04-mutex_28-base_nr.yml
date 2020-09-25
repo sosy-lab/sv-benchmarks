@@ -5,3 +5,7 @@ input_files: '04-mutex_28-base_nr.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

@@ -5,3 +5,7 @@ input_files: '06-symbeq_09-tricky_address4.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

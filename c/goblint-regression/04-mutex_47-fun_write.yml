@@ -5,3 +5,7 @@ input_files: '04-mutex_47-fun_write.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

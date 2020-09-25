@@ -5,3 +5,7 @@ input_files: '11-heap_02-nestedlist_rc.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

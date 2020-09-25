@@ -5,3 +5,7 @@ input_files: '02-base_25-malloc_race_cp.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

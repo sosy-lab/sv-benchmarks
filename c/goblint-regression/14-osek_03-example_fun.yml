@@ -5,3 +5,7 @@ input_files: '14-osek_03-example_fun.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

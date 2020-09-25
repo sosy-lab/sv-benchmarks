@@ -5,3 +5,7 @@ input_files: '13-privatized_06-dll_inlined_rc.c'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

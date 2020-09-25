@@ -41,7 +41,10 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
             for property_file, expected_verdict in properties.items():
                 f.write(f"  - property_file: {property_file}\n")
                 f.write(f"    expected_verdict: {'true' if expected_verdict else 'false'}\n")
-            # f.write("\n")
+            f.write("\n")
+            f.write("options:\n")
+            f.write("  language: C\n")
+            f.write("  data_model: ILP32\n") # TODO: is this right for Goblint tests?
 
         content = re.sub(r"^//\s*PARAM.*\n", "", content, count=1) # strip Goblint PARAM hints
         print(f"  -> {target_f}")
