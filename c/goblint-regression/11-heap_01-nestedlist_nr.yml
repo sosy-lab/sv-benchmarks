@@ -1,0 +1,7 @@
+format_version: '2.0'
+
+input_files: '11-heap_01-nestedlist_nr.c'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true
