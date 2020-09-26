@@ -15,3 +15,4 @@ verifythis/prefixsum_iter.yml
 verifythis/tree_del_iter.yml
 verifythis/tree_del_iter_incorrect.yml
 nla-digbench/*.yml
+nla-digbench-scaling/*.yml
