@@ -1,4 +1,5 @@
 stages:
+  - images
   - checks
 
 sanity-checks:
@@ -104,3 +105,23 @@ java:
       - "java/results/*.results.Werror.xml*"
       - "java/results/*.html"
     when: always
+
+.build-docker:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /root/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --dockerfile $CI_PROJECT_DIR/$DOCKERFILE --destination $CI_REGISTRY_IMAGE/$IMAGE
+  only:
+    - schedules
+    - web
+
+build-docker:java:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: java/.Dockerfile
+    IMAGE: java:latest
+
