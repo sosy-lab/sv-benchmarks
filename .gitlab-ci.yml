@@ -118,6 +118,34 @@ java:
     - schedules
     - web
 
+build-docker:clang:3.9:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.clang-3.9
+    IMAGE: ci/clang:3.9
+
+build-docker:gcc:5:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.gcc-5
+    IMAGE: ci/gcc:5
+
+build-docker:preprocessing-consistency:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.preprocessing-consistency
+    IMAGE: ci/preprocessing-consistency:latest
+
+build-docker:sanity-checks:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.sanity-checks
+    IMAGE: ci/sanity-checks:latest
+
 build-docker:java:latest:
   extends: .build-docker
   stage: images
