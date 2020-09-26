@@ -123,5 +123,5 @@ build-docker:java:latest:
   stage: images
   variables:
     DOCKERFILE: java/.Dockerfile
-    IMAGE: java:latest
+    IMAGE: ci/java:latest
 
