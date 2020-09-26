@@ -3,6 +3,8 @@ jbmc-regression/*.yml
 jpf-regression/*.yml
 java-ranger-regression/*.yml
 java-ranger-regression/WBS/*.yml
+java-ranger-regression/alarm/*.yml
+java-ranger-regression/infusion/*.yml
 java-ranger-regression/siena_eqchk/*.yml
 java-ranger-regression/replace5_eqchk/*.yml
 java-ranger-regression/nanoxml_eqchk/*.yml

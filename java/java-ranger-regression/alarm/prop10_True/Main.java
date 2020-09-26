@@ -203,7 +203,6 @@ public class Main {
         rtu_sensor_in.RTC_In_Error = RTC_In_Error;
         rtu_sensor_in.Watchdog_Interrupted = Watchdog_Interrupted;
         rtu_sensor_in.Memory_Corrupted = Memory_Corrupted;
-        alarm
         rtu_sensor_in.Pump_Too_Hot = Pump_Too_Hot;
         rtu_sensor_in.Pump_Overheated = Pump_Overheated;
         rtu_sensor_in.Pump_Primed = Pump_Primed;
@@ -222,7 +221,7 @@ public class Main {
         rtu_const_in.Max_Paused_Duration = Max_Paused_Duration;
         rtu_const_in.Max_Idle_Duration = Max_Idle_Duration;
         rtu_const_in.Tolerance_Max = Tolerance_Max;
-        alarm
+        
         rtu_const_in.Tolerance_Min = Tolerance_Min;
         rtu_const_in.Log_Interval = Log_Interval;
         rtu_const_in.System_Test_Interval = System_Test_Interval;
