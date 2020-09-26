@@ -98,13 +98,15 @@ java:
   script:
       # unset variables to not leak their content through result files
     - "unset $(compgen -v CI) $(compgen -v GIT)"
-    - "java/check-compile.sh"
+    - "sudo -u benchexec java/check-compile.sh"
   artifacts:
     paths:
       - "java/results/*logfiles*"
       - "java/results/*.results.Werror.xml*"
       - "java/results/*.html"
     when: always
+  tags:
+    - privileged
 
 .build-docker:
   image:
