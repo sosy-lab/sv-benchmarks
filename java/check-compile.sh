@@ -2,7 +2,8 @@
 set -eu
 cd "$(dirname "$0")"
 
-benchexec --no-container -r Werror -N 2 compile.xml
+[ -d bin ] || mkdir bin
+benchexec --read-only-dir / --hidden-dir bin -r Werror -N 2 compile.xml
 
 TABLE_GENERATOR_STATISTICS="$(table-generator results/compile.*.results.Werror.xml.bz2 -f html --dump)"
 echo "$TABLE_GENERATOR_STATISTICS"

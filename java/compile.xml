@@ -10,6 +10,7 @@
   </rundefinition>
 
   <option name="-source">1.8</option>
+  <option name="-d">bin</option>
 
   <tasks name="MinePump">
     <include>MinePump/*.yml</include>

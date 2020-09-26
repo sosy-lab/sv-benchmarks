@@ -1,4 +1,5 @@
 stages:
+  - images
   - checks
 
 sanity-checks:
@@ -97,10 +98,60 @@ java:
   script:
       # unset variables to not leak their content through result files
     - "unset $(compgen -v CI) $(compgen -v GIT)"
-    - "java/check-compile.sh"
+    - "sudo -u benchexec java/check-compile.sh"
   artifacts:
     paths:
       - "java/results/*logfiles*"
       - "java/results/*.results.Werror.xml*"
       - "java/results/*.html"
     when: always
+  tags:
+    - privileged
+
+.build-docker:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /root/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --dockerfile $CI_PROJECT_DIR/$DOCKERFILE --destination $CI_REGISTRY_IMAGE/$IMAGE
+  only:
+    - schedules
+    - web
+
+build-docker:clang:3.9:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.clang-3.9
+    IMAGE: ci/clang:3.9
+
+build-docker:gcc:5:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.gcc-5
+    IMAGE: ci/gcc:5
+
+build-docker:preprocessing-consistency:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.preprocessing-consistency
+    IMAGE: ci/preprocessing-consistency:latest
+
+build-docker:sanity-checks:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: c/.Dockerfile.sanity-checks
+    IMAGE: ci/sanity-checks:latest
+
+build-docker:java:latest:
+  extends: .build-docker
+  stage: images
+  variables:
+    DOCKERFILE: java/.Dockerfile
+    IMAGE: ci/java:latest
+
