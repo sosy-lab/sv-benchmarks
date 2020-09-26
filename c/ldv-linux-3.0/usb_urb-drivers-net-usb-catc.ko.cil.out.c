@@ -1,6 +1,5 @@
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 
 typedef void (*ctor_fn_t)(void);
 typedef signed char __s8;

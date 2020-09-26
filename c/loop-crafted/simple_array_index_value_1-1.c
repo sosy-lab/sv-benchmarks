@@ -3,8 +3,7 @@ International Conference on Tools and Algorithms for the Construction and Analys
 
 #define SIZE 1000
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void __VERIFIER_assert(int cond)
 {
   if (!(cond)) {

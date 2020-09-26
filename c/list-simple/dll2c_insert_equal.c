@@ -1,6 +1,5 @@
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 /*
  * Create circular dll of size 2: 1-1
  * Insert node at middle index 1 with data = 1. Check result: 1-1-1

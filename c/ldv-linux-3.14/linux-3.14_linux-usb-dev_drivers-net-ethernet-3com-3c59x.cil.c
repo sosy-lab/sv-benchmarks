@@ -15556,8 +15556,7 @@ int ldv_thread_join_N(struct ldv_thread_set *ldv_thread_set , void (*function)(v
 }
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void ldv_assert_linux_usb_dev__less_initial_decrement(int expr ) 
 { 
 

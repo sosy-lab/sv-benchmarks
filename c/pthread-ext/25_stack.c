@@ -4,8 +4,7 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 
 //original file: EBStack.java
 //amino-cbbs\trunk\amino\java\src\main\java\org\amino\ds\lockfree

@@ -1,6 +1,5 @@
 extern void abort(void);
-extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "zonotope_tight.c", 3, "reach_error"); }
+void reach_error(){}
 /* Example from "A Logical Product Approach to Zonotope Intersection", by
    Ghorbal, Goubault, Putot, published in CAV 10.
 */

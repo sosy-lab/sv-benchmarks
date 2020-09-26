@@ -10,8 +10,7 @@
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 
 typedef enum {RED, BLACK} Colour;
 

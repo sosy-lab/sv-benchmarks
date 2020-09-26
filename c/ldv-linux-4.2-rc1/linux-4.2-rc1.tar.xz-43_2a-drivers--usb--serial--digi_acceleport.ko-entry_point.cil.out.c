@@ -1,6 +1,5 @@
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned long int n)

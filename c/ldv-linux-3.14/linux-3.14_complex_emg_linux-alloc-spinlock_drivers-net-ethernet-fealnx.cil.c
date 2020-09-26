@@ -12695,8 +12695,7 @@ int ldv_exclusive_spin_is_locked(void)
 }
 }
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void ldv_assert_linux_alloc_spinlock__nonatomic(int expr ) 
 { 
 

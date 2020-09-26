@@ -4,8 +4,7 @@ International Conference on Tools and Algorithms for the Construction and Analys
 //This program is similar to loops/sum03_true-unreach-call_false-termination.i but uses array index and value
 #define SIZE 10000
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}

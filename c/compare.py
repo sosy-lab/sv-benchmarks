@@ -21,6 +21,7 @@ BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
 # categories to be excluded ... (with reason and debug information)
 CATEGORY_BLACKLIST = {
   "ConcurrencySafety-Main": "(platform-dependent types)",
+  "NoDataRace-Main": "(platform-dependent types)",
   "SoftwareSystems-OpenBSD-MemSafety": "(only custom includes, no system headers, complicated build process)",
   "SoftwareSystems-SQLite-MemSafety": "(complicated build process, requires patched version of cilly)",
 }

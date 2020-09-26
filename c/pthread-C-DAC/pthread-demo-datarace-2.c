@@ -21,8 +21,7 @@ Modifications are made to remove non-standard libary dependencies by Yihao from
 VSL of University of Delaware.
  */
 extern void abort(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 #include <pthread.h>
 #include <stdlib.h>
