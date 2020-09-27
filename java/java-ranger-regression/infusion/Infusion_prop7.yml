@@ -5,4 +5,4 @@ input_files:
   - prop7_True/
 properties:
   - property_file: ../../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: true
