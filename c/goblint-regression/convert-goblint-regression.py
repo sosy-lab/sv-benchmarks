@@ -9,6 +9,11 @@ import subprocess
 goblint_root = Path(sys.argv[1])
 goblint_regression = goblint_root / "tests" / "regression"
 
+EXCLUDE_TASKS = [
+    "04-mutex_13-failed_locking",
+    "04-mutex_49-type-invariants",
+]
+
 target_root = Path(".")
 
 for goblint_f in sorted(goblint_regression.glob("**/*.c")):
@@ -37,6 +42,11 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
             print("allfuns")
             continue
 
+    task_name = Path(goblint_f.parent.name + "_" + goblint_f.name).stem
+    if task_name in EXCLUDE_TASKS:
+        print("exclude")
+        continue
+
     properties = {}
     if re.search(r"//\s*RACE", content):
         properties["../properties/no-data-race.prp"] = False
@@ -49,8 +59,6 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
         print()
         for property_file, expected_verdict in properties.items():
             print(f"  {property_file}: {expected_verdict}")
-
-        task_name = Path(goblint_f.parent.name + "_" + goblint_f.name).stem
 
         # copy file
         target_f = target_root / (task_name + ".c")
