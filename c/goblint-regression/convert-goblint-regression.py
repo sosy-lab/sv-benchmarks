@@ -33,6 +33,9 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
         elif "osek" in top_comment:
             print("osek")
             continue
+        elif "--set allfuns true" in top_comment:
+            print("allfuns")
+            continue
 
     properties = {}
     if re.search(r"//\s*RACE", content):
