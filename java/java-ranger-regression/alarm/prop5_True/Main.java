@@ -55,7 +55,7 @@ public class Main {
         int Flow_Rate_Low = Verifier.nondetInt();
 
         //Symbolic input of Device_Senso            // this assertion should pass
-        r_Inputs
+        
         int Flow_Rate = Verifier.nondetInt();
         boolean Flow_Rate_Not_Stable = Verifier.nondetBoolean();
         boolean Air_In_Line = Verifier.nondetBoolean();
@@ -223,7 +223,7 @@ public class Main {
         rtu_const_in.Max_Paused_Duration = Max_Paused_Duration;
         rtu_const_in.Max_Idle_Duration = Max_Idle_Duration;
         rtu_const_in.Tolerance_Max = Tolerance_Max;
-        
+
         rtu_const_in.Tolerance_Min = Tolerance_Min;
         rtu_const_in.Log_Interval = Log_Interval;
         rtu_const_in.System_Test_Interval = System_Test_Interval;

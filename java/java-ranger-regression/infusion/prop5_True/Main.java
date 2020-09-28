@@ -236,7 +236,7 @@ public class Main {
             checkCondition = (rtu_TLM_MODE_IN.System_On && (rtu_ALARM_IN.Highest_Level_Alarm == 2));
             checkOutput =
                     ((rty_IM_OUT.Current_System_Mode == 1) || (rty_IM_OUT.Current_System_Mode == 2) || (rty_IM_OUT.Current_System_Mode == 6) || (rty_IM_OUT.Current_System_Mode == 7) || (rty_IM_OUT.Current_System_Mode == 8));
-            assert (!checkCondition || checkOutput);*/
+            assert (!checkCondition || checkOutput);
 
         }
 

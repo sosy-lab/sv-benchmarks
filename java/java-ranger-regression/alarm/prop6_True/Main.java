@@ -271,7 +271,7 @@ public class Main {
         rty_alarm_out.Log_Message_ID = Log_Message_ID5;
 
         B_ALARM_Functional_c_T localB = new B_ALARM_Functional_c_T();
-        DW_ALARM_Funcrtu_op_cmd_intional_f_T localDW = new DW_ALARM_Functional_f_T();
+        DW_ALARM_Functional_f_T localDW = new DW_ALARM_Functional_f_T();
 
         alarm.ALARM_Functional_Init(localB, localDW);
 

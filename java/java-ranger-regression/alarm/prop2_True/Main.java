@@ -222,7 +222,7 @@ public class Main {
         rtu_const_in.Max_Paused_Duration = Max_Paused_Duration;
         rtu_const_in.Max_Idle_Duration = Max_Idle_Duration;
         rtu_const_in.Tolerance_Max = Tolerance_Max;
-        
+
         rtu_const_in.Tolerance_Min = Tolerance_Min;
         rtu_const_in.Log_Interval = Log_Interval;
         rtu_const_in.System_Test_Interval = System_Test_Interval;
@@ -416,8 +416,8 @@ public class Main {
             // this assertion should pass
 
             //Prop2: air_in_line_implies_grt_L3_alarm
-        checkCondition = (rtu_TLM_MODE_IN.System_On && rtu_SENSOR_IN.Air_In_Line);
-        checkOutput = (rty_ALARM_OUT.Highest_Level_Alarm >= 3);
+        checkCondition = (rtu_tlm_mode_in.System_On && rtu_sensor_in.Air_In_Line);
+        checkOutput = (rty_alarm_out.Highest_Level_Alarm >= 3);
         assert (!checkCondition || checkOutput);
 
         }
