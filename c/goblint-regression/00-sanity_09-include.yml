@@ -1,5 +1,6 @@
 format_version: '2.0'
 
+# original top comment:  Including stdlib messed up our locking functions ...
 input_files: '00-sanity_09-include.i'
 
 properties:

@@ -1,5 +1,6 @@
 format_version: '2.0'
 
+# original top comment:  PARAM: --disable ana.mutex.disjoint_types --set ana.activated[+] "'var_eq'"  --set ana.activated[+] "'symb_locks'"  
 input_files: '06-symbeq_09-tricky_address4.i'
 
 properties:

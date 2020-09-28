@@ -71,6 +71,8 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
         with task_definition_f.open("w") as f:
             f.write("format_version: '2.0'\n")
             f.write("\n")
+            if top_comment:
+                f.write(f"# original top comment: {top_comment}\n")
             f.write(f"input_files: '{preprocessed_f}'\n")
             f.write("\n")
             f.write("properties:\n")
