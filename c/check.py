@@ -73,6 +73,8 @@ PROPERTIES |= {
     "unreach-call-usb_urb",
 }
 
+DATA_MODELS = {"ILP32": 32, "LP64": 64}
+
 # Ignore regression
 # as long as no yml-task definitions exist for the tasks in these directories
 IGNORED_DIRECTORIES = set(["properties", "regression"])
@@ -353,6 +355,38 @@ class TaskDefinitionFileChecks(FileChecks):
             name=self.name,
         ).run()
 
+    def check_language(self):
+        if not self.content:
+            return
+        language = self.content.get("options", {}).get("language")
+        if language != "C":
+            self.error("unexpected language %s", language)
+
+    def check_data_model(self):
+        if not self.content:
+            return
+        data_model = self.content.get("options", {}).get("data_model")
+        if not data_model:
+            self.error("missing declaration of data_model")
+            return
+        if not data_model in DATA_MODELS:
+            self.error("unknown data_model %s", data_model)
+            return
+
+        makefile_path = os.path.join(self.directory, "Makefile")
+        if os.path.exists(makefile_path):
+            archs = self._get_architecture_from_makefile(makefile_path)
+            if len(archs) > 1:
+                self.error("multiple architecture declarations in %s", makefile_path)
+            arch = int(next(iter(archs), "32"))
+            if DATA_MODELS.get(data_model) != arch:
+                self.error(
+                    "Makefile of directory %s declares %d bit, but task has data model %s",
+                    self.directory,
+                    arch,
+                    data_model,
+                )
+
 
     def _get_input_files(self) -> list:
         if 'input_files' not in self.content:
@@ -398,6 +432,14 @@ class TaskDefinitionFileChecks(FileChecks):
                 prop = prop_def["subproperty"]
             prop_and_verdict.append((prop, verdict))
         return prop_and_verdict
+
+
+    @classmethod
+    @functools.lru_cache()  # avoid opening Makefile for each task
+    def _get_architecture_from_makefile(cls, makefile_path):
+        with open(makefile_path) as makefile:
+            archs = [line.split(" ")[-1] for line in makefile if "CC.Arch" in line]
+        return archs
 
 
 class PropertiesChecks(Checks):
