@@ -124,18 +124,15 @@ def get_setfiles(args):
       fail("Could not find a matching set file for", setfileWildcard)
 
 
-def get_inputfiles_from_yml(taskfile):
-  with open(taskfile, 'r') as yamlfile:
-    yml = yaml.safe_load(yamlfile)
-
-    # check whether the input_basename exists (nobody should ever use "null" as a filename!)
-    inputFiles = yml['input_files']
-    if not inputFiles:
-      fail("No input files defined in", taskfile)
-    elif isinstance(inputFiles, list):
-        return inputFiles
-    else:
-        return [inputFiles] # always wrap as list
+def get_inputfiles_from_yml(yml, taskfile):
+  # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+  inputFiles = yml['input_files']
+  if not inputFiles:
+    fail("No input files defined in", taskfile)
+  elif isinstance(inputFiles, list):
+      return inputFiles
+  else:
+      return [inputFiles] # always wrap as list
 
 
 def get_orig_filename(taskfile):
@@ -196,7 +193,9 @@ for setfile in get_setfiles(args):
       continue
 
     if taskfile.endswith(".yml"):
-      inputFiles = get_inputfiles_from_yml(taskfile)
+      with open(taskfile, 'r') as yamlfile:
+        yml = yaml.safe_load(yamlfile)
+        inputFiles = get_inputfiles_from_yml(yml, taskfile)
       if len(inputFiles) == 1:
         taskfile = os.path.join(os.path.dirname(taskfile), inputFiles[0])
       else:
