@@ -554,7 +554,6 @@ class SetFileChecks(Checks):
         self.patterns = list(read_set_file(path))
         self.matched_files = [file for pattern in self.patterns
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
-        self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_all_patterns_match_files(self):
         for pattern in self.patterns:
@@ -567,53 +566,6 @@ class SetFileChecks(Checks):
             file for file in self.matched_files if not BENCHMARK_PATTERN.match(os.path.basename(file))]
         if unexpected_files:
             self.error("includes files %s that do have unexpected file names", unexpected_files)
-
-    def check_declared_architecture_of_benchmarks(self):
-        cfg = self._load_config()
-        expected_arch = int(cfg["Architecture"].split(" ")[0]) if cfg else None
-        directories = set(os.path.dirname(file) for file in self.matched_files)
-        for directory in directories:
-            makefile_path = os.path.join(directory, "Makefile")
-            if os.path.exists(makefile_path):
-                with open(makefile_path) as makefile:
-                    archs = [line for line in makefile if "CC.Arch" in line]
-                if len(archs) > 1:
-                    self.error("multiple architecture declarations in %s", makefile_path)
-                arch = int(next(iter(archs), "32").split(" ")[-1])
-                if expected_arch and arch != expected_arch:
-                    self.error(
-                        "%d bit category contains %d bit benchmarks in %s",
-                        expected_arch,
-                        arch,
-                        os.path.basename(directory))
-
-    def check_has_config_file(self):
-        if not os.path.isfile(self.cfg_file):
-            self.error("missing configuration file")
-
-    def _load_config(self):
-        if not yaml:
-            return None
-        if not os.path.isfile(self.cfg_file):
-            return None
-        with open(self.cfg_file) as f:
-            return yaml.safe_load(f)
-
-    def check_config_file(self):
-        cfg = self._load_config()
-        if not cfg:
-            return
-        unknown_keys = set(cfg.keys()).difference(CONFIG_KEYS)
-        missing_keys = CONFIG_KEYS.difference(cfg.keys())
-        if unknown_keys:
-            self.error("unexpected config entries <%s>", ">, <".join(unknown_keys))
-        if missing_keys:
-            self.error("missing config entries <%s>", ">, <".join(missing_keys))
-        if not cfg.get("Description", "dummy"):
-            self.error("missing description")
-        if cfg.get("Architecture", "32 bit") not in ["32 bit", "64 bit"]:
-            self.error("invalid architecture <%s>", cfg.get("Architecture"))
-
 
 def read_set_file(path):
     with open(path) as f:
