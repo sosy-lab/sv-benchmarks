@@ -1,3 +1,4 @@
+# Contains tasks for which loop analysis is necessary.
 loops/*.yml
 loop-acceleration/*.yml
 loop-crafted/*.yml

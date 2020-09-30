@@ -1,3 +1,4 @@
+# Contains tasks for checking memory safety of programs.
 loops/*.yml
 loop-acceleration/*.yml
 ntdrivers/*.yml

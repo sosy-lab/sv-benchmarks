@@ -1,3 +1,4 @@
+# Contains problems regarding the detection of data races.
 ldv-races/*.yml
 pthread/*.yml
 pthread-atomic/*.yml

@@ -1,1 +1,2 @@
+# Contains tasks for checking memory safety of array-based programs.
 termination-crafted/*.yml
