@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "cos_polynomial.c", 3, "reach_error"); }
 /* Example from the Habilitation Report "Static Analysis of Numerical
    Programs and Systems" by Sylvie Putot.
    Inspired from http://www.netlib.org/fdlibm/k_cos.c

@@ -87,7 +87,8 @@ _pat_ is a relaxed prefix of any suffix of _a_.
 */
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {

@@ -1,6 +1,16 @@
 extern int __VERIFIER_nondet_int(void) ;
 extern void abort(void);
-void reach_error(){}
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "m0_drivers-media-video-cx88-cx88-blackbird-ko--32_7a--d47b389-1.c", 4, __extension__ __PRETTY_FUNCTION__); })); }
 struct __va_list_tag;
 typedef struct __va_list_tag __va_list_tag;
 typedef __builtin_va_list __gnuc_va_list[1U];

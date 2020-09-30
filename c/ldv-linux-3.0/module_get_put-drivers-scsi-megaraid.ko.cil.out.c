@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 typedef signed char __s8;
 typedef short __s16;

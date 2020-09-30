@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 extern unsigned short __VERIFIER_nondet_ushort(void);
 void __VERIFIER_assert(int cond) {

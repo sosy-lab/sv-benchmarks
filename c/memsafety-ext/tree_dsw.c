@@ -1,6 +1,7 @@
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 /*
  * The Deutsch-Schorr-Waite tree traversal algorithm

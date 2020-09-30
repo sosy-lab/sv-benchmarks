@@ -14,7 +14,8 @@
 #define fun max
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 int max (int x[N])
 {
