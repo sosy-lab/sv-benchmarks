@@ -204,7 +204,8 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 typedef _Bool bool;
 
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "aws_priority_queue_size_harness.i", 208, "reach_error"); }
 extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}

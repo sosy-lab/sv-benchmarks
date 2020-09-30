@@ -1354,7 +1354,8 @@ void *ldv_realloc(void *ptr, size_t size)
 
 
 void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "CWE590_Free_Memory_Not_on_Heap---s04---CWE590_Free_Memory_Not_on_Heap__free_int_declare_08_good.i", 1358, "reach_error"); }
 
 
 void ldv_error(void);
