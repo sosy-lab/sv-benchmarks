@@ -6,8 +6,7 @@
 extern void abort(void); 
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
-#include <assert.h>
-void reach_error() { assert(0); }
+void reach_error(){}
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
