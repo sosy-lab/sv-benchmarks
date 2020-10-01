@@ -83,6 +83,7 @@ extern int __VERIFIER_nondet_int();
 
 
 
+#undef assert
 #define assert(e) if (!(e)) ERROR: reach_error()
 
 inode i;
