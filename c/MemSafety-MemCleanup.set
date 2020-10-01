@@ -1,3 +1,4 @@
+# Contains tasks for checking memory safety of programs.
 list-ext-properties/*.yml
 heap-manipulation/*.yml
 forester-heap/*.yml

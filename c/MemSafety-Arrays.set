@@ -1,3 +1,4 @@
+# Contains tasks for checking memory safety of array-based programs.
 array-memsafety/*.yml
 array-examples/*.yml
 array-memsafety-realloc/*.yml

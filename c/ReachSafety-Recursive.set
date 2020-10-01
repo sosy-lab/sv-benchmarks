@@ -1,3 +1,4 @@
+# Contains tasks for which recursive analysis is necessary.
 recursive/*.yml
 recursive-simple/*.yml
 recursive-with-pointer/*.yml

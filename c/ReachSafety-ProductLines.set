@@ -1,1 +1,2 @@
+# Contains programs that represents 'products' and 'product simulators' that are derived using different configurations of product lines.
 product-lines/*.yml

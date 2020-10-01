@@ -1,1 +1,2 @@
+# Contains problems that require the analysis of memory safety.
 openbsd-6.2/*.yml

@@ -1,2 +1,3 @@
+# Contains tasks for checking memory safety of programs from Juliet Test Suite.
 Juliet_Test/*.yml
 

@@ -1,3 +1,4 @@
+# Contains programs for which termination should be decided.
 termination-dietlibc/*.yml
 termination-memory-alloca/*.yml
 termination-memory-linkedlists/*.yml
