@@ -12,7 +12,8 @@
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #define WHITE 0
 #define BLUE 1

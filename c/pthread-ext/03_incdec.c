@@ -4,7 +4,8 @@ void assume_abort_if_not(int cond) {
 }
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
 //Listing 2. A counter using locks

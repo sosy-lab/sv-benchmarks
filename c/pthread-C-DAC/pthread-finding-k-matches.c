@@ -23,7 +23,8 @@ Modifications are made to remove non-standard libary depedencies by Yihao from
 VSL in University of Delaware.
  */
 extern void abort(void);
-void reach_error(){} 
+#include <assert.h>
+void reach_error() { assert(0); }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: {reach_error();abort();} } return; }
 extern int __VERIFIER_nondet_int(void);
 #include <pthread.h>
