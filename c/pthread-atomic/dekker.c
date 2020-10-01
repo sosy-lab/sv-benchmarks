@@ -3,7 +3,8 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader

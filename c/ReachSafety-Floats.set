@@ -1,3 +1,4 @@
+# Contains tasks for checking programs with floating-point arithmetics.
 floats-cdfpl/*.yml
 floats-cbmc-regression/*.yml
 float-benchs/*.yml

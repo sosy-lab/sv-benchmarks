@@ -4,7 +4,8 @@ void assume_abort_if_not(int cond) {
 }
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 //original file: EBStack.java
 //amino-cbbs\trunk\amino\java\src\main\java\org\amino\ds\lockfree
 //push only

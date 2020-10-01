@@ -10883,7 +10883,8 @@ int ldv_undef_int_nonpositive(void)
 }
 }
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "linux-3.14--drivers--media--platform--marvell-ccic--cafe_ccic.ko.cil-1.i", 10887, "reach_error"); }
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;
 pthread_mutex_t pmutex_i_mutex_of_inode ;

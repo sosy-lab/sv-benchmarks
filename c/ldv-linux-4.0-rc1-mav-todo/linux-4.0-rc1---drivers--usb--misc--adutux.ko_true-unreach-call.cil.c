@@ -11337,7 +11337,8 @@ void ldv_linux_lib_idr_check_final_state(void)
 }
 }
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "linux-4.0-rc1---drivers--usb--misc--adutux.ko_true-unreach-call.cil.c", 11341, "reach_error"); }
 void ldv_assert_linux_net_rtnetlink__double_lock(int expr ) 
 { 
 

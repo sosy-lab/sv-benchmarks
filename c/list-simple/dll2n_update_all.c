@@ -1,5 +1,6 @@
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Updates all nodes in a forward traversal. Check result: 2-3

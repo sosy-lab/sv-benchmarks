@@ -1,6 +1,7 @@
 int __return_main;
 void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "Float_div.i.p+cfa-reducer.c", 4, "reach_error"); }
 void __VERIFIER_assert(int cond);
 int main();
  int main()

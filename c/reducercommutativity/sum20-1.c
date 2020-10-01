@@ -14,7 +14,8 @@
 #define fun sum
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 int sum (int x[N])
 {

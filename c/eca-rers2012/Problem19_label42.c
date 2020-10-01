@@ -5,7 +5,8 @@ int calculate_output4(int);
 int calculate_output5(int);
 int calculate_output6(int);
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "Problem19_label42.c", 9, "reach_error"); }
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);
 
