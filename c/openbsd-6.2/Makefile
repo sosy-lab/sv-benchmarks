@@ -22,6 +22,7 @@ COMMON_WARNINGS := \
 	-Wno-uninitialized \
 	-Wno-pointer-sign \
 	-Wframe-larger-than=2047 \
+	-Wno-strict-aliasing \
 
 CLANG_WARNINGS := \
 	-Wno-sometimes-uninitialized \
@@ -64,8 +65,8 @@ if_etherip-double-free if_etherip-fixed-double-free: reset
 	tmp=$$(mktemp); \
 	${CURDIR}/prepreprocess.py $@.c sources/sys > $$tmp; \
 	cat $$tmp > $@.c && rm $$tmp
-	sed -i -e 's/__format__(kprintf/__format__(printf/g' $@.c
 	cc -E ${CC.Flags} -o $@.i $@.c
+	sed -i -e 's/__format__(__kprintf__/__format__(__printf__/g' $@.i
 	clang-format -i $@.i $@.c
 
 # Restore all files the make process could have touched or created
