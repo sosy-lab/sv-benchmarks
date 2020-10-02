@@ -40,4 +40,8 @@
   <tasks name="juliet-java">
     <include>juliet-java/*.yml</include>
   </tasks>
+
+  <tasks name="jdart-regression">
+    <include>jdart-regression/*.yml</include>
+  </tasks>
 </benchmark>
