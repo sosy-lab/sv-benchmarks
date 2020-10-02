@@ -11,6 +11,7 @@ goblint_regression = goblint_root / "tests" / "regression"
 
 EXCLUDE_TASKS = [
     "04-mutex_13-failed_locking",
+    "04-mutex_31-uninitialized",
     "04-mutex_49-type-invariants",
 ]
 
