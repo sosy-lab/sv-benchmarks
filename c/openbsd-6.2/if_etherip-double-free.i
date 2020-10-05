@@ -144,7 +144,263 @@ struct buf;
 struct tty;
 struct uio;
 void abort(void);
-void reach_error() {}
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
+extern int securelevel;
+extern const char *panicstr;
+extern const char version[];
+extern const char copyright[];
+extern const char ostype[];
+extern const char osversion[];
+extern const char osrelease[];
+extern int cold;
+extern int ncpus;
+extern int ncpusfound;
+extern int nblkdev;
+extern int nchrdev;
+extern int selwait;
+extern int maxmem;
+extern int physmem;
+extern dev_t dumpdev;
+extern long dumplo;
+extern dev_t rootdev;
+extern u_char bootduid[8];
+extern u_char rootduid[8];
+extern struct vnode *rootvp;
+extern dev_t swapdev;
+extern struct vnode *swapdev_vp;
+struct proc;
+struct process;
+typedef int sy_call_t(struct proc *, void *, register_t *);
+extern struct sysent {
+  short sy_narg;
+  short sy_argsize;
+  int sy_flags;
+  sy_call_t *sy_call;
+} sysent[];
+extern int boothowto;
+extern void (*v_putc)(int);
+int nullop(void *);
+int enodev(void);
+int enosys(void);
+int enoioctl(void);
+int enxio(void);
+int eopnotsupp(void *);
+struct vnodeopv_desc;
+void vfs_opv_init_explicit(struct vnodeopv_desc *);
+void vfs_opv_init_default(struct vnodeopv_desc *);
+void vfs_op_init(void);
+int seltrue(dev_t dev, int which, struct proc *);
+int selfalse(dev_t dev, int which, struct proc *);
+void *hashinit(int, int, int, u_long *);
+void hashfree(void *, int, int);
+int sys_nosys(struct proc *, void *, register_t *);
+void panic(const char *, ...) __attribute__((__format__(__printf__, 1, 2)));
+void __assert(const char *, const char *, int, const char *)
+    __attribute__((__noreturn__));
+int printf(const char *, ...) __attribute__((__format__(__printf__, 1, 2)));
+void uprintf(const char *, ...) __attribute__((__format__(__printf__, 1, 2)));
+int vprintf(const char *, va_list)
+    __attribute__((__format__(__printf__, 1, 0)));
+int vsnprintf(char *, size_t, const char *, va_list)
+    __attribute__((__format__(__printf__, 3, 0)));
+int snprintf(char *buf, size_t, const char *, ...)
+    __attribute__((__format__(__printf__, 3, 4)));
+struct tty;
+void ttyprintf(struct tty *, const char *, ...)
+    __attribute__((__format__(__printf__, 2, 3)));
+void splassert_fail(int, int, const char *);
+extern int splassert_ctl;
+void assertwaitok(void);
+void tablefull(const char *);
+int kcopy(const void *, void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 3)))
+    __attribute__((__bounded__(__buffer__, 2, 3)));
+void bcopy(const void *, void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 3)))
+    __attribute__((__bounded__(__buffer__, 2, 3)));
+void bzero(void *, size_t) __attribute__((__bounded__(__buffer__, 1, 2)));
+void explicit_bzero(void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 2)));
+int bcmp(const void *, const void *, size_t);
+void *memcpy(void *, const void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 3)))
+    __attribute__((__bounded__(__buffer__, 2, 3)));
+void *memmove(void *, const void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 3)))
+    __attribute__((__bounded__(__buffer__, 2, 3)));
+void *memset(void *, int, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 3)));
+int copystr(const void *, void *, size_t, size_t *)
+    __attribute__((__bounded__(__string__, 2, 3)));
+int copyinstr(const void *, void *, size_t, size_t *)
+    __attribute__((__bounded__(__string__, 2, 3)));
+int copyoutstr(const void *, void *, size_t, size_t *);
+int copyin(const void *, void *, size_t)
+    __attribute__((__bounded__(__buffer__, 2, 3)));
+int copyout(const void *, void *, size_t);
+int copyin32(const uint32_t *, uint32_t *);
+void arc4random_buf(void *, size_t)
+    __attribute__((__bounded__(__buffer__, 1, 2)));
+u_int32_t arc4random(void);
+u_int32_t arc4random_uniform(u_int32_t);
+struct timeval;
+struct timespec;
+int tvtohz(const struct timeval *);
+int tstohz(const struct timespec *);
+void realitexpire(void *);
+struct clockframe;
+void hardclock(struct clockframe *);
+void softclock(void *);
+void statclock(struct clockframe *);
+void initclocks(void);
+void inittodr(time_t);
+void resettodr(void);
+void cpu_initclocks(void);
+void startprofclock(struct process *);
+void stopprofclock(struct process *);
+void setstatclockrate(int);
+void start_periodic_resettodr(void);
+void stop_periodic_resettodr(void);
+struct sleep_state;
+void sleep_setup(struct sleep_state *, const volatile void *, int,
+                 const char *);
+void sleep_setup_timeout(struct sleep_state *, int);
+void sleep_setup_signal(struct sleep_state *, int);
+void sleep_finish(struct sleep_state *, int);
+int sleep_finish_timeout(struct sleep_state *);
+int sleep_finish_signal(struct sleep_state *);
+void sleep_queue_init(void);
+struct mutex;
+struct rwlock;
+void wakeup_n(const volatile void *, int);
+void wakeup(const volatile void *);
+int tsleep(const volatile void *, int, const char *, int);
+int msleep(const volatile void *, struct mutex *, int, const char *, int);
+int rwsleep(const volatile void *, struct rwlock *, int, const char *, int);
+void yield(void);
+void wdog_register(int (*)(void *, int), void *);
+void wdog_shutdown(void *);
+struct hook_desc {
+  struct {
+    struct hook_desc *tqe_next;
+    struct hook_desc **tqe_prev;
+  } hd_list;
+  void (*hd_fn)(void *);
+  void *hd_arg;
+};
+struct hook_desc_head {
+  struct hook_desc *tqh_first;
+  struct hook_desc **tqh_last;
+};
+extern struct hook_desc_head startuphook_list;
+void *hook_establish(struct hook_desc_head *, int, void (*)(void *), void *);
+void hook_disestablish(struct hook_desc_head *, void *);
+void dohooks(struct hook_desc_head *, int);
+struct uio;
+int uiomove(void *, size_t, struct uio *);
+enum lock_class_index {
+  LO_CLASS_KERNEL_LOCK,
+  LO_CLASS_SCHED_LOCK,
+  LO_CLASS_MUTEX,
+  LO_CLASS_RWLOCK,
+  LO_CLASS_RRWLOCK
+};
+struct lock_object {
+  struct lock_type *lo_type;
+  const char *lo_name;
+  struct witness *lo_witness;
+  uint32_t lo_flags;
+};
+struct lock_type {
+  const char *lt_name;
+};
+struct proc;
+struct rwlock {
+  volatile unsigned long rwl_owner;
+  const char *rwl_name;
+};
+struct rrwlock {
+  struct rwlock rrwl_lock;
+  uint32_t rrwl_wcnt;
+};
+void _rw_init_flags(struct rwlock *, const char *, int, struct lock_type *);
+void _rw_enter_read(struct rwlock *);
+void _rw_enter_write(struct rwlock *);
+void _rw_exit_read(struct rwlock *);
+void _rw_exit_write(struct rwlock *);
+void rw_assert_wrlock(struct rwlock *);
+void rw_assert_rdlock(struct rwlock *);
+void rw_assert_anylock(struct rwlock *);
+void rw_assert_unlocked(struct rwlock *);
+int _rw_enter(struct rwlock *, int);
+void _rw_exit(struct rwlock *);
+int rw_status(struct rwlock *);
+void _rrw_init_flags(struct rrwlock *, char *, int, struct lock_type *);
+int _rrw_enter(struct rrwlock *, int);
+void _rrw_exit(struct rrwlock *);
+int rrw_status(struct rrwlock *);
+extern struct rwlock netlock;
+__attribute__((returns_twice)) int setjmp(label_t *);
+__attribute__((__noreturn__)) void longjmp(label_t *);
+void consinit(void);
+void cpu_startup(void);
+void cpu_configure(void);
+void diskconf(void);
+int nfs_mountroot(void);
+int dk_mountroot(void);
+extern int (*mountroot)(void);
+static __inline int imax(int, int);
+static __inline int imin(int, int);
+static __inline u_int max(u_int, u_int);
+static __inline u_int min(u_int, u_int);
+static __inline long lmax(long, long);
+static __inline long lmin(long, long);
+static __inline u_long ulmax(u_long, u_long);
+static __inline u_long ulmin(u_long, u_long);
+static __inline int abs(int);
+static __inline int imax(int a, int b) { return (a > b ? a : b); }
+static __inline int imin(int a, int b) { return (a < b ? a : b); }
+static __inline long lmax(long a, long b) { return (a > b ? a : b); }
+static __inline long lmin(long a, long b) { return (a < b ? a : b); }
+static __inline u_int max(u_int a, u_int b) { return (a > b ? a : b); }
+static __inline u_int min(u_int a, u_int b) { return (a < b ? a : b); }
+static __inline u_long ulmax(u_long a, u_long b) { return (a > b ? a : b); }
+static __inline u_long ulmin(u_long a, u_long b) { return (a < b ? a : b); }
+static __inline int abs(int j) { return (j < 0 ? -j : j); }
+void __assert(const char *, const char *, int, const char *)
+    __attribute__((__noreturn__));
+int bcmp(const void *, const void *, size_t);
+void bzero(void *, size_t);
+void explicit_bzero(void *, size_t);
+int ffs(int);
+int fls(int);
+int flsl(long);
+void *memchr(const void *, int, size_t);
+int memcmp(const void *, const void *, size_t);
+void *memset(void *, int c, size_t len);
+u_int32_t random(void);
+int scanc(u_int, const u_char *, const u_char[], int);
+int skpc(int, size_t, u_char *);
+size_t strlen(const char *);
+char *strncpy(char *, const char *, size_t)
+    __attribute__((__bounded__(__string__, 1, 3)));
+size_t strnlen(const char *, size_t);
+size_t strlcpy(char *, const char *, size_t)
+    __attribute__((__bounded__(__string__, 1, 3)));
+size_t strlcat(char *, const char *, size_t)
+    __attribute__((__bounded__(__string__, 1, 3)));
+int strcmp(const char *, const char *);
+int strncmp(const char *, const char *, size_t);
+int strncasecmp(const char *, const char *, size_t);
+int getsn(char *, int);
+char *strchr(const char *, int);
+char *strrchr(const char *, int);
+int timingsafe_bcmp(const void *, const void *, size_t);
+void user_config(void);
+void reach_error() {
+  ((0) ? (void)0 : __assert("", "sources/sys/sv_comp.h", 5, "0"));
+}
 void abort(void);
 void assume_abort_if_not(int cond) {
   if (!cond) {
@@ -277,22 +533,6 @@ struct mbstat {
   u_long m_wait;
   u_long m_drain;
   u_short m_mtypes[256];
-};
-enum lock_class_index {
-  LO_CLASS_KERNEL_LOCK,
-  LO_CLASS_SCHED_LOCK,
-  LO_CLASS_MUTEX,
-  LO_CLASS_RWLOCK,
-  LO_CLASS_RRWLOCK
-};
-struct lock_object {
-  struct lock_type *lo_type;
-  const char *lo_name;
-  struct witness *lo_witness;
-  uint32_t lo_flags;
-};
-struct lock_type {
-  const char *lt_name;
 };
 struct mutex {
   int mtx_wantipl;
@@ -479,247 +719,9 @@ int main(void) {
   ip_deliver(&m, &off, 0, 24);
   return 0;
 }
-typedef __builtin_va_list __gnuc_va_list;
-typedef __gnuc_va_list va_list;
 void panic(const char *fmt, ...);
-void *memset(void *, int, size_t);
 void explicit_bzero(void *, size_t);
 int kprintf(const char *, int, void *, char *, va_list);
-static __inline int imax(int, int);
-static __inline int imin(int, int);
-static __inline u_int max(u_int, u_int);
-static __inline u_int min(u_int, u_int);
-static __inline long lmax(long, long);
-static __inline long lmin(long, long);
-static __inline u_long ulmax(u_long, u_long);
-static __inline u_long ulmin(u_long, u_long);
-static __inline int abs(int);
-static __inline int imax(int a, int b) { return (a > b ? a : b); }
-static __inline int imin(int a, int b) { return (a < b ? a : b); }
-static __inline long lmax(long a, long b) { return (a > b ? a : b); }
-static __inline long lmin(long a, long b) { return (a < b ? a : b); }
-static __inline u_int max(u_int a, u_int b) { return (a > b ? a : b); }
-static __inline u_int min(u_int a, u_int b) { return (a < b ? a : b); }
-static __inline u_long ulmax(u_long a, u_long b) { return (a > b ? a : b); }
-static __inline u_long ulmin(u_long a, u_long b) { return (a < b ? a : b); }
-static __inline int abs(int j) { return (j < 0 ? -j : j); }
-void __assert(const char *, const char *, int, const char *)
-    __attribute__((__noreturn__));
-int bcmp(const void *, const void *, size_t);
-void bzero(void *, size_t);
-void explicit_bzero(void *, size_t);
-int ffs(int);
-int fls(int);
-int flsl(long);
-void *memchr(const void *, int, size_t);
-int memcmp(const void *, const void *, size_t);
-void *memset(void *, int c, size_t len);
-u_int32_t random(void);
-int scanc(u_int, const u_char *, const u_char[], int);
-int skpc(int, size_t, u_char *);
-size_t strlen(const char *);
-char *strncpy(char *, const char *, size_t)
-    __attribute__((__bounded__(__string__, 1, 3)));
-size_t strnlen(const char *, size_t);
-size_t strlcpy(char *, const char *, size_t)
-    __attribute__((__bounded__(__string__, 1, 3)));
-size_t strlcat(char *, const char *, size_t)
-    __attribute__((__bounded__(__string__, 1, 3)));
-int strcmp(const char *, const char *);
-int strncmp(const char *, const char *, size_t);
-int strncasecmp(const char *, const char *, size_t);
-int getsn(char *, int);
-char *strchr(const char *, int);
-char *strrchr(const char *, int);
-int timingsafe_bcmp(const void *, const void *, size_t);
-extern int securelevel;
-extern const char *panicstr;
-extern const char version[];
-extern const char copyright[];
-extern const char ostype[];
-extern const char osversion[];
-extern const char osrelease[];
-extern int cold;
-extern int ncpus;
-extern int ncpusfound;
-extern int nblkdev;
-extern int nchrdev;
-extern int selwait;
-extern int maxmem;
-extern int physmem;
-extern dev_t dumpdev;
-extern long dumplo;
-extern dev_t rootdev;
-extern u_char bootduid[8];
-extern u_char rootduid[8];
-extern struct vnode *rootvp;
-extern dev_t swapdev;
-extern struct vnode *swapdev_vp;
-struct proc;
-struct process;
-typedef int sy_call_t(struct proc *, void *, register_t *);
-extern struct sysent {
-  short sy_narg;
-  short sy_argsize;
-  int sy_flags;
-  sy_call_t *sy_call;
-} sysent[];
-extern int boothowto;
-extern void (*v_putc)(int);
-int nullop(void *);
-int enodev(void);
-int enosys(void);
-int enoioctl(void);
-int enxio(void);
-int eopnotsupp(void *);
-struct vnodeopv_desc;
-void vfs_opv_init_explicit(struct vnodeopv_desc *);
-void vfs_opv_init_default(struct vnodeopv_desc *);
-void vfs_op_init(void);
-int seltrue(dev_t dev, int which, struct proc *);
-int selfalse(dev_t dev, int which, struct proc *);
-void *hashinit(int, int, int, u_long *);
-void hashfree(void *, int, int);
-int sys_nosys(struct proc *, void *, register_t *);
-void panic(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
-void __assert(const char *, const char *, int, const char *)
-    __attribute__((__noreturn__));
-int printf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
-void uprintf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
-int vprintf(const char *, va_list) __attribute__((__format__(kprintf, 1, 0)));
-int vsnprintf(char *, size_t, const char *, va_list)
-    __attribute__((__format__(kprintf, 3, 0)));
-int snprintf(char *buf, size_t, const char *, ...)
-    __attribute__((__format__(kprintf, 3, 4)));
-struct tty;
-void ttyprintf(struct tty *, const char *, ...)
-    __attribute__((__format__(kprintf, 2, 3)));
-void splassert_fail(int, int, const char *);
-extern int splassert_ctl;
-void assertwaitok(void);
-void tablefull(const char *);
-int kcopy(const void *, void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 3)))
-    __attribute__((__bounded__(__buffer__, 2, 3)));
-void bcopy(const void *, void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 3)))
-    __attribute__((__bounded__(__buffer__, 2, 3)));
-void bzero(void *, size_t) __attribute__((__bounded__(__buffer__, 1, 2)));
-void explicit_bzero(void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 2)));
-int bcmp(const void *, const void *, size_t);
-void *memcpy(void *, const void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 3)))
-    __attribute__((__bounded__(__buffer__, 2, 3)));
-void *memmove(void *, const void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 3)))
-    __attribute__((__bounded__(__buffer__, 2, 3)));
-void *memset(void *, int, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 3)));
-int copystr(const void *, void *, size_t, size_t *)
-    __attribute__((__bounded__(__string__, 2, 3)));
-int copyinstr(const void *, void *, size_t, size_t *)
-    __attribute__((__bounded__(__string__, 2, 3)));
-int copyoutstr(const void *, void *, size_t, size_t *);
-int copyin(const void *, void *, size_t)
-    __attribute__((__bounded__(__buffer__, 2, 3)));
-int copyout(const void *, void *, size_t);
-int copyin32(const uint32_t *, uint32_t *);
-void arc4random_buf(void *, size_t)
-    __attribute__((__bounded__(__buffer__, 1, 2)));
-u_int32_t arc4random(void);
-u_int32_t arc4random_uniform(u_int32_t);
-struct timeval;
-struct timespec;
-int tvtohz(const struct timeval *);
-int tstohz(const struct timespec *);
-void realitexpire(void *);
-struct clockframe;
-void hardclock(struct clockframe *);
-void softclock(void *);
-void statclock(struct clockframe *);
-void initclocks(void);
-void inittodr(time_t);
-void resettodr(void);
-void cpu_initclocks(void);
-void startprofclock(struct process *);
-void stopprofclock(struct process *);
-void setstatclockrate(int);
-void start_periodic_resettodr(void);
-void stop_periodic_resettodr(void);
-struct sleep_state;
-void sleep_setup(struct sleep_state *, const volatile void *, int,
-                 const char *);
-void sleep_setup_timeout(struct sleep_state *, int);
-void sleep_setup_signal(struct sleep_state *, int);
-void sleep_finish(struct sleep_state *, int);
-int sleep_finish_timeout(struct sleep_state *);
-int sleep_finish_signal(struct sleep_state *);
-void sleep_queue_init(void);
-struct mutex;
-struct rwlock;
-void wakeup_n(const volatile void *, int);
-void wakeup(const volatile void *);
-int tsleep(const volatile void *, int, const char *, int);
-int msleep(const volatile void *, struct mutex *, int, const char *, int);
-int rwsleep(const volatile void *, struct rwlock *, int, const char *, int);
-void yield(void);
-void wdog_register(int (*)(void *, int), void *);
-void wdog_shutdown(void *);
-struct hook_desc {
-  struct {
-    struct hook_desc *tqe_next;
-    struct hook_desc **tqe_prev;
-  } hd_list;
-  void (*hd_fn)(void *);
-  void *hd_arg;
-};
-struct hook_desc_head {
-  struct hook_desc *tqh_first;
-  struct hook_desc **tqh_last;
-};
-extern struct hook_desc_head startuphook_list;
-void *hook_establish(struct hook_desc_head *, int, void (*)(void *), void *);
-void hook_disestablish(struct hook_desc_head *, void *);
-void dohooks(struct hook_desc_head *, int);
-struct uio;
-int uiomove(void *, size_t, struct uio *);
-struct proc;
-struct rwlock {
-  volatile unsigned long rwl_owner;
-  const char *rwl_name;
-};
-struct rrwlock {
-  struct rwlock rrwl_lock;
-  uint32_t rrwl_wcnt;
-};
-void _rw_init_flags(struct rwlock *, const char *, int, struct lock_type *);
-void _rw_enter_read(struct rwlock *);
-void _rw_enter_write(struct rwlock *);
-void _rw_exit_read(struct rwlock *);
-void _rw_exit_write(struct rwlock *);
-void rw_assert_wrlock(struct rwlock *);
-void rw_assert_rdlock(struct rwlock *);
-void rw_assert_anylock(struct rwlock *);
-void rw_assert_unlocked(struct rwlock *);
-int _rw_enter(struct rwlock *, int);
-void _rw_exit(struct rwlock *);
-int rw_status(struct rwlock *);
-void _rrw_init_flags(struct rrwlock *, char *, int, struct lock_type *);
-int _rrw_enter(struct rrwlock *, int);
-void _rrw_exit(struct rrwlock *);
-int rrw_status(struct rrwlock *);
-extern struct rwlock netlock;
-__attribute__((returns_twice)) int setjmp(label_t *);
-__attribute__((__noreturn__)) void longjmp(label_t *);
-void consinit(void);
-void cpu_startup(void);
-void cpu_configure(void);
-void diskconf(void);
-int nfs_mountroot(void);
-int dk_mountroot(void);
-extern int (*mountroot)(void);
-void user_config(void);
 struct timespec {
   time_t tv_sec;
   long tv_nsec;
@@ -5570,13 +5572,6 @@ extern char _ctassert
 extern char _ctassert[(sizeof(struct cpu_info_full) % (1 << 12) == 0) ? 1 : -1]
     __attribute__((__unused__));
 extern struct cpu_info_full cpu_info_full_primary;
-extern char _ctassert
-    [(&(*(struct cpu_info *)((char *)&cpu_info_full_primary + 4096 * 2 -
-                             __builtin_offsetof(struct cpu_info, ci_dev))) -
-          &cpu_info_full_primary.cif_cpu ==
-      0)
-         ? 1
-         : -1] __attribute__((__unused__));
 struct cpu_info_full cpu_info_full_primary = {
     .cif_cpu = {
         .ci_self = &(*(
