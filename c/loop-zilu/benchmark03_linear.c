@@ -33,7 +33,7 @@ int main() {
   _Bool flag = __VERIFIER_nondet_bool();
   x = 0; y = 0;
   if (!(i==0 && j==0)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     x++;
     y++;
     i+=x;

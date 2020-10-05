@@ -28,7 +28,7 @@ int main() {
   int y = __VERIFIER_nondet_int();
   
   if (!(x==1 && y==1)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     x=x+y;
     y=x;
   }

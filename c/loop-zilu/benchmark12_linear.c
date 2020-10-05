@@ -29,7 +29,7 @@ int main() {
   int t = __VERIFIER_nondet_int();
   
   if (!(x!=y && y==t)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     if(x>0) y=y+x;
   }
   __VERIFIER_assert(y>=t);

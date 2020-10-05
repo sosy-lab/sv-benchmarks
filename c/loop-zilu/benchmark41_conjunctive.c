@@ -26,7 +26,7 @@ int main() {
   int y = __VERIFIER_nondet_int();
   int z = __VERIFIER_nondet_int();
   if (!(x == y && y == 0 && z==0)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     x++;y++;z-=2;
   }
   __VERIFIER_assert(x == y && x >= 0 && x+y+z==0);

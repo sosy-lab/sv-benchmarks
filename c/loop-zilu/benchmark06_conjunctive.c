@@ -31,7 +31,7 @@ int main() {
   int k = __VERIFIER_nondet_int();
   j=0;
   if (!(x+y==k)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     if(j==i) {x++;y--;} else {y++;x--;} j++;
   }
   __VERIFIER_assert(x+y==k);

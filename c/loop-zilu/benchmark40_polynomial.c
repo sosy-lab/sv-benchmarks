@@ -28,7 +28,7 @@ int main() {
   int y = __VERIFIER_nondet_int();
   
   if (!(x*y>=0)) return 0;
-  while (1) {
+  while (__VERIFIER_nondet_bool()) {
     if(x==0) {if (y>0) x++;
     else x--;} if(x>0) y++;
     else x--;
