@@ -4,7 +4,7 @@ extern void __assert_fail (__const char *__assertion, __const char *__file,
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 
-void reach_error(void) {__assert_fail ("0", "benchmark35_conjunctive.c", 11, __PRETTY_FUNCTION__);}
+void reach_error(void) {__assert_fail ("0", "benchmark35_linear.c", 11, __PRETTY_FUNCTION__);}
 
 void __VERIFIER_assert(int cond) {
   if (!cond) {
