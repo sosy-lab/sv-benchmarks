@@ -1,7 +1,7 @@
 format_version: '2.0'
 
 # old file name: dekker_true-unreach-call.i
-input_files: 'dekker.i'
+input_files: 'dekker-b.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
