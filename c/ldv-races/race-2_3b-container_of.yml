@@ -4,8 +4,6 @@ format_version: '2.0'
 input_files: 'race-2_3b-container_of.i'
 
 properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: false
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
 
