@@ -2,8 +2,6 @@ extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 extern int __VERIFIER_nondet_int(void);
 extern void abort(void);
 #include <assert.h>
@@ -27,17 +25,13 @@ void __VERIFIER_atomic_fetch_and_inc(unsigned * l)
 #define spin_lock(l,t,s)\
 {\
   __VERIFIER_atomic_fetch_and_inc(&l); \
-  __VERIFIER_atomic_begin(); \
   while (l != s) \
     ; /* spin */ \
-__VERIFIER_atomic_end(); \
 }
 
 #define spin_unlock(s)\
 {\
-  __VERIFIER_atomic_begin(); \
   s++;\
-  __VERIFIER_atomic_end(); \
 }
 
 unsigned c = 0;
