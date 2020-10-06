@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: 'benchmark47_linear.c'
+input_files: 'benchmark47_linear.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
