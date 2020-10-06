@@ -1,13 +1,13 @@
 format_version: '2.0'
 
-# old file name: read_write_lock_true-unreach-call.i
-input_files: 'read_write_lock-1.i'
+# old file name: dekker_true-unreach-call.i
+input_files: 'dekker.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false
 
 options:
   language: C

@@ -5,8 +5,6 @@ void assume_abort_if_not(int cond) {
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
@@ -31,10 +29,6 @@ void __VERIFIER_atomic_take_read_lock() {
   r = r+1;
 }
 
-void __VERIFIER_atomic_release_read_lock() {
-  r = r-1;
-}
-
 void *writer(void *arg) { //writer
   __VERIFIER_atomic_take_write_lock();  
   x = 3;
@@ -45,14 +39,11 @@ void *writer(void *arg) { //writer
 void *reader(void *arg) { //reader
   int l;
   __VERIFIER_atomic_take_read_lock();
-  __VERIFIER_atomic_begin();
   l = x;
-  __VERIFIER_atomic_end();
-  __VERIFIER_atomic_begin();
   y = l;
-  __VERIFIER_atomic_end();
   assert(y == x);
-  __VERIFIER_atomic_release_read_lock();
+  l = r-1;
+  r = l;
   return 0;
 }
 
