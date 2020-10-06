@@ -12,8 +12,6 @@
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
@@ -34,38 +32,39 @@ struct my_data {
 	struct A shared;
 };
 
+struct device *my_dev;
+
 void *my_callback(void *arg) {
-	struct device *dev = (struct device*)arg;
 	struct my_data *data;
-	data = container_of(dev, struct my_data, dev);
+	data = container_of(my_dev, struct my_data, dev);
 	
 	//race
 	//pthread_mutex_lock (&data->lock);
-    __VERIFIER_atomic_begin();
-     data->shared.a = 1;
-     __VERIFIER_atomic_end();
-     __VERIFIER_atomic_begin();
-     data->shared.b = data->shared.b + 1;
-     __VERIFIER_atomic_end();
-    //pthread_mutex_unlock (&data->lock);
+	data->shared.a = 1;
+	data->shared.b = data->shared.b + 1;
+	//pthread_mutex_unlock (&data->lock);
 	return 0;
 }
 
 int my_drv_probe(struct my_data *data) {
-	struct device *d = &data->dev;
-	
 	//init data (single thread)
 	//not a race
 	pthread_mutex_init(&data->lock, NULL);
 	data->shared.a = 0;
 	data->shared.b = 0;
+	ldv_assert(data->shared.a==0);
+	ldv_assert(data->shared.b==0);
 	
 	int res = __VERIFIER_nondet_int();
 	if(res)
 		goto exit;
+
+	//share device using global variable
+	my_dev = &data->dev;
+	
 	//register callback
-	pthread_create(&t1, NULL, my_callback, (void *)d);
-	pthread_create(&t2, NULL, my_callback, (void *)d);
+	pthread_create(&t1, NULL, my_callback, NULL);
+	pthread_create(&t2, NULL, my_callback, NULL);
 	return 0;
 
 exit:
