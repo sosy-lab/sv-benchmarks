@@ -10,6 +10,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "szymanski.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
