@@ -16,6 +16,7 @@ extern int __VERIFIER_nondet_int();
 */
 
 #include <pthread.h>
+#undef assert
 #define assert(e) if (!(e)) ERROR: reach_error()
 
 int idx=0; // boolean to control which of the two elements will be used by readers

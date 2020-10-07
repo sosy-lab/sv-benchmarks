@@ -11,6 +11,7 @@ void reach_error() { assert(0); }
 
 #define assume(e) assume_abort_if_not(e)
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 int m = 0;

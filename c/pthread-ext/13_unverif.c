@@ -11,6 +11,7 @@ void reach_error() { assert(0); }
 #include <pthread.h>
 
 #define assume(e) assume_abort_if_not(e)
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 unsigned int r = 0;

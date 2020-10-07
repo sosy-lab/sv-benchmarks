@@ -15,6 +15,7 @@ to correctly model the cv_broadcast(COND) statement "b1_COND := 1;" must be manu
 
 #define assume(e) assume_abort_if_not(e)
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 #define cv_wait(c,m){ \

@@ -24,6 +24,7 @@ void __VERIFIER_assert(_Bool cond) {
 
 #define __CPROVER_size_t unsigned long
 
+#undef assert
 #define assert(cond) \
     __VERIFIER_assert(cond)
 
