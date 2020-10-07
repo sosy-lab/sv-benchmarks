@@ -7,6 +7,7 @@ void reach_error() { assert(0); }
 */
 
 #include <pthread.h>
+#undef assert
 #define assert(e) if (!(e)) ERROR: reach_error()
 
 int flag1 = 0, flag2 = 0; // boolean flags
