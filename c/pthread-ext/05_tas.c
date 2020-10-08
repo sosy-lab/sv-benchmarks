@@ -13,6 +13,7 @@ void reach_error() { assert(0); }
 #define locked 1
 volatile int lock = unlocked;
 
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void __VERIFIER_atomic_TAS(

@@ -8,6 +8,7 @@ void reach_error() { assert(0); }
 
 #include <pthread.h>
 
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void __VERIFIER_atomic_CAS(
