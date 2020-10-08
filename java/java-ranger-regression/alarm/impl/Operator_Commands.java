@@ -1,18 +1,18 @@
 
 public class Operator_Commands {
 
-    boolean System_Start;
-    boolean System_Stop;
-    boolean Infusion_Initiate;
-    boolean Infusion_Inhibit;
-    boolean Infusion_Cancel;
-    boolean Data_Config;
-    boolean Next;
-    boolean Back;
-    boolean Cancel;
-    boolean Keyboard;
-    int Disable_Audio;
-    boolean Notification_Cancel;
-    int Configuration_Type;
-    boolean Confirm_Stop;
+    boolean System_Start = Verifier.nondetBoolean();
+    boolean System_Stop = Verifier.nondetBoolean();
+    boolean Infusion_Initiate = Verifier.nondetBoolean();
+    boolean Infusion_Inhibit = Verifier.nondetBoolean();
+    boolean Infusion_Cancel = Verifier.nondetBoolean();
+    boolean Data_Config = Verifier.nondetBoolean();
+    boolean Next = Verifier.nondetBoolean();
+    boolean Back = Verifier.nondetBoolean();
+    boolean Cancel = Verifier.nondetBoolean();
+    boolean Keyboard = Verifier.nondetBoolean();
+    int Disable_Audio = Verifier.nondetInt();
+    boolean Notification_Cancel = Verifier.nondetBoolean();
+    int Configuration_Type = Verifier.nondetInt();
+    boolean Confirm_Stop = Verifier.nondetBoolean();
 }

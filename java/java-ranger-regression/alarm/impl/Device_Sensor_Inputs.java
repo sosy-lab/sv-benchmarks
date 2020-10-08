@@ -1,24 +1,24 @@
 
 public class Device_Sensor_Inputs {
 
-    int Flow_Rate;
-    boolean Flow_Rate_Not_Stable;
-    boolean Air_In_Line;
-    boolean Occlusion;
-    boolean Door_Open;
-    boolean Temp;
-    boolean Air_Pressure;
-    boolean Humidity;
-    boolean Battery_Depleted;
-    boolean Battery_Low;
-    boolean Battery_Unable_To_Charge;
-    boolean Supply_Voltage;
-    boolean CPU_In_Error;
-    boolean RTC_In_Error;
-    boolean Watchdog_Interrupted;
-    boolean Memory_Corrupted;
-    boolean Pump_Too_Hot;
-    boolean Pump_Overheated;
-    boolean Pump_Primed;
-    boolean Post_Successful;
+    int Flow_Rate = Verifier.nondetInt();
+    boolean Flow_Rate_Not_Stable = Verifier.nondetBoolean();
+    boolean Air_In_Line = Verifier.nondetBoolean();
+    boolean Occlusion = Verifier.nondetBoolean();
+    boolean Door_Open = Verifier.nondetBoolean();
+    boolean Temp = Verifier.nondetBoolean();
+    boolean Air_Pressure = Verifier.nondetBoolean();
+    boolean Humidity = Verifier.nondetBoolean();
+    boolean Battery_Depleted = Verifier.nondetBoolean();
+    boolean Battery_Low = Verifier.nondetBoolean();
+    boolean Battery_Unable_To_Charge = Verifier.nondetBoolean();
+    boolean Supply_Voltage = Verifier.nondetBoolean();
+    boolean CPU_In_Error = Verifier.nondetBoolean();
+    boolean RTC_In_Error = Verifier.nondetBoolean();
+    boolean Watchdog_Interrupted = Verifier.nondetBoolean();
+    boolean Memory_Corrupted = Verifier.nondetBoolean();
+    boolean Pump_Too_Hot = Verifier.nondetBoolean();
+    boolean Pump_Overheated = Verifier.nondetBoolean();
+    boolean Pump_Primed = Verifier.nondetBoolean();
+    boolean Post_Successful = Verifier.nondetBoolean();
 }

@@ -1,8 +1,8 @@
 
 public class System_Status_Outputs {
-    boolean Reservoir_Empty;
-    int Reservoir_Volume;
-    int Volume_Infused;
-    int Log_Message_ID;
-    boolean In_Therapy;
+    boolean Reservoir_Empty = Verifier.nondetBoolean();
+    int Reservoir_Volume = Verifier.nondetInt();
+    int Volume_Infused = Verifier.nondetInt();
+    int Log_Message_ID = Verifier.nondetInt();
+    boolean In_Therapy = Verifier.nondetBoolean();
 }

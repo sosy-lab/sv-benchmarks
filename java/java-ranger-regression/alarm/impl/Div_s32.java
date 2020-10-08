@@ -2,7 +2,7 @@
 public class Div_s32 {
 
     static final int MAX_int = 2147483647;
-    static final int MIN_int = -2147483647 - 1;
+    static final int MIN_int = -2147483648;
 
     public static int div_s32(int numerator, int denominator) {
         int quotient;

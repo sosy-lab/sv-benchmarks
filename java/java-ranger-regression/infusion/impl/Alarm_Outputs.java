@@ -1,8 +1,8 @@
 
 public class Alarm_Outputs {
-    int Is_Audio_Disabled;
-    int Notification_Message;
-    int Audio_Notification_Command;
-    int Highest_Level_Alarm;
-    int Log_Message_ID;
+    int Is_Audio_Disabled = Verifier.nondetInt();
+    int Notification_Message = Verifier.nondetInt();
+    int Audio_Notification_Command = Verifier.nondetInt();
+    int Highest_Level_Alarm = Verifier.nondetInt();
+    int Log_Message_ID = Verifier.nondetInt();
 }

@@ -1,15 +1,15 @@
 
 public class Drug_Database_Inputs {
 
-    boolean Known_Prescription;
-    int Drug_Name;
-    int Drug_Concentration_High;
-    int Drug_Concentration_Low;
-    int VTBI_High;
-    int VTBI_Low;
-    int Interval_Patient_Bolus;
-    int Number_Max_Patient_Bolus;
-    int Flow_Rate_KVO;
-    int Flow_Rate_High;
-    int Flow_Rate_Low;
+    boolean Known_Prescription = Verifier.nondetBoolean();
+    int Drug_Name = Verifier.nondetInt();
+    int Drug_Concentration_High = Verifier.nondetInt();
+    int Drug_Concentration_Low = Verifier.nondetInt();
+    int VTBI_High = Verifier.nondetInt();
+    int VTBI_Low = Verifier.nondetInt();
+    int Interval_Patient_Bolus = Verifier.nondetInt();
+    int Number_Max_Patient_Bolus = Verifier.nondetInt();
+    int Flow_Rate_KVO = Verifier.nondetInt();
+    int Flow_Rate_High = Verifier.nondetInt();
+    int Flow_Rate_Low = Verifier.nondetInt();
 }

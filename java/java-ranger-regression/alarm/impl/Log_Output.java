@@ -1,5 +1,5 @@
 
 public class Log_Output {
-    public int Log;
-    public boolean Logging_Failed;
+    public int Log = Verifier.nondetInt();
+    public boolean Logging_Failed = Verifier.nondetBoolean();
 }
