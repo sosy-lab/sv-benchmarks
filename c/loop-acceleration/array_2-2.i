@@ -17,8 +17,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int main(void) {
-  int A[2048];
-  int B[2048];
+  int A[2048] = {0};
+  int B[2048] = {0};
   int i;
   int tmp;
   for (i = 0; i < 2048; i++) {
