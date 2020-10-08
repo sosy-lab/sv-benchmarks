@@ -43,21 +43,21 @@ public static void main(String[] args) {
     (0 <= rtu_ALARM_IN.Highest_Level_Alarm) &&
     (0 <= rtu_SYS_STAT_IN.Volume_Infused) &&
 
-    (rtu_CONFIG_IN.Infusion_Total_Duration < =255) &&
-    (rtu_CONFIG_IN.VTBI_Total < =255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Basal < =255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus < =255) &&
-    (rtu_CONFIG_IN.Duration_Intermittent_Bolus < =255) &&
-    (rtu_CONFIG_IN.Interval_Intermittent_Bolus < =255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Patient_Bolus < =255) &&
-    (rtu_CONFIG_IN.Duration_Patient_Bolus < =255) &&
-    (rtu_CONFIG_IN.Lockout_Period_Patient_Bolus < =255) &&
-    (rtu_CONFIG_IN.Max_Number_of_Patient_Bolus < =255) &&
-    (rtu_CONFIG_IN.Flow_Rate_KVO < =255) &&
-    (rtu_CONFIG_IN.Entered_Reservoir_Volume < =255) &&
-    (rtu_CONFIG_IN.Configured < =255) &&
-    (rtu_ALARM_IN.Highest_Level_Alarm < =255) &&
-    (rtu_SYS_STAT_IN.Volume_Infused < =255)
+    (rtu_CONFIG_IN.Infusion_Total_Duration <=255) &&
+    (rtu_CONFIG_IN.VTBI_Total <=255) &&
+    (rtu_CONFIG_IN.Flow_Rate_Basal <=255) &&
+    (rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus <=255) &&
+    (rtu_CONFIG_IN.Duration_Intermittent_Bolus <=255) &&
+    (rtu_CONFIG_IN.Interval_Intermittent_Bolus <=255) &&
+    (rtu_CONFIG_IN.Flow_Rate_Patient_Bolus <=255) &&
+    (rtu_CONFIG_IN.Duration_Patient_Bolus <=255) &&
+    (rtu_CONFIG_IN.Lockout_Period_Patient_Bolus <=255) &&
+    (rtu_CONFIG_IN.Max_Number_of_Patient_Bolus <=255) &&
+    (rtu_CONFIG_IN.Flow_Rate_KVO <=255) &&
+    (rtu_CONFIG_IN.Entered_Reservoir_Volume <=255) &&
+    (rtu_CONFIG_IN.Configured <=255) &&
+    (rtu_ALARM_IN.Highest_Level_Alarm <=255) &&
+    (rtu_SYS_STAT_IN.Volume_Infused <=255)
 
     ) {
       infusionMgr.INFUSION_MGR_Functional(rtu_TLM_MODE_IN, rtu_OP_CMD_IN, rtu_PATIENT_IN, rtu_CONFIG_IN, rtu_ALARM_IN, rtu_SYS_STAT_IN, rty_IM_OUT, localB, localDW);

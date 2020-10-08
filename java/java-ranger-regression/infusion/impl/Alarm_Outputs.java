@@ -1,3 +1,4 @@
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Alarm_Outputs {
     int Is_Audio_Disabled = Verifier.nondetInt();

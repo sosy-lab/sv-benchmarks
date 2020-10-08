@@ -1,3 +1,4 @@
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Log_Output {
     public int Log = Verifier.nondetInt();

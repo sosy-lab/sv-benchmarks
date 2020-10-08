@@ -1,3 +1,4 @@
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Device_Configuration_Inputs {
     int Audio_Enable_Duration = Verifier.nondetInt();

@@ -1009,7 +1009,6 @@ public class INFUSION_MGR_Functional {
         rty_IM_OUT.Log_Message_ID = localB.IM_OUT_Log_Message_ID;
         rty_IM_OUT.Actual_Infusion_Duration = localB.IM_OUT_Actual_Infusion_Duration;
 
-        //  assert (rty_IM_OUT.Commanded_Flow_Rate == 0);
     }
 
 }

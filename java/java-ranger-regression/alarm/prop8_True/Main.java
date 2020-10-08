@@ -63,7 +63,7 @@ public class Main {
     (0 <= rty_alarm_out.Notification_Message) &&
     (0 <= rty_alarm_out.Audio_Notification_Command) &&
     (0 <= rty_alarm_out.Highest_Level_Alarm) &&
-    (0 <= rty_alarm_out.Log_Message_ID5) &&
+    (0 <= rty_alarm_out.Log_Message_ID) &&
     (0 <= rtu_IM_IN.Commanded_Flow_Rate) &&
 
     (rtu_IM_IN.Current_System_Mode <=255) &&
@@ -90,7 +90,7 @@ public class Main {
     (rty_alarm_out.Notification_Message <= 255) &&
     (rty_alarm_out.Audio_Notification_Command <= 255) &&
     (rty_alarm_out.Highest_Level_Alarm <= 255) &&
-    (rty_alarm_out.Log_Message_ID5 <= 255) &&
+    (rty_alarm_out.Log_Message_ID <= 255)
     ) {
       alarm.ALARM_Functional(rtu_IM_IN, rtu_tlm_mode_in, rtu_sys_mon_in, rtu_logging_in, rtu_op_cmd_in, rtu_db_in, rtu_sensor_in, rtu_const_in, rtu_sys_stat_in, rtu_config_in, rty_alarm_out, localB, localDW);
 

@@ -63,7 +63,7 @@ public class Main {
     (0 <= rty_alarm_out.Notification_Message) &&
     (0 <= rty_alarm_out.Audio_Notification_Command) &&
     (0 <= rty_alarm_out.Highest_Level_Alarm) &&
-    (0 <= rty_alarm_out.Log_Message_ID5) &&
+    (0 <= rty_alarm_out.Log_Message_ID) &&
     (0 <= rtu_IM_IN.Commanded_Flow_Rate) &&
 
     (rtu_IM_IN.Current_System_Mode <=255) &&
@@ -90,7 +90,7 @@ public class Main {
     (rty_alarm_out.Notification_Message <= 255) &&
     (rty_alarm_out.Audio_Notification_Command <= 255) &&
     (rty_alarm_out.Highest_Level_Alarm <= 255) &&
-    (rty_alarm_out.Log_Message_ID5 <= 255) &&
+    (rty_alarm_out.Log_Message_ID <= 255)
     ) {
 
 

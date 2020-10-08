@@ -1,3 +1,4 @@
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Config_Outputs {
     int Patient_ID = Verifier.nondetInt();
