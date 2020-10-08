@@ -4,7 +4,7 @@ input_files: '04-mutex_44-malloc_sound.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: true
+    expected_verdict: false
 
 options:
   language: C
