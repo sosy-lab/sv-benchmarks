@@ -4,7 +4,7 @@ input_files: '04-mutex_41-pt_rwlock.i'
 
 properties:
   - property_file: ../properties/no-data-race.prp
-    expected_verdict: false
+    expected_verdict: true
 
 options:
   language: C

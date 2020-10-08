@@ -20,7 +20,7 @@ void update (int *p) {
   struct s *s = list_entry(p, struct s, list);
   pthread_mutex_lock(&s->mutex);
   s++;
-  s->datum++; //RACE
+  s->datum++; // RACE!
   pthread_mutex_lock(&s->mutex);
 }
 

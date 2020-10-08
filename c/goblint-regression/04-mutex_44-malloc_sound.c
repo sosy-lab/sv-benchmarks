@@ -1,5 +1,3 @@
-extern int __VERIFIER_nondet_int();
-
 #include <stdlib.h>
 #include <pthread.h>
 
@@ -17,7 +15,7 @@ void *f(void *x){
 int main() {
 
   pthread_t t1, t2;
-  int i = __VERIFIER_nondet_int();
+  int i;
   pthread_mutex_t *a;
 
   for (i=0; i < 10; i++){

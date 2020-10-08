@@ -53,7 +53,7 @@ int main () {
   sp = list_entry(ip, struct s, datum);
 
   pthread_mutex_lock(&A_mutex);
-  p = A->next; // RACE
+  p = A->next; // RACE!
   printf("%d\n", p->datum);
   pthread_mutex_unlock(&A_mutex);
   return 0;

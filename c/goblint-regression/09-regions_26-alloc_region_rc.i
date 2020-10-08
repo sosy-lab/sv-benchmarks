@@ -1251,9 +1251,10 @@ int main () {
   pthread_mutex_unlock(&A_mutex);
   pthread_mutex_lock(&A_mutex);
   p = A;
-  while (p->next)
+  while (p->next) {
+    printf("%d\n", p->datum);
     p = p->next;
-  printf("%d\n", p->datum);
+  }
   pthread_mutex_unlock(&A_mutex);
   return 0;
 }

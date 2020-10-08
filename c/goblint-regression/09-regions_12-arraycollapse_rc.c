@@ -54,7 +54,7 @@ int main () {
   pthread_create(&t1, NULL, t_fun, NULL);
 
   pthread_mutex_lock(&mutex[j]);
-  p = slot[j]->next; // RACE
+  p = slot[j]->next; // RACE!
   printf("%d\n", p->datum);
   pthread_mutex_unlock(&mutex[j]);
   return 0;

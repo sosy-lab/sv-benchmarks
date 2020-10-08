@@ -13,6 +13,17 @@ EXCLUDE_TASKS = [
     "04-mutex_13-failed_locking",
     "04-mutex_31-uninitialized",
     "04-mutex_49-type-invariants",
+    "04-mutex_29-funstruct_rc",
+    "04-mutex_30-funstruct_nr",
+    "04-mutex_30-funstruct_nr",
+    "06-symbeq_16-type_rc", # extern
+    "06-symbeq_17-type_nr", # extern
+    "06-symbeq_20-mult_accs_nr", # extern
+    "06-symbeq_21-mult_accs_rc", # extern
+    "19-spec_02-mutex_rc", # duplicate
+    "10-synch_04-two_mainfuns", # no main
+    "05-lval_ls_17-per_elem_simp" # no pthread include, locksmith pragma
+    "05-lval_ls_08-glob-fld_nr" # duplicate of 10/17
 ]
 
 target_root = Path(".")
@@ -49,9 +60,9 @@ for goblint_f in sorted(goblint_regression.glob("**/*.c")):
         continue
 
     properties = {}
-    if re.search(r"//\s*RACE", content):
+    if re.search(r"//\s*RACE!", content):
         properties["../properties/no-data-race.prp"] = False
-    elif re.search(r"//\s*NORACE", content):
+    elif re.search(r"//\s*(NORACE|RACE)", content):
         # if didn't contain RACE, must be race-free
         properties["../properties/no-data-race.prp"] = True
     # TODO: unreach-call property based on asserts

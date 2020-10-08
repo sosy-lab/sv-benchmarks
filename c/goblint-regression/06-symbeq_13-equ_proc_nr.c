@@ -10,13 +10,13 @@ struct s {
 
 void *t_fun(void *arg) {
   pthread_mutex_lock(&A.mutex);
-  A.datum = 5; //NORACE
+  A.datum = 5; // NORACE
   pthread_mutex_lock(&A.mutex);
   return NULL;
 }
 
 void update(int *p) {
-  *p = 8; //NORACE
+  *p = 8; // NORACE
 }
 
 int main () {

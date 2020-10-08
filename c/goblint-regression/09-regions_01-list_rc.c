@@ -19,7 +19,7 @@ void *t_fun(void *arg) {
   struct s *p = malloc(sizeof(struct s));
   struct s *t;
   init(p,7);
-  
+
   pthread_mutex_lock(&B_mutex);
   t = A->next;
   A->next = p; // RACE!
@@ -38,9 +38,9 @@ int main () {
   A->next = p;
 
   pthread_create(&t1, NULL, t_fun, NULL);
-  
+
   pthread_mutex_lock(&A_mutex);
-  p = A->next; // RACE
+  p = A->next; // RACE!
   printf("%d\n", p->datum);
   pthread_mutex_unlock(&A_mutex);
   return 0;

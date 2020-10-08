@@ -66,7 +66,7 @@ void *f(void *arg) {
     pos = (struct s *)((char *)p - (size_t)(& ((struct s *)0)->list));
 
     while (& pos->list != & c.slot[j]) {
-      pos->datum++; // NORACE!
+      pos->datum++; // NORACE
       q = pos->list.next;
       pos = (struct s *)((char *)q - (size_t)(& ((struct s *)0)->list));
     }
