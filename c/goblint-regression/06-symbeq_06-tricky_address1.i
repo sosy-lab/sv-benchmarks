@@ -1,4 +1,8 @@
 extern int __VERIFIER_nondet_int();
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -914,6 +918,7 @@ struct s {
 } a[10];
 void *t_fun(void *arg) {
   int i = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= i && i < 10);
   struct s *p = &a[i];
   pthread_mutex_lock(&p->mutex);
   p->datum++;
@@ -922,6 +927,7 @@ void *t_fun(void *arg) {
 }
 int main () {
   int i = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= i && i < 10);
   pthread_t t1;
   pthread_create(&t1, ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(&a[i].mutex);

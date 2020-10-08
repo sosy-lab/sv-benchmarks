@@ -1,4 +1,8 @@
 extern int __VERIFIER_nondet_int();
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
 
 #include<pthread.h>
 #include<stdio.h>
@@ -10,6 +14,7 @@ struct s {
 
 void *t_fun(void *arg) {
   int i = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= i && i < 10);
   struct s *p = &a[i];
   pthread_mutex_lock(&p->mutex);
   p->datum++; // NORACE
@@ -19,6 +24,7 @@ void *t_fun(void *arg) {
 
 int main () {
   int i = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= i && i < 10);
   pthread_t t1;
   pthread_create(&t1, NULL, t_fun, NULL);
 

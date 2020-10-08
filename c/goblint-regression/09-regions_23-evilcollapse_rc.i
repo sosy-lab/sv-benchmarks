@@ -1,4 +1,8 @@
 extern int __VERIFIER_nondet_int();
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1010,6 +1014,7 @@ static inline void list_add(struct list_head *new, struct list_head *head) {
 }
 inline static struct list_head *lookup (int d) {
   int hvalue = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= hvalue && hvalue < 10);
   struct list_head *p;
   p = c.slot[hvalue].next;
   return p;
@@ -1017,6 +1022,7 @@ inline static struct list_head *lookup (int d) {
 void *f(void *arg) {
   struct s *pos ;
   int j = __VERIFIER_nondet_int();
+  assume_abort_if_not(0 <= j);
   struct list_head const *p ;
   struct list_head const *q ;
   while (j < 10) {
