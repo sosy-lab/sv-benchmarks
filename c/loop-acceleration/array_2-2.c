@@ -12,8 +12,8 @@ void __VERIFIER_assert(int cond) {
 #define SZ 2048
 
 int main(void) {
-  int A[SZ];
-  int B[SZ];
+  int A[SZ] = {0};
+  int B[SZ] = {0};
   int i;
   int tmp;
 
