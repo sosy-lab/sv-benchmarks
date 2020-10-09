@@ -16,7 +16,7 @@
 
 <!-- For C programs: -->
 - [ ] [data model](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#data-model) present in task-definition file
-- [ ] original sources present
+- [ ] original (ideally not preprocessed) sources present
 - [ ] [preprocessed](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#preprocessing) files present
 - [ ] preprocessed files generated with correct architecture
 - [ ] [Makefile](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#compile-checks) added with correct content and without overly broad suppression of warnings
