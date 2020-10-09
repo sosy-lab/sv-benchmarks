@@ -1,0 +1,14 @@
+format_version: '2.0'
+
+# old file name: array_true-unreach-call2_true-termination.i
+input_files: 'array_2-2-simple.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32
