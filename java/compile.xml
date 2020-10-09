@@ -36,4 +36,8 @@
     <include>java-ranger-regression/**/*.yml</include>
     <include>java-ranger-regression/*.yml</include>
   </tasks>
+
+  <tasks name="juliet-java">
+    <include>juliet-java/*.yml</include>
+  </tasks>
 </benchmark>
