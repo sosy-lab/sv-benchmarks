@@ -34,3 +34,4 @@ memsafety-ext/*.yml
 ldv-memsafety/*.yml
 ldv-memsafety-bitfields/*.yml
 pthread-atomic/*.yml
+uthash-2.0.2/*.yml
