@@ -21,7 +21,7 @@ void __VERIFIER_assert(int cond) {
 
 int main() {
     unsigned int A, B;
-    unsigned int r, d, p, q;
+    unsigned long long r, d, p, q;
     A = __VERIFIER_nondet_unsigned_int();
     B = __VERIFIER_nondet_unsigned_int();
     assume_abort_if_not(B >= 1);
