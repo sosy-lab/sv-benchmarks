@@ -17,8 +17,8 @@ void __VERIFIER_assert(int cond) {
 }
 
 int main() {
-    int a, b;
-    int x, y, u, v;
+    unsigned a, b;
+    unsigned x, y, u, v;
     a = __VERIFIER_nondet_unsigned_int();
     b = __VERIFIER_nondet_unsigned_int();
     assume_abort_if_not(a >= 1); //inf loop if remove
