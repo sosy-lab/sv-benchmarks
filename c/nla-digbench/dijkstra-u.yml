@@ -1,5 +1,5 @@
 format_version: '2.0'
-input_files: 'dijkstra.c'
+input_files: 'dijkstra-u.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
