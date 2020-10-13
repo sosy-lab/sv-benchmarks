@@ -1,8 +1,8 @@
 format_version: '2.0'
-input_files: 'hardu.c'
+input_files: 'hard-u.c'
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
+    expected_verdict: false
   - property_file: ../properties/no-overflow.prp
     expected_verdict: true
 
