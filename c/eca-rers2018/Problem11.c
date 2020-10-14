@@ -1,104 +1,117 @@
 extern int __VERIFIER_nondet_int();
-void reach_error_0(){}
-void reach_error_1(){}
-void reach_error_2(){}
-void reach_error_3(){}
-void reach_error_4(){}
-void reach_error_5(){}
-void reach_error_6(){}
-void reach_error_7(){}
-void reach_error_8(){}
-void reach_error_9(){}
-void reach_error_10(){}
-void reach_error_11(){}
-void reach_error_12(){}
-void reach_error_13(){}
-void reach_error_14(){}
-void reach_error_15(){}
-void reach_error_16(){}
-void reach_error_17(){}
-void reach_error_18(){}
-void reach_error_19(){}
-void reach_error_20(){}
-void reach_error_21(){}
-void reach_error_22(){}
-void reach_error_23(){}
-void reach_error_24(){}
-void reach_error_25(){}
-void reach_error_26(){}
-void reach_error_27(){}
-void reach_error_28(){}
-void reach_error_29(){}
-void reach_error_30(){}
-void reach_error_31(){}
-void reach_error_32(){}
-void reach_error_33(){}
-void reach_error_34(){}
-void reach_error_35(){}
-void reach_error_36(){}
-void reach_error_37(){}
-void reach_error_38(){}
-void reach_error_39(){}
-void reach_error_40(){}
-void reach_error_41(){}
-void reach_error_42(){}
-void reach_error_43(){}
-void reach_error_44(){}
-void reach_error_45(){}
-void reach_error_46(){}
-void reach_error_47(){}
-void reach_error_48(){}
-void reach_error_49(){}
-void reach_error_50(){}
-void reach_error_51(){}
-void reach_error_52(){}
-void reach_error_53(){}
-void reach_error_54(){}
-void reach_error_55(){}
-void reach_error_56(){}
-void reach_error_57(){}
-void reach_error_58(){}
-void reach_error_59(){}
-void reach_error_60(){}
-void reach_error_61(){}
-void reach_error_62(){}
-void reach_error_63(){}
-void reach_error_64(){}
-void reach_error_65(){}
-void reach_error_66(){}
-void reach_error_67(){}
-void reach_error_68(){}
-void reach_error_69(){}
-void reach_error_70(){}
-void reach_error_71(){}
-void reach_error_72(){}
-void reach_error_73(){}
-void reach_error_74(){}
-void reach_error_75(){}
-void reach_error_76(){}
-void reach_error_77(){}
-void reach_error_78(){}
-void reach_error_79(){}
-void reach_error_80(){}
-void reach_error_81(){}
-void reach_error_82(){}
-void reach_error_83(){}
-void reach_error_84(){}
-void reach_error_85(){}
-void reach_error_86(){}
-void reach_error_87(){}
-void reach_error_88(){}
-void reach_error_89(){}
-void reach_error_90(){}
-void reach_error_91(){}
-void reach_error_92(){}
-void reach_error_93(){}
-void reach_error_94(){}
-void reach_error_95(){}
-void reach_error_96(){}
-void reach_error_97(){}
-void reach_error_98(){}
-void reach_error_99(){}
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "Problem11.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+void reach_error_a(){ reach_error(); }
+void reach_error_b(){ reach_error(); }
+void reach_error_0(){ reach_error_b(); }
+void reach_error_1(){ reach_error_a(); }
+void reach_error_2(){ reach_error_a(); }
+void reach_error_3(){ reach_error_b(); }
+void reach_error_4(){ reach_error_b(); }
+void reach_error_5(){ reach_error_b(); }
+void reach_error_6(){ reach_error_b(); }
+void reach_error_7(){ reach_error_b(); }
+void reach_error_8(){ reach_error_b(); }
+void reach_error_9(){ reach_error_a(); }
+void reach_error_10(){ reach_error_b(); }
+void reach_error_11(){ reach_error_b(); }
+void reach_error_12(){ reach_error_a(); }
+void reach_error_13(){ reach_error_b(); }
+void reach_error_14(){ reach_error_a(); }
+void reach_error_15(){ reach_error_a(); }
+void reach_error_16(){ reach_error_b(); }
+void reach_error_17(){ reach_error_a(); }
+void reach_error_18(){ reach_error_b(); }
+void reach_error_19(){ reach_error_a(); }
+void reach_error_20(){ reach_error_b(); }
+void reach_error_21(){ reach_error_b(); }
+void reach_error_22(){ reach_error_b(); }
+void reach_error_23(){ reach_error_a(); }
+void reach_error_24(){ reach_error_b(); }
+void reach_error_25(){ reach_error_b(); }
+void reach_error_26(){ reach_error_b(); }
+void reach_error_27(){ reach_error_b(); }
+void reach_error_28(){ reach_error_b(); }
+void reach_error_29(){ reach_error_a(); }
+void reach_error_30(){ reach_error_a(); }
+void reach_error_31(){ reach_error_b(); }
+void reach_error_32(){ reach_error_b(); }
+void reach_error_33(){ reach_error_a(); }
+void reach_error_34(){ reach_error_a(); }
+void reach_error_35(){ reach_error_b(); }
+void reach_error_36(){ reach_error_b(); }
+void reach_error_37(){ reach_error_b(); }
+void reach_error_38(){ reach_error_b(); }
+void reach_error_39(){ reach_error_a(); }
+void reach_error_40(){ reach_error_b(); }
+void reach_error_41(){ reach_error_b(); }
+void reach_error_42(){ reach_error_b(); }
+void reach_error_43(){ reach_error_a(); }
+void reach_error_44(){ reach_error_a(); }
+void reach_error_45(){ reach_error_a(); }
+void reach_error_46(){ reach_error_b(); }
+void reach_error_47(){ reach_error_a(); }
+void reach_error_48(){ reach_error_a(); }
+void reach_error_49(){ reach_error_b(); }
+void reach_error_50(){ reach_error_b(); }
+void reach_error_51(){ reach_error_b(); }
+void reach_error_52(){ reach_error_a(); }
+void reach_error_53(){ reach_error_b(); }
+void reach_error_54(){ reach_error_b(); }
+void reach_error_55(){ reach_error_b(); }
+void reach_error_56(){ reach_error_a(); }
+void reach_error_57(){ reach_error_b(); }
+void reach_error_58(){ reach_error_b(); }
+void reach_error_59(){ reach_error_a(); }
+void reach_error_60(){ reach_error_b(); }
+void reach_error_61(){ reach_error_a(); }
+void reach_error_62(){ reach_error_b(); }
+void reach_error_63(){ reach_error_b(); }
+void reach_error_64(){ reach_error_b(); }
+void reach_error_65(){ reach_error_a(); }
+void reach_error_66(){ reach_error_a(); }
+void reach_error_67(){ reach_error_b(); }
+void reach_error_68(){ reach_error_b(); }
+void reach_error_69(){ reach_error_a(); }
+void reach_error_70(){ reach_error_b(); }
+void reach_error_71(){ reach_error_b(); }
+void reach_error_72(){ reach_error_a(); }
+void reach_error_73(){ reach_error_a(); }
+void reach_error_74(){ reach_error_a(); }
+void reach_error_75(){ reach_error_a(); }
+void reach_error_76(){ reach_error_b(); }
+void reach_error_77(){ reach_error_b(); }
+void reach_error_78(){ reach_error_a(); }
+void reach_error_79(){ reach_error_a(); }
+void reach_error_80(){ reach_error_b(); }
+void reach_error_81(){ reach_error_b(); }
+void reach_error_82(){ reach_error_b(); }
+void reach_error_83(){ reach_error_b(); }
+void reach_error_84(){ reach_error_b(); }
+void reach_error_85(){ reach_error_a(); }
+void reach_error_86(){ reach_error_b(); }
+void reach_error_87(){ reach_error_b(); }
+void reach_error_88(){ reach_error_b(); }
+void reach_error_89(){ reach_error_a(); }
+void reach_error_90(){ reach_error_b(); }
+void reach_error_91(){ reach_error_b(); }
+void reach_error_92(){ reach_error_a(); }
+void reach_error_93(){ reach_error_b(); }
+void reach_error_94(){ reach_error_b(); }
+void reach_error_95(){ reach_error_b(); }
+void reach_error_96(){ reach_error_a(); }
+void reach_error_97(){ reach_error_a(); }
+void reach_error_98(){ reach_error_a(); }
+void reach_error_99(){ reach_error_b(); }
 
 
 	// inputs

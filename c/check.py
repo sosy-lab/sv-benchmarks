@@ -34,7 +34,7 @@ EXPECTED_FILE_PATTERN = re.compile(
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
 PROPERTIES = set(["def-behavior", "no-overflow", "no-data-race", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
-    "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements"])
+    "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements", "unreach-call-a", "unreach-call-b"])
 # multiple properties for eca-rers2018-files
 for i in range(100):
     PROPERTIES.add("unreach-call-%d" % i)
