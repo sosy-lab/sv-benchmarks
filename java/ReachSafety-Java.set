@@ -4,6 +4,7 @@ jpf-regression/*.yml
 java-ranger-regression/*.yml
 java-ranger-regression/WBS/*.yml
 java-ranger-regression/siena_eqchk/*.yml
+java-ranger-regression/replace5_eqchk/*.yml
 MinePump/*.yml
 algorithms/*.yml
 juliet-java/*.yml
