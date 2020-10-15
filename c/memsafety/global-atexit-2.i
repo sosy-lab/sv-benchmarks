@@ -576,5 +576,6 @@ int main() {
  f();
  free(*g);
  free(g);
+ g = ((void *)0);
  return 0;
 }

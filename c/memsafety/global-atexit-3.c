@@ -34,5 +34,6 @@ int main() {
 	f();
 	free(*g);
 	free(g);
+	g = NULL;
 	return 0;
 }
