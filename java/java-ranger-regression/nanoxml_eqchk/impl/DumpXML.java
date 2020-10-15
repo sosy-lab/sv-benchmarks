@@ -6,7 +6,6 @@ public class DumpXML {
 
 	public static int numIdentifiers;
 	public static int mainProcess(char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7, char i8){
-		numIdentifiers = 0; // commenting this line out causes the equivalence check to fail
 		char[] str = new char[12];
 		str[0] = i0;
 		str[1] = i1;
