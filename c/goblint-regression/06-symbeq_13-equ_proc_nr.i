@@ -992,6 +992,8 @@ void update(int *p) {
   *p = 8;
 }
 int main () {
+  pthread_mutex_init(&A.mutex, ((void *)0));
+  pthread_mutex_init(&B.mutex, ((void *)0));
   int x = __VERIFIER_nondet_int();
   pthread_t id;
   struct s *s;

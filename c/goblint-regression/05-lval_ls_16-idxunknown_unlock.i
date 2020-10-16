@@ -683,6 +683,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main() {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&m[i], ((void *)0));
   int i = __VERIFIER_nondet_int();
   assume_abort_if_not(0 <= i && i < 10);
   pthread_t id;

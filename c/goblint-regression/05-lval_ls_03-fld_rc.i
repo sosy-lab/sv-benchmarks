@@ -681,6 +681,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main() {
+  pthread_mutex_init(&m.x, ((void *)0));
+  pthread_mutex_init(&m.y, ((void *)0));
   pthread_t id;
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(&m.y);

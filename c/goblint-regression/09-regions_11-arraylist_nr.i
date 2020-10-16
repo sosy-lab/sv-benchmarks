@@ -1244,6 +1244,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&mutex[i], ((void *)0));
   int j = __VERIFIER_nondet_int();
   assume_abort_if_not(0 <= j && j < 10);
   struct s *p;

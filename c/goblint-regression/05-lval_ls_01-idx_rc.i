@@ -678,6 +678,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main() {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&m[i], ((void *)0));
   pthread_t id;
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(&m[3]);
