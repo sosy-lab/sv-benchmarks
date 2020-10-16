@@ -706,22 +706,28 @@ void *thr1(void *_) {
         __VERIFIER_atomic_begin();
         x = 1;
         __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
         int y1 = y;
+        __VERIFIER_atomic_end();
         if (y1 != 0) {
             __VERIFIER_atomic_begin();
             b1 = 0;
             __VERIFIER_atomic_end();
             y1 = y;
-            while (y != 0) {};
+            while (y1 != 0) {};
             continue;
         }
         __VERIFIER_atomic_begin();
         y = 1;
         __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
         int x1 = x;
+        __VERIFIER_atomic_end();
         if (x1 != 1) {
             b1 = 0;
+            __VERIFIER_atomic_begin();
             int b21 = b2;
+            __VERIFIER_atomic_end();
             while (b21 >= 1) {};
             y1 = y;
             if (y1 != 1) {
@@ -743,8 +749,12 @@ void *thr1(void *_) {
 void *thr2(void *_) {
     while (1) {
         b2 = 1;
+        __VERIFIER_atomic_begin();
         x = 2;
+        __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
         int y2 = y;
+        __VERIFIER_atomic_end();
         if (y2 != 0) {
             b2 = 0;
             __VERIFIER_atomic_begin();
@@ -776,8 +786,12 @@ void *thr2(void *_) {
     }
     X = 1;
     if (!(X >= 1)) ERROR: reach_error();
+    __VERIFIER_atomic_begin();
     y = 0;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
     b2 = 0;
+    __VERIFIER_atomic_end();
     return 0;
 }
 int main() {

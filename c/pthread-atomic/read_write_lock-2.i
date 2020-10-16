@@ -712,8 +712,12 @@ void __VERIFIER_atomic_take_read_lock() {
 }
 void *writer(void *arg) {
   __VERIFIER_atomic_take_write_lock();
+  __VERIFIER_atomic_begin();
   x = 3;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
   w = 0;
+  __VERIFIER_atomic_end();
   return 0;
 }
 void *reader(void *arg) {

@@ -722,9 +722,7 @@ void * thr1(void* arg) {
   v = value;
   value = v + 1;
   __VERIFIER_atomic_release();
-        __VERIFIER_atomic_begin();
         { if(!(value > v)) { ERROR: {reach_error();abort();}(void)0; } };
-        __VERIFIER_atomic_end();
   return 0;
  }
 }

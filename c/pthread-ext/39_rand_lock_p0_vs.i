@@ -728,7 +728,9 @@ inline int PseudoRandomUsingAtomic_nextInt() {
  __VERIFIER_atomic_acquire();
  read = seed;
  nexts = calculateNext(read);
+    __VERIFIER_atomic_begin();
  seed = nexts;
+    __VERIFIER_atomic_end();
  __VERIFIER_atomic_release();
  nextInt_return = ((10>=nexts)?(nexts):(10));
  return nextInt_return;
