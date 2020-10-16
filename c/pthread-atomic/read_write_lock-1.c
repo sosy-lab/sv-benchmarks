@@ -55,8 +55,12 @@ void *reader(void *arg) { //reader
   y = l;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  assert(y == x);
+  int ly = y;
   __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int lx = x;
+  __VERIFIER_atomic_end();
+  assert(ly == lx);
   __VERIFIER_atomic_release_read_lock();
   return 0;
 }
