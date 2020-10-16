@@ -1213,6 +1213,7 @@ extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
+pthread_mutexattr_t mutexattr;
 struct s {
   int datum;
   pthread_mutex_t mutex;
@@ -1220,7 +1221,7 @@ struct s {
 } *A;
 void init (struct s *p, int x) {
   p->datum = x;
-  pthread_mutex_init(&p->mutex, ((void *)0));
+  pthread_mutex_init(&p->mutex, &mutexattr);
 }
 void update (int *p) {
   struct s *s = ((struct s *)((char *)(p)-(unsigned long)(&((struct s *)0)->list)));
@@ -1234,9 +1235,12 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
+  pthread_mutexattr_init(&mutexattr);
+  pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_ERRORCHECK);
   pthread_t t1;
-  A = malloc(sizeof(struct s));
+  A = malloc(2 * sizeof(struct s));
   init(A,666);
+  init(&A[1],999);
   pthread_create(&t1, ((void *)0), t_fun, ((void *)0));
   update(&A->list);
   return 0;

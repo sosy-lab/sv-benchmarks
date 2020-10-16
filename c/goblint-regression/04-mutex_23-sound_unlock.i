@@ -909,8 +909,9 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
 int myglobal;
-pthread_mutex_t mutex1 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
-pthread_mutex_t mutex2 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
+pthread_mutexattr_t mutexattr;
+pthread_mutex_t mutex1;
+pthread_mutex_t mutex2;
 void *t_fun(void *arg) {
   pthread_mutex_lock(&mutex1);
   myglobal=myglobal+1;
@@ -918,6 +919,10 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main(void) {
+  pthread_mutexattr_init(&mutexattr);
+  pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_ERRORCHECK);
+  pthread_mutex_init(&mutex1, &mutexattr);
+  pthread_mutex_init(&mutex2, &mutexattr);
   int i = __VERIFIER_nondet_int();
   pthread_t id;
   pthread_mutex_t *m = &mutex1;

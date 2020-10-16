@@ -938,6 +938,7 @@ int main() {
   if (i)
     glob++;
   printf("Work is completed...");
+  i--;
   if (i)
     pthread_mutex_unlock(&m);
   return 0;
