@@ -1,17 +1,17 @@
 import java.io.IOException;
 
-public class printTokens2 {
+public class PrintTokens2 {
 
   public static char[] buffer = new char[81];
   public static int output = 0;
 
   public static final int error = 0;
   public static final int keyword = 1;
-  public static final int spec_symbol = 2;
+  public static final int specSymbol = 2;
   public static final int identifier = 3;
-  public static final int num_constant = 41;
-  public static final int str_constant = 42;
-  public static final int char_constant = 43;
+  public static final int numConstant = 41;
+  public static final int strConstant = 42;
+  public static final int charConstant = 43;
   public static final int comment = 5;
   public static final int end = 6;
 
@@ -30,16 +30,16 @@ public class printTokens2 {
     str[5] = i5;
     str[6] = i6;
     str[7] = i7;
-    token_stream tp = open_token_stream(str);
+    TokenStream tp = openTokenStream(str);
     boolean continueIndex = false;
     while(!continueIndex) {
-      char[] token = get_token(tp);
-      print_token(token);
-      continueIndex = is_end_token(tp);
+      char[] token = getToken(tp);
+      printToken(token);
+      continueIndex = isEndToken(tp);
     }
   }
 
-  private static boolean is_end_token(token_stream tp) {
+  private static boolean isEndToken(TokenStream tp) {
     try {
       boolean eof = tp.EOFStream();
       return eof;
@@ -50,11 +50,11 @@ public class printTokens2 {
     return false;
   }
 
-  private static void print_token(char[] token) {
-    int type = token_type(token);
-    if(type == spec_symbol) {
-      print_spec_symbol(token);
-      output += spec_symbol;
+  private static void printToken(char[] token) {
+    int type = tokenType(token);
+    if(type == specSymbol) {
+      printSpecSymbol(token);
+      output += specSymbol;
     }
     else if(type == error) {
       System.out.print("error, \"");
@@ -75,23 +75,23 @@ public class printTokens2 {
       System.out.print("\".\n");
       output += identifier;
     }
-    else if(type == num_constant) {
+    else if(type == numConstant) {
       System.out.print("numeric,");
       System.out.print(token);
       System.out.print(".\n");
-      output += num_constant;
+      output += numConstant;
     }
-    else if(type == str_constant) {
+    else if(type == strConstant) {
       System.out.print("string,");
       System.out.print(token);
       System.out.print(".\n");
-      output += str_constant;
+      output += strConstant;
     }
-    else if(type == char_constant) {
+    else if(type == charConstant) {
       System.out.print("character, \"");
       System.out.print(token);
       System.out.print("\".\n");
-      output += char_constant;
+      output += charConstant;
     }
     else if(type == end) {
       System.out.print("eof.\n");
@@ -99,7 +99,7 @@ public class printTokens2 {
     }
   }
 
-  private static void print_spec_symbol(char[] token) {
+  private static void printSpecSymbol(char[] token) {
     if(token[0] == '(') {
       System.out.println("lparen.");
     }
@@ -123,43 +123,43 @@ public class printTokens2 {
     }
   }
 
-  private static int token_type(char[] token) {
-    boolean _spec_symbol = is_spec_symbol(token);
-    if(_spec_symbol) {
-      return spec_symbol;
+  private static int tokenType(char[] token) {
+    boolean _specSymbol = isSpecSymbol(token);
+    if(_specSymbol) {
+      return specSymbol;
     }
-    boolean _keyword = is_keyword(token);
+    boolean _keyword = isKeyword(token);
     if(_keyword) {
       return keyword;
     }
-    boolean _identifier = is_identifier(token);
+    boolean _identifier = isIdentifier(token);
     if(_identifier) {
       return identifier;
     }
-    boolean _num_constant = is_num_constant(token);
-    if(_num_constant) {
-      return num_constant;
+    boolean _numConstant = isNumConstant(token);
+    if(_numConstant) {
+      return numConstant;
     }
-    boolean _str_constant = is_str_constant(token);
-    if(_str_constant) {
-      return str_constant;
+    boolean _strConstant = isStrConstant(token);
+    if(_strConstant) {
+      return strConstant;
     }
-    boolean _char_constant = is_char_constant(token);
-    if(_char_constant) {
-      return char_constant;
+    boolean _charConstant = isCharConstant(token);
+    if(_charConstant) {
+      return charConstant;
     }
-    boolean _comment = is_comment(token);
+    boolean _comment = isComment(token);
     if(_comment) {
       return comment;
     }
-    boolean _eof_token = is_eof_token(token);
+    boolean _eof_token = isEOFToken(token);
     if(_eof_token) {
       return end;
     }
     return error;
   }
 
-  private static boolean is_comment(char[] token) {
+  private static boolean isComment(char[] token) {
     if(token[0] == 59) {
       return true;
     }
@@ -168,7 +168,7 @@ public class printTokens2 {
     }
   }
 
-  private static boolean is_char_constant(char[] token) {
+  private static boolean isCharConstant(char[] token) {
     if(token[0] == '#') {
       char ch = token[1];
       boolean _isalpha = isalpha(ch);
@@ -184,7 +184,7 @@ public class printTokens2 {
     }
   }
 
-  private static boolean is_str_constant(char[] token) {
+  private static boolean isStrConstant(char[] token) {
     int i = 1;
     if(token[0] == '"') {
       while(token[i] != '\0') {
@@ -202,7 +202,7 @@ public class printTokens2 {
     }
   }
 
-  private static boolean is_num_constant(char[] token) {
+  private static boolean isNumConstant(char[] token) {
     int i = 1;
     char ch = token[0];
     boolean _isdigit = isdigit(ch);
@@ -224,7 +224,7 @@ public class printTokens2 {
     }
   }
 
-  private static boolean is_keyword(char[] token) {
+  private static boolean isKeyword(char[] token) {
     if(token[0] == 'a') {
       if(token[1] == 'n') {
         if(token[2] == 'd') {
@@ -273,7 +273,7 @@ public class printTokens2 {
     return false;
   }
 
-  private static boolean is_identifier(char[] token) {
+  private static boolean isIdentifier(char[] token) {
     int i = 1;
     char ch = token[0];
     boolean _isalpha = isalpha(ch);
@@ -301,7 +301,7 @@ public class printTokens2 {
     }
   }
 
-  private static char[] get_token(token_stream tp) {
+  private static char[] getToken(TokenStream tp) {
     char[] ch1 = new char[2];
     ch1[0] = '\0';
     ch1[1] = '\0';
@@ -310,7 +310,7 @@ public class printTokens2 {
       j = j + 1;
     }
 
-    char ch = get_char(tp);
+    char ch = getChar(tp);
     boolean continueIndex = false;
     if(ch == ' ') {
       continueIndex = true;
@@ -319,7 +319,7 @@ public class printTokens2 {
       continueIndex = true;
     }
     while(continueIndex) {
-      ch = get_char(tp);
+      ch = getChar(tp);
       continueIndex = false;
       if(ch == ' ') {
         continueIndex = true;
@@ -330,12 +330,12 @@ public class printTokens2 {
     }
     int i = 0;
     buffer[i] = ch;
-    boolean _is_eof_token = is_eof_token(buffer);
-    if(_is_eof_token) {
+    boolean _isEOFToken = isEOFToken(buffer);
+    if(_isEOFToken) {
       return buffer;
     }
-    boolean _is_spec_symbol = is_spec_symbol(buffer);
-    if(_is_spec_symbol) {
+    boolean _isSpecSymbol = isSpecSymbol(buffer);
+    if(_isSpecSymbol) {
       return buffer;
     }
     int id = 0;
@@ -346,29 +346,29 @@ public class printTokens2 {
       id = 2;
     }
 
-    ch = get_char(tp);
-    continueIndex = is_token_end(id, ch);
+    ch = getChar(tp);
+    continueIndex = isTokenEnd(id, ch);
     while(!continueIndex) {
       i = i + 1;
       if(i <= 80){
         buffer[i] = ch;
       }
-      ch = get_char(tp);
-      continueIndex = is_token_end(id, ch);
+      ch = getChar(tp);
+      continueIndex = isTokenEnd(id, ch);
     }
 
     ch1[0] = ch;
 
-    _is_eof_token = is_eof_token(ch1);
-    if(_is_eof_token) {
-      ch = unget_char(ch, tp);
+    _isEOFToken = isEOFToken(ch1);
+    if(_isEOFToken) {
+      ch = ungetChar(ch, tp);
       return buffer;
     }
     else {
 
-      _is_spec_symbol = is_spec_symbol(ch1);
-      if(_is_spec_symbol) {
-        ch = unget_char(ch, tp);
+      _isSpecSymbol = isSpecSymbol(ch1);
+      if(_isSpecSymbol) {
+        ch = ungetChar(ch, tp);
         return buffer;
       }
     }
@@ -383,7 +383,7 @@ public class printTokens2 {
 
     else if(id == 0) {
       if(ch == 59) {
-        ch = unget_char(ch, tp);
+        ch = ungetChar(ch, tp);
         return buffer;
       }
     }
@@ -426,12 +426,12 @@ public class printTokens2 {
     }
   }
 
-  private static char unget_char(char ch, token_stream tp) {
+  private static char ungetChar(char ch, TokenStream tp) {
     try {
       tp.unreader(ch);
     }
     catch(IOException e) {
-      System.out.println("unget_char error!");
+      System.out.println("ungetChar error!");
     }
     return ch;
   }
@@ -439,13 +439,13 @@ public class printTokens2 {
    *
    *
    */
-  private static boolean is_token_end(int id, char ch) {
+  private static boolean isTokenEnd(int id, char ch) {
     char[] ch1 = new char[2];
     ch1[0] = ch;
     ch1[1] = '\0';
 
-    boolean _is_eof_token = is_eof_token(ch1);
-    if(_is_eof_token) {
+    boolean _isEOFToken = isEOFToken(ch1);
+    if(_isEOFToken) {
       return true;
     }
 
@@ -470,8 +470,8 @@ public class printTokens2 {
       }
     }
 
-    boolean _is_spec_symbol = is_spec_symbol(ch1);
-    if(_is_spec_symbol) {
+    boolean _isSpecSymbol = isSpecSymbol(ch1);
+    if(_isSpecSymbol) {
       return true;
     }
     else if(ch == ' ') {
@@ -489,7 +489,7 @@ public class printTokens2 {
 
   }
 
-  private static boolean is_spec_symbol(char[] token) {
+  private static boolean isSpecSymbol(char[] token) {
     if(token[0] == '(') {
       return true;
     }
@@ -516,7 +516,7 @@ public class printTokens2 {
     }
   }
 
-  private static boolean is_eof_token(char[] token) {
+  private static boolean isEOFToken(char[] token) {
     if(token[0] == '\0') {
       return true;
     }
@@ -525,20 +525,20 @@ public class printTokens2 {
     }
   }
 
-  private static char get_char(token_stream tp) {
+  private static char getChar(TokenStream tp) {
     try {
       char ch = tp.read();
       return ch;
     }
     catch(IOException e) {
-      System.out.println("get_char error");
+      System.out.println("getChar error");
     }
     return '\0';
   }
 
-  private static token_stream open_token_stream(char[] str) {
+  private static TokenStream openTokenStream(char[] str) {
     IntReader intReader = new IntReader(str);
-    token_stream stream_ptr = new token_stream(intReader);
-    return stream_ptr;
+    TokenStream streamPtr = new TokenStream(intReader);
+    return streamPtr;
   }
 }

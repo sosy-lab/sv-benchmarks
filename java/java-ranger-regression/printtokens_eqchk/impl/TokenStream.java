@@ -4,11 +4,11 @@ import java.io.PushbackReader;
 import java.io.Reader;
 
 
-public class token_stream {
+public class TokenStream {
 
 	private PushbackReader reader = null;
 
-	public token_stream(Reader _reader) {
+	public TokenStream(Reader _reader) {
 		reader = new PushbackReader(_reader, 10);
 	}
 
