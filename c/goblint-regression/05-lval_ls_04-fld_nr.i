@@ -687,6 +687,6 @@ int main() {
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(&m.x);
   glob++;
-  pthread_mutex_lock(&m.x);
+  pthread_mutex_unlock(&m.x);
   return 0;
 }

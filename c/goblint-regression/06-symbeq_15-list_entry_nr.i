@@ -1226,7 +1226,7 @@ void update (int *p) {
   struct s *s = ((struct s *)((char *)(p)-(unsigned long)(&((struct s *)0)->list)));
   pthread_mutex_lock(&s->mutex);
   s->datum++;
-  pthread_mutex_lock(&s->mutex);
+  pthread_mutex_unlock(&s->mutex);
 }
 void *t_fun(void *arg) {
   update(&A->list);

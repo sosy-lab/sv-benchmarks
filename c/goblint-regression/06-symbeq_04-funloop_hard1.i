@@ -930,6 +930,6 @@ int main () {
   for(i=0; i<10; i++) cache_entry_addref(&cache[i]);
   pthread_mutex_lock(&cache[4].refs_mutex);
   cache[5].refs++;
-  pthread_mutex_lock(&cache[4].refs_mutex);
+  pthread_mutex_unlock(&cache[4].refs_mutex);
   return 0;
 }

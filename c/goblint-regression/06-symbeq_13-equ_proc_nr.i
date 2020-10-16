@@ -985,7 +985,7 @@ struct s {
 void *t_fun(void *arg) {
   pthread_mutex_lock(&A.mutex);
   A.datum = 5;
-  pthread_mutex_lock(&A.mutex);
+  pthread_mutex_unlock(&A.mutex);
   return ((void *)0);
 }
 void update(int *p) {

@@ -11,7 +11,7 @@ struct s {
 void *t_fun(void *arg) {
   pthread_mutex_lock(&A.mutex);
   A.datum = 5; // NORACE
-  pthread_mutex_lock(&A.mutex);
+  pthread_mutex_unlock(&A.mutex);
   return NULL;
 }
 

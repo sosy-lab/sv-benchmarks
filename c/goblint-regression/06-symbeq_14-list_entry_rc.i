@@ -1227,7 +1227,7 @@ void update (int *p) {
   pthread_mutex_lock(&s->mutex);
   s++;
   s->datum++;
-  pthread_mutex_lock(&s->mutex);
+  pthread_mutex_unlock(&s->mutex);
 }
 void *t_fun(void *arg) {
   update(&A->list);
