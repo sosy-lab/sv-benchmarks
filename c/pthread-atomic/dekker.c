@@ -24,7 +24,9 @@ void *thr1(void *_) {
     __VERIFIER_atomic_begin();
     flag1 = 1;
     __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
     int f2 = flag2;
+    __VERIFIER_atomic_end();
     while (f2 >= 1) {
         int t = turn;
         if (t != 0) {
@@ -44,7 +46,9 @@ void *thr1(void *_) {
 }
 
 void *thr2(void *_) {
+    __VERIFIER_atomic_begin();
     flag2 = 1;
+    __VERIFIER_atomic_end();
     __VERIFIER_atomic_begin();
     int f1 = flag1;
     __VERIFIER_atomic_end();
@@ -62,7 +66,9 @@ void *thr2(void *_) {
     assert(x>=1);
     // end: critical section
     turn = 1;
+    __VERIFIER_atomic_begin();
     flag2 = 0;
+    __VERIFIER_atomic_end();
     return 0;
 }
 

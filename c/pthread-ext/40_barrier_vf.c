@@ -43,7 +43,7 @@ __VERIFIER_atomic_begin(); \
 #define cnd_broadcast(c){ \
   __VERIFIER_atomic_begin(); \
   (c = 1); \
-  __VERIFIER_atomic_begin(); \
+  __VERIFIER_atomic_end(); \
   } //BP must be post-processed manually by changing "b*_COND := 1" to "b*_COND$ := 1"
 
 void Barrier2() {  

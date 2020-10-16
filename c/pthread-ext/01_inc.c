@@ -45,9 +45,7 @@ void * thr1(void* arg) {
 		value = v + 1;
 		__VERIFIER_atomic_release();
 
-        __VERIFIER_atomic_begin();
         assert(value > v);
-        __VERIFIER_atomic_end();
 
 		return 0;
 	}
