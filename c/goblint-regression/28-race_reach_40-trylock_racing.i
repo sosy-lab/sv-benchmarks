@@ -688,7 +688,8 @@ void assume_abort_if_not(int cond) {
 }
 pthread_mutex_t __global_lock = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 int global;
-pthread_mutex_t mutex = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
+pthread_mutexattr_t mutexattr;
+pthread_mutex_t mutex;
 void *t_fun(void *arg) {
   pthread_mutex_lock(&mutex);
   do { do { pthread_mutex_lock(&__global_lock); (global)++; pthread_mutex_unlock(&__global_lock); } while (0); do { pthread_mutex_lock(&__global_lock); (global)--; pthread_mutex_unlock(&__global_lock); } while (0); } while (0);
@@ -696,6 +697,9 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main(void) {
+  pthread_mutexattr_init(&mutexattr);
+  pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_ERRORCHECK);
+  pthread_mutex_init(&mutex, &mutexattr);
   pthread_t t_ids[10000]; for (int i=0; i<10000; i++) pthread_create(&t_ids[i], ((void *)0), t_fun, ((void *)0));
   pthread_mutex_trylock(&mutex);
   do { pthread_mutex_lock(&__global_lock); __VERIFIER_assert((global) == 0); pthread_mutex_unlock(&__global_lock); } while (0);
