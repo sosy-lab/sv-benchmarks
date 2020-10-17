@@ -676,7 +676,7 @@ pthread_mutex_t mutex = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 void *t_fun(void *arg) {
   pthread_mutex_lock(&mutex);
   (*g1)++;
-  pthread_mutex_lock(&mutex);
+  pthread_mutex_unlock(&mutex);
   return ((void *)0);
 }
 int main(void) {
