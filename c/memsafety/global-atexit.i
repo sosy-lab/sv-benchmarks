@@ -575,7 +575,5 @@ int main() {
  atexit(free_g1);
  if (__VERIFIER_nondet_bool()) exit(1);
  f();
- free(*g);
- free(g);
  return 0;
 }

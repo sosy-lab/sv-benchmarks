@@ -572,10 +572,10 @@ void f() {
 }
 int main() {
  g = (int **) malloc(sizeof(int *));
-  if (__VERIFIER_nondet_bool()) exit(1);
+ atexit(free_g1);
+ if (__VERIFIER_nondet_bool()) exit(1);
  f();
  free(*g);
  free(g);
- g = ((void *)0);
  return 0;
 }

@@ -17,23 +17,22 @@ void free_g2() {
 }
 
 void h() {
-	if (__VERIFIER_nondet_bool()) exit(1); // memory leak
+	if (__VERIFIER_nondet_bool()) exit(1);
 }
 
 void f() {
 	*g = (int *) malloc(sizeof(int));
-	atexit(free_g1);
+	atexit(free_g2);
 	h();
 }
 
 
 int main() {
 	g = (int **) malloc(sizeof(int *));
-	atexit(free_g2);
-//	if (__VERIFIER_nondet_bool()) exit(1);
+	atexit(free_g1);
+	if (__VERIFIER_nondet_bool()) exit(1);
 	f();
 	free(*g);
 	free(g);
-	g = NULL;
 	return 0;
 }
