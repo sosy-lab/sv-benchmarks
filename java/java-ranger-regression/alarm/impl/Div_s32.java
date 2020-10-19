@@ -1,15 +1,15 @@
 
 public class Div_s32 {
 
-    static final int MAX_int = 2147483647;
-    static final int MIN_int = -2147483648;
+    static final int MAX_INT = 2147483647;
+    static final int MIN_INT = -2147483648;
 
-    public static int div_s32(int numerator, int denominator) {
+    public static int divS32(int numerator, int denominator) {
         int quotient;
         int tempAbsQuotient;
         boolean quotientNeedsNegation = false;
         if (denominator == 0) {
-            quotient = numerator >= 0 ? MAX_int : MIN_int;
+            quotient = numerator >= 0 ? MAX_INT : MIN_INT;
 
             /* Divide by zero handler */
         } else {

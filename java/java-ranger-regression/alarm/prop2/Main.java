@@ -1,99 +1,100 @@
-import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main {
 
   public static void main(String[] args) {
-  ALARM_Functional alarm = new ALARM_Functional();
+    AlarmFunctional alarm = new AlarmFunctional();
 
 
-  Infusion_Manager_Outputs rtu_IM_IN = new Infusion_Manager_Outputs();
+    InfusionManagerOutputs rtuImIn = new InfusionManagerOutputs();
 
-  Top_Level_Mode_Outputs rtu_tlm_mode_in = new Top_Level_Mode_Outputs();
+    TopLevelModeOutputs rtuTlmModeIn = new TopLevelModeOutputs();
 
-  System_Monitor_Output rtu_sys_mon_in = new System_Monitor_Output();
-
-
-  Log_Output rtu_logging_in = new Log_Output();
+    SystemMonitorOutput rtuSysMonIn = new SystemMonitorOutput();
 
 
-  Operator_Commands rtu_op_cmd_in = new Operator_Commands();
-
-  Drug_Database_Inputs rtu_db_in = new Drug_Database_Inputs();
+    LogOutput rtuLoggingIn = new LogOutput();
 
 
-  Device_Sensor_Inputs rtu_sensor_in = new Device_Sensor_Inputs();
+    OperatorCommands rtuOpCmdIn = new OperatorCommands();
 
-  Device_Configuration_Inputs rtu_const_in = new Device_Configuration_Inputs();
-
-
-  System_Status_Outputs rtu_sys_stat_in = new System_Status_Outputs();
-
-  Config_Outputs rtu_config_in = new Config_Outputs();
+    DrugDatabaseInputs rtuDbIn = new DrugDatabaseInputs();
 
 
-  Alarm_Outputs rty_alarm_out = new Alarm_Outputs();
+    DeviceSensorInputs rtuSensorIn = new DeviceSensorInputs();
 
-  B_ALARM_Functional_c_T localB = new B_ALARM_Functional_c_T();
-  DW_ALARM_Functional_f_T localDW = new DW_ALARM_Functional_f_T();
-
-  alarm.ALARM_Functional_Init(localB, localDW);
+    DeviceConfigurationInputs rtuConstIn = new DeviceConfigurationInputs();
 
 
-  if ((0 <= rtu_IM_IN.Commanded_Flow_Rate) &&
-    (0 <= rtu_IM_IN.Current_System_Mode) &&
-    (0 <= rtu_op_cmd_in.Disable_Audio) &&
-    (0 <= rtu_db_in.VTBI_High) &&
-    (0 <= rtu_db_in.Flow_Rate_High) &&
-    (0 <= rtu_db_in.Flow_Rate_Low) &&
-    (0 <= rtu_sensor_in.Flow_Rate) &&
-    (0 <= rtu_const_in.Audio_Enable_Duration) &&
-    (0 <= rtu_const_in.Audio_Level) &&
-    (0 <= rtu_const_in.Config_Warning_Duration) &&
-    (0 <= rtu_const_in.Low_Reservoir) &&
-    (0 <= rtu_const_in.Max_Config_Duration) &&
-    (0 <= rtu_const_in.Max_Duration_Over_Infusion) &&
-    (0 <= rtu_const_in.Max_Duration_Under_Infusion) &&
-    (0 <= rtu_const_in.Max_Paused_Duration) &&
-    (0 <= rtu_const_in.Max_Idle_Duration) &&
-    (0 <= rtu_const_in.Tolerance_Max) &&
-    (0 <= rtu_const_in.Tolerance_Min) &&
-    (0 <= rtu_sys_stat_in.Volume_Infused) &&
-    (0 <= rtu_sys_stat_in.Reservoir_Volume) &&
-    (0 <= rtu_config_in.Config_Mode) &&
-    (0 <= rty_alarm_out.Is_Audio_Disabled) &&
-    (0 <= rty_alarm_out.Notification_Message) &&
-    (0 <= rty_alarm_out.Audio_Notification_Command) &&
-    (0 <= rty_alarm_out.Highest_Level_Alarm) &&
-    (0 <= rty_alarm_out.Log_Message_ID) &&
-    (0 <= rtu_IM_IN.Commanded_Flow_Rate) &&
+    SystemStatusOutputs rtuSysStatIn = new SystemStatusOutputs();
 
-    (rtu_IM_IN.Current_System_Mode <=255) &&
-    (rtu_op_cmd_in.Disable_Audio <=255) &&
-    (rtu_db_in.VTBI_High <=255) &&
-    (rtu_db_in.Flow_Rate_High <=255) &&
-    (rtu_db_in.Flow_Rate_Low <=255) &&
-    (rtu_sensor_in.Flow_Rate <=255) &&
-    (rtu_const_in.Audio_Enable_Duration <=255) &&
-    (rtu_const_in.Audio_Level <=255) &&
-    (rtu_const_in.Config_Warning_Duration <=255) &&
-    (rtu_const_in.Low_Reservoir <=255) &&
-    (rtu_const_in.Max_Config_Duration <=255) &&
-    (rtu_const_in.Max_Duration_Over_Infusion <=255) &&
-    (rtu_const_in.Max_Duration_Under_Infusion <=255) &&
-    (rtu_const_in.Max_Paused_Duration <=255) &&
-    (rtu_const_in.Max_Idle_Duration <=255) &&
-    (rtu_const_in.Tolerance_Max <=255) &&
-    (rtu_const_in.Tolerance_Min <=255) &&
-    (rtu_sys_stat_in.Volume_Infused <=255) &&
-    (rtu_sys_stat_in.Reservoir_Volume <=255) &&
-    (rtu_config_in.Config_Mode <= 255) &&
-    (rty_alarm_out.Is_Audio_Disabled <= 255) &&
-    (rty_alarm_out.Notification_Message <= 255) &&
-    (rty_alarm_out.Audio_Notification_Command <= 255) &&
-    (rty_alarm_out.Highest_Level_Alarm <= 255) &&
-    (rty_alarm_out.Log_Message_ID <= 255)
-    ) {
+    ConfigOutputs rtuConfigIn = new ConfigOutputs();
 
-      alarm.ALARM_Functional(rtu_IM_IN, rtu_tlm_mode_in, rtu_sys_mon_in, rtu_logging_in, rtu_op_cmd_in, rtu_db_in, rtu_sensor_in, rtu_const_in, rtu_sys_stat_in, rtu_config_in, rty_alarm_out, localB, localDW);
+
+    AlarmOutputs rtyAlarmOut = new AlarmOutputs();
+
+    B localB = new B();
+    DW localDW = new DW();
+
+    alarm.alarmFunctionalInit(localB, localDW);
+
+
+    if ((0 <= rtuImIn.commandedFlowRate) &&
+            (0 <= rtuImIn.currentSystemMode) &&
+            (0 <= rtuOpCmdIn.disableAudio) &&
+            (0 <= rtuDbIn.VTBIHigh) &&
+            (0 <= rtuDbIn.flowRateHigh) &&
+            (0 <= rtuDbIn.flowRateLow) &&
+            (0 <= rtuSensorIn.flowRate) &&
+            (0 <= rtuConstIn.audioEnableDuration) &&
+            (0 <= rtuConstIn.audioLevel) &&
+            (0 <= rtuConstIn.configWarningDuration) &&
+            (0 <= rtuConstIn.lowReservoir) &&
+            (0 <= rtuConstIn.maxConfigDuration) &&
+            (0 <= rtuConstIn.maxDurationOverInfusion) &&
+            (0 <= rtuConstIn.maxDurationUnderInfusion) &&
+            (0 <= rtuConstIn.maxPausedDuration) &&
+            (0 <= rtuConstIn.maxIdleDuration) &&
+            (0 <= rtuConstIn.toleranceMax) &&
+            (0 <= rtuConstIn.toleranceMin) &&
+            (0 <= rtuSysStatIn.volumeInfused) &&
+            (0 <= rtuSysStatIn.reservoirVolume) &&
+            (0 <= rtuConfigIn.configMode) &&
+            (0 <= rtyAlarmOut.isAudioDisabled) &&
+            (0 <= rtyAlarmOut.notificationMessage) &&
+            (0 <= rtyAlarmOut.audioNotificationCommand) &&
+            (0 <= rtyAlarmOut.highestLevelAlarm) &&
+            (0 <= rtyAlarmOut.logMessageId) &&
+            (0 <= rtuImIn.commandedFlowRate) &&
+
+            (rtuImIn.currentSystemMode <=255) &&
+            (rtuOpCmdIn.disableAudio <=255) &&
+            (rtuDbIn.VTBIHigh <=255) &&
+            (rtuDbIn.flowRateHigh <=255) &&
+            (rtuDbIn.flowRateLow <=255) &&
+            (rtuSensorIn.flowRate <=255) &&
+            (rtuConstIn.audioEnableDuration <=255) &&
+            (rtuConstIn.audioLevel <=255) &&
+            (rtuConstIn.configWarningDuration <=255) &&
+            (rtuConstIn.lowReservoir <=255) &&
+            (rtuConstIn.maxConfigDuration <=255) &&
+            (rtuConstIn.maxDurationOverInfusion <=255) &&
+            (rtuConstIn.maxDurationUnderInfusion <=255) &&
+            (rtuConstIn.maxPausedDuration <=255) &&
+            (rtuConstIn.maxIdleDuration <=255) &&
+            (rtuConstIn.toleranceMax <=255) &&
+            (rtuConstIn.toleranceMin <=255) &&
+            (rtuSysStatIn.volumeInfused <=255) &&
+            (rtuSysStatIn.reservoirVolume <=255) &&
+            (rtuConfigIn.configMode <= 255) &&
+            (rtyAlarmOut.isAudioDisabled <= 255) &&
+            (rtyAlarmOut.notificationMessage <= 255) &&
+            (rtyAlarmOut.audioNotificationCommand <= 255) &&
+            (rtyAlarmOut.highestLevelAlarm <= 255) &&
+            (rtyAlarmOut.logMessageId <= 255)&&
+            (rtuImIn.commandedFlowRate <= 255)
+            ) {
+
+      alarm.ALARM_Functional(rtuImIn, rtuTlmModeIn, rtuSysMonIn, rtuLoggingIn, rtuOpCmdIn, rtuDbIn, rtuSensorIn, rtuConstIn, rtuSysStatIn, rtuConfigIn, rtyAlarmOut, localB, localDW);
 
       boolean checkCondition;
       boolean checkOutput;
@@ -101,8 +102,8 @@ public class Main {
       // this assertion should pass
 
       //Prop2: air_in_line_implies_grt_L3_alarm
-        checkCondition = (rtu_tlm_mode_in.System_On && rtu_sensor_in.Air_In_Line);
-        checkOutput = (rty_alarm_out.Highest_Level_Alarm >= 3);
+        checkCondition = (rtuTlmModeIn.systemOn && rtuSensorIn.airInLine);
+        checkOutput = (rtyAlarmOut.highestLevelAlarm >= 3);
         assert (!checkCondition || checkOutput);
 
         }

@@ -3,72 +3,71 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
-public static void main(String[] args) {
-  INFUSION_MGR_Functional infusionMgr = new INFUSION_MGR_Functional();
+    public static void main(String[] args) {
+        InfusionMgrFunctional infusionMgr = new InfusionMgrFunctional();
 
-  B_INFUSION_MGR_Functional_c_T localB = new B_INFUSION_MGR_Functional_c_T();
+        B localB = new B();
 
-  DW_INFUSION_MGR_Functional_f_T localDW = new DW_INFUSION_MGR_Functional_f_T();
+        DW localDW = new DW();
 
-  infusionMgr.INFUSION_MGR_Functional_Init(localB, localDW);
+        infusionMgr.init(localB, localDW);
 
-  Top_Level_Mode_Outputs rtu_TLM_MODE_IN = new Top_Level_Mode_Outputs();
+        TopLevelModeOutputs rtuTlmModeIn = new TopLevelModeOutputs();
 
-  Operator_Commands rtu_OP_CMD_IN = new Operator_Commands();
-
-
-  Patient_Inputs rtu_PATIENT_IN = new Patient_Inputs();
-
-  Config_Outputs rtu_CONFIG_IN = new Config_Outputs();
-
-  Alarm_Outputs rtu_ALARM_IN = new Alarm_Outputs();
-
-  System_Status_Outputs rtu_SYS_STAT_IN = new System_Status_Outputs();
-
-  Infusion_Manager_Outputs rty_IM_OUT = new Infusion_Manager_Outputs();
-
-  if (    (0 <= rtu_CONFIG_IN.Infusion_Total_Duration) &&
-    (0 <= rtu_CONFIG_IN.VTBI_Total) &&
-    (0 <= rtu_CONFIG_IN.Flow_Rate_Basal) &&
-    (0 <= rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Duration_Intermittent_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Interval_Intermittent_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Flow_Rate_Patient_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Duration_Patient_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Lockout_Period_Patient_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Max_Number_of_Patient_Bolus) &&
-    (0 <= rtu_CONFIG_IN.Flow_Rate_KVO) &&
-    (0 <= rtu_CONFIG_IN.Entered_Reservoir_Volume) &&
-    (0 <= rtu_CONFIG_IN.Configured) &&
-    (0 <= rtu_ALARM_IN.Highest_Level_Alarm) &&
-    (0 <= rtu_SYS_STAT_IN.Volume_Infused) &&
-
-    (rtu_CONFIG_IN.Infusion_Total_Duration <=255) &&
-    (rtu_CONFIG_IN.VTBI_Total <=255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Basal <=255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus <=255) &&
-    (rtu_CONFIG_IN.Duration_Intermittent_Bolus <=255) &&
-    (rtu_CONFIG_IN.Interval_Intermittent_Bolus <=255) &&
-    (rtu_CONFIG_IN.Flow_Rate_Patient_Bolus <=255) &&
-    (rtu_CONFIG_IN.Duration_Patient_Bolus <=255) &&
-    (rtu_CONFIG_IN.Lockout_Period_Patient_Bolus <=255) &&
-    (rtu_CONFIG_IN.Max_Number_of_Patient_Bolus <=255) &&
-    (rtu_CONFIG_IN.Flow_Rate_KVO <=255) &&
-    (rtu_CONFIG_IN.Entered_Reservoir_Volume <=255) &&
-    (rtu_CONFIG_IN.Configured <=255) &&
-    (rtu_ALARM_IN.Highest_Level_Alarm <=255) &&
-    (rtu_SYS_STAT_IN.Volume_Infused <=255)
-
-    ) {
-      infusionMgr.INFUSION_MGR_Functional(rtu_TLM_MODE_IN, rtu_OP_CMD_IN, rtu_PATIENT_IN, rtu_CONFIG_IN, rtu_ALARM_IN, rtu_SYS_STAT_IN, rty_IM_OUT, localB, localDW);
-
-      boolean checkCondition;
-      boolean checkOutput;
+        OperatorCommands rtuOpCmdIn = new OperatorCommands();
 
 
-      //Prop11: mode_patient_implies_infusion_rate_patient_bolus
-      checkCondition = rtu_TLM_MODE_IN.System_On && (rty_IM_OUT.Current_System_Mode == 4);
-      checkOutput = (rty_IM_OUT.Commanded_Flow_Rate == rtu_CONFIG_IN.Flow_Rate_Patient_Bolus);
+        PatientInputs rtuPatientIn = new PatientInputs();
+
+        ConfigOutputs rtuConfigIn = new ConfigOutputs();
+
+        AlarmOutputs rtuAlarmIn = new AlarmOutputs();
+
+        SystemStatusOutputs rtuSysStatIn = new SystemStatusOutputs();
+
+        InfusionManagerOutputs rtyImOut = new InfusionManagerOutputs();
+
+        if (    (0 <= rtuConfigIn.infusionTotalDuration) &&
+                (0 <= rtuConfigIn.vtbiTotal) &&
+                (0 <= rtuConfigIn.flowRateBasal) &&
+                (0 <= rtuConfigIn.flowRateIntermittentBolus) &&
+                (0 <= rtuConfigIn.durationIntermittentBolus) &&
+                (0 <= rtuConfigIn.intervalIntermittentBolus) &&
+                (0 <= rtuConfigIn.flowRatePatientBolus) &&
+                (0 <= rtuConfigIn.durationPatientBolus) &&
+                (0 <= rtuConfigIn.lockoutPeriodPatientBolus) &&
+                (0 <= rtuConfigIn.maxNumberOfPatientBolus) &&
+                (0 <= rtuConfigIn.flowRateKVO) &&
+                (0 <= rtuConfigIn.enteredReservoirVolume) &&
+                (0 <= rtuConfigIn.Configured) &&
+                (0 <= rtuAlarmIn.highestLevelAlarm) &&
+                (0 <= rtuSysStatIn.volumeInfused) &&
+
+                (rtuConfigIn.infusionTotalDuration <=255) &&
+                (rtuConfigIn.vtbiTotal <=255) &&
+                (rtuConfigIn.flowRateBasal <=255) &&
+                (rtuConfigIn.flowRateIntermittentBolus <=255) &&
+                (rtuConfigIn.durationIntermittentBolus <=255) &&
+                (rtuConfigIn.intervalIntermittentBolus <=255) &&
+                (rtuConfigIn.flowRatePatientBolus <=255) &&
+                (rtuConfigIn.durationPatientBolus <=255) &&
+                (rtuConfigIn.lockoutPeriodPatientBolus <=255) &&
+                (rtuConfigIn.maxNumberOfPatientBolus <=255) &&
+                (rtuConfigIn.flowRateKVO <=255) &&
+                (rtuConfigIn.enteredReservoirVolume <=255) &&
+                (rtuConfigIn.Configured <=255) &&
+                (rtuAlarmIn.highestLevelAlarm <=255) &&
+                (rtuSysStatIn.volumeInfused <=255)
+
+                ) {
+            infusionMgr.INFUSION_MGR_Functional(rtuTlmModeIn, rtuOpCmdIn, rtuPatientIn, rtuConfigIn, rtuAlarmIn, rtuSysStatIn, rtyImOut, localB, localDW);
+
+            boolean checkCondition;
+            boolean checkOutput;
+
+            //Prop11: mode_patient_implies_infusion_rate_patient_bolus
+      checkCondition = rtuTlmModeIn.systemOn && (rtyImOut.currentSystemMode == 4);
+      checkOutput = (rtyImOut.commandedFlowRate == rtuConfigIn.flowRatePatientBolus);
       assert (!checkCondition || checkOutput);
 
         }
