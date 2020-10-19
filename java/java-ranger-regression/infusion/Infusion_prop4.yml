@@ -2,7 +2,7 @@ format_version: "2.0"
 input_files:
   - ../../common/
   - impl/
-  - prop4_True/
+  - prop4/
 properties:
   - property_file: ../../properties/assert.prp
     expected_verdict: true
