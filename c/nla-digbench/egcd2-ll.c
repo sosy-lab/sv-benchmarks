@@ -33,6 +33,8 @@ int main() {
     k = 0;
     xy = (long long) x * y;
     yy = (long long) y * y;
+    assume_abort_if_not(xy < 2147483647);
+    assume_abort_if_not(yy < 2147483647);
 
     while (1) {
         if (!(b != 0))
