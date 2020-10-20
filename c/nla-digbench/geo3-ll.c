@@ -20,7 +20,7 @@ void __VERIFIER_assert(int cond) {
 }
 int main() {
     int z, a, k;
-    long long x, y, c;
+    long long x, y, c, az;
     z = __VERIFIER_nondet_int();
     a = __VERIFIER_nondet_int();
     k = __VERIFIER_nondet_int();
@@ -28,9 +28,10 @@ int main() {
     x = a;
     y = 1;
     c = 1;
+    az = (long long) a * z;
 
     while (1) {
-        __VERIFIER_assert(z*x - x + a - a*z*y == 0);
+        __VERIFIER_assert(z*x - x + a - az*y == 0);
 
         if (!(c < k))
             break;
@@ -39,6 +40,6 @@ int main() {
         x = x * z + a;
         y = y * z;
     }
-    __VERIFIER_assert(z*x - x + a - a*z*y == 0);
+    __VERIFIER_assert(z*x - x + a - az*y == 0);
     return x;
 }

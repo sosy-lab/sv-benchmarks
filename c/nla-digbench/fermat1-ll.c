@@ -21,13 +21,13 @@ int main() {
     long long u, v, r;
     A = __VERIFIER_nondet_int();
     R = __VERIFIER_nondet_int();
-    assume_abort_if_not(((long long) (R - 1) * (R - 1)) < A);
+    assume_abort_if_not((((long long) R - 1) * ((long long) R - 1)) < A);
     //assume_abort_if_not(A <= R * R);
     assume_abort_if_not(A % 2 == 1);
 
-    u = (long long) 2 * R + 1;
+    u = ((long long) 2 * R) + 1;
     v = 1;
-    r = (long long) R * R - A;
+    r = ((long long) R * R) - A;
 
 
     while (1) {
@@ -52,6 +52,6 @@ int main() {
         }
     }
 
-    __VERIFIER_assert(4*A == u*u - v*v - 2*u + 2*v);
+    __VERIFIER_assert(((long long) 4*A) == u*u - v*v - 2*u + 2*v);
     return 0;
 }

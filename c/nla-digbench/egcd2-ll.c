@@ -17,7 +17,7 @@ void __VERIFIER_assert(int cond) {
 
 int main() {
     int x, y;
-    long long a, b, p, q, r, s, c, k;
+    long long a, b, p, q, r, s, c, k, xy, yy;
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     assume_abort_if_not(x >= 1);
@@ -31,6 +31,9 @@ int main() {
     s = 1;
     c = 0;
     k = 0;
+    xy = (long long) x * y;
+    yy = (long long) y * y;
+
     while (1) {
         if (!(b != 0))
             break;
@@ -41,7 +44,7 @@ int main() {
             __VERIFIER_assert(a == k * b + c);
             __VERIFIER_assert(a == y*r + x*p);
             __VERIFIER_assert(b == x * q + y * s);
-	    __VERIFIER_assert(q*x*y + s*y*y - q*x - b*y - s*y + b == 0);
+	    __VERIFIER_assert(q*xy + s*yy - q*x - b*y - s*y + b == 0);
             if (!(c >= b))
                 break;
             c = c - b;
