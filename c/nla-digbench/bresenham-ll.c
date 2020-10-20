@@ -20,17 +20,15 @@ void __VERIFIER_assert(int cond) {
 
 int main() {
     int X, Y;
-    int x, y;
-    long long v;
+    long long x, y, v;
     X = __VERIFIER_nondet_int();
     Y = __VERIFIER_nondet_int();
-    assume_abort_if_not(X < 2147483647); // required to avoid overflow of x in the loop
     v = ((long long) 2 * Y) - X;         // cast required to avoid int overflow
     y = 0;
     x = 0;
 
     while (1) {
-	__VERIFIER_assert( 2*Y*x - 2*X*y - X + 2*Y - v == 0);
+	__VERIFIER_assert( 2*Y*x - 2*X*y - X + (long long) 2*Y - v == 0);
         if (!(x <= X))
             break;
         // out[x] = y
@@ -43,7 +41,7 @@ int main() {
         }
         x++;
     }
-    __VERIFIER_assert(2*Y*x - 2*x*y - X + 2*Y - v + 2*y == 0);
+    __VERIFIER_assert(2*Y*x - 2*x*y - X + (long long) 2*Y - v + 2*y == 0);
 
     return 0;
 }
