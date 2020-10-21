@@ -6,6 +6,7 @@ java-ranger-regression/WBS/*.yml
 java-ranger-regression/siena_eqchk/*.yml
 java-ranger-regression/replace5_eqchk/*.yml
 java-ranger-regression/nanoxml_eqchk/*.yml
+java-ranger-regression/printtokens_eqchk/*.yml
 MinePump/*.yml
 algorithms/*.yml
 juliet-java/*.yml
