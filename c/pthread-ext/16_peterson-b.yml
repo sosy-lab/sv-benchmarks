@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# old file name: 16_peterson_true-unreach-call.i
+input_files: '16_peterson-b.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

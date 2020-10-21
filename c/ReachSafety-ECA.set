@@ -1,3 +1,4 @@
+# Contains programs that represent event-condition-action systems.
 eca-rers2012/*.yml
 eca-rers2018/*.yml
 psyco/*.yml

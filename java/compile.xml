@@ -10,6 +10,7 @@
   </rundefinition>
 
   <option name="-source">1.8</option>
+  <option name="-d">bin</option>
 
   <tasks name="MinePump">
     <include>MinePump/*.yml</include>
@@ -34,5 +35,13 @@
   <tasks name="java-ranger">
     <include>java-ranger-regression/**/*.yml</include>
     <include>java-ranger-regression/*.yml</include>
+  </tasks>
+
+  <tasks name="juliet-java">
+    <include>juliet-java/*.yml</include>
+  </tasks>
+
+  <tasks name="jdart-regression">
+    <include>jdart-regression/*.yml</include>
   </tasks>
 </benchmark>

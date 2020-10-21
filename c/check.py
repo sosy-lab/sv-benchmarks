@@ -34,7 +34,7 @@ EXPECTED_FILE_PATTERN = re.compile(
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
 PROPERTIES = set(["def-behavior", "no-overflow", "no-data-race", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
-    "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements"])
+    "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements", "unreach-call-a", "unreach-call-b"])
 # multiple properties for eca-rers2018-files
 for i in range(100):
     PROPERTIES.add("unreach-call-%d" % i)
@@ -72,6 +72,8 @@ PROPERTIES |= {
     "unreach-call-usb_register",
     "unreach-call-usb_urb",
 }
+
+DATA_MODELS = {"ILP32": 32, "LP64": 64}
 
 # Ignore regression
 # as long as no yml-task definitions exist for the tasks in these directories
@@ -123,6 +125,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("eca-rers2018", "unexpected file RERS_18_solutions_dot_petri.csv"),
     ("eca-rers2018", "unexpected file createYml.py"),
+    ("nla-digbench-scaling", "unexpected file generate.py"),
 
     # historical
     ("ntdrivers", "missing license"),
@@ -352,6 +355,38 @@ class TaskDefinitionFileChecks(FileChecks):
             name=self.name,
         ).run()
 
+    def check_language(self):
+        if not self.content:
+            return
+        language = self.content.get("options", {}).get("language")
+        if language != "C":
+            self.error("unexpected language %s", language)
+
+    def check_data_model(self):
+        if not self.content:
+            return
+        data_model = self.content.get("options", {}).get("data_model")
+        if not data_model:
+            self.error("missing declaration of data_model")
+            return
+        if not data_model in DATA_MODELS:
+            self.error("unknown data_model %s", data_model)
+            return
+
+        makefile_path = os.path.join(self.directory, "Makefile")
+        if os.path.exists(makefile_path):
+            archs = self._get_architecture_from_makefile(makefile_path)
+            if len(archs) > 1:
+                self.error("multiple architecture declarations in %s", makefile_path)
+            arch = int(next(iter(archs), "32"))
+            if DATA_MODELS.get(data_model) != arch:
+                self.error(
+                    "Makefile of directory %s declares %d bit, but task has data model %s",
+                    self.directory,
+                    arch,
+                    data_model,
+                )
+
 
     def _get_input_files(self) -> list:
         if 'input_files' not in self.content:
@@ -397,6 +432,14 @@ class TaskDefinitionFileChecks(FileChecks):
                 prop = prop_def["subproperty"]
             prop_and_verdict.append((prop, verdict))
         return prop_and_verdict
+
+
+    @classmethod
+    @functools.lru_cache()  # avoid opening Makefile for each task
+    def _get_architecture_from_makefile(cls, makefile_path):
+        with open(makefile_path) as makefile:
+            archs = [line.split(" ")[-1] for line in makefile if "CC.Arch" in line]
+        return archs
 
 
 class PropertiesChecks(Checks):
@@ -511,7 +554,6 @@ class SetFileChecks(Checks):
         self.patterns = list(read_set_file(path))
         self.matched_files = [file for pattern in self.patterns
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
-        self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_all_patterns_match_files(self):
         for pattern in self.patterns:
@@ -524,53 +566,6 @@ class SetFileChecks(Checks):
             file for file in self.matched_files if not BENCHMARK_PATTERN.match(os.path.basename(file))]
         if unexpected_files:
             self.error("includes files %s that do have unexpected file names", unexpected_files)
-
-    def check_declared_architecture_of_benchmarks(self):
-        cfg = self._load_config()
-        expected_arch = int(cfg["Architecture"].split(" ")[0]) if cfg else None
-        directories = set(os.path.dirname(file) for file in self.matched_files)
-        for directory in directories:
-            makefile_path = os.path.join(directory, "Makefile")
-            if os.path.exists(makefile_path):
-                with open(makefile_path) as makefile:
-                    archs = [line for line in makefile if "CC.Arch" in line]
-                if len(archs) > 1:
-                    self.error("multiple architecture declarations in %s", makefile_path)
-                arch = int(next(iter(archs), "32").split(" ")[-1])
-                if expected_arch and arch != expected_arch:
-                    self.error(
-                        "%d bit category contains %d bit benchmarks in %s",
-                        expected_arch,
-                        arch,
-                        os.path.basename(directory))
-
-    def check_has_config_file(self):
-        if not os.path.isfile(self.cfg_file):
-            self.error("missing configuration file")
-
-    def _load_config(self):
-        if not yaml:
-            return None
-        if not os.path.isfile(self.cfg_file):
-            return None
-        with open(self.cfg_file) as f:
-            return yaml.safe_load(f)
-
-    def check_config_file(self):
-        cfg = self._load_config()
-        if not cfg:
-            return
-        unknown_keys = set(cfg.keys()).difference(CONFIG_KEYS)
-        missing_keys = CONFIG_KEYS.difference(cfg.keys())
-        if unknown_keys:
-            self.error("unexpected config entries <%s>", ">, <".join(unknown_keys))
-        if missing_keys:
-            self.error("missing config entries <%s>", ">, <".join(missing_keys))
-        if not cfg.get("Description", "dummy"):
-            self.error("missing description")
-        if cfg.get("Architecture", "32 bit") not in ["32 bit", "64 bit"]:
-            self.error("invalid architecture <%s>", cfg.get("Architecture"))
-
 
 def read_set_file(path):
     with open(path) as f:

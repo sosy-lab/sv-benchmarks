@@ -1,3 +1,4 @@
+# Contains problems that require the analysis of pointer aliases and function pointers.
 ldv-linux-3.0/*.yml
 ldv-linux-3.4-simple/*.yml
 ldv-linux-3.7.3/*.yml

@@ -5,6 +5,8 @@ void assume_abort_if_not(int cond) {
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
 //A counter using locks
@@ -12,6 +14,7 @@ void reach_error() { assert(0); }
 #include <pthread.h>
 
 #define assume(e) assume_abort_if_not(e)
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 volatile unsigned value, m = 0;
@@ -42,7 +45,9 @@ void * thr1(void* arg) {
 		value = v + 1;
 		__VERIFIER_atomic_release();
 
-		assert(value > v);
+        __VERIFIER_atomic_begin();
+        assert(value > v);
+        __VERIFIER_atomic_end();
 
 		return 0;
 	}

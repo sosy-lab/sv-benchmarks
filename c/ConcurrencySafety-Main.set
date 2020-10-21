@@ -1,3 +1,4 @@
+# Contains concurrency problems.
 pthread/*.yml
 pthread-atomic/*.yml
 pthread-ext/*.yml
@@ -10,3 +11,4 @@ pthread-driver-races/*.yml
 pthread-C-DAC/*.yml
 pthread-divine/*.yml
 pthread-nondet/*.yml
+goblint-regression/*.yml

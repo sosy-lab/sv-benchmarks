@@ -1,3 +1,4 @@
+# Contains tasks for which treatment of bit-operations is necessary.
 bitvector/*.yml
 bitvector-regression/*.yml
 bitvector-loops/*.yml

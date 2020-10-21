@@ -1,3 +1,4 @@
+# Contains programs for which termination should be decided.
 termination-crafted/*.yml
 termination-crafted-lit/*.yml
 termination-numeric/*.yml

@@ -3,6 +3,8 @@ void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
@@ -13,6 +15,7 @@ void reach_error() { assert(0); }
 #include <pthread.h>
 
 #define assume(e) assume_abort_if_not(e)
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 int m = 0;
@@ -45,7 +48,9 @@ int seed = 1;
 inline int PseudoRandomUsingAtomic_nextInt() {
 	int read, nexts, nextInt_return;
 
-	assert(seed != 0);
+    __VERIFIER_atomic_begin();
+    assert(seed != 0);
+    __VERIFIER_atomic_end();
 
 	__VERIFIER_atomic_acquire();
 	read = seed;

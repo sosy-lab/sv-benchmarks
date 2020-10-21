@@ -1,0 +1,11 @@
+format_version: "2.0"
+input_files:
+  - ../common/
+  - testcasesupport/
+  - CWE369_Divide_by_Zero__float_console_readLine_divide_54_bad_version2/
+properties:
+  - property_file: ../properties/assert.prp
+    expected_verdict: false
+
+options:
+  language: Java

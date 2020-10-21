@@ -1,3 +1,4 @@
+# Contains programs for which termination should be decided.
 array-examples/*.yml
 array-industry-pattern/*.yml
 bitvector/*.yml

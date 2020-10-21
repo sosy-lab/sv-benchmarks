@@ -1324,7 +1324,8 @@ void *ldv_realloc(void *ptr, size_t size)
 
 
 void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "CWE121_Stack_Based_Buffer_Overflow---s06---CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_loop_03_good.i", 1328, "reach_error"); }
 
 
 void ldv_error(void);

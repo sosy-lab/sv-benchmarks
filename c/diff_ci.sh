@@ -37,9 +37,13 @@ dirs=`echo $relevant_diff | xargs dirname | cut -d/ -f2- | sort | uniq`
 printf "Selected following directories for diff build: \n$dirs \n"
 for d in $dirs
 do
-  parent_with_Makefile=$d
-  find_parent_with_Makefile
-  # Execute the command only if the directory is not present in dirs.
-  # Assumes that directory names do not have spaces.
-  [[ " ${dirs[@]} " =~ " $parent_with_Makefile " ]] || $cmdToExecute $parent_with_Makefile
+  if [ -e "$d/Makefile" ]; then
+    $cmdToExecute $d
+  else
+    parent_with_Makefile=$d
+    find_parent_with_Makefile
+    # Execute the command only if the directory is not present in dirs.
+    # Assumes that directory names do not have spaces.
+    [[ " ${dirs[@]} " =~ " $parent_with_Makefile " ]] || $cmdToExecute $parent_with_Makefile
+  fi
 done

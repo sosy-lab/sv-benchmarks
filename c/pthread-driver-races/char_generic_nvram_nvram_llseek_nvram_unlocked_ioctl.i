@@ -164,7 +164,7 @@ extern void __assert_perror_fail (int __errnum, const char *__file,
 extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
-void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "char_generic_nvram_nvram_llseek_nvram_unlocked_ioctl.c", , __extension__ __PRETTY_FUNCTION__); })); }
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "svcomp.h", 24, __extension__ __PRETTY_FUNCTION__); })); }
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}

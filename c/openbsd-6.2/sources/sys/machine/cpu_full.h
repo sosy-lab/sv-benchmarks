@@ -60,7 +60,4 @@ CTASSERT(sizeof(struct cpu_info_full) % PAGE_SIZE == 0);
 
 extern struct cpu_info_full cpu_info_full_primary;
 
-/* Now make sure the cpu_info_primary macro is correct */
-CTASSERT(&cpu_info_primary - &cpu_info_full_primary.cif_cpu == 0);
-
 #endif /* _MACHINE_CPU_FULL_H_ */
