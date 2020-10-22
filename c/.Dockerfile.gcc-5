@@ -1,3 +1,10 @@
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks community
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # This is a Docker image for running the compile checks for C programs with GCC.
 # It should be pushed to registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc
 # and will be used by CI as declared in .gitlab-ci.yml.
