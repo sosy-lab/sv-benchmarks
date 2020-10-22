@@ -22,7 +22,6 @@ Files:
  c/loops
  c/ntdrivers
  c/ntdrivers-simplified
- c/pthread
  c/pthread-ext
  c/seq-pthread
  c/systemc
