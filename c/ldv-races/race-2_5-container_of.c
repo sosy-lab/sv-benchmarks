@@ -9,8 +9,11 @@
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 
@@ -69,10 +72,18 @@ void my_drv_disconnect(struct my_data *data) {
 	void *status;
 	pthread_join(t1, &status);
 	//race on data->shared.a and data->shared.b
-	data->shared.a = 3;
-	data->shared.b = 3;
-	ldv_assert(data->shared.a==3);
-	ldv_assert(data->shared.b==3);
+    __VERIFIER_atomic_begin();
+    data->shared.a = 3;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    data->shared.b = 3;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    ldv_assert(data->shared.a==3);
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    ldv_assert(data->shared.b==3);
+    __VERIFIER_atomic_end();
 
 	pthread_join(t2, &status);
 	pthread_mutex_destroy(&data->lock);

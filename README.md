@@ -62,10 +62,8 @@ For some programs, this information is given in the header of the program as com
 The verification tasks for C programs are grouped into (sub-)categories
 as defined by [SV-COMP](https://sv-comp.sosy-lab.org/2017/benchmarks.php).
 
-A (sub-)category `<category>` is defined by the following three files:
-- `<category>.set` contains patterns that specify the set of programs,
-- `<category>.prp` contains the specification, and
-- `<category>.cfg` contains the parameters (and a description of the (sub-)category).
+A (sub-)category `<category>` is defined by a file named `<category>.set`
+that contains patterns that specify the set of programs.
 
 
 ## Definitions
@@ -81,8 +79,7 @@ A *verification task* consists of
 A *category* is a set of verification tasks.
 
 A *sub-category* is a set of verification tasks that consist of the same
-specification and the same parameters
-as specified in the corresponding `.cfg` and `.prp` files.
+specification.
 
 A *verification run* is
 - a non-interactive execution
@@ -131,7 +128,7 @@ explains those specifications.
 
 ### Parameters
 
-The paramaters of a verification task are needed to make additional information 
+The parameters of a verification task are needed to make additional information
 about the verification task available to the verification run.
 The most prominent parameter is the machine model;
 currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-bit) architecture
@@ -141,12 +138,52 @@ currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-
 
 In order to obtain verification tasks from the programs and specifications in the repository,
 a simple task-definition mechanism is used.
-For each program, the repository contains a .yml file that specifies 
-  - the subject files (the parts that a program consists of),
-  - the results (for each specification of the program, the expected outcome is indicated), and
-  - the parameters to be used for verification.
-  
-The [SV-COMP 2019 report] contains a description of the format with an example in Sect. 4 and Fig. 3.
+We use [version 2.0 of this format](https://gitlab.com/sosy-lab/software/task-definition-format/-/tree/2.0)
+with some additional requirements.
+For each program, the repository contains a .yml file that specifies the following items:
+  - `format_version`: the version of the format (the version string `2.0`)
+  - `input_files`: the subject program files or directories
+    (a file or directory name, or a list of files or directory names, that the program consists of)
+  - `properties`: the properties that constitute the specification of the program,
+    each consisting of the following items:
+    - `property_file`: file that contains a property definition
+      (cf. common property files [for C][C-props] and [for Java][Java-props])
+    - `expected_verdict`: the intended verification result (`true` or `false`, only for non-coverage properties)
+    - `subproperty` (optional): a subproperty of the property that is violated
+      in cases where the property is a conjunction of subproperties (for verdict `false`)
+  - `options`: parameters that are relevant for verification or give extra information:
+    - `language`: programming language that the program is written in (`C` or `Java`)
+    - `data_model` data model of the computer architecture
+      (`ILP32`, `LP64`, see http://www.unix.org/whitepapers/64bit.html, only for `C` programs)
+
+Optional items are explicitly marked as optional, all other items are mandatory.
+The dictionary `options` can contain additional data that are not mentioned above.
+
+[C-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/c/properties
+[Java-props]: https://github.com/sosy-lab/sv-benchmarks/tree/master/java/properties
+
+The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
+and contains a description of the format with an example in Sect. 4 and Fig. 3.
+Format 2.0 adds the `options` dictionary.
+Here as example an extract of the task-definition file [c/list-properties/list-1.yml]:
+
+```
+format_version: '2.0'
+
+input_files: 'list-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack
+
+options:
+  language: C
+  data_model: ILP32
+```
+
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses

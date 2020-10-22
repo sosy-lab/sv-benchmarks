@@ -21,6 +21,7 @@ BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
 # categories to be excluded ... (with reason and debug information)
 CATEGORY_BLACKLIST = {
   "ConcurrencySafety-Main": "(platform-dependent types)",
+  "NoDataRace-Main": "(platform-dependent types)",
   "SoftwareSystems-OpenBSD-MemSafety": "(only custom includes, no system headers, complicated build process)",
   "SoftwareSystems-SQLite-MemSafety": "(complicated build process, requires patched version of cilly)",
 }
@@ -39,6 +40,8 @@ TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'l
 
 CBMC_GIT_PATH = "../cbmc.git/"
 
+DATA_MODELS = {"ILP32": "32", "LP64": "64"}
+
 
 def fail(*msg):
   print("CRITICAL ERROR:", *msg)
@@ -47,21 +50,6 @@ def fail(*msg):
 
 def expand(s):
   return sorted(glob.glob(s))
-
-
-def get_architecture(setname):
-  cfgfile = setname + ".cfg"
-  if not os.path.exists(cfgfile):
-    fail("No .cfg file present for category", setname)
-
-  with open(cfgfile, "r") as fp:
-    for line in fp:
-      if line.startswith("Architecture"):
-        bits = line.split()[1]
-        if bits in ["32", "64"]:
-          return bits
-        fail("Invalid bit width in file", setname + ".cfg")
-  fail("Invalid configuration file", cfgFile)
 
 
 def get_tasks_from_set(setFile):
@@ -123,18 +111,24 @@ def get_setfiles(args):
       fail("Could not find a matching set file for", setfileWildcard)
 
 
-def get_inputfiles_from_yml(taskfile):
-  with open(taskfile, 'r') as yamlfile:
-    yml = yaml.safe_load(yamlfile)
+def get_inputfiles_from_yml(yml, taskfile):
+  # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+  inputFiles = yml['input_files']
+  if not inputFiles:
+    fail("No input files defined in", taskfile)
+  elif isinstance(inputFiles, list):
+      return inputFiles
+  else:
+      return [inputFiles] # always wrap as list
 
-    # check whether the input_basename exists (nobody should ever use "null" as a filename!)
-    inputFiles = yml['input_files']
-    if not inputFiles:
-      fail("No input files defined in", taskfile)
-    elif isinstance(inputFiles, list):
-        return inputFiles
-    else:
-        return [inputFiles] # always wrap as list
+
+def get_bits_from_yml(yml, taskfile):
+  data_model = yml.get("options", {}).get("data_model")
+  if not data_model:
+    fail("No data model defined in", taskfile)
+  if not data_model in DATA_MODELS:
+    fail("Unknown data model", data_model, "defined in", taskfile)
+  return DATA_MODELS[data_model]
 
 
 def get_orig_filename(taskfile):
@@ -187,7 +181,6 @@ for setfile in get_setfiles(args):
     continue
 
   print("Processing category", setname)
-  bits = get_architecture(setname)
 
   i = 0
   for taskfile in get_tasks_from_set(setfile):
@@ -195,7 +188,10 @@ for setfile in get_setfiles(args):
       continue
 
     if taskfile.endswith(".yml"):
-      inputFiles = get_inputfiles_from_yml(taskfile)
+      with open(taskfile, 'r') as yamlfile:
+        yml = yaml.safe_load(yamlfile)
+        inputFiles = get_inputfiles_from_yml(yml, taskfile)
+        bits = get_bits_from_yml(yml, taskfile)
       if len(inputFiles) == 1:
         taskfile = os.path.join(os.path.dirname(taskfile), inputFiles[0])
       else:

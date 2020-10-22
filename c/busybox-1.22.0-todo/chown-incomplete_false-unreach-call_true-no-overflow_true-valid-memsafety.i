@@ -4,11 +4,11 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
@@ -2770,7 +2770,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(((struct param_t *)vparam)->ugid.uid == 4294967295u)
   {
     tmp_if_expr$1 = statbuf->st_uid;
@@ -2780,7 +2780,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     if(!(vparam == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     tmp_if_expr$1 = ((struct param_t *)vparam)->ugid.uid;
   }
   u = tmp_if_expr$1;
@@ -2789,7 +2789,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(((struct param_t *)vparam)->ugid.gid == 4294967295u)
   {
     tmp_if_expr$2 = statbuf->st_gid;
@@ -2799,7 +2799,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     if(!(vparam == ((void *)0)))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     tmp_if_expr$2 = ((struct param_t *)vparam)->ugid.gid;
   }
   g = tmp_if_expr$2;
@@ -2807,11 +2807,11 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
   if(!(vparam == ((void *)0)))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   if(!(((struct param_t *)vparam)->chown_func == ((signed int (*)(const char *, unsigned int, unsigned int))((void *)0))))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return_value=((struct param_t *)vparam)->chown_func(fileName, u, g);
   _Bool tmp_if_expr$5;
   _Bool tmp_if_expr$4;

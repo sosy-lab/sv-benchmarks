@@ -1,5 +1,15 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "singleton_with-uninit-problems.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -79,24 +89,32 @@ typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
 __extension__ typedef signed long long int __int64_t;
 __extension__ typedef unsigned long long int __uint64_t;
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
 __extension__ typedef long long int __quad_t;
 __extension__ typedef unsigned long long int __u_quad_t;
 __extension__ typedef long long int __intmax_t;
 __extension__ typedef unsigned long long int __uintmax_t;
-__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef __uint64_t __dev_t;
 __extension__ typedef unsigned int __uid_t;
 __extension__ typedef unsigned int __gid_t;
 __extension__ typedef unsigned long int __ino_t;
-__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef __uint64_t __ino64_t;
 __extension__ typedef unsigned int __mode_t;
 __extension__ typedef unsigned int __nlink_t;
 __extension__ typedef long int __off_t;
-__extension__ typedef __quad_t __off64_t;
+__extension__ typedef __int64_t __off64_t;
 __extension__ typedef int __pid_t;
 __extension__ typedef struct { int __val[2]; } __fsid_t;
 __extension__ typedef long int __clock_t;
 __extension__ typedef unsigned long int __rlim_t;
-__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef __uint64_t __rlim64_t;
 __extension__ typedef unsigned int __id_t;
 __extension__ typedef long int __time_t;
 __extension__ typedef unsigned int __useconds_t;
@@ -107,11 +125,11 @@ __extension__ typedef int __clockid_t;
 __extension__ typedef void * __timer_t;
 __extension__ typedef long int __blksize_t;
 __extension__ typedef long int __blkcnt_t;
-__extension__ typedef __quad_t __blkcnt64_t;
+__extension__ typedef __int64_t __blkcnt64_t;
 __extension__ typedef unsigned long int __fsblkcnt_t;
-__extension__ typedef __u_quad_t __fsblkcnt64_t;
+__extension__ typedef __uint64_t __fsblkcnt64_t;
 __extension__ typedef unsigned long int __fsfilcnt_t;
-__extension__ typedef __u_quad_t __fsfilcnt64_t;
+__extension__ typedef __uint64_t __fsfilcnt64_t;
 __extension__ typedef int __fsword_t;
 __extension__ typedef int __ssize_t;
 __extension__ typedef long int __syscall_slong_t;
@@ -121,6 +139,7 @@ typedef char *__caddr_t;
 __extension__ typedef int __intptr_t;
 __extension__ typedef unsigned int __socklen_t;
 typedef int __sig_atomic_t;
+__extension__ typedef __int64_t __time64_t;
 typedef __u_char u_char;
 typedef __u_short u_short;
 typedef __u_int u_int;
@@ -153,17 +172,22 @@ typedef __int8_t int8_t;
 typedef __int16_t int16_t;
 typedef __int32_t int32_t;
 typedef __int64_t int64_t;
-typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
-typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
-typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
-typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
+typedef __uint8_t u_int8_t;
+typedef __uint16_t u_int16_t;
+typedef __uint32_t u_int32_t;
+typedef __uint64_t u_int64_t;
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-static __inline unsigned int
-__bswap_32 (unsigned int __bsx)
+static __inline __uint16_t
+__bswap_16 (__uint16_t __bsx)
+{
+  return __builtin_bswap16 (__bsx);
+}
+static __inline __uint32_t
+__bswap_32 (__uint32_t __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-static __inline __uint64_t
+__extension__ static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
   return __builtin_bswap64 (__bsx);
@@ -215,11 +239,6 @@ extern int pselect (int __nfds, fd_set *__restrict __readfds,
       fd_set *__restrict __exceptfds,
       const struct timespec *__restrict __timeout,
       const __sigset_t *__restrict __sigmask);
-
-
-extern unsigned int gnu_dev_major (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern unsigned int gnu_dev_minor (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern __dev_t gnu_dev_makedev (unsigned int __major, unsigned int __minor) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 
 typedef __blksize_t blksize_t;
 typedef __blkcnt_t blkcnt_t;
@@ -413,16 +432,21 @@ extern int seed48_r (unsigned short int __seed16v[3],
 extern int lcong48_r (unsigned short int __param[7],
         struct drand48_data *__buffer)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
+     __attribute__ ((__alloc_size__ (1))) ;
 extern void *calloc (size_t __nmemb, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (1, 2))) ;
 extern void *realloc (void *__ptr, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__alloc_size__ (2)));
+extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__alloc_size__ (2, 3)));
 extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 
-extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
+     __attribute__ ((__alloc_size__ (1))) ;
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 extern void *aligned_alloc (size_t __alignment, size_t __size)
@@ -1086,6 +1110,8 @@ extern char *stpncpy (char *__restrict __dest,
         const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: {reach_error();abort();}}; return; }
 char *v;
 void *thread1(void * arg)
@@ -1095,12 +1121,16 @@ void *thread1(void * arg)
 }
 void *thread2(void *arg)
 {
+  __VERIFIER_atomic_begin();
   v[0] = 'X';
+  __VERIFIER_atomic_end();
   return 0;
 }
 void *thread3(void *arg)
 {
+  __VERIFIER_atomic_begin();
   v[0] = 'Y';
+  __VERIFIER_atomic_end();
   return 0;
 }
 void *thread0(void *arg)

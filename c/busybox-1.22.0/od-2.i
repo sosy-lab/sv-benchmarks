@@ -4,12 +4,22 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "busybox_sv_comp.h", 14, __extension__ __PRETTY_FUNCTION__); })); }
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2763,7 +2773,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
   if((signed int)*s == 120 || !(s == ((const char *)((void *)0))))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   _Bool tmp_if_expr$1;
   if(!((signed int)*s == 120))
     tmp_if_expr$1 = !((signed int)*s == 117) ? (_Bool)1 : (_Bool)0;
@@ -2772,7 +2782,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
   if(!(s == ((const char *)((void *)0))) || !tmp_if_expr$1)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   _Bool tmp_if_expr$2;
   if(!((signed int)*s == 120))
     tmp_if_expr$2 = !((signed int)*s == 117) ? (_Bool)1 : (_Bool)0;
@@ -2786,7 +2796,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
   if(!(s == ((const char *)((void *)0))) || !tmp_if_expr$3)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   const char *tmp_post$1;
   _Bool decode_one_format$$1$$tmp_if_expr$4;
   _Bool decode_one_format$$1$$tmp_if_expr$3;
@@ -2843,7 +2853,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
           if((signed long int)size < 9l)
             (void)0;
           else
-            {reach_error();abort();}
+            {reach_error();}
           decode_one_format$$1$$tmp_if_expr$3 = ((signed int)integral_type_size[(signed long int)size] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         if(!(decode_one_format$$1$$tmp_if_expr$3 == (_Bool)0))
@@ -2856,11 +2866,11 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
       if(p - CSIL >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if(p - CSIL < 4l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       static const unsigned char CSIL_sizeof[4l] = { (const unsigned char)sizeof(char) ,
     (const unsigned char)sizeof(signed short int) ,
     (const unsigned char)sizeof(signed int) ,
@@ -2871,7 +2881,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     if((signed long int)size < 9l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     size_spec = (signed int)integral_type_size[(signed long int)size];
     char *return_value___builtin_strchr$5;
     static const char doux[5l] = { (const char)100, (const char)111, (const char)117, (const char)120, (const char)0 };
@@ -2880,17 +2890,17 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     if(4l * (signed long int)pos >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)pos < 4l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     static const signed int doux_fmt[4l] = { (const signed int)0, (const signed int)2, (const signed int)1, (const signed int)3 };
     fmt = doux_fmt[(signed long int)pos];
     if(8l * (signed long int)pos >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     static const unsigned char * const doux_bytes_to_XXX[4l] = { bytes_to_signed_dec_digits, bytes_to_oct_digits, bytes_to_unsigned_dec_digits, bytes_to_hex_digits };
     field_width = (unsigned int)doux_bytes_to_XXX[(signed long int)pos][(signed long int)size];
     static const char doux_fmt_letter[4l][4l] = { { (const char)108, (const char)108, (const char)100, (const char)0 },
@@ -2958,7 +2968,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
           if((signed long int)size < 17l)
             (void)0;
           else
-            {reach_error();abort();}
+            {reach_error();}
           tmp_if_expr$7 = ((signed int)fp_type_size[(signed long int)size] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         if(!(tmp_if_expr$7 == (_Bool)0))
@@ -2971,11 +2981,11 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
       if(p - FDL >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if(p - FDL < 3l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       static const unsigned char FDL_sizeof[3l] = { (const unsigned char)sizeof(float) ,
     (const unsigned char)sizeof(double) ,
     (const unsigned char)sizeof(long double) };
@@ -2984,7 +2994,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     if((signed long int)size < 17l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     size_spec = (signed int)fp_type_size[(signed long int)size];
     if(!(size_spec == 6))
     {
@@ -3063,11 +3073,11 @@ static void dump(signed long int current_offset, signed long int end_offset)
       if(8l * (signed long int)idx >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)idx < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       read_block(n_needed, block[(signed long int)idx], &n_bytes_read);
       if(!(n_bytes_read >= (unsigned long int)bytes_per_block))
         break;
@@ -3075,19 +3085,19 @@ static void dump(signed long int current_offset, signed long int end_offset)
       if(8l * (signed long int)(1 ^ idx) >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)(1 ^ idx) < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if(8l * (signed long int)idx >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)idx < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       write_block(current_offset, n_bytes_read, block[(signed long int)(idx ^ 1)], block[(signed long int)idx]);
       current_offset = current_offset + (signed long int)n_bytes_read;
       idx = idx ^ 1;
@@ -3098,11 +3108,11 @@ static void dump(signed long int current_offset, signed long int end_offset)
       if(8l * (signed long int)idx >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)idx < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       read_block((unsigned long int)bytes_per_block, block[(signed long int)idx], &n_bytes_read);
       if(!(n_bytes_read >= (unsigned long int)bytes_per_block))
         break;
@@ -3110,19 +3120,19 @@ static void dump(signed long int current_offset, signed long int end_offset)
       if(8l * (signed long int)(1 ^ idx) >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)(1 ^ idx) < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if(8l * (signed long int)idx >= 0l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if((signed long int)idx < 2l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       write_block(current_offset, n_bytes_read, block[(signed long int)(idx ^ 1)], block[(signed long int)idx]);
       current_offset = current_offset + (signed long int)n_bytes_read;
     }
@@ -3134,40 +3144,40 @@ static void dump(signed long int current_offset, signed long int end_offset)
     if(!((unsigned long int)l_c_m == 0ul))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     bytes_to_write = (unsigned long int)l_c_m * (((n_bytes_read + (unsigned long int)l_c_m) - (unsigned long int)1) / (unsigned long int)l_c_m);
     if(8l * (signed long int)idx >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)idx < 2l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     memset((void *)(block[(signed long int)idx] + (signed long int)n_bytes_read), 0, bytes_to_write - n_bytes_read);
     if(8l * (signed long int)(1 ^ idx) >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)(1 ^ idx) < 2l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if(8l * (signed long int)idx >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)idx < 2l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     write_block(current_offset, bytes_to_write, block[(signed long int)(idx ^ 1)], block[(signed long int)idx]);
     current_offset = current_offset + (signed long int)n_bytes_read;
   }
   if(!(format_address == ((void (*)(signed long int, char))((void *)0))))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   format_address(current_offset, (char)10);
   if(!((2u & option_mask32) == 0u))
   {
@@ -3267,7 +3277,7 @@ static void dump_strings(signed long int address, signed long int end_offset)
     if(!(format_address == ((void (*)(signed long int, char))((void *)0))))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     format_address((signed long int)(((unsigned long int)address - i) - (unsigned long int)1), (char)32);
     i = (unsigned long int)0;
     while((_Bool)1)
@@ -3421,7 +3431,7 @@ static unsigned int gcd(unsigned int u, unsigned int v)
     if(!(v == 0u))
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     t = u % v;
     u = v;
   }
@@ -3438,11 +3448,11 @@ static signed int get_lcm(void)
     if((signed long int)(spec + (signed long int)i)->size >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)(spec + (signed long int)i)->size < 9l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     return_value_lcm$1=lcm((unsigned int)l_c_m, (unsigned int)width_bytes[(signed long int)(signed int)(spec + (signed long int)i)->size]);
     l_c_m = (signed int)return_value_lcm$1;
   }
@@ -3880,7 +3890,7 @@ static unsigned int lcm(unsigned int u, unsigned int v)
   if(!(t == 0u))
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   return (u * v) / t;
 }
 static void llist_add_to_end(struct llist_t **list_head, void *data)
@@ -3946,11 +3956,11 @@ signed int __main(signed int argc, char **argv)
     if((signed long int)pos >= 0l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     if((signed long int)pos < 3l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     static const char doxn_address_base_char[3l] = { (const char)117, (const char)111, (const char)120 };
     address_fmt[(signed long int)(sizeof(char [7l]) - (unsigned long int)3)] = doxn_address_base_char[(signed long int)pos];
     static const unsigned char doxn_address_pad_len_char[3l] = { (const unsigned char)55, (const unsigned char)55, (const unsigned char)54 };
@@ -4116,7 +4126,7 @@ signed int __main(signed int argc, char **argv)
       if(!((unsigned int)l_c_m == 0u))
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       if(bytes_per_block % (unsigned int)l_c_m != 0u)
         goto __CPROVER_DUMP_L77;
     }
@@ -4136,7 +4146,7 @@ signed int __main(signed int argc, char **argv)
       if(!(l_c_m == 0))
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       bytes_per_block = bytes_per_block * (unsigned int)(16 / l_c_m);
     }
   }
@@ -4433,11 +4443,11 @@ static void print_named_ascii(unsigned long int n_bytes, const char *block, cons
         if((signed long int)masked_c < 33l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         if(3l * (signed long int)masked_c >= 0l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         static const char charname[33l][3l] = { { (const char)110, (const char)117, (const char)108 },
     { (const char)115, (const char)111, (const char)104 },
     { (const char)115, (const char)116, (const char)120 },
@@ -4475,12 +4485,12 @@ static void print_named_ascii(unsigned long int n_bytes, const char *block, cons
         if(3l * (signed long int)masked_c + 1l >= 0l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         buf[(signed long int)7] = charname[(signed long int)masked_c][(signed long int)1];
         if(3l * (signed long int)masked_c + 2l >= 0l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         buf[(signed long int)8] = charname[(signed long int)masked_c][(signed long int)2];
         fputs(buf + (signed long int)5, stdout);
       }
@@ -4671,7 +4681,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
         if(!(format_address == ((void (*)(signed long int, char))((void *)0))))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         format_address(current_offset, (char)0);
       }
       else
@@ -4679,7 +4689,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
       if(!((spec + (signed long int)i)->print_function == ((void (*)(unsigned long int, const char *, const char *))((void *)0))))
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       (spec + (signed long int)i)->print_function(n_bytes, curr_block, (spec + (signed long int)i)->fmt_string);
       if(!((spec + (signed long int)i)->hexl_mode_trailer == 0))
       {
@@ -4687,17 +4697,17 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
         if((signed long int)(spec + (signed long int)i)->size >= 0l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         if((signed long int)(spec + (signed long int)i)->size < 9l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         datum_width = (unsigned int)width_bytes[(signed long int)(spec + (signed long int)i)->size];
         unsigned int blank_fields;
         if(!((unsigned long int)datum_width == 0ul))
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         blank_fields = (unsigned int)(((unsigned long int)bytes_per_block - n_bytes) / (unsigned long int)datum_width);
         unsigned int field_width = (unsigned int)((spec + (signed long int)i)->field_width + 1);
         printf("%*s", blank_fields * field_width, "");

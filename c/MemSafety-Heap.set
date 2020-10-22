@@ -1,3 +1,4 @@
+# Contains tasks for checking memory safety of programs.
 memsafety/*.yml
 memsafety-ext/*.yml
 memsafety-ext2/*.yml

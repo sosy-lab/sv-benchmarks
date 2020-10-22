@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: rekcba_nxt_false-unreach-call.1.M4.c
 input_files: 'rekcba_nxt.1.M4-2.c'
@@ -6,3 +6,7 @@ input_files: 'rekcba_nxt.1.M4-2.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

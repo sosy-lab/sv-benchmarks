@@ -1,8 +1,18 @@
 extern unsigned __VERIFIER_nondet_uint();
 extern int __VERIFIER_nondet_int();
 extern char *__VERIFIER_nondet_charp();
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "packet_filter.c", 6, __extension__ __PRETTY_FUNCTION__); })); }
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
@@ -586,14 +596,14 @@ void append_to_queue(Packet p, Node *q) {
 void process_prio_queue(Node q) {
     for (Node node = q; node != ((void *)0); node = node->next) {
         if (!(node->packet.prio == 1 || node->packet.size < 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }
 void process_normal_queue(Node q) {
     for (Node node = q; node != ((void *)0); node = node->next) {
         if (!(node->packet.prio == 0 && node->packet.size >= 500))
-            {reach_error();abort();}
+            {reach_error();}
         send(node->packet);
     }
 }

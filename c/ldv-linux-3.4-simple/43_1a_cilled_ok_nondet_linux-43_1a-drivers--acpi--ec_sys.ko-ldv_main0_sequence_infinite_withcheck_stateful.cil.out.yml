@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: 43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--acpi--ec_sys.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 input_files: '43_1a_cilled_ok_nondet_linux-43_1a-drivers--acpi--ec_sys.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
@@ -6,3 +6,7 @@ input_files: '43_1a_cilled_ok_nondet_linux-43_1a-drivers--acpi--ec_sys.ko-ldv_ma
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: LP64

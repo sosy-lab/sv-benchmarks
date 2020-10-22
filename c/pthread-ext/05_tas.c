@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 //Simple test_and_set lock with exponential backoff
 //
@@ -12,6 +13,7 @@ void reach_error(){}
 #define locked 1
 volatile int lock = unlocked;
 
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void __VERIFIER_atomic_TAS(

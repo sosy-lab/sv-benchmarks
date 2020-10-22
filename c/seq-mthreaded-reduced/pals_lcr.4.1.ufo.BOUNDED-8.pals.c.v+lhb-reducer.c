@@ -1,11 +1,12 @@
 int __return_main;
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "pals_lcr.4.1.ufo.BOUNDED-8.pals.c.v+lhb-reducer.c", 4, "reach_error"); }
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 void assert(_Bool arg);
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 typedef char msg_t;
@@ -487,7 +488,7 @@ int __return_3028;
  assert__arg = __tmp_3;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -782,7 +783,7 @@ int __return_3028;
  assert__arg = __tmp_4;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -872,7 +873,7 @@ int __return_3028;
  assert__arg = __tmp_5;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -921,7 +922,7 @@ int __return_3028;
  assert__arg = __tmp_6;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1039,7 +1040,7 @@ int __return_3028;
  assert__arg = __tmp_7;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1088,7 +1089,7 @@ int __return_3028;
  assert__arg = __tmp_8;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1164,7 +1165,7 @@ int __return_3028;
  assert__arg = __tmp_9;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1344,7 +1345,7 @@ int __return_3028;
  assert__arg = __tmp_10;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1393,7 +1394,7 @@ int __return_3028;
  assert__arg = __tmp_11;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1470,7 +1471,7 @@ int __return_3028;
  assert__arg = __tmp_12;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -1610,7 +1611,7 @@ int __return_3028;
  assert__arg = __tmp_13;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 /*
  * Create circular dll of size 2: 1-1
  * Update all nodes in a forward traversal. Check result: 2-3

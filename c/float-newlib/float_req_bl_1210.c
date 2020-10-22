@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "float_req_bl_1210.c", 3, "reach_error"); }
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;
@@ -84,7 +85,7 @@ int main() {
 
   // x is NAN, *iptr is NAN result shall be that *iptr and res is NAN
   if (isnan_float(iptr) && !isnan_float(res)) {
-    {reach_error();abort();}
+    {reach_error();}
     return 1;
   }
   return 0;

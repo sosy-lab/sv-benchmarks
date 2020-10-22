@@ -1,5 +1,17 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "20_lamport.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -12,24 +24,32 @@ typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
 __extension__ typedef signed long long int __int64_t;
 __extension__ typedef unsigned long long int __uint64_t;
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
 __extension__ typedef long long int __quad_t;
 __extension__ typedef unsigned long long int __u_quad_t;
 __extension__ typedef long long int __intmax_t;
 __extension__ typedef unsigned long long int __uintmax_t;
-__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef __uint64_t __dev_t;
 __extension__ typedef unsigned int __uid_t;
 __extension__ typedef unsigned int __gid_t;
 __extension__ typedef unsigned long int __ino_t;
-__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef __uint64_t __ino64_t;
 __extension__ typedef unsigned int __mode_t;
 __extension__ typedef unsigned int __nlink_t;
 __extension__ typedef long int __off_t;
-__extension__ typedef __quad_t __off64_t;
+__extension__ typedef __int64_t __off64_t;
 __extension__ typedef int __pid_t;
 __extension__ typedef struct { int __val[2]; } __fsid_t;
 __extension__ typedef long int __clock_t;
 __extension__ typedef unsigned long int __rlim_t;
-__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef __uint64_t __rlim64_t;
 __extension__ typedef unsigned int __id_t;
 __extension__ typedef long int __time_t;
 __extension__ typedef unsigned int __useconds_t;
@@ -40,11 +60,11 @@ __extension__ typedef int __clockid_t;
 __extension__ typedef void * __timer_t;
 __extension__ typedef long int __blksize_t;
 __extension__ typedef long int __blkcnt_t;
-__extension__ typedef __quad_t __blkcnt64_t;
+__extension__ typedef __int64_t __blkcnt64_t;
 __extension__ typedef unsigned long int __fsblkcnt_t;
-__extension__ typedef __u_quad_t __fsblkcnt64_t;
+__extension__ typedef __uint64_t __fsblkcnt64_t;
 __extension__ typedef unsigned long int __fsfilcnt_t;
-__extension__ typedef __u_quad_t __fsfilcnt64_t;
+__extension__ typedef __uint64_t __fsfilcnt64_t;
 __extension__ typedef int __fsword_t;
 __extension__ typedef int __ssize_t;
 __extension__ typedef long int __syscall_slong_t;
@@ -54,12 +74,18 @@ typedef char *__caddr_t;
 __extension__ typedef int __intptr_t;
 __extension__ typedef unsigned int __socklen_t;
 typedef int __sig_atomic_t;
-static __inline unsigned int
-__bswap_32 (unsigned int __bsx)
+__extension__ typedef __int64_t __time64_t;
+static __inline __uint16_t
+__bswap_16 (__uint16_t __bsx)
+{
+  return __builtin_bswap16 (__bsx);
+}
+static __inline __uint32_t
+__bswap_32 (__uint32_t __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-static __inline __uint64_t
+__extension__ static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
   return __builtin_bswap64 (__bsx);
@@ -676,56 +702,84 @@ int y;
 int b1, b2;
 int X;
 void* thr1(void* arg) {
-  while (1) {
-    b1 = 1;
-    x = 1;
-    if (y != 0) {
-      b1 = 0;
-      while (y != 0) {};
-      continue;
+    while (1) {
+        b1 = 1;
+        __VERIFIER_atomic_begin();
+        x = 1;
+        __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
+        int y1 = y;
+        __VERIFIER_atomic_end();
+        if (y1 != 0) {
+            b1 = 0;
+            __VERIFIER_atomic_begin();
+            y1 = y;
+            __VERIFIER_atomic_end();
+            while (y1 != 0) {};
+            continue;
+        }
+        y = 1;
+        int x1 = x;
+        if (x1 != 1) {
+            b1 = 0;
+            __VERIFIER_atomic_begin();
+            int b21 = b2;
+            __VERIFIER_atomic_end();
+            while (b21 >= 1) {};
+            y1 = y;
+            if (y1 != 1) {
+                y1 = y;
+                while (y != 0) {};
+                continue;
+            }
+        }
+        break;
     }
-    y = 1;
-    if (x != 1) {
-      b1 = 0;
-      while (b2 >= 1) {};
-      if (y != 1) {
- while (y != 0) {};
- continue;
-      }
-    }
-    break;
-  }
-  X = 0;
-  { if(!(X <= 0)) { ERROR: {reach_error();abort();}(void)0; } };
-  y = 0;
-  b1 = 0;
+    X = 0;
+    { if(!(X <= 0)) { ERROR: {reach_error();abort();}(void)0; } };
+    y = 0;
+    b1 = 0;
   return 0;
 }
 void* thr2(void* arg) {
-  while (1) {
-    b2 = 1;
-    x = 2;
-    if (y != 0) {
-      b2 = 0;
-      while (y != 0) {};
-      continue;
+    while (1) {
+        b2 = 1;
+        __VERIFIER_atomic_begin();
+        x = 2;
+        __VERIFIER_atomic_end();
+        int y2 = y;
+        if (y2 != 0) {
+            b2 = 0;
+            y2 = y;
+            while (y2 != 0) {};
+            continue;
+        }
+        __VERIFIER_atomic_begin();
+        y = 2;
+        __VERIFIER_atomic_end();
+        int x2 = x;
+        if (x2 != 2) {
+            b2 = 0;
+            int b12 = b1;
+            while (b12 >= 1) {};
+            y2 = y;
+            if (y2 != 2) {
+                y2 = y;
+                while (y2 != 0) {};
+                continue;
+            }
+        }
+        break;
     }
-    y = 2;
-    if (x != 2) {
-      b2 = 0;
-      while (b1 >= 1) {};
-      if (y != 2) {
- while (y != 0) {};
- continue;
-      }
-    }
-    break;
-  }
-  X = 1;
-  { if(!(X >= 1)) { ERROR: {reach_error();abort();}(void)0; } };
-  y = 0;
-  b2 = 0;
-  return 0;
+    X = 1;
+    { if(!(X >= 1)) { ERROR: {reach_error();abort();}(void)0; } };
+    __VERIFIER_atomic_begin();
+    y = 0;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    b2 = 0;
+    __VERIFIER_atomic_end();
+    return 0;
 }
 int main()
 {

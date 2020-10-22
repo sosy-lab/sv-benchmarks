@@ -4,11 +4,11 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
@@ -3205,7 +3205,7 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
   if(flags & 0x20)
   {
     if(fd != -1)
-      {reach_error();abort();}
+      {reach_error();}
     void *res=calloc(length, 1);
     if(res == ((void *)0))
       return ((void *) -1);

@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: apache-get-tag_true-unreach-call.i.v+lhb-reducer.c
 input_files: 'apache-get-tag.i.v+lhb-reducer.c'
@@ -9,3 +9,7 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
+
+options:
+  language: C
+  data_model: ILP32

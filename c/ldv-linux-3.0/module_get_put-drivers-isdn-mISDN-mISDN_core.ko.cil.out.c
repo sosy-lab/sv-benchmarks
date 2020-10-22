@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 typedef signed char __s8;
 typedef unsigned char __u8;
@@ -18624,8 +18625,8 @@ void mISDN_timer_cleanup(void)
 extern void ldv_check_return_value(int ) ;
 extern _Bool __VERIFIER_nondet_bool(void) ;
 extern void *malloc(size_t) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void *ldv_malloc(size_t size )

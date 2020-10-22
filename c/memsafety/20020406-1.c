@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 /* Origin: abbott@dima.unige.it
  * PR c/5120

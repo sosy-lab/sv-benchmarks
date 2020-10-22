@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: floppy_false-valid-deref.i.cil.c
 input_files: 'floppy.i.cil-2.c'
@@ -7,3 +7,7 @@ properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
     subproperty: valid-deref
+
+options:
+  language: C
+  data_model: ILP32

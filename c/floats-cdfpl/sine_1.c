@@ -1,7 +1,8 @@
-extern void abort(void); 
-void reach_error(){}
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern float __VERIFIER_nondet_float(void);
@@ -38,7 +39,7 @@ int main()
   float result = x - (x*x*x)/6.0f + (x*x*x*x*x)/120.0f + (x*x*x*x*x*x*x)/5040.0f;
 
   if(!(result <= VAL && result >= -VAL))
-    {reach_error();abort();}
+    {reach_error();}
   
   return 0;
 }

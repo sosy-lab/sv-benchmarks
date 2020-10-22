@@ -20,7 +20,8 @@ extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
 
 extern void abort(void); 
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 
 extern void abort(void); 
 void assume_abort_if_not(int cond) { 

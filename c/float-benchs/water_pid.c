@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "water_pid.c", 3, "reach_error"); }
 /* Example from "Some future challenges in the validation of control
    systems" by Goubault, Martel, and Putot, published at ERTS 06
 */

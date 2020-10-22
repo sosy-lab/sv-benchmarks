@@ -109,7 +109,7 @@ signed int __main(signed int argc, char **argv)
                 {
 
                   /* assertion (_Bool)0 */
-                  {reach_error();abort();}
+                  {reach_error();}
 
                 }
 

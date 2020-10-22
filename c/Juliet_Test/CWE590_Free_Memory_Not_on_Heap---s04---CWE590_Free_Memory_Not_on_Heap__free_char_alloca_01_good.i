@@ -955,8 +955,8 @@ int ldv_asprintf(char **ptr)
 }
 
 
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 
@@ -1245,8 +1245,9 @@ void *ldv_realloc(void *ptr, size_t size)
 }
 
 
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "CWE590_Free_Memory_Not_on_Heap---s04---CWE590_Free_Memory_Not_on_Heap__free_char_alloca_01_good.i", 1250, "reach_error"); }
 
 
 void ldv_error(void);
@@ -1255,7 +1256,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  {reach_error();abort();}
+  {reach_error();}
   
   return;
 }

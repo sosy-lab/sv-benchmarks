@@ -1067,8 +1067,8 @@ int ldv_asprintf(char **ptr)
 }
 
 
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 
@@ -1354,8 +1354,9 @@ void *ldv_realloc(void *ptr, size_t size)
 }
 
 
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "CWE761_Free_Pointer_Not_at_Start_of_Buffer---CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_16_bad.i", 1359, "reach_error"); }
 
 
 void ldv_error(void);
@@ -1364,7 +1365,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  {reach_error();abort();}
+  {reach_error();}
   
   return;
 }

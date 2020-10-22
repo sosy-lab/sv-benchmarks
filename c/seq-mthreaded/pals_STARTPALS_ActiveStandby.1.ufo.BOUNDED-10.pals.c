@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "pals_STARTPALS_ActiveStandby.1.ufo.BOUNDED-10.pals.c", 3, "reach_error"); }
 
 /**********************************************************************
 
@@ -99,8 +100,8 @@ _Bool side2Failed  ;
 msg_t side1_written  ;
 msg_t side2_written  ;
 void assert(_Bool arg ) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 static _Bool side1Failed_History_0  ;

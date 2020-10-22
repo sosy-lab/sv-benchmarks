@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "rekh_aso.1.M1-1.c", 3, "reach_error"); }
 
 /**********************************************************************
 
@@ -76,8 +77,8 @@ _Bool __VERIFIER_nondet_bool(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 extern int __VERIFIER_nondet_int();
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 unsigned char __startrek_round  ;

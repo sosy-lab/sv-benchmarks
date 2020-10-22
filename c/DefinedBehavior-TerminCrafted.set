@@ -1,1 +1,2 @@
+# Contains tasks for checking whether the program might run into undefined behavior.
 termination-crafted/*.yml

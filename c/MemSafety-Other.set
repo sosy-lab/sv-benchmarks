@@ -1,3 +1,4 @@
+# Contains tasks for checking memory safety of programs.
 loops/*.yml
 loop-acceleration/*.yml
 ntdrivers/*.yml
@@ -6,3 +7,5 @@ locks/*.yml
 memsafety-ext3/*.yml
 pthread-memsafety/*.yml
 memsafety-bftpd/*.yml
+termination-crafted/4BitCounterPointer.yml
+termination-crafted/SyntaxSupportPointer*.yml

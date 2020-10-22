@@ -934,8 +934,8 @@ int ldv_asprintf(char **ptr)
 }
 
 
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 
@@ -1227,8 +1227,9 @@ void *ldv_realloc(void *ptr, size_t size)
 }
 
 
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "CWE690_NULL_Deref_From_Return---s02---CWE690_NULL_Deref_From_Return__struct_malloc_52_bad.i", 1232, "reach_error"); }
 
 
 void ldv_error(void);
@@ -1237,7 +1238,7 @@ void ldv_error(void);
 void ldv_error(void)
 {
   
-  {reach_error();abort();}
+  {reach_error();}
   
   return;
 }

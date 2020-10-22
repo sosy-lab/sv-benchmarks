@@ -1,5 +1,6 @@
+# Contains programs for which the correctness depends mostly on the control-flow structure and integer variables. There is no particular focus on pointers, data structures, and concurrency.
 ntdrivers-simplified/*.yml
-ssh-simplified/*.yml
+openssl-simplified/*.yml
 locks/*.yml
 ntdrivers/*.yml
-ssh/*.yml
+openssl/*.yml

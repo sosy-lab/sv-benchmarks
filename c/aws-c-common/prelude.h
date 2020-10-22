@@ -3,7 +3,8 @@
 typedef _Bool bool;
 
 extern void abort(void); 
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 extern void abort(void); 
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
@@ -23,6 +24,7 @@ void __VERIFIER_assert(_Bool cond) {
 
 #define __CPROVER_size_t unsigned long
 
+#undef assert
 #define assert(cond) \
     __VERIFIER_assert(cond)
 

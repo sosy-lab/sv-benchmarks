@@ -1,6 +1,12 @@
-format_version: "1.0"
+format_version: '2.0'
 input_files: Problem12.c
 properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: properties/unreach-call-a.prp
+    expected_verdict: true
+  - property_file: properties/unreach-call-b.prp
+    expected_verdict: false
   - property_file: properties/unreach-call-0.prp
     expected_verdict: true
   - property_file: properties/unreach-call-1.prp
@@ -201,3 +207,6 @@ properties:
     expected_verdict: true
   - property_file: properties/unreach-call-99.prp
     expected_verdict: false
+options:
+  language: C
+  data_model: ILP32

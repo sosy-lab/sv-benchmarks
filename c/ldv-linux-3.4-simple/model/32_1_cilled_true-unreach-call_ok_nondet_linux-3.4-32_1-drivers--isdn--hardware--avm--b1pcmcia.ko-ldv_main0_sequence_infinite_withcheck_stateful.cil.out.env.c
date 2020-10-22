@@ -26,6 +26,13 @@ int attach_capi_ctr(struct capi_ctr *arg0) {
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: b1_alloc_card
 // with type: avmcard *b1_alloc_card(int nr_controllers)

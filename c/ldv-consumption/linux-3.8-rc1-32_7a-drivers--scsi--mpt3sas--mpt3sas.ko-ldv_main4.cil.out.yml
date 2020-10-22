@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: linux-3.8-rc1-32_7a-drivers--scsi--mpt3sas--mpt3sas.ko-ldv_main4_false-unreach-call.cil.out.i
 input_files: 'linux-3.8-rc1-32_7a-drivers--scsi--mpt3sas--mpt3sas.ko-ldv_main4.cil.out.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.8-rc1-32_7a-drivers--scsi--mpt3sas--mpt3sas.ko-ldv_main4.c
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: LP64

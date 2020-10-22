@@ -1,9 +1,10 @@
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
@@ -14,6 +15,7 @@ void reach_error(){}
 */
 
 #include <pthread.h>
+#undef assert
 #define assert(e) if (!(e)) ERROR: reach_error()
 
 int block;

@@ -13,8 +13,9 @@
 #define N 60
 #define fun sep
 
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 int sep (int x[N])
 {
@@ -50,7 +51,7 @@ int main ()
   ret5 = fun(x);
 
   if(ret != ret2 || ret !=ret5){ 
-    {reach_error();abort();}
+    {reach_error();}
   }
   return 1;
 }

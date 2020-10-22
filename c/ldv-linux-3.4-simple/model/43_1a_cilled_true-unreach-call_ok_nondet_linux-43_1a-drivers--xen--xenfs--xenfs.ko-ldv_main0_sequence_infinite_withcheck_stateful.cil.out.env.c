@@ -18,6 +18,13 @@ struct timespec current_kernel_time() {
   // Composite type
   return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: d_alloc_name
 // with type: struct dentry *d_alloc_name(struct dentry *, const char *)

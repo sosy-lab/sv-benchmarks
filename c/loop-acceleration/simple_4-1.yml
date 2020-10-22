@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: simple_false-unreach-call4.c
 input_files: 'simple_4-1.c'
@@ -6,3 +6,7 @@ input_files: 'simple_4-1.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

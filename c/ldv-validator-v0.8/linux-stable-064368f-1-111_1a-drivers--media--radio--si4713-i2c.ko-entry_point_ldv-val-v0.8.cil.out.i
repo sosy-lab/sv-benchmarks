@@ -1,5 +1,15 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "linux-stable-064368f-1-111_1a-drivers--media--radio--si4713-i2c.ko-entry_point_ldv-val-v0.8.cil.out.c", 3, __extension__ __PRETTY_FUNCTION__); })); }
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -3885,8 +3895,8 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 void *ldv_malloc(size_t size )
@@ -6556,7 +6566,7 @@ __inline static void ldv_error(void)
 {
   {
   ERROR: ;
-  {reach_error();abort();}
+  {reach_error();}
 }
 }
 void ldv_check_ret_val(int res ) ;

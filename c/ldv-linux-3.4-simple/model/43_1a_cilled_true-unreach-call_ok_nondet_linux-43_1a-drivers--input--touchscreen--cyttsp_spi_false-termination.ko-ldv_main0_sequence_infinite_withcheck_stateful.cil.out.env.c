@@ -18,6 +18,20 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+__inline static  IS_ERR(void const *ptr ) ;
+extern void abort(void);
+void assume_abort_if_not(int cond) {
+  if(!cond) {abort();}
+}
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  void *p = malloc(size);
+  assume_abort_if_not(IS_ERR(p) == 0);
+  return p;
+}
 
 // Function: cyttsp_probe
 // with type: struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *, struct device *, int, size_t )

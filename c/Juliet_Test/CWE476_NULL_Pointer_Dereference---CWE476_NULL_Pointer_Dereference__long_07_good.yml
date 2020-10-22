@@ -1,7 +1,11 @@
-format_version: '1.0'
+format_version: '2.0'
 
 input_files: 'CWE476_NULL_Pointer_Dereference---CWE476_NULL_Pointer_Dereference__long_07_good.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: LP64

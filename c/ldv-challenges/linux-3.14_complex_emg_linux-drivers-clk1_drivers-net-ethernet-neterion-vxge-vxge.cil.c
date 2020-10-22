@@ -32077,8 +32077,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 void ldv_assert_linux_drivers_clk1__more_at_exit(int expr ) 
 { 
 
@@ -32086,7 +32087,7 @@ void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

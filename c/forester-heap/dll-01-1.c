@@ -7,8 +7,9 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 #define CREATE_INNER(N)                                         \
     __VERIFIER_assert(N != NULL);                               \

@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 long ldv__builtin_expect(long val, long res);
 
@@ -26193,8 +26194,8 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
 void *kmem_cache_alloc(struct kmem_cache *, gfp_t);
 extern int __VERIFIER_nondet_int(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern void *malloc(size_t size);

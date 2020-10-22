@@ -1,12 +1,13 @@
 int __return_main;
-void abort(void); 
-void reach_error(){}
+void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "pals_lcr-var-start-time.5.2.ufo.UNBOUNDED.pals.c.v+sep-reducer.c", 4, "reach_error"); }
 _Bool __VERIFIER_nondet_bool();
 char __VERIFIER_nondet_char();
 unsigned char __VERIFIER_nondet_uchar();
 void assert(_Bool arg);
-void abort(void); 
-void assume_abort_if_not(int cond) { 
+void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 typedef char msg_t;
@@ -6650,7 +6651,7 @@ int __return_13986;
  assert__arg = __tmp_12;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -9208,7 +9209,7 @@ int __return_13986;
  assert__arg = __tmp_20;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -13633,7 +13634,7 @@ int __return_13986;
  assert__arg = __tmp_33;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -16267,7 +16268,7 @@ int __return_13986;
  assert__arg = __tmp_41;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -16967,7 +16968,7 @@ int __return_13986;
  assert__arg = __tmp_44;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -17127,7 +17128,7 @@ int __return_13986;
  assert__arg = __tmp_45;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -18462,7 +18463,7 @@ int __return_13986;
  assert__arg = __tmp_51;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -19048,7 +19049,7 @@ int __return_13986;
  assert__arg = __tmp_54;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -21358,7 +21359,7 @@ int __return_13986;
  assert__arg = __tmp_65;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -23628,7 +23629,7 @@ int __return_13986;
  assert__arg = __tmp_76;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -30496,7 +30497,7 @@ int __return_13986;
  assert__arg = __tmp_110;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -32022,7 +32023,7 @@ int __return_13986;
  assert__arg = __tmp_119;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -33573,7 +33574,7 @@ int __return_13986;
  assert__arg = __tmp_128;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -34158,7 +34159,7 @@ int __return_13986;
  assert__arg = __tmp_131;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -34441,7 +34442,7 @@ int __return_13986;
  assert__arg = __tmp_133;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -35653,7 +35654,7 @@ int __return_13986;
  assert__arg = __tmp_139;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -36838,7 +36839,7 @@ int __return_13986;
  assert__arg = __tmp_146;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -39464,7 +39465,7 @@ int __return_13986;
  assert__arg = __tmp_161;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 
@@ -46768,7 +46769,7 @@ int __return_13986;
  assert__arg = __tmp_200;
  if (assert__arg == 0)
  {
- {reach_error();abort();}
+ {reach_error();}
  return __return_main;
  }
  else 

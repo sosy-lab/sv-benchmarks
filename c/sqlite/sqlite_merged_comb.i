@@ -112691,8 +112691,8 @@ int wrapped_main(int argc , char **argv )
   return (rc);
 }
 }
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 extern char __VERIFIER_nondet_char(void) ;

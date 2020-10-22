@@ -4,10 +4,12 @@
 *                                                       *
 ********************************************************/
 
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
+#undef assert
 #define assert(X) if(!(X)) reach_error()
 
 #include <stdio.h>

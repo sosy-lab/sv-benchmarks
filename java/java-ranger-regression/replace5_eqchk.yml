@@ -1,8 +1,0 @@
-format_version: "1.0"
-input_files:
-  - ../common/
-  - replace5_eqchk/
-properties:
-  - property_file: ../properties/assert.prp
-    expected_verdict: false
-

@@ -1,0 +1,65 @@
+<instance format="XCSP3" type="CSP">
+  <variables>
+    <array id="x" size="[51]"> 0 1 </array>
+  </variables>
+  <constraints>
+    <extension>
+      <list> x[32..33] x[0] </list>
+      <supports> (0,0,1)(0,1,0)(1,0,0)(1,1,1) </supports>
+    </extension>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <supports> (0,0,1)(0,1,0)(1,0,0)(1,1,1) </supports>
+      </extension>
+      <args> x[0] x[34] x[1] </args>
+      <args> x[1] x[35] x[2] </args>
+      <args> x[2] x[36] x[3] </args>
+      <args> x[3] x[37] x[4] </args>
+      <args> x[4] x[38] x[5] </args>
+      <args> x[5] x[39] x[6] </args>
+      <args> x[6] x[40] x[7] </args>
+      <args> x[7] x[41] x[8] </args>
+      <args> x[8] x[42] x[9] </args>
+      <args> x[9] x[43] x[10] </args>
+      <args> x[10] x[44] x[11] </args>
+      <args> x[11] x[45] x[12] </args>
+      <args> x[12] x[46] x[13] </args>
+      <args> x[13] x[47] x[14] </args>
+      <args> x[14] x[48] x[15] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <supports> (0,0,1)(0,1,0)(1,0,0)(1,1,1) </supports>
+      </extension>
+      <args> x[15] x[49..50] </args>
+      <args> x[16] x[49..50] </args>
+    </group>
+    <group>
+      <extension>
+        <list> %0 %1 %2 </list>
+        <supports> (0,0,1)(0,1,0)(1,0,0)(1,1,1) </supports>
+      </extension>
+      <args> x[17] x[48] x[16] </args>
+      <args> x[18] x[47] x[17] </args>
+      <args> x[19] x[46] x[18] </args>
+      <args> x[20] x[45] x[19] </args>
+      <args> x[21] x[44] x[20] </args>
+      <args> x[22] x[43] x[21] </args>
+      <args> x[23] x[42] x[22] </args>
+      <args> x[24] x[41] x[23] </args>
+      <args> x[25] x[40] x[24] </args>
+      <args> x[26] x[39] x[25] </args>
+      <args> x[27] x[38] x[26] </args>
+      <args> x[28] x[37] x[27] </args>
+      <args> x[29] x[36] x[28] </args>
+      <args> x[30] x[35] x[29] </args>
+      <args> x[31] x[34] x[30] </args>
+    </group>
+    <extension>
+      <list> x[32] x[33] x[31] </list>
+      <supports> (0,0,0)(0,1,1)(1,0,1)(1,1,0) </supports>
+    </extension>
+  </constraints>
+</instance>

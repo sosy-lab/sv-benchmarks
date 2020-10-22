@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 
 extern int __VERIFIER_nondet_int();
 /* Testcase from Threader's distribution. For details see:
@@ -82,6 +83,7 @@ extern int __VERIFIER_nondet_int();
 
 
 
+#undef assert
 #define assert(e) if (!(e)) ERROR: reach_error()
 
 inode i;

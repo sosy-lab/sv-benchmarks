@@ -1,0 +1,47 @@
+<instance format="XCSP3" type="CSP">
+  <variables>
+    <array id="x" note="x[i] is the ith value of the series" size="[35]"> 0..34 </array>
+    <array id="y" note="y[i] is the distance between x[i] and x[i+1]" size="[34]"> 1..34 </array>
+  </variables>
+  <constraints>
+    <allDifferent> x[] </allDifferent>
+    <allDifferent> y[] </allDifferent>
+    <group class="channeling">
+      <intension> eq(%0,dist(%1,%2)) </intension>
+      <args> y[0] x[0] x[1] </args>
+      <args> y[1] x[1] x[2] </args>
+      <args> y[2] x[2] x[3] </args>
+      <args> y[3] x[3] x[4] </args>
+      <args> y[4] x[4] x[5] </args>
+      <args> y[5] x[5] x[6] </args>
+      <args> y[6] x[6] x[7] </args>
+      <args> y[7] x[7] x[8] </args>
+      <args> y[8] x[8] x[9] </args>
+      <args> y[9] x[9] x[10] </args>
+      <args> y[10] x[10] x[11] </args>
+      <args> y[11] x[11] x[12] </args>
+      <args> y[12] x[12] x[13] </args>
+      <args> y[13] x[13] x[14] </args>
+      <args> y[14] x[14] x[15] </args>
+      <args> y[15] x[15] x[16] </args>
+      <args> y[16] x[16] x[17] </args>
+      <args> y[17] x[17] x[18] </args>
+      <args> y[18] x[18] x[19] </args>
+      <args> y[19] x[19] x[20] </args>
+      <args> y[20] x[20] x[21] </args>
+      <args> y[21] x[21] x[22] </args>
+      <args> y[22] x[22] x[23] </args>
+      <args> y[23] x[23] x[24] </args>
+      <args> y[24] x[24] x[25] </args>
+      <args> y[25] x[25] x[26] </args>
+      <args> y[26] x[26] x[27] </args>
+      <args> y[27] x[27] x[28] </args>
+      <args> y[28] x[28] x[29] </args>
+      <args> y[29] x[29] x[30] </args>
+      <args> y[30] x[30] x[31] </args>
+      <args> y[31] x[31] x[32] </args>
+      <args> y[32] x[32] x[33] </args>
+      <args> y[33] x[33] x[34] </args>
+    </group>
+  </constraints>
+</instance>

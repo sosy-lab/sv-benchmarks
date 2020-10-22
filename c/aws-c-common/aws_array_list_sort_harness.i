@@ -204,9 +204,10 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 
 typedef _Bool bool;
 
-extern void abort(void); 
-void reach_error(){}
-extern void abort(void); 
+extern void abort(void);
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "aws_array_list_sort_harness.i", 209, "reach_error"); }
+extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
 }
@@ -230,7 +231,7 @@ void __VERIFIER_assert(_Bool cond) {
 
 
 void my_abort(void) {
-    {reach_error();abort();}
+    {reach_error();}
 }
 void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
 

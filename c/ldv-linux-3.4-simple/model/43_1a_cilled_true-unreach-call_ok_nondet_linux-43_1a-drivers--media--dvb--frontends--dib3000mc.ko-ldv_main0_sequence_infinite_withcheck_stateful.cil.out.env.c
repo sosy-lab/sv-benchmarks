@@ -9,6 +9,13 @@ void dibx000_exit_i2c_master(struct dibx000_i2c_master *arg0) {
   // Void type
   return;
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: dibx000_get_i2c_adapter
 // with type: struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *, enum dibx000_i2c_interface , int)

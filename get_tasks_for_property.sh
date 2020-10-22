@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # This script returns the task definition files for a given coverage property.
-# Requires `yq` to be installed.
+# Requires `yq` to be installed (https://pypi.org/project/yq/). Tested with version 2.10.
 # Usage: ./get_tasks_for_property <PROPERTY_FILE> [BENCHMARK_DIRECTORY]
 # Execute from directory `sv-benchmarks/c` or provide directory as a second command-line argument.
 # From the returned task definitions, it is possible to get the input files with the following

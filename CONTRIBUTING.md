@@ -107,11 +107,12 @@ but for real-world programs GNU C is also acceptable.
 #### Task Definition
 
 For each verification problem,
-a separate [task definiton](https://github.com/sosy-lab/sv-benchmarks/blob/master/README.md#task-definitions)
+a separate [task definition](https://github.com/sosy-lab/sv-benchmarks/blob/master/README.md#task-definitions)
 in form of a `.yml` file is required that contains the file name of the verification task and
 the expected result for at least one [property](README.md#specifications).
 The `.yml` file should be named just like the original verification problem (except file ending).
 The task definition can contain additional information.
+For example, it needs to define the language (C or Java).
 
 
 #### Category
@@ -120,20 +121,17 @@ In order to be effectively used by people (e.g., in SV-COMP),
 the verification tasks need to be part of some category.
 Thus, please choose an appropriate category of [SV-COMP](https://sv-comp.sosy-lab.org/2017/benchmarks.php)
 and make sure that your programs are
-- matched by the `.set` file of the category by adding appropriate patterns,
-- are made to be verified against the specification in the `.prp` file of the category, and
-- are compatible to the parameters in the `.cfg` file of the category.
+- matched by the `.set` file of the category by adding appropriate patterns and
+- are made to be verified against the specification used by this category.
 
 Programs can also be part of several categories if more than one property is present.
 If a task does not fit in any existing category, you may propose a new category.
 
-#### Architecture
+#### Data Model
 
-Each category specifies an architecture (32-bit or 64-bit Linux systems) in its `.cfg` file,
-and all verification tasks of a category need to be valid
-assuming a system with the respective architecture.
+For C programs, the data model (`ILP32` or `LP64`)
+needs to be specified in the task-definition file.
 This mostly affects sizes of data types.
-Please check that the architecture of the category matches the one of your programs.
 
 #### Preprocessing
 

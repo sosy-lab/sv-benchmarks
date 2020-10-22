@@ -3607,8 +3607,8 @@ int ldv_post_probe(int probe_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
 extern int ldv_failed_usb_register_driver(void) ;
 void ldv_check_final_state(void) ;
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
 int ldv_undef_int(void) ;
@@ -6353,8 +6353,18 @@ int ldv_undef_int_nonpositive(void)
   return (ret);
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "linux-3.14--drivers--usb--misc--iowarrior.ko.cil.c", 6598, __extension__ __PRETTY_FUNCTION__); })); }
 extern int pthread_mutex_lock(pthread_mutex_t * ) ;
 extern int pthread_mutex_trylock(pthread_mutex_t * ) ;
 pthread_mutex_t pmutex_i_mutex_of_inode ;
@@ -6818,7 +6828,7 @@ void ldv_assert(char const *desc , int expr )
   {
   if (expr == 0) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
   }

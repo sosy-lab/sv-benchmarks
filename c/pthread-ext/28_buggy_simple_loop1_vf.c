@@ -1,10 +1,12 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 extern unsigned int __VERIFIER_nondet_uint();
 
 #include <pthread.h>
 
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
+#undef assert
 #define assert(e) { if(!(e)) { ERROR: {reach_error();abort();}(void)0; } }
 
 void* thr1(void* arg){

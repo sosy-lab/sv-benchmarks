@@ -83,6 +83,16 @@ acpi_status acpi_evaluate_object_typed(acpi_handle arg0, acpi_string arg1, struc
   // Simple type
   return __VERIFIER_nondet_uint();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+__inline static  IS_ERR(void const *ptr ) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  void *p = malloc(size);
+  assume_abort_if_not(IS_ERR(p) == 0);
+  return p;
+}
 
 // Function: acpi_format_exception
 // with type: const char *acpi_format_exception(acpi_status )

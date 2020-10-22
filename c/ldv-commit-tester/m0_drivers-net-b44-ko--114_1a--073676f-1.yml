@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: m0_false-unreach-call_drivers-net-b44-ko--114_1a--073676f-1.i
 input_files: 'm0_drivers-net-b44-ko--114_1a--073676f-1.i'
@@ -6,3 +6,7 @@ input_files: 'm0_drivers-net-b44-ko--114_1a--073676f-1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+
+options:
+  language: C
+  data_model: LP64

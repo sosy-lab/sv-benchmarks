@@ -1,4 +1,4 @@
-format_version: '1.0'
+format_version: '2.0'
 
 # old file name: linux-3.14__linux-alloc-spinlock__drivers-net-wireless-rtlwifi-rtl8188ee-rtl8188ee_true-unreach-call.cil.i
 input_files: 'linux-3.14_linux-alloc-spinlock_drivers-net-wireless-rtlwifi-rtl8188ee-rtl8188ee.cil.i'
@@ -6,3 +6,7 @@ input_files: 'linux-3.14_linux-alloc-spinlock_drivers-net-wireless-rtlwifi-rtl81
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+
+options:
+  language: C
+  data_model: LP64

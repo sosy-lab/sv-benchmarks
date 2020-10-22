@@ -15780,8 +15780,9 @@ int ldv_exclusive_spin_is_locked(void)
   return (0);
 }
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 void ldv_assert_linux_alloc_spinlock__nonatomic(int expr ) 
 { 
 
@@ -15789,7 +15790,7 @@ void ldv_assert_linux_alloc_spinlock__nonatomic(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 
@@ -15804,7 +15805,7 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   {
   if (! expr) {
     {
-    {reach_error();abort();}
+    {reach_error();}
     }
   } else {
 

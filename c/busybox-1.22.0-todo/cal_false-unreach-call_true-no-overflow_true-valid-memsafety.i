@@ -4,11 +4,11 @@ extern int __VERIFIER_nondet_int(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
+extern void abort(void);
 void reach_error(){}
 typedef __builtin_va_list __gnuc_va_list;
 
@@ -2599,7 +2599,7 @@ signed int __main(signed int argc, char **argv)
     if((signed long int)i < 12l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     month_names[(signed long int)i]=xstrdup(buf);
     if(i < 7u)
     {
@@ -2638,7 +2638,7 @@ signed int __main(signed int argc, char **argv)
     if((signed long int)(4294967295u + month) < 12l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
     return_value_sprintf$4=sprintf(cal_main$$1$$4$$lineout, "%s %u", month_names[(signed long int)(month - (unsigned int)1)], year);
     len = (unsigned int)return_value_sprintf$4;
     printf("%*s%s\n%s\n", (((unsigned int)7 * (unsigned int)option_mask32 + (unsigned int)20) - len) / (unsigned int)2, "", cal_main$$1$$4$$lineout, day_headings);
@@ -2674,20 +2674,20 @@ signed int __main(signed int argc, char **argv)
       if((signed long int)month < 12l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       center(month_names[(signed long int)month], week_len, (unsigned int)2);
       if(option_mask32 == 0u)
       {
         if((signed long int)(1u + month) < 12l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         center(month_names[(signed long int)(month + (unsigned int)1)], week_len, (unsigned int)2);
       }
       if((signed long int)(2u + month + -option_mask32) < 12l)
         (void)0;
       else
-        {reach_error();abort();}
+        {reach_error();}
       center(month_names[(signed long int)((month + (unsigned int)2) - (unsigned int)option_mask32)], week_len, (unsigned int)0);
       printf("\n%s%*s%s", day_headings, 2, "", day_headings);
       if(option_mask32 == 0u)
@@ -2737,7 +2737,7 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
         if((signed long int)oday < 19l)
           (void)0;
         else
-          {reach_error();abort();}
+          {reach_error();}
         days[(signed long int)(oday + (unsigned long int)2)] = (unsigned int)sep1752[(signed long int)oday] + j_offset;
         oday = oday + 1ul;
         if(!(oday < sizeof(const unsigned char [19l]) ))
@@ -2761,7 +2761,7 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
     if((signed long int)i < 13l)
       (void)0;
     else
-      {reach_error();abort();}
+      {reach_error();}
   }
   temp = (unsigned long int)((signed long int)(year - (unsigned int)1) * (signed long int)365 + (signed long int)(((year - (unsigned int)1) / (unsigned int)4 - (year - (unsigned int)1 > (unsigned int)1700 ? (year - (unsigned int)1) / (unsigned int)100 - (unsigned int)17 : (unsigned int)0)) + (year - (unsigned int)1 > (unsigned int)1600 ? ((year - (unsigned int)1) - (unsigned int)1600) / (unsigned int)400 : (unsigned int)0)) + (signed long int)day);
   if(temp < 639787ul)
@@ -2773,7 +2773,7 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
   if((signed long int)month < 13l)
     (void)0;
   else
-    {reach_error();abort();}
+    {reach_error();}
   dm = (unsigned int)days_in_month[(signed long int)month];
   signed int return_value_leap_year$2;
   if(month == 2u)

@@ -8,9 +8,12 @@
 
 FROM ubuntu:bionic
 
+RUN adduser --disabled-login --gecos "" benchexec
+
 RUN apt-get update && apt-get install -y \
   git \
   openjdk-8-jdk-headless \
-  python3-pip
+  python3-pip \
+  sudo
 
 RUN pip3 install git+https://github.com/sosy-lab/benchexec.git

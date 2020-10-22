@@ -1,5 +1,6 @@
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 extern int __VERIFIER_nondet_int(void);
 
 void __VERIFIER_assert(int cond) {

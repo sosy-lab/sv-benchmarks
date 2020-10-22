@@ -1,9 +1,10 @@
-extern void abort(void); 
-void assume_abort_if_not(int cond) { 
+extern void abort(void);
+void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
 }
-extern void abort(void); 
-void reach_error(){}
+extern void abort(void);
+#include <assert.h>
+void reach_error() { assert(0); }
 extern float __VERIFIER_nondet_float(void);
 //APPROXIMATES sqroot(1+x)
 
@@ -39,7 +40,7 @@ int main()
     1.0f + 0.5f*x - 0.125f*x*x + 0.0625f*x*x*x - 0.0390625f*x*x*x*x;
 
   if(!(result >= 0.0f && result < VAL))
-    {reach_error();abort();}
+    {reach_error();}
   
   return 0;
 }

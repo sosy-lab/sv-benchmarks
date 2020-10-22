@@ -10,6 +10,13 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
   // Simple type
   return __VERIFIER_nondet_int();
 }
+extern _Bool __VERIFIER_nondet_bool(void) ;
+extern void *malloc(size_t) ;
+void *ldv_malloc(size_t size )
+{
+  if(__VERIFIER_nondet_bool()) return 0;
+  return malloc(size);
+}
 
 // Function: ixj_pcmcia_probe
 // with type: IXJ *ixj_pcmcia_probe(unsigned long, unsigned long)
