@@ -11,4 +11,5 @@ class Main {
     Object o = new Object();
     assert !(o instanceof String);
   }
-};
+}
+;

@@ -11,13 +11,11 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 class Main {
   public static void main(String[] args) {
     int size = Verifier.nondetInt();
-    if (size < 8)
-      return;
+    if (size < 8) return;
 
     int int_array[] = new int[size];
 
-    for (int i = 0; i < size; i++)
-      int_array[i] = i;
+    for (int i = 0; i < size; i++) int_array[i] = i;
 
     assert int_array[7] == 7;
 

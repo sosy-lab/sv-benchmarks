@@ -36,5 +36,8 @@ public class Main {
       assert false;
     }
   }
-  public static void main(String[] args) { test(null, Verifier.nondetInt()); }
+
+  public static void main(String[] args) {
+    test(null, Verifier.nondetInt());
+  }
 }

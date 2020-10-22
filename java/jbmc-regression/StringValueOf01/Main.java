@@ -13,9 +13,9 @@ public class Main {
     char characterValue = 'T';
     int integerValue = 7;
     long longValue = 10000000000L; // L suffix indicates long
-    float floatValue = 2.5f;       // f indicates that 2.5 is a float
-    double doubleValue = 33.333;   // no suffix, double is default
-    Object objectRef = "test";     // assign string to an Object reference
+    float floatValue = 2.5f; // f indicates that 2.5 is a float
+    double doubleValue = 33.333; // no suffix, double is default
+    Object objectRef = "test"; // assign string to an Object reference
 
     String tmp = String.valueOf(charArray);
     assert tmp.equals("diffblue");

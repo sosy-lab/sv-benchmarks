@@ -26,14 +26,9 @@
  *  3. This notice may not be removed or altered from any source distribution.
  */
 
-
-
-
-
-import java.io.Reader;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.Properties;
-
 
 /**
  * IXMLValidator processes the DTD and handles entity references.
@@ -41,70 +36,54 @@ import java.util.Properties;
  * @author Marc De Scheemaecker
  * @version $Name: PRERELEASE_2_0_20010329 $, $Revision: 1.5 $
  */
-public interface IXMLValidator
-{
+public interface IXMLValidator {
 
-    /**
-     * Parses the DTD. The validator object is responsible for reading the
-     * full DTD.
-     *
-     * @param publicID the public ID.
-     * @param reader the reader to read the DTD from.
-     */
-    public void parseDTD(String     publicID,
-                         IXMLReader reader)
-        throws IOException;
+  /**
+   * Parses the DTD. The validator object is responsible for reading the full DTD.
+   *
+   * @param publicID the public ID.
+   * @param reader the reader to read the DTD from.
+   */
+  public void parseDTD(String publicID, IXMLReader reader) throws IOException;
 
-    
-    /**
-     * Indicates that an element has been started.
-     *
-     * @param name the name of the element.
-     * @param lineNr the line number in the XML data of the element.
-     */
-    public void elementStarted(String name,
-                               int    lineNr);
-    
-    
-    /**
-     * Indicates that the current element has ended.
-     * If there are attributes with a default value which have not been
-     * specified yet, they have to be put into <I>extraAttributes</I>.
-     *
-     * @param name the name of the element.
-     * @param extraAttributes where to put extra attributes.
-     */
-    public void elementEnded(String name,
-                             Properties extraAttributes);
-    
-    
-    /**
-     * Indicates that an attribute has been added to the current element.
-     *
-     * @param key the name of the attribute.
-     * @param value the value of the attribute.
-     */
-    public void attributeAdded(String key,
-                               String value);
-    
-    
-    /**
-     * Indicates that a new #PCDATA element has been encountered.
-     *
-     * @param lineNr the line number in the XML data of the element.
-     */
-    public void PCDataAdded(int lineNr);
-    
-    
-    /**
-     * Returns a Java reader containing the value of an entity.
-     *
-     * @param xmlReader the current XML reader
-     * @param name the name of the entity.
-     *
-     * @return the reader, or null if the entity could not be resolved.
-     */
-    public Reader getEntity(IXMLReader xmlReader,
-                            String name);
+  /**
+   * Indicates that an element has been started.
+   *
+   * @param name the name of the element.
+   * @param lineNr the line number in the XML data of the element.
+   */
+  public void elementStarted(String name, int lineNr);
 
+  /**
+   * Indicates that the current element has ended. If there are attributes with a default value
+   * which have not been specified yet, they have to be put into <I>extraAttributes</I>.
+   *
+   * @param name the name of the element.
+   * @param extraAttributes where to put extra attributes.
+   */
+  public void elementEnded(String name, Properties extraAttributes);
+
+  /**
+   * Indicates that an attribute has been added to the current element.
+   *
+   * @param key the name of the attribute.
+   * @param value the value of the attribute.
+   */
+  public void attributeAdded(String key, String value);
+
+  /**
+   * Indicates that a new #PCDATA element has been encountered.
+   *
+   * @param lineNr the line number in the XML data of the element.
+   */
+  public void PCDataAdded(int lineNr);
+
+  /**
+   * Returns a Java reader containing the value of an entity.
+   *
+   * @param xmlReader the current XML reader
+   * @param name the name of the entity.
+   * @return the reader, or null if the entity could not be resolved.
+   */
+  public Reader getEntity(IXMLReader xmlReader, String name);
 }

@@ -13,9 +13,7 @@ public class Main {
     boolean booleanValue = Verifier.nondetBoolean();
 
     String tmp = String.valueOf(booleanValue);
-    if (booleanValue)
-      assert tmp.equals("true");
-    else
-      assert tmp.equals("false");
+    if (booleanValue) assert tmp.equals("true");
+    else assert tmp.equals("false");
   }
 }

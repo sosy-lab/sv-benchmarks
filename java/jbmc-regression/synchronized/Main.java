@@ -10,7 +10,8 @@ public class Main {
   public static void main(String[] args) {
     final Object o = null;
     try {
-      synchronized (o) {}
+      synchronized (o) {
+      }
       assert false;
     } catch (NullPointerException e) {
       return;

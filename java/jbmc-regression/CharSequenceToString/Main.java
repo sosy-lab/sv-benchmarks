@@ -11,11 +11,10 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
   public static void main(String[] args) {
     String arg = Verifier.nondetString();
-    CharSequence cs = (CharSequence)arg;
+    CharSequence cs = (CharSequence) arg;
     String s = cs.toString();
     int i = -1;
-    if (s.equals("case1"))
-      i = cs.length();
+    if (s.equals("case1")) i = cs.length();
     assert i == -1 || i == 5;
   }
 }

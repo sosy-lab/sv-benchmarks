@@ -22,22 +22,18 @@ Template File: sources-sinks-81_goodB2G.tmpl.java
 
 import testcasesupport.*;
 
-public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_goodB2G extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base
-{
-  public void action(float data ) throws Throwable
-  {
+public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_goodB2G
+    extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base {
+  public void action(float data) throws Throwable {
     data = super.processData(data);
     /* FIX: Check for value of or near zero before dividing */
-    if (Math.abs(data) > 0.000001)
-    {
-      int result = (int)(100.0 / data);
-      if(1 < data || data <= 0){
+    if (Math.abs(data) > 0.000001) {
+      int result = (int) (100.0 / data);
+      if (1 < data || data <= 0) {
         assert result < 100;
       }
       IO.writeLine(result);
-    }
-    else
-    {
+    } else {
       IO.writeLine("This would result in a divide by zero");
     }
   }

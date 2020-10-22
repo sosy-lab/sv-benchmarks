@@ -6,13 +6,14 @@
  *     directory: regression/cbmc-java/constructor1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class sub {};
+class sub {}
+;
 
 class A {
   A() {}
 
   A(int param) {
-    assert(my_field == 0);
+    assert (my_field == 0);
     my_field = 2;
   }
 
@@ -20,7 +21,8 @@ class A {
   sub my_sub;
 
   static int something_static = 3;
-};
+}
+;
 
 class Main {
   public static void main(String[] args) {
@@ -32,4 +34,5 @@ class Main {
     assert other_a.my_field == 2;
     assert other_a.my_sub == null;
   }
-};
+}
+;

@@ -22,22 +22,18 @@ Template File: sources-sinks-54c.tmpl.java
 
 import testcasesupport.*;
 
-public class CWE369_Divide_by_Zero__float_console_readLine_divide_54c
-{
-  public void badSink(float data ) throws Throwable
-  {
+public class CWE369_Divide_by_Zero__float_console_readLine_divide_54c {
+  public void badSink(float data) throws Throwable {
     (new CWE369_Divide_by_Zero__float_console_readLine_divide_54d()).badSink(data + 30.0f);
   }
 
   /* goodG2B() - use goodsource and badsink */
-  public void goodG2BSink(float data ) throws Throwable
-  {
+  public void goodG2BSink(float data) throws Throwable {
     (new CWE369_Divide_by_Zero__float_console_readLine_divide_54d()).goodG2BSink(data + 30.0f);
   }
 
   /* goodB2G() - use badsource and goodsink */
-  public void goodB2GSink(float data ) throws Throwable
-  {
+  public void goodB2GSink(float data) throws Throwable {
     (new CWE369_Divide_by_Zero__float_console_readLine_divide_54d()).goodB2GSink(data + 30.0f);
   }
 }

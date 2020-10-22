@@ -31,6 +31,6 @@ public class Main {
       return;
     }
     int result = addition(m, n);
-    assert(result == m + n);
+    assert (result == m + n);
   }
 }

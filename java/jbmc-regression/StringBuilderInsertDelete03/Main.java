@@ -12,8 +12,10 @@ public class Main {
   public static void main(String[] args) {
     Object objectRef = Verifier.nondetString();
     String string = Verifier.nondetString();
-    char[] charArray = {'v', 'e', 'r', 'i', 'f', 'i',
-                        'c', 'a', 't', 'i', 'o', 'n'};
+    char[] charArray = {
+      'v', 'e', 'r', 'i', 'f', 'i',
+      'c', 'a', 't', 'i', 'o', 'n'
+    };
     boolean booleanValue = true;
     char characterValue = 'K';
     int integerValue = 7;
@@ -23,7 +25,8 @@ public class Main {
 
     StringBuilder buffer = new StringBuilder();
 
-    buffer.insert(0, objectRef)
+    buffer
+        .insert(0, objectRef)
         .insert(0, "-")
         .insert(0, string)
         .insert(0, "-")

@@ -37,8 +37,7 @@ public class Main {
     Main inst = new Main();
     field = 9;
     int arg = Verifier.nondetShort();
-    if (arg < 0)
-      return;
+    if (arg < 0) return;
     inst.test(x, arg, field2);
     // test(x,x);
   }
@@ -53,12 +52,9 @@ public class Main {
     r = x + z;
     x = z - y;
     z = r;
-    if (z < x)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
-    if (x < r)
-      System.out.println("branch BOO1");
+    if (z < x) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
+    if (x < r) System.out.println("branch BOO1");
     else {
       System.out.println("branch BOO2");
       assert false;

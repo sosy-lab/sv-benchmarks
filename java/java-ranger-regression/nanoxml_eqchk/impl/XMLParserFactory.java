@@ -26,147 +26,97 @@
  *  3. This notice may not be removed or altered from any source distribution.
  */
 
-
-
-
-
-import java.io.IOException;
-
-
 /**
  * Creates an XML parser.
  *
  * @author Marc De Scheemaecker
  * @version $Name: PRERELEASE_2_0_20010329 $, $Revision: 1.2 $
  */
-public class XMLParserFactory
-{
+public class XMLParserFactory {
 
-    /**
-     * The class name of the default XML parser.
-     */
-    public static final String DEFAULT_CLASS = "net.n3.nanoxml.StdXMLParser";
-    
-    
-    /**
-     * The class name of the default XML validator.
-     */
-    public static final String VALIDATOR_CLASS = "net.n3.nanoxml.NonValidator";
-    
-    
-    /**
-     * The Java properties key of the XML parser class name.
-     */
-    public static final String CLASS_KEY = "net.n3.nanoxml.XMLParser";
-    
-    
-    /**
-     * Creates a default parser.
-     *
-     * @see #DEFAULT_CLASS
-     * @see #VALIDATOR_CLASS
-     * @see #CLASS_KEY
-     *
-     * @return the non-null parser.
-     *
-     * @throws java.lang.ClassNotFoundException
-     *		if the class of the parser or validator could not be found.
-     * @throws java.lang.InstantiationException
-     *		if the parser could not be created
-     * @throws java.lang.IllegalAccessException
-     *		if the parser could not be created
-     */
-    public static IXMLParser createDefaultXMLParser()
-        throws ClassNotFoundException,
-               InstantiationException,
-               IllegalAccessException
-    {
-        String className = System.getProperty(XMLParserFactory.CLASS_KEY,
-                                              XMLParserFactory.DEFAULT_CLASS);
-        return XMLParserFactory.createXMLParser(className,
-                                                new StdXMLBuilder(),
-                                                null, null);
-    }
-    
-    
-    /**
-     * Creates a default parser.
-     *
-     * @see #DEFAULT_CLASS
-     * @see #CLASS_KEY
-     *
-     * @param builder the XML builder.
-     * @param reader the XML reader.
-     * @param validator the XML validator.
-     *
-     * @return the non-null parser.
-     *
-     * @throws java.lang.ClassNotFoundException
-     *		if the class of the parser could not be found.
-     * @throws java.lang.InstantiationException
-     *		if the parser could not be created
-     * @throws java.lang.IllegalAccessException
-     *		if the parser could not be created
-     */
-    public static IXMLParser createDefaultXMLParser(IXMLBuilder   builder,
-                                                    IXMLReader    reader,
-                                                    IXMLValidator validator)
-        throws ClassNotFoundException,
-               InstantiationException,
-               IllegalAccessException
-    {
-        String className = System.getProperty(XMLParserFactory.CLASS_KEY,
-                                              XMLParserFactory.DEFAULT_CLASS);
-        return XMLParserFactory.createXMLParser(className, builder, reader,
-                                                validator);
-    }
-    
-    
-    /**
-     * Creates a parser.
-     *
-     * @param className the name of the class of the XML parser
-     * @param builder the XML builder.
-     * @param reader the XML reader.
-     * @param validator the XML validator.
-     *
-     * @return the non-null parser.
-     *
-     * @throws java.lang.ClassNotFoundException
-     *		if the class of the parser could not be found.
-     * @throws java.lang.InstantiationException
-     *		if the parser could not be created
-     * @throws java.lang.IllegalAccessException
-     *		if the parser could not be created
-     */
-    public static IXMLParser createXMLParser(String className,
-                                             IXMLBuilder builder,
-                                             IXMLReader  reader,
-                                             IXMLValidator validator)
-        throws ClassNotFoundException,
-               InstantiationException,
-               IllegalAccessException
-    {
-        Class cls = Class.forName(className);
-        IXMLParser parser = (IXMLParser) cls.newInstance();
-        parser.setBuilder(builder);
-        
-        if (validator == null) {
-            try {
-                cls = Class.forName(XMLParserFactory.VALIDATOR_CLASS);
-                validator = (IXMLValidator) cls.newInstance();
-            } catch (Exception e) {
-                // we can safely ignore any exceptions here
-            }
-        }
-        
-        parser.setValidator(validator);
-        
-        if (reader != null) {
-            parser.setReader(reader);
-        }
-        
-        return parser;
+  /** The class name of the default XML parser. */
+  public static final String DEFAULT_CLASS = "net.n3.nanoxml.StdXMLParser";
+
+  /** The class name of the default XML validator. */
+  public static final String VALIDATOR_CLASS = "net.n3.nanoxml.NonValidator";
+
+  /** The Java properties key of the XML parser class name. */
+  public static final String CLASS_KEY = "net.n3.nanoxml.XMLParser";
+
+  /**
+   * Creates a default parser.
+   *
+   * @see #DEFAULT_CLASS
+   * @see #VALIDATOR_CLASS
+   * @see #CLASS_KEY
+   * @return the non-null parser.
+   * @throws java.lang.ClassNotFoundException if the class of the parser or validator could not be
+   *     found.
+   * @throws java.lang.InstantiationException if the parser could not be created
+   * @throws java.lang.IllegalAccessException if the parser could not be created
+   */
+  public static IXMLParser createDefaultXMLParser()
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    String className =
+        System.getProperty(XMLParserFactory.CLASS_KEY, XMLParserFactory.DEFAULT_CLASS);
+    return XMLParserFactory.createXMLParser(className, new StdXMLBuilder(), null, null);
+  }
+
+  /**
+   * Creates a default parser.
+   *
+   * @see #DEFAULT_CLASS
+   * @see #CLASS_KEY
+   * @param builder the XML builder.
+   * @param reader the XML reader.
+   * @param validator the XML validator.
+   * @return the non-null parser.
+   * @throws java.lang.ClassNotFoundException if the class of the parser could not be found.
+   * @throws java.lang.InstantiationException if the parser could not be created
+   * @throws java.lang.IllegalAccessException if the parser could not be created
+   */
+  public static IXMLParser createDefaultXMLParser(
+      IXMLBuilder builder, IXMLReader reader, IXMLValidator validator)
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    String className =
+        System.getProperty(XMLParserFactory.CLASS_KEY, XMLParserFactory.DEFAULT_CLASS);
+    return XMLParserFactory.createXMLParser(className, builder, reader, validator);
+  }
+
+  /**
+   * Creates a parser.
+   *
+   * @param className the name of the class of the XML parser
+   * @param builder the XML builder.
+   * @param reader the XML reader.
+   * @param validator the XML validator.
+   * @return the non-null parser.
+   * @throws java.lang.ClassNotFoundException if the class of the parser could not be found.
+   * @throws java.lang.InstantiationException if the parser could not be created
+   * @throws java.lang.IllegalAccessException if the parser could not be created
+   */
+  public static IXMLParser createXMLParser(
+      String className, IXMLBuilder builder, IXMLReader reader, IXMLValidator validator)
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    Class cls = Class.forName(className);
+    IXMLParser parser = (IXMLParser) cls.newInstance();
+    parser.setBuilder(builder);
+
+    if (validator == null) {
+      try {
+        cls = Class.forName(XMLParserFactory.VALIDATOR_CLASS);
+        validator = (IXMLValidator) cls.newInstance();
+      } catch (Exception e) {
+        // we can safely ignore any exceptions here
+      }
     }
 
+    parser.setValidator(validator);
+
+    if (reader != null) {
+      parser.setReader(reader);
+    }
+
+    return parser;
+  }
 }

@@ -1,7 +1,5 @@
 package MinePumpSystem;
 
-import MinePumpSystem.Environment;
-
 public class MinePump {
 
   boolean pumpRunning = false;
@@ -16,10 +14,8 @@ public class MinePump {
   }
 
   public void timeShift() {
-    if (pumpRunning)
-      env.lowerWaterLevel();
-    if (systemActive)
-      processEnvironment();
+    if (pumpRunning) env.lowerWaterLevel();
+    if (systemActive) processEnvironment();
   }
 
   private void processEnvironment__wrappee__base() {}
@@ -32,7 +28,9 @@ public class MinePump {
     }
   }
 
-  private void activatePump__wrappee__lowWaterSensor() { pumpRunning = true; }
+  private void activatePump__wrappee__lowWaterSensor() {
+    pumpRunning = true;
+  }
 
   void activatePump() {
     if (!isMethaneAlarm()) {
@@ -42,21 +40,35 @@ public class MinePump {
     }
   }
 
-  public boolean isPumpRunning() { return pumpRunning; }
+  public boolean isPumpRunning() {
+    return pumpRunning;
+  }
 
-  void deactivatePump() { pumpRunning = false; }
+  void deactivatePump() {
+    pumpRunning = false;
+  }
 
-  boolean isMethaneAlarm() { return env.isMethaneLevelCritical(); }
+  boolean isMethaneAlarm() {
+    return env.isMethaneLevelCritical();
+  }
 
   @Override
   public String toString() {
-    return "Pump(System:" + (systemActive ? "On" : "Off") + ",Pump:" +
-        (pumpRunning ? "On" : "Off") + ") " + env.toString();
+    return "Pump(System:"
+        + (systemActive ? "On" : "Off")
+        + ",Pump:"
+        + (pumpRunning ? "On" : "Off")
+        + ") "
+        + env.toString();
   }
 
-  public Environment getEnv() { return env; }
+  public Environment getEnv() {
+    return env;
+  }
 
-  boolean isLowWaterLevel() { return !env.isLowWaterSensorDry(); }
+  boolean isLowWaterLevel() {
+    return !env.isLowWaterSensorDry();
+  }
 
   public void stopSystem() {
     if (pumpRunning) {
@@ -70,5 +82,7 @@ public class MinePump {
     // feature not present
   }
 
-  public boolean isSystemActive() { return systemActive; }
+  public boolean isSystemActive() {
+    return systemActive;
+  }
 }

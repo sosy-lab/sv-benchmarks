@@ -11,25 +11,24 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 class Main {
   public static void main(String[] args) {
     int i = Verifier.nondetInt();
-    if (i < -128 || i > 127)
-      return;
-    byte b = (byte)i;
+    if (i < -128 || i > 127) return;
+    byte b = (byte) i;
     assert b == i;
-    short s = (short)i;
+    short s = (short) i;
     assert s == i;
-    char c = (char)i;
+    char c = (char) i;
     assert c == (0xffff & i);
-    long l = (long)i;
+    long l = (long) i;
     assert l == i;
-    float f = (float)i;
+    float f = (float) i;
     assert f == i;
-    double d = (double)i;
+    double d = (double) i;
     assert d == i;
-    f = (float)d;
-    assert(float) d == f;
-    i = (int)d;
-    assert(int) d == i;
-    l = (long)d;
+    f = (float) d;
+    assert (float) d == f;
+    i = (int) d;
+    assert (int) d == i;
+    l = (long) d;
     assert i == l;
   }
 }

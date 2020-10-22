@@ -15,5 +15,7 @@ public class Main {
     assert result == !b;
   }
 
-  public static boolean f(boolean b) { return !b; }
+  public static boolean f(boolean b) {
+    return !b;
+  }
 }

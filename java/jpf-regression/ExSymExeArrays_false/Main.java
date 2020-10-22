@@ -27,6 +27,7 @@
 
 public class Main {
   static int[] a;
+
   public static void main(String[] args) {
     a = new int[1];
     int x = -3;
@@ -38,8 +39,7 @@ public class Main {
 
   public void test(int x) {
     a[0] = x;
-    if (a[0] >= 0)
-      System.out.println("branch1 >=0");
+    if (a[0] >= 0) System.out.println("branch1 >=0");
     else {
       assert false;
       System.out.println("branch2 <0");

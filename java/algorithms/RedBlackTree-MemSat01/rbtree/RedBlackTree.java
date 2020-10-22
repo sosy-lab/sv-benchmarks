@@ -1,33 +1,28 @@
 /**
- * This code originally by Tuomo Saarni.  Obtained from:
+ * This code originally by Tuomo Saarni. Obtained from:
  *
- *     http://users.utu.fi/~tuiisa/Java/index.html
+ * <p>http://users.utu.fi/~tuiisa/Java/index.html
  *
- * under the following license:
+ * <p>under the following license:
  *
- *     Here's some java sources I've made. Most codes are free to
- *     download. If you use some of my sources just remember give me
- *     the credits.
+ * <p>Here's some java sources I've made. Most codes are free to download. If you use some of my
+ * sources just remember give me the credits.
  */
 package rbtree;
 
 /**
- * A <code>RedBlackTree</code> object is a Red-Black
- * tree.
- * <p/>
+ * A <code>RedBlackTree</code> object is a Red-Black tree.
+ *
+ * <p>
  *
  * @author Tuomo Saarni
  * @version 1.1, 08/16/01
  */
 public class RedBlackTree {
-  /**
-   * The root node of current tree.
-   */
+  /** The root node of current tree. */
   private RedBlackTreeNode root;
 
-  /**
-   * Constructs a new empty tree.
-   */
+  /** Constructs a new empty tree. */
   public RedBlackTree() {
     root = null;
   }
@@ -42,8 +37,7 @@ public class RedBlackTree {
   }
 
   /**
-   * Inserts a node to the tree.
-   * Runs in O(lg n) time.
+   * Inserts a node to the tree. Runs in O(lg n) time.
    *
    * @param x The new node of the tree.
    * @throws NullPointerException If the parameter x is null.
@@ -70,7 +64,6 @@ public class RedBlackTree {
         y.rightTo(x);
       }
     }
-
 
     x.setRed();
 
@@ -119,10 +112,9 @@ public class RedBlackTree {
   }
 
   /**
-   * Rotates the tree from the node x to left.
-   * Runs in Theta(n) time.
+   * Rotates the tree from the node x to left. Runs in Theta(n) time.
    *
-   * @param    x    The node from which to start.
+   * @param x The node from which to start.
    */
   private void leftRotate(RedBlackTreeNode x) {
     RedBlackTreeNode y = x.right();
@@ -147,10 +139,9 @@ public class RedBlackTree {
   }
 
   /**
-   * Rotates the tree from the node x to right.
-   * Runs in Theta(n) time.
+   * Rotates the tree from the node x to right. Runs in Theta(n) time.
    *
-   * @param    x    The node from which to start.
+   * @param x The node from which to start.
    */
   private void rightRotate(RedBlackTreeNode x) {
     RedBlackTreeNode y = x.left();
@@ -175,8 +166,7 @@ public class RedBlackTree {
   }
 
   /**
-   * Deletes the given node from the tree.
-   * Runs in O(lg n) time.
+   * Deletes the given node from the tree. Runs in O(lg n) time.
    *
    * @param z The node to be deleted of the tree.
    * @throws NullPointerException If the parameter z is null.
@@ -206,17 +196,17 @@ public class RedBlackTree {
     x.parentTo(y.parent());
 
     if (y.parent() == null) // if y is root
+    {
+      this.root = x;
+    } else // y is not root
+    {
+      if (y == (y.parent()).left()) // if y = left[p[y]]
       {
-        this.root = x;
-      } else // y is not root
-      {
-        if (y == (y.parent()).left()) // if y = left[p[y]]
-          {
-            (y.parent()).leftTo(x); // then left[p[y]] <- x
-          } else {
-          (y.parent()).rightTo(x);
-        }
+        (y.parent()).leftTo(x); // then left[p[y]] <- x
+      } else {
+        (y.parent()).rightTo(x);
       }
+    }
     if (y != z) {
       z.keyTo(y.key());
       z.objectTo(y.object());
@@ -252,44 +242,45 @@ public class RedBlackTree {
     RedBlackTreeNode w = new RedBlackTreeNode(0);
 
     while (x != this.root && x.isBlack()) {
-      if (x == (x.parent()).left()) //x is left son of its parent
-        {
-          w = (x.parent()).right(); // set w to refer x's parent's right son
-          if (w.isRed()) {
-            w.setBlack();
-            (x.parent()).setRed();
-            leftRotate(x.parent());
+      if (x == (x.parent()).left()) // x is left son of its parent
+      {
+        w = (x.parent()).right(); // set w to refer x's parent's right son
+        if (w.isRed()) {
+          w.setBlack();
+          (x.parent()).setRed();
+          leftRotate(x.parent());
+          w = (x.parent()).right();
+        }
+        if ((w.left() == null && w.right() == null)
+            || (w.left() == null && w.right() != null && (w.right()).isBlack())
+            || (w.right() == null && w.left() != null && (w.left()).isBlack())
+            || (w.right() != null
+                && w.left() != null
+                && (w.right()).isBlack()
+                && (w.left()).isBlack())) {
+          w.setRed();
+          x = x.parent();
+        } else {
+          if (w.right() != null && (w.right()).isBlack()) {
+            (w.left()).setBlack();
+            w.setRed();
+            rightRotate(w);
             w = (x.parent()).right();
           }
-          if ((w.left() == null && w.right() == null) ||
-              (w.left() == null && w.right() != null && (w.right()).isBlack()) ||
-              (w.right() == null && w.left() != null && (w.left()).isBlack()) ||
-              (w.right() != null && w.left() != null
-               && (w.right()).isBlack() && (w.left()).isBlack())
-              ) {
-            w.setRed();
-            x = x.parent();
+          if ((x.parent()).isBlack()) {
+            w.setBlack();
           } else {
-            if (w.right() != null && (w.right()).isBlack()) {
-              (w.left()).setBlack();
-              w.setRed();
-              rightRotate(w);
-              w = (x.parent()).right();
-            }
-            if ((x.parent()).isBlack()) {
-              w.setBlack();
-            } else {
-              w.setRed();
-            }
-            (x.parent()).setBlack();
-            if (w.right != null) // Otherwise its already black
-              {
-                (w.right()).setBlack();
-              }
-            leftRotate(x.parent());
-            x = this.root;
+            w.setRed();
           }
-        } else {
+          (x.parent()).setBlack();
+          if (w.right != null) // Otherwise its already black
+          {
+            (w.right()).setBlack();
+          }
+          leftRotate(x.parent());
+          x = this.root;
+        }
+      } else {
         w = (x.parent()).left(); // set w to refer x's parent's right son
         if (w.isRed()) {
           w.setBlack();
@@ -297,12 +288,13 @@ public class RedBlackTree {
           rightRotate(x.parent());
           w = (x.parent()).left();
         }
-        if ((w.left() == null && w.right() == null) ||
-            (w.left() == null && w.right() != null && (w.right()).isBlack()) ||
-            (w.right() == null && w.left() != null && (w.left()).isBlack()) ||
-            (w.right() != null && w.left() != null
-             && (w.right()).isBlack() && (w.left()).isBlack())
-            ) {
+        if ((w.left() == null && w.right() == null)
+            || (w.left() == null && w.right() != null && (w.right()).isBlack())
+            || (w.right() == null && w.left() != null && (w.left()).isBlack())
+            || (w.right() != null
+                && w.left() != null
+                && (w.right()).isBlack()
+                && (w.left()).isBlack())) {
           w.setRed();
           x = x.parent();
         } else {
@@ -319,9 +311,9 @@ public class RedBlackTree {
           }
           (x.parent()).setBlack();
           if (w.left != null) // Otherwise its already black
-            {
-              (w.left()).setBlack();
-            }
+          {
+            (w.left()).setBlack();
+          }
           rightRotate(x.parent());
           x = this.root;
         }
@@ -330,29 +322,27 @@ public class RedBlackTree {
     x.setBlack();
   } // End deleteFixup
 
-    /**
-     * Prints the keys of current tree in inorder (ascending).
-     * Runs in Theta(n) time.
-     *
-     * @param    x    The node from which to start.
-     */
+  /**
+   * Prints the keys of current tree in inorder (ascending). Runs in Theta(n) time.
+   *
+   * @param x The node from which to start.
+   */
   public void inorderTreeWalk(RedBlackTreeNode x, String space) {
     if (!(x == null)) {
       System.out.println(space + x.key());
       inorderTreeWalk(x.left(), space + "    ");
       inorderTreeWalk(x.right(), space + "    ");
     }
-
   }
 
   /**
-   * Searches a node with key k starting from the node x which is usually the root.
-   * If the node is not found returns <code>null</code> otherwise returns the pointer
-   * to the current node.Runs in O(h) time where h is the height of the tree. Works recursively.
+   * Searches a node with key k starting from the node x which is usually the root. If the node is
+   * not found returns <code>null</code> otherwise returns the pointer to the current node.Runs in
+   * O(h) time where h is the height of the tree. Works recursively.
    *
    * @return The node with key k or <code>null</code>.
-   * @param    x    The node from which to start, usually the root.
-   * @param    k    The key of the wanted node.
+   * @param x The node from which to start, usually the root.
+   * @param k The key of the wanted node.
    */
   public RedBlackTreeNode treeSearch(RedBlackTreeNode x, int k) {
     if (x == null || k == x.key()) {
@@ -366,13 +356,13 @@ public class RedBlackTree {
   }
 
   /**
-   * Searches a node with key k starting from the node x which is usually the root.
-   * If the node is not found returns <code>null</code> otherwise returns the pointer
-   * to the current node. Runs in O(h) time where h is the height of the tree. Works iteratively.
+   * Searches a node with key k starting from the node x which is usually the root. If the node is
+   * not found returns <code>null</code> otherwise returns the pointer to the current node. Runs in
+   * O(h) time where h is the height of the tree. Works iteratively.
    *
    * @return The node with key k or <code>null</code>.
-   * @param    x    The node from which to start, usually the root.
-   * @param    k    The key of the wanted node.
+   * @param x The node from which to start, usually the root.
+   * @param k The key of the wanted node.
    */
   public RedBlackTreeNode iterativeTreeSearch(RedBlackTreeNode x, int k) {
     while (!(x == null) && k != x.key()) {
@@ -386,12 +376,12 @@ public class RedBlackTree {
   }
 
   /**
-   * Searches a node with smallest key starting from the node x which is usually the root.
-   * Runs in O(h) time where h is the height of the tree.
+   * Searches a node with smallest key starting from the node x which is usually the root. Runs in
+   * O(h) time where h is the height of the tree.
    *
    * @return The node with the smallest key.
    * @throws NullPointerException If the parameter x is null.
-   * @param    x    The node from which to start, usually the root.
+   * @param x The node from which to start, usually the root.
    */
   public RedBlackTreeNode treeMinimum(RedBlackTreeNode x) throws NullPointerException {
     while (x.left() != null) {
@@ -401,12 +391,12 @@ public class RedBlackTree {
   }
 
   /**
-   * Searches a node with biggest key starting from the node x which is usually the root.
-   * Runs in O(h) time where h is the height of the tree.
+   * Searches a node with biggest key starting from the node x which is usually the root. Runs in
+   * O(h) time where h is the height of the tree.
    *
    * @return The node with the biggest key.
    * @throws NullPointerException If the parameter x is null.
-   * @param    x    The node from which to start, usually the root.
+   * @param x The node from which to start, usually the root.
    */
   public RedBlackTreeNode treeMaximum(RedBlackTreeNode x) throws NullPointerException {
     while (x.right() != null) {
@@ -416,12 +406,11 @@ public class RedBlackTree {
   }
 
   /**
-   * Searches the successor node of the key x.
-   * Runs in O(h) time where h is the height of the tree.
+   * Searches the successor node of the key x. Runs in O(h) time where h is the height of the tree.
    *
    * @return The successor node.
    * @throws NullPointerException If the parameter x is null.
-   * @param    x    The node from which successor is wanted.
+   * @param x The node from which successor is wanted.
    */
   public RedBlackTreeNode treeSuccessor(RedBlackTreeNode x) throws NullPointerException {
     if (x.right() != null) {
@@ -436,35 +425,30 @@ public class RedBlackTree {
   }
 
   /**
-   * Searches the predessor node of the key x.
-   * Runs in O(h) time where h is the height of the tree.
+   * Searches the predessor node of the key x. Runs in O(h) time where h is the height of the tree.
    *
    * @return The predessor node.
    * @throws NullPointerException If the parameter x is null.
-   * @param    x    The node from which predessor is wanted.
+   * @param x The node from which predessor is wanted.
    */
   public RedBlackTreeNode treePredessor(RedBlackTreeNode x) throws NullPointerException {
     if (x.left() != null) {
       return treeMaximum(x.left());
     }
     RedBlackTreeNode y = x.parent();
-		while (y != null && x.equals(y.left()))
-      {
-        x = y;
-        y = y.parent();
-      }
-		return y;
-	}
+    while (y != null && x.equals(y.left())) {
+      x = y;
+      y = y.parent();
+    }
+    return y;
+  }
 
-	/**
-	 * Returns the root of the tree.
-	 *
-	 * @return	The root of the tree.
-	 */
-	public RedBlackTreeNode root()
-	{
-		return this.root;
-	}
-
-
+  /**
+   * Returns the root of the tree.
+   *
+   * @return The root of the tree.
+   */
+  public RedBlackTreeNode root() {
+    return this.root;
+  }
 } // End class RedBlackTree

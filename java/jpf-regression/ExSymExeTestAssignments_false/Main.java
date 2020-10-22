@@ -38,7 +38,6 @@ public class Main {
     if (x > 0) {
       assert false;
       System.out.println("branch BOO1");
-    } else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch BOO2");
   }
 }

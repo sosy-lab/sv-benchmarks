@@ -11,8 +11,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 class Main {
   public static void main(String[] args) {
     int size = Verifier.nondetInt();
-    if (size < 0)
-      return;
+    if (size < 0) return;
     int int_array[] = new int[size];
 
     assert int_array.length == size;

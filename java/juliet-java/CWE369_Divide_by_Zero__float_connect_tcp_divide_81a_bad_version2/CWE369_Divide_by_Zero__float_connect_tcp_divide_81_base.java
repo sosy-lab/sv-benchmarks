@@ -22,11 +22,10 @@ Template File: sources-sinks-81_base.tmpl.java
 
 import testcasesupport.*;
 
-public abstract class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base
-{
-  public abstract void action(float data ) throws Throwable;
+public abstract class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base {
+  public abstract void action(float data) throws Throwable;
 
-  public float processData(float data){
+  public float processData(float data) {
     return data - 120.0f;
   }
 }

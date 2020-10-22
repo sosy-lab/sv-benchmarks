@@ -31,8 +31,7 @@ public class Main {
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
     int y = Verifier.nondetInt();
-    if (x == y)
-      return;
+    if (x == y) return;
     new Main().unboxed(x, y);
     new Main().boxed(1, 2);
     new Main().customBoxed(1, 2);
@@ -61,7 +60,9 @@ public class Main {
 class MyInteger {
   int value;
 
-  public MyInteger(int value) { this.value = value; }
+  public MyInteger(int value) {
+    this.value = value;
+  }
 
   @Override
   public boolean equals(Object obj) {
@@ -71,7 +72,7 @@ class MyInteger {
     if (!(obj instanceof MyInteger)) {
       return false;
     }
-    MyInteger other = (MyInteger)obj;
+    MyInteger other = (MyInteger) obj;
     return this.value == other.value;
   }
 }

@@ -8,9 +8,14 @@
  */
 class A extends RuntimeException {
   int i;
-  A() { i = 1; }
+
+  A() {
+    i = 1;
+  }
 }
+
 class B extends A {}
+
 class C extends B {}
 
 public class Main {

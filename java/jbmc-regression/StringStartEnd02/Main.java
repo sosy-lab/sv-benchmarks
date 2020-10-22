@@ -18,8 +18,7 @@ public class Main {
 
     int i = 0;
     for (String string : strings) {
-      if (string.startsWith("te"))
-        ++i;
+      if (string.startsWith("te")) ++i;
     }
     assert i == 1;
   }

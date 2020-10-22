@@ -7,7 +7,11 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 public class Main {
-  public static void main(String[] args) { assert f(String.class, true); }
+  public static void main(String[] args) {
+    assert f(String.class, true);
+  }
 
-  public static boolean f(Class c, boolean b) { return b; }
+  public static boolean f(Class c, boolean b) {
+    return b;
+  }
 }

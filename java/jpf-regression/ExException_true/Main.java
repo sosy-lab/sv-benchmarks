@@ -27,16 +27,19 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-  int zero() { return 0; }
+  int zero() {
+    return 0;
+  }
+
   static int test(int secret) {
     Main o = null;
     if (secret > 0) {
       o = new Main();
-    } else
-      assert false;
+    } else assert false;
     int i = o.zero();
     return i;
   }
+
   public static void main(String[] args) {
     System.out.println(0);
     test(Verifier.nondetBoolean() ? 1 : 2);

@@ -48,12 +48,9 @@ public class Main {
     int y = 3;
     z = -x;
     x = z * x;
-    if (z <= 0)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
-    if (y <= 0)
-      System.out.println("branch BOO1");
+    if (z <= 0) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
+    if (y <= 0) System.out.println("branch BOO1");
     else {
       System.out.println("branch BOO2");
       assert false;

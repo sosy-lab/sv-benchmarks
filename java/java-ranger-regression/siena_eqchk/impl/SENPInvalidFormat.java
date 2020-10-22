@@ -16,37 +16,39 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
 //  USA, or send email to serl@cs.colorado.edu.
 
-
 public class SENPInvalidFormat extends Exception {
-    int		expected_type;
-    String	expected_value;
-    int		line_number;
+  int expected_type;
+  String expected_value;
+  int line_number;
 
-    public SENPInvalidFormat() {
-    	super();
-    }
-    public SENPInvalidFormat(String v) {
-    	super("expecting: `" + v + "'");
-    	expected_value = v;
-    }
-    public SENPInvalidFormat(int t, String v) {
-    	this(v);
-    	expected_type = t;
-    }
-    public SENPInvalidFormat(int t) {
-    	this();
-    	expected_type = t;
-    }
-    
-    public int getExpectedType() {
-    	return expected_type;
-    }
+  public SENPInvalidFormat() {
+    super();
+  }
 
-    public String getExpectedValue() {
-    	return expected_value;
-    }
+  public SENPInvalidFormat(String v) {
+    super("expecting: `" + v + "'");
+    expected_value = v;
+  }
 
-    public int getLineNumber() {
-    	return expected_type;
-    }
+  public SENPInvalidFormat(int t, String v) {
+    this(v);
+    expected_type = t;
+  }
+
+  public SENPInvalidFormat(int t) {
+    this();
+    expected_type = t;
+  }
+
+  public int getExpectedType() {
+    return expected_type;
+  }
+
+  public String getExpectedValue() {
+    return expected_value;
+  }
+
+  public int getLineNumber() {
+    return expected_type;
+  }
 }

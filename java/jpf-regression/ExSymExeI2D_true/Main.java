@@ -37,9 +37,8 @@ public class Main {
   }
 
   public void test(int x) {
-    double res = (double)++x;
-    if (res > 0)
-      System.out.println("x >0");
+    double res = (double) ++x;
+    if (res > 0) System.out.println("x >0");
     else {
       assert false;
       System.out.println("x <=0");

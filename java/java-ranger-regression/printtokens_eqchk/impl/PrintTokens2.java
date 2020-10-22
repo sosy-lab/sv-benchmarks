@@ -19,8 +19,8 @@ public class PrintTokens2 {
     mainProcess('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
   }
 
-  public static void mainProcess(char i0, char i1, char i2,
-                   char i3, char i4, char i5, char i6, char i7) {
+  public static void mainProcess(
+      char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7) {
     char[] str = new char[8];
     str[0] = i0;
     str[1] = i1;
@@ -32,7 +32,7 @@ public class PrintTokens2 {
     str[7] = i7;
     TokenStream tp = openTokenStream(str);
     boolean continueIndex = false;
-    while(!continueIndex) {
+    while (!continueIndex) {
       char[] token = getToken(tp);
       printToken(token);
       continueIndex = isEndToken(tp);
@@ -43,8 +43,7 @@ public class PrintTokens2 {
     try {
       boolean eof = tp.EOFStream();
       return eof;
-    }
-    catch(IOException e) {
+    } catch (IOException e) {
       System.out.println("is_end_of_character_stream error!");
     }
     return false;
@@ -52,152 +51,133 @@ public class PrintTokens2 {
 
   private static void printToken(char[] token) {
     int type = tokenType(token);
-    if(type == specSymbol) {
+    if (type == specSymbol) {
       printSpecSymbol(token);
       output += specSymbol;
-    }
-    else if(type == error) {
+    } else if (type == error) {
       System.out.print("error, \"");
       System.out.print(token);
       System.out.print("\".\n");
       output += error;
-    }
-    else if(type == keyword) {
+    } else if (type == keyword) {
       System.out.print("keyword, \"");
       System.out.print(token);
       System.out.print("\".\n");
       output += keyword;
-    }
-
-    else if(type == identifier) {
+    } else if (type == identifier) {
       System.out.print("identifier, \"");
       System.out.print(token);
       System.out.print("\".\n");
       output += identifier;
-    }
-    else if(type == numConstant) {
+    } else if (type == numConstant) {
       System.out.print("numeric,");
       System.out.print(token);
       System.out.print(".\n");
       output += numConstant;
-    }
-    else if(type == strConstant) {
+    } else if (type == strConstant) {
       System.out.print("string,");
       System.out.print(token);
       System.out.print(".\n");
       output += strConstant;
-    }
-    else if(type == charConstant) {
+    } else if (type == charConstant) {
       System.out.print("character, \"");
       System.out.print(token);
       System.out.print("\".\n");
       output += charConstant;
-    }
-    else if(type == end) {
+    } else if (type == end) {
       System.out.print("eof.\n");
       output += end;
     }
   }
 
   private static void printSpecSymbol(char[] token) {
-    if(token[0] == '(') {
+    if (token[0] == '(') {
       System.out.println("lparen.");
-    }
-    else if(token[0] == ')') {
+    } else if (token[0] == ')') {
       System.out.println("rparen.");
-    }
-    else if(token[0] == '[') {
+    } else if (token[0] == '[') {
       System.out.println("lsquare.");
-    }
-    else if(token[0] == ']') {
+    } else if (token[0] == ']') {
       System.out.println("rsquare.");
-    }
-    else if(token[0] == '\'') {
+    } else if (token[0] == '\'') {
       System.out.println("quote.");
-    }
-    else if(token[0] == '`') {
+    } else if (token[0] == '`') {
       System.out.println("bquote.");
-    }
-    else{
+    } else {
       System.out.println("comma.");
     }
   }
 
   private static int tokenType(char[] token) {
     boolean _specSymbol = isSpecSymbol(token);
-    if(_specSymbol) {
+    if (_specSymbol) {
       return specSymbol;
     }
     boolean _keyword = isKeyword(token);
-    if(_keyword) {
+    if (_keyword) {
       return keyword;
     }
     boolean _identifier = isIdentifier(token);
-    if(_identifier) {
+    if (_identifier) {
       return identifier;
     }
     boolean _numConstant = isNumConstant(token);
-    if(_numConstant) {
+    if (_numConstant) {
       return numConstant;
     }
     boolean _strConstant = isStrConstant(token);
-    if(_strConstant) {
+    if (_strConstant) {
       return strConstant;
     }
     boolean _charConstant = isCharConstant(token);
-    if(_charConstant) {
+    if (_charConstant) {
       return charConstant;
     }
     boolean _comment = isComment(token);
-    if(_comment) {
+    if (_comment) {
       return comment;
     }
     boolean _eof_token = isEOFToken(token);
-    if(_eof_token) {
+    if (_eof_token) {
       return end;
     }
     return error;
   }
 
   private static boolean isComment(char[] token) {
-    if(token[0] == 59) {
+    if (token[0] == 59) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
 
   private static boolean isCharConstant(char[] token) {
-    if(token[0] == '#') {
+    if (token[0] == '#') {
       char ch = token[1];
       boolean _isalpha = isalpha(ch);
-      if(_isalpha) {
+      if (_isalpha) {
         return true;
-      }
-      else{
+      } else {
         return false;
       }
-    }
-    else{
+    } else {
       return false;
     }
   }
 
   private static boolean isStrConstant(char[] token) {
     int i = 1;
-    if(token[0] == '"') {
-      while(token[i] != '\0') {
-        if(token[i] == '"') {
+    if (token[0] == '"') {
+      while (token[i] != '\0') {
+        if (token[i] == '"') {
           return true;
-        }
-        else {
+        } else {
           i = i + 1;
         }
       }
       return false;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -206,67 +186,59 @@ public class PrintTokens2 {
     int i = 1;
     char ch = token[0];
     boolean _isdigit = isdigit(ch);
-    if(_isdigit) {
-      while(token[i] != '\0') {
+    if (_isdigit) {
+      while (token[i] != '\0') {
         char _ch = token[i];
         _isdigit = isdigit(_ch);
-        if(_isdigit) {
+        if (_isdigit) {
           i = i + 1;
-        }
-        else {
+        } else {
           return false;
         }
       }
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
 
   private static boolean isKeyword(char[] token) {
-    if(token[0] == 'a') {
-      if(token[1] == 'n') {
-        if(token[2] == 'd') {
+    if (token[0] == 'a') {
+      if (token[1] == 'n') {
+        if (token[2] == 'd') {
           return true;
         }
       }
-    }
-    else if(token[0] == 'o') {
-      if(token[1] == 'r') {
+    } else if (token[0] == 'o') {
+      if (token[1] == 'r') {
         return true;
       }
-    }
-    else if(token[0] == 'i') {
-      if(token[1] == 'f') {
+    } else if (token[0] == 'i') {
+      if (token[1] == 'f') {
         return true;
       }
-    }
-    else if(token[0] == 'x') {
-      if(token[1] == 'o') {
-        if(token[2] == 'r') {
+    } else if (token[0] == 'x') {
+      if (token[1] == 'o') {
+        if (token[2] == 'r') {
           return true;
         }
       }
-    }
-    else if(token[0] == 'l') {
-      if(token[1] == 'a') {
-        if(token[2] == 'm') {
-          if(token[3] == 'b') {
-            if(token[4] == 'd') {
-              if(token[5] == 'a') {
+    } else if (token[0] == 'l') {
+      if (token[1] == 'a') {
+        if (token[2] == 'm') {
+          if (token[3] == 'b') {
+            if (token[4] == 'd') {
+              if (token[5] == 'a') {
                 return true;
               }
             }
           }
         }
       }
-    }
-    else if(token[0] == '=') {
-      if(token[1] == '>') {
+    } else if (token[0] == '=') {
+      if (token[1] == '>') {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     }
@@ -277,26 +249,23 @@ public class PrintTokens2 {
     int i = 1;
     char ch = token[0];
     boolean _isalpha = isalpha(ch);
-    if(_isalpha) {
-      while(token[i] != '\0') {
+    if (_isalpha) {
+      while (token[i] != '\0') {
         char _ch = token[i];
         _isalpha = isalpha(_ch);
-        if(_isalpha) {
+        if (_isalpha) {
           i = i + 1;
-        }
-        else {
+        } else {
           boolean _isdigit = isdigit(_ch);
-          if(_isdigit) {
+          if (_isdigit) {
             i = i + 1;
-          }
-          else {
+          } else {
             return false;
           }
         }
       }
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -305,52 +274,49 @@ public class PrintTokens2 {
     char[] ch1 = new char[2];
     ch1[0] = '\0';
     ch1[1] = '\0';
-    for(int j=0; j<=80;) {
+    for (int j = 0; j <= 80; ) {
       buffer[j] = '\0';
       j = j + 1;
     }
 
     char ch = getChar(tp);
     boolean continueIndex = false;
-    if(ch == ' ') {
+    if (ch == ' ') {
+      continueIndex = true;
+    } else if (ch == '\n') {
       continueIndex = true;
     }
-    else if(ch == '\n') {
-      continueIndex = true;
-    }
-    while(continueIndex) {
+    while (continueIndex) {
       ch = getChar(tp);
       continueIndex = false;
-      if(ch == ' ') {
+      if (ch == ' ') {
         continueIndex = true;
-      }
-      else if(ch == '\n') {
+      } else if (ch == '\n') {
         continueIndex = true;
       }
     }
     int i = 0;
     buffer[i] = ch;
     boolean _isEOFToken = isEOFToken(buffer);
-    if(_isEOFToken) {
+    if (_isEOFToken) {
       return buffer;
     }
     boolean _isSpecSymbol = isSpecSymbol(buffer);
-    if(_isSpecSymbol) {
+    if (_isSpecSymbol) {
       return buffer;
     }
     int id = 0;
-    if(ch == '"') {
+    if (ch == '"') {
       id = 1;
-    }
-    else if(ch == 59) {
+    } else if (ch == 59) {
       id = 2;
     }
 
     ch = getChar(tp);
     continueIndex = isTokenEnd(id, ch);
-    while(!continueIndex) {
+    while (!continueIndex) {
       i = i + 1;
-      if(i <= 80){
+      if (i <= 80) {
         buffer[i] = ch;
       }
       ch = getChar(tp);
@@ -360,68 +326,61 @@ public class PrintTokens2 {
     ch1[0] = ch;
 
     _isEOFToken = isEOFToken(ch1);
-    if(_isEOFToken) {
+    if (_isEOFToken) {
       ch = ungetChar(ch, tp);
       return buffer;
-    }
-    else {
+    } else {
 
       _isSpecSymbol = isSpecSymbol(ch1);
-      if(_isSpecSymbol) {
+      if (_isSpecSymbol) {
         ch = ungetChar(ch, tp);
         return buffer;
       }
     }
 
-    if(id == 1) {
+    if (id == 1) {
       i = i + 1;
-      if(i <= 80) {
+      if (i <= 80) {
         buffer[i] = ch;
       }
       return buffer;
-    }
-
-    else if(id == 0) {
-      if(ch == 59) {
+    } else if (id == 0) {
+      if (ch == 59) {
         ch = ungetChar(ch, tp);
         return buffer;
       }
     }
 
     return buffer;
-
   }
+
   private static boolean isdigit(char ch) {
-    if(ch >= '0') {
-      if(ch <= '9') {
+    if (ch >= '0') {
+      if (ch <= '9') {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     }
     return false;
   }
+
   private static boolean isalpha(char ch) {
-    if(ch >= 'A') {
-      if(ch <= 'Z') {
+    if (ch >= 'A') {
+      if (ch <= 'Z') {
         return true;
-      }
-      else {
-        if(ch >= 'a') {
-          if(ch <= 'z') {
+      } else {
+        if (ch >= 'a') {
+          if (ch <= 'z') {
             return true;
-          }
-          else {
+          } else {
             return false;
           }
-        }
-        else {
+        } else {
           return false;
         }
       }
-    }
-    else{
+    } else {
       return false;
     }
   }
@@ -429,8 +388,7 @@ public class PrintTokens2 {
   private static char ungetChar(char ch, TokenStream tp) {
     try {
       tp.unreader(ch);
-    }
-    catch(IOException e) {
+    } catch (IOException e) {
       System.out.println("ungetChar error!");
     }
     return ch;
@@ -445,82 +403,64 @@ public class PrintTokens2 {
     ch1[1] = '\0';
 
     boolean _isEOFToken = isEOFToken(ch1);
-    if(_isEOFToken) {
+    if (_isEOFToken) {
       return true;
     }
 
-    if(id == 1) {
-      if(ch == '"') {
+    if (id == 1) {
+      if (ch == '"') {
         return true;
-      }
-      else if(ch == '\n') {
+      } else if (ch == '\n') {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
-    }
-
-    else if(id == 2) {
-      if(ch == '\n') {
+    } else if (id == 2) {
+      if (ch == '\n') {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     }
 
     boolean _isSpecSymbol = isSpecSymbol(ch1);
-    if(_isSpecSymbol) {
+    if (_isSpecSymbol) {
       return true;
-    }
-    else if(ch == ' ') {
+    } else if (ch == ' ') {
       return true;
-    }
-    else if(ch == '\n') {
+    } else if (ch == '\n') {
       return true;
-    }
-    else if(ch == 59) {
+    } else if (ch == 59) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
-
   }
 
   private static boolean isSpecSymbol(char[] token) {
-    if(token[0] == '(') {
+    if (token[0] == '(') {
       return true;
-    }
-    else if(token[0] == ')') {
+    } else if (token[0] == ')') {
       return true;
-    }
-    else if(token[0] == '[') {
+    } else if (token[0] == '[') {
       return true;
-    }
-    else if(token[0] == ']') {
+    } else if (token[0] == ']') {
       return true;
-    }
-    else if(token[0] == '\'') {
+    } else if (token[0] == '\'') {
       return true;
-    }
-    else if(token[0] == '`') {
+    } else if (token[0] == '`') {
       return true;
-    }
-    else if(token[0] == ',') {
+    } else if (token[0] == ',') {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
 
   private static boolean isEOFToken(char[] token) {
-    if(token[0] == '\0') {
+    if (token[0] == '\0') {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -529,8 +469,7 @@ public class PrintTokens2 {
     try {
       char ch = tp.read();
       return ch;
-    }
-    catch(IOException e) {
+    } catch (IOException e) {
       System.out.println("getChar error");
     }
     return '\0';

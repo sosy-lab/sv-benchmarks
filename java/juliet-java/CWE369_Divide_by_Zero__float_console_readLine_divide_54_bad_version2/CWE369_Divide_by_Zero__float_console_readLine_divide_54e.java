@@ -22,50 +22,40 @@ Template File: sources-sinks-54e.tmpl.java
 
 import testcasesupport.*;
 
-public class CWE369_Divide_by_Zero__float_console_readLine_divide_54e
-{
-  public void badSink(float data ) throws Throwable
-  {
+public class CWE369_Divide_by_Zero__float_console_readLine_divide_54e {
+  public void badSink(float data) throws Throwable {
 
     /* POTENTIAL FLAW: Possibly divide by zero */
-    int result = (int)(100.0 / data);
-    if(1 < data || data <= 0){
+    int result = (int) (100.0 / data);
+    if (1 < data || data <= 0) {
       assert result < 100;
     }
     IO.writeLine(result);
-
   }
 
   /* goodG2B() - use goodsource and badsink */
-  public void goodG2BSink(float data ) throws Throwable
-  {
+  public void goodG2BSink(float data) throws Throwable {
 
     /* POTENTIAL FLAW: Possibly divide by zero */
-    int result = (int)(100.0 / data);
-    if(1 < data || data <= 0){
+    int result = (int) (100.0 / data);
+    if (1 < data || data <= 0) {
       assert result < 100;
     }
     IO.writeLine(result);
-
   }
 
   /* goodB2G() - use badsource and goodsink */
-  public void goodB2GSink(float data ) throws Throwable
-  {
+  public void goodB2GSink(float data) throws Throwable {
 
     /* FIX: Check for value of or near zero before divide */
-    if (Math.abs(data) > 0.000001)
-    {
-      int result = (int)(100.0 / data);
-      if(1 < data || data <= 0){
+    if (Math.abs(data) > 0.000001) {
+      int result = (int) (100.0 / data);
+      if (1 < data || data <= 0) {
         assert result < 100;
       }
       IO.writeLine(result);
-    }
-    else
-    {
+    } else {
       IO.writeLine("This would result in a divide by zero");
     }
-
   }
 }

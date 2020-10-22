@@ -30,8 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    if (x < 0)
-      return;
+    if (x < 0) return;
     int y = 5;
     Main inst = new Main();
     assert inst.test(x, y) == 2;
@@ -45,14 +44,10 @@ public class Main {
       int diff = a - b;
       int temp;
 
-      if (sum > 0)
-        temp = a;
-      else
-        temp = b;
-      if (temp < diff)
-        result = temp;
-      else
-        result = diff;
+      if (sum > 0) temp = a;
+      else temp = b;
+      if (temp < diff) result = temp;
+      else result = diff;
     }
     return result;
   }

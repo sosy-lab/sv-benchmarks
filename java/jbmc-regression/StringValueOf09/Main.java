@@ -12,8 +12,7 @@ public class Main {
   public static void main(String[] args) {
     String arg = Verifier.nondetString();
 
-    double doubleValue =
-        Double.parseDouble(arg); // no suffix, double is default
+    double doubleValue = Double.parseDouble(arg); // no suffix, double is default
     String tmp = String.valueOf(doubleValue);
     assert tmp.equals("33.3333");
   }

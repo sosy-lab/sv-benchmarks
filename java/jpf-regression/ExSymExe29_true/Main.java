@@ -39,12 +39,9 @@ public class Main {
    */
   public void test(int x, int z, int r) {
     System.out.println("Testing ExSymExe29");
-    if (z != x)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
-    if (x != r)
-      System.out.println("branch BOO1");
+    if (z != x) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
+    if (x != r) System.out.println("branch BOO1");
     else {
       assert false;
       System.out.println("branch BOO2");

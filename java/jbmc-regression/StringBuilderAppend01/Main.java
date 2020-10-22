@@ -10,8 +10,10 @@ public class Main {
   public static void main(String[] args) {
     Object objectRef = "diffblue";
     String string = "test";
-    char[] charArray = {'v', 'e', 'r', 'i', 'f', 'i',
-                        'c', 'a', 't', 'i', 'o', 'n'};
+    char[] charArray = {
+      'v', 'e', 'r', 'i', 'f', 'i',
+      'c', 'a', 't', 'i', 'o', 'n'
+    };
     boolean booleanValue = true;
     char characterValue = 'Z';
     int integerValue = 7;
@@ -22,7 +24,8 @@ public class Main {
     StringBuilder lastBuffer = new StringBuilder("last buffer");
     StringBuilder buffer = new StringBuilder();
 
-    buffer.append(objectRef)
+    buffer
+        .append(objectRef)
         .append("%n")
         .append(string)
         .append("%n")

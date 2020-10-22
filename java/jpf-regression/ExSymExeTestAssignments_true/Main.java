@@ -31,15 +31,13 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    if (x < 0)
-      return;
+    if (x < 0) return;
     test(x);
   }
 
   public static void test(int x) {
     x = 3;
-    if (x > 0)
-      System.out.println("branch BOO1");
+    if (x > 0) System.out.println("branch BOO1");
     else {
       assert false;
       System.out.println("branch BOO2");

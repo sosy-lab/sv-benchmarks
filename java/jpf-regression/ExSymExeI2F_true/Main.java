@@ -36,9 +36,8 @@ public class Main {
   }
 
   public void test(int x) {
-    float res = (float)++x;
-    if (res > 0)
-      System.out.println("x >0");
+    float res = (float) ++x;
+    if (res > 0) System.out.println("x >0");
     else {
       assert false;
       System.out.println("x <=0");

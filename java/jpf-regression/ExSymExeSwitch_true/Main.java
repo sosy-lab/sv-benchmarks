@@ -30,8 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    if (x > 0)
-      return;
+    if (x > 0) return;
     test(x);
   }
   /* we want to let the user specify that this method should be symbolic */
@@ -46,16 +45,16 @@ public class Main {
     //	  }
 
     switch (x) {
-    case 2:
-      System.out.println("branch Foo2");
-      assert false;
-      break;
-    case 3000:
-      System.out.println("branch Foo3000");
-      break;
-    default:
-      System.out.println("default2");
-      break;
+      case 2:
+        System.out.println("branch Foo2");
+        assert false;
+        break;
+      case 3000:
+        System.out.println("branch Foo3000");
+        break;
+      default:
+        System.out.println("default2");
+        break;
     }
   }
 }

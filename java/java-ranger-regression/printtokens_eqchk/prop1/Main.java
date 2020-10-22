@@ -25,12 +25,11 @@ public class Main {
     if (isequal(outSPF, outJR)) System.out.println("Match");
     else {
       System.out.println("Mismatch");
-      assert(false);
+      assert (false);
     }
   }
 
   private static boolean isequal(int outSPF, int outJR) {
     return outJR == outSPF;
   }
-
 }

@@ -52,12 +52,9 @@ public class Main {
     if (z > x) {
       System.out.println("branch FOO1");
       assert false;
-    } else
-      System.out.println("branch FOO2");
-    if (x > r)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch FOO2");
+    if (x > r) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

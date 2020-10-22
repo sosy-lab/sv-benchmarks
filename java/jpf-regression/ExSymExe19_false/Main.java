@@ -49,16 +49,13 @@ public class Main {
     x = z + r;
     z = y * x;
     r = -z;
-    if (x > 99)
-      System.out.println("branch FOO1");
+    if (x > 99) System.out.println("branch FOO1");
     else {
       assert false;
       System.out.println("branch FOO2");
     }
-    if (r > z)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    if (r > z) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

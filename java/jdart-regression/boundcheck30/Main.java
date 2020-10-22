@@ -1,7 +1,7 @@
 /*
  * Contributed to SV-COMP by Falk Howar
  * License: MIT (see /java/jdart-regression/LICENSE-MIT)
- *    
+ *
  */
 
 import org.sosy_lab.sv_benchmarks.Verifier;
@@ -9,13 +9,13 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
 
   private static void recursion(int i) {
-    if (i==0) {
+    if (i == 0) {
       return;
     }
-    if (i>0) {
-      recursion(i-1);
+    if (i > 0) {
+      recursion(i - 1);
     }
-    if (i<0) {
+    if (i < 0) {
       assert false;
     }
   }

@@ -44,6 +44,7 @@ public class Main {
     int elem;
     Node next;
     static Node static_next;
+
     Node swapNode() {
       static_next = new Node();
       static_next.next = new Node();
@@ -60,8 +61,7 @@ public class Main {
           return t;
         }
 
-      if (elem == 0)
-        assert false;
+      if (elem == 0) assert false;
 
       return this;
     }

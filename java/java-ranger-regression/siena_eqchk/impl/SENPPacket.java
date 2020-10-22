@@ -3,7 +3,7 @@
 //  See http://www.cs.colorado.edu/serl/dot/siena.html
 //
 //  Author: Antonio Carzaniga <carzanig@cs.colorado.edu>
-//  See the file AUTHORS for full details. 
+//  See the file AUTHORS for full details.
 //
 //  Copyright (C) 1998-2000 University of Colorado
 //
@@ -26,80 +26,73 @@
 // $Id: SENPPacket.java,v 1.1 2000/03/29 23:35:04 carzanig Exp $
 //
 
-import java.util.TreeMap;
-import java.util.Iterator;
-
 public class SENPPacket {
-	private byte version;
-	private byte method;
-	private byte ttl;
-	private byte[] to;
-	private byte[] id;
-	private byte[] handler;
+  private byte version;
+  private byte method;
+  private byte ttl;
+  private byte[] to;
+  private byte[] id;
+  private byte[] handler;
 
-	
-	
-	public Event event = null;
-	public Filter filter = null;
+  public Event event = null;
+  public Filter filter = null;
 
-	public byte getMethod() {
-		return method;
-	}
+  public byte getMethod() {
+    return method;
+  }
 
-	public byte getVersion() {
-		return version;
-	}
+  public byte getVersion() {
+    return version;
+  }
 
-	public byte getTtl() {
-		return ttl;
-	}
+  public byte getTtl() {
+    return ttl;
+  }
 
-	public byte[] getTo() {
-		return to;
-	}
+  public byte[] getTo() {
+    return to;
+  }
 
-	public byte[] getId() {
-		return id;
-	}
+  public byte[] getId() {
+    return id;
+  }
 
-	public byte[] getHandler() {
-		return handler;
-	}
-	
-	public SENPPacket() {
-		version = SENP.ProtocolVersion;
-		method = SENP.NOP;
-		ttl = SENP.DefaultTtl;
-	}
-	
-	public void initTo(byte to1, byte to2, byte to3) {
-		this.to = new byte[3];
+  public byte[] getHandler() {
+    return handler;
+  }
 
-		to[0] = to1;
-		to[1] = to2;
-		to[2] = to3;
-		
-	}
-	
-	public void initId(byte id1, byte id2, byte id3) {
-		this.id = new byte[3];
+  public SENPPacket() {
+    version = SENP.ProtocolVersion;
+    method = SENP.NOP;
+    ttl = SENP.DefaultTtl;
+  }
 
-		id[0] = id1;
-		id[1] = id2;
-		id[2] = id3;
-	}
-	
+  public void initTo(byte to1, byte to2, byte to3) {
+    this.to = new byte[3];
 
-	public void initHandler(byte handler1, byte handler2, byte handler3) {
-		this.handler = new byte[3];
+    to[0] = to1;
+    to[1] = to2;
+    to[2] = to3;
+  }
 
-		handler[0] = handler1;
-		handler[1] = handler2;
-		handler[2] = handler3;
-		
-	}
+  public void initId(byte id1, byte id2, byte id3) {
+    this.id = new byte[3];
 
-	public String toString() {
-		return new String(SENP.encodePacket(this).bytes());
-	}
-};
+    id[0] = id1;
+    id[1] = id2;
+    id[2] = id3;
+  }
+
+  public void initHandler(byte handler1, byte handler2, byte handler3) {
+    this.handler = new byte[3];
+
+    handler[0] = handler1;
+    handler[1] = handler2;
+    handler[2] = handler3;
+  }
+
+  public String toString() {
+    return new String(SENP.encodePacket(this).bytes());
+  }
+}
+;

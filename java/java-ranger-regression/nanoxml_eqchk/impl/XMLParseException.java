@@ -26,61 +26,43 @@
  *  3. This notice may not be removed or altered from any source distribution.
  */
 
-
-
-
-
 /**
- * An XMLParseException is thrown when the XML passed to the XML parser is not
- * well-formed.
+ * An XMLParseException is thrown when the XML passed to the XML parser is not well-formed.
  *
  * @author Marc De Scheemaecker
  * @version $Name: PRERELEASE_2_0_20010329 $, $Revision: 1.1.1.1 $
  */
-public class XMLParseException
-    extends RuntimeException
-{
+public class XMLParseException extends RuntimeException {
 
-    /**
-     * The line number in the XML data where the exception occurred.
-     */
-    private int lineNr;
-    
-    
-    /**
-     * Creates a new exception.
-     *
-     * @param msg the message of the exception.
-     */
-    public XMLParseException(String msg)
-    {
-        super(msg);
-        this.lineNr = -1;
-    }
-    
-    
-    /**
-     * Creates a new exception.
-     *
-     * @param lineNr the line number in the XML data where the exception 
-     *               occurred.
-     * @param msg the message of the exception.
-     */
-    public XMLParseException(int    lineNr,
-                             String msg)
-    {
-        super("XML Not Well-Formed at Line " + lineNr + ": " + msg);
-        this.lineNr = lineNr;
-    }
-    
-    
-    /**
-     * Returns the line number in the XML data where the exception occurred.
-     * If there is no line number known, -1 is returned.
-     */
-    public int getLineNr()
-    {
-        return this.lineNr;
-    }
-    
+  /** The line number in the XML data where the exception occurred. */
+  private int lineNr;
+
+  /**
+   * Creates a new exception.
+   *
+   * @param msg the message of the exception.
+   */
+  public XMLParseException(String msg) {
+    super(msg);
+    this.lineNr = -1;
+  }
+
+  /**
+   * Creates a new exception.
+   *
+   * @param lineNr the line number in the XML data where the exception occurred.
+   * @param msg the message of the exception.
+   */
+  public XMLParseException(int lineNr, String msg) {
+    super("XML Not Well-Formed at Line " + lineNr + ": " + msg);
+    this.lineNr = lineNr;
+  }
+
+  /**
+   * Returns the line number in the XML data where the exception occurred. If there is no line
+   * number known, -1 is returned.
+   */
+  public int getLineNr() {
+    return this.lineNr;
+  }
 }

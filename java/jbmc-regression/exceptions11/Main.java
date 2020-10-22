@@ -8,9 +8,11 @@
  */
 class A extends RuntimeException {
   int i = 1;
-};
+}
+;
 
-class B extends A {};
+class B extends A {}
+;
 
 public class Main {
   static int foo(int k) {

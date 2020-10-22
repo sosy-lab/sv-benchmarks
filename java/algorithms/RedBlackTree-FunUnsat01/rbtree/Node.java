@@ -1,30 +1,27 @@
 /**
- * This code originally by Tuomo Saarni.  Obtained from:
+ * This code originally by Tuomo Saarni. Obtained from:
  *
- *     http://users.utu.fi/~tuiisa/Java/index.html
+ * <p>http://users.utu.fi/~tuiisa/Java/index.html
  *
- * under the following license:
+ * <p>under the following license:
  *
- *     Here's some java sources I've made. Most codes are free to
- *     download. If you use some of my sources just remember give me
- *     the credits.
+ * <p>Here's some java sources I've made. Most codes are free to download. If you use some of my
+ * sources just remember give me the credits.
  */
 
-//package edu.berkeley.cs.wise.benchmarks.rbtree;
+// package edu.berkeley.cs.wise.benchmarks.rbtree;
 
 package rbtree;
 
 /**
- * A <code>Node</code> object is a node of search tree
- * including key data and satellite object.
- * <p/>
- * It can be used with binary search tree as well as with
- * red black tree or with any other search tree.
+ * A <code>Node</code> object is a node of search tree including key data and satellite object.
+ *
+ * <p>It can be used with binary search tree as well as with red black tree or with any other search
+ * tree.
  *
  * @author Tuomo Saarni
  * @version 1.2, 08/16/01
  */
-
 public class Node {
   /**
    * The key of the node.
@@ -40,7 +37,7 @@ public class Node {
    * @see #object()
    * @see #objectTo
    */
-  protected Object data;                // Refers to the satellite data
+  protected Object data; // Refers to the satellite data
 
   /**
    * Constructs a new node. The satellite data is set to <code>null>/code>.
@@ -56,7 +53,7 @@ public class Node {
    * Constructs a new node.
    *
    * @param _key The key of the node.
-   * @param dat  The satellite data of the node, type <code>Object</code>.
+   * @param dat The satellite data of the node, type <code>Object</code>.
    */
   public Node(int _key, Object dat) {
     this(_key);
@@ -104,9 +101,7 @@ public class Node {
    *
    * @param o The new data of the node.
    */
-	public void objectTo(Object o)
-	{
-		this.data = o;
-	}
-
+  public void objectTo(Object o) {
+    this.data = o;
+  }
 } // End class Node

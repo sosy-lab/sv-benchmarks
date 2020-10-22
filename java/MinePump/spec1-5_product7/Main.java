@@ -1,14 +1,16 @@
-import MinePumpSystem.Environment;
-import MinePumpSystem.MinePump;
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
   private static int cleanupTimeShifts = 2;
 
-  public static void main(String[] args) { randomSequenceOfActions(3); }
+  public static void main(String[] args) {
+    randomSequenceOfActions(3);
+  }
 
-  public static boolean getBoolean() { return Verifier.nondetBoolean(); }
+  public static boolean getBoolean() {
+    return Verifier.nondetBoolean();
+  }
 
   public static void randomSequenceOfActions(int maxLength) {
     Actions a = new Actions();
@@ -21,8 +23,7 @@ public class Main {
       boolean action2 = getBoolean();
       boolean action3 = getBoolean();
       boolean action4 = false;
-      if (!action3)
-        action4 = getBoolean();
+      if (!action3) action4 = getBoolean();
 
       if (action1) {
         a.waterRise();

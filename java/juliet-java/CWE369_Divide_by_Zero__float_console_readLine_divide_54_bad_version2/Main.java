@@ -22,16 +22,12 @@ It is renamed to Main.java according to SV-Comp rules.
  *
  * */
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import testcasesupport.*;
 
-import java.io.InputStreamReader;
-import java.io.IOException;
-
-
-public class Main
-{
-  public void bad() throws Throwable
-  {
+public class Main {
+  public void bad() throws Throwable {
     float data;
 
     data = -1.0f; /* Initialize data */
@@ -40,8 +36,7 @@ public class Main
     BufferedReader readerBuffered = null;
 
     /* read user input from console with readLine */
-    try
-    {
+    try {
       readerInputStream = new InputStreamReader(System.in, "UTF-8");
       readerBuffered = new BufferedReader(readerInputStream);
 
@@ -50,71 +45,53 @@ public class Main
 
       if (stringNumber != null) // avoid NPD incidental warnings
       {
-        try
-        {
+        try {
           data = Float.parseFloat(stringNumber.trim());
-        }
-        catch (NumberFormatException exceptNumberFormat)
-        {
+        } catch (NumberFormatException exceptNumberFormat) {
           IO.writeLine("Number format exception parsing data from string");
         }
       }
-    }
-    catch (IOException exceptIO)
-    {
+    } catch (IOException exceptIO) {
       IO.writeLine("Error with stream reading");
-    }
-    finally
-    {
+    } finally {
       /* Close stream reading objects */
-      try
-      {
-        if (readerBuffered != null)
-        {
+      try {
+        if (readerBuffered != null) {
           readerBuffered.close();
         }
-      }
-      catch (IOException exceptIO)
-      {
+      } catch (IOException exceptIO) {
         IO.writeLine("Error closing BufferedReader");
       }
 
-      try
-      {
-        if (readerInputStream != null)
-        {
+      try {
+        if (readerInputStream != null) {
           readerInputStream.close();
         }
-      }
-      catch (IOException exceptIO)
-      {
+      } catch (IOException exceptIO) {
         IO.writeLine("Error closing InputStreamReader");
       }
     }
 
-    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).badSink(data );
+    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).badSink(data);
   }
 
-  public void good() throws Throwable
-  {
+  public void good() throws Throwable {
     goodG2B();
     goodB2G();
   }
 
   /* goodG2B() - use goodsource and badsink */
-  private void goodG2B() throws Throwable
-  {
+  private void goodG2B() throws Throwable {
     float data;
 
     /* FIX: Use a hardcoded number that won't a divide by zero */
     data = 2.0f;
 
-    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).goodG2BSink(data );
+    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).goodG2BSink(data);
   }
 
   /* goodB2G() - use badsource and goodsink */
-  private void goodB2G() throws Throwable
-  {
+  private void goodB2G() throws Throwable {
     float data;
 
     data = -1.0f; /* Initialize data */
@@ -123,8 +100,7 @@ public class Main
     BufferedReader readerBuffered = null;
 
     /* read user input from console with readLine */
-    try
-    {
+    try {
       readerInputStream = new InputStreamReader(System.in, "UTF-8");
       readerBuffered = new BufferedReader(readerInputStream);
 
@@ -133,49 +109,34 @@ public class Main
 
       if (stringNumber != null) // avoid NPD incidental warnings
       {
-        try
-        {
+        try {
           data = Float.parseFloat(stringNumber.trim());
-        }
-        catch (NumberFormatException exceptNumberFormat)
-        {
+        } catch (NumberFormatException exceptNumberFormat) {
           IO.writeLine("Number format exception parsing data from string");
         }
       }
-    }
-    catch (IOException exceptIO)
-    {
+    } catch (IOException exceptIO) {
       IO.writeLine("Error with stream reading");
-    }
-    finally
-    {
+    } finally {
       /* Close stream reading objects */
-      try
-      {
-        if (readerBuffered != null)
-        {
+      try {
+        if (readerBuffered != null) {
           readerBuffered.close();
         }
-      }
-      catch (IOException exceptIO)
-      {
+      } catch (IOException exceptIO) {
         IO.writeLine("Error closing BufferedReader");
       }
 
-      try
-      {
-        if (readerInputStream != null)
-        {
+      try {
+        if (readerInputStream != null) {
           readerInputStream.close();
         }
-      }
-      catch (IOException exceptIO)
-      {
+      } catch (IOException exceptIO) {
         IO.writeLine("Error closing InputStreamReader");
       }
     }
 
-    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).goodB2GSink(data );
+    (new CWE369_Divide_by_Zero__float_console_readLine_divide_54b()).goodB2GSink(data);
   }
 
   /* Below is the main(). It is only used when building this testcase on
@@ -183,8 +144,7 @@ public class Main
    * analysis tools. It is not used when compiling all the testcases as one
    * application, which is how source code analysis tools are tested.
    */
-  public static void main(String[] args) throws Throwable
-  {
+  public static void main(String[] args) throws Throwable {
     Main m = new Main();
     m.bad();
   }
