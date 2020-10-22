@@ -34,7 +34,6 @@ except ImportError:
     logging.basicConfig(format=LOG_FORMAT, level='INFO')
 
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
-LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
 BENCHMARK_PATTERN = re.compile('^.*\.yml$')
 EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile|.gitignore)$',
@@ -262,12 +261,6 @@ class DirectoryChecks(Checks):
             if README_PATTERN.match(entry):
                 return
         self.error("missing readme")
-
-    def disabled_check_has_license(self):
-        for entry in self.content:
-            if LICENSE_PATTERN.match(entry):
-                return
-        self.error("missing license")
 
     def check_has_Makefile(self):
         if not 'Makefile' in self.content:
