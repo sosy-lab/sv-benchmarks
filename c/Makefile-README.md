@@ -1,3 +1,13 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2015-2016 Daniel Liew <dan@su-root.co.uk>
+SPDX-FileCopyrightText: 2015-2020 The SV-Benchmarks community
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # SV-COMP C Benchmark Makefile build system
 
 The C Benchmarks come with a Makefile build system designed to make it
