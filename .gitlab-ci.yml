@@ -171,5 +171,3 @@ reuse:
     entrypoint: [""]
   script:
     - reuse lint
-  # needs more work
-  allow_failure: true
