@@ -11,6 +11,27 @@ Copyright: 2011-2020 The SV-Benchmarks community
 License: CC0-1.0
 
 Files:
+ clauses
+ c/bitvector
+ c/ddv-machzwd
+ c/ldv-memsafety
+ c/ldv-regression
+ c/ldv-README.txt
+ c/list-properties
+ c/locks
+ c/loops
+ c/ntdrivers
+ c/ntdrivers-simplified
+ c/pthread
+ c/pthread-ext
+ c/seq-pthread
+ c/systemc
+ java/rtems-lock-model
+ _
+Copyright: unknown
+License: LicenseRef-unknown
+
+Files:
  c/Juliet_Test
  c/array-cav19
  c/array-crafted
