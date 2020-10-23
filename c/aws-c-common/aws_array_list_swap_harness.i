@@ -8022,8 +8022,8 @@ void aws_array_list_swap_harness() {
     struct aws_array_list list = {0, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), 0};
 
 
-    size_t index_a;
-    size_t index_b;
+    size_t index_a = __VERIFIER_nondet_ulong();
+    size_t index_b = __VERIFIER_nondet_ulong();
 
 
     assume_abort_if_not(aws_array_list_is_bounded(&list, 9223372036854775808U, 2));
