@@ -8055,7 +8055,7 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_array_list_shrink_to_fit_harness() {
 
-    struct aws_array_list list;
+    struct aws_array_list list = {0, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), 0};
 
 
     assume_abort_if_not(aws_array_list_is_bounded(&list, 9223372036854775808U, 2));
@@ -8063,7 +8063,7 @@ void aws_array_list_shrink_to_fit_harness() {
     assume_abort_if_not(aws_array_list_is_valid(&list));
 
 
-    size_t n;
+    size_t n = __VERIFIER_nondet_ulong();
     aws_array_list_pop_front_n(&list, n);
 
 

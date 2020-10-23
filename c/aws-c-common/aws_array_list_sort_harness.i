@@ -8011,7 +8011,7 @@ int compare(const void *a, const void *b, size_t item_size) {
 
 void aws_array_list_sort_harness() {
 
-    struct aws_array_list list;
+    struct aws_array_list list = {0, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), 0};
 
 
     assume_abort_if_not(aws_array_list_is_bounded(&list, 9223372036854775808U, 2));

@@ -8019,7 +8019,7 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_array_list_swap_harness() {
 
-    struct aws_array_list list;
+    struct aws_array_list list = {0, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), 0};
 
 
     size_t index_a;
