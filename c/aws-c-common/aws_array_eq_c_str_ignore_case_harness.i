@@ -9111,7 +9111,7 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_array_eq_c_str_ignore_case_harness() {
 
-    size_t array_len;
+    size_t array_len = __VERIFIER_nondet_ulong();
     assume_abort_if_not(array_len <= 10);
     void *array = can_fail_malloc(array_len);
     const char *c_str = nondet_bool() ? 

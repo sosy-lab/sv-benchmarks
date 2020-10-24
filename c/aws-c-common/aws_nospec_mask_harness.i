@@ -8871,8 +8871,8 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_nospec_mask_harness() {
 
-    size_t index;
-    size_t bound;
+    size_t index = __VERIFIER_nondet_ulong();
+    size_t bound = __VERIFIER_nondet_ulong();
 
 
     size_t rval = aws_nospec_mask(index, bound);

@@ -9112,9 +9112,9 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_byte_buf_advance_harness() {
 
-    struct aws_byte_buf buf;
-    struct aws_byte_buf output;
-    size_t len;
+    struct aws_byte_buf buf = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
+    struct aws_byte_buf output = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
+    size_t len = __VERIFIER_nondet_ulong();
 
 
     assume_abort_if_not(aws_byte_buf_is_bounded(&buf, 40));

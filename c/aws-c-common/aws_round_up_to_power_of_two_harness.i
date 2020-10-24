@@ -2682,8 +2682,8 @@ static inline int aws_round_up_to_power_of_two(size_t n, size_t *result) {
 
 
 void aws_round_up_to_power_of_two_harness() {
-    size_t test_val;
-    size_t result;
+    size_t test_val = __VERIFIER_nondet_ulong();
+    size_t result = __VERIFIER_nondet_ulong();
     int rval = aws_round_up_to_power_of_two(test_val, &result);
 
 
