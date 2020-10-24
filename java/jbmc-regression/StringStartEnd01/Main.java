@@ -12,22 +12,19 @@ public class Main {
 
     int i = 0;
     for (String string : strings) {
-      if (string.startsWith("te"))
-        ++i;
+      if (string.startsWith("te")) ++i;
     }
     assert i == 2;
 
     i = 0;
     for (String string : strings) {
-      if (string.startsWith("ste", 2))
-        ++i;
+      if (string.startsWith("ste", 2)) ++i;
     }
     assert i == 1;
 
     i = 0;
     for (String string : strings) {
-      if (string.endsWith("ed"))
-        ++i;
+      if (string.endsWith("ed")) ++i;
     }
     assert i == 2;
   }

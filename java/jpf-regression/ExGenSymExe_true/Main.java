@@ -44,6 +44,7 @@ public class Main {
     int elem;
     Node next;
     static Node static_next;
+
     Node swapNode() {
 
       static_next = new Node();

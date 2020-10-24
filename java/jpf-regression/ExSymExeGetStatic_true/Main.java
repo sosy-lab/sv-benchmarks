@@ -36,7 +36,7 @@ public class Main {
 class SNode {
   int elem;
   SNode next;
-  static SNode head; //= new SNode(); //change is here
+  static SNode head; // = new SNode(); //change is here
 
   SNode swap() {
     if (head != null) {

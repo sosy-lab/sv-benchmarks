@@ -38,8 +38,7 @@ public class Main {
   public void test(long x, long y) {
 
     long res = x;
-    if (res + 1 > res + 2)
-      System.out.println("x >0");
+    if (res + 1 > res + 2) System.out.println("x >0");
     else {
       assert false;
       System.out.println("x <=0");

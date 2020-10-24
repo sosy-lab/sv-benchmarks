@@ -15,7 +15,7 @@ public class Main {
 
     while (true) {
       i++;
-      assert(b);
+      assert (b);
     }
   }
 }

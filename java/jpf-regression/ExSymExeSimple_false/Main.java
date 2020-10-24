@@ -31,15 +31,14 @@ public class Main {
 
     public void test(int a, int b) {
 
-      if (a > b)
-        System.out.println(">");
+      if (a > b) System.out.println(">");
       else if (a == b) {
         assert false;
         System.out.println("eq");
-      } else
-        System.out.println("<");
+      } else System.out.println("<");
     }
   }
+
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
     Main inst = new Main();

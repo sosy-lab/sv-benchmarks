@@ -13,4 +13,5 @@ class Main {
     int result = classB.some_method();
     assert result == 123;
   }
-};
+}
+;

@@ -22,17 +22,15 @@ Template File: sources-sinks-81_bad.tmpl.java
 
 import testcasesupport.*;
 
-public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_bad extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base
-{
-    public void action(float data ) throws Throwable
-    {
+public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_bad
+    extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base {
+  public void action(float data) throws Throwable {
 
-        /* POTENTIAL FLAW: Possibly divide by zero */
-        int result = (int)(100.0 / data);
-        if(1 < data || data <= 0){
-          assert result < 100;
-        }
-        IO.writeLine(result);
-
+    /* POTENTIAL FLAW: Possibly divide by zero */
+    int result = (int) (100.0 / data);
+    if (1 < data || data <= 0) {
+      assert result < 100;
     }
+    IO.writeLine(result);
+  }
 }

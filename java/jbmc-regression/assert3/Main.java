@@ -12,8 +12,6 @@ class Main {
   public static void main(String[] args) {
     int i = Verifier.nondetInt();
 
-    if (i >= 1000)
-      if (!(i > 1000))
-        assert false;
+    if (i >= 1000) if (!(i > 1000)) assert false;
   }
 }

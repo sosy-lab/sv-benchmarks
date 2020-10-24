@@ -15,8 +15,7 @@ public class Main {
 
     // test regionMatches (case sensitive)
     if (s3.regionMatches(0, s4, 0, 5)) // false
-      assert true;
-    else
-      assert false;
+    assert true;
+    else assert false;
   }
 }

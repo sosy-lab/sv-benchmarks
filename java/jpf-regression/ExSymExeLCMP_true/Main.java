@@ -29,7 +29,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
 
   public static void main(String[] args) {
-    long x = (long)Verifier.nondetInt();
+    long x = (long) Verifier.nondetInt();
 
     Main inst = new Main();
     inst.test(x, 5);
@@ -41,7 +41,6 @@ public class Main {
     if (res + 1 > res + 2) {
       assert false;
       System.out.println("x >0");
-    } else
-      System.out.println("x <=0");
+    } else System.out.println("x <=0");
   }
 }

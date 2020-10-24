@@ -24,7 +24,7 @@ public class Main {
     if (isequal(outSPF, outJR)) System.out.println("Match");
     else {
       System.out.println("Mismatch");
-      assert(false);
+      assert (false);
     }
   }
 

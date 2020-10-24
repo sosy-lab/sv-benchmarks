@@ -14,24 +14,25 @@ public class Actions {
     p = new MinePump(env);
   }
 
-  void waterRise() { env.waterRise(); }
+  void waterRise() {
+    env.waterRise();
+  }
 
-  void methaneChange() { env.changeMethaneLevel(); }
+  void methaneChange() {
+    env.changeMethaneLevel();
+  }
 
   void stopSystem() {
-    if (p.isSystemActive())
-      p.stopSystem();
+    if (p.isSystemActive()) p.stopSystem();
   }
 
   void startSystem() {
-    if (!p.isSystemActive())
-      p.startSystem();
+    if (!p.isSystemActive()) p.startSystem();
   }
 
   void timeShift() {
 
-    if (p.isSystemActive())
-      Specification5_1();
+    if (p.isSystemActive()) Specification5_1();
 
     p.timeShift();
 
@@ -44,7 +45,9 @@ public class Actions {
     }
   }
 
-  String getSystemState() { return p.toString(); }
+  String getSystemState() {
+    return p.toString();
+  }
 
   // Specification 1 methan is Critical and pumping leads to Error
   void Specification1() {
@@ -109,7 +112,9 @@ public class Actions {
 
   // Specification 5: The Pump is never switched on when the water is below the
   // highWater sensor.
-  void Specification5_1() { switchedOnBeforeTS = p.isPumpRunning(); }
+  void Specification5_1() {
+    switchedOnBeforeTS = p.isPumpRunning();
+  }
 
   // Specification 5: The Pump is never switched on when the water is below the
   // highWater sensor.

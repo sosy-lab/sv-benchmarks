@@ -34,16 +34,14 @@ public class Main {
       if (a > b) {
         assert false;
         System.out.println(">");
-      } else if (a == b)
-        System.out.println("eq");
-      else
-        System.out.println("<");
+      } else if (a == b) System.out.println("eq");
+      else System.out.println("<");
     }
   }
+
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
-    if (arg >= Integer.MAX_VALUE)
-      return;
+    if (arg >= Integer.MAX_VALUE) return;
     Main inst = new Main();
     Node n = new Node();
     n.test(arg, arg + 1);

@@ -9,7 +9,9 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 class A extends RuntimeException {}
+
 class B extends A {}
+
 class C extends B {}
 
 public class Main {

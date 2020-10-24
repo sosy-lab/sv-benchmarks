@@ -14,7 +14,7 @@ public class Main {
 
     try {
       String s2 = java.net.URLDecoder.decode(s1, "UTF-8");
-      if ( !s2.startsWith("some") ) {
+      if (!s2.startsWith("some")) {
         assert false;
       }
     } catch (java.io.UnsupportedEncodingException e) {

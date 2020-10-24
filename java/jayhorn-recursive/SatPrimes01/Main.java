@@ -42,7 +42,9 @@ public class Main {
   }
 
   // Is n prime?
-  static int is_prime(int n) { return is_prime_(n, n - 1); }
+  static int is_prime(int n) {
+    return is_prime_(n, n - 1);
+  }
 
   static int is_prime_(int n, int m) {
     if (n <= 1) {

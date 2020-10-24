@@ -42,11 +42,8 @@ public class Main {
     if (z == x) {
       assert false;
       System.out.println("branch FOO1");
-    } else
-      System.out.println("branch FOO2");
-    if (x == r)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch FOO2");
+    if (x == r) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
   }
 }

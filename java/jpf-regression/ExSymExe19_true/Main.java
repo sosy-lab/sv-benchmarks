@@ -36,8 +36,7 @@ public class Main {
 
     Main inst = new Main();
     field = Verifier.nondetInt();
-    if (field < 0)
-      return;
+    if (field < 0) return;
     field = field % 10;
     inst.test(x, field, field2);
     // test(x,x);
@@ -56,12 +55,9 @@ public class Main {
     if (x > 99) {
       System.out.println("branch FOO1");
       assert false;
-    } else
-      System.out.println("branch FOO2");
-    if (r > z)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch FOO2");
+    if (r > z) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

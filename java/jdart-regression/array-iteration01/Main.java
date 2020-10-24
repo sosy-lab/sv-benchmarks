@@ -13,14 +13,14 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main{
+public class Main {
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     int[] ia = new int[200];
     int index = Verifier.nondetInt();
     Verifier.assume(0 <= index && index < ia.length);
     ia[index] = Verifier.nondetInt();
-    for(int i = 0; i < ia.length; i++){
+    for (int i = 0; i < ia.length; i++) {
       assert ia[i] != 0;
     }
   }

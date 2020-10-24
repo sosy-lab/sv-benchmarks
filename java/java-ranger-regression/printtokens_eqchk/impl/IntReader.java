@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.io.Reader;
 
@@ -15,8 +14,7 @@ public class IntReader extends Reader {
   public int read() throws IOException {
     if (next >= length) {
       return -1;
-    }
-    else{
+    } else {
       char ch = str[next];
       next = next + 1;
       return ch;
@@ -28,24 +26,22 @@ public class IntReader extends Reader {
   }
 
   public int read(char[] cbuf, int off, int len) throws IOException {
-    if(off < 0 || off >= cbuf.length || len < 0 || off+len >= cbuf.length || off+len < 0) {
+    if (off < 0 || off >= cbuf.length || len < 0 || off + len >= cbuf.length || off + len < 0) {
       throw new IndexOutOfBoundsException();
-    }
-    else if(len == 0) {
+    } else if (len == 0) {
       return 0;
     }
-    if(next >= length) {
+    if (next >= length) {
       return -1;
     }
     int lenReader = -1;
     int lenStr = length - next;
-    if(lenStr > len) {
+    if (lenStr > len) {
       lenReader = len;
-    }
-    else {
+    } else {
       lenReader = lenStr;
     }
-    for(int i=0; i<lenReader; i++) {
+    for (int i = 0; i < lenReader; i++) {
       cbuf[off] = str[next];
       off++;
       next++;

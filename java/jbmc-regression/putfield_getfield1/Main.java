@@ -8,7 +8,8 @@
  */
 class A {
   public int i;
-};
+}
+;
 
 class Main {
   public static void main(String[] args) {

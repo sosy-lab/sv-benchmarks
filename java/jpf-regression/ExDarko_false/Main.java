@@ -43,8 +43,7 @@ public class Main {
   private void boxed(int i, int j) {
     if (new Integer(i).equals(new Integer(j))) {
       System.out.println("HIT");
-    } else
-      assert false;
+    } else assert false;
   }
 
   private void customBoxed(int i, int j) {
@@ -57,7 +56,9 @@ public class Main {
 class MyInteger {
   int value;
 
-  public MyInteger(int value) { this.value = value; }
+  public MyInteger(int value) {
+    this.value = value;
+  }
 
   @Override
   public boolean equals(Object obj) {
@@ -67,7 +68,7 @@ class MyInteger {
     if (!(obj instanceof MyInteger)) {
       return false;
     }
-    MyInteger other = (MyInteger)obj;
+    MyInteger other = (MyInteger) obj;
     return this.value == other.value;
   }
 }

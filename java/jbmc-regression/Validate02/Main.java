@@ -16,15 +16,10 @@ public class Main {
     String zip = Verifier.nondetString();
     String phone = Verifier.nondetString();
 
-    if (!ValidateInput02.validateAddress(address))
-      assert false;
-    else if (!ValidateInput02.validateCity(city))
-      System.out.println("Invalid city");
-    else if (!ValidateInput02.validateState(state))
-      System.out.println("Invalid state");
-    else if (!ValidateInput02.validateZip(zip))
-      System.out.println("Invalid zip code");
-    else
-      System.out.println("Valid input.  Thank you.");
+    if (!ValidateInput02.validateAddress(address)) assert false;
+    else if (!ValidateInput02.validateCity(city)) System.out.println("Invalid city");
+    else if (!ValidateInput02.validateState(state)) System.out.println("Invalid state");
+    else if (!ValidateInput02.validateZip(zip)) System.out.println("Invalid zip code");
+    else System.out.println("Valid input.  Thank you.");
   }
 }

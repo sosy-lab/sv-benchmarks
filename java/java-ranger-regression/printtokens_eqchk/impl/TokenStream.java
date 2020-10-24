@@ -1,46 +1,40 @@
-
 import java.io.IOException;
 import java.io.PushbackReader;
 import java.io.Reader;
 
-
 public class TokenStream {
 
-	private PushbackReader reader = null;
+  private PushbackReader reader = null;
 
-	public TokenStream(Reader _reader) {
-		reader = new PushbackReader(_reader, 10);
-	}
+  public TokenStream(Reader _reader) {
+    reader = new PushbackReader(_reader, 10);
+  }
 
-	public Reader getReader() {
-		return reader;
-	}
+  public Reader getReader() {
+    return reader;
+  }
 
-    public char read() throws IOException {
-        int ch = reader.read();
+  public char read() throws IOException {
+    int ch = reader.read();
 
-        if(ch <= 0) {
-        	return '\0';
-        }
-        else {
-        	return (char) ch;
-        }
+    if (ch <= 0) {
+      return '\0';
+    } else {
+      return (char) ch;
     }
+  }
 
-    public boolean EOFStream() throws IOException
-    {
-        int ch = reader.read();
-        if (ch <= 0) {
-            return true;
-        }
-        else {
-            reader.unread(ch);
-            return false;
-        }
+  public boolean EOFStream() throws IOException {
+    int ch = reader.read();
+    if (ch <= 0) {
+      return true;
+    } else {
+      reader.unread(ch);
+      return false;
     }
+  }
 
-    public void unreader(char ch) throws IOException{
-    	reader.unread(ch);
-    }
-
+  public void unreader(char ch) throws IOException {
+    reader.unread(ch);
+  }
 }

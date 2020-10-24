@@ -37,8 +37,7 @@ public class Main {
   public void test(float x) {
     System.out.println("Testing FNEG");
     float y = -x;
-    if (y > 0)
-      System.out.println("branch -x > 0");
+    if (y > 0) System.out.println("branch -x > 0");
     else {
       assert false;
       System.out.println("branch -x <= 0");

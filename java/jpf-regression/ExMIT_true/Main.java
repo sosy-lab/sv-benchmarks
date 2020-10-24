@@ -28,9 +28,9 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   public static void main(String[] args) {
-    if (Verifier.nondetInt() == 1)
-      foo(0);
+    if (Verifier.nondetInt() == 1) foo(0);
   }
+
   public static int foo(int i) {
     if (2 * (i + 1) == 10) {
       assert false;
@@ -38,9 +38,9 @@ public class Main {
     }
     return 0;
   }
+
   public static int boo(float i) {
-    if ((i + 1) * 2 > 10)
-      return 1;
+    if ((i + 1) * 2 > 10) return 1;
     return 0;
   }
 }

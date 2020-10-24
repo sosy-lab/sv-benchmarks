@@ -36,11 +36,10 @@ public class Main {
 
   public void test(double x) {
 
-    int res = (int)++x;
+    int res = (int) ++x;
     if (res > 0) {
       assert false;
       System.out.println("x >0");
-    } else
-      System.out.println("x <=0");
+    } else System.out.println("x <=0");
   }
 }

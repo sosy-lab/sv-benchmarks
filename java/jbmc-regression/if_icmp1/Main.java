@@ -33,8 +33,7 @@ class Main {
 
   public static void main(String[] args) {
     int i = Verifier.nondetInt();
-    if (i + 1 < 0)
-      return;
+    if (i + 1 < 0) return;
     f(i, i + 1);
   }
 }

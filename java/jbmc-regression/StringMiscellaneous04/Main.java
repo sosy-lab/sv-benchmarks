@@ -10,11 +10,10 @@ public class Main {
   // This is a model of the String.toCharArray method
   public static char[] toCharArray(String s) {
     int length = s.length();
-    assert(length < 10);
+    assert (length < 10);
     char arr[] = new char[s.length()];
     // We limit arbitrarly the loop unfolding to 10
-    for (int i = 0; i < length && i < 10; i++)
-      arr[i] = s.charAt(i);
+    for (int i = 0; i < length && i < 10; i++) arr[i] = s.charAt(i);
     return arr;
   }
 
@@ -27,8 +26,7 @@ public class Main {
     assert s2.equals("TESTGENERATION");
     assert s3.equals("   automated   ");
 
-    System.out.printf("Replace 'f' with 'F' in s1: %s\n\n",
-                      s1.replace('f', 'F'));
+    System.out.printf("Replace 'f' with 'F' in s1: %s\n\n", s1.replace('f', 'F'));
     String tmp = s1.replace('f', 'F');
     assert tmp.equals("diFFblue");
 

@@ -45,16 +45,16 @@ public class Main {
     //	  }
 
     switch (x) {
-    case 2:
-      System.out.println("branch Foo2");
-      break;
-    case 3000:
-      System.out.println("branch Foo3000");
-      break;
-    default:
-      System.out.println("default2");
-      assert false;
-      break;
+      case 2:
+        System.out.println("branch Foo2");
+        break;
+      case 3000:
+        System.out.println("branch Foo3000");
+        break;
+      default:
+        System.out.println("default2");
+        assert false;
+        break;
     }
   }
 }

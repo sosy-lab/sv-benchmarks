@@ -22,13 +22,12 @@ Template File: sources-sinks-81_goodG2B.tmpl.java
 
 import testcasesupport.*;
 
-public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_goodG2B extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base
-{
-  public void action(float data ) throws Throwable
-  {
+public class CWE369_Divide_by_Zero__float_connect_tcp_divide_81_goodG2B
+    extends CWE369_Divide_by_Zero__float_connect_tcp_divide_81_base {
+  public void action(float data) throws Throwable {
     /* POTENTIAL FLAW: Possibly divide by zero */
-    int result = (int)(100.0 / data);
-    if(1 < data || data <= 0){
+    int result = (int) (100.0 / data);
+    if (1 < data || data <= 0) {
       assert result < 100;
     }
     IO.writeLine(result);

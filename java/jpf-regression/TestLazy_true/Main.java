@@ -29,8 +29,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
-    if (arg == 0)
-      (new Main()).f(0, arg);
+    if (arg == 0) (new Main()).f(0, arg);
   }
 
   public void f(int a, int b) {
@@ -38,7 +37,6 @@ public class Main {
     if (a < 5) {
       i = Integer.valueOf(4);
       i.floatValue();
-    } else
-      assert false;
+    } else assert false;
   }
 }

@@ -22,8 +22,8 @@ public class Main {
       return m;
     }
 
-    if(c >= 150){
-    assert false;
+    if (c >= 150) {
+      assert false;
     }
 
     if (n > 0) {
@@ -44,6 +44,6 @@ public class Main {
     }
     int c = 0;
     int result = addition(m, n, c);
-    assert(result == m + n);
+    assert (result == m + n);
   }
 }

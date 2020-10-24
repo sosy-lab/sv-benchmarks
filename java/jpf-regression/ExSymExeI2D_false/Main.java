@@ -30,19 +30,17 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    if (x < 0)
-      return;
+    if (x < 0) return;
 
     Main inst = new Main();
     inst.test(x);
   }
 
   public void test(int x) {
-    double res = (double)++x;
+    double res = (double) ++x;
     if (res > 0) {
       assert false;
       System.out.println("x >0");
-    } else
-      System.out.println("x <=0");
+    } else System.out.println("x <=0");
   }
 }

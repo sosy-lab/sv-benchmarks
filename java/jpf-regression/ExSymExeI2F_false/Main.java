@@ -35,11 +35,10 @@ public class Main {
   }
 
   public void test(int x) {
-    float res = (float)++x;
+    float res = (float) ++x;
     if (res > 0) {
       assert false;
       System.out.println("x >0");
-    } else
-      System.out.println("x <=0");
+    } else System.out.println("x <=0");
   }
 }

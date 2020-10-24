@@ -7,5 +7,8 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 class Main {
-  public static void main(String[] args) { assert "" instanceof String; }
-};
+  public static void main(String[] args) {
+    assert "" instanceof String;
+  }
+}
+;

@@ -4,11 +4,12 @@ if: type = pull_request
 language: c
 env:
   matrix:
-    - NAME="Sanity checks" DOCKER_IMAGE=sanity-checks COMMAND="c/check.py"
-    - NAME="Preprocessing consistency checks" DOCKER_IMAGE=preprocessing-consistency COMMAND="cd c; ./diff_ci.sh './compare.py --keep-going --skip-large --directory'"
-    - NAME="gcc-5" DOCKER_IMAGE=gcc:5 COMMAND="gcc-5 -v --version; cd c; ./diff_ci.sh 'make -j2 CC=gcc-5 -C'"
-    - NAME="clang-3.9" DOCKER_IMAGE=clang:3.9 COMMAND="clang-3.9 -v --version; cd c; ./diff_ci.sh 'make -j2 CC=clang-3.9 -C'"
-    - NAME="java" DOCKER_IMAGE=java COMMAND="java/check-compile.sh"
+    - NAME="Sanity checks" DOCKER_IMAGE=registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks COMMAND="c/check.py"
+    - NAME="Preprocessing consistency checks" DOCKER_IMAGE=registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency COMMAND="cd c; ./diff_ci.sh './compare.py --keep-going --skip-large --directory'"
+    - NAME="gcc-5" DOCKER_IMAGE=registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5 COMMAND="gcc-5 -v --version; cd c; ./diff_ci.sh 'make -j2 CC=gcc-5 -C'"
+    - NAME="clang-3.9" DOCKER_IMAGE=registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9 COMMAND="clang-3.9 -v --version; cd c; ./diff_ci.sh 'make -j2 CC=clang-3.9 -C'"
+    - NAME="java" DOCKER_IMAGE=registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/java COMMAND="java/check-compile.sh"
+    - NAME="java-format" DOCKER_IMAGE=openjdk:11 COMMAND="java/check-format.sh"
 
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: required
@@ -20,7 +21,7 @@ git:
   depth: 3
 
 before_install:
-  - docker pull registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/${DOCKER_IMAGE}
+  - docker pull ${DOCKER_IMAGE}
 
 script:
-  - docker run --privileged --tty --volume "$(pwd):$(pwd)" registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/${DOCKER_IMAGE} /bin/sh -c "cd $(pwd); ${COMMAND}"
+  - docker run --privileged --tty --volume "$(pwd):$(pwd)" ${DOCKER_IMAGE} /bin/sh -c "cd $(pwd); ${COMMAND}"

@@ -40,8 +40,7 @@ public class Main {
   public void test(boolean x, int z) {
     System.out.println("Testing ExSymExeBool");
     z++;
-    if (x)
-      System.out.println("branch FOO1");
+    if (x) System.out.println("branch FOO1");
     else {
       assert false;
       System.out.println("branch FOO2");

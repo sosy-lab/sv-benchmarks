@@ -44,14 +44,10 @@ public class Main {
       int diff = a - b;
       int temp;
 
-      if (sum > 0)
-        temp = a;
-      else
-        temp = b;
-      if (temp < diff)
-        result = temp;
-      else
-        result = diff;
+      if (sum > 0) temp = a;
+      else temp = b;
+      if (temp < diff) result = temp;
+      else result = diff;
     }
     return result;
   }

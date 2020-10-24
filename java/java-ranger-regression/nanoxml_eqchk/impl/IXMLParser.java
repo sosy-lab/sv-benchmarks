@@ -26,9 +26,7 @@
  *  3. This notice may not be removed or altered from any source distribution.
  */
 
-
 import java.io.IOException;
-
 
 /**
  * IXMLParser is the core parser of NanoXML.
@@ -36,43 +34,34 @@ import java.io.IOException;
  * @author Marc De Scheemaecker
  * @version $Name: PRERELEASE_2_0_20010329 $, $Revision: 1.1.1.1 $
  */
-public interface IXMLParser
-{
+public interface IXMLParser {
 
-    /**
-     * Sets the reader from which the parser retrieves its data.
-     *
-     * @param reader the non-null reader
-     */
-    public void setReader(IXMLReader reader);
-    
-    
-    /**
-     * Sets the builder which creates the logical structure of the XML data.
-     *
-     * @param builder the non-null builder
-     */
-    public void setBuilder(IXMLBuilder builder);
-    
-    
-    /**
-     * Sets the validator that will process entity references and validate the
-     * XML data.
-     *
-     * @param validator the non-null validator
-     */
-    public void setValidator(IXMLValidator validator);
-    
-    
-    /**
-     * Parses the data and lets the builder create the logical data structure.
-     *
-     * @return the logical structure built by the builder
-     *
-     * @throws java.io.IOException
-     *		if an error occurred reading the data
-     */
-    public Object parse()
-        throws IOException;
+  /**
+   * Sets the reader from which the parser retrieves its data.
+   *
+   * @param reader the non-null reader
+   */
+  public void setReader(IXMLReader reader);
 
+  /**
+   * Sets the builder which creates the logical structure of the XML data.
+   *
+   * @param builder the non-null builder
+   */
+  public void setBuilder(IXMLBuilder builder);
+
+  /**
+   * Sets the validator that will process entity references and validate the XML data.
+   *
+   * @param validator the non-null validator
+   */
+  public void setValidator(IXMLValidator validator);
+
+  /**
+   * Parses the data and lets the builder create the logical data structure.
+   *
+   * @return the logical structure built by the builder
+   * @throws java.io.IOException if an error occurred reading the data
+   */
+  public Object parse() throws IOException;
 }

@@ -48,12 +48,9 @@ public class Main {
     int y = 3;
     r = x + z;
     z = x - y - 4;
-    if (r >= 99)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
-    if (x >= z)
-      System.out.println("branch BOO1");
+    if (r >= 99) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
+    if (x >= z) System.out.println("branch BOO1");
     else {
       assert false;
       System.out.println("branch BOO2");

@@ -12,10 +12,8 @@ class Main {
   public static void main(String[] args) {
     int i = Verifier.nondetInt();
 
-    if (i >= 10)
-      assert i >= 10 : "my super assertion"; // should hold
+    if (i >= 10) assert i >= 10 : "my super assertion"; // should hold
 
-    if (i >= 20)
-      assert i >= 10 : "my super assertion"; // should hold
+    if (i >= 20) assert i >= 10 : "my super assertion"; // should hold
   }
 }

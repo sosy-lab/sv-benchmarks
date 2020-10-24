@@ -9,11 +9,13 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-  static class A { int value = 0; }
+  static class A {
+    int value = 0;
+  }
+
   public static void main(String[] args) {
     int size = Verifier.nondetInt();
-    if (size < 0)
-      return;
+    if (size < 0) return;
     A[] array = new A[size];
 
     for (int i = 0; i < size; i++) {
