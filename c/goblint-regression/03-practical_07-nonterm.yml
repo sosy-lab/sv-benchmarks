@@ -1,0 +1,11 @@
+format_version: '2.0'
+
+input_files: '03-practical_07-nonterm.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

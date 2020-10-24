@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# original top comment:  PARAM: --set exp.failing-locks true
+input_files: '04-mutex_35-trylock_rc.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

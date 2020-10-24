@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# original top comment:  PARAM: --set ana.activated[+] "'region'" 
+input_files: '09-regions_04-list2_nr.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

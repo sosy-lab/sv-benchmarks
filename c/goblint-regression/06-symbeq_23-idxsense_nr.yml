@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# original top comment:  PARAM: --sets ana.activated[+] symb_locks --sets ana.activated[+] var_eq
+input_files: '06-symbeq_23-idxsense_nr.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: true
+
+options:
+  language: C
+  data_model: ILP32

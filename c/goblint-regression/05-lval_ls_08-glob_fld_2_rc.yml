@@ -1,0 +1,12 @@
+format_version: '2.0'
+
+# original top comment:  Copied to 10/17 with thread enabled
+input_files: '05-lval_ls_08-glob_fld_2_rc.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32
