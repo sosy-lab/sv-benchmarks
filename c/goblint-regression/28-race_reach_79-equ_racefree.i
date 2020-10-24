@@ -1004,10 +1004,12 @@ struct s {
 void *t_fun(void *arg) {
   pthread_mutex_lock(&A.mutex);
   do { if (__VERIFIER_nondet_int()) do { do { pthread_mutex_lock(&__global_lock); (A.datum)++; pthread_mutex_unlock(&__global_lock); } while (0); do { pthread_mutex_lock(&__global_lock); (A.datum)--; pthread_mutex_unlock(&__global_lock); } while (0); } while (0); else do { pthread_mutex_lock(&__global_lock); __VERIFIER_assert((A.datum) == 0); pthread_mutex_unlock(&__global_lock); } while (0); } while (0);
-  pthread_mutex_lock(&A.mutex);
+  pthread_mutex_unlock(&A.mutex);
   return ((void *)0);
 }
 int main () {
+  pthread_mutex_init(&A.mutex, ((void *)0));
+  pthread_mutex_init(&B.mutex, ((void *)0));
   int x = __VERIFIER_nondet_int();
   struct s *s;
   int *d;

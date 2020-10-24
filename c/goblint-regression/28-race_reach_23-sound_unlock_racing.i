@@ -688,8 +688,9 @@ void assume_abort_if_not(int cond) {
 }
 pthread_mutex_t __global_lock = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 int global = 0;
-pthread_mutex_t mutex1 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
-pthread_mutex_t mutex2 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
+pthread_mutexattr_t mutexattr;
+pthread_mutex_t mutex1;
+pthread_mutex_t mutex2;
 void *t_fun(void *arg) {
   pthread_mutex_lock(&mutex1);
   do { do { pthread_mutex_lock(&__global_lock); (global)++; pthread_mutex_unlock(&__global_lock); } while (0); do { pthread_mutex_lock(&__global_lock); (global)--; pthread_mutex_unlock(&__global_lock); } while (0); } while (0);
@@ -697,6 +698,10 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main(void) {
+  pthread_mutexattr_init(&mutexattr);
+  pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_ERRORCHECK);
+  pthread_mutex_init(&mutex1, &mutexattr);
+  pthread_mutex_init(&mutex2, &mutexattr);
   int i = __VERIFIER_nondet_int();
   pthread_mutex_t *m = &mutex1;
   if (i) m = &mutex2;
