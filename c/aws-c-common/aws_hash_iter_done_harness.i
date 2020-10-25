@@ -10167,7 +10167,7 @@ void aws_hash_iter_done_harness() {
                                                    );
     assume_abort_if_not(aws_hash_table_is_valid(&map));
 
-    struct aws_hash_iter iter;
+    struct aws_hash_iter iter = {0, {0, 0}, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_int()};
     iter.map = &map;
     assume_abort_if_not(iter.status == AWS_HASH_ITER_STATUS_DONE || iter.status == AWS_HASH_ITER_STATUS_READY_FOR_USE);
     assume_abort_if_not(aws_hash_iter_is_valid(&iter));
