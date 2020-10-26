@@ -32,7 +32,7 @@ find_parent_with_Makefile() {
 relevant_diff=`git diff --name-only --diff-filter=d origin/master... -- './*.i' './*.c' './*.h'`
 [ -z "$relevant_diff" ] && echo "Found nothing to build!!" && exit
 # dirs is the list of directories from the changed files
-dirs=`echo $relevant_diff | xargs dirname | cut -d/ -f2- | sort | uniq`
+dirs=`echo $relevant_diff | xargs dirname | cut -d/ -f2- -s | sort | uniq`
 
 printf "Selected following directories for diff build: \n$dirs \n"
 for d in $dirs
