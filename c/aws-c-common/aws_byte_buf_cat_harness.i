@@ -7395,23 +7395,10 @@ int aws_last_error(void) {
 
 
 
-int memcmp(const void *s1, const void *s2, size_t n) {
-
-    int res = 0;
+int memcmp_safe(const void *s1, const void *s2, size_t n) {
     assume_abort_if_not((((n) == 0) || (s1)));
     assume_abort_if_not((((n) == 0) || (s2)));
-
-
-    const unsigned char *sc1 = s1, *sc2 = s2;
-    for (; n != 0; n--) {
-        res = (*sc1++) - (*sc2++);
-        if (res != 0)
-            return res;
-    }
-    return res;
-
-
-
+    return memcmp(s1, s2, n);
 }
  size_t aws_nospec_mask(size_t index, size_t bound);
 int aws_byte_buf_init(struct aws_byte_buf *buf, struct aws_allocator *allocator, size_t capacity) {
@@ -8255,7 +8242,7 @@ int aws_byte_cursor_compare_lexical(const struct aws_byte_cursor *lhs, const str
         comparison_length = rhs->len;
     }
 
-    int result = memcmp(lhs->ptr, rhs->ptr, comparison_length);
+    int result = memcmp_safe(lhs->ptr, rhs->ptr, comparison_length);
 
     __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
     __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
