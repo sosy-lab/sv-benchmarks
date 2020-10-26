@@ -1,5 +1,4 @@
-
-public class Div_s32 {
+public class Divs32 {
 
     static final int MAX_INT = 2147483647;
     static final int MIN_INT = -2147483648;
@@ -22,18 +21,18 @@ public class Div_s32 {
             else quotientNeedsNegation = false;
 
 
-            int calc_denominator;
+            int calcDenominator;
 
             /* replacing this computation
             tempAbsQuotient = (int) (numerator >= 0 ? numerator : -numerator) /
                     (denominator >= 0 ? denominator : -denominator);*/
 
             if (denominator >= 0)
-                calc_denominator = denominator;
-            else calc_denominator = -denominator;
+                calcDenominator = denominator;
+            else calcDenominator = -denominator;
 
             tempAbsQuotient = (int) (numerator >= 0 ? numerator : -numerator) /
-                    calc_denominator;
+                    calcDenominator;
             quotient = quotientNeedsNegation ? -(int) tempAbsQuotient : (int)
                     tempAbsQuotient;
         }

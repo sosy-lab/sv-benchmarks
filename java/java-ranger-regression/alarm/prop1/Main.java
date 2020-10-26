@@ -93,18 +93,16 @@ public class Main {
           (rtuImIn.commandedFlowRate <= 255)
     ) {
 
-  alarm.ALARM_Functional(rtuImIn, rtuTlmModeIn, rtuSysMonIn, rtuLoggingIn, rtuOpCmdIn, rtuDbIn, rtuSensorIn, rtuConstIn, rtuSysStatIn, rtuConfigIn, rtyAlarmOut, localB, localDW);
+    alarm.alarmFunctional(rtuImIn, rtuTlmModeIn, rtuSysMonIn, rtuLoggingIn, rtuOpCmdIn, rtuDbIn, rtuSensorIn, rtuConstIn, rtuSysStatIn, rtuConfigIn, rtyAlarmOut, localB, localDW);
 
-  boolean checkCondition;
-  boolean checkOutput;
+    boolean checkCondition;
+    boolean checkOutput;
 
 
-  //Prop1: empty_reservoir_implies_alarm_L4 -- this assertion should pass
-  checkCondition = rtuTlmModeIn.systemOn && rtuSysStatIn.inTherapy && rtuSysStatIn.Reservoir_Empty;
-  checkOutput = rtyAlarmOut.highestLevelAlarm == 4;
-  assert (!checkCondition || checkOutput);
-
-  }
-
+    //Prop1: empty_reservoir_implies_alarm_L4 -- this assertion should pass
+    checkCondition = rtuTlmModeIn.systemOn && rtuSysStatIn.inTherapy && rtuSysStatIn.Reservoir_Empty;
+    checkOutput = rtyAlarmOut.highestLevelAlarm == 4;
+    assert (!checkCondition || checkOutput);
     }
+  }
 }

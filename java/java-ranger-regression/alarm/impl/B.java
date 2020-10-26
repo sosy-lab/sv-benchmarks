@@ -1,5 +1,4 @@
 /* Block signals for model 'ALARM_Functional' */
-
 public class B {
     int commandedFlowRate;
     int currentSystemMode;

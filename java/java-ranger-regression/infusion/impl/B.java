@@ -1,4 +1,3 @@
-
 public class B {
     public int highestLevelAlarm;
     public int infusionTotalDuration;
@@ -12,7 +11,7 @@ public class B {
     public int lockoutPeriodPatientBolus;
     public int maxNumberOfPatientBolus;
     public int flowRateKvo;
-    public int Configured;
+    public int configured;
     public int volumeInfused;
     public int imOutFlowRateCommanded;  /* '<Root>/Infusion Manager Sub-System' */
     public int imOutCurrentSystemMode;  /* '<Root>/Infusion Manager Sub-System' */

@@ -1,4 +1,3 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
@@ -28,49 +27,46 @@ public class Main {
         InfusionManagerOutputs rtyImOut = new InfusionManagerOutputs();
 
         if (    (0 <= rtuConfigIn.infusionTotalDuration) &&
-                (0 <= rtuConfigIn.vtbiTotal) &&
-                (0 <= rtuConfigIn.flowRateBasal) &&
-                (0 <= rtuConfigIn.flowRateIntermittentBolus) &&
-                (0 <= rtuConfigIn.durationIntermittentBolus) &&
-                (0 <= rtuConfigIn.intervalIntermittentBolus) &&
-                (0 <= rtuConfigIn.flowRatePatientBolus) &&
-                (0 <= rtuConfigIn.durationPatientBolus) &&
-                (0 <= rtuConfigIn.lockoutPeriodPatientBolus) &&
-                (0 <= rtuConfigIn.maxNumberOfPatientBolus) &&
-                (0 <= rtuConfigIn.flowRateKVO) &&
-                (0 <= rtuConfigIn.enteredReservoirVolume) &&
-                (0 <= rtuConfigIn.Configured) &&
-                (0 <= rtuAlarmIn.highestLevelAlarm) &&
-                (0 <= rtuSysStatIn.volumeInfused) &&
+      (0 <= rtuConfigIn.vtbiTotal) &&
+      (0 <= rtuConfigIn.flowRateBasal) &&
+      (0 <= rtuConfigIn.flowRateIntermittentBolus) &&
+      (0 <= rtuConfigIn.durationIntermittentBolus) &&
+      (0 <= rtuConfigIn.intervalIntermittentBolus) &&
+      (0 <= rtuConfigIn.flowRatePatientBolus) &&
+      (0 <= rtuConfigIn.durationPatientBolus) &&
+      (0 <= rtuConfigIn.lockoutPeriodPatientBolus) &&
+      (0 <= rtuConfigIn.maxNumberOfPatientBolus) &&
+      (0 <= rtuConfigIn.flowRateKVO) &&
+      (0 <= rtuConfigIn.enteredReservoirVolume) &&
+      (0 <= rtuConfigIn.configured) &&
+      (0 <= rtuAlarmIn.highestLevelAlarm) &&
+      (0 <= rtuSysStatIn.volumeInfused) &&
 
-                (rtuConfigIn.infusionTotalDuration <=255) &&
-                (rtuConfigIn.vtbiTotal <=255) &&
-                (rtuConfigIn.flowRateBasal <=255) &&
-                (rtuConfigIn.flowRateIntermittentBolus <=255) &&
-                (rtuConfigIn.durationIntermittentBolus <=255) &&
-                (rtuConfigIn.intervalIntermittentBolus <=255) &&
-                (rtuConfigIn.flowRatePatientBolus <=255) &&
-                (rtuConfigIn.durationPatientBolus <=255) &&
-                (rtuConfigIn.lockoutPeriodPatientBolus <=255) &&
-                (rtuConfigIn.maxNumberOfPatientBolus <=255) &&
-                (rtuConfigIn.flowRateKVO <=255) &&
-                (rtuConfigIn.enteredReservoirVolume <=255) &&
-                (rtuConfigIn.Configured <=255) &&
-                (rtuAlarmIn.highestLevelAlarm <=255) &&
-                (rtuSysStatIn.volumeInfused <=255)
+      (rtuConfigIn.infusionTotalDuration <=255) &&
+      (rtuConfigIn.vtbiTotal <=255) &&
+      (rtuConfigIn.flowRateBasal <=255) &&
+      (rtuConfigIn.flowRateIntermittentBolus <=255) &&
+      (rtuConfigIn.durationIntermittentBolus <=255) &&
+      (rtuConfigIn.intervalIntermittentBolus <=255) &&
+      (rtuConfigIn.flowRatePatientBolus <=255) &&
+      (rtuConfigIn.durationPatientBolus <=255) &&
+      (rtuConfigIn.lockoutPeriodPatientBolus <=255) &&
+      (rtuConfigIn.maxNumberOfPatientBolus <=255) &&
+      (rtuConfigIn.flowRateKVO <=255) &&
+      (rtuConfigIn.enteredReservoirVolume <=255) &&
+      (rtuConfigIn.configured <=255) &&
+      (rtuAlarmIn.highestLevelAlarm <=255) &&
+      (rtuSysStatIn.volumeInfused <=255)
+      ) {
+     infusionMgr.infusionMgrFunctional(rtuTlmModeIn, rtuOpCmdIn, rtuPatientIn, rtuConfigIn, rtuAlarmIn, rtuSysStatIn, rtyImOut, localB, localDW);
 
-                ) {
-            infusionMgr.INFUSION_MGR_Functional(rtuTlmModeIn, rtuOpCmdIn, rtuPatientIn, rtuConfigIn, rtuAlarmIn, rtuSysStatIn, rtyImOut, localB, localDW);
+     boolean checkCondition;
+     boolean checkOutput;
 
-            boolean checkCondition;
-            boolean checkOutput;
-
-            //prop3 alarm_L4_implies_flow_rate_zero
+      //prop3 alarm_L4_implies_flow_rate_zero
       checkCondition = (rtuTlmModeIn.systemOn && (rtuAlarmIn.highestLevelAlarm == 4));
       checkOutput = (rtyImOut.commandedFlowRate == 0);
       assert (!checkCondition || checkOutput);
-
-        }
-
+      }
     }
 }

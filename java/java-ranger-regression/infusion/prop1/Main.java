@@ -1,4 +1,3 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
@@ -27,7 +26,7 @@ public static void main(String[] args) {
 
   InfusionManagerOutputs rtyImOut = new InfusionManagerOutputs();
 
-  if (    (0 <= rtuConfigIn.infusionTotalDuration) &&
+  if ((0 <= rtuConfigIn.infusionTotalDuration) &&
     (0 <= rtuConfigIn.vtbiTotal) &&
     (0 <= rtuConfigIn.flowRateBasal) &&
     (0 <= rtuConfigIn.flowRateIntermittentBolus) &&
@@ -39,7 +38,7 @@ public static void main(String[] args) {
     (0 <= rtuConfigIn.maxNumberOfPatientBolus) &&
     (0 <= rtuConfigIn.flowRateKVO) &&
     (0 <= rtuConfigIn.enteredReservoirVolume) &&
-    (0 <= rtuConfigIn.Configured) &&
+    (0 <= rtuConfigIn.configured) &&
     (0 <= rtuAlarmIn.highestLevelAlarm) &&
     (0 <= rtuSysStatIn.volumeInfused) &&
 
@@ -55,12 +54,12 @@ public static void main(String[] args) {
     (rtuConfigIn.maxNumberOfPatientBolus <=255) &&
     (rtuConfigIn.flowRateKVO <=255) &&
     (rtuConfigIn.enteredReservoirVolume <=255) &&
-    (rtuConfigIn.Configured <=255) &&
+    (rtuConfigIn.configured <=255) &&
     (rtuAlarmIn.highestLevelAlarm <=255) &&
     (rtuSysStatIn.volumeInfused <=255)
 
     ) {
-      infusionMgr.INFUSION_MGR_Functional(rtuTlmModeIn, rtuOpCmdIn, rtuPatientIn, rtuConfigIn, rtuAlarmIn, rtuSysStatIn, rtyImOut, localB, localDW);
+      infusionMgr.infusionMgrFunctional(rtuTlmModeIn, rtuOpCmdIn, rtuPatientIn, rtuConfigIn, rtuAlarmIn, rtuSysStatIn, rtyImOut, localB, localDW);
 
       boolean checkCondition;
       boolean checkOutput;
@@ -68,6 +67,6 @@ public static void main(String[] args) {
       //Prop1: mode_range
       checkCondition = ((rtyImOut.currentSystemMode == 0) || (rtyImOut.currentSystemMode == 1) || (rtyImOut.currentSystemMode == 2) || (rtyImOut.currentSystemMode == 3) || (rtyImOut.currentSystemMode == 4) || (rtyImOut.currentSystemMode == 6) || (rtyImOut.currentSystemMode == 7) || (rtyImOut.currentSystemMode == 8));
       assert checkCondition;
-  }
+      }
     }
 }

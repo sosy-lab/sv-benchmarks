@@ -1,4 +1,3 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class ConfigOutputs {
@@ -18,7 +17,7 @@ public class ConfigOutputs {
   public int flowRateKVO = Verifier.nondetInt();
   public int enteredReservoirVolume = Verifier.nondetInt();
   public int reservoirVolume = Verifier.nondetInt();
-  public int Configured = Verifier.nondetInt();
+  public int configured = Verifier.nondetInt();
   public int errorMessageID = Verifier.nondetInt();
   public boolean requestConfigType = Verifier.nondetBoolean();
   public boolean requestConfirmInfusionInitiate = Verifier.nondetBoolean();

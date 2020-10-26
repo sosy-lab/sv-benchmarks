@@ -1,4 +1,3 @@
-
 public class DW {
     public int isActiveC2InfusionMgrFunctional;/* '<Root>/Infusion Manager Sub-System' */
     public int isC2InfusionMgrFunctional;/* '<Root>/Infusion Manager Sub-System' */

@@ -1,8 +1,6 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class DrugDatabaseInputs {
-
     public boolean knownPrescription = Verifier.nondetBoolean();
     public int drugName = Verifier.nondetInt();
     public int drugConcentrationHigh = Verifier.nondetInt();

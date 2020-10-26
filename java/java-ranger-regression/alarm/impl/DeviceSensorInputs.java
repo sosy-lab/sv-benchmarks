@@ -1,8 +1,6 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class DeviceSensorInputs {
-
     public int flowRate = Verifier.nondetInt();
     public boolean flowRateNotStable = Verifier.nondetBoolean();
     public boolean airInLine = Verifier.nondetBoolean();

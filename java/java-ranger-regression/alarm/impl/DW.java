@@ -1,4 +1,3 @@
-
 /* Block states (auto storage) for model 'ALARM_Functional' */
 public class DW {
     int isActiveC2AlarmFunctional;/* '<Root>/Alarm  Sub-System' */

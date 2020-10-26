@@ -1,8 +1,6 @@
-
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class OperatorCommands {
-
     public boolean systemStart = Verifier.nondetBoolean();
     public boolean systemStop = Verifier.nondetBoolean();
     public boolean Infusion_Initiate = Verifier.nondetBoolean();
