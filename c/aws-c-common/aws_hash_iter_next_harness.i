@@ -10165,7 +10165,7 @@ void aws_hash_iter_next_harness() {
     ensure_allocated_hash_table(&map, 8);
     assume_abort_if_not(aws_hash_table_is_valid(&map));
 
-    struct aws_hash_iter iter;
+    struct aws_hash_iter iter = {0, {0, 0}, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_int()};
     iter.map = &map;
     assume_abort_if_not(aws_hash_iter_is_valid(&iter));
     enum aws_hash_iter_status old_status = iter.status;

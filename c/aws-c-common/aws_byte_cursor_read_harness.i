@@ -9090,8 +9090,8 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_byte_cursor_read_harness() {
 
-    struct aws_byte_cursor cur;
-    size_t length;
+    struct aws_byte_cursor cur = {__VERIFIER_nondet_ulong(), 0};
+    size_t length = __VERIFIER_nondet_ulong();
     void *dest = bounded_malloc(length);
 
 

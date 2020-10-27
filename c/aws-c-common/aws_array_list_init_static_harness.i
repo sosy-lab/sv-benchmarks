@@ -7602,7 +7602,7 @@ void aws_array_list_swap(struct aws_array_list *restrict list, size_t a, size_t 
 }
 void aws_array_list_init_static_harness() {
 
-    struct aws_array_list list;
+    struct aws_array_list list = {0, __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), __VERIFIER_nondet_ulong(), 0};
 
 
     size_t item_size;

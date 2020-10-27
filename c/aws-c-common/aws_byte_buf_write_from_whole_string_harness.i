@@ -9880,7 +9880,7 @@ void aws_byte_buf_write_from_whole_string_harness() {
     struct aws_string *str = nondet_bool() ? ensure_string_is_allocated_bounded_length(16) : 
                                                                                                         ((void *)0)
                                                                                                             ;
-    struct aws_byte_buf buf;
+    struct aws_byte_buf buf = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
 
     ensure_byte_buf_has_allocated_buffer_member(&buf);
     assume_abort_if_not(aws_byte_buf_is_valid(&buf));

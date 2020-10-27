@@ -9111,12 +9111,12 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_array_eq_ignore_case_harness() {
 
-    size_t lhs_len;
+    size_t lhs_len = __VERIFIER_nondet_ulong();
     assume_abort_if_not(lhs_len <= 10);
     void *lhs = can_fail_malloc(lhs_len);
 
     void *rhs;
-    size_t rhs_len;
+    size_t rhs_len = __VERIFIER_nondet_ulong();
     if (nondet_bool()) {
         rhs_len = lhs_len;
         rhs = lhs;

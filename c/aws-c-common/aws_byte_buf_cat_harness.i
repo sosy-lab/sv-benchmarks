@@ -9111,10 +9111,10 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_byte_buf_cat_harness() {
 
-    struct aws_byte_buf buffer1;
-    struct aws_byte_buf buffer2;
-    struct aws_byte_buf buffer3;
-    struct aws_byte_buf dest;
+    struct aws_byte_buf buffer1 = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
+    struct aws_byte_buf buffer2 = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
+    struct aws_byte_buf buffer3 = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
+    struct aws_byte_buf dest = {__VERIFIER_nondet_ulong(), 0, __VERIFIER_nondet_ulong(), 0};
     size_t number_of_args = 3;
 
 

@@ -9881,10 +9881,10 @@ void aws_array_list_comparator_string_harness() {
     struct aws_string *str_b = nondet_bool() ? str_a : ensure_string_is_allocated_bounded_length(16);
     
    _Bool 
-        nondet_parameter_a;
+        nondet_parameter_a = nondet_bool();
     
    _Bool 
-        nondet_parameter_b;
+        nondet_parameter_b = nondet_bool();
     if (aws_array_list_comparator_string(nondet_parameter_a ? &str_a : 
                                                                       ((void *)0)
                                                                           , nondet_parameter_b ? &str_b : 

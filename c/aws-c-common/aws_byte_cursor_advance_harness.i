@@ -9090,8 +9090,8 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_byte_cursor_advance_harness() {
 
-    struct aws_byte_cursor cursor;
-    size_t len;
+    struct aws_byte_cursor cursor = {__VERIFIER_nondet_ulong(), 0};
+    size_t len = __VERIFIER_nondet_ulong();
 
 
     ensure_byte_cursor_has_allocated_buffer_member(&cursor);
