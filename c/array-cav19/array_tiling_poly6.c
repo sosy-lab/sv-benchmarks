@@ -11,8 +11,8 @@ int main()
 {
   int S=__VERIFIER_nondet_int();
   assume_abort_if_not(S>1);
-  int i;
-  int a[S];
+  long long i;
+  long long a[S];
 
   for(i=0;i<S;i++)
     a[i]=((i-1)*(i+1));
