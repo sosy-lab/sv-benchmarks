@@ -1,6 +1,6 @@
 format_version: '2.0'
 
-input_files: 'output/uthash_SAX_test4-1.i'
+input_files: 'uthash_SAX_test4-1.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
