@@ -11,6 +11,7 @@ int main()
 {
   int S=__VERIFIER_nondet_int();
   assume_abort_if_not(S>1);
+  assume_abort_if_not(S < 1073741823);
   int i;
   int a[2*S];
   int acopy[2*S];
