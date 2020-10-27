@@ -32,8 +32,7 @@ public class Main {
 
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
-    if (arg < 0)
-      return;
+    if (arg < 0) return;
     int x = arg;
 
     Main inst = new Main();
@@ -51,15 +50,12 @@ public class Main {
     int y = 3;
     r = x + z;
     z = x - y - 4;
-    if (r < 99)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
+    if (r < 99) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
     if (x < z) {
       System.out.println("branch BOO1");
       assert false;
-    } else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch BOO2");
 
     // assert false;
   }

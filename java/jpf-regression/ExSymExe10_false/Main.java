@@ -35,8 +35,7 @@ public class Main {
 
     Main inst = new Main();
     field = Verifier.nondetInt();
-    if (field < 0)
-      return;
+    if (field < 0) return;
     inst.test(x, field);
     // test(x,x);
   }
@@ -50,16 +49,13 @@ public class Main {
     int y = 3;
     x = x * z;
     z = -x + y;
-    if (z <= 0)
-      System.out.println("branch FOO1");
+    if (z <= 0) System.out.println("branch FOO1");
     else {
       System.out.println("branch FOO2");
       assert false;
     }
-    if (x <= 0)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    if (x <= 0) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

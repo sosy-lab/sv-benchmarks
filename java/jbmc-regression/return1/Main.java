@@ -24,9 +24,6 @@ class Main {
 
   public static void main(String[] args) {
     short s = short_value();
-    if (s == 1)
-      if (bool_value())
-        if (long_value() == 0x10000ffffl)
-          assert false;
+    if (s == 1) if (bool_value()) if (long_value() == 0x10000ffffl) assert false;
   }
 }

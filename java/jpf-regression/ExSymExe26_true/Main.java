@@ -42,16 +42,13 @@ public class Main {
     System.out.println("Testing ExSymExe26");
     y = x;
     z++;
-    if (z > 0)
-      System.out.println("branch FOO1");
+    if (z > 0) System.out.println("branch FOO1");
     else {
       assert false;
       System.out.println("branch FOO2");
     }
-    if (y > 0)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    if (y > 0) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

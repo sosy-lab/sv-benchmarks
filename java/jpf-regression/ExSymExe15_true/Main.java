@@ -31,14 +31,12 @@ public class Main {
   static int field2;
 
   public static void main(String[] args) {
-    int x =
-        13000; /* we want to specify in an annotation that this param should be
+    int x = 13000; /* we want to specify in an annotation that this param should be
                   symbolic */
 
     Main inst = new Main();
     field = Verifier.nondetShort();
-    if (field < 0)
-      return;
+    if (field < 0) return;
     inst.test(x, field, field2);
     // test(x,x);
   }
@@ -55,12 +53,9 @@ public class Main {
     if (r <= 99) {
       System.out.println("branch FOO1");
       assert false;
-    } else
-      System.out.println("branch FOO2");
-    if (x <= z)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    } else System.out.println("branch FOO2");
+    if (x <= z) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
 
     // assert false;
   }

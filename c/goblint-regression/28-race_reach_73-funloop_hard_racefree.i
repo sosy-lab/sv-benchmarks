@@ -940,12 +940,14 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&cache[i].refs_mutex, ((void *)0));
   int i;
   pthread_t t_ids[10000]; for (int i=0; i<10000; i++) pthread_create(&t_ids[i], ((void *)0), t_fun, ((void *)0));
   for(i=0; i<10; i++) cache_entry_addref(&cache[i]);
   pthread_mutex_lock(&cache[5].refs_mutex);
   do { if (__VERIFIER_nondet_int()) do { do { pthread_mutex_lock(&__global_lock); (cache[5].refs)++; pthread_mutex_unlock(&__global_lock); } while (0); do { pthread_mutex_lock(&__global_lock); (cache[5].refs)--; pthread_mutex_unlock(&__global_lock); } while (0); } while (0); else do { pthread_mutex_lock(&__global_lock); __VERIFIER_assert((cache[5].refs) == 0); pthread_mutex_unlock(&__global_lock); } while (0); } while (0);
-  pthread_mutex_lock(&cache[5].refs_mutex);
+  pthread_mutex_unlock(&cache[5].refs_mutex);
   for (int i=0; i < 10000; i++) pthread_join (t_ids[i], ((void *)0));
   return 0;
 }

@@ -1,16 +1,14 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
- * Type             : Functional Safety
- * Expected Verdict : True
- * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
- * Date             : 11 November 2019
+ * Type : Functional Safety Expected Verdict : True Last modified by : Zafer Esen
+ * <zafer.esen@it.uu.se> Date : 11 November 2019
  *
- * This benchmark is just like IterativeMergeSort-FunSat01, but
- * with a stronger sortedness assertion.
+ * <p>This benchmark is just like IterativeMergeSort-FunSat01, but with a stronger sortedness
+ * assertion.
  *
- * Permission to freely use and modify the file granted via e-mail on 26.10.2019
- * by the original author David Kosbie <koz@cmu.edu>.
+ * <p>Permission to freely use and modify the file granted via e-mail on 26.10.2019 by the original
+ * author David Kosbie <koz@cmu.edu>.
  */
 
 // IterativeMergeSort.java
@@ -49,30 +47,29 @@ public class Main {
   // Iterative mergeSort
   /////////////////////////////////////////
 
-	public static void iterativeMergesort(int[] a) {
+  public static void iterativeMergesort(int[] a) {
     int[] aux = new int[a.length];
-		for (int blockSize=1; blockSize<a.length; blockSize*=2)
-			for (int start=0; start<a.length; start+=2*blockSize)
-				merge(a, aux, start, start+blockSize, start+2*blockSize);
-	}
+    for (int blockSize = 1; blockSize < a.length; blockSize *= 2)
+      for (int start = 0; start < a.length; start += 2 * blockSize)
+        merge(a, aux, start, start + blockSize, start + 2 * blockSize);
+  }
 
-	/////////////////////////////////////////
-	// Iterative mergeSort without copy
-	/////////////////////////////////////////
+  /////////////////////////////////////////
+  // Iterative mergeSort without copy
+  /////////////////////////////////////////
 
   public static void iterativeMergesortWithoutCopy(int[] a) {
     int[] from = a, to = new int[a.length];
-    for (int blockSize=1; blockSize<a.length; blockSize*=2) {
-      for (int start=0; start<a.length; start+=2*blockSize)
-        mergeWithoutCopy(from, to, start, start+blockSize, start+2*blockSize);
+    for (int blockSize = 1; blockSize < a.length; blockSize *= 2) {
+      for (int start = 0; start < a.length; start += 2 * blockSize)
+        mergeWithoutCopy(from, to, start, start + blockSize, start + 2 * blockSize);
       int[] temp = from;
       from = to;
       to = temp;
     }
     if (a != from)
       // copy back
-      for (int k = 0; k < a.length; k++)
-        a[k] = from[k];
+      for (int k = 0; k < a.length; k++) a[k] = from[k];
   }
 
   private static void mergeWithoutCopy(int[] from, int[] to, int lo, int mid, int hi) {
@@ -82,10 +79,10 @@ public class Main {
     if (hi > from.length) hi = from.length;
     int i = lo, j = mid;
     for (int k = lo; k < hi; k++) {
-      if      (i == mid)          to[k] = from[j++];
-      else if (j == hi)           to[k] = from[i++];
+      if (i == mid) to[k] = from[j++];
+      else if (j == hi) to[k] = from[i++];
       else if (from[j] < from[i]) to[k] = from[j++];
-      else                        to[k] = from[i++];
+      else to[k] = from[i++];
     }
     // DO NOT copy back
     // for (int k = lo; k < hi; k++)
@@ -104,14 +101,13 @@ public class Main {
     if (hi > a.length) hi = a.length;
     int i = lo, j = mid;
     for (int k = lo; k < hi; k++) {
-      if      (i == mid)     aux[k] = a[j++];
-      else if (j == hi)      aux[k] = a[i++];
-      else if (a[j] < a[i])  aux[k] = a[j++];
-      else                   aux[k] = a[i++];
+      if (i == mid) aux[k] = a[j++];
+      else if (j == hi) aux[k] = a[i++];
+      else if (a[j] < a[i]) aux[k] = a[j++];
+      else aux[k] = a[i++];
     }
     // copy back
-    for (int k = lo; k < hi; k++)
-      a[k] = aux[k];
+    for (int k = lo; k < hi; k++) a[k] = aux[k];
   }
 
   public static void recursiveMergesort(int[] a, int[] aux, int lo, int hi) {
@@ -131,4 +127,3 @@ public class Main {
     recursiveMergesort(a, aux, 0, n);
   }
 }
-

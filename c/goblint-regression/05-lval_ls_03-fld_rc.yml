@@ -1,0 +1,11 @@
+format_version: '2.0'
+
+input_files: '05-lval_ls_03-fld_rc.i'
+
+properties:
+  - property_file: ../properties/no-data-race.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: ILP32

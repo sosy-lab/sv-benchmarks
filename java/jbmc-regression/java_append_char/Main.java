@@ -20,9 +20,7 @@ public class Main {
 
     String tmp = buffer.toString();
     System.out.println(tmp);
-    if (b)
-      assert(tmp.equals("diffblue"));
-    else
-      assert(!tmp.equals("diffblue"));
+    if (b) assert (tmp.equals("diffblue"));
+    else assert (!tmp.equals("diffblue"));
   }
 }

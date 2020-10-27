@@ -36,10 +36,9 @@ public class Main {
       assert false;
     }
   }
+
   public static void main(String[] args) {
-    if (Verifier.nondetInt() == 0)
-      test(null, 0);
-    else
-      test(null, Verifier.nondetInt());
+    if (Verifier.nondetInt() == 0) test(null, 0);
+    else test(null, Verifier.nondetInt());
   }
 }

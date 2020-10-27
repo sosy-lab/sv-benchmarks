@@ -19,21 +19,18 @@ public class Main {
 
     secondString = secondString.replaceAll("Automatic", "Automated");
 
-    System.out.printf("\"Automatic\" substituted for \"Automated\": %s\n",
-                      secondString);
+    System.out.printf("\"Automatic\" substituted for \"Automated\": %s\n", secondString);
     secondString.equals("Automated Test Case Generation");
 
-    System.out.printf("Every word replaced by \"word\": %s\n\n",
-                      firstString.replaceAll("\\w+", "word"));
+    System.out.printf(
+        "Every word replaced by \"word\": %s\n\n", firstString.replaceAll("\\w+", "word"));
 
     System.out.printf("Original String 2: %s\n", secondString);
     secondString.equals("Automated Test Case Generation");
 
-    for (int i = 0; i < 3; i++)
-      secondString = secondString.replaceFirst("\\A", "automated");
+    for (int i = 0; i < 3; i++) secondString = secondString.replaceFirst("\\A", "automated");
 
-    assert secondString.equals(
-        "automatedautomatedautomatedAutomated Test Case Generation");
+    assert secondString.equals("automatedautomatedautomatedAutomated Test Case Generation");
 
     System.out.print("String split at commas: ");
     String[] results = secondString.split(" \\s*");

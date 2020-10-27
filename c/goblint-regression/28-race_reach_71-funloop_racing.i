@@ -941,6 +941,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&cache[i].refs_mutex, ((void *)0));
   int i;
   pthread_t t_ids[10000]; for (int i=0; i<10000; i++) pthread_create(&t_ids[i], ((void *)0), t_fun, ((void *)0));
   for(i=0; i<10; i++)

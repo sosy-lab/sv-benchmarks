@@ -6,7 +6,6 @@
  *     directory: regression/jbmc-strings/TokenTest02
  * The benchmark was taken from the repo: 24 January 2018
  */
-import java.util.StringTokenizer;
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
@@ -16,8 +15,7 @@ public class Main {
 
     int i = 0;
     for (String token : tokens) {
-      if (i == 3)
-        assert token.equals("genneration");
+      if (i == 3) assert token.equals("genneration");
       ++i;
     }
   }

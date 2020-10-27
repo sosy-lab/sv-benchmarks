@@ -14,8 +14,7 @@ public class Main {
 
     String s1 = new String(string);
     if (s1 == string) // false; they are not the same object
-      assert true;
-    else
-      assert false;
+    assert true;
+    else assert false;
   }
 }

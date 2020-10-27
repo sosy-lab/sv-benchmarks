@@ -44,64 +44,79 @@ public class Main {
     if (Math.round(in) > 16.0) {
       assert false;
       System.out.println("do1()");
-    } else
-      System.out.println("do2()");
+    } else System.out.println("do2()");
   }
 
-  public void test1(double C_v, double A_v, double bank_ang, int Cdir,
-                    int Cturn, int Aturn, double A_Psi0_deg,
-                    double C_Psi0_deg) {
+  public void test1(
+      double C_v,
+      double A_v,
+      double bank_ang,
+      int Cdir,
+      int Cturn,
+      int Aturn,
+      double A_Psi0_deg,
+      double C_Psi0_deg) {
 
-    if (C_v > 0.0 && A_v > 0.0 && bank_ang < 90.0 && bank_ang > 0.0 &&
-        Cdir < 3 && Cdir >= 0)
-
-      if (0.0 ==
-              ((Math.pow(
-                   ((C_v *
-                     (Math.sin((
-                         ((C_Psi0_deg * 0.017453292519943295) -
-                          (A_Psi0_deg * 0.017453292519943295)) +
-                         ((((((((Math.pow(A_v, 2.0)) /
-                                ((Math.sin((bank_ang * 0.017453292519943295))) /
-                                 (Math.cos(
-                                     (bank_ang * 0.017453292519943295))))) /
-                               68443.0) *
-                              0.0) /
-                             A_v) *
-                            -1.0) *
-                           C_v) /
-                          (((Math.pow(C_v, 2.0)) /
-                            ((Math.sin((bank_ang * 0.017453292519943295))) /
-                             (Math.cos((bank_ang * 0.017453292519943295))))) /
-                           68443.0)))))) -
-                    (A_v * 0.0)),
-                   2.0)) +
-               (Math.pow(
-                   ((C_v *
-                     (Math.cos((
-                         ((C_Psi0_deg * 0.017453292519943295) -
-                          (A_Psi0_deg * 0.017453292519943295)) +
-                         ((((((((Math.pow(A_v, 2.0)) /
-                                ((Math.sin((bank_ang * 0.017453292519943295))) /
-                                 (Math.cos(
-                                     (bank_ang * 0.017453292519943295))))) /
-                               68443.0) *
-                              0.0) /
-                             A_v) *
-                            -1.0) *
-                           C_v) /
-                          (((Math.pow(C_v, 2.0)) /
-                            ((Math.sin((bank_ang * 0.017453292519943295))) /
-                             (Math.cos((bank_ang * 0.017453292519943295))))) /
-                           68443.0)))))) -
-                    (A_v * 1.0)),
-                   2.0))) &&
-          Cturn != 0 && Aturn != 0 &&
+    if (C_v > 0.0 && A_v > 0.0 && bank_ang < 90.0 && bank_ang > 0.0 && Cdir < 3 && Cdir >= 0)
+      if (0.0
+              == ((Math.pow(
+                      ((C_v
+                              * (Math.sin(
+                                  (((C_Psi0_deg * 0.017453292519943295)
+                                          - (A_Psi0_deg * 0.017453292519943295))
+                                      + ((((((((Math.pow(A_v, 2.0))
+                                                                  / ((Math.sin(
+                                                                          (bank_ang
+                                                                              * 0.017453292519943295)))
+                                                                      / (Math.cos(
+                                                                          (bank_ang
+                                                                              * 0.017453292519943295)))))
+                                                              / 68443.0)
+                                                          * 0.0)
+                                                      / A_v)
+                                                  * -1.0)
+                                              * C_v)
+                                          / (((Math.pow(C_v, 2.0))
+                                                  / ((Math.sin((bank_ang * 0.017453292519943295)))
+                                                      / (Math.cos(
+                                                          (bank_ang * 0.017453292519943295)))))
+                                              / 68443.0))))))
+                          - (A_v * 0.0)),
+                      2.0))
+                  + (Math.pow(
+                      ((C_v
+                              * (Math.cos(
+                                  (((C_Psi0_deg * 0.017453292519943295)
+                                          - (A_Psi0_deg * 0.017453292519943295))
+                                      + ((((((((Math.pow(A_v, 2.0))
+                                                                  / ((Math.sin(
+                                                                          (bank_ang
+                                                                              * 0.017453292519943295)))
+                                                                      / (Math.cos(
+                                                                          (bank_ang
+                                                                              * 0.017453292519943295)))))
+                                                              / 68443.0)
+                                                          * 0.0)
+                                                      / A_v)
+                                                  * -1.0)
+                                              * C_v)
+                                          / (((Math.pow(C_v, 2.0))
+                                                  / ((Math.sin((bank_ang * 0.017453292519943295)))
+                                                      / (Math.cos(
+                                                          (bank_ang * 0.017453292519943295)))))
+                                              / 68443.0))))))
+                          - (A_v * 1.0)),
+                      2.0)))
+          && Cturn != 0
+          && Aturn != 0
+          &&
           // Cdir == 0 &&
-          C_v > 0.0 && A_v > 0.0 && bank_ang < 90.0 && bank_ang > 0.0 &&
-          Cdir < 3 && Cdir >= 0)
-
-        System.out.println("Solved!");
+          C_v > 0.0
+          && A_v > 0.0
+          && bank_ang < 90.0
+          && bank_ang > 0.0
+          && Cdir < 3
+          && Cdir >= 0) System.out.println("Solved!");
   }
 
   public void angleXY_(double x1, double y1) {

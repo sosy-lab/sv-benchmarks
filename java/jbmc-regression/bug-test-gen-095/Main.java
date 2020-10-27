@@ -13,6 +13,6 @@ public class Main {
     StringBuilder sb = new StringBuilder(Verifier.nondetString());
     sb.append("Z");
     String s = sb.toString();
-    assert(s.equals("fg"));
+    assert (s.equals("fg"));
   }
 }

@@ -8,11 +8,10 @@
  */
 public class Main {
   public static void main(String[] args) {
-    StringBuilder buffer = new StringBuilder(
-        "Diffblue is leader in automatic test case generation");
+    StringBuilder buffer =
+        new StringBuilder("Diffblue is leader in automatic test case generation");
 
-    assert buffer.toString().equals(
-        "Diffblue is leader in automatic test case generation");
+    assert buffer.toString().equals("Diffblue is leader in automatic test case generation");
     assert buffer.length() == 52;
     assert buffer.capacity() == 68;
 

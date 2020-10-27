@@ -1,47 +1,37 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
- * Type             : Functional Safety
- * Expected Verdict : True
- * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
- * Date             : 9 October 2019
+ * Type : Functional Safety Expected Verdict : True Last modified by : Zafer Esen
+ * <zafer.esen@it.uu.se> Date : 9 October 2019
  *
- * Original license follows.
+ * <p>Original license follows.
  */
 
 /**
- * Copyright (c) 2011, Regents of the University of California
- * All rights reserved.
- * <p/>
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * <p/>
- * 1. Redistributions of source code must retain the above copyright
- * notice, this list of conditions and the following disclaimer.
- * <p/>
- * 2. Redistributions in binary form must reproduce the above
- * copyright notice, this list of conditions and the following
- * disclaimer in the documentation and/or other materials provided
- * with the distribution.
- * <p/>
- * 3. Neither the name of the University of California, Berkeley nor
- * the names of its contributors may be used to endorse or promote
- * products derived from this software without specific prior written
- * permission.
- * <p/>
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
- * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * Copyright (c) 2011, Regents of the University of California All rights reserved.
+ *
+ * <p>Redistribution and use in source and binary forms, with or without modification, are permitted
+ * provided that the following conditions are met:
+ *
+ * <p>1. Redistributions of source code must retain the above copyright notice, this list of
+ * conditions and the following disclaimer.
+ *
+ * <p>2. Redistributions in binary form must reproduce the above copyright notice, this list of
+ * conditions and the following disclaimer in the documentation and/or other materials provided with
+ * the distribution.
+ *
+ * <p>3. Neither the name of the University of California, Berkeley nor the names of its
+ * contributors may be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+ * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 /**
@@ -51,9 +41,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
 
   private static class BinaryTree {
-    /**
-     * Internal class representing a Node in the tree.
-     */
+    /** Internal class representing a Node in the tree. */
     private static class Node {
       int value;
       Node left;
@@ -68,9 +56,7 @@ public class Main {
 
     private Node root = null;
 
-    /**
-     * Inserts a value in to the tree.
-     */
+    /** Inserts a value in to the tree. */
     public void insert(int v) {
 
       if (root == null) {
@@ -100,15 +86,13 @@ public class Main {
       }
     }
 
-    /**
-     * Searches for a value in the tree.
-     */
+    /** Searches for a value in the tree. */
     public boolean search(int v) {
       Node curr = root;
-      while (curr != null) {  // N branches
-        if (curr.value == v) {  // N-1 branches
+      while (curr != null) { // N branches
+        if (curr.value == v) { // N-1 branches
           return true;
-        } else if (curr.value < v) {  // N-1 branches
+        } else if (curr.value < v) { // N-1 branches
           curr = curr.right;
         } else {
           curr = curr.left;
@@ -118,21 +102,19 @@ public class Main {
     }
   }
 
-
   public static void main(String args[]) {
     final int N = Verifier.nondetInt();
 
     BinaryTree b = new BinaryTree();
-    for (int i = 1; i < N; i++){
+    for (int i = 1; i < N; i++) {
       int n = Verifier.nondetInt();
-      if(n >= 0){ // only insert positive numbers
+      if (n >= 0) { // only insert positive numbers
         b.insert(n);
       }
     }
 
     int v = Verifier.nondetInt();
     Verifier.assume(v < 0);
-    assert(b.search(v) == false); // didn't put in any negative numbers
+    assert (b.search(v) == false); // didn't put in any negative numbers
   }
 }
-

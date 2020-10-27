@@ -115,6 +115,15 @@ java:
   tags:
     - privileged
 
+java-format:
+  stage: checks
+  image: openjdk:11
+  script: "java/check-format.sh"
+  cache:
+    key: "$CI_JOB_NAME"
+    paths:
+      - "java/*.jar"
+
 .build-docker:
   image:
     name: gcr.io/kaniko-project/executor:debug

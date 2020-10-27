@@ -13,8 +13,7 @@ public class Main {
     String s = Verifier.nondetString();
     CharSequence target = "b";
     String replaced = "";
-    if (target.length() == 1)
-      replaced = s.replace('b', 'c');
+    if (target.length() == 1) replaced = s.replace('b', 'c');
     assert replaced.indexOf('b') != -1;
   }
 }

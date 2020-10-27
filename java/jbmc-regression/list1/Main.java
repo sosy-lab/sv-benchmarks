@@ -18,8 +18,7 @@ class LinkedList {
 
   public int size() {
     int count = 0;
-    for (LinkedListEntry entry = Head; entry != null; entry = entry.Next)
-      ++count;
+    for (LinkedListEntry entry = Head; entry != null; entry = entry.Next) ++count;
     return count;
   }
 
@@ -31,41 +30,42 @@ class LinkedList {
       return;
     }
     LinkedListEntry entry = Head;
-    for (int i = 1; i < index; ++i)
-      entry = entry.Next;
+    for (int i = 1; i < index; ++i) entry = entry.Next;
     entry.Next = newEntry;
   }
 
-  public void add(int e) { add(size(), e); }
+  public void add(int e) {
+    add(size(), e);
+  }
 
   public void remove(int index) {
     LinkedListEntry entry = Head;
-    for (int i = 1; i < index; ++i)
-      entry = entry.Next;
+    for (int i = 1; i < index; ++i) entry = entry.Next;
     entry.Next = entry.Next.Next;
   }
 
   public int get(int index) {
     LinkedListEntry entry = Head;
-    for (int i = 0; i < index; ++i)
-      entry = entry.Next;
+    for (int i = 0; i < index; ++i) entry = entry.Next;
     return entry.Value;
   }
 }
 
 class Utils_nondet {
-  public static int nondet_int() { return Verifier.nondetInt(); }
+  public static int nondet_int() {
+    return Verifier.nondetInt();
+  }
 }
 
 class Utils_synthesis {
   public static int accumulator(int aggregated, int e) {
-    if (e % 2 == 0)
-      if (aggregated < e)
-        return e;
+    if (e % 2 == 0) if (aggregated < e) return e;
     return aggregated;
   }
 
-  public static boolean predicate(int lhs) { return true; }
+  public static boolean predicate(int lhs) {
+    return true;
+  }
 }
 
 public class Main {
@@ -73,10 +73,8 @@ public class Main {
     // java.util.stream.Stream.filter(...)
     int index = 0;
     for (LinkedListEntry entry = list.Head; entry != null; entry = entry.Next)
-      if (Utils_synthesis.predicate(entry.Value))
-        ++index;
-      else
-        list.remove(index);
+      if (Utils_synthesis.predicate(entry.Value)) ++index;
+      else list.remove(index);
 
     // java.util.stream.Stream.reduce(...)
     int aggregated = 0;
@@ -98,13 +96,11 @@ public class Main {
 
     int lhs_result = 0;
     for (LinkedListEntry it = lhs.Head; it != null; it = it.Next) {
-      if (it.Value % 2 == 0)
-        if (lhs_result < it.Value)
-          lhs_result = it.Value;
+      if (it.Value % 2 == 0) if (lhs_result < it.Value) lhs_result = it.Value;
     }
 
     int rhs_result = stream(rhs);
 
-    assert(lhs_result == rhs_result);
+    assert (lhs_result == rhs_result);
   }
 }

@@ -27,7 +27,10 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-  int zero() { return 0; }
+  int zero() {
+    return 0;
+  }
+
   static int test(int secret) {
     Main o = null;
     if (secret > 0) {
@@ -37,6 +40,7 @@ public class Main {
     int i = o.zero();
     return i;
   }
+
   public static void main(String[] args) {
     System.out.println(0);
     test(Verifier.nondetInt());

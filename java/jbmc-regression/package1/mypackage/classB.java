@@ -1,5 +1,8 @@
 package mypackage;
 
 public class classB {
-  public static int some_method() { return 123; }
-};
+  public static int some_method() {
+    return 123;
+  }
+}
+;

@@ -4,3 +4,4 @@ pthread/*.yml
 pthread-atomic/*.yml
 pthread-ext/*.yml
 pthread-lit/*.yml
+goblint-regression/*.yml

@@ -1,12 +1,11 @@
 /*
-* Contributed to SV-COMP by Falk Howar
-* License: MIT (see /java/jdart-regression/LICENSE-MIT)
-*
-*/
-
-import org.sosy_lab.sv_benchmarks.Verifier;
+ * Contributed to SV-COMP by Falk Howar
+ * License: MIT (see /java/jdart-regression/LICENSE-MIT)
+ *
+ */
 
 import java.io.IOException;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   public void doPost(String request) throws IOException {
@@ -15,7 +14,7 @@ public class Main {
       param = request;
     }
 
-    String[] argsEnv = { param };
+    String[] argsEnv = {param};
 
     if (param.equals("") && argsEnv[0].equals("GOTCHA")) {
       assert false;

@@ -7,12 +7,17 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 class InetAddress {}
+
 class InetSocketAddress {}
 
 public class Main {
-  public static String lookupPtrRecord(InetAddress address) { return "Foo"; }
+  public static String lookupPtrRecord(InetAddress address) {
+    return "Foo";
+  }
 
-  public static InetAddress reverse(InetAddress address) { return address; }
+  public static InetAddress reverse(InetAddress address) {
+    return address;
+  }
 
   public static void main(String[] args) {
     try {

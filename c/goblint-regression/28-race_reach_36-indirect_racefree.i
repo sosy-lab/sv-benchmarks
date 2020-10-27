@@ -694,7 +694,7 @@ pthread_mutex_t mutex = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 void *t_fun(void *arg) {
   pthread_mutex_lock(&mutex);
   do { do { pthread_mutex_lock(&__global_lock); (*g1)++; pthread_mutex_unlock(&__global_lock); } while (0); do { pthread_mutex_lock(&__global_lock); (*g1)--; pthread_mutex_unlock(&__global_lock); } while (0); } while (0);
-  pthread_mutex_lock(&mutex);
+  pthread_mutex_unlock(&mutex);
   return ((void *)0);
 }
 int main(void) {
@@ -702,7 +702,7 @@ int main(void) {
   pthread_t t_ids[10000]; for (int i=0; i<10000; i++) pthread_create(&t_ids[i], ((void *)0), t_fun, ((void *)0));
   pthread_mutex_lock(&mutex);
   do { pthread_mutex_lock(&__global_lock); __VERIFIER_assert((*g2) == 0); pthread_mutex_unlock(&__global_lock); } while (0);
-  pthread_mutex_lock(&mutex);
+  pthread_mutex_unlock(&mutex);
   for (int i=0; i < 10000; i++) pthread_join (t_ids[i], ((void *)0));
   return 0;
 }

@@ -31,8 +31,7 @@ public class Main {
   public static void main(String[] args) {
     float x = Verifier.nondetFloat();
     Main inst = new Main();
-    if (x>=0)
-      inst.test(x);
+    if (x >= 0) inst.test(x);
   }
 
   public void test(float x) {
@@ -41,7 +40,6 @@ public class Main {
     if (y > 0) {
       assert false;
       System.out.println("branch -x > 0");
-    } else
-      System.out.println("branch -x <= 0");
+    } else System.out.println("branch -x <= 0");
   }
 }

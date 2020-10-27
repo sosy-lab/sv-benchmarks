@@ -939,6 +939,8 @@ void *t_fun(void *arg) {
   return ((void *)0);
 }
 int main () {
+  for (int i = 0; i < 10; i++)
+    pthread_mutex_init(&a[i].mutex, ((void *)0));
   int i = __VERIFIER_nondet_int();
   assume_abort_if_not(0 <= i && i < 10);
   pthread_t t_ids[10000]; for (int i=0; i<10000; i++) pthread_create(&t_ids[i], ((void *)0), t_fun, ((void *)0));

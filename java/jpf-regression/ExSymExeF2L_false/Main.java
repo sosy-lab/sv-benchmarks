@@ -38,11 +38,10 @@ public class Main {
 
   public void test(float x) {
 
-    long res = (long)++x;
+    long res = (long) ++x;
     if (res > 0) {
       assert false;
       System.out.println("x >0");
-    } else
-      System.out.println("x <=0");
+    } else System.out.println("x <=0");
   }
 }

@@ -32,15 +32,13 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    if (x < 0)
-      return;
+    if (x < 0) return;
     x = x % 3; /* we want to specify in an annotation that this
                                 param should be symbolic */
 
     Main inst = new Main();
     field = Verifier.nondetInt();
-    if (field < 0)
-      return;
+    if (field < 0) return;
     field = field % 9;
     inst.test(x, field, field2);
     // test(x,x);
@@ -56,12 +54,9 @@ public class Main {
     r = x + z;
     x = z - y;
     z = r;
-    if (z >= x)
-      System.out.println("branch FOO1");
-    else
-      System.out.println("branch FOO2");
-    if (x >= r)
-      System.out.println("branch BOO1");
+    if (z >= x) System.out.println("branch FOO1");
+    else System.out.println("branch FOO2");
+    if (x >= r) System.out.println("branch BOO1");
     else {
       assert false;
       System.out.println("branch BOO2");

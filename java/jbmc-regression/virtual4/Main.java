@@ -12,12 +12,16 @@ interface A {
 ;
 
 class B implements A {
-  public void f() { assert false; }
-};
+  public void f() {
+    assert false;
+  }
+}
+;
 
 class C implements A {
   public void f() {}
-};
+}
+;
 
 class Main {
   public static void main(String[] args) {

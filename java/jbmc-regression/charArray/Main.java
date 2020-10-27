@@ -18,8 +18,7 @@ public class Main {
 
   public static void main(String[] args) {
     String arg = Verifier.nondetString();
-    if (arg.length() != 5)
-      return;
+    if (arg.length() != 5) return;
     char[] c = f(arg.toCharArray());
     String s = new String("HELLO") + new String(c, 0, c.length);
     assert s.charAt(5) == 's';

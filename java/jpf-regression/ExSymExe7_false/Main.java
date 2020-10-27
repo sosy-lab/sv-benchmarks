@@ -30,8 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
-    if (arg < 0)
-      return;
+    if (arg < 0) return;
     int x = 10 - arg % 9;
     int y = 10 - arg % 5;
     Main inst = new Main();
@@ -51,9 +50,7 @@ public class Main {
       System.out.println("branch FOO2");
       assert false;
     }
-    if (y != 0)
-      System.out.println("branch BOO1");
-    else
-      System.out.println("branch BOO2");
+    if (y != 0) System.out.println("branch BOO1");
+    else System.out.println("branch BOO2");
   }
 }

@@ -14,8 +14,9 @@ public class Main {
       return false;
     }
   }
+
   public static void main(String[] args) {
-    assert(!test(null));
-    assert(test(new Integer(1)));
+    assert (!test(null));
+    assert (test(new Integer(1)));
   }
 }

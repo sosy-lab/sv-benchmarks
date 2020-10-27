@@ -18,8 +18,7 @@ public class Main {
 
     int i = 0;
     for (String string : strings) {
-      if (string.endsWith("ed"))
-        ++i;
+      if (string.endsWith("ed")) ++i;
     }
     assert i == 3;
   }

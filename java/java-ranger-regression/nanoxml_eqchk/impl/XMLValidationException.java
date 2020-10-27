@@ -26,167 +26,118 @@
  *  3. This notice may not be removed or altered from any source distribution.
  */
 
-
-
-
-
 /**
- * An XMLValidationException is thrown when the XML passed to the XML parser is
- * well-formed but not valid.
+ * An XMLValidationException is thrown when the XML passed to the XML parser is well-formed but not
+ * valid.
  *
  * @author Marc De Scheemaecker
  * @version $Name: PRERELEASE_2_0_20010329 $, $Revision: 1.1.1.1 $
  */
-public class XMLValidationException
-    extends RuntimeException
-{
+public class XMLValidationException extends RuntimeException {
 
-    /**
-     * An element was missing.
-     */
-    public static final int MISSING_ELEMENT = 1;
-    
-    
-    /**
-     * An unexpected element was encountered.
-     */
-    public static final int UNEXPECTED_ELEMENT = 2;
-    
-    
-    /**
-     * An attribute was missing.
-     */
-    public static final int MISSING_ATTRIBUTE = 3;
-    
-    
-    /**
-     * An unexpected attribute was encountered.
-     */
-    public static final int UNEXPECTED_ATTRIBUTE = 4;
-    
-    
-    /**
-     * An attribute has an invalid value.
-     */
-    public static final int ATTRIBUTE_WITH_INVALID_VALUE = 5;
-    
-    
-    /**
-     * A PCDATA element was missing.
-     */
-    public static final int MISSING_PCDATA = 6;
-    
-    
-    /**
-     * An unexpected PCDATA element was encountered.
-     */
-    public static final int UNEXPECTED_PCDATA = 7;
-    
-    
-    /**
-     * Another error than those specified in this class was encountered.
-     */
-    public static final int MISC_ERROR = 0;
-    
-    
-    /**
-     * Which error occurred.
-     */
-    private int errorType;
-    
-    
-    /**
-     * The line number in the XML data where the exception occurred.
-     */
-    private int lineNr;
-    
-    
-    /**
-     * The name of the element where the exception occurred.
-     */
-    private String elementName;
-    
-    
-    /**
-     * The name of the attribute where the exception occurred.
-     */
-    private String attributeName;
-    
-    
-    /**
-     * The value of the attribute where the exception occurred.
-     */
-    private String attributeValue;
-    
-    
-    /**
-     * Creates a new exception.
-     *
-     * @param errorType the type of validity error
-     * @param lineNr the line number in the XML data where the exception 
-     *               occurred.
-     * @param elementName the name of the offending element
-     * @param attributeName the name of the offending attribute
-     * @param attributeValue the value of the offending attribute
-     * @param msg the message of the exception.
-     */
-    public XMLValidationException(int    errorType,
-                                  int    lineNr,
-                                  String elementName,
-                                  String attributeName,
-                                  String attributeValue,
-                                  String msg)
-    {
-        super("XML Not Valid at Line " + lineNr + ": " + msg
-              + "(type=" + errorType
-              + ((elementName == null) ? "" : (", element: " + elementName))
-              + ((attributeName == null) ? ""
-                    : (", attribute: " + attributeName + "=" + attributeValue))
-              + ")");
-        this.lineNr = lineNr;
-        this.elementName = elementName;
-        this.attributeName = attributeName;
-        this.attributeValue = attributeValue;
-    }
-    
-    
-    /**
-     * Returns the line number in the XML data where the exception occurred.
-     * If there is no line number known, -1 is returned.
-     */
-    public int getLineNr()
-    {
-        return this.lineNr;
-    }
-    
-    
-    /**
-     * Returns the name of the element in which the validation is violated.
-     * If there is no current element, null is returned.
-     */
-    public String getElementName()
-    {
-        return this.elementName;
-    }
-    
-    
-    /**
-     * Returns the name of the attribute in which the validation is violated.
-     * If there is no current attribute, null is returned.
-     */
-    public String getAttributeName()
-    {
-        return this.attributeName;
-    }
-    
-    
-    /**
-     * Returns the value of the attribute in which the validation is violated.
-     * If there is no current attribute, null is returned.
-     */
-    public String getAttributeValue()
-    {
-        return this.attributeValue;
-    }
-    
+  /** An element was missing. */
+  public static final int MISSING_ELEMENT = 1;
+
+  /** An unexpected element was encountered. */
+  public static final int UNEXPECTED_ELEMENT = 2;
+
+  /** An attribute was missing. */
+  public static final int MISSING_ATTRIBUTE = 3;
+
+  /** An unexpected attribute was encountered. */
+  public static final int UNEXPECTED_ATTRIBUTE = 4;
+
+  /** An attribute has an invalid value. */
+  public static final int ATTRIBUTE_WITH_INVALID_VALUE = 5;
+
+  /** A PCDATA element was missing. */
+  public static final int MISSING_PCDATA = 6;
+
+  /** An unexpected PCDATA element was encountered. */
+  public static final int UNEXPECTED_PCDATA = 7;
+
+  /** Another error than those specified in this class was encountered. */
+  public static final int MISC_ERROR = 0;
+
+  /** Which error occurred. */
+  private int errorType;
+
+  /** The line number in the XML data where the exception occurred. */
+  private int lineNr;
+
+  /** The name of the element where the exception occurred. */
+  private String elementName;
+
+  /** The name of the attribute where the exception occurred. */
+  private String attributeName;
+
+  /** The value of the attribute where the exception occurred. */
+  private String attributeValue;
+
+  /**
+   * Creates a new exception.
+   *
+   * @param errorType the type of validity error
+   * @param lineNr the line number in the XML data where the exception occurred.
+   * @param elementName the name of the offending element
+   * @param attributeName the name of the offending attribute
+   * @param attributeValue the value of the offending attribute
+   * @param msg the message of the exception.
+   */
+  public XMLValidationException(
+      int errorType,
+      int lineNr,
+      String elementName,
+      String attributeName,
+      String attributeValue,
+      String msg) {
+    super(
+        "XML Not Valid at Line "
+            + lineNr
+            + ": "
+            + msg
+            + "(type="
+            + errorType
+            + ((elementName == null) ? "" : (", element: " + elementName))
+            + ((attributeName == null)
+                ? ""
+                : (", attribute: " + attributeName + "=" + attributeValue))
+            + ")");
+    this.lineNr = lineNr;
+    this.elementName = elementName;
+    this.attributeName = attributeName;
+    this.attributeValue = attributeValue;
+  }
+
+  /**
+   * Returns the line number in the XML data where the exception occurred. If there is no line
+   * number known, -1 is returned.
+   */
+  public int getLineNr() {
+    return this.lineNr;
+  }
+
+  /**
+   * Returns the name of the element in which the validation is violated. If there is no current
+   * element, null is returned.
+   */
+  public String getElementName() {
+    return this.elementName;
+  }
+
+  /**
+   * Returns the name of the attribute in which the validation is violated. If there is no current
+   * attribute, null is returned.
+   */
+  public String getAttributeName() {
+    return this.attributeName;
+  }
+
+  /**
+   * Returns the value of the attribute in which the validation is violated. If there is no current
+   * attribute, null is returned.
+   */
+  public String getAttributeValue() {
+    return this.attributeValue;
+  }
 }

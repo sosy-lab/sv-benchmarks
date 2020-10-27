@@ -27,17 +27,16 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-  //@Symbolic("true")
+  // @Symbolic("true")
   static int field;
   int field2;
 
   public static void main(String[] args) {
-    if (Verifier.nondetInt() == 2)
-      (new Main()).test();
+    if (Verifier.nondetInt() == 2) (new Main()).test();
   }
+
   public void test() {
-    if (field == 0 && field2 == 0)
-      System.out.println("br 0");
+    if (field == 0 && field2 == 0) System.out.println("br 0");
     else {
       assert false;
       System.out.println("br 1");

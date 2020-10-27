@@ -38,9 +38,8 @@ public class Main {
 
   public void test(double x) {
 
-    long res = (long)++x;
-    if (res > 0)
-      System.out.println("x >0");
+    long res = (long) ++x;
+    if (res > 0) System.out.println("x >0");
     else {
       assert false;
       System.out.println("x <=0");
