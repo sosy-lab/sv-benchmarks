@@ -1,3 +1,10 @@
 # Contains tasks for checking memory safety of programs from Juliet Test Suite.
-Juliet_Test/*.yml
+
+#CWE415_Double_Free
+Juliet_Test/CWE415*.yml
+
+#CWE476_NULL_Pointer_Dereference
+Juliet_Test/CWE476*_int*.yml
+Juliet_Test/CWE476*_long*.yml
+Juliet_Test/CWE476*_struct*.yml
 
