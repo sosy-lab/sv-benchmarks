@@ -18,7 +18,9 @@ int X; // boolean variable to test mutual exclusion
 
 void *thr1(void *_) {
     while (1) {
+        __VERIFIER_atomic_begin();
         b1 = 1;
+        __VERIFIER_atomic_end();
         __VERIFIER_atomic_begin();
         x = 1;
         __VERIFIER_atomic_end();
@@ -29,8 +31,14 @@ void *thr1(void *_) {
             __VERIFIER_atomic_begin();
             b1 = 0;
             __VERIFIER_atomic_end();
+            __VERIFIER_atomic_begin();
             y1 = y;
-            while (y1 != 0) {};
+            __VERIFIER_atomic_end();
+            while (y1 != 0) {
+                __VERIFIER_atomic_begin();
+                y1 = y;
+                __VERIFIER_atomic_end();
+            };
             continue;
         }
         __VERIFIER_atomic_begin();
@@ -40,15 +48,29 @@ void *thr1(void *_) {
         int x1 = x;
         __VERIFIER_atomic_end();
         if (x1 != 1) {
+            __VERIFIER_atomic_begin();
             b1 = 0;
+            __VERIFIER_atomic_end();
             __VERIFIER_atomic_begin();
             int b21 = b2;
             __VERIFIER_atomic_end();
-            while (b21 >= 1) {};
+            while (b21 >= 1) {
+                __VERIFIER_atomic_begin();
+                b21 = b2;
+                __VERIFIER_atomic_end();
+            };
+            __VERIFIER_atomic_begin();
             y1 = y;
+            __VERIFIER_atomic_end();
             if (y1 != 1) {
+                __VERIFIER_atomic_begin();
                 y1 = y;
-                while (y1 != 0) {};
+                __VERIFIER_atomic_end();
+                while (y1 != 0) {
+                    __VERIFIER_atomic_begin();
+                    y1 = y;
+                    __VERIFIER_atomic_end();
+                };
                 continue;
             }
         }
@@ -61,13 +83,17 @@ void *thr1(void *_) {
     __VERIFIER_atomic_begin();
     y = 0;
     __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
     b1 = 0;
+    __VERIFIER_atomic_end();
     return 0;
 }
 
 void *thr2(void *_) {
     while (1) {
+        __VERIFIER_atomic_begin();
         b2 = 1;
+        __VERIFIER_atomic_end();
         __VERIFIER_atomic_begin();
         x = 2;
         __VERIFIER_atomic_end();
@@ -75,11 +101,17 @@ void *thr2(void *_) {
         int y2 = y;
         __VERIFIER_atomic_end();
         if (y2 != 0) {
+            __VERIFIER_atomic_begin();
             b2 = 0;
+            __VERIFIER_atomic_end();
             __VERIFIER_atomic_begin();
             y2 = y;
             __VERIFIER_atomic_end();
-            while (y2 != 0) {};
+            while (y2 != 0) {
+                __VERIFIER_atomic_begin();
+                y2 = y;
+                __VERIFIER_atomic_end();
+            };
             continue;
         }
         __VERIFIER_atomic_begin();
@@ -89,15 +121,29 @@ void *thr2(void *_) {
         int x2 = x;
         __VERIFIER_atomic_end();
         if (x2 != 2) {
+            __VERIFIER_atomic_begin();
             b2 = 0;
+            __VERIFIER_atomic_end();
             __VERIFIER_atomic_begin();
             int b12 = b1;
             __VERIFIER_atomic_end();
-            while (b12 >= 1) {};
+            while (b12 >= 1) {
+                __VERIFIER_atomic_begin();
+                b12 = b1;
+                __VERIFIER_atomic_end();
+            };
+            __VERIFIER_atomic_begin();
             y2 = y;
+            __VERIFIER_atomic_end();
             if (y2 != 2) {
+                __VERIFIER_atomic_begin();
                 y2 = y;
-                while (y2 != 0) {};
+                __VERIFIER_atomic_end();
+                while (y2 != 0) {
+                    __VERIFIER_atomic_begin();
+                    y2 = y;
+                    __VERIFIER_atomic_end();
+                };
                 continue;
             }
         }
