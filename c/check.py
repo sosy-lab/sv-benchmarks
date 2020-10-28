@@ -660,7 +660,7 @@ def main(num_processes):
         logging.warning("Missing python-yaml, not all checks can be executed")
 
 
-    main_directory = os.path.relpath(os.path.dirname(__file__))
+    main_directory = os.path.relpath(os.path.dirname(__file__) or '.')
     _check_known_errors_consistent(main_directory)
     entries = sorted(os.listdir(main_directory))
     all_patterns_re = (
