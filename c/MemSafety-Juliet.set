@@ -8,3 +8,16 @@ Juliet_Test/CWE476*_int*.yml
 Juliet_Test/CWE476*_long*.yml
 Juliet_Test/CWE476*_struct*.yml
 
+#CWE121_Stack_Based_Buffer_Overflow
+Juliet_Test/CWE121*rand*.yml
+Juliet_Test/CWE121*fgets*.yml
+Juliet_Test/CWE121*large*.yml
+
+#CWE401_Memory_Leak
+Juliet_Test/CWE401*__int*.yml
+Juliet_Test/CWE401*__struct*.yml
+Juliet_Test/CWE401*__twoIntsStruct*.yml
+
+#CWE590_Free_Memory_Not_on_Heap
+Juliet_Test/CWE590*.yml
+
