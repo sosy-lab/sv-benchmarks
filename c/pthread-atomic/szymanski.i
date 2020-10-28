@@ -706,7 +706,11 @@ void *thr1(void *_) {
     __VERIFIER_atomic_begin();
     int f21 = flag2;
     __VERIFIER_atomic_end();
-    while (f21 >= 3);
+    while (f21 >= 3) {
+        __VERIFIER_atomic_begin();
+        f21 = flag2;
+        __VERIFIER_atomic_end();
+    };
     __VERIFIER_atomic_begin();
     flag1 = 3;
     __VERIFIER_atomic_end();
@@ -720,20 +724,36 @@ void *thr1(void *_) {
         __VERIFIER_atomic_begin();
         f21 = flag2;
         __VERIFIER_atomic_end();
-        while (f21 != 4);
+        while (f21 != 4) {
+            __VERIFIER_atomic_begin();
+            f21 = flag2;
+            __VERIFIER_atomic_end();
+        };
     }
+    __VERIFIER_atomic_begin();
     flag1 = 4;
+    __VERIFIER_atomic_end();
     __VERIFIER_atomic_begin();
     f21 = flag2;
     __VERIFIER_atomic_end();
-    while (f21 >= 2);
+    while (f21 >= 2) {
+        __VERIFIER_atomic_begin();
+        f21 = flag2;
+        __VERIFIER_atomic_end();
+    };
     x = 0;
     if (!(x<=0)) ERROR: reach_error();
     __VERIFIER_atomic_begin();
     f21 = flag2;
     __VERIFIER_atomic_end();
-    while (2 <= f21 && f21 <= 3);
+    while (2 <= f21 && f21 <= 3) {
+        __VERIFIER_atomic_begin();
+        f21 = flag2;
+        __VERIFIER_atomic_end();
+    };
+    __VERIFIER_atomic_begin();
     flag1 = 0;
+    __VERIFIER_atomic_end();
     return 0;
 }
 void *thr2(void *_) {
@@ -743,7 +763,11 @@ void *thr2(void *_) {
     __VERIFIER_atomic_begin();
     int f12 = flag1;
     __VERIFIER_atomic_end();
-    while (f12 >= 3);
+    while (f12 >= 3) {
+        __VERIFIER_atomic_begin();
+        f12 = flag1;
+        __VERIFIER_atomic_end();
+    };
     __VERIFIER_atomic_begin();
     flag2 = 3;
     __VERIFIER_atomic_end();
@@ -754,8 +778,14 @@ void *thr2(void *_) {
         __VERIFIER_atomic_begin();
         flag2 = 2;
         __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
         f12 = flag1;
-        while (f12 != 4);
+        __VERIFIER_atomic_end();
+        while (f12 != 4) {
+            __VERIFIER_atomic_begin();
+            f12 = flag1;
+            __VERIFIER_atomic_end();
+        };
     }
     __VERIFIER_atomic_begin();
     flag2 = 4;
@@ -763,13 +793,21 @@ void *thr2(void *_) {
     __VERIFIER_atomic_begin();
     f12 = flag1;
     __VERIFIER_atomic_end();
-    while (f12 >= 2);
+    while (f12 >= 2) {
+        __VERIFIER_atomic_begin();
+        f12 = flag1;
+        __VERIFIER_atomic_end();
+    };
     x = 1;
     if (!(x>=1)) ERROR: reach_error();
     __VERIFIER_atomic_begin();
     f12 = flag1;
     __VERIFIER_atomic_end();
-    while (2 <= f12 && f12 <= 3);
+    while (2 <= f12 && f12 <= 3) {
+        __VERIFIER_atomic_begin();
+        f12 = flag1;
+        __VERIFIER_atomic_end();
+    };
     __VERIFIER_atomic_begin();
     flag2 = 0;
     __VERIFIER_atomic_end();

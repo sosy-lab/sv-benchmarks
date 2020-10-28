@@ -713,7 +713,14 @@ void *thr1(void *_) {
     __VERIFIER_atomic_begin();
     int t1 = turn;
     __VERIFIER_atomic_end();
-    while (f21==1 && t1==1) {};
+    while (f21==1 && t1==1) {
+        __VERIFIER_atomic_begin();
+        f21 = flag2;
+        __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
+        t1 = turn;
+        __VERIFIER_atomic_end();
+    };
     x = 0;
     if (!(x<=0)) ERROR: reach_error();
     __VERIFIER_atomic_begin();
@@ -734,7 +741,14 @@ void *thr2(void *_) {
     __VERIFIER_atomic_begin();
     int t2 = turn;
     __VERIFIER_atomic_end();
-    while (f12==1 && t2==0) {};
+    while (f12==1 && t2==0) {
+        __VERIFIER_atomic_begin();
+        f12 = flag1;
+        __VERIFIER_atomic_end();
+        __VERIFIER_atomic_begin();
+        t2 = turn;
+        __VERIFIER_atomic_end();
+    };
     x = 1;
     if (!(x>=1)) ERROR: reach_error();
     __VERIFIER_atomic_begin();

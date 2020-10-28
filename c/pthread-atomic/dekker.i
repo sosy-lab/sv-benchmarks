@@ -712,18 +712,37 @@ void *thr1(void *_) {
     int f2 = flag2;
     __VERIFIER_atomic_end();
     while (f2 >= 1) {
+        __VERIFIER_atomic_begin();
         int t = turn;
+        __VERIFIER_atomic_end();
         if (t != 0) {
+            __VERIFIER_atomic_begin();
             flag1 = 0;
+            __VERIFIER_atomic_end();
+            __VERIFIER_atomic_begin();
             t = turn;
-            while (t != 0) {};
+            __VERIFIER_atomic_end();
+            while (t != 0) {
+                __VERIFIER_atomic_begin();
+                t = turn;
+                __VERIFIER_atomic_end();
+            };
+            __VERIFIER_atomic_begin();
             flag1 = 1;
+            __VERIFIER_atomic_end();
         }
+        __VERIFIER_atomic_begin();
+        f2 = flag2;
+        __VERIFIER_atomic_end();
     }
     x = 0;
     if (!(x<=0)) ERROR: reach_error();
+    __VERIFIER_atomic_begin();
     turn = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
     flag1 = 0;
+    __VERIFIER_atomic_end();
     return 0;
 }
 void *thr2(void *_) {
@@ -734,17 +753,34 @@ void *thr2(void *_) {
     int f1 = flag1;
     __VERIFIER_atomic_end();
     while (f1 >= 1) {
+        __VERIFIER_atomic_begin();
         int t = turn;
+        __VERIFIER_atomic_end();
         if (t != 1) {
+            __VERIFIER_atomic_begin();
             flag2 = 0;
+            __VERIFIER_atomic_end();
+            __VERIFIER_atomic_begin();
             t = turn;
-            while (t != 1) {};
+            __VERIFIER_atomic_end();
+            while (t != 1) {
+                __VERIFIER_atomic_begin();
+                t = turn;
+                __VERIFIER_atomic_end();
+            };
+            __VERIFIER_atomic_begin();
             flag2 = 1;
+            __VERIFIER_atomic_end();
         }
+        __VERIFIER_atomic_begin();
+        f1 = flag1;
+        __VERIFIER_atomic_end();
     }
     x = 1;
     if (!(x>=1)) ERROR: reach_error();
+    __VERIFIER_atomic_begin();
     turn = 1;
+    __VERIFIER_atomic_end();
     __VERIFIER_atomic_begin();
     flag2 = 0;
     __VERIFIER_atomic_end();

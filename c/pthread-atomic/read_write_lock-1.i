@@ -731,8 +731,12 @@ void *reader(void *arg) {
   y = l;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  if (!(y == x)) ERROR: reach_error();
+  int ly = y;
   __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int lx = x;
+  __VERIFIER_atomic_end();
+  if (!(ly == lx)) ERROR: reach_error();
   __VERIFIER_atomic_release_read_lock();
   return 0;
 }
