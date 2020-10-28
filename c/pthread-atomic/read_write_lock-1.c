@@ -39,7 +39,9 @@ void __VERIFIER_atomic_release_read_lock() {
 void *writer(void *arg) { //writer
   __VERIFIER_atomic_take_write_lock();  
   x = 3;
+  __VERIFIER_atomic_begin();
   w = 0;
+  __VERIFIER_atomic_end();
   return 0;
 }
 
@@ -52,7 +54,13 @@ void *reader(void *arg) { //reader
   __VERIFIER_atomic_begin();
   y = l;
   __VERIFIER_atomic_end();
-  assert(y == x);
+  __VERIFIER_atomic_begin();
+  int ly = y;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int lx = x;
+  __VERIFIER_atomic_end();
+  assert(ly == lx);
   __VERIFIER_atomic_release_read_lock();
   return 0;
 }

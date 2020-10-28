@@ -718,7 +718,7 @@ void Barrier2() {
   __VERIFIER_atomic_acquire();
   count++;
   if (count == 3) {
-    { __VERIFIER_atomic_begin(); (COND = 1); __VERIFIER_atomic_begin(); };
+    { __VERIFIER_atomic_begin(); (COND = 1); __VERIFIER_atomic_end(); };
     count = 0; }
   else
     { __VERIFIER_atomic_release(); __VERIFIER_atomic_begin(); assume_abort_if_not(COND); __VERIFIER_atomic_end(); __VERIFIER_atomic_begin(); COND = 0; __VERIFIER_atomic_end(); __VERIFIER_atomic_acquire(); };
