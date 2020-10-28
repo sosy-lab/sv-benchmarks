@@ -1,7 +1,8 @@
 format_version: '2.0'
 
-# old file name: sizeofparameters_test_true-termination.c_true-unreach-call.i
-input_files: 'sizeofparameters_test.i'
+# very old file name: sizeofparameters_test_true-termination.c_true-unreach-call.i
+# old file name: sizeofparameters_test.i
+input_files: 'sizeofparameters_test.c'
 
 properties:
   - property_file: ../properties/termination.prp

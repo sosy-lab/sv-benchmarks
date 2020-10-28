@@ -1,7 +1,8 @@
 format_version: '2.0'
 
-# old file name: test_address_true-termination.c_true-unreach-call.i
-input_files: 'test_address.i'
+# very old file name: test_address_true-termination.c_true-unreach-call.i
+# old file name: test_address.i
+input_files: 'test_address.c'
 
 properties:
   - property_file: ../properties/termination.prp
