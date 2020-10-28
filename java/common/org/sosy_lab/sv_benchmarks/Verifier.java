@@ -2,7 +2,7 @@
 // https://github.com/sosy-lab/sv-benchmarks
 //
 // SPDX-FileCopyrightText: Contributed by Peter Schrammel
-// SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks community
+// SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
 //
 // SPDX-License-Identifier: Apache-2.0
 
