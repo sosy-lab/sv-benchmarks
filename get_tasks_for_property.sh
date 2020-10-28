@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2019-2020 Dirk Beyer
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # This script returns the task definition files for a given coverage property.
 # Requires `yq` to be installed (https://pypi.org/project/yq/). Tested with version 2.10.
 # Usage: ./get_tasks_for_property <PROPERTY_FILE> [BENCHMARK_DIRECTORY]

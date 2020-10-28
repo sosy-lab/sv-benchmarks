@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+#
+# SPDX-License-Identifier: Apache-2.0
+
 #This should make bash fail if any of the commands fail in the loop.
 
 set -euo pipefail

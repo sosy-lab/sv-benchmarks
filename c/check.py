@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import argparse
 import collections
 import fnmatch
@@ -27,7 +34,6 @@ except ImportError:
     logging.basicConfig(format=LOG_FORMAT, level='INFO')
 
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
-LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
 BENCHMARK_PATTERN = re.compile('^.*\.yml$')
 EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile|.gitignore)$',
@@ -91,23 +97,10 @@ PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
 
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
-    ("bitvector", "missing license"),
-    ("ddv-machzwd", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
-    ("ldv-memsafety", "missing license"),
     ("ldv-memsafety", "missing readme"),
     ("ldv-races", "missing readme"),
-    ("ldv-regression", "missing license"),
     ("ldv-validator-v0.8", "missing readme"),
-    ("list-properties", "missing license"),
-    ("locks", "missing license"),
-    ("loops", "missing license"),
-    ("memsafety-ext", "missing license"),
-    ("product-lines", "missing license"),
-    ("pthread", "missing license"),
-    ("pthread-ext", "missing license"),
-    ("seq-pthread", "missing license"),
-    ("systemc", "missing license"),
     ("Juliet_Test", "unexpected subdirectory Juliet_Test_Suite_v1.3_for_C_Cpp"),
 
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
@@ -128,8 +121,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("nla-digbench-scaling", "unexpected file generate.py"),
 
     # historical
-    ("ntdrivers", "missing license"),
-    ("ntdrivers-simplified", "missing license"),
     ("ntdrivers", "missing readme"),
     ("ntdrivers-simplified", "missing readme"),
 
@@ -270,12 +261,6 @@ class DirectoryChecks(Checks):
             if README_PATTERN.match(entry):
                 return
         self.error("missing readme")
-
-    def check_has_license(self):
-        for entry in self.content:
-            if LICENSE_PATTERN.match(entry):
-                return
-        self.error("missing license")
 
     def check_has_Makefile(self):
         if not 'Makefile' in self.content:

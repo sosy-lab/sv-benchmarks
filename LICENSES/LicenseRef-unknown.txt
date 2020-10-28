@@ -1,0 +1,3 @@
+The license of these files are currently unknown.
+Please contribute to https://github.com/sosy-lab/sv-benchmarks/issues/165
+by providing information about licenses if you know more.

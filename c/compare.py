@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # This script iterates over all tasks and performs the following check:
 # For each file with existing ".c"- and ".i"-file
 # we generate the goto-cc program (i.e., intermediate representation of cbmc)

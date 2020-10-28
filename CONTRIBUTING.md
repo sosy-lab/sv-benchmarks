@@ -1,3 +1,12 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Contribution Guidelines
 
 If you have identified an issue with existing verification tasks,
@@ -39,11 +48,25 @@ Note that the file names of verification tasks need to be globally unique in the
 
 ### License
 
-The verification tasks need to be accompanied by a license,
-either via a file `LICENSE.txt` or similar in the same directory,
-or via a comment in the program header.
-If a common license is used, please use a symlink to an existing license file
-instead of adding an additional copy.
+All files need to have a copyright statement and a license declaration
+in a machine-readable comment at the beginning.
+We follow the current version of the [REUSE Specification](https://reuse.software/spec/),
+for more information and tool support cf. the [tutorial](https://reuse.software/tutorial/)
+and [FAQ](https://reuse.software/faq/) of the REUSE project.
+
+Example:
+```
+// This file is part of the SV-Benchmarks collection of verification tasks:
+// https://github.com/sosy-lab/sv-benchmarks
+//
+// SPDX-FileCopyrightText: 2020 ...
+//
+// SPDX-License-Identifier: Apache-2.0
+```
+Such a header can be easily created with the [reuse tool](https://github.com/fsfe/reuse-tool/):
+```
+reuse addheader --template header.jinja2 --copyright "..." --license Apache-2.0 yourfile.c
+```
 
 The stated license must allow to:
 - view, understand, investigate, and reverse engineer the algorithm or system,
@@ -52,10 +75,18 @@ The stated license must allow to:
 - compile and execute the program (in particular, for the purpose of verifying that a specification violation exists), and
 - commercially take advantage of the program (in particular, to not exclude developers of commercial verifiers).
 
-If possible, standard open-source licenses such as Apache 2.0 or GPL are preferred.
+If possible, standard open-source licenses such as Apache 2.0 or GPL are preferred,
+but custom licenses are possible
+(in the header, these need to be indicated as `LicenseRef-$NAME`
+and a file named `LicenseRef-$NAME.txt` with the license needs to be created
+in the `LICENSES` directory.
+
 If you are submitting verification tasks that are based on third-party source code,
-make sure to follow the restrictions of the original license!
+**make sure to follow the restrictions of the original license**!
 For example, verification tasks based on GPL source code must be licensed under the GPL as well.
+Furthermore, the most common open-source licenses all require
+that any existing copyright notices are kept intact,
+do not delete them and make sure that any preprocessing also preserves them.
 
 
 ### Origin, Description, and Attribution
