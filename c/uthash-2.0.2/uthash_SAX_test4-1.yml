@@ -7,6 +7,8 @@ properties:
     expected_verdict: true
   - property_file: ../properties/termination.prp
     expected_verdict: true
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
   - property_file: ../properties/valid-memcleanup.prp
