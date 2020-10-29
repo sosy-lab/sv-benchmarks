@@ -140,6 +140,7 @@ Files:
  c/termination-recursive-malloc
  c/termination-restricted-15
  c/termination-restricted-15-todo
+ c/uthash-2.0.2
  c/verifythis
  c/xcsp
  java/MinePump
