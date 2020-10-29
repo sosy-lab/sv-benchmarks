@@ -5,6 +5,8 @@ input_files: 'benchmark38_conjunctive.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
 
 options:
   language: C
