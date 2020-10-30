@@ -42,7 +42,7 @@ NLADIR = "../nla-digbench"
 
 
 def p(s: str) -> str:
-    return "^%s[^0-9]" % s
+    return "^%s[^a-zA-Z0-9]" % s
 
 
 # some inline tests:
