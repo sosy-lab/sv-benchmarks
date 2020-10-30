@@ -1,0 +1,24 @@
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Enable git's auto-detection of text files and enable normalization of line endings
+* text=auto
+# Force certain file types to be always considered as text with normalized line endings
+*.c text
+*.h text
+*.i text
+*.java text
+*.md text
+*.py text
+*.set text
+*.txt text
+*.yml text
+Makefile text
+Makefile.* text
+# Prevent changes to certain large directories where it is not relevant now
+clauses/** !text
+c/Juliet_Test/Juliet_Test_Suite_v1.3_for_C_Cpp/** !text
