@@ -1,3 +1,12 @@
+<!--
+This file is part of the XCSP3 collection of combinatorial constrained problems:
+https://www.xcsp.org
+
+SPDX-FileCopyrightText: 2016 Gilles Audemard
+
+SPDX-License-Identifier: MIT
+-->
+
 <instance format="XCSP3" type="CSP">
   <variables>
     <array id="x" note="x[i] is the ith value of the series" size="[9]"> 0..8 </array>
