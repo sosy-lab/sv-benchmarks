@@ -47,12 +47,15 @@ def p(s: str) -> str:
 
 # some inline tests:
 assert re.search(p("hard"), "hard.c")
+assert re.search(p("hard-ll"), "hard-ll.c")
 assert re.search(p("hard"), "hard-ll.c")
 assert not re.search(p("hard"), "hard2.c")
 assert not re.search(p("hard2"), "hard.c")
+assert not re.search(p("hard2"), "hard-ll.c")
+assert not re.search(p("hard\."), "hard-u.c")
 
 # task patterns where the expected result should become true if the values are restricted:
-healed_by_valuebound = [p(x) for x in ["divbin", "hard"]]
+healed_by_valuebound = [p(x) for x in ["divbin", "hard-ll", "hard\."]]
 # task patterns where the expected result should become true if the number of iterations is restricted:
 healed_by_unwindbound = [p("divbin")]
 # task patterns where the expected result should become false if the number of iterations is restricted:
