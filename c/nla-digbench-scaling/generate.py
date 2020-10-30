@@ -82,10 +82,18 @@ for file in cfiles:
             ymlcontent = re.sub(
                 "expected_verdict: true", "expected_verdict: false", ymlcontent
             )
-        for m in re.findall("property_file: (.*)", ymlcontent):
-            if not "unreach-call" in m:
+        properties = re.findall("property_file: (.*)", ymlcontent)
+        has_overflow_property = False
+        for m in properties:
+            if not ("unreach-call" in m or "no-overflow" in m):
                 print("WARNING, additional property found in %s: %s" % (file, m))
                 abort = True
+            if "no-overflow" in m:
+                has_overflow_property = True
+        if (
+            len(properties) == 1 and has_overflow_property
+        ):  # overflow is only property -> verdict false
+            abort = True
         if abort:
             break
         for i in [1, 2, 5, 10, 20, 50, 100]:

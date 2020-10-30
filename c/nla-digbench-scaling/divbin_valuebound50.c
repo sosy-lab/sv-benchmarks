@@ -6,7 +6,8 @@
 #include <limits.h>
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
