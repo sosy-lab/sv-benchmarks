@@ -13,6 +13,8 @@ include $(LEVEL)/Makefile.config
 tasks:
 	python3 create_from_xmls.py original/ .
 	clang-format -i *.c
+	reuse addheader --template header.jinja2 --year 2020 --copyright "The SV-Benchmarks Community" --license MIT *c
+	reuse addheader --template header.jinja2 --year 2016 --copyright "Gilles Audemard" --license MIT *c
 
 XCSP3_to_C:
 	git clone https://github.com/vsahil/XCSP3_to_C.git $@
