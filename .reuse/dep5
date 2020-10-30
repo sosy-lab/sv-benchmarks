@@ -92,6 +92,7 @@ Files:
  c/loop-lit
  c/loop-new
  c/loop-simple
+ c/loop-zilu
  c/loops-crafted-1
  c/memory-alloca
  c/memsafety
