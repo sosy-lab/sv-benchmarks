@@ -2,6 +2,7 @@
 // https://github.com/sosy-lab/sv-benchmarks
 //
 // SPDX-FileCopyrightText: 2016 Gilles Audemard
+// SPDX-FileCopyrightText: 2020 Dirk Beyer <dirk.beyer@sosy-lab.org>
 // SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
 //
 // SPDX-License-Identifier: MIT
