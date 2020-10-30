@@ -1,3 +1,10 @@
+# This file is part of the SV-Benchmarks collection of verification tasks:
+# https://github.com/sosy-lab/sv-benchmarks
+#
+# SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Enable git's auto-detection of text files and enable normalization of line endings
 * text=auto
 # Force certain file types to be always considered as text with normalized line endings
