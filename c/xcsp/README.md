@@ -3,7 +3,7 @@ This programs are obtained by converting the benchmarks provided for the [XCSP_t
 ## Creation
 
 For converting and creating the .yml-files a python script was used.
-The script can be found in this directory (create_from_xmls.py) and needs libxml12-dev, libboost-dev and clang-format to be installed.
+The script can be found in this directory (create_from_xmls.py) and needs libxml2-dev, libboost-dev and clang-format to be installed.
   1) Building [the project][2] produces the executable [`test`][3].
   2) Place the script in the directory of the executable.
   3) Run
