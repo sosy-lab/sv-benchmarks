@@ -38,30 +38,46 @@ def valuetemplate(f):
     return "".join(template)
 
 
-nladir = "../nla-digbench"
+NLADIR = "../nla-digbench"
 
-# task where the expected result should become true if the values are restricted:
-healed_by_valuebound = ["divbin.c", "hard.c"]
-# tasks where the expected result should become true if the number of iterations is restricted:
-healed_by_unwindbound = ["divbin.c"]
-# tasks where the expected result should become false if the number of iterations is restricted:
+
+def p(s: str) -> str:
+    return "^%s[^0-9]" % s
+
+
+# some inline tests:
+assert re.search(p("hard"), "hard.c")
+assert re.search(p("hard"), "hard-ll.c")
+assert not re.search(p("hard"), "hard2.c")
+assert not re.search(p("hard2"), "hard.c")
+
+# task patterns where the expected result should become true if the values are restricted:
+healed_by_valuebound = [p(x) for x in ["divbin", "hard"]]
+# task patterns where the expected result should become true if the number of iterations is restricted:
+healed_by_unwindbound = [p("divbin")]
+# task patterns where the expected result should become false if the number of iterations is restricted:
 broken_by_unwindbound = [
-    "hard2.c",
-    "bresenham.c",
-    "cohencu.c",
-    "egcd1.c",
-    "egcd2.c",
-    "egcd3.c",
-    "hard2.c",
-    "mannadiv.c",
-    "ps4.c",
-    "ps5.c",
-    "ps6.c",
+    p(x)
+    for x in [
+        "hard2",
+        "bresenham",
+        "cohencu",
+        "egcd1",
+        "egcd2",
+        "egcd3",
+        "hard2",
+        "mannadiv",
+        "ps4",
+        "ps5",
+        "ps6",
+    ]
 ]
 
-cfiles = [f for f in listdir(nladir) if isfile(join(nladir, f)) and ".c" in f]
+REACH = "../properties/unreach-call.prp\n    expected_verdict: "
+
+cfiles = [f for f in listdir(NLADIR) if isfile(join(NLADIR, f)) and ".c" in f]
 for file in cfiles:
-    fullpath = join(nladir, file)
+    fullpath = join(NLADIR, file)
     fullpathToPreprocessed = fullpath[:-2] + ".i"
     iFileExists = isfile(fullpathToPreprocessed)
     for (templatefun, name) in [
@@ -70,18 +86,21 @@ for file in cfiles:
     ]:
         template = templatefun(fullpath)
         abort = False
-        ymlcontent = open(join(nladir, file[:-2] + ".yml"), "r").read()
+        ymlcontent = open(join(NLADIR, file[:-2] + ".yml"), "r").read()
 
-        if (file in healed_by_valuebound and name == "_valuebound") or (
-            file in healed_by_unwindbound and name == "_unwindbound"
+        if (
+            any(re.search(entry, file) for entry in healed_by_valuebound)
+            and name == "_valuebound"
+        ) or (
+            any(re.search(entry, file) for entry in healed_by_unwindbound)
+            and name == "_unwindbound"
         ):
-            ymlcontent = re.sub(
-                "expected_verdict: false", "expected_verdict: true", ymlcontent
-            )
-        if file in broken_by_unwindbound and name == "_unwindbound":
-            ymlcontent = re.sub(
-                "expected_verdict: true", "expected_verdict: false", ymlcontent
-            )
+            ymlcontent = re.sub(REACH + "false", REACH + "true", ymlcontent)
+        if (
+            any(re.search(entry, file) for entry in broken_by_unwindbound)
+            and name == "_unwindbound"
+        ):
+            ymlcontent = re.sub(REACH + "true", REACH + "false", ymlcontent)
         properties = re.findall("property_file: (.*)", ymlcontent)
         has_overflow_property = False
         for m in properties:
