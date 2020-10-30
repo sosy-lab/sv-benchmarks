@@ -98,9 +98,9 @@ if len(sys.argv) == 3:
                 outp.write(program_content)
 
             # write .yml file
-            verdict = "true"
+            verdict = "false"
             if "Dubois" in l.name or "unsat" in l.name:
-                verdict = "false"
+                verdict = "true"
             taskdef_file = output / (program_file.name[:-1] + "yml")
             with open(taskdef_file, "w+") as outp:
                 outp.write(get_taskdef(program_file.name, verdict))
