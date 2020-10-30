@@ -9,3 +9,17 @@
 LEVEL := ../
 IGNORE_DIRS := ./original/
 include $(LEVEL)/Makefile.config
+
+tasks:
+	python3 create_from_xmls.py original/ .
+	clang-format -i *.c
+
+XCSP3_to_C:
+	git clone https://github.com/vsahil/XCSP3_to_C.git $@
+
+xcsp3_cpp_parser: XCSP3_to_C
+	# requires git g++ libxml2-dev libboost-dev
+	cd XCSP3_to_C/XCSP3-CPP-Parser/samples \
+		&& git checkout a511f3e \
+		&& make
+	cp XCSP3_to_C/XCSP3-CPP-Parser/samples/test $@
