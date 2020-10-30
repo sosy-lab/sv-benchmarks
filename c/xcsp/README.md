@@ -16,7 +16,7 @@ Run `make tasks` to recreate the tasks.
 ## Environment used
 
   * Python: version 3.6.9
-  * OS: Ubuntu 18.4.
+  * OS: Ubuntu 18.04
   * g++: version 7.4.0
 
 [License](License)
