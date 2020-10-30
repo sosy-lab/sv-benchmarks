@@ -7,6 +7,7 @@
 
 """ to run this script you need to install libxml2-dev, libboost-dev and clang-format (sudo apt-get install %s) [Python 3.6.9] """
 
+import argparse
 import os
 from pathlib import Path
 import sys
@@ -47,15 +48,26 @@ def find_all_constraint_definitions(path):
     return path.glob("**/*.xml")
 
 
-""" 
-    The script needs 2 parameters 1) path to benchmarks folder (parent directory) 2) path to outputfolder
-"""
-if len(sys.argv) == 3:
-    # create input and output path
-    path = Path(sys.argv[1])
-    output = Path(sys.argv[2])
-    os.makedirs(output, exist_ok=True)
+def parse_args(argv):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--output", default=".", help="output directory for benchmark tasks"
+    )
+    parser.add_argument(
+        "benchmark_directory",
+        help="directory that contains original XCSP benchmark tasks",
+    )
+    args = parser.parse_args(argv)
 
+    args.output = Path(args.output)
+    args.benchmark_directory = Path(args.benchmark_directory)
+    if not args.benchmark_directory.exists():
+        raise ValueError(f"Directory does not exist: {str(args.benchmark_directory)}")
+
+    return args
+
+
+def create_tasks(path, output):
     # loop through every constraints file in the input folder
     all_constraint_defs = list(find_all_constraint_definitions(path))
     task_amount = len(all_constraint_defs)
@@ -104,11 +116,20 @@ if len(sys.argv) == 3:
             taskdef_file = output / (program_file.name[:-1] + "yml")
             with open(taskdef_file, "w+") as outp:
                 outp.write(get_taskdef(program_file.name, verdict))
-    print("")
 
-else:
-    print(
-        'You have to pass two ABSOLUTE paths.\nThe file has to be placed in the directory with the executable and compiled file of XCSP.\nType "python '
-        + sys.argv[0]
-        + ' absolute/path/to/benchmarks absolute/path/for/translated/files"'
-    )
+
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    args = parse_args(argv)
+    os.makedirs(args.output, exist_ok=True)
+
+    try:
+        create_tasks(args.benchmark_directory, args.output)
+    finally:
+        # required to reset progressbar
+        print("", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
