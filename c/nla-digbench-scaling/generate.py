@@ -55,7 +55,7 @@ assert not re.search(p("hard2"), "hard-ll.c")
 assert not re.search(p("hard\."), "hard-u.c")
 
 # task patterns where the expected result should become true if the values are restricted:
-healed_by_valuebound = [p(x) for x in ["divbin", "hard-ll", "hard\."]]
+healed_by_valuebound = [p(x) for x in ["divbin", "hard-ll", "hard\.", "hard-u"]]
 # task patterns where the expected result should become true if the number of iterations is restricted:
 healed_by_unwindbound = [p("divbin")]
 # task patterns where the expected result should become false if the number of iterations is restricted:
@@ -63,10 +63,12 @@ broken_by_unwindbound = [
     p(x)
     for x in [
         "hard2",
+        "hard-ll",
         "bresenham",
         "cohencu",
         "egcd1",
         "egcd2",
+        "egcd-ll",
         "egcd3",
         "hard2",
         "mannadiv",
