@@ -22,9 +22,9 @@ int main() {
     int X, Y;
     long long x, y, v, xy, yx;
     X = __VERIFIER_nondet_int();
-    assume_abort_if_not(X>0 && X<=20);
+    assume_abort_if_not(X>=0 && X<=20);
     Y = __VERIFIER_nondet_int();
-    assume_abort_if_not(Y>0 && Y<=20);
+    assume_abort_if_not(Y>=0 && Y<=20);
     v = ((long long) 2 * Y) - X;         // cast required to avoid int overflow
     y = 0;
     x = 0;

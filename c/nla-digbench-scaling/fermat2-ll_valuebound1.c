@@ -20,9 +20,9 @@ int main() {
     int A, R;
     long long u, v, r;
     A = __VERIFIER_nondet_int();
-    assume_abort_if_not(A>0 && A<=1);
+    assume_abort_if_not(A>=0 && A<=1);
     R = __VERIFIER_nondet_int();
-    assume_abort_if_not(R>0 && R<=1);
+    assume_abort_if_not(R>=0 && R<=1);
     //assume_abort_if_not(A >= 1);
     assume_abort_if_not(((long long) R - 1) * ((long long) R - 1) < A);
     //assume_abort_if_not(A <= R * R);

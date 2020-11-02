@@ -24,9 +24,9 @@ int main() {
     int z, k;
     long long x, y, c;
     z = __VERIFIER_nondet_int();
-    assume_abort_if_not(z>0 && z<=100);
+    assume_abort_if_not(z>=0 && z<=100);
     k = __VERIFIER_nondet_int();
-    assume_abort_if_not(k>0 && k<=100);
+    assume_abort_if_not(k>=0 && k<=100);
 
     x = 1;
     y = 1;

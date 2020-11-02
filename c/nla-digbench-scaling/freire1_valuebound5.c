@@ -25,7 +25,7 @@ int main() {
     int r;
     double a, x;
     a = __VERIFIER_nondet_double();
-    assume_abort_if_not(a>0 && a<=5);
+    assume_abort_if_not(a>=0 && a<=5);
     x = a / 2.0;
     r = 0;
 

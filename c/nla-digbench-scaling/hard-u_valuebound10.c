@@ -23,9 +23,9 @@ int main() {
     unsigned int A, B;
     unsigned int r, d, p, q;
     A = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(A>0 && A<=10);
+    assume_abort_if_not(A>=0 && A<=10);
     B = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(B>0 && B<=10);
+    assume_abort_if_not(B>=0 && B<=10);
     assume_abort_if_not(B >= 1);
 
     r = A;

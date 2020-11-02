@@ -23,7 +23,7 @@ int main() {
     int A, B;
     int r, d, p, q;
     A = __VERIFIER_nondet_int();
-    assume_abort_if_not(A>0 && A<=100);
+    assume_abort_if_not(A>=0 && A<=100);
     B = 1;
 
     r = A;

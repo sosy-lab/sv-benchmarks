@@ -20,7 +20,7 @@ int main() {
     unsigned int n, p, q, r, h;
 
     n = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(n>0 && n<=10);
+    assume_abort_if_not(n>=0 && n<=10);
     assume_abort_if_not(n < 4294967295 / 4);  // Avoid non-terminating loop
 
     p = 0;

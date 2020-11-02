@@ -22,11 +22,11 @@ int main() {
     int z, a, k;
     long long x, y, c, az;
     z = __VERIFIER_nondet_int();
-    assume_abort_if_not(z>0 && z<=2);
+    assume_abort_if_not(z>=0 && z<=2);
     a = __VERIFIER_nondet_int();
-    assume_abort_if_not(a>0 && a<=2);
+    assume_abort_if_not(a>=0 && a<=2);
     k = __VERIFIER_nondet_int();
-    assume_abort_if_not(k>0 && k<=2);
+    assume_abort_if_not(k>=0 && k<=2);
 
     x = a;
     y = 1;

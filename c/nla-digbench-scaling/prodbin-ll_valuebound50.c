@@ -22,9 +22,9 @@ int main() {
     long long x, y, z;
 
     a = __VERIFIER_nondet_int();
-    assume_abort_if_not(a>0 && a<=50);
+    assume_abort_if_not(a>=0 && a<=50);
     b = __VERIFIER_nondet_int();
-    assume_abort_if_not(b>0 && b<=50);
+    assume_abort_if_not(b>=0 && b<=50);
     assume_abort_if_not(b >= 1);
 
     x = a;

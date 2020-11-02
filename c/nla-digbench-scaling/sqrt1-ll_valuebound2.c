@@ -21,7 +21,7 @@ int main() {
     int n;
     long long a, s, t;
     n = __VERIFIER_nondet_int();
-    assume_abort_if_not(n>0 && n<=2);
+    assume_abort_if_not(n>=0 && n<=2);
 
     a = 0;
     s = 1;

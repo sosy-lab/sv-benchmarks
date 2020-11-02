@@ -26,7 +26,7 @@ int main() {
   unsigned A, B;
   unsigned q, r, b;
     A = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(A>0 && A<=20);
+    assume_abort_if_not(A>=0 && A<=20);
     B = 1;
     q = 0;
     r = A;

@@ -18,7 +18,7 @@ int main() {
     int k;
     long long y, x, c;
     k = __VERIFIER_nondet_int();
-    assume_abort_if_not(k>0 && k<=10);
+    assume_abort_if_not(k>=0 && k<=10);
 
     y = 0;
     x = 0;

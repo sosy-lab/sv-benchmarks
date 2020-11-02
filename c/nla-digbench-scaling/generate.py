@@ -31,7 +31,7 @@ def valuetemplate(f):
             indent = m.group(1)
             varname = m.group(2)
             template.append(
-                "%sassume_abort_if_not(%s>0 && %s<=__BOUND);\n"
+                "%sassume_abort_if_not(%s>=0 && %s<=__BOUND);\n"
                 % (indent, varname, varname)
             )
 

@@ -27,9 +27,9 @@ int main() {
     unsigned n, a;
     unsigned r, k, q, d, s, t;
     n = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(n>0 && n<=100);
+    assume_abort_if_not(n>=0 && n<=100);
     a = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(a>0 && a<=100);
+    assume_abort_if_not(a>=0 && a<=100);
     assume_abort_if_not(n < (0x7fffffff * 2U + 1U)/8);
     assume_abort_if_not(a > 2);
     d = a;

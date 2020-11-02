@@ -19,9 +19,9 @@ int main() {
     int x, y;
     long long a, b, p, q, r, s;
     x = __VERIFIER_nondet_int();
-    assume_abort_if_not(x>0 && x<=2);
+    assume_abort_if_not(x>=0 && x<=2);
     y = __VERIFIER_nondet_int();
-    assume_abort_if_not(y>0 && y<=2);
+    assume_abort_if_not(y>=0 && y<=2);
     assume_abort_if_not(x >= 1);
     assume_abort_if_not(y >= 1);
 

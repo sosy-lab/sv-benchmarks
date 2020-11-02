@@ -26,9 +26,9 @@ int main() {
   unsigned A, B;
   unsigned q, r, b;
     A = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(A>0 && A<=100);
+    assume_abort_if_not(A>=0 && A<=100);
     B = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(B>0 && B<=100);
+    assume_abort_if_not(B>=0 && B<=100);
     assume_abort_if_not(B < (0x7fffffff * 2U + 1U)/2);
     assume_abort_if_not(B >= 1);
     q = 0;

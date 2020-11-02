@@ -21,9 +21,9 @@ int main() {
     long long a, b, p, q;
 
     x = __VERIFIER_nondet_int();
-    assume_abort_if_not(x>0 && x<=20);
+    assume_abort_if_not(x>=0 && x<=20);
     y = __VERIFIER_nondet_int();
-    assume_abort_if_not(y>0 && y<=20);
+    assume_abort_if_not(y>=0 && y<=20);
     assume_abort_if_not(y >= 1);
 
     a = x;

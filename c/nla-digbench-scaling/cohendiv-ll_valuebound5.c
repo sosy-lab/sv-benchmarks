@@ -24,9 +24,9 @@ int main() {
     long long q, r, a, b;
 
     x = __VERIFIER_nondet_int();
-    assume_abort_if_not(x>0 && x<=5);
+    assume_abort_if_not(x>=0 && x<=5);
     y = __VERIFIER_nondet_int();
-    assume_abort_if_not(y>0 && y<=5);
+    assume_abort_if_not(y>=0 && y<=5);
 
     assume_abort_if_not(y >= 1);
 

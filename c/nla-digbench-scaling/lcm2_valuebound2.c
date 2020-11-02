@@ -20,9 +20,9 @@ int main() {
     unsigned a, b;
     unsigned x, y, u, v;
     a = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(a>0 && a<=2);
+    assume_abort_if_not(a>=0 && a<=2);
     b = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(b>0 && b<=2);
+    assume_abort_if_not(b>=0 && b<=2);
     assume_abort_if_not(a >= 1); //inf loop if remove
     assume_abort_if_not(b >= 1);
 

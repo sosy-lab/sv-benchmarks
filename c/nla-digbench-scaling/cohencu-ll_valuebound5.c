@@ -23,7 +23,7 @@ int main() {
     short a;
     long long n, x, y, z;
     a = __VERIFIER_nondet_unsigned_short();
-    assume_abort_if_not(a>0 && a<=5);
+    assume_abort_if_not(a>=0 && a<=5);
 
     n = 0;
     x = 0;

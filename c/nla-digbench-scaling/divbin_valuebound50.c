@@ -25,9 +25,9 @@ int main() {
   unsigned A, B;
   unsigned q, r, b;
     A = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(A>0 && A<=50);
+    assume_abort_if_not(A>=0 && A<=50);
     B = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(B>0 && B<=50);
+    assume_abort_if_not(B>=0 && B<=50);
     assume_abort_if_not(B < UINT_MAX/2);
     assume_abort_if_not(B >= 1);
 
