@@ -7,6 +7,7 @@ Script to generate variants of the nla-digbench tasks
 from os import listdir
 from os.path import isfile, join
 import re
+import itertools
 
 
 def looptemplate(f):
@@ -75,13 +76,16 @@ broken_by_unwindbound = [
         "ps4",
         "ps5",
         "ps6",
+        "dijkstra-u",
     ]
 ]
+broken_by_unwindbound_ge = {}
+broken_by_unwindbound_ge[p("dijkstra-u")] = 5
 
 REACH = "../properties/unreach-call.prp\n    expected_verdict: "
 
 cfiles = [f for f in listdir(NLADIR) if isfile(join(NLADIR, f)) and ".c" in f]
-for file in cfiles:
+for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
     fullpath = join(NLADIR, file)
     fullpathToPreprocessed = fullpath[:-2] + ".i"
     iFileExists = isfile(fullpathToPreprocessed)
@@ -102,7 +106,14 @@ for file in cfiles:
         ):
             ymlcontent = re.sub(REACH + "false", REACH + "true", ymlcontent)
         if (
-            any(re.search(entry, file) for entry in broken_by_unwindbound)
+            any(
+                re.search(entry, file)
+                and (
+                    entry not in broken_by_unwindbound_ge
+                    or bound >= broken_by_unwindbound_ge[entry]
+                )
+                for entry in broken_by_unwindbound
+            )
             and name == "_unwindbound"
         ):
             ymlcontent = re.sub(REACH + "true", REACH + "false", ymlcontent)
@@ -120,24 +131,24 @@ for file in cfiles:
             abort = True
         if abort:
             break
-        for i in [1, 2, 5, 10, 20, 50, 100]:
-            content = re.sub("__BOUND", str(i), template)
-            filename_in_yml = file if not iFileExists else file[:-2] + ".i"
-            new_filename_in_yml = file[:-2] + name + str(i) + filename_in_yml[-2:]
-            ymlname = new_filename_in_yml[:-2] + ".yml"
-            if iFileExists:
-                iFileContent = re.sub(
-                    "__BOUND", str(i), templatefun(fullpathToPreprocessed)
-                )
-                new_c_filename = file[:-2] + name + str(i) + ".c"
-                print("Writing file: %s" % new_c_filename)
-                open(new_c_filename, "w").write(content)
-                print("Writing file: %s" % new_filename_in_yml)
-                open(new_filename_in_yml, "w").write(iFileContent)
-            else:
-                print("Writing file: %s" % new_filename_in_yml)
-                open(new_filename_in_yml, "w").write(content)
-            print("Writing file: %s" % ymlname)
-            open(ymlname, "w").write(
-                re.sub(filename_in_yml, new_filename_in_yml, ymlcontent)
+        i = bound
+        content = re.sub("__BOUND", str(i), template)
+        filename_in_yml = file if not iFileExists else file[:-2] + ".i"
+        new_filename_in_yml = file[:-2] + name + str(i) + filename_in_yml[-2:]
+        ymlname = new_filename_in_yml[:-2] + ".yml"
+        if iFileExists:
+            iFileContent = re.sub(
+                "__BOUND", str(i), templatefun(fullpathToPreprocessed)
             )
+            new_c_filename = file[:-2] + name + str(i) + ".c"
+            print("Writing file: %s" % new_c_filename)
+            open(new_c_filename, "w").write(content)
+            print("Writing file: %s" % new_filename_in_yml)
+            open(new_filename_in_yml, "w").write(iFileContent)
+        else:
+            print("Writing file: %s" % new_filename_in_yml)
+            open(new_filename_in_yml, "w").write(content)
+        print("Writing file: %s" % ymlname)
+        open(ymlname, "w").write(
+            re.sub(filename_in_yml, new_filename_in_yml, ymlcontent)
+        )
