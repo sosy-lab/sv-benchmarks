@@ -1,21 +1,29 @@
 # Contains tasks from Juliet Test Suite.
 # Those tasks are currently not used in any benchmark.
+Juliet_Test/CWE121*char*.yml
+Juliet_Test/CWE121*socket*.yml
+Juliet_Test/CWE121*fscanf*.yml
+Juliet_Test/CWE121*loop*.yml
+Juliet_Test/CWE121*memcpy*.yml
+Juliet_Test/CWE121*memmove*.yml
+Juliet_Test/CWE121*CWE135*.yml
+Juliet_Test/CWE121*CWE805*.yml
 
-Juliet_Test/CWE121*.yml
 Juliet_Test/CWE122*.yml
 Juliet_Test/CWE124*.yml
 Juliet_Test/CWE126*.yml
 Juliet_Test/CWE127*.yml
-Juliet_Test/CWE401*.yml
+Juliet_Test/CWE401*char*.yml
+Juliet_Test/CWE401*__malloc*.yml
 
 Juliet_Test/CWE416*.yml
+
 
 Juliet_Test/CWE476*_binary_*.yml
 Juliet_Test/CWE476*_char_*.yml
 Juliet_Test/CWE476*_null_check_*.yml
 Juliet_Test/CWE476*_deref_after_check_*.yml
 
-Juliet_Test/CWE590*.yml
 Juliet_Test/CWE690*.yml
 Juliet_Test/CWE761*.yml
 Juliet_Test/CWE789*.yml
