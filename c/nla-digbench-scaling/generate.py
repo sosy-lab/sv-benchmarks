@@ -77,7 +77,11 @@ broken_by_unwindbound = [
         "ps5",
         "ps6",
         "dijkstra-u",  # only with bound >=5
-        "fermat1-ll",  # CEX e.g. with A=11, R=4
+        "fermat1-ll",  # CEX e.g. with A=11; R=4;
+        "fermat2-ll",  # CEX e.g. with A=11; R=4;
+        "lcm1",  # CEX e.g. with a=3; b=1;
+        "prod4br-ll",  # CEX e.g. with x=42; y=7;
+        "prodbin-ll",  # CEX e.g. with a=42; b=7;
     ]
 ]
 broken_by_unwindbound_ge = {}
