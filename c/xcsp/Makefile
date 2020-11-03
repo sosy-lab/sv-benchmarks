@@ -17,11 +17,11 @@ tasks:
 	reuse addheader --template header.jinja2 --year 2016 --copyright "Gilles Audemard" --license MIT *c
 
 XCSP3_to_C:
-	git clone https://github.com/vsahil/XCSP3_to_C.git $@
+	git clone https://github.com/sosy-lab/XCSP3_to_C.git $@
 
 xcsp3_cpp_parser: XCSP3_to_C
 	# requires git g++ libxml2-dev libboost-dev
 	cd XCSP3_to_C/XCSP3-CPP-Parser/samples \
-		&& git checkout a511f3e \
+		&& git checkout 052144b \
 		&& make
 	cp XCSP3_to_C/XCSP3-CPP-Parser/samples/test $@
