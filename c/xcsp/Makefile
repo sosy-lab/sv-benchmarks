@@ -13,6 +13,7 @@ include $(LEVEL)/Makefile.config
 tasks:
 	python3 create_from_xmls.py original/ --output .
 	clang-format -i *.c
+	reuse addheader --template header.jinja2 --year 2020 --copyright "Dirk Beyer <https://www.sosy-lab.org>" --license MIT *c
 	reuse addheader --template header.jinja2 --year 2020 --copyright "The SV-Benchmarks Community" --license MIT *c
 	reuse addheader --template header.jinja2 --year 2016 --copyright "Gilles Audemard" --license MIT *c
 
