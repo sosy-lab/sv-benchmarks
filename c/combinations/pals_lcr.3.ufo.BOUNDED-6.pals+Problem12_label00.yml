@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'pals_lcr.3.ufo.BOUNDED-6.pals+Problem12_label00.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: False
