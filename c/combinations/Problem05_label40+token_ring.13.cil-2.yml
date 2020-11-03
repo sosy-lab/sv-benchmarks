@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'Problem05_label40+token_ring.13.cil-2.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: False
