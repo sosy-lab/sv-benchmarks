@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'square_8+soft_float_4-3a.c.cil.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: False
