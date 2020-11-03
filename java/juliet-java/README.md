@@ -1,3 +1,12 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 All benchmarks in this folder are derivations from the Juliet V1.3 Java Benchmark
 created by the NIST and published at: https://samate.nist.gov/SARD/testsuite.php
 
