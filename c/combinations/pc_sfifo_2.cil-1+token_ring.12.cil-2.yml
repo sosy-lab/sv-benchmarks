@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'pc_sfifo_2.cil-1+token_ring.12.cil-2.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: True
