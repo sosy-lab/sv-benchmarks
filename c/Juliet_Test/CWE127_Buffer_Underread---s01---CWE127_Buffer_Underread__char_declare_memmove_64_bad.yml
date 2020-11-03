@@ -5,6 +5,7 @@ input_files: 'CWE127_Buffer_Underread---s01---CWE127_Buffer_Underread__char_decl
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

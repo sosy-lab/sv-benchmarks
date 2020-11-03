@@ -6,6 +6,7 @@ input_files: '09-regions_09-arraylist.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

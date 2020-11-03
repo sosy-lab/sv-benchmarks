@@ -5,6 +5,7 @@ input_files: 'CWE476_NULL_Pointer_Dereference---CWE476_NULL_Pointer_Dereference_
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

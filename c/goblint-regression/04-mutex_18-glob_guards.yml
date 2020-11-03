@@ -5,6 +5,7 @@ input_files: '04-mutex_18-glob_guards.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

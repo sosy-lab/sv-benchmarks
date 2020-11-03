@@ -5,6 +5,7 @@ input_files: '28-race_reach_04-munge_racefree.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -9,6 +9,7 @@ properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
   - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

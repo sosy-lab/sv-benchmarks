@@ -5,6 +5,7 @@ input_files: 'CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int_calloc_06_bad.i
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -6,6 +6,7 @@ input_files: 'Ben-Amram-LMCS2010-Ex2.3.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

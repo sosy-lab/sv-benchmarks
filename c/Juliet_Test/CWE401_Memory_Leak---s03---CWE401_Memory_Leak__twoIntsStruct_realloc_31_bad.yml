@@ -5,6 +5,7 @@ input_files: 'CWE401_Memory_Leak---s03---CWE401_Memory_Leak__twoIntsStruct_reall
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

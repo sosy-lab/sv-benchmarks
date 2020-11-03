@@ -5,6 +5,7 @@ input_files: 'CWE415_Double_Free---s01---CWE415_Double_Free__malloc_free_int_14_
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -5,6 +5,7 @@ input_files: 'CWE690_NULL_Deref_From_Return---s01---CWE690_NULL_Deref_From_Retur
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

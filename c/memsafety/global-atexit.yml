@@ -5,6 +5,7 @@ input_files: 'global-atexit.i'
 properties:
   - property_file: ../properties/valid-memcleanup.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -6,6 +6,7 @@ input_files: 'GulavaniGulwani-CAV2008-Fig1c.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

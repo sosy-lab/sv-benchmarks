@@ -6,6 +6,7 @@ input_files: '48_ticket_lock_low_contention_vs-b.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

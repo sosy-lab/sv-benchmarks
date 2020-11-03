@@ -5,6 +5,7 @@ input_files: '05-lval_ls_14-idxunknown_access.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

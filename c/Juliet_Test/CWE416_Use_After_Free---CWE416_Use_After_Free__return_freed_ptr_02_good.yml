@@ -5,6 +5,7 @@ input_files: 'CWE416_Use_After_Free---CWE416_Use_After_Free__return_freed_ptr_02
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -5,6 +5,7 @@ input_files: 'CWE789_Uncontrolled_Mem_Alloc---s01---CWE789_Uncontrolled_Mem_Allo
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

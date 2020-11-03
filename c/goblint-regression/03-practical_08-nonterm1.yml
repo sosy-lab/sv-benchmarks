@@ -5,6 +5,7 @@ input_files: '03-practical_08-nonterm1.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

@@ -4,6 +4,8 @@ input_files: 'aim-200-2-0-sat-4.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-error-call.prp
 
 options:
   language: C
