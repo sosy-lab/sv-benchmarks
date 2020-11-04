@@ -1,0 +1,11 @@
+format_version: '2.0'
+
+input_files: 'square_8+soft_float_2a.c.cil.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: True
+
+options:
+  language: C
+  data_model: ILP32

@@ -43,7 +43,7 @@ LARGE_CATEGORY_BLACKLIST = {
 # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
 # for loops/s3.i: this single file is special
 # for Juliet there are c files, but each was preprocessed into two tasks, one valid and one invalid
-TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i', 'Juliet_Test/']
+TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i', 'Juliet_Test/', 'combinations/']
 
 CBMC_GIT_PATH = "../cbmc.git/"
 

@@ -1,0 +1,11 @@
+format_version: '2.0'
+
+input_files: 'gcd_4+newton_2_6.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: False
+
+options:
+  language: C
+  data_model: ILP32
