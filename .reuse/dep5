@@ -10,6 +10,11 @@ Files:
 Copyright: 2011-2020 The SV-Benchmarks Community
 License: CC0-1.0
 
+Files: c/Juliet_Test/Juliet_Test_Suite_v1.3_for_C_Cpp
+ _
+Copyright: 2010-2020 NIST
+License: CC0-1.0
+
 Files:
  clauses
  c/bitvector
@@ -31,7 +36,6 @@ Copyright: unknown
 License: LicenseRef-unknown
 
 Files:
- c/Juliet_Test
  c/array-cav19
  c/array-crafted
  c/array-examples
@@ -152,7 +156,6 @@ Files:
  java/jdart-regression
  java/jdart-regression
  java/jpf-regression
- java/juliet-java
  _
 Copyright: unknown
 License: LicenseRef-in-text-file

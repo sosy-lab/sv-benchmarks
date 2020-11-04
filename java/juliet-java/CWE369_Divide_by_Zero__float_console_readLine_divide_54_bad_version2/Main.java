@@ -1,7 +1,15 @@
-/* Copyright 2020, TU Dortmund, Malte Mues (mail.mues@gmail.com)
+// This file is part of the SV-Benchmarks collection of verification tasks:
+// https://github.com/sosy-lab/sv-benchmarks
+//
+// SPDX-FileCopyrightText: 2010-2020 NIST
+// SPDX-FileCopyrightText: 2020 TU Dortmund, Malte Mues (mail.mues@gmail.com)
+// SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
+//
+// SPDX-License-Identifier: CC0-1.0
+
+/*
 This testcase is derived from the following File in the Juliet Benchmark found at:
 https://samate.nist.gov/SARD/testsuite.php in Version 1.3
-Modifications are licenced under CC0 licence.
 
 The original file is:
 Filename: CWE369_Divide_by_Zero__float_console_readLine_divide_54a.java
