@@ -5,6 +5,7 @@
 # https://gitlab.com/sosy-lab/research/data/difference-data
 #
 # SPDX-FileCopyrightText: 2020 Dirk Beyer <https://sosy-lab.org>
+# SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -98,18 +99,20 @@ extern void exit(int);
     )
 
 
-def _get_yml_content(verdict1, verdict2, input_file: str):
+def _get_yml_content(verdict1, verdict2, input_file: str, data_model="ILP32"):
     verdict = verdict1 == verdict2 == True
-    return """format_version: '1.0'
+    return f"""format_version: '2.0'
 
-input_files: '%s'
+input_files: '{input_file}'
 
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: %s""" % (
-        input_file,
-        verdict,
-    )
+    expected_verdict: {verdict}
+
+options:
+  language: C
+  data_model: {data_model}
+"""
 
 
 def create_combos(
