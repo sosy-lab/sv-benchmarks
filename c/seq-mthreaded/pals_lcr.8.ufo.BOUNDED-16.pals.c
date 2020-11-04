@@ -6,6 +6,7 @@ void reach_error() { __assert_fail("0", "pals_lcr.8.ufo.BOUNDED-16.pals.c", 3, "
 // https://github.com/sosy-lab/sv-benchmarks
 //
 // SPDX-FileCopyrightText: 2013 Carnegie Mellon University
+// SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
 //
 // SPDX-License-Identifier: LicenseRef-BSD-3-Clause-Attribution-CMU
 

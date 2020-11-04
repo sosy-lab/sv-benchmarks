@@ -7,6 +7,7 @@ extern void abort(void);
 // https://github.com/sosy-lab/sv-benchmarks
 //
 // SPDX-FileCopyrightText: 2013 Carnegie Mellon University
+// SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
 //
 // SPDX-License-Identifier: LicenseRef-BSD-3-Clause-Attribution-CMU
 

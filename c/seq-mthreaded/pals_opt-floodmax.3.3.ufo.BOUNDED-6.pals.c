@@ -6,6 +6,7 @@ void reach_error() { __assert_fail("0", "pals_opt-floodmax.3.3.ufo.BOUNDED-6.pal
 // https://github.com/sosy-lab/sv-benchmarks
 //
 // SPDX-FileCopyrightText: 2013 Carnegie Mellon University
+// SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
 //
 // SPDX-License-Identifier: LicenseRef-BSD-3-Clause-Attribution-CMU
 
