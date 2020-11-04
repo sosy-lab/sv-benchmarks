@@ -6,6 +6,7 @@ input_files: 'race-2_5b-container_of.i'
 properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

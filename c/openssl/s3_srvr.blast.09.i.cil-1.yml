@@ -6,6 +6,7 @@ input_files: 's3_srvr.blast.09.i.cil-1.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

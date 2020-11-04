@@ -6,6 +6,7 @@ input_files: 'standard_find_ground-2.i'
 properties:
   - property_file: ../properties/def-behavior.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

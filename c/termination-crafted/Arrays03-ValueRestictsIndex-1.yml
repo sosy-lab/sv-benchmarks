@@ -6,6 +6,7 @@ input_files: 'Arrays03-ValueRestictsIndex-1.c'
 properties:
   - property_file: ../properties/def-behavior.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

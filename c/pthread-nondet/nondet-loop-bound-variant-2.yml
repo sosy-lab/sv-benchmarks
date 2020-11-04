@@ -6,6 +6,7 @@ input_files: 'nondet-loop-bound-variant-2.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

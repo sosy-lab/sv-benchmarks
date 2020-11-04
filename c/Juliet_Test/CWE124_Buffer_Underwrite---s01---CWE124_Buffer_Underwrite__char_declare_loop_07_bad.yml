@@ -5,6 +5,7 @@ input_files: 'CWE124_Buffer_Underwrite---s01---CWE124_Buffer_Underwrite__char_de
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

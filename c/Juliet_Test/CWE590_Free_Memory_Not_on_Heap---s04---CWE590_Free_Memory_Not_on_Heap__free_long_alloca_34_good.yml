@@ -5,6 +5,7 @@ input_files: 'CWE590_Free_Memory_Not_on_Heap---s04---CWE590_Free_Memory_Not_on_H
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C

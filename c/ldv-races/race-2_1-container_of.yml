@@ -9,6 +9,7 @@ properties:
   - property_file: ../properties/no-data-race.prp
     expected_verdict: true
      
+  - property_file: ../properties/coverage-branches.prp
 options:
   language: C
   data_model: ILP32
