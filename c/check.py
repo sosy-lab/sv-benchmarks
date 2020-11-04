@@ -137,7 +137,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("aws-c-common", "unexpected file makeall"),
     ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
     ("aws-c-common", "unexpected file yml.sh"),
-    ("xcsp", "unexpected file create_from_xmls.py")
+    ("xcsp", "unexpected file create_from_xmls.py"),
+    ("xcsp", "unexpected file xcsp3_cpp_parser"),
+    ("xcsp", "unexpected file xcsp3_cpp_parser.license"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [

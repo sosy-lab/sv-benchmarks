@@ -1,3 +1,12 @@
+<!--
+This file is part of the XCSP3 collection of combinatorial constrained problems:
+https://www.xcsp.org
+
+SPDX-FileCopyrightText: 2016 Gilles Audemard
+
+SPDX-License-Identifier: MIT
+-->
+
 <instance format="XCSP3" type="CSP">
   <variables>
     <array id="x" size="[270]"> 0 1 </array>

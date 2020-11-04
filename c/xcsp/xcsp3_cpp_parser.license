@@ -1,0 +1,7 @@
+This file is part of the implementation translating XCSP3 benchmarks to C code:
+https://github.com/vsahil/XCSP3_to_C
+
+SPDX-FileCopyrightText: 2008 Olivier ROUSSEL (olivier.roussel <at> cril.univ-artois.fr)
+SPDX-FileCopyrightText: 2016 XCSP3 Team (contact@xcsp3.org)
+
+SPDX-License-Identifier: MIT

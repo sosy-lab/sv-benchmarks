@@ -3,7 +3,7 @@ format_version: '2.0'
 input_files: 'Dubois-045.c'
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: false
+    expected_verdict: true
 
 options:
   language: C

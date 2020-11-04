@@ -1,24 +1,25 @@
-This programs are obtained by converting the benchmarks provided for the [XCSP_to_C tool][1] to C-programs.
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
+These programs are obtained by converting the [benchmarks][1] provided for the [XCSP_to_C tool][2] to C-programs.
 
 ## Creation
 
-For converting and creating the .yml-files a python script was used.
-The script can be found in this directory (create_from_xmls.py) and needs libxml2-dev, libboost-dev and clang-format to be installed.
-  1) Building [the project][2] produces the executable [`test`][3].
-  2) Place the script in the directory of the executable.
-  3) Run
-  ```
-  >> python create_from_xmls.py /ABSOLUTE/path/to/benchmark/folder /ABSOLUTE/path/to/your/own/outputfolder
-  ```
+Run `make tasks` to recreate the tasks.
 
 ## Environment used
 
   * Python: version 3.6.9
-  * OS: Ubuntu 18.4.
+  * OS: Ubuntu 18.04
   * g++: version 7.4.0
 
 [License](License)
 
 [1]: https://github.com/vsahil/XCSP3_to_C/tree/master/benchmarks
 [2]: https://github.com/vsahil/XCSP3_to_C
-[3]: https://github.com/vsahil/XCSP3_to_C/blob/master/README.md
