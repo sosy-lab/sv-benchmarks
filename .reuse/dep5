@@ -125,7 +125,6 @@ Files:
  c/recursive-with-pointer
  c/reducercommutativity
  c/regression
- c/seq-mthreaded
  c/seq-mthreaded-reduced
  c/signedintegeroverflow-regression
  c/sqlite
