@@ -1,3 +1,13 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2012 The RERS Challenge <https://www.rers-challenge.org>
+SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 Contributed by: RERS Grey Box Challenge 2012
 http://www.rers-challenge.org/2012/index.php?page=download
 
