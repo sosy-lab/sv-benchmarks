@@ -1,3 +1,9 @@
+// This file is part of the SV-Benchmarks collection of verification tasks:
+// https://github.com/sosy-lab/sv-benchmarks
+//
+// SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
+// SPDX-FileCopyrightText: 2012 The RERS Challenge <https://www.rers-challenge.org>
+
 int calculate_output(int);
 int calculate_output2(int);
 int calculate_output3(int);
