@@ -53,7 +53,6 @@ Files:
  c/bitvector-regression
  c/busybox-1.22.0
  c/eca-programs
- c/eca-rers2012
  c/eca-rers2018
  c/float-benchs
  c/float-newlib
