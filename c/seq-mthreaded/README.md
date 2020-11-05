@@ -1,3 +1,13 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2013 Carnegie Mellon University
+SPDX-FileCopyrightText: 2014-2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: LicenseRef-BSD-3-Clause-Attribution-CMU
+-->
+
 Contributed by: [HCCPS](http://www.sei.cmu.edu/cyber-physical/research/high-confidence) project
 
 The verification tasks should have the following convention:
