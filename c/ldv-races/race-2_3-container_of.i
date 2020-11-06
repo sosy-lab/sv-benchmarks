@@ -1690,8 +1690,15 @@ void *my_callback(void *arg) {
  struct my_data *data;
  data = ({ const typeof( ((struct my_data *)0)->dev ) *__mptr = (dev); (struct my_data *)( (char *)__mptr - ((unsigned long) &((struct my_data *)0)->dev) );});
  pthread_mutex_lock (&data->lock);
+ __VERIFIER_atomic_begin();
  data->shared.a = 1;
- data->shared.b = data->shared.b + 1;
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
+ int lb = data->shared.b;
+ __VERIFIER_atomic_end();
+ __VERIFIER_atomic_begin();
+ data->shared.b = lb + 1;
+ __VERIFIER_atomic_end();
  pthread_mutex_unlock (&data->lock);
  return 0;
 }
