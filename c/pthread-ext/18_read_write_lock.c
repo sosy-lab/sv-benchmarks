@@ -5,6 +5,8 @@ void assume_abort_if_not(int cond) {
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 #include <pthread.h>
 
@@ -24,7 +26,9 @@ void __VERIFIER_atomic_w()
 void* thr1(void* arg) { //writer
   __VERIFIER_atomic_w();
   x = 3;
+  __VERIFIER_atomic_begin();
   w = 0;
+  __VERIFIER_atomic_end();
 
   return 0;
 }
@@ -37,9 +41,25 @@ void __VERIFIER_atomic_r()
 
 void* thr2(void* arg) { //reader
   __VERIFIER_atomic_r();
-  y = x;
-  assert(y == x);
-  r = r-1;
+  __VERIFIER_atomic_begin();
+  int l = x;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  y = l;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int ly = y;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int lx = x;
+  __VERIFIER_atomic_end();
+  assert(ly == lx);
+  __VERIFIER_atomic_begin();
+  int lr = r;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  r = lr-1;
+  __VERIFIER_atomic_end();
 
   return 0;
 }
