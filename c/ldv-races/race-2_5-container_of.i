@@ -1694,7 +1694,10 @@ void *my_callback(void *arg) {
  data->shared.a = 1;
     __VERIFIER_atomic_end();
     __VERIFIER_atomic_begin();
- data->shared.b = data->shared.b + 1;
+    int lb = data->shared.b;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    data->shared.b = lb + 1;
     __VERIFIER_atomic_end();
  pthread_mutex_unlock (&data->lock);
  return 0;
