@@ -1,1 +1,3 @@
+# Contains programs combined from other sv-benchmark tasks through loose coupling
+benchmark tasks that are available in sv-benchmarks.
 combinations/*.yml
