@@ -1,0 +1,11 @@
+format_version: '2.0'
+
+input_files: 'aws_linked_list_node_reset_harness-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+
+options:
+  language: C
+  data_model: LP64

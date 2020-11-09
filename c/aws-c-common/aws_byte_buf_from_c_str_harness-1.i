@@ -205,7 +205,7 @@ typedef _Bool bool;
 
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "aws_array_eq_c_str_harness.i", 208, "reach_error"); }
+void reach_error() { __assert_fail("0", "aws_byte_buf_from_c_str_harness.i", 208, "reach_error"); }
 extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
@@ -7392,14 +7392,6 @@ void aws_raise_error_private(int err) {
 int aws_last_error(void) {
     return tl_last_error;
 }
-
-
-
-int memcmp_safe(const void *s1, const void *s2, size_t n) {
-    assume_abort_if_not((((n) == 0) || (s1)));
-    assume_abort_if_not((((n) == 0) || (s2)));
-    return memcmp(s1, s2, n);
-}
  size_t aws_nospec_mask(size_t index, size_t bound);
 int aws_byte_buf_init(struct aws_byte_buf *buf, struct aws_allocator *allocator, size_t capacity) {
     assume_abort_if_not((buf));
@@ -7891,7 +7883,7 @@ _Bool
     const uint8_t *array_bytes = array;
     const uint8_t *str_bytes = (const uint8_t *)c_str;
 
-    for (size_t i = 0; i < array_len - 1; ++i) { // introduced off-by-one bug
+    for (size_t i = 0; i < array_len; ++i) {
         uint8_t s = str_bytes[i];
         if (s == '\0') {
             return 
@@ -8242,7 +8234,7 @@ int aws_byte_cursor_compare_lexical(const struct aws_byte_cursor *lhs, const str
         comparison_length = rhs->len;
     }
 
-    int result = memcmp_safe(lhs->ptr, rhs->ptr, comparison_length);
+    int result = memcmp(lhs->ptr, rhs->ptr, comparison_length);
 
     __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
     __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
@@ -8307,7 +8299,7 @@ int aws_byte_cursor_compare_lookup(
 struct aws_byte_buf aws_byte_buf_from_c_str(const char *c_str) {
     struct aws_byte_buf buf;
     buf.len = (!c_str) ? 0 : strlen(c_str);
-    buf.capacity = buf.len;
+    buf.capacity = nondet_size_t(); // introduced a bug by removing proper field initialization
     buf.buffer = (buf.capacity == 0) ? 
                                       ((void *)0) 
                                            : (uint8_t *)c_str;
@@ -9096,42 +9088,30 @@ void aws_common_fatal_assert_library_initialized(void) {
         __VERIFIER_assert(s_common_library_initialized);
     }
 }
-void aws_array_eq_c_str_harness() {
+void aws_byte_buf_from_c_str_harness() {
 
-    void *array;
-    size_t array_len = __VERIFIER_nondet_ulong();
-    assume_abort_if_not(array_len <= 10);
-    array = can_fail_malloc(array_len);
     const char *c_str = nondet_bool() ? 
                                        ((void *)0) 
                                             : ensure_c_str_is_allocated(10);
 
 
-    struct store_byte_from_buffer old_byte_from_array;
-    save_byte_from_array((uint8_t *)array, array_len, &old_byte_from_array);
-    size_t str_len = (c_str) ? strlen(c_str) : 0;
-    struct store_byte_from_buffer old_byte_from_str;
-    save_byte_from_array((uint8_t *)c_str, str_len, &old_byte_from_str);
+    struct aws_byte_buf buf = aws_byte_buf_from_c_str(c_str);
 
 
-    assume_abort_if_not(array || (array_len == 0));
-    assume_abort_if_not(c_str);
-
-
-    if (aws_array_eq_c_str(array, array_len, c_str)) {
-
-        __VERIFIER_assert(array_len == str_len);
-        if (array_len > 0) {
-            assert_bytes_match((uint8_t *)array, (uint8_t *)c_str, array_len);
+    __VERIFIER_assert(aws_byte_buf_is_valid(&buf));
+    __VERIFIER_assert(buf.allocator == 
+   ((void *)0)
+   );
+    if (buf.buffer) {
+        __VERIFIER_assert(buf.len == strlen(c_str));
+        __VERIFIER_assert(buf.capacity == buf.len);
+        assert_bytes_match(buf.buffer, (uint8_t *)c_str, buf.len);
+    } else {
+        if (c_str) {
+            __VERIFIER_assert(strlen(c_str) == 0);
         }
-    }
-
-
-    if (array_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)array, &old_byte_from_array);
-    }
-    if (str_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)c_str, &old_byte_from_str);
+        __VERIFIER_assert(buf.len == 0);
+        __VERIFIER_assert(buf.capacity == 0);
     }
 }
-int main() { aws_array_eq_c_str_harness(); return 0; }
+int main() { aws_byte_buf_from_c_str_harness(); return 0; }

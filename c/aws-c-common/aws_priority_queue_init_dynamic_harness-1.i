@@ -205,7 +205,7 @@ typedef _Bool bool;
 
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "aws_array_eq_c_str_harness.i", 208, "reach_error"); }
+void reach_error() { __assert_fail("0", "aws_priority_queue_init_dynamic_harness.i", 208, "reach_error"); }
 extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
@@ -2082,7 +2082,7 @@ extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
 
 
 
-extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void *my_memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
@@ -2383,8 +2383,6 @@ void aws_common_fatal_assert_library_initialized(void);
 
 
 
-       
-
 
 
 static inline uint64_t aws_mul_u64_saturating(uint64_t a, uint64_t b);
@@ -2665,10 +2663,336 @@ static inline int aws_round_up_to_power_of_two(size_t n, size_t *result) {
 
 
 
+       
+
+
+       
 
 
 
 
+
+
+
+
+_Bool 
+    nondet_bool();
+int nondet_int();
+size_t nondet_size_t();
+uint16_t nondet_uint16_t();
+uint32_t nondet_uint32_t();
+uint64_t nondet_uint64_t();
+uint8_t nondet_uint8_t();
+void *nondet_voidp();
+void *bounded_calloc(size_t num, size_t size);
+
+
+
+
+
+
+
+void *bounded_malloc(size_t size);
+
+
+
+
+
+struct aws_allocator *can_fail_allocator();
+
+
+
+
+
+
+void *can_fail_calloc(size_t num, size_t size);
+
+
+
+
+
+
+void *can_fail_malloc(size_t size);
+
+
+
+
+
+
+
+void *can_fail_realloc(void *ptr, size_t newsize);
+
+
+
+
+
+
+static void *s_can_fail_calloc_allocator(struct aws_allocator *allocator, size_t num, size_t size) {
+    (void)allocator;
+    return can_fail_calloc(num, size);
+}
+
+
+
+
+
+static void *s_can_fail_malloc_allocator(struct aws_allocator *allocator, size_t size) {
+    (void)allocator;
+    return can_fail_malloc(size);
+}
+
+
+
+
+static void s_can_fail_free_allocator(struct aws_allocator *allocator, void *ptr) {
+    (void)allocator;
+    free(ptr);
+}
+
+
+
+
+
+static void *s_can_fail_realloc_allocator(struct aws_allocator *allocator, void *ptr, size_t oldsize, size_t newsize) {
+    (void)allocator;
+    (void)oldsize;
+    return can_fail_realloc(ptr, newsize);
+}
+
+static struct aws_allocator s_can_fail_allocator_static = {
+    .mem_acquire = s_can_fail_malloc_allocator,
+    .mem_release = s_can_fail_free_allocator,
+    .mem_realloc = s_can_fail_realloc_allocator,
+    .mem_calloc = s_can_fail_calloc_allocator,
+};
+
+void *bounded_calloc(size_t num, size_t size) {
+    size_t required_bytes;
+    assume_abort_if_not(aws_mul_size_checked(num, size, &required_bytes) == (0));
+    assume_abort_if_not(required_bytes <= (
+   (18446744073709551615UL) 
+   >> (8 + 1)));
+    return calloc(num, size);
+}
+
+void *bounded_malloc(size_t size) {
+    assume_abort_if_not(size <= (
+   (18446744073709551615UL) 
+   >> (8 + 1)));
+    return malloc(size);
+}
+
+struct aws_allocator *can_fail_allocator() {
+    return &s_can_fail_allocator_static;
+}
+
+void *can_fail_calloc(size_t num, size_t size) {
+    return nondet_bool() ? 
+                          ((void *)0) 
+                               : bounded_calloc(num, size);
+}
+
+void *can_fail_malloc(size_t size) {
+    return nondet_bool() ? 
+                          ((void *)0) 
+                               : bounded_malloc(size);
+}
+void *can_fail_realloc(void *ptr, size_t newsize) {
+    if (newsize > (
+                 (18446744073709551615UL) 
+                 >> (8 + 1))) {
+        return 
+              ((void *)0)
+                  ;
+    }
+    if (newsize == 0) {
+        if (nondet_bool()) {
+            free(ptr);
+        }
+        return nondet_voidp();
+    }
+    return nondet_bool() ? 
+                          ((void *)0) 
+                               : realloc(ptr, newsize);
+}
+
+_Bool 
+    aws_allocator_is_valid(const struct aws_allocator *alloc) {
+    return alloc == can_fail_allocator();
+}
+
+void *aws_mem_acquire(struct aws_allocator *allocator, size_t size) {
+    assume_abort_if_not((aws_allocator_is_valid(allocator)));
+
+    assume_abort_if_not((size != 0));
+
+    void *mem = can_fail_malloc(size);
+    if (!mem) {
+        aws_raise_error(AWS_ERROR_OOM);
+    }
+    return mem;
+}
+
+void *aws_mem_calloc(struct aws_allocator *allocator, size_t num, size_t size) {
+    assume_abort_if_not((aws_allocator_is_valid(allocator)));
+
+    assume_abort_if_not((num != 0 && size != 0));
+
+
+
+
+    size_t required_bytes;
+    if (aws_mul_size_checked(num, size, &required_bytes)) {
+        return 
+              ((void *)0)
+                  ;
+    }
+
+    void *mem = can_fail_calloc(num, size);
+    if (!mem) {
+        aws_raise_error(AWS_ERROR_OOM);
+    }
+    return mem;
+}
+
+
+
+void *aws_mem_acquire_many(struct aws_allocator *allocator, size_t count, ...) {
+
+    enum { S_ALIGNMENT = sizeof(intmax_t) };
+
+    va_list args_size;
+    
+   __builtin_va_start(
+   args_size
+   ,
+   count
+   )
+                             ;
+    va_list args_allocs;
+    
+   __builtin_va_copy(
+   args_allocs
+   ,
+   args_size
+   )
+                                  ;
+
+    size_t total_size = 0;
+    for (size_t i = 0; i < count; ++i) {
+
+
+        
+       __builtin_va_arg(
+       args_size
+       ,
+       void **
+       )
+                                 ;
+
+        size_t alloc_size = 
+                           __builtin_va_arg(
+                           args_size
+                           ,
+                           size_t
+                           )
+                                                    ;
+        total_size += (((alloc_size) + ((S_ALIGNMENT)-1)) & ~((S_ALIGNMENT)-1));
+    }
+    
+   __builtin_va_end(
+   args_size
+   )
+                    ;
+
+    void *allocation = 
+                      ((void *)0)
+                          ;
+
+    if (total_size > 0) {
+
+        allocation = can_fail_malloc(total_size);
+        if (!allocation) {
+            aws_raise_error(AWS_ERROR_OOM);
+            goto cleanup;
+        }
+
+        uint8_t *current_ptr = allocation;
+
+        for (size_t i = 0; i < count; ++i) {
+
+            void **out_ptr = 
+                            __builtin_va_arg(
+                            args_allocs
+                            ,
+                            void **
+                            )
+                                                        ;
+
+            size_t alloc_size = 
+                               __builtin_va_arg(
+                               args_allocs
+                               ,
+                               size_t
+                               )
+                                                          ;
+            alloc_size = (((alloc_size) + ((S_ALIGNMENT)-1)) & ~((S_ALIGNMENT)-1));
+
+            *out_ptr = current_ptr;
+            current_ptr += alloc_size;
+        }
+    }
+
+cleanup:
+    
+   __builtin_va_end(
+   args_allocs
+   )
+                      ;
+    return allocation;
+}
+
+
+
+void aws_mem_release(struct aws_allocator *allocator, void *ptr) {
+    assume_abort_if_not((allocator != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((allocator->mem_release != 
+   ((void *)0)
+   ));
+
+    if (ptr != 
+              ((void *)0)
+                  ) {
+        free(ptr);
+    }
+}
+
+int aws_mem_realloc(struct aws_allocator *allocator, void **ptr, size_t oldsize, size_t newsize) {
+    assume_abort_if_not((allocator != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((allocator->mem_realloc || allocator->mem_acquire));
+    assume_abort_if_not((allocator->mem_release));
+
+
+    if (newsize == 0) {
+        aws_mem_release(allocator, *ptr);
+        *ptr = 
+              ((void *)0)
+                  ;
+        return (0);
+    }
+
+    void *newptr = can_fail_realloc(*ptr, newsize);
+    if (!newptr) {
+        return aws_raise_error(AWS_ERROR_OOM);
+    }
+    *ptr = newptr;
+    return (0);
+}
+       
 
 struct aws_array_list {
     struct aws_allocator *alloc;
@@ -2873,7 +3197,7 @@ int aws_array_list_init_dynamic(
    ));
     assume_abort_if_not((item_size > 0));
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 
     size_t allocation_size;
     if (aws_mul_size_checked(initial_item_allocation, item_size, &allocation_size)) {
@@ -2891,7 +3215,7 @@ int aws_array_list_init_dynamic(
 
         list->current_size = allocation_size;
     }
-    list->item_size = item_size;
+    list->item_size = nondet_size_t(); // introduced a bug by removing proper field initialization
     list->alloc = alloc;
 
     __VERIFIER_assert((list->current_size == 0 || list->data));
@@ -2980,7 +3304,7 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
         aws_mem_release(list->alloc, list->data);
     }
 
-    do { memset(&(*list), 0, sizeof(*list)); } while (0);
+    do { my_memset(&(*list), 0, sizeof(*list)); } while (0);
 }
 
 static inline
@@ -3111,7 +3435,7 @@ int aws_array_list_pop_back(struct aws_array_list *restrict list) {
 
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
+        my_memset((void *)((uint8_t *)list->data + last_item_offset), 0, list->item_size);
         list->length--;
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -4675,7 +4999,7 @@ static inline void aws_linked_list_node_reset(struct aws_linked_list_node *node)
     assume_abort_if_not((node != 
    ((void *)0)
    ));
-    do { memset(&(*node), 0, sizeof(*node)); } while (0);
+    do { my_memset(&(*node), 0, sizeof(*node)); } while (0);
     __VERIFIER_assert((aws_is_mem_zeroed(&(*node), sizeof(*node))));
 }
 static inline 
@@ -6323,62 +6647,8 @@ _Bool
 
 
 
-       
 
 
-
-
-
-
-
-
-_Bool 
-    nondet_bool();
-int nondet_int();
-size_t nondet_size_t();
-uint16_t nondet_uint16_t();
-uint32_t nondet_uint32_t();
-uint64_t nondet_uint64_t();
-uint8_t nondet_uint8_t();
-void *nondet_voidp();
-       
-void *bounded_calloc(size_t num, size_t size);
-
-
-
-
-
-
-
-void *bounded_malloc(size_t size);
-
-
-
-
-
-struct aws_allocator *can_fail_allocator();
-
-
-
-
-
-
-void *can_fail_calloc(size_t num, size_t size);
-
-
-
-
-
-
-void *can_fail_malloc(size_t size);
-
-
-
-
-
-
-
-void *can_fail_realloc(void *ptr, size_t newsize);
        
 
 
@@ -6886,277 +7156,6 @@ const char *ensure_c_str_is_allocated(size_t max_size) {
     assume_abort_if_not(str[cap - 1] == 0);
     return str;
 }
-
-
-
-
-
-
-static void *s_can_fail_calloc_allocator(struct aws_allocator *allocator, size_t num, size_t size) {
-    (void)allocator;
-    return can_fail_calloc(num, size);
-}
-
-
-
-
-
-static void *s_can_fail_malloc_allocator(struct aws_allocator *allocator, size_t size) {
-    (void)allocator;
-    return can_fail_malloc(size);
-}
-
-
-
-
-static void s_can_fail_free_allocator(struct aws_allocator *allocator, void *ptr) {
-    (void)allocator;
-    free(ptr);
-}
-
-
-
-
-
-static void *s_can_fail_realloc_allocator(struct aws_allocator *allocator, void *ptr, size_t oldsize, size_t newsize) {
-    (void)allocator;
-    (void)oldsize;
-    return can_fail_realloc(ptr, newsize);
-}
-
-static struct aws_allocator s_can_fail_allocator_static = {
-    .mem_acquire = s_can_fail_malloc_allocator,
-    .mem_release = s_can_fail_free_allocator,
-    .mem_realloc = s_can_fail_realloc_allocator,
-    .mem_calloc = s_can_fail_calloc_allocator,
-};
-
-void *bounded_calloc(size_t num, size_t size) {
-    size_t required_bytes;
-    assume_abort_if_not(aws_mul_size_checked(num, size, &required_bytes) == (0));
-    assume_abort_if_not(required_bytes <= (
-   (18446744073709551615UL) 
-   >> (8 + 1)));
-    return calloc(num, size);
-}
-
-void *bounded_malloc(size_t size) {
-    assume_abort_if_not(size <= (
-   (18446744073709551615UL) 
-   >> (8 + 1)));
-    return malloc(size);
-}
-
-struct aws_allocator *can_fail_allocator() {
-    return &s_can_fail_allocator_static;
-}
-
-void *can_fail_calloc(size_t num, size_t size) {
-    return nondet_bool() ? 
-                          ((void *)0) 
-                               : bounded_calloc(num, size);
-}
-
-void *can_fail_malloc(size_t size) {
-    return nondet_bool() ? 
-                          ((void *)0) 
-                               : bounded_malloc(size);
-}
-void *can_fail_realloc(void *ptr, size_t newsize) {
-    if (newsize > (
-                 (18446744073709551615UL) 
-                 >> (8 + 1))) {
-        return 
-              ((void *)0)
-                  ;
-    }
-    if (newsize == 0) {
-        if (nondet_bool()) {
-            free(ptr);
-        }
-        return nondet_voidp();
-    }
-    return nondet_bool() ? 
-                          ((void *)0) 
-                               : realloc(ptr, newsize);
-}
-
-_Bool 
-    aws_allocator_is_valid(const struct aws_allocator *alloc) {
-    return alloc == can_fail_allocator();
-}
-
-void *aws_mem_acquire(struct aws_allocator *allocator, size_t size) {
-    assume_abort_if_not((aws_allocator_is_valid(allocator)));
-
-    assume_abort_if_not((size != 0));
-
-    void *mem = can_fail_malloc(size);
-    if (!mem) {
-        aws_raise_error(AWS_ERROR_OOM);
-    }
-    return mem;
-}
-
-void *aws_mem_calloc(struct aws_allocator *allocator, size_t num, size_t size) {
-    assume_abort_if_not((aws_allocator_is_valid(allocator)));
-
-    assume_abort_if_not((num != 0 && size != 0));
-
-
-
-
-    size_t required_bytes;
-    if (aws_mul_size_checked(num, size, &required_bytes)) {
-        return 
-              ((void *)0)
-                  ;
-    }
-
-    void *mem = can_fail_calloc(num, size);
-    if (!mem) {
-        aws_raise_error(AWS_ERROR_OOM);
-    }
-    return mem;
-}
-
-
-
-void *aws_mem_acquire_many(struct aws_allocator *allocator, size_t count, ...) {
-
-    enum { S_ALIGNMENT = sizeof(intmax_t) };
-
-    va_list args_size;
-    
-   __builtin_va_start(
-   args_size
-   ,
-   count
-   )
-                             ;
-    va_list args_allocs;
-    
-   __builtin_va_copy(
-   args_allocs
-   ,
-   args_size
-   )
-                                  ;
-
-    size_t total_size = 0;
-    for (size_t i = 0; i < count; ++i) {
-
-
-        
-       __builtin_va_arg(
-       args_size
-       ,
-       void **
-       )
-                                 ;
-
-        size_t alloc_size = 
-                           __builtin_va_arg(
-                           args_size
-                           ,
-                           size_t
-                           )
-                                                    ;
-        total_size += (((alloc_size) + ((S_ALIGNMENT)-1)) & ~((S_ALIGNMENT)-1));
-    }
-    
-   __builtin_va_end(
-   args_size
-   )
-                    ;
-
-    void *allocation = 
-                      ((void *)0)
-                          ;
-
-    if (total_size > 0) {
-
-        allocation = can_fail_malloc(total_size);
-        if (!allocation) {
-            aws_raise_error(AWS_ERROR_OOM);
-            goto cleanup;
-        }
-
-        uint8_t *current_ptr = allocation;
-
-        for (size_t i = 0; i < count; ++i) {
-
-            void **out_ptr = 
-                            __builtin_va_arg(
-                            args_allocs
-                            ,
-                            void **
-                            )
-                                                        ;
-
-            size_t alloc_size = 
-                               __builtin_va_arg(
-                               args_allocs
-                               ,
-                               size_t
-                               )
-                                                          ;
-            alloc_size = (((alloc_size) + ((S_ALIGNMENT)-1)) & ~((S_ALIGNMENT)-1));
-
-            *out_ptr = current_ptr;
-            current_ptr += alloc_size;
-        }
-    }
-
-cleanup:
-    
-   __builtin_va_end(
-   args_allocs
-   )
-                      ;
-    return allocation;
-}
-
-
-
-void aws_mem_release(struct aws_allocator *allocator, void *ptr) {
-    assume_abort_if_not((allocator != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((allocator->mem_release != 
-   ((void *)0)
-   ));
-
-    if (ptr != 
-              ((void *)0)
-                  ) {
-        free(ptr);
-    }
-}
-
-int aws_mem_realloc(struct aws_allocator *allocator, void **ptr, size_t oldsize, size_t newsize) {
-    assume_abort_if_not((allocator != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((allocator->mem_realloc || allocator->mem_acquire));
-    assume_abort_if_not((allocator->mem_release));
-
-
-    if (newsize == 0) {
-        aws_mem_release(allocator, *ptr);
-        *ptr = 
-              ((void *)0)
-                  ;
-        return (0);
-    }
-
-    void *newptr = can_fail_realloc(*ptr, newsize);
-    if (!newptr) {
-        return aws_raise_error(AWS_ERROR_OOM);
-    }
-    *ptr = newptr;
-    return (0);
-}
 void assert_bytes_match(const uint8_t *const a, const uint8_t *const b, const size_t len) {
     __VERIFIER_assert(!a == !b);
     if (len > 0 && a != 
@@ -7395,1317 +7394,497 @@ int aws_last_error(void) {
 
 
 
-int memcmp_safe(const void *s1, const void *s2, size_t n) {
-    assume_abort_if_not((((n) == 0) || (s1)));
-    assume_abort_if_not((((n) == 0) || (s2)));
-    return memcmp(s1, s2, n);
-}
- size_t aws_nospec_mask(size_t index, size_t bound);
-int aws_byte_buf_init(struct aws_byte_buf *buf, struct aws_allocator *allocator, size_t capacity) {
-    assume_abort_if_not((buf));
-    assume_abort_if_not((allocator));
 
-    buf->buffer = (capacity == 0) ? 
-                                   ((void *)0) 
-                                        : aws_mem_acquire(allocator, capacity);
-    if (capacity != 0 && buf->buffer == 
-                                       ((void *)0)
-                                           ) {
-        return (-1);
+void *memset_impl(void *s, int c, size_t n) {
+    assume_abort_if_not((((n) == 0) || (s)));
+    if (n > 0) {
+        char *sp = (char *)s;
+        for (unsigned long i = 0; i < n; i++)
+            sp[i] = c;
     }
-
-    buf->len = 0;
-    buf->capacity = capacity;
-    buf->allocator = allocator;
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return (0);
+    return s;
 }
 
-int aws_byte_buf_init_copy(struct aws_byte_buf *dest, struct aws_allocator *allocator, const struct aws_byte_buf *src) {
-    assume_abort_if_not((allocator));
-    assume_abort_if_not((dest));
-    do { if (!(aws_byte_buf_is_valid(src))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
+void *my_memset(void *s, int c, size_t n) {
+    return memset_impl(s, c, n);
+}
 
-    if (!src->buffer) {
-        do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-        dest->allocator = allocator;
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return (0);
+void *___memset_chk(void *s, int c, size_t n, size_t os) {
+    (void)os;
+    return memset_impl(s, c, n);
+}
+static void s_swap(struct aws_priority_queue *queue, size_t a, size_t b) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((a < queue->container.length));
+    assume_abort_if_not((b < queue->container.length));
+    assume_abort_if_not((aws_priority_queue_backpointer_index_valid(queue, a)));
+    assume_abort_if_not((aws_priority_queue_backpointer_index_valid(queue, b)));
+
+    aws_array_list_swap(&queue->container, a, b);
+
+
+    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
+        __VERIFIER_assert(queue->backpointers.length > a);
+        __VERIFIER_assert(queue->backpointers.length > b);
+
+        struct aws_priority_queue_node **bp_a = &((struct aws_priority_queue_node **)queue->backpointers.data)[a];
+        struct aws_priority_queue_node **bp_b = &((struct aws_priority_queue_node **)queue->backpointers.data)[b];
+
+        struct aws_priority_queue_node *tmp = *bp_a;
+        *bp_a = *bp_b;
+        *bp_b = tmp;
+
+        if (*bp_a) {
+            (*bp_a)->current_index = a;
+        }
+
+        if (*bp_b) {
+            (*bp_b)->current_index = b;
+        }
     }
-
-    *dest = *src;
-    dest->allocator = allocator;
-    dest->buffer = (uint8_t *)aws_mem_acquire(allocator, src->capacity);
-    if (dest->buffer == 
-                       ((void *)0)
-                           ) {
-        do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-        return (-1);
-    }
-    memcpy(dest->buffer, src->buffer, src->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    __VERIFIER_assert((aws_priority_queue_backpointer_index_valid(queue, a)));
+    __VERIFIER_assert((aws_priority_queue_backpointer_index_valid(queue, b)));
 }
 
 
-_Bool 
-    aws_byte_buf_is_valid(const struct aws_byte_buf *const buf) {
-    return buf && ((buf->capacity == 0 && buf->len == 0 && buf->buffer == 
-                                                                         ((void *)0)
-                                                                             ) ||
-                   (buf->capacity > 0 && buf->len <= buf->capacity && ((((buf->len)) == 0) || ((buf->buffer)))));
-}
 
+static 
+      _Bool 
+           s_sift_down(struct aws_priority_queue *queue, size_t root) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((root < queue->container.length));
 
-_Bool 
-    aws_byte_cursor_is_valid(const struct aws_byte_cursor *cursor) {
-    return cursor &&
-           ((cursor->len == 0) || (cursor->len > 0 && cursor->ptr && ((((cursor->len)) == 0) || ((cursor->ptr)))));
-}
-
-void aws_byte_buf_reset(struct aws_byte_buf *buf, 
-                                                 _Bool 
-                                                      zero_contents) {
-    if (zero_contents) {
-        aws_byte_buf_secure_zero(buf);
-    }
-    buf->len = 0;
-}
-
-void aws_byte_buf_clean_up(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    if (buf->allocator && buf->buffer) {
-        aws_mem_release(buf->allocator, (void *)buf->buffer);
-    }
-    buf->allocator = 
-                    ((void *)0)
+    
+   _Bool 
+        did_move = 
+                   0
                         ;
-    buf->buffer = 
-                 ((void *)0)
-                     ;
-    buf->len = 0;
-    buf->capacity = 0;
-}
 
-void aws_byte_buf_secure_zero(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    if (buf->buffer) {
-        aws_secure_zero(buf->buffer, buf->capacity);
-    }
-    buf->len = 0;
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
+    size_t len = aws_array_list_length(&queue->container);
 
-void aws_byte_buf_clean_up_secure(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    aws_byte_buf_secure_zero(buf);
-    aws_byte_buf_clean_up(buf);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
+    while ((((root) << 1) + 1) < len) {
+        size_t left = (((root) << 1) + 1);
+        size_t right = (((root) << 1) + 2);
+        size_t first = root;
+        void *first_item = 
+                          ((void *)0)
+                              , *other_item = 
+                                              ((void *)0)
+                                                  ;
 
+        aws_array_list_get_at_ptr(&queue->container, &first_item, root);
+        aws_array_list_get_at_ptr(&queue->container, &other_item, left);
 
-_Bool 
-    aws_byte_buf_eq(const struct aws_byte_buf *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_buf_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rval = aws_array_eq(a->buffer, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_ignore_case(const struct aws_byte_buf *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_buf_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rval = aws_array_eq_ignore_case(a->buffer, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_c_str(const struct aws_byte_buf *const buf, const char *const c_str) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rval = aws_array_eq_c_str(buf->buffer, buf->len, c_str);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_c_str_ignore_case(const struct aws_byte_buf *const buf, const char *const c_str) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rval = aws_array_eq_c_str_ignore_case(buf->buffer, buf->len, c_str);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return rval;
-}
-
-int aws_byte_buf_init_copy_from_cursor(
-    struct aws_byte_buf *dest,
-    struct aws_allocator *allocator,
-    struct aws_byte_cursor src) {
-    assume_abort_if_not((allocator));
-    assume_abort_if_not((dest));
-    do { if (!(aws_byte_cursor_is_valid(&src))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-
-    dest->buffer = (src.len > 0) ? (uint8_t *)aws_mem_acquire(allocator, src.len) : 
-                                                                                   ((void *)0)
-                                                                                       ;
-    if (src.len != 0 && dest->buffer == 
-                                       ((void *)0)
-                                           ) {
-        return (-1);
-    }
-
-    dest->len = src.len;
-    dest->capacity = src.len;
-    dest->allocator = allocator;
-    if (src.len > 0) {
-        memcpy(dest->buffer, src.ptr, src.len);
-    }
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
-}
-
-
-_Bool 
-    aws_byte_cursor_next_split(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_byte_cursor *restrict substr) {
-
-    
-   _Bool 
-        first_run = 
-                    0
-                         ;
-    if (!substr->ptr) {
-        first_run = 
-                   1
-                       ;
-        substr->ptr = input_str->ptr;
-        substr->len = 0;
-    }
-
-    if (substr->ptr > input_str->ptr + input_str->len) {
-
-        do { memset(&(*substr), 0, sizeof(*substr)); } while (0);
-        return 
-              0
-                   ;
-    }
-
-
-    substr->ptr += substr->len;
-
-    substr->len = input_str->len - (substr->ptr - input_str->ptr);
-
-    if (!first_run && substr->len == 0) {
-
-        do { memset(&(*substr), 0, sizeof(*substr)); } while (0);
-        return 
-              0
-                   ;
-    }
-
-    if (!first_run && *substr->ptr == split_on) {
-
-        ++substr->ptr;
-        --substr->len;
-
-        if (substr->len == 0) {
-
-            return 
-                  1
-                      ;
-        }
-    }
-
-    uint8_t *new_location = memchr(substr->ptr, split_on, substr->len);
-    if (new_location) {
-
-
-        substr->len = new_location - substr->ptr;
-    }
-
-    return 
-          1
-              ;
-}
-
-int aws_byte_cursor_split_on_char_n(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    size_t n,
-    struct aws_array_list *restrict output) {
-    __VERIFIER_assert(input_str && input_str->ptr);
-    __VERIFIER_assert(output);
-    __VERIFIER_assert(output->item_size >= sizeof(struct aws_byte_cursor));
-
-    size_t max_splits = n > 0 ? n : 
-                                   (18446744073709551615UL)
-                                           ;
-    size_t split_count = 0;
-
-    struct aws_byte_cursor substr;
-    do { memset(&(substr), 0, sizeof(substr)); } while (0);
-
-
-    while (split_count <= max_splits && aws_byte_cursor_next_split(input_str, split_on, &substr)) {
-
-        if (split_count == max_splits) {
-
-            substr.len = input_str->len - (substr.ptr - input_str->ptr);
+        if (queue->pred(first_item, other_item) > 0) {
+            first = left;
+            first_item = other_item;
         }
 
-        if (__builtin_expect(!!(aws_array_list_push_back(output, (const void *)&substr)), 0)) {
-            return (-1);
-        }
-        ++split_count;
-    }
+        if (right < len) {
+            aws_array_list_get_at_ptr(&queue->container, &other_item, right);
 
-    return (0);
-}
 
-int aws_byte_cursor_split_on_char(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_array_list *restrict output) {
 
-    return aws_byte_cursor_split_on_char_n(input_str, split_on, 0, output);
-}
-
-int aws_byte_buf_cat(struct aws_byte_buf *dest, size_t number_of_args, ...) {
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-
-    va_list ap;
-    
-   __builtin_va_start(
-   ap
-   ,
-   number_of_args
-   )
-                               ;
-
-    for (size_t i = 0; i < number_of_args; ++i) {
-        struct aws_byte_buf *buffer = 
-                                     __builtin_va_arg(
-                                     ap
-                                     ,
-                                     struct aws_byte_buf *
-                                     )
-                                                                      ;
-        struct aws_byte_cursor cursor = aws_byte_cursor_from_buf(buffer);
-
-        if (aws_byte_buf_append(dest, &cursor)) {
-            
-           __builtin_va_end(
-           ap
-           )
-                     ;
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (-1);
-        }
-    }
-
-    
-   __builtin_va_end(
-   ap
-   )
-             ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
-}
-
-
-_Bool 
-    aws_byte_cursor_eq(const struct aws_byte_cursor *a, const struct aws_byte_cursor *b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq(a->ptr, a->len, b->ptr, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_ignore_case(const struct aws_byte_cursor *a, const struct aws_byte_cursor *b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq_ignore_case(a->ptr, a->len, b->ptr, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(b)));
-    return rv;
-}
-
-
-static const uint8_t s_tolower_table[256] = {
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-    44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 'a',
-    'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-    'x', 'y', 'z', 91, 92, 93, 94, 95, 96, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 123, 124, 125, 126, 127, 128, 129, 130, 131,
-    132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153,
-    154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175,
-    176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197,
-    198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219,
-    220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241,
-    242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255};
-
-const uint8_t *aws_lookup_table_to_lower_get(void) {
-    return s_tolower_table;
-}
-
-
-_Bool 
-    aws_array_eq_ignore_case(
-    const void *const array_a,
-    const size_t len_a,
-    const void *const array_b,
-    const size_t len_b) {
-    assume_abort_if_not(((len_a == 0) || ((((len_a)) == 0) || ((array_a)))))
-                                                                                                                     ;
-    assume_abort_if_not(((len_b == 0) || ((((len_b)) == 0) || ((array_b)))))
-                                                                                                                     ;
-
-    if (len_a != len_b) {
-        return 
-              0
-                   ;
-    }
-
-    const uint8_t *bytes_a = array_a;
-    const uint8_t *bytes_b = array_b;
-    for (size_t i = 0; i < len_a; ++i) {
-        if (s_tolower_table[bytes_a[i]] != s_tolower_table[bytes_b[i]]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return 
-          1
-              ;
-}
-
-
-_Bool 
-    aws_array_eq(const void *const array_a, const size_t len_a, const void *const array_b, const size_t len_b) {
-    assume_abort_if_not(((len_a == 0) || ((((len_a)) == 0) || ((array_a)))))
-                                                                                                                     ;
-    assume_abort_if_not(((len_b == 0) || ((((len_b)) == 0) || ((array_b)))))
-                                                                                                                     ;
-
-    if (len_a != len_b) {
-        return 
-              0
-                   ;
-    }
-
-    if (len_a == 0) {
-        return 
-              1
-                  ;
-    }
-
-    return !memcmp(array_a, array_b, len_a);
-}
-
-
-_Bool 
-    aws_array_eq_c_str_ignore_case(const void *const array, const size_t array_len, const char *const c_str) {
-    assume_abort_if_not((array || (array_len == 0)))
-
-                                                                                               ;
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-
-
-
-
-
-
-    const uint8_t *array_bytes = array;
-    const uint8_t *str_bytes = (const uint8_t *)c_str;
-
-    for (size_t i = 0; i < array_len; ++i) {
-        uint8_t s = str_bytes[i];
-        if (s == '\0') {
-            return 
-                  0
-                       ;
-        }
-
-        if (s_tolower_table[array_bytes[i]] != s_tolower_table[s]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return str_bytes[array_len] == '\0';
-}
-
-
-_Bool 
-    aws_array_eq_c_str(const void *const array, const size_t array_len, const char *const c_str) {
-    assume_abort_if_not((array || (array_len == 0)))
-
-                                                                                               ;
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-
-
-
-
-
-
-    const uint8_t *array_bytes = array;
-    const uint8_t *str_bytes = (const uint8_t *)c_str;
-
-    for (size_t i = 0; i < array_len - 1; ++i) { // introduced off-by-one bug
-        uint8_t s = str_bytes[i];
-        if (s == '\0') {
-            return 
-                  0
-                       ;
-        }
-
-        if (array_bytes[i] != s) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return str_bytes[array_len] == '\0';
-}
-
-uint64_t aws_hash_array_ignore_case(const void *array, const size_t len) {
-    assume_abort_if_not((((((len)) == 0) || ((array)))));
-
-    const uint64_t fnv_offset_basis = 0xcbf29ce484222325ULL;
-    const uint64_t fnv_prime = 0x100000001b3ULL;
-
-    const uint8_t *i = array;
-    const uint8_t *end = i + len;
-
-    uint64_t hash = fnv_offset_basis;
-    while (i != end) {
-        const uint8_t lower = s_tolower_table[*i++];
-        hash ^= lower;
-
-
-        hash *= fnv_prime;
-
-
-    }
-    return hash;
-}
-
-uint64_t aws_hash_byte_cursor_ptr_ignore_case(const void *item) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
-    const struct aws_byte_cursor *const cursor = item;
-    uint64_t rval = aws_hash_array_ignore_case(cursor->ptr, cursor->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(item)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_byte_buf(const struct aws_byte_cursor *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq(a->ptr, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_byte_buf_ignore_case(
-    const struct aws_byte_cursor *const a,
-    const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq_ignore_case(a->ptr, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_c_str(const struct aws_byte_cursor *const cursor, const char *const c_str) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rv = aws_array_eq_c_str(cursor->ptr, cursor->len, c_str);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_c_str_ignore_case(const struct aws_byte_cursor *const cursor, const char *const c_str) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rv = aws_array_eq_c_str_ignore_case(cursor->ptr, cursor->len, c_str);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    return rv;
-}
-
-int aws_byte_buf_append(struct aws_byte_buf *to, const struct aws_byte_cursor *from) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-
-    if (to->capacity - to->len < from->len) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-        return aws_raise_error(AWS_ERROR_DEST_COPY_TOO_SMALL);
-    }
-
-    if (from->len > 0) {
-
-        __VERIFIER_assert(from->ptr);
-        __VERIFIER_assert(to->buffer);
-        memcpy(to->buffer + to->len, from->ptr, from->len);
-        to->len += from->len;
-    }
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_append_with_lookup(
-    struct aws_byte_buf *restrict to,
-    const struct aws_byte_cursor *restrict from,
-    const uint8_t *lookup_table) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-    assume_abort_if_not((((((256)) == 0) || ((lookup_table)))))
-                                                                                                              ;
-
-    if (to->capacity - to->len < from->len) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-        return aws_raise_error(AWS_ERROR_DEST_COPY_TOO_SMALL);
-    }
-
-    for (size_t i = 0; i < from->len; ++i) {
-        to->buffer[to->len + i] = lookup_table[from->ptr[i]];
-    }
-
-    if (aws_add_size_checked(to->len, from->len, &to->len)) {
-        return (-1);
-    }
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_append_dynamic(struct aws_byte_buf *to, const struct aws_byte_cursor *from) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-    do { if (!(to->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    if (to->capacity - to->len < from->len) {
-
-
-
-        size_t missing_capacity = from->len - (to->capacity - to->len);
-
-        size_t required_capacity = 0;
-        if (aws_add_size_checked(to->capacity, missing_capacity, &required_capacity)) {
-            __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-            __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-            return (-1);
-        }
-
-
-
-
-
-
-        size_t growth_capacity = aws_add_size_saturating(to->capacity, to->capacity);
-
-        size_t new_capacity = required_capacity;
-        if (new_capacity < growth_capacity) {
-            new_capacity = growth_capacity;
-        }
-        uint8_t *new_buffer = aws_mem_acquire(to->allocator, new_capacity);
-        if (new_buffer == 
-                         ((void *)0)
-                             ) {
-            if (new_capacity > required_capacity) {
-                new_capacity = required_capacity;
-                new_buffer = aws_mem_acquire(to->allocator, new_capacity);
-                if (new_buffer == 
-                                 ((void *)0)
-                                     ) {
-                    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-                    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-                    return (-1);
-                }
-            } else {
-                __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-                __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-                return (-1);
+            if (queue->pred(first_item, other_item) > 0) {
+                first = right;
+                first_item = other_item;
             }
         }
 
-
-
-
-        if (to->len > 0) {
-            memcpy(new_buffer, to->buffer, to->len);
-        }
-
-
-
-        if (from->len > 0) {
-            memcpy(new_buffer + to->len, from->ptr, from->len);
-        }
-
-
-
-        aws_mem_release(to->allocator, to->buffer);
-
-
-
-
-        to->buffer = new_buffer;
-        to->capacity = new_capacity;
-    } else {
-        if (from->len > 0) {
-
-            __VERIFIER_assert(from->ptr);
-            __VERIFIER_assert(to->buffer);
-            memcpy(to->buffer + to->len, from->ptr, from->len);
+        if (first != root) {
+            s_swap(queue, first, root);
+            did_move = 
+                      1
+                          ;
+            root = first;
+        } else {
+            break;
         }
     }
 
-    to->len += from->len;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_reserve(struct aws_byte_buf *buffer, size_t requested_capacity) {
-    do { if (!(buffer->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-    do { if (!(aws_byte_buf_is_valid(buffer))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    if (requested_capacity <= buffer->capacity) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (0);
-    }
-
-    if (aws_mem_realloc(buffer->allocator, (void **)&buffer->buffer, buffer->capacity, requested_capacity)) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (-1);
-    }
-
-    buffer->capacity = requested_capacity;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-    return (0);
-}
-
-int aws_byte_buf_reserve_relative(struct aws_byte_buf *buffer, size_t additional_length) {
-    do { if (!(buffer->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-    do { if (!(aws_byte_buf_is_valid(buffer))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    size_t requested_capacity = 0;
-    if (__builtin_expect(!!(aws_add_size_checked(buffer->len, additional_length, &requested_capacity)), 0)) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (-1);
-    }
-
-    return aws_byte_buf_reserve(buffer, requested_capacity);
-}
-
-struct aws_byte_cursor aws_byte_cursor_right_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor trimmed = *source;
-
-    while (trimmed.len > 0 && predicate(*(trimmed.ptr + trimmed.len - 1))) {
-        --trimmed.len;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&trimmed)));
-    return trimmed;
-}
-
-struct aws_byte_cursor aws_byte_cursor_left_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor trimmed = *source;
-
-    while (trimmed.len > 0 && predicate(*(trimmed.ptr))) {
-        --trimmed.len;
-        ++trimmed.ptr;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&trimmed)));
-    return trimmed;
-}
-
-struct aws_byte_cursor aws_byte_cursor_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor left_trimmed = aws_byte_cursor_left_trim_pred(source, predicate);
-    struct aws_byte_cursor dest = aws_byte_cursor_right_trim_pred(&left_trimmed, predicate);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&dest)));
-    return dest;
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return did_move;
 }
 
 
-_Bool 
-    aws_byte_cursor_satisfies_pred(const struct aws_byte_cursor *source, aws_byte_predicate_fn *predicate) {
-    struct aws_byte_cursor trimmed = aws_byte_cursor_left_trim_pred(source, predicate);
+static 
+      _Bool 
+           s_sift_up(struct aws_priority_queue *queue, size_t index) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((index < queue->container.length));
+
     
    _Bool 
-        rval = (trimmed.len == 0);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    return rval;
-}
+        did_move = 
+                   0
+                        ;
 
-int aws_byte_cursor_compare_lexical(const struct aws_byte_cursor *lhs, const struct aws_byte_cursor *rhs) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(lhs)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(rhs)));
+    void *parent_item, *child_item;
+    size_t parent = (((index)&1) ? (index) >> 1 : (index) > 1 ? ((index)-2) >> 1 : 0);
+    while (index) {
 
-    assume_abort_if_not((lhs->ptr != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((rhs->ptr != 
-   ((void *)0)
-   ));
-    size_t comparison_length = lhs->len;
-    if (comparison_length > rhs->len) {
-        comparison_length = rhs->len;
-    }
 
-    int result = memcmp_safe(lhs->ptr, rhs->ptr, comparison_length);
 
-    __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-    if (result != 0) {
-        return result;
-    }
 
-    if (lhs->len != rhs->len) {
-        return comparison_length == lhs->len ? -1 : 1;
-    }
 
-    return 0;
-}
-
-int aws_byte_cursor_compare_lookup(
-    const struct aws_byte_cursor *lhs,
-    const struct aws_byte_cursor *rhs,
-    const uint8_t *lookup_table) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(lhs)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(rhs)));
-    assume_abort_if_not((((((256)) == 0) || ((lookup_table)))));
-    const uint8_t *lhs_curr = lhs->ptr;
-    const uint8_t *lhs_end = lhs_curr + lhs->len;
-
-    const uint8_t *rhs_curr = rhs->ptr;
-    const uint8_t *rhs_end = rhs_curr + rhs->len;
-
-    while (lhs_curr < lhs_end && rhs_curr < rhs_end) {
-        uint8_t lhc = lookup_table[*lhs_curr];
-        uint8_t rhc = lookup_table[*rhs_curr];
-
-        __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-        if (lhc < rhc) {
-            return -1;
+        if (aws_array_list_get_at_ptr(&queue->container, &parent_item, parent) ||
+            aws_array_list_get_at_ptr(&queue->container, &child_item, index)) {
+            my_abort();
         }
 
-        if (lhc > rhc) {
-            return 1;
+        if (queue->pred(parent_item, child_item) > 0) {
+            s_swap(queue, index, parent);
+            did_move = 
+                      1
+                          ;
+            index = parent;
+            parent = (((index)&1) ? (index) >> 1 : (index) > 1 ? ((index)-2) >> 1 : 0);
+        } else {
+            break;
         }
-
-        lhs_curr++;
-        rhs_curr++;
     }
 
-    __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-    if (lhs_curr < lhs_end) {
-        return 1;
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return did_move;
+}
+
+
+
+
+
+static void s_sift_either(struct aws_priority_queue *queue, size_t index) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((index < queue->container.length));
+
+    if (!index || !s_sift_up(queue, index)) {
+        s_sift_down(queue, index);
     }
 
-    if (rhs_curr < rhs_end) {
-        return -1;
-    }
-
-    return 0;
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
 }
 
+int aws_priority_queue_init_dynamic(
+    struct aws_priority_queue *queue,
+    struct aws_allocator *alloc,
+    size_t default_size,
+    size_t item_size,
+    aws_priority_queue_compare_fn *pred) {
 
+    assume_abort_if_not((queue != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((alloc != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((item_size > 0));
 
+    queue->pred = pred;
+    do { my_memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
 
-struct aws_byte_buf aws_byte_buf_from_c_str(const char *c_str) {
-    struct aws_byte_buf buf;
-    buf.len = (!c_str) ? 0 : strlen(c_str);
-    buf.capacity = buf.len;
-    buf.buffer = (buf.capacity == 0) ? 
-                                      ((void *)0) 
-                                           : (uint8_t *)c_str;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_buf aws_byte_buf_from_array(const void *bytes, size_t len) {
-    assume_abort_if_not((((((len)) == 0) || ((bytes)))));
-    struct aws_byte_buf buf;
-    buf.buffer = (len > 0) ? (uint8_t *)bytes : 
-                                               ((void *)0)
-                                                   ;
-    buf.len = len;
-    buf.capacity = len;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_buf aws_byte_buf_from_empty_array(const void *bytes, size_t capacity) {
-    assume_abort_if_not((((((capacity)) == 0) || ((bytes)))))
-                                                                                                             ;
-    struct aws_byte_buf buf;
-    buf.buffer = (capacity > 0) ? (uint8_t *)bytes : 
-                                                    ((void *)0)
-                                                        ;
-    buf.len = 0;
-    buf.capacity = capacity;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_buf(const struct aws_byte_buf *const buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    struct aws_byte_cursor cur;
-    cur.ptr = buf->buffer;
-    cur.len = buf->len;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_c_str(const char *c_str) {
-    struct aws_byte_cursor cur;
-    cur.ptr = (uint8_t *)c_str;
-    cur.len = (cur.ptr) ? strlen(c_str) : 0;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_array(const void *const bytes, const size_t len) {
-    assume_abort_if_not((len == 0 || ((((len)) == 0) || ((bytes)))));
-    struct aws_byte_cursor cur;
-    cur.ptr = (uint8_t *)bytes;
-    cur.len = len;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-
-
-
-
-
-
-
-
-size_t aws_nospec_mask(size_t index, size_t bound) {
-    __asm__ __volatile__("" : "+r"(index));
-    size_t negative_mask = index | bound;
-    size_t toobig_mask = bound - index - (uintptr_t)1;
-    size_t combined_mask = negative_mask | toobig_mask;
-    combined_mask = (~combined_mask) / (
-                                       (18446744073709551615UL) 
-                                                - (
-                                                   (18446744073709551615UL) 
-                                                            >> 1));
-
-
-
-
-
-
-
-    combined_mask = combined_mask * 
-                                   (18446744073709551615UL)
-                                              ;
-
-    return combined_mask;
-}
-
-struct aws_byte_cursor aws_byte_cursor_advance(struct aws_byte_cursor *const cursor, const size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    struct aws_byte_cursor rv;
-    if (cursor->len > (
-                      (18446744073709551615UL) 
-                               >> 1) || len > (
-                                               (18446744073709551615UL) 
-                                                        >> 1) || len > cursor->len) {
-        rv.ptr = 
-                ((void *)0)
-                    ;
-        rv.len = 0;
+    int ret = aws_array_list_init_dynamic(&queue->container, alloc, default_size, item_size);
+    if (ret == (0)) {
+        __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
     } else {
-        rv.ptr = cursor->ptr;
-        rv.len = len;
-
-        cursor->ptr += len;
-        cursor->len -= len;
+        __VERIFIER_assert((aws_is_mem_zeroed(&(queue->container), sizeof(queue->container))));
+        __VERIFIER_assert((aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))));
     }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&rv)));
-    return rv;
+    return ret;
 }
-struct aws_byte_cursor aws_byte_cursor_advance_nospec(struct aws_byte_cursor *const cursor, size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
 
-    struct aws_byte_cursor rv;
+void aws_priority_queue_init_static(
+    struct aws_priority_queue *queue,
+    void *heap,
+    size_t item_count,
+    size_t item_size,
+    aws_priority_queue_compare_fn *pred) {
 
-    if (len <= cursor->len && len <= (
-                                     (18446744073709551615UL) 
-                                              >> 1) && cursor->len <= (
-                                                                       (18446744073709551615UL) 
-                                                                                >> 1)) {
+    assume_abort_if_not((queue != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((heap != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((item_count > 0));
+    assume_abort_if_not((item_size > 0));
 
+    queue->pred = pred;
+    do { my_memset(&(queue->backpointers), 0, sizeof(queue->backpointers)); } while (0);
 
+    aws_array_list_init_static(&queue->container, heap, item_count, item_size);
 
-
-
-        uintptr_t mask = aws_nospec_mask(len, cursor->len + 1);
-
-
-        len = len & mask;
-        cursor->ptr = (uint8_t *)((uintptr_t)cursor->ptr & mask);
-
-        cursor->len = cursor->len & mask;
-
-        rv.ptr = cursor->ptr;
-
-        rv.len = len & mask;
-
-        cursor->ptr += len;
-        cursor->len -= len;
-    } else {
-        rv.ptr = 
-                ((void *)0)
-                    ;
-        rv.len = 0;
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&rv)));
-    return rv;
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
 }
+
 
 _Bool 
-    aws_byte_cursor_read(struct aws_byte_cursor *restrict cur, void *restrict dest, const size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((len)) == 0) || ((dest)))));
-    struct aws_byte_cursor slice = aws_byte_cursor_advance_nospec(cur, len);
-
-    if (slice.ptr) {
-        memcpy(dest, slice.ptr, len);
-        __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-        __VERIFIER_assert((((((len)) == 0) || ((dest)))));
+    aws_priority_queue_backpointer_index_valid(const struct aws_priority_queue *const queue, size_t index) {
+    if (aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
         return 
               1
                   ;
     }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
+    if (index < queue->backpointers.length) {
+        struct aws_priority_queue_node *node = ((struct aws_priority_queue_node **)queue->backpointers.data)[index];
+        return (node == 
+                       ((void *)0)
+                           ) || ((((sizeof(struct aws_priority_queue_node))) == 0) || ((node)));
+    }
     return 
           0
                ;
 }
 
-_Bool 
-    aws_byte_cursor_read_and_fill_buffer(
-    struct aws_byte_cursor *restrict cur,
-    struct aws_byte_buf *restrict dest) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-    if (aws_byte_cursor_read(cur, dest->buffer, dest->capacity)) {
-        dest->len = dest->capacity;
-        __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return 
-              1
-                  ;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return 
-          0
-               ;
-}
 
 _Bool 
-    aws_byte_cursor_read_u8(struct aws_byte_cursor *restrict cur, uint8_t *restrict var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 1);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be16(struct aws_byte_cursor *cur, uint16_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 2);
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh16(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be32(struct aws_byte_cursor *cur, uint32_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 4);
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh32(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_float_be32(struct aws_byte_cursor *cur, float *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(float));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntohf32(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_float_be64(struct aws_byte_cursor *cur, double *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(double));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntohf64(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be64(struct aws_byte_cursor *cur, uint64_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(*var));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh64(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_buf_advance(
-    struct aws_byte_buf *const restrict buffer,
-    struct aws_byte_buf *const restrict output,
-    const size_t len) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buffer)));
-    assume_abort_if_not((aws_byte_buf_is_valid(output)));
-    if (buffer->capacity - buffer->len >= len) {
-        *output = aws_byte_buf_from_array(buffer->buffer + buffer->len, len);
-        buffer->len += len;
-        output->len = 0;
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(output)));
-        return 
-              1
-                  ;
-    } else {
-        do { memset(&(*output), 0, sizeof(*output)); } while (0);
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(output)));
+    aws_priority_queue_backpointers_valid_deep(const struct aws_priority_queue *const queue) {
+    if (!queue) {
         return 
               0
                    ;
     }
-}
-
-_Bool 
-    aws_byte_buf_write(struct aws_byte_buf *restrict buf, const uint8_t *restrict src, size_t len) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((((((len)) == 0) || ((src)))));
-
-    if (buf->len > (
-                   (18446744073709551615UL) 
-                            >> 1) || len > (
-                                            (18446744073709551615UL) 
-                                                     >> 1) || buf->len + len > buf->capacity) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-        return 
-              0
-                   ;
+    for (size_t i = 0; i < queue->backpointers.length; i++) {
+        if (!aws_priority_queue_backpointer_index_valid(queue, i)) {
+            return 
+                  0
+                       ;
+        }
     }
-
-    memcpy(buf->buffer + buf->len, src, len);
-    buf->len += len;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
     return 
           1
               ;
 }
 
-_Bool 
-    aws_byte_buf_write_from_whole_buffer(struct aws_byte_buf *restrict buf, struct aws_byte_buf src) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((aws_byte_buf_is_valid(&src)));
-    return aws_byte_buf_write(buf, src.buffer, src.len);
-}
 
 _Bool 
-    aws_byte_buf_write_from_whole_cursor(struct aws_byte_buf *restrict buf, struct aws_byte_cursor src) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(&src)));
-    return aws_byte_buf_write(buf, src.ptr, src.len);
+    aws_priority_queue_backpointers_valid(const struct aws_priority_queue *const queue) {
+    if (!queue) {
+        return 
+              0
+                   ;
+    }
+
+
+    
+   _Bool 
+        backpointer_list_is_valid =
+        ((aws_array_list_is_valid(&queue->backpointers) && (queue->backpointers.current_size != 0) &&
+          (queue->backpointers.data != 
+                                      ((void *)0)
+                                          )));
+
+
+
+
+
+    
+   _Bool 
+        backpointer_list_item_size = queue->backpointers.item_size == sizeof(struct aws_priority_queue_node *);
+    
+   _Bool 
+        lists_equal_lengths = queue->backpointers.length == queue->container.length;
+    
+   _Bool 
+        backpointers_non_zero_current_size = queue->backpointers.current_size > 0;
+
+
+
+
+
+
+    
+   _Bool 
+        backpointers_valid_deep = 
+                                  1
+                                      ;
+
+    
+   _Bool 
+        backpointers_zero =
+        (queue->backpointers.current_size == 0 && queue->backpointers.length == 0 && queue->backpointers.data == 
+                                                                                                                ((void *)0)
+                                                                                                                    );
+    
+   _Bool 
+        backpointer_struct_is_valid =
+        backpointers_zero || (backpointer_list_item_size && lists_equal_lengths && backpointers_non_zero_current_size &&
+                              backpointers_valid_deep);
+
+    return ((backpointer_list_is_valid && backpointer_struct_is_valid) || aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers)));
 }
 
-_Bool 
-    aws_byte_buf_write_u8(struct aws_byte_buf *restrict buf, uint8_t c) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    return aws_byte_buf_write(buf, &c, 1);
-}
 
 _Bool 
-    aws_byte_buf_write_be16(struct aws_byte_buf *buf, uint16_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton16(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 2);
+    aws_priority_queue_is_valid(const struct aws_priority_queue *const queue) {
+
+    if (!queue) {
+        return 
+              0
+                   ;
+    }
+    
+   _Bool 
+        pred_is_valid = (queue->pred != 
+                                        ((void *)0)
+                                            );
+    
+   _Bool 
+        container_is_valid = aws_array_list_is_valid(&queue->container);
+
+    
+   _Bool 
+        backpointers_valid = aws_priority_queue_backpointers_valid(queue);
+    return pred_is_valid && container_is_valid && backpointers_valid;
 }
 
-_Bool 
-    aws_byte_buf_write_be32(struct aws_byte_buf *buf, uint32_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton32(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 4);
+void aws_priority_queue_clean_up(struct aws_priority_queue *queue) {
+    aws_array_list_clean_up(&queue->container);
+    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
+        aws_array_list_clean_up(&queue->backpointers);
+    }
 }
 
-_Bool 
-    aws_byte_buf_write_float_be32(struct aws_byte_buf *buf, float x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_htonf32(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 4);
+int aws_priority_queue_push(struct aws_priority_queue *queue, void *item) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
+    int rval = aws_priority_queue_push_ref(queue, item, 
+                                                       ((void *)0)
+                                                           );
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return rval;
 }
 
-_Bool 
-    aws_byte_buf_write_be64(struct aws_byte_buf *buf, uint64_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton64(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 8);
+int aws_priority_queue_push_ref(
+    struct aws_priority_queue *queue,
+    void *item,
+    struct aws_priority_queue_node *backpointer) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
+
+    int err = aws_array_list_push_back(&queue->container, item);
+    if (err) {
+        __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+        return err;
+    }
+    size_t index = aws_array_list_length(&queue->container) - 1;
+
+    if (backpointer && !queue->backpointers.alloc) {
+        if (!queue->container.alloc) {
+            aws_raise_error(AWS_ERROR_UNSUPPORTED_OPERATION);
+            goto backpointer_update_failed;
+        }
+
+        if (aws_array_list_init_dynamic(
+                &queue->backpointers, queue->container.alloc, index + 1, sizeof(struct aws_priority_queue_node *))) {
+            goto backpointer_update_failed;
+        }
+
+
+        my_memset(queue->backpointers.data, 0, queue->backpointers.current_size);
+    }
+
+
+
+
+
+
+    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
+        if (aws_array_list_set_at(&queue->backpointers, &backpointer, index)) {
+            goto backpointer_update_failed;
+        }
+    }
+
+    if (backpointer) {
+        backpointer->current_index = index;
+    }
+
+    s_sift_up(queue, aws_array_list_length(&queue->container) - 1);
+
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return (0);
+
+backpointer_update_failed:
+
+    aws_array_list_pop_back(&queue->container);
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return (-1);
 }
 
-_Bool 
-    aws_byte_buf_write_float_be64(struct aws_byte_buf *buf, double x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_htonf64(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 8);
+static int s_remove_node(struct aws_priority_queue *queue, void *item, size_t item_index) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
+    if (aws_array_list_get_at(&queue->container, item, item_index)) {
+
+        __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+        return (-1);
+    }
+
+    size_t swap_with = aws_array_list_length(&queue->container) - 1;
+    struct aws_priority_queue_node *backpointer = 
+                                                 ((void *)0)
+                                                     ;
+
+    if (item_index != swap_with) {
+        s_swap(queue, item_index, swap_with);
+    }
+
+    aws_array_list_pop_back(&queue->container);
+
+    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
+        aws_array_list_get_at(&queue->backpointers, &backpointer, swap_with);
+        if (backpointer) {
+            backpointer->current_index = 
+                                        (18446744073709551615UL)
+                                                ;
+        }
+        aws_array_list_pop_back(&queue->backpointers);
+    }
+
+    if (item_index != swap_with) {
+        s_sift_either(queue, item_index);
+    }
+
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return (0);
+}
+
+int aws_priority_queue_remove(
+    struct aws_priority_queue *queue,
+    void *item,
+    const struct aws_priority_queue_node *node) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
+    assume_abort_if_not((node && ((((sizeof(struct aws_priority_queue_node))) == 0) || ((node)))));
+    do { if (!(node->current_index < aws_array_list_length(&queue->container))) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_BAD_NODE); } } while (0)
+                                                                                                          ;
+    do { if (!(queue->backpointers.data)) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_BAD_NODE); } } while (0);
+
+    int rval = s_remove_node(queue, item, node->current_index);
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return rval;
+}
+
+int aws_priority_queue_pop(struct aws_priority_queue *queue, void *item) {
+    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
+    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
+    do { if (!(aws_array_list_length(&queue->container) != 0)) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_EMPTY); } } while (0);
+
+    int rval = s_remove_node(queue, item, 0);
+    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
+    return rval;
+}
+
+int aws_priority_queue_top(const struct aws_priority_queue *queue, void **item) {
+    do { if (!(aws_array_list_length(&queue->container) != 0)) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_EMPTY); } } while (0);
+    return aws_array_list_get_at_ptr(&queue->container, item, 0);
+}
+
+size_t aws_priority_queue_size(const struct aws_priority_queue *queue) {
+    return aws_array_list_length(&queue->container);
+}
+
+size_t aws_priority_queue_capacity(const struct aws_priority_queue *queue) {
+    return aws_array_list_capacity(&queue->container);
 }
 enum aws_log_level {
     AWS_LL_NONE = 0,
@@ -8866,7 +8045,7 @@ extern struct aws_logger_vtable g_pipeline_logger_owned_vtable;
 
 
 void aws_secure_zero(void *pBuf, size_t bufsize) {
-    memset(pBuf, 0, bufsize);
+    my_memset(pBuf, 0, bufsize);
 
 
 
@@ -9096,42 +8275,41 @@ void aws_common_fatal_assert_library_initialized(void) {
         __VERIFIER_assert(s_common_library_initialized);
     }
 }
-void aws_array_eq_c_str_harness() {
-
-    void *array;
-    size_t array_len = __VERIFIER_nondet_ulong();
-    assume_abort_if_not(array_len <= 10);
-    array = can_fail_malloc(array_len);
-    const char *c_str = nondet_bool() ? 
-                                       ((void *)0) 
-                                            : ensure_c_str_is_allocated(10);
+void aws_priority_queue_init_dynamic_harness() {
 
 
-    struct store_byte_from_buffer old_byte_from_array;
-    save_byte_from_array((uint8_t *)array, array_len, &old_byte_from_array);
-    size_t str_len = (c_str) ? strlen(c_str) : 0;
-    struct store_byte_from_buffer old_byte_from_str;
-    save_byte_from_array((uint8_t *)c_str, str_len, &old_byte_from_str);
+    struct aws_priority_queue queue;
 
 
-    assume_abort_if_not(array || (array_len == 0));
-    assume_abort_if_not(c_str);
+    struct aws_allocator *allocator = can_fail_allocator();
+    size_t item_size;
+    size_t initial_item_allocation;
+    size_t len;
 
 
-    if (aws_array_eq_c_str(array, array_len, c_str)) {
-
-        __VERIFIER_assert(array_len == str_len);
-        if (array_len > 0) {
-            assert_bytes_match((uint8_t *)array, (uint8_t *)c_str, array_len);
-        }
-    }
+    assume_abort_if_not(initial_item_allocation <= 9223372036854775808U);
+    assume_abort_if_not(item_size > 0 && item_size <= 2);
+    assume_abort_if_not(!aws_mul_size_checked(initial_item_allocation, item_size, &len));
 
 
-    if (array_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)array, &old_byte_from_array);
-    }
-    if (str_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)c_str, &old_byte_from_str);
+    uint8_t *raw_array = bounded_malloc(len);
+
+    if (aws_priority_queue_init_dynamic(&queue, allocator, initial_item_allocation, item_size, nondet_compare) ==
+        (0)) {
+
+        __VERIFIER_assert(aws_priority_queue_is_valid(&queue));
+        __VERIFIER_assert(queue.container.alloc == allocator);
+        __VERIFIER_assert(queue.container.item_size == item_size);
+        __VERIFIER_assert(queue.container.length == 0);
+        __VERIFIER_assert((queue.container.data == 
+       ((void *)0) 
+       && queue.container.current_size == 0) || (queue.container.data && queue.container.current_size == (initial_item_allocation * item_size)))
+
+                                                                                                            ;
+    } else {
+
+        __VERIFIER_assert(aws_is_mem_zeroed(&(queue.container), sizeof(queue.container)));
+        __VERIFIER_assert(aws_is_mem_zeroed(&(queue.backpointers), sizeof(queue.backpointers)));
     }
 }
-int main() { aws_array_eq_c_str_harness(); return 0; }
+int main() { aws_priority_queue_init_dynamic_harness(); return 0; }

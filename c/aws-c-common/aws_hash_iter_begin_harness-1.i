@@ -205,7 +205,7 @@ typedef _Bool bool;
 
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "aws_array_eq_c_str_harness.i", 208, "reach_error"); }
+void reach_error() { __assert_fail("0", "aws_hash_iter_begin_harness.i", 208, "reach_error"); }
 extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
@@ -7195,8 +7195,8 @@ void assert_byte_from_buffer_matches(const uint8_t *const buffer, const struct s
 void save_byte_from_array(const uint8_t *const array, const size_t size, struct store_byte_from_buffer *const storage) {
     if (size > 0 && array && storage) {
         storage->index = nondet_size_t();
-        assume_abort_if_not(storage->index < size);
-        storage->byte = array[storage->index];
+        assume_abort_if_not(storage->index < size - 1);
+        storage->byte = array[storage->index + 1]; // introduced a bug; had to update previous line too
     }
 }
 
@@ -7391,1321 +7391,6 @@ void aws_raise_error_private(int err) {
 
 int aws_last_error(void) {
     return tl_last_error;
-}
-
-
-
-int memcmp_safe(const void *s1, const void *s2, size_t n) {
-    assume_abort_if_not((((n) == 0) || (s1)));
-    assume_abort_if_not((((n) == 0) || (s2)));
-    return memcmp(s1, s2, n);
-}
- size_t aws_nospec_mask(size_t index, size_t bound);
-int aws_byte_buf_init(struct aws_byte_buf *buf, struct aws_allocator *allocator, size_t capacity) {
-    assume_abort_if_not((buf));
-    assume_abort_if_not((allocator));
-
-    buf->buffer = (capacity == 0) ? 
-                                   ((void *)0) 
-                                        : aws_mem_acquire(allocator, capacity);
-    if (capacity != 0 && buf->buffer == 
-                                       ((void *)0)
-                                           ) {
-        return (-1);
-    }
-
-    buf->len = 0;
-    buf->capacity = capacity;
-    buf->allocator = allocator;
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return (0);
-}
-
-int aws_byte_buf_init_copy(struct aws_byte_buf *dest, struct aws_allocator *allocator, const struct aws_byte_buf *src) {
-    assume_abort_if_not((allocator));
-    assume_abort_if_not((dest));
-    do { if (!(aws_byte_buf_is_valid(src))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    if (!src->buffer) {
-        do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-        dest->allocator = allocator;
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return (0);
-    }
-
-    *dest = *src;
-    dest->allocator = allocator;
-    dest->buffer = (uint8_t *)aws_mem_acquire(allocator, src->capacity);
-    if (dest->buffer == 
-                       ((void *)0)
-                           ) {
-        do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-        return (-1);
-    }
-    memcpy(dest->buffer, src->buffer, src->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
-}
-
-
-_Bool 
-    aws_byte_buf_is_valid(const struct aws_byte_buf *const buf) {
-    return buf && ((buf->capacity == 0 && buf->len == 0 && buf->buffer == 
-                                                                         ((void *)0)
-                                                                             ) ||
-                   (buf->capacity > 0 && buf->len <= buf->capacity && ((((buf->len)) == 0) || ((buf->buffer)))));
-}
-
-
-_Bool 
-    aws_byte_cursor_is_valid(const struct aws_byte_cursor *cursor) {
-    return cursor &&
-           ((cursor->len == 0) || (cursor->len > 0 && cursor->ptr && ((((cursor->len)) == 0) || ((cursor->ptr)))));
-}
-
-void aws_byte_buf_reset(struct aws_byte_buf *buf, 
-                                                 _Bool 
-                                                      zero_contents) {
-    if (zero_contents) {
-        aws_byte_buf_secure_zero(buf);
-    }
-    buf->len = 0;
-}
-
-void aws_byte_buf_clean_up(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    if (buf->allocator && buf->buffer) {
-        aws_mem_release(buf->allocator, (void *)buf->buffer);
-    }
-    buf->allocator = 
-                    ((void *)0)
-                        ;
-    buf->buffer = 
-                 ((void *)0)
-                     ;
-    buf->len = 0;
-    buf->capacity = 0;
-}
-
-void aws_byte_buf_secure_zero(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    if (buf->buffer) {
-        aws_secure_zero(buf->buffer, buf->capacity);
-    }
-    buf->len = 0;
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
-
-void aws_byte_buf_clean_up_secure(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    aws_byte_buf_secure_zero(buf);
-    aws_byte_buf_clean_up(buf);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
-
-
-_Bool 
-    aws_byte_buf_eq(const struct aws_byte_buf *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_buf_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rval = aws_array_eq(a->buffer, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_ignore_case(const struct aws_byte_buf *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_buf_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rval = aws_array_eq_ignore_case(a->buffer, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_buf_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_c_str(const struct aws_byte_buf *const buf, const char *const c_str) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rval = aws_array_eq_c_str(buf->buffer, buf->len, c_str);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_buf_eq_c_str_ignore_case(const struct aws_byte_buf *const buf, const char *const c_str) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rval = aws_array_eq_c_str_ignore_case(buf->buffer, buf->len, c_str);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return rval;
-}
-
-int aws_byte_buf_init_copy_from_cursor(
-    struct aws_byte_buf *dest,
-    struct aws_allocator *allocator,
-    struct aws_byte_cursor src) {
-    assume_abort_if_not((allocator));
-    assume_abort_if_not((dest));
-    do { if (!(aws_byte_cursor_is_valid(&src))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
-
-    dest->buffer = (src.len > 0) ? (uint8_t *)aws_mem_acquire(allocator, src.len) : 
-                                                                                   ((void *)0)
-                                                                                       ;
-    if (src.len != 0 && dest->buffer == 
-                                       ((void *)0)
-                                           ) {
-        return (-1);
-    }
-
-    dest->len = src.len;
-    dest->capacity = src.len;
-    dest->allocator = allocator;
-    if (src.len > 0) {
-        memcpy(dest->buffer, src.ptr, src.len);
-    }
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
-}
-
-
-_Bool 
-    aws_byte_cursor_next_split(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_byte_cursor *restrict substr) {
-
-    
-   _Bool 
-        first_run = 
-                    0
-                         ;
-    if (!substr->ptr) {
-        first_run = 
-                   1
-                       ;
-        substr->ptr = input_str->ptr;
-        substr->len = 0;
-    }
-
-    if (substr->ptr > input_str->ptr + input_str->len) {
-
-        do { memset(&(*substr), 0, sizeof(*substr)); } while (0);
-        return 
-              0
-                   ;
-    }
-
-
-    substr->ptr += substr->len;
-
-    substr->len = input_str->len - (substr->ptr - input_str->ptr);
-
-    if (!first_run && substr->len == 0) {
-
-        do { memset(&(*substr), 0, sizeof(*substr)); } while (0);
-        return 
-              0
-                   ;
-    }
-
-    if (!first_run && *substr->ptr == split_on) {
-
-        ++substr->ptr;
-        --substr->len;
-
-        if (substr->len == 0) {
-
-            return 
-                  1
-                      ;
-        }
-    }
-
-    uint8_t *new_location = memchr(substr->ptr, split_on, substr->len);
-    if (new_location) {
-
-
-        substr->len = new_location - substr->ptr;
-    }
-
-    return 
-          1
-              ;
-}
-
-int aws_byte_cursor_split_on_char_n(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    size_t n,
-    struct aws_array_list *restrict output) {
-    __VERIFIER_assert(input_str && input_str->ptr);
-    __VERIFIER_assert(output);
-    __VERIFIER_assert(output->item_size >= sizeof(struct aws_byte_cursor));
-
-    size_t max_splits = n > 0 ? n : 
-                                   (18446744073709551615UL)
-                                           ;
-    size_t split_count = 0;
-
-    struct aws_byte_cursor substr;
-    do { memset(&(substr), 0, sizeof(substr)); } while (0);
-
-
-    while (split_count <= max_splits && aws_byte_cursor_next_split(input_str, split_on, &substr)) {
-
-        if (split_count == max_splits) {
-
-            substr.len = input_str->len - (substr.ptr - input_str->ptr);
-        }
-
-        if (__builtin_expect(!!(aws_array_list_push_back(output, (const void *)&substr)), 0)) {
-            return (-1);
-        }
-        ++split_count;
-    }
-
-    return (0);
-}
-
-int aws_byte_cursor_split_on_char(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_array_list *restrict output) {
-
-    return aws_byte_cursor_split_on_char_n(input_str, split_on, 0, output);
-}
-
-int aws_byte_buf_cat(struct aws_byte_buf *dest, size_t number_of_args, ...) {
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-
-    va_list ap;
-    
-   __builtin_va_start(
-   ap
-   ,
-   number_of_args
-   )
-                               ;
-
-    for (size_t i = 0; i < number_of_args; ++i) {
-        struct aws_byte_buf *buffer = 
-                                     __builtin_va_arg(
-                                     ap
-                                     ,
-                                     struct aws_byte_buf *
-                                     )
-                                                                      ;
-        struct aws_byte_cursor cursor = aws_byte_cursor_from_buf(buffer);
-
-        if (aws_byte_buf_append(dest, &cursor)) {
-            
-           __builtin_va_end(
-           ap
-           )
-                     ;
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (-1);
-        }
-    }
-
-    
-   __builtin_va_end(
-   ap
-   )
-             ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return (0);
-}
-
-
-_Bool 
-    aws_byte_cursor_eq(const struct aws_byte_cursor *a, const struct aws_byte_cursor *b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq(a->ptr, a->len, b->ptr, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_ignore_case(const struct aws_byte_cursor *a, const struct aws_byte_cursor *b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq_ignore_case(a->ptr, a->len, b->ptr, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(b)));
-    return rv;
-}
-
-
-static const uint8_t s_tolower_table[256] = {
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-    44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 'a',
-    'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-    'x', 'y', 'z', 91, 92, 93, 94, 95, 96, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 123, 124, 125, 126, 127, 128, 129, 130, 131,
-    132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153,
-    154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175,
-    176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197,
-    198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219,
-    220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241,
-    242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255};
-
-const uint8_t *aws_lookup_table_to_lower_get(void) {
-    return s_tolower_table;
-}
-
-
-_Bool 
-    aws_array_eq_ignore_case(
-    const void *const array_a,
-    const size_t len_a,
-    const void *const array_b,
-    const size_t len_b) {
-    assume_abort_if_not(((len_a == 0) || ((((len_a)) == 0) || ((array_a)))))
-                                                                                                                     ;
-    assume_abort_if_not(((len_b == 0) || ((((len_b)) == 0) || ((array_b)))))
-                                                                                                                     ;
-
-    if (len_a != len_b) {
-        return 
-              0
-                   ;
-    }
-
-    const uint8_t *bytes_a = array_a;
-    const uint8_t *bytes_b = array_b;
-    for (size_t i = 0; i < len_a; ++i) {
-        if (s_tolower_table[bytes_a[i]] != s_tolower_table[bytes_b[i]]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return 
-          1
-              ;
-}
-
-
-_Bool 
-    aws_array_eq(const void *const array_a, const size_t len_a, const void *const array_b, const size_t len_b) {
-    assume_abort_if_not(((len_a == 0) || ((((len_a)) == 0) || ((array_a)))))
-                                                                                                                     ;
-    assume_abort_if_not(((len_b == 0) || ((((len_b)) == 0) || ((array_b)))))
-                                                                                                                     ;
-
-    if (len_a != len_b) {
-        return 
-              0
-                   ;
-    }
-
-    if (len_a == 0) {
-        return 
-              1
-                  ;
-    }
-
-    return !memcmp(array_a, array_b, len_a);
-}
-
-
-_Bool 
-    aws_array_eq_c_str_ignore_case(const void *const array, const size_t array_len, const char *const c_str) {
-    assume_abort_if_not((array || (array_len == 0)))
-
-                                                                                               ;
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-
-
-
-
-
-
-    const uint8_t *array_bytes = array;
-    const uint8_t *str_bytes = (const uint8_t *)c_str;
-
-    for (size_t i = 0; i < array_len; ++i) {
-        uint8_t s = str_bytes[i];
-        if (s == '\0') {
-            return 
-                  0
-                       ;
-        }
-
-        if (s_tolower_table[array_bytes[i]] != s_tolower_table[s]) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return str_bytes[array_len] == '\0';
-}
-
-
-_Bool 
-    aws_array_eq_c_str(const void *const array, const size_t array_len, const char *const c_str) {
-    assume_abort_if_not((array || (array_len == 0)))
-
-                                                                                               ;
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-
-
-
-
-
-
-    const uint8_t *array_bytes = array;
-    const uint8_t *str_bytes = (const uint8_t *)c_str;
-
-    for (size_t i = 0; i < array_len - 1; ++i) { // introduced off-by-one bug
-        uint8_t s = str_bytes[i];
-        if (s == '\0') {
-            return 
-                  0
-                       ;
-        }
-
-        if (array_bytes[i] != s) {
-            return 
-                  0
-                       ;
-        }
-    }
-
-    return str_bytes[array_len] == '\0';
-}
-
-uint64_t aws_hash_array_ignore_case(const void *array, const size_t len) {
-    assume_abort_if_not((((((len)) == 0) || ((array)))));
-
-    const uint64_t fnv_offset_basis = 0xcbf29ce484222325ULL;
-    const uint64_t fnv_prime = 0x100000001b3ULL;
-
-    const uint8_t *i = array;
-    const uint8_t *end = i + len;
-
-    uint64_t hash = fnv_offset_basis;
-    while (i != end) {
-        const uint8_t lower = s_tolower_table[*i++];
-        hash ^= lower;
-
-
-        hash *= fnv_prime;
-
-
-    }
-    return hash;
-}
-
-uint64_t aws_hash_byte_cursor_ptr_ignore_case(const void *item) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
-    const struct aws_byte_cursor *const cursor = item;
-    uint64_t rval = aws_hash_array_ignore_case(cursor->ptr, cursor->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(item)));
-    return rval;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_byte_buf(const struct aws_byte_cursor *const a, const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq(a->ptr, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_byte_buf_ignore_case(
-    const struct aws_byte_cursor *const a,
-    const struct aws_byte_buf *const b) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(a)));
-    assume_abort_if_not((aws_byte_buf_is_valid(b)));
-    
-   _Bool 
-        rv = aws_array_eq_ignore_case(a->ptr, a->len, b->buffer, b->len);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(a)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(b)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_c_str(const struct aws_byte_cursor *const cursor, const char *const c_str) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rv = aws_array_eq_c_str(cursor->ptr, cursor->len, c_str);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    return rv;
-}
-
-
-_Bool 
-    aws_byte_cursor_eq_c_str_ignore_case(const struct aws_byte_cursor *const cursor, const char *const c_str) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    assume_abort_if_not((c_str != 
-   ((void *)0)
-   ));
-    
-   _Bool 
-        rv = aws_array_eq_c_str_ignore_case(cursor->ptr, cursor->len, c_str);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    return rv;
-}
-
-int aws_byte_buf_append(struct aws_byte_buf *to, const struct aws_byte_cursor *from) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-
-    if (to->capacity - to->len < from->len) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-        return aws_raise_error(AWS_ERROR_DEST_COPY_TOO_SMALL);
-    }
-
-    if (from->len > 0) {
-
-        __VERIFIER_assert(from->ptr);
-        __VERIFIER_assert(to->buffer);
-        memcpy(to->buffer + to->len, from->ptr, from->len);
-        to->len += from->len;
-    }
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_append_with_lookup(
-    struct aws_byte_buf *restrict to,
-    const struct aws_byte_cursor *restrict from,
-    const uint8_t *lookup_table) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-    assume_abort_if_not((((((256)) == 0) || ((lookup_table)))))
-                                                                                                              ;
-
-    if (to->capacity - to->len < from->len) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-        return aws_raise_error(AWS_ERROR_DEST_COPY_TOO_SMALL);
-    }
-
-    for (size_t i = 0; i < from->len; ++i) {
-        to->buffer[to->len + i] = lookup_table[from->ptr[i]];
-    }
-
-    if (aws_add_size_checked(to->len, from->len, &to->len)) {
-        return (-1);
-    }
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_append_dynamic(struct aws_byte_buf *to, const struct aws_byte_cursor *from) {
-    assume_abort_if_not((aws_byte_buf_is_valid(to)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(from)));
-    do { if (!(to->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    if (to->capacity - to->len < from->len) {
-
-
-
-        size_t missing_capacity = from->len - (to->capacity - to->len);
-
-        size_t required_capacity = 0;
-        if (aws_add_size_checked(to->capacity, missing_capacity, &required_capacity)) {
-            __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-            __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-            return (-1);
-        }
-
-
-
-
-
-
-        size_t growth_capacity = aws_add_size_saturating(to->capacity, to->capacity);
-
-        size_t new_capacity = required_capacity;
-        if (new_capacity < growth_capacity) {
-            new_capacity = growth_capacity;
-        }
-        uint8_t *new_buffer = aws_mem_acquire(to->allocator, new_capacity);
-        if (new_buffer == 
-                         ((void *)0)
-                             ) {
-            if (new_capacity > required_capacity) {
-                new_capacity = required_capacity;
-                new_buffer = aws_mem_acquire(to->allocator, new_capacity);
-                if (new_buffer == 
-                                 ((void *)0)
-                                     ) {
-                    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-                    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-                    return (-1);
-                }
-            } else {
-                __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-                __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-                return (-1);
-            }
-        }
-
-
-
-
-        if (to->len > 0) {
-            memcpy(new_buffer, to->buffer, to->len);
-        }
-
-
-
-        if (from->len > 0) {
-            memcpy(new_buffer + to->len, from->ptr, from->len);
-        }
-
-
-
-        aws_mem_release(to->allocator, to->buffer);
-
-
-
-
-        to->buffer = new_buffer;
-        to->capacity = new_capacity;
-    } else {
-        if (from->len > 0) {
-
-            __VERIFIER_assert(from->ptr);
-            __VERIFIER_assert(to->buffer);
-            memcpy(to->buffer + to->len, from->ptr, from->len);
-        }
-    }
-
-    to->len += from->len;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(to)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(from)));
-    return (0);
-}
-
-int aws_byte_buf_reserve(struct aws_byte_buf *buffer, size_t requested_capacity) {
-    do { if (!(buffer->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-    do { if (!(aws_byte_buf_is_valid(buffer))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    if (requested_capacity <= buffer->capacity) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (0);
-    }
-
-    if (aws_mem_realloc(buffer->allocator, (void **)&buffer->buffer, buffer->capacity, requested_capacity)) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (-1);
-    }
-
-    buffer->capacity = requested_capacity;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-    return (0);
-}
-
-int aws_byte_buf_reserve_relative(struct aws_byte_buf *buffer, size_t additional_length) {
-    do { if (!(buffer->allocator)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-    do { if (!(aws_byte_buf_is_valid(buffer))) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    size_t requested_capacity = 0;
-    if (__builtin_expect(!!(aws_add_size_checked(buffer->len, additional_length, &requested_capacity)), 0)) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        return (-1);
-    }
-
-    return aws_byte_buf_reserve(buffer, requested_capacity);
-}
-
-struct aws_byte_cursor aws_byte_cursor_right_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor trimmed = *source;
-
-    while (trimmed.len > 0 && predicate(*(trimmed.ptr + trimmed.len - 1))) {
-        --trimmed.len;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&trimmed)));
-    return trimmed;
-}
-
-struct aws_byte_cursor aws_byte_cursor_left_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor trimmed = *source;
-
-    while (trimmed.len > 0 && predicate(*(trimmed.ptr))) {
-        --trimmed.len;
-        ++trimmed.ptr;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&trimmed)));
-    return trimmed;
-}
-
-struct aws_byte_cursor aws_byte_cursor_trim_pred(
-    const struct aws_byte_cursor *source,
-    aws_byte_predicate_fn *predicate) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(source)));
-    assume_abort_if_not((predicate != 
-   ((void *)0)
-   ));
-    struct aws_byte_cursor left_trimmed = aws_byte_cursor_left_trim_pred(source, predicate);
-    struct aws_byte_cursor dest = aws_byte_cursor_right_trim_pred(&left_trimmed, predicate);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&dest)));
-    return dest;
-}
-
-
-_Bool 
-    aws_byte_cursor_satisfies_pred(const struct aws_byte_cursor *source, aws_byte_predicate_fn *predicate) {
-    struct aws_byte_cursor trimmed = aws_byte_cursor_left_trim_pred(source, predicate);
-    
-   _Bool 
-        rval = (trimmed.len == 0);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(source)));
-    return rval;
-}
-
-int aws_byte_cursor_compare_lexical(const struct aws_byte_cursor *lhs, const struct aws_byte_cursor *rhs) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(lhs)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(rhs)));
-
-    assume_abort_if_not((lhs->ptr != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((rhs->ptr != 
-   ((void *)0)
-   ));
-    size_t comparison_length = lhs->len;
-    if (comparison_length > rhs->len) {
-        comparison_length = rhs->len;
-    }
-
-    int result = memcmp_safe(lhs->ptr, rhs->ptr, comparison_length);
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-    if (result != 0) {
-        return result;
-    }
-
-    if (lhs->len != rhs->len) {
-        return comparison_length == lhs->len ? -1 : 1;
-    }
-
-    return 0;
-}
-
-int aws_byte_cursor_compare_lookup(
-    const struct aws_byte_cursor *lhs,
-    const struct aws_byte_cursor *rhs,
-    const uint8_t *lookup_table) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(lhs)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(rhs)));
-    assume_abort_if_not((((((256)) == 0) || ((lookup_table)))));
-    const uint8_t *lhs_curr = lhs->ptr;
-    const uint8_t *lhs_end = lhs_curr + lhs->len;
-
-    const uint8_t *rhs_curr = rhs->ptr;
-    const uint8_t *rhs_end = rhs_curr + rhs->len;
-
-    while (lhs_curr < lhs_end && rhs_curr < rhs_end) {
-        uint8_t lhc = lookup_table[*lhs_curr];
-        uint8_t rhc = lookup_table[*rhs_curr];
-
-        __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-        __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-        if (lhc < rhc) {
-            return -1;
-        }
-
-        if (lhc > rhc) {
-            return 1;
-        }
-
-        lhs_curr++;
-        rhs_curr++;
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
-    if (lhs_curr < lhs_end) {
-        return 1;
-    }
-
-    if (rhs_curr < rhs_end) {
-        return -1;
-    }
-
-    return 0;
-}
-
-
-
-
-struct aws_byte_buf aws_byte_buf_from_c_str(const char *c_str) {
-    struct aws_byte_buf buf;
-    buf.len = (!c_str) ? 0 : strlen(c_str);
-    buf.capacity = buf.len;
-    buf.buffer = (buf.capacity == 0) ? 
-                                      ((void *)0) 
-                                           : (uint8_t *)c_str;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_buf aws_byte_buf_from_array(const void *bytes, size_t len) {
-    assume_abort_if_not((((((len)) == 0) || ((bytes)))));
-    struct aws_byte_buf buf;
-    buf.buffer = (len > 0) ? (uint8_t *)bytes : 
-                                               ((void *)0)
-                                                   ;
-    buf.len = len;
-    buf.capacity = len;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_buf aws_byte_buf_from_empty_array(const void *bytes, size_t capacity) {
-    assume_abort_if_not((((((capacity)) == 0) || ((bytes)))))
-                                                                                                             ;
-    struct aws_byte_buf buf;
-    buf.buffer = (capacity > 0) ? (uint8_t *)bytes : 
-                                                    ((void *)0)
-                                                        ;
-    buf.len = 0;
-    buf.capacity = capacity;
-    buf.allocator = 
-                   ((void *)0)
-                       ;
-    __VERIFIER_assert((aws_byte_buf_is_valid(&buf)));
-    return buf;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_buf(const struct aws_byte_buf *const buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    struct aws_byte_cursor cur;
-    cur.ptr = buf->buffer;
-    cur.len = buf->len;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_c_str(const char *c_str) {
-    struct aws_byte_cursor cur;
-    cur.ptr = (uint8_t *)c_str;
-    cur.len = (cur.ptr) ? strlen(c_str) : 0;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-struct aws_byte_cursor aws_byte_cursor_from_array(const void *const bytes, const size_t len) {
-    assume_abort_if_not((len == 0 || ((((len)) == 0) || ((bytes)))));
-    struct aws_byte_cursor cur;
-    cur.ptr = (uint8_t *)bytes;
-    cur.len = len;
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&cur)));
-    return cur;
-}
-
-
-
-
-
-
-
-
-
-size_t aws_nospec_mask(size_t index, size_t bound) {
-    __asm__ __volatile__("" : "+r"(index));
-    size_t negative_mask = index | bound;
-    size_t toobig_mask = bound - index - (uintptr_t)1;
-    size_t combined_mask = negative_mask | toobig_mask;
-    combined_mask = (~combined_mask) / (
-                                       (18446744073709551615UL) 
-                                                - (
-                                                   (18446744073709551615UL) 
-                                                            >> 1));
-
-
-
-
-
-
-
-    combined_mask = combined_mask * 
-                                   (18446744073709551615UL)
-                                              ;
-
-    return combined_mask;
-}
-
-struct aws_byte_cursor aws_byte_cursor_advance(struct aws_byte_cursor *const cursor, const size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-    struct aws_byte_cursor rv;
-    if (cursor->len > (
-                      (18446744073709551615UL) 
-                               >> 1) || len > (
-                                               (18446744073709551615UL) 
-                                                        >> 1) || len > cursor->len) {
-        rv.ptr = 
-                ((void *)0)
-                    ;
-        rv.len = 0;
-    } else {
-        rv.ptr = cursor->ptr;
-        rv.len = len;
-
-        cursor->ptr += len;
-        cursor->len -= len;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&rv)));
-    return rv;
-}
-struct aws_byte_cursor aws_byte_cursor_advance_nospec(struct aws_byte_cursor *const cursor, size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cursor)));
-
-    struct aws_byte_cursor rv;
-
-    if (len <= cursor->len && len <= (
-                                     (18446744073709551615UL) 
-                                              >> 1) && cursor->len <= (
-                                                                       (18446744073709551615UL) 
-                                                                                >> 1)) {
-
-
-
-
-
-        uintptr_t mask = aws_nospec_mask(len, cursor->len + 1);
-
-
-        len = len & mask;
-        cursor->ptr = (uint8_t *)((uintptr_t)cursor->ptr & mask);
-
-        cursor->len = cursor->len & mask;
-
-        rv.ptr = cursor->ptr;
-
-        rv.len = len & mask;
-
-        cursor->ptr += len;
-        cursor->len -= len;
-    } else {
-        rv.ptr = 
-                ((void *)0)
-                    ;
-        rv.len = 0;
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cursor)));
-    __VERIFIER_assert((aws_byte_cursor_is_valid(&rv)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read(struct aws_byte_cursor *restrict cur, void *restrict dest, const size_t len) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((len)) == 0) || ((dest)))));
-    struct aws_byte_cursor slice = aws_byte_cursor_advance_nospec(cur, len);
-
-    if (slice.ptr) {
-        memcpy(dest, slice.ptr, len);
-        __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-        __VERIFIER_assert((((((len)) == 0) || ((dest)))));
-        return 
-              1
-                  ;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return 
-          0
-               ;
-}
-
-_Bool 
-    aws_byte_cursor_read_and_fill_buffer(
-    struct aws_byte_cursor *restrict cur,
-    struct aws_byte_buf *restrict dest) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-    if (aws_byte_cursor_read(cur, dest->buffer, dest->capacity)) {
-        dest->len = dest->capacity;
-        __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return 
-              1
-                  ;
-    }
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return 
-          0
-               ;
-}
-
-_Bool 
-    aws_byte_cursor_read_u8(struct aws_byte_cursor *restrict cur, uint8_t *restrict var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 1);
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be16(struct aws_byte_cursor *cur, uint16_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 2);
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh16(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be32(struct aws_byte_cursor *cur, uint32_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, 4);
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh32(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_float_be32(struct aws_byte_cursor *cur, float *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(float));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntohf32(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_float_be64(struct aws_byte_cursor *cur, double *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(double));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntohf64(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_cursor_read_be64(struct aws_byte_cursor *cur, uint64_t *var) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(cur)));
-    assume_abort_if_not((((((sizeof(*(var)))) == 0) || (((var))))));
-    
-   _Bool 
-        rv = aws_byte_cursor_read(cur, var, sizeof(*var));
-
-    if (__builtin_expect(!!(rv), 1)) {
-        *var = aws_ntoh64(*var);
-    }
-
-    __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
-    return rv;
-}
-
-_Bool 
-    aws_byte_buf_advance(
-    struct aws_byte_buf *const restrict buffer,
-    struct aws_byte_buf *const restrict output,
-    const size_t len) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buffer)));
-    assume_abort_if_not((aws_byte_buf_is_valid(output)));
-    if (buffer->capacity - buffer->len >= len) {
-        *output = aws_byte_buf_from_array(buffer->buffer + buffer->len, len);
-        buffer->len += len;
-        output->len = 0;
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(output)));
-        return 
-              1
-                  ;
-    } else {
-        do { memset(&(*output), 0, sizeof(*output)); } while (0);
-        __VERIFIER_assert((aws_byte_buf_is_valid(buffer)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(output)));
-        return 
-              0
-                   ;
-    }
-}
-
-_Bool 
-    aws_byte_buf_write(struct aws_byte_buf *restrict buf, const uint8_t *restrict src, size_t len) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((((((len)) == 0) || ((src)))));
-
-    if (buf->len > (
-                   (18446744073709551615UL) 
-                            >> 1) || len > (
-                                            (18446744073709551615UL) 
-                                                     >> 1) || buf->len + len > buf->capacity) {
-        __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-        return 
-              0
-                   ;
-    }
-
-    memcpy(buf->buffer + buf->len, src, len);
-    buf->len += len;
-
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return 
-          1
-              ;
-}
-
-_Bool 
-    aws_byte_buf_write_from_whole_buffer(struct aws_byte_buf *restrict buf, struct aws_byte_buf src) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((aws_byte_buf_is_valid(&src)));
-    return aws_byte_buf_write(buf, src.buffer, src.len);
-}
-
-_Bool 
-    aws_byte_buf_write_from_whole_cursor(struct aws_byte_buf *restrict buf, struct aws_byte_cursor src) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((aws_byte_cursor_is_valid(&src)));
-    return aws_byte_buf_write(buf, src.ptr, src.len);
-}
-
-_Bool 
-    aws_byte_buf_write_u8(struct aws_byte_buf *restrict buf, uint8_t c) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    return aws_byte_buf_write(buf, &c, 1);
-}
-
-_Bool 
-    aws_byte_buf_write_be16(struct aws_byte_buf *buf, uint16_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton16(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 2);
-}
-
-_Bool 
-    aws_byte_buf_write_be32(struct aws_byte_buf *buf, uint32_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton32(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 4);
-}
-
-_Bool 
-    aws_byte_buf_write_float_be32(struct aws_byte_buf *buf, float x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_htonf32(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 4);
-}
-
-_Bool 
-    aws_byte_buf_write_be64(struct aws_byte_buf *buf, uint64_t x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_hton64(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 8);
-}
-
-_Bool 
-    aws_byte_buf_write_float_be64(struct aws_byte_buf *buf, double x) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    x = aws_htonf64(x);
-    return aws_byte_buf_write(buf, (uint8_t *)&x, 8);
 }
 enum aws_log_level {
     AWS_LL_NONE = 0,
@@ -9096,42 +7781,2398 @@ void aws_common_fatal_assert_library_initialized(void) {
         __VERIFIER_assert(s_common_library_initialized);
     }
 }
-void aws_array_eq_c_str_harness() {
-
-    void *array;
-    size_t array_len = __VERIFIER_nondet_ulong();
-    assume_abort_if_not(array_len <= 10);
-    array = can_fail_malloc(array_len);
-    const char *c_str = nondet_bool() ? 
-                                       ((void *)0) 
-                                            : ensure_c_str_is_allocated(10);
 
 
-    struct store_byte_from_buffer old_byte_from_array;
-    save_byte_from_array((uint8_t *)array, array_len, &old_byte_from_array);
-    size_t str_len = (c_str) ? strlen(c_str) : 0;
-    struct store_byte_from_buffer old_byte_from_str;
-    save_byte_from_array((uint8_t *)c_str, str_len, &old_byte_from_str);
 
 
-    assume_abort_if_not(array || (array_len == 0));
-    assume_abort_if_not(c_str);
 
 
-    if (aws_array_eq_c_str(array, array_len, c_str)) {
 
-        __VERIFIER_assert(array_len == str_len);
-        if (array_len > 0) {
-            assert_bytes_match((uint8_t *)array, (uint8_t *)c_str, array_len);
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct tm
+{
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+
+
+  long int tm_gmtoff;
+  const char *tm_zone;
+
+
+
+
+};
+
+
+
+
+
+
+
+struct itimerspec
+  {
+    struct timespec it_interval;
+    struct timespec it_value;
+  };
+struct sigevent;
+
+
+
+
+extern clock_t clock (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern time_t time (time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern double difftime (time_t __time1, time_t __time0)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+
+
+extern time_t mktime (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+extern size_t strftime (char *__restrict __s, size_t __maxsize,
+   const char *__restrict __format,
+   const struct tm *__restrict __tp) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t strftime_l (char *__restrict __s, size_t __maxsize,
+     const char *__restrict __format,
+     const struct tm *__restrict __tp,
+     locale_t __loc) __attribute__ ((__nothrow__ , __leaf__));
+extern struct tm *gmtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern struct tm *localtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern struct tm *gmtime_r (const time_t *__restrict __timer,
+       struct tm *__restrict __tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern struct tm *localtime_r (const time_t *__restrict __timer,
+          struct tm *__restrict __tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern char *asctime (const struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern char *ctime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern char *asctime_r (const struct tm *__restrict __tp,
+   char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern char *ctime_r (const time_t *__restrict __timer,
+        char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern char *__tzname[2];
+extern int __daylight;
+extern long int __timezone;
+
+
+
+
+extern char *tzname[2];
+
+
+
+extern void tzset (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int daylight;
+extern long int timezone;
+
+
+
+
+
+extern int stime (const time_t *__when) __attribute__ ((__nothrow__ , __leaf__));
+extern time_t timegm (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern time_t timelocal (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int dysize (int __year) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int nanosleep (const struct timespec *__requested_time,
+        struct timespec *__remaining);
+
+
+
+extern int clock_getres (clockid_t __clock_id, struct timespec *__res) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int clock_gettime (clockid_t __clock_id, struct timespec *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int clock_settime (clockid_t __clock_id, const struct timespec *__tp)
+     __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern int clock_nanosleep (clockid_t __clock_id, int __flags,
+       const struct timespec *__req,
+       struct timespec *__rem);
+
+
+extern int clock_getcpuclockid (pid_t __pid, clockid_t *__clock_id) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern int timer_create (clockid_t __clock_id,
+    struct sigevent *__restrict __evp,
+    timer_t *__restrict __timerid) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int timer_delete (timer_t __timerid) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int timer_settime (timer_t __timerid, int __flags,
+     const struct itimerspec *__restrict __value,
+     struct itimerspec *__restrict __ovalue) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int timer_gettime (timer_t __timerid, struct itimerspec *__value)
+     __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+extern int timespec_get (struct timespec *__ts, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef __sig_atomic_t sig_atomic_t;
+
+
+
+
+union sigval
+{
+  int sival_int;
+  void *sival_ptr;
+};
+
+typedef union sigval __sigval_t;
+typedef struct
+  {
+    int si_signo;
+
+    int si_errno;
+
+    int si_code;
+
+
+
+
+
+    int __pad0;
+
+
+    union
+      {
+ int _pad[((128 / sizeof (int)) - 4)];
+
+
+ struct
+   {
+     __pid_t si_pid;
+     __uid_t si_uid;
+   } _kill;
+
+
+ struct
+   {
+     int si_tid;
+     int si_overrun;
+     __sigval_t si_sigval;
+   } _timer;
+
+
+ struct
+   {
+     __pid_t si_pid;
+     __uid_t si_uid;
+     __sigval_t si_sigval;
+   } _rt;
+
+
+ struct
+   {
+     __pid_t si_pid;
+     __uid_t si_uid;
+     int si_status;
+     __clock_t si_utime;
+     __clock_t si_stime;
+   } _sigchld;
+
+
+ struct
+   {
+     void *si_addr;
+    
+     short int si_addr_lsb;
+     union
+       {
+
+  struct
+    {
+      void *_lower;
+      void *_upper;
+    } _addr_bnd;
+
+  __uint32_t _pkey;
+       } _bounds;
+   } _sigfault;
+
+
+ struct
+   {
+     long int si_band;
+     int si_fd;
+   } _sigpoll;
+
+
+
+ struct
+   {
+     void *_call_addr;
+     int _syscall;
+     unsigned int _arch;
+   } _sigsys;
+
+      } _sifields;
+  } siginfo_t ;
+enum
+{
+  SI_ASYNCNL = -60,
+  SI_TKILL = -6,
+  SI_SIGIO,
+
+  SI_ASYNCIO,
+  SI_MESGQ,
+  SI_TIMER,
+
+
+
+
+
+  SI_QUEUE,
+  SI_USER,
+  SI_KERNEL = 0x80
+};
+
+
+
+
+enum
+{
+  ILL_ILLOPC = 1,
+
+  ILL_ILLOPN,
+
+  ILL_ILLADR,
+
+  ILL_ILLTRP,
+
+  ILL_PRVOPC,
+
+  ILL_PRVREG,
+
+  ILL_COPROC,
+
+  ILL_BADSTK
+
+};
+
+
+enum
+{
+  FPE_INTDIV = 1,
+
+  FPE_INTOVF,
+
+  FPE_FLTDIV,
+
+  FPE_FLTOVF,
+
+  FPE_FLTUND,
+
+  FPE_FLTRES,
+
+  FPE_FLTINV,
+
+  FPE_FLTSUB
+
+};
+
+
+enum
+{
+  SEGV_MAPERR = 1,
+
+  SEGV_ACCERR,
+
+  SEGV_BNDERR,
+
+  SEGV_PKUERR
+
+};
+
+
+enum
+{
+  BUS_ADRALN = 1,
+
+  BUS_ADRERR,
+
+  BUS_OBJERR,
+
+  BUS_MCEERR_AR,
+
+  BUS_MCEERR_AO
+
+};
+enum
+{
+  CLD_EXITED = 1,
+
+  CLD_KILLED,
+
+  CLD_DUMPED,
+
+  CLD_TRAPPED,
+
+  CLD_STOPPED,
+
+  CLD_CONTINUED
+
+};
+
+
+enum
+{
+  POLL_IN = 1,
+
+  POLL_OUT,
+
+  POLL_MSG,
+
+  POLL_ERR,
+
+  POLL_PRI,
+
+  POLL_HUP
+
+};
+
+
+
+typedef __sigval_t sigval_t;
+
+
+
+
+
+
+typedef struct sigevent
+  {
+    __sigval_t sigev_value;
+    int sigev_signo;
+    int sigev_notify;
+
+    union
+      {
+ int _pad[((64 / sizeof (int)) - 4)];
+
+
+
+ __pid_t _tid;
+
+ struct
+   {
+     void (*_function) (__sigval_t);
+     pthread_attr_t *_attribute;
+   } _sigev_thread;
+      } _sigev_un;
+  } sigevent_t;
+enum
+{
+  SIGEV_SIGNAL = 0,
+
+  SIGEV_NONE,
+
+  SIGEV_THREAD,
+
+
+  SIGEV_THREAD_ID = 4
+
+
+};
+
+
+
+
+typedef void (*__sighandler_t) (int);
+
+
+
+
+extern __sighandler_t __sysv_signal (int __sig, __sighandler_t __handler)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int kill (__pid_t __pid, int __sig) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern int killpg (__pid_t __pgrp, int __sig) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int raise (int __sig) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern __sighandler_t ssignal (int __sig, __sighandler_t __handler)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int gsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern void psignal (int __sig, const char *__s);
+
+
+extern void psiginfo (const siginfo_t *__pinfo, const char *__s);
+extern int sigblock (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
+
+
+extern int sigsetmask (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
+
+
+extern int siggetmask (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
+typedef __sighandler_t sig_t;
+
+
+
+
+
+extern int sigemptyset (sigset_t *__set) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern int sigfillset (sigset_t *__set) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern int sigaddset (sigset_t *__set, int __signo) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern int sigdelset (sigset_t *__set, int __signo) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern int sigismember (const sigset_t *__set, int __signo)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+struct sigaction
+  {
+
+
+    union
+      {
+
+ __sighandler_t sa_handler;
+
+ void (*sa_sigaction) (int, siginfo_t *, void *);
+      }
+    __sigaction_handler;
+
+
+
+
+
+
+
+    __sigset_t sa_mask;
+
+
+    int sa_flags;
+
+
+    void (*sa_restorer) (void);
+  };
+
+
+extern int sigprocmask (int __how, const sigset_t *__restrict __set,
+   sigset_t *__restrict __oset) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern int sigsuspend (const sigset_t *__set) __attribute__ ((__nonnull__ (1)));
+
+
+extern int sigaction (int __sig, const struct sigaction *__restrict __act,
+        struct sigaction *__restrict __oact) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int sigpending (sigset_t *__set) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern int sigwait (const sigset_t *__restrict __set, int *__restrict __sig)
+     __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+
+
+extern int sigwaitinfo (const sigset_t *__restrict __set,
+   siginfo_t *__restrict __info) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern int sigtimedwait (const sigset_t *__restrict __set,
+    siginfo_t *__restrict __info,
+    const struct timespec *__restrict __timeout)
+     __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int sigqueue (__pid_t __pid, int __sig, const union sigval __val)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern const char *const _sys_siglist[(64 + 1)];
+extern const char *const sys_siglist[(64 + 1)];
+
+
+
+struct _fpx_sw_bytes
+{
+  __uint32_t magic1;
+  __uint32_t extended_size;
+  __uint64_t xstate_bv;
+  __uint32_t xstate_size;
+  __uint32_t __glibc_reserved1[7];
+};
+
+struct _fpreg
+{
+  unsigned short significand[4];
+  unsigned short exponent;
+};
+
+struct _fpxreg
+{
+  unsigned short significand[4];
+  unsigned short exponent;
+  unsigned short __glibc_reserved1[3];
+};
+
+struct _xmmreg
+{
+  __uint32_t element[4];
+};
+struct _fpstate
+{
+
+  __uint16_t cwd;
+  __uint16_t swd;
+  __uint16_t ftw;
+  __uint16_t fop;
+  __uint64_t rip;
+  __uint64_t rdp;
+  __uint32_t mxcsr;
+  __uint32_t mxcr_mask;
+  struct _fpxreg _st[8];
+  struct _xmmreg _xmm[16];
+  __uint32_t __glibc_reserved1[24];
+};
+
+struct sigcontext
+{
+  __uint64_t r8;
+  __uint64_t r9;
+  __uint64_t r10;
+  __uint64_t r11;
+  __uint64_t r12;
+  __uint64_t r13;
+  __uint64_t r14;
+  __uint64_t r15;
+  __uint64_t rdi;
+  __uint64_t rsi;
+  __uint64_t rbp;
+  __uint64_t rbx;
+  __uint64_t rdx;
+  __uint64_t rax;
+  __uint64_t rcx;
+  __uint64_t rsp;
+  __uint64_t rip;
+  __uint64_t eflags;
+  unsigned short cs;
+  unsigned short gs;
+  unsigned short fs;
+  unsigned short __pad0;
+  __uint64_t err;
+  __uint64_t trapno;
+  __uint64_t oldmask;
+  __uint64_t cr2;
+  __extension__ union
+    {
+      struct _fpstate * fpstate;
+      __uint64_t __fpstate_word;
+    };
+  __uint64_t __reserved1 [8];
+};
+
+
+
+struct _xsave_hdr
+{
+  __uint64_t xstate_bv;
+  __uint64_t __glibc_reserved1[2];
+  __uint64_t __glibc_reserved2[5];
+};
+
+struct _ymmh_state
+{
+  __uint32_t ymmh_space[64];
+};
+
+struct _xstate
+{
+  struct _fpstate fpstate;
+  struct _xsave_hdr xstate_hdr;
+  struct _ymmh_state ymmh;
+};
+
+
+extern int sigreturn (struct sigcontext *__scp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
+
+
+typedef struct
+  {
+    void *ss_sp;
+    int ss_flags;
+    size_t ss_size;
+  } stack_t;
+
+
+__extension__ typedef long long int greg_t;
+typedef greg_t gregset_t[23];
+struct _libc_fpxreg
+{
+  unsigned short int significand[4];
+  unsigned short int exponent;
+  unsigned short int __glibc_reserved1[3];
+};
+
+struct _libc_xmmreg
+{
+  __uint32_t element[4];
+};
+
+struct _libc_fpstate
+{
+
+  __uint16_t cwd;
+  __uint16_t swd;
+  __uint16_t ftw;
+  __uint16_t fop;
+  __uint64_t rip;
+  __uint64_t rdp;
+  __uint32_t mxcsr;
+  __uint32_t mxcr_mask;
+  struct _libc_fpxreg _st[8];
+  struct _libc_xmmreg _xmm[16];
+  __uint32_t __glibc_reserved1[24];
+};
+
+
+typedef struct _libc_fpstate *fpregset_t;
+
+
+typedef struct
+  {
+    gregset_t gregs;
+
+    fpregset_t fpregs;
+    __extension__ unsigned long long __reserved1 [8];
+} mcontext_t;
+
+
+typedef struct ucontext_t
+  {
+    unsigned long int uc_flags;
+    struct ucontext_t *uc_link;
+    stack_t uc_stack;
+    mcontext_t uc_mcontext;
+    sigset_t uc_sigmask;
+    struct _libc_fpstate __fpregs_mem;
+  } ucontext_t;
+
+
+
+
+
+
+
+extern int siginterrupt (int __sig, int __interrupt) __attribute__ ((__nothrow__ , __leaf__));
+
+enum
+{
+  SS_ONSTACK = 1,
+
+  SS_DISABLE
+
+};
+
+
+
+extern int sigaltstack (const stack_t *__restrict __ss,
+   stack_t *__restrict __oss) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+struct sigstack
+  {
+    void *ss_sp;
+    int ss_onstack;
+  };
+
+
+
+
+
+
+
+extern int sigstack (struct sigstack *__ss, struct sigstack *__oss)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
+extern int pthread_sigmask (int __how,
+       const __sigset_t *__restrict __newmask,
+       __sigset_t *__restrict __oldmask)__attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int pthread_kill (pthread_t __threadid, int __signo) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern int __libc_current_sigrtmin (void) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int __libc_current_sigrtmax (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
+
+
+
+
+
+static uint32_t hashword(
+const uint32_t *k,
+size_t length,
+uint32_t initval)
+{
+  uint32_t a,b,c;
+
+
+  a = b = c = 0xdeadbeef + (((uint32_t)length)<<2) + initval;
+
+
+  while (length > 3)
+  {
+    a += k[0];
+    b += k[1];
+    c += k[2];
+    { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+    length -= 3;
+    k += 3;
+  }
+
+
+  switch(length)
+  {
+  case 3 : c+=k[2];
+  case 2 : b+=k[1];
+  case 1 : a+=k[0];
+    { c ^= b; c -= (((b)<<(14)) | ((b)>>(32-(14)))); a ^= c; a -= (((c)<<(11)) | ((c)>>(32-(11)))); b ^= a; b -= (((a)<<(25)) | ((a)>>(32-(25)))); c ^= b; c -= (((b)<<(16)) | ((b)>>(32-(16)))); a ^= c; a -= (((c)<<(4)) | ((c)>>(32-(4)))); b ^= a; b -= (((a)<<(14)) | ((a)>>(32-(14)))); c ^= b; c -= (((b)<<(24)) | ((b)>>(32-(24)))); };
+  case 0:
+    break;
+  }
+
+  return c;
+}
+static void hashword2 (
+const uint32_t *k,
+size_t length,
+uint32_t *pc,
+uint32_t *pb)
+{
+  uint32_t a,b,c;
+
+
+  a = b = c = 0xdeadbeef + ((uint32_t)(length<<2)) + *pc;
+  c += *pb;
+
+
+  while (length > 3)
+  {
+    a += k[0];
+    b += k[1];
+    c += k[2];
+    { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+    length -= 3;
+    k += 3;
+  }
+
+
+  switch(length)
+  {
+  case 3 : c+=k[2];
+  case 2 : b+=k[1];
+  case 1 : a+=k[0];
+    { c ^= b; c -= (((b)<<(14)) | ((b)>>(32-(14)))); a ^= c; a -= (((c)<<(11)) | ((c)>>(32-(11)))); b ^= a; b -= (((a)<<(25)) | ((a)>>(32-(25)))); c ^= b; c -= (((b)<<(16)) | ((b)>>(32-(16)))); a ^= c; a -= (((c)<<(4)) | ((c)>>(32-(4)))); b ^= a; b -= (((a)<<(14)) | ((a)>>(32-(14)))); c ^= b; c -= (((b)<<(24)) | ((b)>>(32-(24)))); };
+  case 0:
+    break;
+  }
+
+  *pc=c; *pb=b;
+}
+static uint32_t hashlittle( const void *key, size_t length, uint32_t initval)
+{
+  uint32_t a,b,c;
+  union { const void *ptr; size_t i; } u;
+
+
+  a = b = c = 0xdeadbeef + ((uint32_t)length) + initval;
+
+  u.ptr = key;
+  if (1 && ((u.i & 0x3) == 0)) {
+    const uint32_t *k = (const uint32_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0];
+      b += k[1];
+      c += k[2];
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 3;
+    }
+
+
+
+    switch(length)
+    {
+    case 12: c+=k[2]; b+=k[1]; a+=k[0]; break;
+    case 11: c+=k[2]&0xffffff; b+=k[1]; a+=k[0]; break;
+    case 10: c+=k[2]&0xffff; b+=k[1]; a+=k[0]; break;
+    case 9 : c+=k[2]&0xff; b+=k[1]; a+=k[0]; break;
+    case 8 : b+=k[1]; a+=k[0]; break;
+    case 7 : b+=k[1]&0xffffff; a+=k[0]; break;
+    case 6 : b+=k[1]&0xffff; a+=k[0]; break;
+    case 5 : b+=k[1]&0xff; a+=k[0]; break;
+    case 4 : a+=k[0]; break;
+    case 3 : a+=k[0]&0xffffff; break;
+    case 2 : a+=k[0]&0xffff; break;
+    case 1 : a+=k[0]&0xff; break;
+    case 0 : return c;
+    }
+
+  } else if (1 && ((u.i & 0x1) == 0)) {
+    const uint16_t *k = (const uint16_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0] + (((uint32_t)k[1])<<16);
+      b += k[2] + (((uint32_t)k[3])<<16);
+      c += k[4] + (((uint32_t)k[5])<<16);
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 6;
+    }
+
+
+    const uint8_t *k8 = (const uint8_t *)k;
+    switch(length)
+    {
+    case 12: c+=k[4]+(((uint32_t)k[5])<<16);
+             b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 11: c+=((uint32_t)k8[10])<<16;
+    case 10: c+=k[4];
+             b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 9 : c+=k8[8];
+    case 8 : b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 7 : b+=((uint32_t)k8[6])<<16;
+    case 6 : b+=k[2];
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 5 : b+=k8[4];
+    case 4 : a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 3 : a+=((uint32_t)k8[2])<<16;
+    case 2 : a+=k[0];
+             break;
+    case 1 : a+=k8[0];
+             break;
+    case 0 : return c;
+    }
+
+  } else {
+    const uint8_t *k = (const uint8_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0];
+      a += ((uint32_t)k[1])<<8;
+      a += ((uint32_t)k[2])<<16;
+      a += ((uint32_t)k[3])<<24;
+      b += k[4];
+      b += ((uint32_t)k[5])<<8;
+      b += ((uint32_t)k[6])<<16;
+      b += ((uint32_t)k[7])<<24;
+      c += k[8];
+      c += ((uint32_t)k[9])<<8;
+      c += ((uint32_t)k[10])<<16;
+      c += ((uint32_t)k[11])<<24;
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 12;
+    }
+
+
+    switch(length)
+    {
+    case 12: c+=((uint32_t)k[11])<<24;
+    case 11: c+=((uint32_t)k[10])<<16;
+    case 10: c+=((uint32_t)k[9])<<8;
+    case 9 : c+=k[8];
+    case 8 : b+=((uint32_t)k[7])<<24;
+    case 7 : b+=((uint32_t)k[6])<<16;
+    case 6 : b+=((uint32_t)k[5])<<8;
+    case 5 : b+=k[4];
+    case 4 : a+=((uint32_t)k[3])<<24;
+    case 3 : a+=((uint32_t)k[2])<<16;
+    case 2 : a+=((uint32_t)k[1])<<8;
+    case 1 : a+=k[0];
+             break;
+    case 0 : return c;
+    }
+  }
+
+  { c ^= b; c -= (((b)<<(14)) | ((b)>>(32-(14)))); a ^= c; a -= (((c)<<(11)) | ((c)>>(32-(11)))); b ^= a; b -= (((a)<<(25)) | ((a)>>(32-(25)))); c ^= b; c -= (((b)<<(16)) | ((b)>>(32-(16)))); a ^= c; a -= (((c)<<(4)) | ((c)>>(32-(4)))); b ^= a; b -= (((a)<<(14)) | ((a)>>(32-(14)))); c ^= b; c -= (((b)<<(24)) | ((b)>>(32-(24)))); };
+  return c;
+}
+static void hashlittle2(
+  const void *key,
+  size_t length,
+  uint32_t *pc,
+  uint32_t *pb)
+{
+  uint32_t a,b,c;
+  union { const void *ptr; size_t i; } u;
+
+
+  a = b = c = 0xdeadbeef + ((uint32_t)length) + *pc;
+  c += *pb;
+
+  u.ptr = key;
+  if (1 && ((u.i & 0x3) == 0)) {
+    const uint32_t *k = (const uint32_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0];
+      b += k[1];
+      c += k[2];
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 3;
+    }
+
+
+
+    switch(length)
+    {
+    case 12: c+=k[2]; b+=k[1]; a+=k[0]; break;
+    case 11: c+=k[2]&0xffffff; b+=k[1]; a+=k[0]; break;
+    case 10: c+=k[2]&0xffff; b+=k[1]; a+=k[0]; break;
+    case 9 : c+=k[2]&0xff; b+=k[1]; a+=k[0]; break;
+    case 8 : b+=k[1]; a+=k[0]; break;
+    case 7 : b+=k[1]&0xffffff; a+=k[0]; break;
+    case 6 : b+=k[1]&0xffff; a+=k[0]; break;
+    case 5 : b+=k[1]&0xff; a+=k[0]; break;
+    case 4 : a+=k[0]; break;
+    case 3 : a+=k[0]&0xffffff; break;
+    case 2 : a+=k[0]&0xffff; break;
+    case 1 : a+=k[0]&0xff; break;
+    case 0 : *pc=c; *pb=b; return;
+    }
+
+
+  } else if (1 && ((u.i & 0x1) == 0)) {
+    const uint16_t *k = (const uint16_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0] + (((uint32_t)k[1])<<16);
+      b += k[2] + (((uint32_t)k[3])<<16);
+      c += k[4] + (((uint32_t)k[5])<<16);
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 6;
+    }
+
+
+    const uint8_t *k8 = (const uint8_t *)k;
+    switch(length)
+    {
+    case 12: c+=k[4]+(((uint32_t)k[5])<<16);
+             b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 11: c+=((uint32_t)k8[10])<<16;
+    case 10: c+=k[4];
+             b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 9 : c+=k8[8];
+    case 8 : b+=k[2]+(((uint32_t)k[3])<<16);
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 7 : b+=((uint32_t)k8[6])<<16;
+    case 6 : b+=k[2];
+             a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 5 : b+=k8[4];
+    case 4 : a+=k[0]+(((uint32_t)k[1])<<16);
+             break;
+    case 3 : a+=((uint32_t)k8[2])<<16;
+    case 2 : a+=k[0];
+             break;
+    case 1 : a+=k8[0];
+             break;
+    case 0 : *pc=c; *pb=b; return;
+    }
+
+  } else {
+    const uint8_t *k = (const uint8_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0];
+      a += ((uint32_t)k[1])<<8;
+      a += ((uint32_t)k[2])<<16;
+      a += ((uint32_t)k[3])<<24;
+      b += k[4];
+      b += ((uint32_t)k[5])<<8;
+      b += ((uint32_t)k[6])<<16;
+      b += ((uint32_t)k[7])<<24;
+      c += k[8];
+      c += ((uint32_t)k[9])<<8;
+      c += ((uint32_t)k[10])<<16;
+      c += ((uint32_t)k[11])<<24;
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 12;
+    }
+
+
+    switch(length)
+    {
+    case 12: c+=((uint32_t)k[11])<<24;
+    case 11: c+=((uint32_t)k[10])<<16;
+    case 10: c+=((uint32_t)k[9])<<8;
+    case 9 : c+=k[8];
+    case 8 : b+=((uint32_t)k[7])<<24;
+    case 7 : b+=((uint32_t)k[6])<<16;
+    case 6 : b+=((uint32_t)k[5])<<8;
+    case 5 : b+=k[4];
+    case 4 : a+=((uint32_t)k[3])<<24;
+    case 3 : a+=((uint32_t)k[2])<<16;
+    case 2 : a+=((uint32_t)k[1])<<8;
+    case 1 : a+=k[0];
+             break;
+    case 0 : *pc=c; *pb=b; return;
+    }
+  }
+
+  { c ^= b; c -= (((b)<<(14)) | ((b)>>(32-(14)))); a ^= c; a -= (((c)<<(11)) | ((c)>>(32-(11)))); b ^= a; b -= (((a)<<(25)) | ((a)>>(32-(25)))); c ^= b; c -= (((b)<<(16)) | ((b)>>(32-(16)))); a ^= c; a -= (((c)<<(4)) | ((c)>>(32-(4)))); b ^= a; b -= (((a)<<(14)) | ((a)>>(32-(14)))); c ^= b; c -= (((b)<<(24)) | ((b)>>(32-(24)))); };
+  *pc=c; *pb=b;
+}
+static uint32_t hashbig( const void *key, size_t length, uint32_t initval)
+{
+  uint32_t a,b,c;
+  union { const void *ptr; size_t i; } u;
+
+
+  a = b = c = 0xdeadbeef + ((uint32_t)length) + initval;
+
+  u.ptr = key;
+  if (0 && ((u.i & 0x3) == 0)) {
+    const uint32_t *k = (const uint32_t *)key;
+
+
+    while (length > 12)
+    {
+      a += k[0];
+      b += k[1];
+      c += k[2];
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 3;
+    }
+
+
+
+    switch(length)
+    {
+    case 12: c+=k[2]; b+=k[1]; a+=k[0]; break;
+    case 11: c+=k[2]&0xffffff00; b+=k[1]; a+=k[0]; break;
+    case 10: c+=k[2]&0xffff0000; b+=k[1]; a+=k[0]; break;
+    case 9 : c+=k[2]&0xff000000; b+=k[1]; a+=k[0]; break;
+    case 8 : b+=k[1]; a+=k[0]; break;
+    case 7 : b+=k[1]&0xffffff00; a+=k[0]; break;
+    case 6 : b+=k[1]&0xffff0000; a+=k[0]; break;
+    case 5 : b+=k[1]&0xff000000; a+=k[0]; break;
+    case 4 : a+=k[0]; break;
+    case 3 : a+=k[0]&0xffffff00; break;
+    case 2 : a+=k[0]&0xffff0000; break;
+    case 1 : a+=k[0]&0xff000000; break;
+    case 0 : return c;
+    }
+
+  } else {
+    const uint8_t *k = (const uint8_t *)key;
+
+
+    while (length > 12)
+    {
+      a += ((uint32_t)k[0])<<24;
+      a += ((uint32_t)k[1])<<16;
+      a += ((uint32_t)k[2])<<8;
+      a += ((uint32_t)k[3]);
+      b += ((uint32_t)k[4])<<24;
+      b += ((uint32_t)k[5])<<16;
+      b += ((uint32_t)k[6])<<8;
+      b += ((uint32_t)k[7]);
+      c += ((uint32_t)k[8])<<24;
+      c += ((uint32_t)k[9])<<16;
+      c += ((uint32_t)k[10])<<8;
+      c += ((uint32_t)k[11]);
+      { a -= c; a ^= (((c)<<(4)) | ((c)>>(32-(4)))); c += b; b -= a; b ^= (((a)<<(6)) | ((a)>>(32-(6)))); a += c; c -= b; c ^= (((b)<<(8)) | ((b)>>(32-(8)))); b += a; a -= c; a ^= (((c)<<(16)) | ((c)>>(32-(16)))); c += b; b -= a; b ^= (((a)<<(19)) | ((a)>>(32-(19)))); a += c; c -= b; c ^= (((b)<<(4)) | ((b)>>(32-(4)))); b += a; };
+      length -= 12;
+      k += 12;
+    }
+
+
+    switch(length)
+    {
+    case 12: c+=k[11];
+    case 11: c+=((uint32_t)k[10])<<8;
+    case 10: c+=((uint32_t)k[9])<<16;
+    case 9 : c+=((uint32_t)k[8])<<24;
+    case 8 : b+=k[7];
+    case 7 : b+=((uint32_t)k[6])<<8;
+    case 6 : b+=((uint32_t)k[5])<<16;
+    case 5 : b+=((uint32_t)k[4])<<24;
+    case 4 : a+=k[3];
+    case 3 : a+=((uint32_t)k[2])<<8;
+    case 2 : a+=((uint32_t)k[1])<<16;
+    case 1 : a+=((uint32_t)k[0])<<24;
+             break;
+    case 0 : return c;
+    }
+  }
+
+  { c ^= b; c -= (((b)<<(14)) | ((b)>>(32-(14)))); a ^= c; a -= (((c)<<(11)) | ((c)>>(32-(11)))); b ^= a; b -= (((a)<<(25)) | ((a)>>(32-(25)))); c ^= b; c -= (((b)<<(16)) | ((b)>>(32-(16)))); a ^= c; a -= (((c)<<(4)) | ((c)>>(32-(4)))); b ^= a; b -= (((a)<<(14)) | ((a)>>(32-(14)))); c ^= b; c -= (((b)<<(24)) | ((b)>>(32-(24)))); };
+  return c;
+}
+
+static void s_suppress_unused_lookup3_func_warnings(void) {
+
+
+
+    (void)hashword;
+    (void)hashword2;
+    (void)hashlittle;
+    (void)hashbig;
+}
+
+
+
+
+
+
+static uint64_t s_hash_for(struct hash_table_state *state, const void *key) {
+    assume_abort_if_not((hash_table_state_is_valid(state)));
+    s_suppress_unused_lookup3_func_warnings();
+
+    if (key == 
+              ((void *)0)
+                  ) {
+
+        return 42;
+    }
+
+    uint64_t hash_code = state->hash_fn(key);
+    if (!hash_code) {
+        hash_code = 1;
+    }
+    do { __VERIFIER_assert((hash_code != 0)); return hash_code; } while (0);
+}
+
+
+
+
+static 
+      _Bool 
+           s_safe_eq_check(aws_hash_callback_eq_fn *equals_fn, const void *a, const void *b) {
+
+    if (a == b) {
+        return 
+              1
+                  ;
+    }
+
+    if (a == 
+            ((void *)0) 
+                 || b == 
+                         ((void *)0)
+                             ) {
+        return 
+              0
+                   ;
+    }
+
+    return equals_fn(a, b);
+}
+
+
+
+
+static 
+      _Bool 
+           s_hash_keys_eq(struct hash_table_state *state, const void *a, const void *b) {
+    assume_abort_if_not((hash_table_state_is_valid(state)));
+    
+   _Bool 
+        rval = s_safe_eq_check(state->equals_fn, a, b);
+    do { __VERIFIER_assert((hash_table_state_is_valid(state))); return rval; } while (0);
+}
+
+static size_t s_index_for(struct hash_table_state *map, struct hash_table_entry *entry) {
+    assume_abort_if_not((hash_table_state_is_valid(map)));
+    size_t index = entry - map->slots;
+    do { __VERIFIER_assert((index < map->size && hash_table_state_is_valid(map))); return index; } while (0);
+}
+size_t aws_hash_table_get_entry_count(const struct aws_hash_table *map) {
+    struct hash_table_state *state = map->p_impl;
+    return state->entry_count;
+}
+
+
+
+
+
+static struct hash_table_state *s_alloc_state(const struct hash_table_state *template) {
+    size_t required_bytes;
+    if (hash_table_state_required_bytes(template->size, &required_bytes)) {
+        return 
+              ((void *)0)
+                  ;
+    }
+
+
+    struct hash_table_state *state = aws_mem_calloc(template->alloc, 1, required_bytes);
+
+    if (state == 
+                ((void *)0)
+                    ) {
+        return state;
+    }
+
+    *state = *template;
+    return state;
+}
+
+
+static int s_update_template_size(struct hash_table_state *template, size_t expected_elements) {
+    size_t min_size = expected_elements;
+
+    if (min_size < 2) {
+        min_size = 2;
+    }
+
+
+    size_t size;
+    if (aws_round_up_to_power_of_two(min_size, &size)) {
+        return (-1);
+    }
+
+
+    template->size = size;
+    template->max_load = (size_t)(template->max_load_factor * (double)template->size);
+
+    if (template->max_load >= size) {
+        template->max_load = size - 1;
+    }
+
+
+    template->mask = size - 1;
+
+    return (0);
+}
+
+int aws_hash_table_init(
+    struct aws_hash_table *map,
+    struct aws_allocator *alloc,
+    size_t size,
+    aws_hash_fn *hash_fn,
+    aws_hash_callback_eq_fn *equals_fn,
+    aws_hash_callback_destroy_fn *destroy_key_fn,
+    aws_hash_callback_destroy_fn *destroy_value_fn) {
+    assume_abort_if_not((map != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((alloc != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((hash_fn != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((equals_fn != 
+   ((void *)0)
+   ));
+
+    struct hash_table_state template;
+    template.hash_fn = hash_fn;
+    template.equals_fn = equals_fn;
+    template.destroy_key_fn = destroy_key_fn;
+    template.destroy_value_fn = destroy_value_fn;
+    template.alloc = alloc;
+
+    template.entry_count = 0;
+    template.max_load_factor = 0.95;
+
+    if (s_update_template_size(&template, size)) {
+        return (-1);
+    }
+    map->p_impl = s_alloc_state(&template);
+
+    if (!map->p_impl) {
+        return (-1);
+    }
+
+    do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
+}
+
+void aws_hash_table_clean_up(struct aws_hash_table *map) {
+    assume_abort_if_not((map != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((map->p_impl == 
+   ((void *)0) 
+   || aws_hash_table_is_valid(map)))
+
+
+                                                    ;
+    struct hash_table_state *state = map->p_impl;
+
+
+    if (!state) {
+        return;
+    }
+
+    aws_hash_table_clear(map);
+    aws_mem_release(map->p_impl->alloc, map->p_impl);
+
+    map->p_impl = 
+                 ((void *)0)
+                     ;
+    __VERIFIER_assert((map->p_impl == 
+   ((void *)0)
+   ));
+}
+
+void aws_hash_table_swap(struct aws_hash_table *restrict a, struct aws_hash_table *restrict b) {
+    assume_abort_if_not((a != b));
+    struct aws_hash_table tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void aws_hash_table_move(struct aws_hash_table *restrict to, struct aws_hash_table *restrict from) {
+    assume_abort_if_not((to != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((from != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((to != from));
+    assume_abort_if_not((aws_hash_table_is_valid(from)));
+
+    *to = *from;
+    do { memset(&(*from), 0, sizeof(*from)); } while (0);
+    __VERIFIER_assert((aws_hash_table_is_valid(to)));
+}
+static int s_find_entry1(
+    struct hash_table_state *state,
+    uint64_t hash_code,
+    const void *key,
+    struct hash_table_entry **p_entry,
+    size_t *p_probe_idx);
+
+
+
+static int inline s_find_entry(
+    struct hash_table_state *state,
+    uint64_t hash_code,
+    const void *key,
+    struct hash_table_entry **p_entry,
+    size_t *p_probe_idx) {
+    struct hash_table_entry *entry = &state->slots[hash_code & state->mask];
+
+    if (entry->hash_code == 0) {
+        if (p_probe_idx) {
+            *p_probe_idx = 0;
+        }
+        *p_entry = entry;
+        return AWS_ERROR_HASHTBL_ITEM_NOT_FOUND;
+    }
+
+    if (entry->hash_code == hash_code && s_hash_keys_eq(state, key, entry->element.key)) {
+        if (p_probe_idx) {
+            *p_probe_idx = 0;
+        }
+        *p_entry = entry;
+        return (0);
+    }
+
+    return s_find_entry1(state, hash_code, key, p_entry, p_probe_idx);
+}
+
+static int s_find_entry1(
+    struct hash_table_state *state,
+    uint64_t hash_code,
+    const void *key,
+    struct hash_table_entry **p_entry,
+    size_t *p_probe_idx) {
+    size_t probe_idx = 1;
+
+
+
+
+    int rv;
+    struct hash_table_entry *entry;
+
+
+
+
+    while (1) {
+
+
+        uint64_t index = (hash_code + probe_idx) & state->mask;
+
+
+        entry = &state->slots[index];
+        if (!entry->hash_code) {
+            rv = AWS_ERROR_HASHTBL_ITEM_NOT_FOUND;
+            break;
+        }
+
+        if (entry->hash_code == hash_code && s_hash_keys_eq(state, key, entry->element.key)) {
+            rv = AWS_ERROR_SUCCESS;
+            break;
+        }
+
+
+
+        uint64_t entry_probe = (index - entry->hash_code) & state->mask;
+
+
+
+        if (entry_probe < probe_idx) {
+
+
+
+
+
+            rv = AWS_ERROR_HASHTBL_ITEM_NOT_FOUND;
+            break;
+        }
+
+        probe_idx++;
+    }
+
+    *p_entry = entry;
+    if (p_probe_idx) {
+        *p_probe_idx = probe_idx;
+    }
+
+    return rv;
+}
+
+int aws_hash_table_find(const struct aws_hash_table *map, const void *key, struct aws_hash_element **p_elem) {
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((((((sizeof(*(p_elem)))) == 0) || (((p_elem))))));
+
+    struct hash_table_state *state = map->p_impl;
+    uint64_t hash_code = s_hash_for(state, key);
+    struct hash_table_entry *entry;
+
+    int rv = s_find_entry(state, hash_code, key, &entry, 
+                                                        ((void *)0)
+                                                            );
+
+    if (rv == AWS_ERROR_SUCCESS) {
+        *p_elem = &entry->element;
+    } else {
+        *p_elem = 
+                 ((void *)0)
+                     ;
+    }
+    do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
+}
+static struct hash_table_entry *s_emplace_item(
+    struct hash_table_state *state,
+    struct hash_table_entry entry,
+    size_t probe_idx) {
+    assume_abort_if_not((hash_table_state_is_valid(state)));
+
+    if (entry.hash_code == 0) {
+        do { __VERIFIER_assert((hash_table_state_is_valid(state))); return 
+       ((void *)0)
+       ; } while (0);
+    }
+
+    struct hash_table_entry *rval = 
+                                   ((void *)0)
+                                       ;
+
+
+
+    while (entry.hash_code != 0) {
+
+
+        size_t index = (size_t)(entry.hash_code + probe_idx) & state->mask;
+
+
+        struct hash_table_entry *victim = &state->slots[index];
+
+
+
+        size_t victim_probe_idx = (size_t)(index - victim->hash_code) & state->mask;
+
+
+
+        if (!victim->hash_code || victim_probe_idx < probe_idx) {
+
+            if (!rval) {
+                rval = victim;
+            }
+
+            struct hash_table_entry tmp = *victim;
+            *victim = entry;
+            entry = tmp;
+
+            probe_idx = victim_probe_idx + 1;
+        } else {
+            probe_idx++;
+        }
+    }
+
+    do { __VERIFIER_assert((hash_table_state_is_valid(state) && rval >= &state->slots[0] && rval < &state->slots[state->size])); return rval; } while (0)
+
+
+                                                                                     ;
+}
+
+static int s_expand_table(struct aws_hash_table *map) {
+    struct hash_table_state *old_state = map->p_impl;
+    struct hash_table_state template = *old_state;
+
+    size_t new_size;
+    if (aws_mul_size_checked(template.size, 2, &new_size)) {
+        return (-1);
+    }
+
+    if (s_update_template_size(&template, new_size)) {
+        return (-1);
+    }
+
+    struct hash_table_state *new_state = s_alloc_state(&template);
+    if (!new_state) {
+        return (-1);
+    }
+
+    for (size_t i = 0; i < old_state->size; i++) {
+        struct hash_table_entry entry = old_state->slots[i];
+        if (entry.hash_code) {
+
+            s_emplace_item(new_state, entry, 0);
+        }
+    }
+
+    map->p_impl = new_state;
+    aws_mem_release(new_state->alloc, old_state);
+
+    return (0);
+}
+
+int aws_hash_table_create(
+    struct aws_hash_table *map,
+    const void *key,
+    struct aws_hash_element **p_elem,
+    int *was_created) {
+
+    struct hash_table_state *state = map->p_impl;
+    uint64_t hash_code = s_hash_for(state, key);
+    struct hash_table_entry *entry;
+    size_t probe_idx;
+    int ignored;
+    if (!was_created) {
+        was_created = &ignored;
+    }
+
+    int rv = s_find_entry(state, hash_code, key, &entry, &probe_idx);
+
+    if (rv == AWS_ERROR_SUCCESS) {
+        if (p_elem) {
+            *p_elem = &entry->element;
+        }
+        *was_created = 0;
+        return (0);
+    }
+
+
+    size_t incr_entry_count;
+    if (aws_add_size_checked(state->entry_count, 1, &incr_entry_count)) {
+        return (-1);
+    }
+    if (incr_entry_count > state->max_load) {
+        rv = s_expand_table(map);
+        if (rv != (0)) {
+
+            return rv;
+        }
+        state = map->p_impl;
+
+
+
+
+
+
+
+        probe_idx = 0;
+    }
+
+    state->entry_count++;
+    struct hash_table_entry new_entry;
+    new_entry.element.key = key;
+    new_entry.element.value = 
+                             ((void *)0)
+                                 ;
+    new_entry.hash_code = hash_code;
+
+    entry = s_emplace_item(state, new_entry, probe_idx);
+
+    if (p_elem) {
+        *p_elem = &entry->element;
+    }
+
+    *was_created = 1;
+
+    return (0);
+}
+
+
+int aws_hash_table_put(struct aws_hash_table *map, const void *key, void *value, int *was_created) {
+    struct aws_hash_element *p_elem;
+    int was_created_fallback;
+
+    if (!was_created) {
+        was_created = &was_created_fallback;
+    }
+
+    if (aws_hash_table_create(map, key, &p_elem, was_created)) {
+        return (-1);
+    }
+
+
+
+
+
+    struct hash_table_state *state = map->p_impl;
+
+    if (!*was_created) {
+        if (p_elem->key != key && state->destroy_key_fn) {
+            state->destroy_key_fn((void *)p_elem->key);
+        }
+
+        if (state->destroy_value_fn) {
+            state->destroy_value_fn((void *)p_elem->value);
+        }
+    }
+
+    p_elem->key = key;
+    p_elem->value = value;
+
+    return (0);
+}
+
+
+
+
+
+static size_t s_remove_entry(struct hash_table_state *state, struct hash_table_entry *entry) {
+    assume_abort_if_not((hash_table_state_is_valid(state)));
+    assume_abort_if_not((state->entry_count > 0));
+    assume_abort_if_not((entry >= &state->slots[0] && entry < &state->slots[state->size]))
+
+                                                                                    ;
+    state->entry_count--;
+
+
+
+
+
+    size_t index = s_index_for(state, entry);
+
+    while (1) {
+        size_t next_index = (index + 1) & state->mask;
+
+
+        if (!state->slots[next_index].hash_code) {
+            break;
+        }
+
+
+
+
+
+        if ((state->slots[next_index].hash_code & state->mask) == next_index) {
+            break;
+        }
+
+
+        state->slots[index] = state->slots[next_index];
+        index = next_index;
+    }
+
+
+    do { memset(&(state->slots[index]), 0, sizeof(state->slots[index])); } while (0);
+    do { __VERIFIER_assert((hash_table_state_is_valid(state) && index <= state->size)); return index; } while (0);
+}
+
+int aws_hash_table_remove(
+    struct aws_hash_table *map,
+    const void *key,
+    struct aws_hash_element *p_value,
+    int *was_present) {
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((p_value == 
+   ((void *)0) 
+   || ((((sizeof(*(p_value)))) == 0) || (((p_value))))))
+                                                                                                                    ;
+    assume_abort_if_not((was_present == 
+   ((void *)0) 
+   || ((((sizeof(*(was_present)))) == 0) || (((was_present))))))
+
+                                                                ;
+
+    struct hash_table_state *state = map->p_impl;
+    uint64_t hash_code = s_hash_for(state, key);
+    struct hash_table_entry *entry;
+    int ignored;
+
+    if (!was_present) {
+        was_present = &ignored;
+    }
+
+    int rv = s_find_entry(state, hash_code, key, &entry, 
+                                                        ((void *)0)
+                                                            );
+
+    if (rv != AWS_ERROR_SUCCESS) {
+        *was_present = 0;
+        do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
+    }
+
+    *was_present = 1;
+
+    if (p_value) {
+        *p_value = entry->element;
+    } else {
+        if (state->destroy_key_fn) {
+            state->destroy_key_fn((void *)entry->element.key);
+        }
+        if (state->destroy_value_fn) {
+            state->destroy_value_fn(entry->element.value);
+        }
+    }
+    s_remove_entry(state, entry);
+
+    do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
+}
+
+int aws_hash_table_remove_element(struct aws_hash_table *map, struct aws_hash_element *p_value) {
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    assume_abort_if_not((p_value != 
+   ((void *)0)
+   ));
+
+    struct hash_table_state *state = map->p_impl;
+    struct hash_table_entry *entry = ((struct hash_table_entry *)((uint8_t *)(p_value)-
+                                    __builtin_offsetof (
+                                    struct hash_table_entry
+                                    , 
+                                    element
+                                    )
+                                    ));
+
+    s_remove_entry(state, entry);
+
+    do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
+}
+
+int aws_hash_table_foreach(
+    struct aws_hash_table *map,
+    int (*callback)(void *context, struct aws_hash_element *pElement),
+    void *context) {
+
+    for (struct aws_hash_iter iter = aws_hash_iter_begin(map); !aws_hash_iter_done(&iter); aws_hash_iter_next(&iter)) {
+        int rv = callback(context, &iter.element);
+
+        if (rv & (1 << 1)) {
+            aws_hash_iter_delete(&iter, 
+                                       0
+                                            );
+        }
+
+        if (!(rv & (1 << 0))) {
+            break;
+        }
+    }
+
+    return (0);
+}
+
+
+_Bool 
+    aws_hash_table_eq(
+    const struct aws_hash_table *a,
+    const struct aws_hash_table *b,
+    aws_hash_callback_eq_fn *value_eq) {
+    assume_abort_if_not((aws_hash_table_is_valid(a)));
+    assume_abort_if_not((aws_hash_table_is_valid(b)));
+    assume_abort_if_not((value_eq != 
+   ((void *)0)
+   ));
+
+    if (aws_hash_table_get_entry_count(a) != aws_hash_table_get_entry_count(b)) {
+        do { __VERIFIER_assert((aws_hash_table_is_valid(a) && aws_hash_table_is_valid(b))); return 
+       0
+       ; } while (0);
+    }
+
+
+
+
+
+
+    for (size_t i = 0; i < a->p_impl->size; ++i) {
+        const struct hash_table_entry *const a_entry = &a->p_impl->slots[i];
+        if (a_entry->hash_code == 0) {
+            continue;
+        }
+
+        struct aws_hash_element *b_element = 
+                                            ((void *)0)
+                                                ;
+
+        aws_hash_table_find(b, a_entry->element.key, &b_element);
+
+        if (!b_element) {
+
+            do { __VERIFIER_assert((aws_hash_table_is_valid(a) && aws_hash_table_is_valid(b))); return 
+           0
+           ; } while (0);
+        }
+
+        if (!s_safe_eq_check(value_eq, a_entry->element.value, b_element->value)) {
+            do { __VERIFIER_assert((aws_hash_table_is_valid(a) && aws_hash_table_is_valid(b))); return 
+           0
+           ; } while (0);
+        }
+    }
+    do { __VERIFIER_assert((aws_hash_table_is_valid(a) && aws_hash_table_is_valid(b))); return 
+   1
+   ; } while (0);
+}
+static inline void s_get_next_element(struct aws_hash_iter *iter, size_t start_slot) {
+    assume_abort_if_not((iter != 
+   ((void *)0)
+   ));
+    assume_abort_if_not((aws_hash_table_is_valid(iter->map)));
+    struct hash_table_state *state = iter->map->p_impl;
+    size_t limit = iter->limit;
+
+    for (size_t i = start_slot; i < limit; i++) {
+        struct hash_table_entry *entry = &state->slots[i];
+
+        if (entry->hash_code) {
+            iter->element = entry->element;
+            iter->slot = i;
+            iter->status = AWS_HASH_ITER_STATUS_READY_FOR_USE;
+            return;
+        }
+    }
+    iter->element.key = 
+                       ((void *)0)
+                           ;
+    iter->element.value = 
+                         ((void *)0)
+                             ;
+    iter->slot = iter->limit;
+    iter->status = AWS_HASH_ITER_STATUS_DONE;
+    __VERIFIER_assert((aws_hash_iter_is_valid(iter)));
+}
+
+struct aws_hash_iter aws_hash_iter_begin(const struct aws_hash_table *map) {
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    struct hash_table_state *state = map->p_impl;
+    struct aws_hash_iter iter;
+    do { memset(&(iter), 0, sizeof(iter)); } while (0);
+    iter.map = map;
+    iter.limit = state->size;
+    s_get_next_element(&iter, 0);
+    do { __VERIFIER_assert((aws_hash_iter_is_valid(&iter) && (iter.status == AWS_HASH_ITER_STATUS_DONE || iter.status == AWS_HASH_ITER_STATUS_READY_FOR_USE))); return iter; } while (0)
+
+
+
+                                                                                          ;
+}
+
+
+_Bool 
+    aws_hash_iter_done(const struct aws_hash_iter *iter) {
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
+    assume_abort_if_not((iter->status == AWS_HASH_ITER_STATUS_DONE || iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+
+                                                                           ;
+
+
+
+
+
+
+    
+   _Bool 
+        rval = (iter->slot == iter->limit);
+    __VERIFIER_assert((iter->status == AWS_HASH_ITER_STATUS_DONE || iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+
+                                                                                          ;
+    __VERIFIER_assert((rval == (iter->status == AWS_HASH_ITER_STATUS_DONE)))
+
+                                                                                       ;
+    __VERIFIER_assert((aws_hash_iter_is_valid(iter)));
+    return rval;
+}
+
+void aws_hash_iter_next(struct aws_hash_iter *iter) {
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
+
+
+    s_get_next_element(iter, iter->slot + 1);
+
+
+    __VERIFIER_assert((iter->status == AWS_HASH_ITER_STATUS_DONE || iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+
+                                                                                          ;
+    __VERIFIER_assert((aws_hash_iter_is_valid(iter)));
+}
+
+void aws_hash_iter_delete(struct aws_hash_iter *iter, 
+                                                     _Bool 
+                                                          destroy_contents) {
+    assume_abort_if_not((iter->status == AWS_HASH_ITER_STATUS_READY_FOR_USE))
+                                                                                                                ;
+    assume_abort_if_not((aws_hash_iter_is_valid(iter)));
+    assume_abort_if_not((iter->map->p_impl->entry_count > 0))
+
+                                                                                        ;
+
+    struct hash_table_state *state = iter->map->p_impl;
+    if (destroy_contents) {
+        if (state->destroy_key_fn) {
+            state->destroy_key_fn((void *)iter->element.key);
+        }
+        if (state->destroy_value_fn) {
+            state->destroy_value_fn(iter->element.value);
+        }
+    }
+
+    size_t last_index = s_remove_entry(state, &state->slots[iter->slot]);
+    if (last_index < iter->slot || last_index >= iter->limit) {
+        iter->limit--;
+    }
+
+    iter->slot--;
+
+
+    iter->status = AWS_HASH_ITER_STATUS_DELETE_CALLED;
+    __VERIFIER_assert((iter->status == AWS_HASH_ITER_STATUS_DELETE_CALLED))
+
+                                                                           ;
+    __VERIFIER_assert((aws_hash_iter_is_valid(iter)));
+}
+
+void aws_hash_table_clear(struct aws_hash_table *map) {
+    assume_abort_if_not((aws_hash_table_is_valid(map)));
+    struct hash_table_state *state = map->p_impl;
+
+
+    if (state->destroy_key_fn || state->destroy_value_fn) {
+        for (size_t i = 0; i < state->size; ++i) {
+            struct hash_table_entry *entry = &state->slots[i];
+            if (!entry->hash_code) {
+                continue;
+            }
+            if (state->destroy_key_fn) {
+                state->destroy_key_fn((void *)entry->element.key);
+            }
+            if (state->destroy_value_fn) {
+                state->destroy_value_fn(entry->element.value);
+            }
         }
     }
 
 
-    if (array_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)array, &old_byte_from_array);
-    }
-    if (str_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)c_str, &old_byte_from_str);
-    }
+    memset(state->slots, 0, sizeof(*state->slots) * state->size);
+
+    state->entry_count = 0;
+    __VERIFIER_assert((aws_hash_table_is_valid(map)));
 }
-int main() { aws_array_eq_c_str_harness(); return 0; }
+
+uint64_t aws_hash_c_string(const void *item) {
+    assume_abort_if_not((aws_c_string_is_valid(item)));
+    const char *str = item;
+
+
+    uint32_t b = 0x3243F6A8, c = 0x885A308D;
+    hashlittle2(str, strlen(str), &c, &b);
+
+    return ((uint64_t)b << 32) | c;
+}
+
+uint64_t aws_hash_string(const void *item) {
+    assume_abort_if_not((aws_string_is_valid(item)));
+    const struct aws_string *str = item;
+
+
+    uint32_t b = 0x3243F6A8, c = 0x885A308D;
+    hashlittle2(aws_string_bytes(str), str->len, &c, &b);
+    do { __VERIFIER_assert((aws_string_is_valid(str))); return ((uint64_t)b << 32) | c; } while (0);
+}
+
+uint64_t aws_hash_byte_cursor_ptr(const void *item) {
+    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
+    const struct aws_byte_cursor *cur = item;
+
+
+    uint32_t b = 0x3243F6A8, c = 0x885A308D;
+    hashlittle2(cur->ptr, cur->len, &c, &b);
+    do { __VERIFIER_assert((aws_byte_cursor_is_valid(cur))); return ((uint64_t)b << 32) | c; } while (0);
+}
+
+uint64_t aws_hash_ptr(const void *item) {
+
+
+
+    uint32_t b = 0x2b7e1516, c = 0x28aed2a6;
+
+    hashlittle2(&item, sizeof(item), &c, &b);
+
+    return ((uint64_t)b << 32) | c;
+}
+
+
+_Bool 
+    aws_hash_callback_c_str_eq(const void *a, const void *b) {
+    assume_abort_if_not((aws_c_string_is_valid(a)));
+    assume_abort_if_not((aws_c_string_is_valid(b)));
+    
+   _Bool 
+        rval = !strcmp(a, b);
+    do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
+}
+
+
+_Bool 
+    aws_hash_callback_string_eq(const void *a, const void *b) {
+    assume_abort_if_not((aws_string_is_valid(a)));
+    assume_abort_if_not((aws_string_is_valid(b)));
+    
+   _Bool 
+        rval = aws_string_eq(a, b);
+    do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
+}
+
+void aws_hash_callback_string_destroy(void *a) {
+    assume_abort_if_not((aws_string_is_valid(a)));
+    aws_string_destroy(a);
+}
+
+
+_Bool 
+    aws_ptr_eq(const void *a, const void *b) {
+    return a == b;
+}
+
+
+
+
+
+
+
+_Bool 
+    aws_hash_table_is_valid(const struct aws_hash_table *map) {
+    return map && map->p_impl && hash_table_state_is_valid(map->p_impl);
+}
+
+
+
+
+
+
+
+_Bool 
+    hash_table_state_is_valid(const struct hash_table_state *map) {
+    if (!map) {
+        return 
+              0
+                   ;
+    }
+    
+   _Bool 
+        hash_fn_nonnull = (map->hash_fn != 
+                                           ((void *)0)
+                                               );
+    
+   _Bool 
+        equals_fn_nonnull = (map->equals_fn != 
+                                               ((void *)0)
+                                                   );
+
+    
+   _Bool 
+        alloc_nonnull = (map->alloc != 
+                                       ((void *)0)
+                                           );
+    
+   _Bool 
+        size_at_least_two = (map->size >= 2);
+    
+   _Bool 
+        size_is_power_of_two = aws_is_power_of_two(map->size);
+    
+   _Bool 
+        entry_count = (map->entry_count <= map->max_load);
+    
+   _Bool 
+        max_load = (map->max_load < map->size);
+    
+   _Bool 
+        mask_is_correct = (map->mask == (map->size - 1));
+    
+   _Bool 
+        max_load_factor_bounded = map->max_load_factor == 0.95;
+    
+   _Bool 
+        slots_allocated = ((((sizeof(map->slots[0]) * map->size)) == 0) || ((&map->slots[0])));
+
+    return hash_fn_nonnull && equals_fn_nonnull && alloc_nonnull && size_at_least_two && size_is_power_of_two &&
+           entry_count && max_load && mask_is_correct && max_load_factor_bounded && slots_allocated;
+}
+
+
+
+
+
+_Bool 
+    aws_hash_iter_is_valid(const struct aws_hash_iter *iter) {
+    if (!iter) {
+        return 
+              0
+                   ;
+    }
+    if (!iter->map) {
+        return 
+              0
+                   ;
+    }
+    if (!aws_hash_table_is_valid(iter->map)) {
+        return 
+              0
+                   ;
+    }
+    if (iter->limit > iter->map->p_impl->size) {
+        return 
+              0
+                   ;
+    }
+
+    switch (iter->status) {
+        case AWS_HASH_ITER_STATUS_DONE:
+
+            return iter->slot == iter->limit;
+        case AWS_HASH_ITER_STATUS_DELETE_CALLED:
+
+
+            return iter->slot <= iter->limit || iter->slot == 
+                                                             (18446744073709551615UL)
+                                                                     ;
+        case AWS_HASH_ITER_STATUS_READY_FOR_USE:
+
+            return iter->slot < iter->limit && iter->map->p_impl->slots[iter->slot].hash_code != 0;
+    }
+
+    return 
+          0
+               ;
+}
+
+
+
+
+
+
+
+int hash_table_state_required_bytes(size_t size, size_t *required_bytes) {
+
+    size_t elemsize;
+    if (aws_mul_size_checked(size, sizeof(struct hash_table_entry), &elemsize)) {
+        return (-1);
+    }
+
+    if (aws_add_size_checked(elemsize, sizeof(struct hash_table_state), required_bytes)) {
+        return (-1);
+    }
+
+    return (0);
+}
+void aws_hash_iter_begin_harness() {
+    struct aws_hash_table map;
+
+    ensure_allocated_hash_table(&map, 32);
+    assume_abort_if_not(aws_hash_table_is_valid(&map));
+
+    struct store_byte_from_buffer old_byte;
+    save_byte_from_hash_table(&map, &old_byte);
+
+    struct aws_hash_iter iter = aws_hash_iter_begin(&map);
+
+    __VERIFIER_assert(aws_hash_iter_is_valid(&iter));
+    __VERIFIER_assert(iter.status == AWS_HASH_ITER_STATUS_DONE || iter.status == AWS_HASH_ITER_STATUS_READY_FOR_USE);
+    __VERIFIER_assert(aws_hash_table_is_valid(&map));
+    check_hash_table_unchanged(&map, &old_byte);
+}
+int main() { aws_hash_iter_begin_harness(); return 0; }

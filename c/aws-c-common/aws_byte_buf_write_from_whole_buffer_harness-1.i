@@ -205,7 +205,7 @@ typedef _Bool bool;
 
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-void reach_error() { __assert_fail("0", "aws_array_eq_c_str_harness.i", 208, "reach_error"); }
+void reach_error() { __assert_fail("0", "aws_byte_buf_write_from_whole_buffer_harness.i", 208, "reach_error"); }
 extern void abort(void);
 void assume_abort_if_not(_Bool cond) { 
   if(!cond) {abort();}
@@ -2064,7 +2064,7 @@ enum aws_common_error {
 
 
 
-extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+extern void *my_memcpy (void *__restrict __dest, const void *__restrict __src,
        size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
 
@@ -3008,7 +3008,7 @@ int aws_array_list_front(const struct aws_array_list *restrict list, void *val) 
 
                                                                                      ;
     if (aws_array_list_length(list) > 0) {
-        memcpy(val, list->data, list->item_size);
+        my_memcpy(val, list->data, list->item_size);
         __VERIFIER_assert(((1)));
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
@@ -3093,7 +3093,7 @@ int aws_array_list_back(const struct aws_array_list *restrict list, void *val) {
     if (aws_array_list_length(list) > 0) {
         size_t last_item_offset = list->item_size * (aws_array_list_length(list) - 1);
 
-        memcpy(val, (void *)((uint8_t *)list->data + last_item_offset), list->item_size);
+        my_memcpy(val, (void *)((uint8_t *)list->data + last_item_offset), list->item_size);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
     }
@@ -3180,7 +3180,7 @@ int aws_array_list_get_at(const struct aws_array_list *restrict list, void *val,
 
                                                                                      ;
     if (aws_array_list_length(list) > index) {
-        memcpy(val, (void *)((uint8_t *)list->data + (list->item_size * index)), list->item_size);
+        my_memcpy(val, (void *)((uint8_t *)list->data + (list->item_size * index)), list->item_size);
         __VERIFIER_assert((aws_array_list_is_valid(list)));
         return (0);
     }
@@ -3217,7 +3217,7 @@ int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val,
 
     assume_abort_if_not((list->data));
 
-    memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
+    my_memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
 
 
 
@@ -7392,13 +7392,27 @@ void aws_raise_error_private(int err) {
 int aws_last_error(void) {
     return tl_last_error;
 }
+void *memcpy_impl(void *dst, const void *src, size_t n) {
+    assume_abort_if_not(dst != src || ((const char *)src >= (const char *)dst + n) || ((const char *)dst >= (const char *)src + n))
 
 
+                                 ;
+    assume_abort_if_not((((n) == 0) || (src)));
+    assume_abort_if_not((((n) == 0) || (dst)));
 
-int memcmp_safe(const void *s1, const void *s2, size_t n) {
-    assume_abort_if_not((((n) == 0) || (s1)));
-    assume_abort_if_not((((n) == 0) || (s2)));
-    return memcmp(s1, s2, n);
+    for (unsigned long i = 0; i < n; ++i)
+        ((char *)dst)[i] = ((const char *)src)[i];
+
+    return dst;
+}
+
+void *my_memcpy(void *dst, const void *src, size_t n) {
+    return memcpy_impl(dst, src, n);
+}
+
+void *___memcpy_chk(void *dst, const void *src, unsigned long n, unsigned long size) {
+    (void)size;
+    return memcpy_impl(dst, src, n);
 }
  size_t aws_nospec_mask(size_t index, size_t bound);
 int aws_byte_buf_init(struct aws_byte_buf *buf, struct aws_allocator *allocator, size_t capacity) {
@@ -7442,7 +7456,7 @@ int aws_byte_buf_init_copy(struct aws_byte_buf *dest, struct aws_allocator *allo
         do { memset(&(*dest), 0, sizeof(*dest)); } while (0);
         return (-1);
     }
-    memcpy(dest->buffer, src->buffer, src->len);
+    my_memcpy(dest->buffer, src->buffer, src->len);
     __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
     return (0);
 }
@@ -7580,7 +7594,7 @@ int aws_byte_buf_init_copy_from_cursor(
     dest->capacity = src.len;
     dest->allocator = allocator;
     if (src.len > 0) {
-        memcpy(dest->buffer, src.ptr, src.len);
+        my_memcpy(dest->buffer, src.ptr, src.len);
     }
     __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
     return (0);
@@ -7891,7 +7905,7 @@ _Bool
     const uint8_t *array_bytes = array;
     const uint8_t *str_bytes = (const uint8_t *)c_str;
 
-    for (size_t i = 0; i < array_len - 1; ++i) { // introduced off-by-one bug
+    for (size_t i = 0; i < array_len; ++i) {
         uint8_t s = str_bytes[i];
         if (s == '\0') {
             return 
@@ -8009,7 +8023,7 @@ int aws_byte_buf_append(struct aws_byte_buf *to, const struct aws_byte_cursor *f
 
         __VERIFIER_assert(from->ptr);
         __VERIFIER_assert(to->buffer);
-        memcpy(to->buffer + to->len, from->ptr, from->len);
+        my_memcpy(to->buffer + to->len, from->ptr, from->len);
         to->len += from->len;
     }
 
@@ -8100,13 +8114,13 @@ int aws_byte_buf_append_dynamic(struct aws_byte_buf *to, const struct aws_byte_c
 
 
         if (to->len > 0) {
-            memcpy(new_buffer, to->buffer, to->len);
+            my_memcpy(new_buffer, to->buffer, to->len);
         }
 
 
 
         if (from->len > 0) {
-            memcpy(new_buffer + to->len, from->ptr, from->len);
+            my_memcpy(new_buffer + to->len, from->ptr, from->len);
         }
 
 
@@ -8123,7 +8137,7 @@ int aws_byte_buf_append_dynamic(struct aws_byte_buf *to, const struct aws_byte_c
 
             __VERIFIER_assert(from->ptr);
             __VERIFIER_assert(to->buffer);
-            memcpy(to->buffer + to->len, from->ptr, from->len);
+            my_memcpy(to->buffer + to->len, from->ptr, from->len);
         }
     }
 
@@ -8242,7 +8256,7 @@ int aws_byte_cursor_compare_lexical(const struct aws_byte_cursor *lhs, const str
         comparison_length = rhs->len;
     }
 
-    int result = memcmp_safe(lhs->ptr, rhs->ptr, comparison_length);
+    int result = memcmp(lhs->ptr, rhs->ptr, comparison_length);
 
     __VERIFIER_assert((aws_byte_cursor_is_valid(lhs)));
     __VERIFIER_assert((aws_byte_cursor_is_valid(rhs)));
@@ -8478,7 +8492,7 @@ _Bool
     struct aws_byte_cursor slice = aws_byte_cursor_advance_nospec(cur, len);
 
     if (slice.ptr) {
-        memcpy(dest, slice.ptr, len);
+        my_memcpy(dest, slice.ptr, len);
         __VERIFIER_assert((aws_byte_cursor_is_valid(cur)));
         __VERIFIER_assert((((((len)) == 0) || ((dest)))));
         return 
@@ -8644,7 +8658,7 @@ _Bool
                    ;
     }
 
-    memcpy(buf->buffer + buf->len, src, len);
+    my_memcpy(buf->buffer + buf->len, src, len - 1); // introduced off-by-one bug
     buf->len += len;
 
     __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
@@ -9096,42 +9110,41 @@ void aws_common_fatal_assert_library_initialized(void) {
         __VERIFIER_assert(s_common_library_initialized);
     }
 }
-void aws_array_eq_c_str_harness() {
+void aws_byte_buf_write_from_whole_buffer_harness() {
 
-    void *array;
-    size_t array_len = __VERIFIER_nondet_ulong();
-    assume_abort_if_not(array_len <= 10);
-    array = can_fail_malloc(array_len);
-    const char *c_str = nondet_bool() ? 
-                                       ((void *)0) 
-                                            : ensure_c_str_is_allocated(10);
+    struct aws_byte_buf buf;
+    struct aws_byte_buf src;
 
 
-    struct store_byte_from_buffer old_byte_from_array;
-    save_byte_from_array((uint8_t *)array, array_len, &old_byte_from_array);
-    size_t str_len = (c_str) ? strlen(c_str) : 0;
-    struct store_byte_from_buffer old_byte_from_str;
-    save_byte_from_array((uint8_t *)c_str, str_len, &old_byte_from_str);
+    assume_abort_if_not(aws_byte_buf_is_bounded(&buf, 10));
+    ensure_byte_buf_has_allocated_buffer_member(&buf);
+    assume_abort_if_not(aws_byte_buf_is_valid(&buf));
+    assume_abort_if_not(aws_byte_buf_is_bounded(&src, 10));
+    ensure_byte_buf_has_allocated_buffer_member(&src);
+    assume_abort_if_not(aws_byte_buf_is_valid(&src));
 
 
-    assume_abort_if_not(array || (array_len == 0));
-    assume_abort_if_not(c_str);
+    struct aws_byte_buf buf_old = buf;
+    struct store_byte_from_buffer old_byte_from_buf;
+    save_byte_from_array(buf.buffer, buf.len, &old_byte_from_buf);
+    struct aws_byte_buf src_old = src;
+    struct store_byte_from_buffer old_byte_from_src;
+    save_byte_from_array(src.buffer, src.len, &old_byte_from_src);
 
 
-    if (aws_array_eq_c_str(array, array_len, c_str)) {
-
-        __VERIFIER_assert(array_len == str_len);
-        if (array_len > 0) {
-            assert_bytes_match((uint8_t *)array, (uint8_t *)c_str, array_len);
+    if (aws_byte_buf_write_from_whole_buffer(&buf, src)) {
+        __VERIFIER_assert(buf.len == buf_old.len + src.len);
+        __VERIFIER_assert(buf_old.capacity == buf.capacity);
+        __VERIFIER_assert(buf_old.allocator == buf.allocator);
+        if (src.len > 0 && buf.len > 0) {
+            assert_bytes_match(buf.buffer + buf_old.len, src.buffer, src.len);
         }
+    } else {
+        assert_byte_buf_equivalence(&buf, &buf_old, &old_byte_from_buf);
     }
 
-
-    if (array_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)array, &old_byte_from_array);
-    }
-    if (str_len > 0) {
-        assert_byte_from_buffer_matches((uint8_t *)c_str, &old_byte_from_str);
-    }
+    __VERIFIER_assert(aws_byte_buf_is_valid(&buf));
+    __VERIFIER_assert(aws_byte_buf_is_valid(&src));
+    assert_byte_buf_equivalence(&src, &src_old, &old_byte_from_src);
 }
-int main() { aws_array_eq_c_str_harness(); return 0; }
+int main() { aws_byte_buf_write_from_whole_buffer_harness(); return 0; }
