@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # This file is part of the SV-Benchmarks collection of verification tasks:
 # https://github.com/sosy-lab/sv-benchmarks
-# 
+#
 # SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
-# 
+#
 # SPDX-License-Identifier: Apache-2.0
 
 """
@@ -110,6 +110,7 @@ for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
         template = templatefun(fullpath)
         abort = False
         ymlcontent = open(join(NLADIR, file[:-2] + ".yml"), "r").read()
+        consider_coverage = "coverage-branches" in ymlcontent
 
         if (
             any(re.search(entry, file) for entry in healed_by_valuebound)
@@ -131,8 +132,14 @@ for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
             and name == "_unwindbound"
         ):
             ymlcontent = re.sub(REACH + "true", REACH + "false", ymlcontent)
-            marker = "  - property_file: ../properties/no-overflow.prp\n    expected_verdict: true"
-            ymlcontent = re.sub(marker,marker+"\n  - property_file: ../properties/coverage-error-call.prp", ymlcontent)
+            if consider_coverage:
+                marker = "  - property_file: ../properties/no-overflow.prp\n    expected_verdict: true"
+                ymlcontent = re.sub(
+                    marker,
+                    marker
+                    + "\n  - property_file: ../properties/coverage-error-call.prp",
+                    ymlcontent,
+                )
         properties = re.findall("property_file: (.*)", ymlcontent)
         has_overflow_property = False
         for m in properties:
@@ -142,7 +149,9 @@ for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
             if "no-overflow" in m:
                 has_overflow_property = True
         if (
-            len(properties) == 2 and has_overflow_property
+            len(properties) == 1
+            and has_overflow_property
+            or (consider_coverage and len(properties) == 2 and has_overflow_property)
         ):  # overflow is only property -> verdict false
             abort = True
         if abort:
