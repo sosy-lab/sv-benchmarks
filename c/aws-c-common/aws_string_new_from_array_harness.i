@@ -9460,10 +9460,11 @@ struct aws_string *aws_string_clone_or_reuse(struct aws_allocator *allocator, co
 }
 void aws_string_new_from_array_harness() {
 
-    size_t alloc_size;
+    size_t alloc_size = nondet_size_t();
+    assume_abort_if_not(alloc_size > 0);
     uint8_t *array = bounded_malloc(alloc_size);
     struct aws_allocator *allocator = can_fail_allocator();
-    size_t reported_size;
+    size_t reported_size = nondet_size_t();
 
 
     assume_abort_if_not(reported_size <= alloc_size);

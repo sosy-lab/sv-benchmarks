@@ -6860,7 +6860,7 @@ struct aws_string *ensure_string_is_allocated_nondet_length() {
 
 struct aws_string *ensure_string_is_allocated_bounded_length(size_t max_size) {
     size_t len = nondet_uint64_t();
-    assume_abort_if_not(len < max_size);
+    assume_abort_if_not(0 < len && len < max_size);
     return ensure_string_is_allocated(len);
 }
 
