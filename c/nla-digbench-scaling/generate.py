@@ -94,9 +94,12 @@ broken_by_unwindbound_ge = {}
 broken_by_unwindbound_ge[p("dijkstra-u")] = 5
 
 REACH = "../properties/unreach-call.prp\n    expected_verdict: "
+skiplist = []
 
 cfiles = [f for f in listdir(NLADIR) if isfile(join(NLADIR, f)) and ".c" in f]
 for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
+    if file in skiplist:
+        continue
     fullpath = join(NLADIR, file)
     fullpathToPreprocessed = fullpath[:-2] + ".i"
     iFileExists = isfile(fullpathToPreprocessed)
@@ -128,19 +131,23 @@ for file, bound in itertools.product(cfiles, [1, 2, 5, 10, 20, 50, 100]):
             and name == "_unwindbound"
         ):
             ymlcontent = re.sub(REACH + "true", REACH + "false", ymlcontent)
+            marker = "  - property_file: ../properties/no-overflow.prp\n    expected_verdict: true"
+            ymlcontent = re.sub(marker,marker+"\n  - property_file: ../properties/coverage-error-call.prp", ymlcontent)
         properties = re.findall("property_file: (.*)", ymlcontent)
         has_overflow_property = False
         for m in properties:
-            if not ("unreach-call" in m or "no-overflow" in m):
+            if not ("unreach-call" in m or "no-overflow" in m or "coverage" in m):
                 print("WARNING, additional property found in %s: %s" % (file, m))
                 abort = True
             if "no-overflow" in m:
                 has_overflow_property = True
         if (
-            len(properties) == 1 and has_overflow_property
+            len(properties) == 2 and has_overflow_property
         ):  # overflow is only property -> verdict false
             abort = True
         if abort:
+            skiplist.append(file)
+            print("INFO: Task %s has overflow => skipping" % file)
             break
         i = bound
         content = re.sub("__BOUND", str(i), template)
