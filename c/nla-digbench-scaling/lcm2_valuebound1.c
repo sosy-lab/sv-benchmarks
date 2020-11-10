@@ -1,7 +1,8 @@
 /* Algorithm for computing simultaneously the GCD and the LCM, by Dijkstra */
 
 extern void abort(void);
-void reach_error(){}
+extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void reach_error() { __assert_fail("0", "lcm2.c", 5, "reach_error"); }
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
@@ -16,12 +17,12 @@ void __VERIFIER_assert(int cond) {
 }
 
 int main() {
-    int a, b;
-    int x, y, u, v;
+    unsigned a, b;
+    unsigned x, y, u, v;
     a = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(a>0 && a<=1);
+    assume_abort_if_not(a>=0 && a<=1);
     b = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(b>0 && b<=1);
+    assume_abort_if_not(b>=0 && b<=1);
     assume_abort_if_not(a >= 1); //inf loop if remove
     assume_abort_if_not(b >= 1);
 

@@ -3,6 +3,8 @@ input_files: 'lcm2_valuebound100.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true    
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
 
 options:
   language: C

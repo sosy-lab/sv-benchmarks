@@ -1,3 +1,11 @@
+<!--
+This file is part of the SV-Benchmarks collection of verification tasks:
+https://github.com/sosy-lab/sv-benchmarks
+
+SPDX-FileCopyrightText: 2011-2020 The SV-Benchmarks Community
+
+SPDX-License-Identifier: Apache-2.0
+-->
 The benchmarks in this directory were generated
 by Martin Spiessl based on the tasks in the nla-digbench folder,
 which were originally were submitted by

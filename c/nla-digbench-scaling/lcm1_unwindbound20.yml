@@ -2,6 +2,8 @@ format_version: '2.0'
 input_files: 'lcm1_unwindbound20.c'
 properties:
   - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/no-overflow.prp
     expected_verdict: true
 
 options:
