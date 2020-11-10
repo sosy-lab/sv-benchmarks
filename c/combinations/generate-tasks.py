@@ -13,6 +13,7 @@ import argparse
 from pathlib import Path
 import yaml
 import sys
+import re
 
 
 class TaskError(Exception):
@@ -53,6 +54,21 @@ def _get_verdict(yml_task_def):
         raise TaskError()
 
 
+def _remove_all_copyright_comments(content):
+    filtered_content = list()
+    delimiter = "\n"
+    for line in content.split(delimiter):
+        if _is_singleline_comment(line) and (
+            "This file is part of" in line
+            or "sv-benchmarks" in line
+            or "SPDX" in line
+            or line.strip() == "//"
+        ):
+            continue
+        filtered_content.append(line)
+    return delimiter.join(filtered_content)
+
+
 def _create_combo(
     file1: Path, file2: Path, replacement1=None, replacement2=None
 ) -> str:
@@ -85,7 +101,7 @@ extern float __VERIFIER_nondet_float();
 extern void exit(int);
 """
 
-    return (
+    content = (
         additional_defs
         + content1
         + content2
@@ -97,6 +113,9 @@ extern void exit(int);
     main2();
 }"""
     )
+
+    # remove comments to avoid duplicate SPDX and copyright info
+    return _remove_all_copyright_comments(content)
 
 
 def _get_yml_content(verdict1, verdict2, input_file: str, data_model="ILP32"):
@@ -113,6 +132,53 @@ options:
   language: C
   data_model: {data_model}
 """
+
+
+def _spdx_info_to_text(spdx_info):
+    def to_comment(key, value):
+        return f"// {key}: {value}"
+
+    content = ""
+    for idx, item in enumerate(sorted(spdx_info.items())):
+        key, values = item
+        if idx > 0:
+            content += "//\n"  # add one empty line to separate different keys
+        text_for_single_key = "\n".join((to_comment(key, v) for v in sorted(values)))
+        content += text_for_single_key + "\n"
+    return content
+
+
+def _is_singleline_comment(line):
+    return line.strip().startswith("//")
+
+
+def _get_spdx_header(*files):
+    """Parse all given files for SPDX-metadata and return a header that contains all of that combined information."""
+
+    def _try_extract_spdx(line):
+        if not (_is_singleline_comment(line) and "SPDX" in line):
+            return None, None
+        try:
+            matches = re.search(r"(SPDX-[a-zA-Z\-]+):\s*(.+)", line)
+            return matches.group(1), matches.group(2)
+        except (IndexError, AttributeError):
+            # search didn't work
+            return None, None
+
+    all_spdx_info = dict()
+    for f in files:
+        with open(f) as inp:
+            for line in inp.readlines():
+                key, value = _try_extract_spdx(line)
+                if key:
+                    if key not in all_spdx_info:
+                        all_spdx_info[key] = set()
+                    all_spdx_info[key].add(value)
+
+    return f"""// This file is part of the SV-Benchmarks collection of verification tasks:
+// https://github.com/sosy-lab/sv-benchmarks
+//
+{_spdx_info_to_text(all_spdx_info)}"""
 
 
 def create_combos(
@@ -132,6 +198,7 @@ def create_combos(
             basename = file1.name[:-2] + "+" + file2.name
             c_file = output_dir / Path(basename)
             c_content = _create_combo(file1, file2, replacement1, replacement2)
+            c_content = _get_spdx_header(file1, file2) + "\n" + c_content
             yml_content = _get_yml_content(verdict1, verdict2, c_file.name)
             yml_file = output_dir / Path(basename[:-2] + ".yml")
 
