@@ -6,6 +6,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+CLANG_WARNINGS := -Wno-error=tautological-compare
+
 LEVEL := ../
 include $(LEVEL)/Makefile.config
 
