@@ -14,6 +14,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "18_read_write_lock.c", 7, __extension__ __PRETTY_FUNCTION__); })); }
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -26,24 +28,32 @@ typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
 __extension__ typedef signed long long int __int64_t;
 __extension__ typedef unsigned long long int __uint64_t;
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
 __extension__ typedef long long int __quad_t;
 __extension__ typedef unsigned long long int __u_quad_t;
 __extension__ typedef long long int __intmax_t;
 __extension__ typedef unsigned long long int __uintmax_t;
-__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef __uint64_t __dev_t;
 __extension__ typedef unsigned int __uid_t;
 __extension__ typedef unsigned int __gid_t;
 __extension__ typedef unsigned long int __ino_t;
-__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef __uint64_t __ino64_t;
 __extension__ typedef unsigned int __mode_t;
 __extension__ typedef unsigned int __nlink_t;
 __extension__ typedef long int __off_t;
-__extension__ typedef __quad_t __off64_t;
+__extension__ typedef __int64_t __off64_t;
 __extension__ typedef int __pid_t;
 __extension__ typedef struct { int __val[2]; } __fsid_t;
 __extension__ typedef long int __clock_t;
 __extension__ typedef unsigned long int __rlim_t;
-__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef __uint64_t __rlim64_t;
 __extension__ typedef unsigned int __id_t;
 __extension__ typedef long int __time_t;
 __extension__ typedef unsigned int __useconds_t;
@@ -54,11 +64,11 @@ __extension__ typedef int __clockid_t;
 __extension__ typedef void * __timer_t;
 __extension__ typedef long int __blksize_t;
 __extension__ typedef long int __blkcnt_t;
-__extension__ typedef __quad_t __blkcnt64_t;
+__extension__ typedef __int64_t __blkcnt64_t;
 __extension__ typedef unsigned long int __fsblkcnt_t;
-__extension__ typedef __u_quad_t __fsblkcnt64_t;
+__extension__ typedef __uint64_t __fsblkcnt64_t;
 __extension__ typedef unsigned long int __fsfilcnt_t;
-__extension__ typedef __u_quad_t __fsfilcnt64_t;
+__extension__ typedef __uint64_t __fsfilcnt64_t;
 __extension__ typedef int __fsword_t;
 __extension__ typedef int __ssize_t;
 __extension__ typedef long int __syscall_slong_t;
@@ -68,12 +78,18 @@ typedef char *__caddr_t;
 __extension__ typedef int __intptr_t;
 __extension__ typedef unsigned int __socklen_t;
 typedef int __sig_atomic_t;
-static __inline unsigned int
-__bswap_32 (unsigned int __bsx)
+__extension__ typedef __int64_t __time64_t;
+static __inline __uint16_t
+__bswap_16 (__uint16_t __bsx)
+{
+  return __builtin_bswap16 (__bsx);
+}
+static __inline __uint32_t
+__bswap_32 (__uint32_t __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-static __inline __uint64_t
+__extension__ static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
   return __builtin_bswap64 (__bsx);
@@ -695,7 +711,9 @@ void __VERIFIER_atomic_w()
 void* thr1(void* arg) {
   __VERIFIER_atomic_w();
   x = 3;
+  __VERIFIER_atomic_begin();
   w = 0;
+  __VERIFIER_atomic_end();
   return 0;
 }
 void __VERIFIER_atomic_r()
@@ -705,9 +723,25 @@ void __VERIFIER_atomic_r()
 }
 void* thr2(void* arg) {
   __VERIFIER_atomic_r();
-  y = x;
-  { if(!(y == x)) { ERROR: {reach_error();abort();}(void)0; } };
-  r = r-1;
+  __VERIFIER_atomic_begin();
+  int l = x;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  y = l;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int ly = y;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int lx = x;
+  __VERIFIER_atomic_end();
+  { if(!(ly == lx)) { ERROR: {reach_error();abort();}(void)0; } };
+  __VERIFIER_atomic_begin();
+  int lr = r;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  r = lr-1;
+  __VERIFIER_atomic_end();
   return 0;
 }
 int main()
