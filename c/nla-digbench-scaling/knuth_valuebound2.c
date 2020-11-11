@@ -3,7 +3,8 @@
 #include <limits.h>
 
 extern void abort(void);
-void reach_error(){}
+#include <assert.h>
+void reach_error() { assert(0); }
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
@@ -23,9 +24,9 @@ int main() {
     unsigned n, a;
     unsigned r, k, q, d, s, t;
     n = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(n>0 && n<=2);
+    assume_abort_if_not(n>=0 && n<=2);
     a = __VERIFIER_nondet_unsigned_int();
-    assume_abort_if_not(a>0 && a<=2);
+    assume_abort_if_not(a>=0 && a<=2);
     assume_abort_if_not(n < UINT_MAX/8);
     assume_abort_if_not(a > 2);
 
