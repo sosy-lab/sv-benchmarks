@@ -5,7 +5,7 @@ input_files:
   - CWE369_Divide_by_Zero__float_connect_tcp_divide_81a_good/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: true
 
 options:
   language: Java
