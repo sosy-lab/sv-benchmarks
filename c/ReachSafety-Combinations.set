@@ -1,0 +1,2 @@
+# Contains programs combined from other sv-benchmark tasks through loose coupling
+combinations/*.yml
