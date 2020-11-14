@@ -5,7 +5,7 @@ input_files:
   - CWE369_Divide_by_Zero__float_console_readLine_divide_54_bad_version2/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: true
 
 options:
   language: Java
