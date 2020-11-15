@@ -5288,7 +5288,7 @@ int select_input(struct usb_device *p , int input , int mode ) ;
 int read_saa(struct usb_device *p , u16 reg0 ) ;
 int start_100(struct usb_device *p ) ;
 int stop_100(struct usb_device *p ) ;
-char const *strerror(int err ) ;
+char const *ldv_strerror(int err ) ;
 int easycap_debug ;
 bool easycap_readback ;
 struct easycap_standard const easycap_standard[21U] ;
@@ -5304,7 +5304,7 @@ static int reset(struct easycap *peasycap ) ;
 static int field2frame(struct easycap *peasycap ) ;
 static int redaub(struct easycap *peasycap , void *pad , void *pex , int much , int more ,
                   u8 mask , u8 margin , bool isuy ) ;
-char const *strerror(int err )
+char const *ldv_strerror(int err )
 {
   {
   switch (err) {
@@ -6004,7 +6004,7 @@ int easycap_video_submit_urbs(struct easycap *peasycap )
       rc = ldv_usb_submit_urb_2(purb, 208U);
       if (rc != 0) {
         isbad = isbad + 1;
-        tmp___0 = strerror(rc);
+        tmp___0 = ldv_strerror(rc);
         printk("<7>easycap::%i%s: OLD_ERROR: usb_submit_urb() failed for urb with rc:-%s\n",
                peasycap->isdongle, "easycap_video_submit_urbs", tmp___0);
         if (rc == -28) {
@@ -8513,7 +8513,7 @@ static void easycap_complete(struct urb *purb )
     if (peasycap->video_isoc_streaming != 0) {
       rc = ldv_usb_submit_urb_5(purb, 32U);
       if (rc != 0) {
-        tmp = strerror(rc);
+        tmp = ldv_strerror(rc);
         printk("<7>easycap::%i%s: %s:%d ENOMEM\n", peasycap->isdongle, "easycap_complete",
                tmp, rc);
         if (rc != -19) {
@@ -8546,7 +8546,7 @@ static void easycap_complete(struct urb *purb )
     } else {
     }
     peasycap->field_buffer[peasycap->field_fill][0].kount = (u16 )((unsigned int )peasycap->field_buffer[peasycap->field_fill][0].kount | 32768U);
-    tmp___0 = strerror(purb->status);
+    tmp___0 = ldv_strerror(purb->status);
     printk("<7>easycap::%i%s: OLD_ERROR: bad urb status -%s: %d\n", peasycap->isdongle,
            "easycap_complete", tmp___0, purb->status);
   } else {
@@ -8555,7 +8555,7 @@ static void easycap_complete(struct urb *purb )
     ldv_33365: ;
     if (purb->iso_frame_desc[i].status != 0) {
       peasycap->field_buffer[peasycap->field_fill][0].kount = (u16 )((unsigned int )peasycap->field_buffer[peasycap->field_fill][0].kount | 32768U);
-      tmp___1 = strerror(purb->iso_frame_desc[i].status);
+      tmp___1 = ldv_strerror(purb->iso_frame_desc[i].status);
       strcpy((char *)(& errbuf), tmp___1);
     } else {
     }
@@ -8786,7 +8786,7 @@ static void easycap_complete(struct urb *purb )
   if (peasycap->video_isoc_streaming != 0) {
     rc = ldv_usb_submit_urb_6(purb, 32U);
     if (rc != 0) {
-      tmp___3 = strerror(rc);
+      tmp___3 = ldv_strerror(rc);
       printk("<7>easycap::%i%s: %s: %d\n", peasycap->isdongle, "easycap_complete",
              tmp___3, rc);
       if (rc != -19) {
@@ -16272,7 +16272,7 @@ static int easycap_audio_submit_urbs(struct easycap *peasycap )
     rc = ldv_usb_submit_urb_23(purb, 208U);
     if (rc != 0) {
       isbad = isbad + 1;
-      tmp___0 = strerror(rc);
+      tmp___0 = ldv_strerror(rc);
       printk("<7>easycap::%i%s: OLD_ERROR: usb_submit_urb() failed for urb with rc: -%s: %d\n",
              peasycap->isdongle, "easycap_audio_submit_urbs", tmp___0, rc);
     } else {
@@ -16452,7 +16452,7 @@ void easycap_alsa_complete(struct urb *purb )
       return;
     } else {
     }
-    tmp___0 = strerror(purb->status);
+    tmp___0 = ldv_strerror(purb->status);
     printk("<7>easycap::%i%s: OLD_ERROR: non-zero urb status: -%s: %d\n", peasycap->isdongle,
            "easycap_alsa_complete", tmp___0, purb->status);
     goto resubmit;
@@ -16463,7 +16463,7 @@ void easycap_alsa_complete(struct urb *purb )
   goto ldv_32588;
   ldv_32587: ;
   if (purb->iso_frame_desc[i].status < 0) {
-    tmp___1 = strerror(purb->iso_frame_desc[i].status);
+    tmp___1 = ldv_strerror(purb->iso_frame_desc[i].status);
     printk("<7>easycap::%i%s: -%s: %d\n", peasycap->isdongle, "easycap_alsa_complete",
            tmp___1, purb->iso_frame_desc[i].status);
   } else {
@@ -16619,7 +16619,7 @@ void easycap_alsa_complete(struct urb *purb )
   rc = ldv_usb_submit_urb_24(purb, 32U);
   if (rc != 0) {
     if (rc != -19 && rc != -2) {
-      tmp___2 = strerror(rc);
+      tmp___2 = ldv_strerror(rc);
       printk("<7>easycap::%i%s: OLD_ERROR: while %i=audio_idle, usb_submit_urb failed with rc: -%s :%d\n",
              peasycap->isdongle, "easycap_alsa_complete", peasycap->audio_idle, tmp___2,
              rc);

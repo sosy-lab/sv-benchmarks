@@ -3846,7 +3846,7 @@ extern void warn_slowpath_fmt(char const * , int const , char const * , ...) ;
 extern void might_fault(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
-unsigned long strlen(char const *str ) ;
+unsigned long ldv_strlen(char const *str ) ;
 extern char *strncpy(char * , char const * , __kernel_size_t ) ;
 extern size_t strlcpy(char * , char const * , size_t ) ;
 extern void __init_waitqueue_head(wait_queue_head_t * , struct lock_class_key * ) ;
@@ -4698,7 +4698,7 @@ static int si4713_set_rds_ps_name(struct si4713_device *sdev , char *ps_name )
   {
   rval = 0;
   len = 0U;
-  tmp = strlen((char const *)ps_name);
+  tmp = ldv_strlen((char const *)ps_name);
   if (tmp == 0UL) {
     memset((void *)ps_name, 0, 97UL);
   } else {
@@ -4719,9 +4719,9 @@ static int si4713_set_rds_ps_name(struct si4713_device *sdev , char *ps_name )
       goto ldv_25807;
     } else {
     }
-    tmp___1 = strlen((char const *)ps_name);
+    tmp___1 = ldv_strlen((char const *)ps_name);
     if (tmp___1 != 0UL) {
-      tmp___0 = strlen((char const *)ps_name);
+      tmp___0 = ldv_strlen((char const *)ps_name);
       len = (unsigned int )((u8 )tmp___0) - 1U;
     } else {
       len = 1U;
@@ -4769,7 +4769,7 @@ static int si4713_set_rds_radio_text(struct si4713_device *sdev , char *rt )
     goto unlock;
   } else {
   }
-  tmp = strlen((char const *)rt);
+  tmp = ldv_strlen((char const *)rt);
   if (tmp == 0UL) {
     goto copy;
   } else {
@@ -4955,7 +4955,7 @@ static int si4713_write_econtrol_string(struct si4713_device *sdev , struct v4l2
   } else {
   }
   ps_name[len] = 0;
-  tmp___0 = strlen((char const *)(& ps_name));
+  tmp___0 = ldv_strlen((char const *)(& ps_name));
   if (tmp___0 % (size_t )vqc.step != 0UL) {
     rval = -34;
     goto exit;
@@ -4979,7 +4979,7 @@ static int si4713_write_econtrol_string(struct si4713_device *sdev , struct v4l2
   } else {
   }
   radio_text[len] = 0;
-  tmp___2 = strlen((char const *)(& radio_text));
+  tmp___2 = ldv_strlen((char const *)(& radio_text));
   if (tmp___2 % (size_t )vqc.step != 0UL) {
     rval = -34;
     goto exit;
@@ -5348,14 +5348,14 @@ static int si4713_read_econtrol_string(struct si4713_device *sdev , struct v4l2_
   rval = 0;
   switch (control->id) {
   case 10160389U:
-  tmp = strlen((char const *)(& sdev->rds_info.ps_name));
+  tmp = ldv_strlen((char const *)(& sdev->rds_info.ps_name));
   if (tmp + 1UL > (size_t )control->size) {
     control->size = 97U;
     rval = -28;
     goto exit;
   } else {
   }
-  tmp___0 = strlen((char const *)(& sdev->rds_info.ps_name));
+  tmp___0 = ldv_strlen((char const *)(& sdev->rds_info.ps_name));
   rval = copy_to_user((void *)control->ldv_23757.string, (void const *)(& sdev->rds_info.ps_name),
                       (unsigned int )tmp___0 + 1U);
   if (rval != 0) {
@@ -5364,14 +5364,14 @@ static int si4713_read_econtrol_string(struct si4713_device *sdev , struct v4l2_
   }
   goto ldv_25943;
   case 10160390U:
-  tmp___1 = strlen((char const *)(& sdev->rds_info.radio_text));
+  tmp___1 = ldv_strlen((char const *)(& sdev->rds_info.radio_text));
   if (tmp___1 + 1UL > (size_t )control->size) {
     control->size = 385U;
     rval = -28;
     goto exit;
   } else {
   }
-  tmp___2 = strlen((char const *)(& sdev->rds_info.radio_text));
+  tmp___2 = ldv_strlen((char const *)(& sdev->rds_info.radio_text));
   rval = copy_to_user((void *)control->ldv_23757.string, (void const *)(& sdev->rds_info.radio_text),
                       (unsigned int )tmp___2 + 1U);
   if (rval != 0) {
@@ -6571,7 +6571,7 @@ __inline static void ldv_stop___0(void)
 }
 }
 void ldv_check_ret_val(int res ) ;
-unsigned long strlen(char const *str )
+unsigned long ldv_strlen(char const *str )
 {
   size_t res ;
   int tmp ;
