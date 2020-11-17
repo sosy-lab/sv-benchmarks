@@ -571,7 +571,8 @@ u_char ip_protox[IPPROTO_MAX];
 u_char ip6_protox[IPPROTO_MAX];
 
 /* from sys/netinet/ip_input.c */
-struct cpumem *ipcounters;
+struct cpumem ipcounters_array[ips_ncounters + 1];
+struct cpumem *ipcounters = ipcounters_array;
 
 /* from sys/netinet6/ip6_input.c */
 struct cpumem *ip6counters;
@@ -630,6 +631,8 @@ int ip_deliver(struct mbuf **mp, int *offp, int nxt, int af) {
       psw = &inet6sw[ip6_protox[nxt]];
       break;
     }
+    if (!psw->pr_input)
+      goto bad;
     nxt = (*psw->pr_input)(mp, offp, nxt, af);
     af = naf;
   }
