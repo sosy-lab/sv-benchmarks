@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -669,161 +670,12 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-
-typedef __u_char u_char;
-typedef __u_short u_short;
-typedef __u_int u_int;
-typedef __u_long u_long;
-typedef __quad_t quad_t;
-typedef __u_quad_t u_quad_t;
-typedef __fsid_t fsid_t;
-typedef __loff_t loff_t;
-typedef __ino_t ino_t;
-typedef __dev_t dev_t;
-typedef __gid_t gid_t;
-typedef __mode_t mode_t;
-typedef __nlink_t nlink_t;
-typedef __uid_t uid_t;
-typedef __off_t off_t;
-typedef __id_t id_t;
-typedef __ssize_t ssize_t;
-typedef __daddr_t daddr_t;
-typedef __caddr_t caddr_t;
-typedef __key_t key_t;
-typedef unsigned long int ulong;
-typedef unsigned short int ushort;
-typedef unsigned int uint;
-typedef __int8_t int8_t;
-typedef __int16_t int16_t;
-typedef __int32_t int32_t;
-typedef __int64_t int64_t;
-typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
-typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
-typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
-typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
-typedef int register_t __attribute__ ((__mode__ (__word__)));
-typedef struct
-{
-  unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
-} __sigset_t;
-typedef __sigset_t sigset_t;
-struct timeval
-{
-  __time_t tv_sec;
-  __suseconds_t tv_usec;
-};
-typedef __suseconds_t suseconds_t;
-typedef long int __fd_mask;
-typedef struct
-  {
-    __fd_mask __fds_bits[1024 / (8 * (int) sizeof (__fd_mask))];
-  } fd_set;
-typedef __fd_mask fd_mask;
-
-extern int select (int __nfds, fd_set *__restrict __readfds,
-     fd_set *__restrict __writefds,
-     fd_set *__restrict __exceptfds,
-     struct timeval *__restrict __timeout);
-extern int pselect (int __nfds, fd_set *__restrict __readfds,
-      fd_set *__restrict __writefds,
-      fd_set *__restrict __exceptfds,
-      const struct timespec *__restrict __timeout,
-      const __sigset_t *__restrict __sigmask);
-
-
-extern unsigned int gnu_dev_major (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern unsigned int gnu_dev_minor (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern __dev_t gnu_dev_makedev (unsigned int __major, unsigned int __minor) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-
-typedef __blksize_t blksize_t;
-typedef __blkcnt_t blkcnt_t;
-typedef __fsblkcnt_t fsblkcnt_t;
-typedef __fsfilcnt_t fsfilcnt_t;
-
-
-struct stat
-  {
-    __dev_t st_dev;
-    unsigned short int __pad1;
-    __ino_t st_ino;
-    __mode_t st_mode;
-    __nlink_t st_nlink;
-    __uid_t st_uid;
-    __gid_t st_gid;
-    __dev_t st_rdev;
-    unsigned short int __pad2;
-    __off_t st_size;
-    __blksize_t st_blksize;
-    __blkcnt_t st_blocks;
-    struct timespec st_atim;
-    struct timespec st_mtim;
-    struct timespec st_ctim;
-    unsigned long int __glibc_reserved4;
-    unsigned long int __glibc_reserved5;
-  };
-extern int stat (const char *__restrict __file,
-   struct stat *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int fstat (int __fd, struct stat *__buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int fstatat (int __fd, const char *__restrict __file,
-      struct stat *__restrict __buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int lstat (const char *__restrict __file,
-    struct stat *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int chmod (const char *__file, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int lchmod (const char *__file, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int fchmod (int __fd, __mode_t __mode) __attribute__ ((__nothrow__ , __leaf__));
-extern int fchmodat (int __fd, const char *__file, __mode_t __mode,
-       int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) ;
-extern __mode_t umask (__mode_t __mask) __attribute__ ((__nothrow__ , __leaf__));
-extern int mkdir (const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mkdirat (int __fd, const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int mknod (const char *__path, __mode_t __mode, __dev_t __dev)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mknodat (int __fd, const char *__path, __mode_t __mode,
-      __dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int mkfifo (const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mkfifoat (int __fd, const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int utimensat (int __fd, const char *__path,
-        const struct timespec __times[2],
-        int __flags)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int futimens (int __fd, const struct timespec __times[2]) __attribute__ ((__nothrow__ , __leaf__));
-extern int __fxstat (int __ver, int __fildes, struct stat *__stat_buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
-extern int __xstat (int __ver, const char *__filename,
-      struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __lxstat (int __ver, const char *__filename,
-       struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __fxstatat (int __ver, int __fildes, const char *__filename,
-         struct stat *__stat_buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4)));
-extern int __xmknod (int __ver, const char *__path, __mode_t __mode,
-       __dev_t *__dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-extern int __xmknodat (int __ver, int __fd, const char *__path,
-         __mode_t __mode, __dev_t *__dev)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 5)));
-
-
-enum
-{
-  FTW_F,
-  FTW_D,
-  FTW_DNR,
-  FTW_NS,
-  FTW_SL,
-};
-typedef int (*__ftw_func_t) (const char *__filename,
-        const struct stat *__status, int __flag);
-extern int ftw (const char *__dir, __ftw_func_t __func, int __descriptors)
-     __attribute__ ((__nonnull__ (1, 2)));
-
+void foo(int (*callback)()) {
+  for (int i = 0; i < 10; i++) {
+    if (__VERIFIER_nondet_int())
+      callback();
+  }
+}
 int glob;
 pthread_mutex_t mutex1 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
 pthread_mutex_t mutex2 = { { 0, 0, 0, 0, 0, { { 0, 0 } } } };
@@ -833,7 +685,7 @@ void *t_fun(void *arg) {
   pthread_mutex_unlock(&mutex2);
   return ((void *)0);
 }
-int reset_glob(char const *path, struct stat const *sp, int f) {
+int bar() {
   pthread_mutex_lock(&mutex1);
   glob=glob+1;
   pthread_mutex_unlock(&mutex1);
@@ -842,7 +694,7 @@ int reset_glob(char const *path, struct stat const *sp, int f) {
 int main() {
   pthread_t id;
   pthread_create(&id, ((void *)0), t_fun, ((void *)0));
-  ftw(".", reset_glob, 10);
+  foo(bar);
   pthread_join (id, ((void *)0));
   return 0;
 }
