@@ -5,6 +5,7 @@ input_files: 'pals_lcr.4.ufo.BOUNDED-8.pals+Problem12_label09.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: True
+  - property_file: ../properties/coverage-branches.prp
 
 options:
   language: C
