@@ -39,9 +39,16 @@ void *my_callback(void *arg) {
 	struct my_data *data;
 	data = container_of(dev, struct my_data, dev);
 	
-	pthread_mutex_lock (&data->lock);
-	data->shared.a = 1;
-	data->shared.b = data->shared.b + 1;
+    pthread_mutex_lock (&data->lock);
+    __VERIFIER_atomic_begin();
+    data->shared.a = 1;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    int lb = data->shared.b;
+    __VERIFIER_atomic_end();
+    __VERIFIER_atomic_begin();
+    data->shared.b = lb + 1;
+    __VERIFIER_atomic_end();
 	pthread_mutex_unlock (&data->lock);
 	return 0;
 }
