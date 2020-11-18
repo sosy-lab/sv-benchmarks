@@ -2412,7 +2412,7 @@ int getlogin_r(char *buf, size_t bufsize)
     }
     int size = __VERIFIER_nondet_int();
     assume_abort_if_not(size > 0 && size < bufsize);
-    for (int i; i < size; ++i) {
+    for (int i = 0; i < size; ++i) {
         buf[i] = __VERIFIER_nondet_char();
     }
     buf[size] = '\0';
