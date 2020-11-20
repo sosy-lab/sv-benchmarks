@@ -1,3 +1,5 @@
+// lacks proper initialization (see https://github.com/sosy-lab/sv-benchmarks/issues/1207)
+
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
