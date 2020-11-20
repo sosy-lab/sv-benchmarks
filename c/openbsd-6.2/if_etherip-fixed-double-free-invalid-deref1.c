@@ -631,8 +631,7 @@ int ip_deliver(struct mbuf **mp, int *offp, int nxt, int af) {
       psw = &inet6sw[ip6_protox[nxt]];
       break;
     }
-    if (!psw->pr_input)
-      goto bad;
+    /* BUG: psw->pr_input may be null */
     nxt = (*psw->pr_input)(mp, offp, nxt, af);
     af = naf;
   }

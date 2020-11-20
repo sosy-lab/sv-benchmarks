@@ -4943,8 +4943,7 @@ struct protosw *pffindproto(int family, int protocol, int type) {
 }
 u_char ip_protox[256];
 u_char ip6_protox[256];
-struct cpumem ipcounters_array[ips_ncounters + 1];
-struct cpumem *ipcounters = ipcounters_array;
+struct cpumem *ipcounters;
 struct cpumem *ip6counters;
 void ip6_init(void) {
   struct protosw *pr;

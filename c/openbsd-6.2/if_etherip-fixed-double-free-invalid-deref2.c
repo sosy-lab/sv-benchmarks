@@ -571,8 +571,8 @@ u_char ip_protox[IPPROTO_MAX];
 u_char ip6_protox[IPPROTO_MAX];
 
 /* from sys/netinet/ip_input.c */
-struct cpumem ipcounters_array[ips_ncounters + 1];
-struct cpumem *ipcounters = ipcounters_array;
+/* BUG: ipcounters is null and can be dererefenced in counters_inc() */
+struct cpumem *ipcounters;
 
 /* from sys/netinet6/ip6_input.c */
 struct cpumem *ip6counters;
