@@ -13953,7 +13953,7 @@ void ldv_pci_unregister_driver_27(struct pci_driver *ldv_func_arg1 )
   return;
 }
 }
-size_t strlen(char const   *str ) ;
+size_t ldv_strlen(char const   *str ) ;
 __kernel_size_t strnlen(char const   *s , __kernel_size_t count ) ;
 __inline static void ldv_error(void) 
 { 
@@ -13965,7 +13965,7 @@ __inline static void ldv_error(void)
 }
 }
 void ldv_check_ret_val(int res ) ;
-size_t strlen(char const   *str ) 
+size_t ldv_strlen(char const   *str ) 
 { 
   size_t res ;
   int tmp ;

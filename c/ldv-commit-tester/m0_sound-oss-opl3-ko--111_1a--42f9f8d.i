@@ -6160,7 +6160,7 @@ __inline static unsigned long ldv_copy_from_user_7(void *to , void const *from ,
   return (tmp);
 }
 }
-unsigned long strlen(char const *str ) ;
+unsigned long ldv_strlen(char const *str ) ;
 __kernel_size_t strnlen(char const *s , __kernel_size_t count ) ;
 __inline static void ldv_error(void)
 {
@@ -6183,7 +6183,7 @@ long ldv__builtin_expect(long exp , long c )
 }
 }
 void ldv_check_ret_val(int res ) ;
-unsigned long strlen(char const *str )
+unsigned long ldv_strlen(char const *str )
 {
   size_t res ;
   int tmp ;

@@ -14221,7 +14221,7 @@ int ldv_del_timer_sync_25(struct timer_list *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
-unsigned long strlen(char const   *str ) ;
+unsigned long ldv_strlen(char const   *str ) ;
 __kernel_size_t strnlen(char const   *s , __kernel_size_t count ) ;
 __inline static void ldv_stop___0(void) 
 { 
@@ -14233,7 +14233,7 @@ __inline static void ldv_stop___0(void)
 }
 }
 void ldv_check_ret_val(int res ) ;
-unsigned long strlen(char const   *str ) 
+unsigned long ldv_strlen(char const   *str ) 
 { 
   size_t res ;
   int tmp ;
