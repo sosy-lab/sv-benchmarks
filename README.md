@@ -138,7 +138,7 @@ currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-
 
 In order to obtain verification tasks from the programs and specifications in the repository,
 a simple task-definition mechanism is used.
-We use [version 2.0 of this format](https://gitlab.com/sosy-lab/software/task-definition-format/-/tree/2.0)
+We use [version 2.0 of this format](https://gitlab.com/sosy-lab/benchmarking/task-definition-format/-/tree/2.0)
 with some additional requirements.
 For each program, the repository contains a .yml file that specifies the following items:
   - `format_version`: the version of the format (the version string `2.0`)
