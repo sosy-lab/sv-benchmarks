@@ -10,7 +10,8 @@ properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: true
   - property_file: ../properties/valid-memsafety.prp
-    expected_verdict: true
+    expected_verdict: false
+    subproperty: valid-memtrack
   - property_file: ../properties/valid-memcleanup.prp
     expected_verdict: false
 
