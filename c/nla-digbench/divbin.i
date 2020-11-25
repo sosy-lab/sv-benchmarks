@@ -10,7 +10,7 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "divbin.c", 10, __extension__ __PRETTY_FUNCTION__); })); }
-extern unsigned __VERIFIER_nondet_unsigned_int(void);
+extern unsigned __VERIFIER_nondet_uint(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
@@ -25,8 +25,8 @@ void __VERIFIER_assert(int cond) {
 int main() {
   unsigned A, B;
   unsigned q, r, b;
-    A = __VERIFIER_nondet_unsigned_int();
-    B = __VERIFIER_nondet_unsigned_int();
+    A = __VERIFIER_nondet_uint();
+    B = __VERIFIER_nondet_uint();
     assume_abort_if_not(B < (0x7fffffff * 2U + 1U)/2);
     assume_abort_if_not(B >= 1);
     q = 0;

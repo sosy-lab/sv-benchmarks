@@ -10,7 +10,7 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; else __assert_fail ("0", "knuth.c", 7, __extension__ __PRETTY_FUNCTION__); })); }
-extern unsigned __VERIFIER_nondet_unsigned_int(void);
+extern unsigned __VERIFIER_nondet_uint(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
@@ -26,8 +26,8 @@ extern double sqrt(double);
 int main() {
     unsigned n, a;
     unsigned r, k, q, d, s, t;
-    n = __VERIFIER_nondet_unsigned_int();
-    a = __VERIFIER_nondet_unsigned_int();
+    n = __VERIFIER_nondet_uint();
+    a = __VERIFIER_nondet_uint();
     assume_abort_if_not(n < (0x7fffffff * 2U + 1U)/8);
     assume_abort_if_not(a > 2);
     d = a;

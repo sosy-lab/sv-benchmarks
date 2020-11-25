@@ -8,7 +8,7 @@
 extern void abort(void);
 #include <assert.h>
 void reach_error() { assert(0); }
-extern unsigned __VERIFIER_nondet_unsigned_int(void);
+extern unsigned __VERIFIER_nondet_uint(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
@@ -24,7 +24,7 @@ void __VERIFIER_assert(int cond) {
 int main() {
   unsigned A, B;
   unsigned q, r, b;
-    A = __VERIFIER_nondet_unsigned_int();
+    A = __VERIFIER_nondet_uint();
     B = 1;
 
     q = 0;

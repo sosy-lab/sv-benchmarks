@@ -7,7 +7,7 @@ returns 1+x-y == 0
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void reach_error() { __assert_fail("0", "geo1-u.c", 9, "reach_error"); }
-extern unsigned int __VERIFIER_nondet_unsigned_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
@@ -22,8 +22,8 @@ void __VERIFIER_assert(int cond) {
 int main() {
     unsigned int z, k;
     long long x, y, c;
-    z = __VERIFIER_nondet_unsigned_int();
-    k = __VERIFIER_nondet_unsigned_int();
+    z = __VERIFIER_nondet_uint();
+    k = __VERIFIER_nondet_uint();
 
     x = 1;
     y = z;
