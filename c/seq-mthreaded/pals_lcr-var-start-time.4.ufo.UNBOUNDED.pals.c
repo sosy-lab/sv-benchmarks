@@ -199,7 +199,6 @@ void node4(void)
   return;
 }
 }
-void (*nodes[4])(void)  = {      & node1,      & node2,      & node3,      & node4};
 int init(void) 
 { 
   int tmp ;
