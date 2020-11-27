@@ -7776,28 +7776,6 @@ static
                                           0
                                                ;
 
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {
         fprintf(
@@ -10000,16 +9978,6 @@ uint64_t aws_hash_string(const void *item) {
     do { __VERIFIER_assert((aws_string_is_valid(str))); return ((uint64_t)b << 32) | c; } while (0);
 }
 
-uint64_t aws_hash_byte_cursor_ptr(const void *item) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
-    const struct aws_byte_cursor *cur = item;
-
-
-    uint32_t b = 0x3243F6A8, c = 0x885A308D;
-    hashlittle2(cur->ptr, cur->len, &c, &b);
-    do { __VERIFIER_assert((aws_byte_cursor_is_valid(cur))); return ((uint64_t)b << 32) | c; } while (0);
-}
-
 uint64_t aws_hash_ptr(const void *item) {
 
 
@@ -10030,22 +9998,6 @@ _Bool
    _Bool 
         rval = !strcmp(a, b);
     do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
-}
-
-
-_Bool 
-    aws_hash_callback_string_eq(const void *a, const void *b) {
-    assume_abort_if_not((aws_string_is_valid(a)));
-    assume_abort_if_not((aws_string_is_valid(b)));
-    
-   _Bool 
-        rval = aws_string_eq(a, b);
-    do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
-}
-
-void aws_hash_callback_string_destroy(void *a) {
-    assume_abort_if_not((aws_string_is_valid(a)));
-    aws_string_destroy(a);
 }
 
 

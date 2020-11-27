@@ -7070,24 +7070,6 @@ _Bool
     return container_is_bounded && backpointers_list_is_bounded;
 }
 
-void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *const queue) {
-    ensure_array_list_has_allocated_data_member(&queue->container);
-    ensure_array_list_has_allocated_data_member(&queue->backpointers);
-    queue->pred = nondet_compare;
-}
-
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -7737,28 +7719,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

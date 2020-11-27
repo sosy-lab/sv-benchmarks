@@ -2984,24 +2984,6 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
 }
 
 static inline
-int aws_array_list_push_back(struct aws_array_list *restrict list, const void *val) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    int err_code = aws_array_list_set_at(list, val, aws_array_list_length(list));
-
-    if (err_code && aws_last_error() == AWS_ERROR_INVALID_INDEX && !list->alloc) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return aws_raise_error(AWS_ERROR_LIST_EXCEEDS_MAX_SIZE);
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return err_code;
-}
-
-static inline
 int aws_array_list_front(const struct aws_array_list *restrict list, void *val) {
     assume_abort_if_not((aws_array_list_is_valid(list)));
     assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
@@ -3201,37 +3183,6 @@ int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void *
     }
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return aws_raise_error(AWS_ERROR_INVALID_INDEX);
-}
-
-static inline
-int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val, size_t index) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    if (aws_array_list_ensure_capacity(list, index)) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return (-1);
-    }
-
-    assume_abort_if_not((list->data));
-
-    my_memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
-
-
-
-
-
-    if (index >= aws_array_list_length(list)) {
-        if (aws_add_size_checked(index, 1, &list->length)) {
-            __VERIFIER_assert((aws_array_list_is_valid(list)));
-            return (-1);
-        }
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return (0);
 }
 
 static inline
@@ -6806,18 +6757,6 @@ void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *cons
     queue->pred = nondet_compare;
 }
 
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -7264,13 +7203,6 @@ void assert_ring_buffer_equivalence(
     }
 }
 
-void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
-    struct hash_table_state *state = map->p_impl;
-    size_t size_in_bytes;
-    assume_abort_if_not(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0));
-    save_byte_from_array((uint8_t *)state, size_in_bytes, storage);
-}
-
 void check_hash_table_unchanged(const struct aws_hash_table *map, const struct store_byte_from_buffer *storage) {
     struct hash_table_state *state = map->p_impl;
     uint8_t *byte_array = (uint8_t *)state;
@@ -7664,48 +7596,6 @@ _Bool
     return 
           1
               ;
-}
-
-int aws_byte_cursor_split_on_char_n(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    size_t n,
-    struct aws_array_list *restrict output) {
-    __VERIFIER_assert(input_str && input_str->ptr);
-    __VERIFIER_assert(output);
-    __VERIFIER_assert(output->item_size >= sizeof(struct aws_byte_cursor));
-
-    size_t max_splits = n > 0 ? n : 
-                                   (18446744073709551615UL)
-                                           ;
-    size_t split_count = 0;
-
-    struct aws_byte_cursor substr;
-    do { memset(&(substr), 0, sizeof(substr)); } while (0);
-
-
-    while (split_count <= max_splits && aws_byte_cursor_next_split(input_str, split_on, &substr)) {
-
-        if (split_count == max_splits) {
-
-            substr.len = input_str->len - (substr.ptr - input_str->ptr);
-        }
-
-        if (__builtin_expect(!!(aws_array_list_push_back(output, (const void *)&substr)), 0)) {
-            return (-1);
-        }
-        ++split_count;
-    }
-
-    return (0);
-}
-
-int aws_byte_cursor_split_on_char(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_array_list *restrict output) {
-
-    return aws_byte_cursor_split_on_char_n(input_str, split_on, 0, output);
 }
 
 int aws_byte_buf_cat(struct aws_byte_buf *dest, size_t number_of_args, ...) {
@@ -9077,28 +8967,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

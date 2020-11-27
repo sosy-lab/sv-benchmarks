@@ -3308,24 +3308,6 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
 }
 
 static inline
-int aws_array_list_push_back(struct aws_array_list *restrict list, const void *val) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    int err_code = aws_array_list_set_at(list, val, aws_array_list_length(list));
-
-    if (err_code && aws_last_error() == AWS_ERROR_INVALID_INDEX && !list->alloc) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return aws_raise_error(AWS_ERROR_LIST_EXCEEDS_MAX_SIZE);
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return err_code;
-}
-
-static inline
 int aws_array_list_front(const struct aws_array_list *restrict list, void *val) {
     assume_abort_if_not((aws_array_list_is_valid(list)));
     assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
@@ -3525,37 +3507,6 @@ int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void *
     }
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return aws_raise_error(AWS_ERROR_INVALID_INDEX);
-}
-
-static inline
-int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val, size_t index) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    if (aws_array_list_ensure_capacity(list, index)) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return (-1);
-    }
-
-    assume_abort_if_not((list->data));
-
-    memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
-
-
-
-
-
-    if (index >= aws_array_list_length(list)) {
-        if (aws_add_size_checked(index, 1, &list->length)) {
-            __VERIFIER_assert((aws_array_list_is_valid(list)));
-            return (-1);
-        }
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return (0);
 }
 
 static inline
@@ -7076,18 +7027,6 @@ void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *cons
     queue->pred = nondet_compare;
 }
 
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -7263,13 +7202,6 @@ void assert_ring_buffer_equivalence(
     }
 }
 
-void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
-    struct hash_table_state *state = map->p_impl;
-    size_t size_in_bytes;
-    assume_abort_if_not(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0));
-    save_byte_from_array((uint8_t *)state, size_in_bytes, storage);
-}
-
 void check_hash_table_unchanged(const struct aws_hash_table *map, const struct store_byte_from_buffer *storage) {
     struct hash_table_state *state = map->p_impl;
     uint8_t *byte_array = (uint8_t *)state;
@@ -7413,157 +7345,6 @@ void *___memset_chk(void *s, int c, size_t n, size_t os) {
     (void)os;
     return memset_impl(s, c, n);
 }
-static void s_swap(struct aws_priority_queue *queue, size_t a, size_t b) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((a < queue->container.length));
-    assume_abort_if_not((b < queue->container.length));
-    assume_abort_if_not((aws_priority_queue_backpointer_index_valid(queue, a)));
-    assume_abort_if_not((aws_priority_queue_backpointer_index_valid(queue, b)));
-
-    aws_array_list_swap(&queue->container, a, b);
-
-
-    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
-        __VERIFIER_assert(queue->backpointers.length > a);
-        __VERIFIER_assert(queue->backpointers.length > b);
-
-        struct aws_priority_queue_node **bp_a = &((struct aws_priority_queue_node **)queue->backpointers.data)[a];
-        struct aws_priority_queue_node **bp_b = &((struct aws_priority_queue_node **)queue->backpointers.data)[b];
-
-        struct aws_priority_queue_node *tmp = *bp_a;
-        *bp_a = *bp_b;
-        *bp_b = tmp;
-
-        if (*bp_a) {
-            (*bp_a)->current_index = a;
-        }
-
-        if (*bp_b) {
-            (*bp_b)->current_index = b;
-        }
-    }
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    __VERIFIER_assert((aws_priority_queue_backpointer_index_valid(queue, a)));
-    __VERIFIER_assert((aws_priority_queue_backpointer_index_valid(queue, b)));
-}
-
-
-
-static 
-      _Bool 
-           s_sift_down(struct aws_priority_queue *queue, size_t root) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((root < queue->container.length));
-
-    
-   _Bool 
-        did_move = 
-                   0
-                        ;
-
-    size_t len = aws_array_list_length(&queue->container);
-
-    while ((((root) << 1) + 1) < len) {
-        size_t left = (((root) << 1) + 1);
-        size_t right = (((root) << 1) + 2);
-        size_t first = root;
-        void *first_item = 
-                          ((void *)0)
-                              , *other_item = 
-                                              ((void *)0)
-                                                  ;
-
-        aws_array_list_get_at_ptr(&queue->container, &first_item, root);
-        aws_array_list_get_at_ptr(&queue->container, &other_item, left);
-
-        if (queue->pred(first_item, other_item) > 0) {
-            first = left;
-            first_item = other_item;
-        }
-
-        if (right < len) {
-            aws_array_list_get_at_ptr(&queue->container, &other_item, right);
-
-
-
-            if (queue->pred(first_item, other_item) > 0) {
-                first = right;
-                first_item = other_item;
-            }
-        }
-
-        if (first != root) {
-            s_swap(queue, first, root);
-            did_move = 
-                      1
-                          ;
-            root = first;
-        } else {
-            break;
-        }
-    }
-
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return did_move;
-}
-
-
-static 
-      _Bool 
-           s_sift_up(struct aws_priority_queue *queue, size_t index) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((index < queue->container.length));
-
-    
-   _Bool 
-        did_move = 
-                   0
-                        ;
-
-    void *parent_item, *child_item;
-    size_t parent = (((index)&1) ? (index) >> 1 : (index) > 1 ? ((index)-2) >> 1 : 0);
-    while (index) {
-
-
-
-
-
-        if (aws_array_list_get_at_ptr(&queue->container, &parent_item, parent) ||
-            aws_array_list_get_at_ptr(&queue->container, &child_item, index)) {
-            my_abort();
-        }
-
-        if (queue->pred(parent_item, child_item) > 0) {
-            s_swap(queue, index, parent);
-            did_move = 
-                      1
-                          ;
-            index = parent;
-            parent = (((index)&1) ? (index) >> 1 : (index) > 1 ? ((index)-2) >> 1 : 0);
-        } else {
-            break;
-        }
-    }
-
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return did_move;
-}
-
-
-
-
-
-static void s_sift_either(struct aws_priority_queue *queue, size_t index) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((index < queue->container.length));
-
-    if (!index || !s_sift_up(queue, index)) {
-        s_sift_down(queue, index);
-    }
-
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-}
-
 int aws_priority_queue_init_dynamic(
     struct aws_priority_queue *queue,
     struct aws_allocator *alloc,
@@ -7742,136 +7523,6 @@ void aws_priority_queue_clean_up(struct aws_priority_queue *queue) {
     if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
         aws_array_list_clean_up(&queue->backpointers);
     }
-}
-
-int aws_priority_queue_push(struct aws_priority_queue *queue, void *item) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
-    int rval = aws_priority_queue_push_ref(queue, item, 
-                                                       ((void *)0)
-                                                           );
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return rval;
-}
-
-int aws_priority_queue_push_ref(
-    struct aws_priority_queue *queue,
-    void *item,
-    struct aws_priority_queue_node *backpointer) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
-
-    int err = aws_array_list_push_back(&queue->container, item);
-    if (err) {
-        __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-        return err;
-    }
-    size_t index = aws_array_list_length(&queue->container) - 1;
-
-    if (backpointer && !queue->backpointers.alloc) {
-        if (!queue->container.alloc) {
-            aws_raise_error(AWS_ERROR_UNSUPPORTED_OPERATION);
-            goto backpointer_update_failed;
-        }
-
-        if (aws_array_list_init_dynamic(
-                &queue->backpointers, queue->container.alloc, index + 1, sizeof(struct aws_priority_queue_node *))) {
-            goto backpointer_update_failed;
-        }
-
-
-        my_memset(queue->backpointers.data, 0, queue->backpointers.current_size);
-    }
-
-
-
-
-
-
-    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
-        if (aws_array_list_set_at(&queue->backpointers, &backpointer, index)) {
-            goto backpointer_update_failed;
-        }
-    }
-
-    if (backpointer) {
-        backpointer->current_index = index;
-    }
-
-    s_sift_up(queue, aws_array_list_length(&queue->container) - 1);
-
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return (0);
-
-backpointer_update_failed:
-
-    aws_array_list_pop_back(&queue->container);
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return (-1);
-}
-
-static int s_remove_node(struct aws_priority_queue *queue, void *item, size_t item_index) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
-    if (aws_array_list_get_at(&queue->container, item, item_index)) {
-
-        __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-        return (-1);
-    }
-
-    size_t swap_with = aws_array_list_length(&queue->container) - 1;
-    struct aws_priority_queue_node *backpointer = 
-                                                 ((void *)0)
-                                                     ;
-
-    if (item_index != swap_with) {
-        s_swap(queue, item_index, swap_with);
-    }
-
-    aws_array_list_pop_back(&queue->container);
-
-    if (!aws_is_mem_zeroed(&(queue->backpointers), sizeof(queue->backpointers))) {
-        aws_array_list_get_at(&queue->backpointers, &backpointer, swap_with);
-        if (backpointer) {
-            backpointer->current_index = 
-                                        (18446744073709551615UL)
-                                                ;
-        }
-        aws_array_list_pop_back(&queue->backpointers);
-    }
-
-    if (item_index != swap_with) {
-        s_sift_either(queue, item_index);
-    }
-
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return (0);
-}
-
-int aws_priority_queue_remove(
-    struct aws_priority_queue *queue,
-    void *item,
-    const struct aws_priority_queue_node *node) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
-    assume_abort_if_not((node && ((((sizeof(struct aws_priority_queue_node))) == 0) || ((node)))));
-    do { if (!(node->current_index < aws_array_list_length(&queue->container))) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_BAD_NODE); } } while (0)
-                                                                                                          ;
-    do { if (!(queue->backpointers.data)) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_BAD_NODE); } } while (0);
-
-    int rval = s_remove_node(queue, item, node->current_index);
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return rval;
-}
-
-int aws_priority_queue_pop(struct aws_priority_queue *queue, void *item) {
-    assume_abort_if_not((aws_priority_queue_is_valid(queue)));
-    assume_abort_if_not((item && ((((queue->container.item_size)) == 0) || ((item)))));
-    do { if (!(aws_array_list_length(&queue->container) != 0)) { return aws_raise_error(AWS_ERROR_PRIORITY_QUEUE_EMPTY); } } while (0);
-
-    int rval = s_remove_node(queue, item, 0);
-    __VERIFIER_assert((aws_priority_queue_is_valid(queue)));
-    return rval;
 }
 
 int aws_priority_queue_top(const struct aws_priority_queue *queue, void **item) {
@@ -8242,28 +7893,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

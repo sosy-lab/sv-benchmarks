@@ -6244,28 +6244,6 @@ static
                                           0
                                                ;
 
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {
         fprintf(
@@ -7859,28 +7837,6 @@ size_t aws_hash_table_get_entry_count(const struct aws_hash_table *map) {
 
 
 
-static struct hash_table_state *s_alloc_state(const struct hash_table_state *template) {
-    size_t required_bytes;
-    if (hash_table_state_required_bytes(template->size, &required_bytes)) {
-        return 
-              ((void *)0)
-                  ;
-    }
-
-
-    struct hash_table_state *state = aws_mem_calloc(template->alloc, 1, required_bytes);
-
-    if (state == 
-                ((void *)0)
-                    ) {
-        return state;
-    }
-
-    *state = *template;
-    return state;
-}
-
-
 static int s_update_template_size(struct hash_table_state *template, size_t expected_elements) {
     size_t min_size = expected_elements;
 
@@ -7906,77 +7862,6 @@ static int s_update_template_size(struct hash_table_state *template, size_t expe
     template->mask = size - 1;
 
     return (0);
-}
-
-int aws_hash_table_init(
-    struct aws_hash_table *map,
-    struct aws_allocator *alloc,
-    size_t size,
-    aws_hash_fn *hash_fn,
-    aws_hash_callback_eq_fn *equals_fn,
-    aws_hash_callback_destroy_fn *destroy_key_fn,
-    aws_hash_callback_destroy_fn *destroy_value_fn) {
-    assume_abort_if_not((map != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((alloc != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((hash_fn != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((equals_fn != 
-   ((void *)0)
-   ));
-
-    struct hash_table_state template;
-    template.hash_fn = hash_fn;
-    template.equals_fn = equals_fn;
-    template.destroy_key_fn = destroy_key_fn;
-    template.destroy_value_fn = destroy_value_fn;
-    template.alloc = alloc;
-
-    template.entry_count = 0;
-    template.max_load_factor = 0.95;
-
-    if (s_update_template_size(&template, size)) {
-        return (-1);
-    }
-    map->p_impl = s_alloc_state(&template);
-
-    if (!map->p_impl) {
-        return (-1);
-    }
-
-    do { __VERIFIER_assert((aws_hash_table_is_valid(map))); return (0); } while (0);
-}
-
-void aws_hash_table_clean_up(struct aws_hash_table *map) {
-    assume_abort_if_not((map != 
-   ((void *)0)
-   ));
-    assume_abort_if_not((map->p_impl == 
-   ((void *)0) 
-   || aws_hash_table_is_valid(map)))
-
-
-                                                    ;
-    struct hash_table_state *state = map->p_impl;
-
-
-    if (!state) {
-        return;
-    }
-
-    aws_hash_table_clear(map);
-    aws_mem_release(map->p_impl->alloc, map->p_impl);
-
-    map->p_impl = 
-                 ((void *)0)
-                     ;
-    __VERIFIER_assert((map->p_impl == 
-   ((void *)0)
-   ));
 }
 
 void aws_hash_table_swap(struct aws_hash_table *restrict a, struct aws_hash_table *restrict b) {
@@ -8171,143 +8056,6 @@ static struct hash_table_entry *s_emplace_item(
 
                                                                                      ;
 }
-
-static int s_expand_table(struct aws_hash_table *map) {
-    struct hash_table_state *old_state = map->p_impl;
-    struct hash_table_state template = *old_state;
-
-    size_t new_size;
-    if (aws_mul_size_checked(template.size, 2, &new_size)) {
-        return (-1);
-    }
-
-    if (s_update_template_size(&template, new_size)) {
-        return (-1);
-    }
-
-    struct hash_table_state *new_state = s_alloc_state(&template);
-    if (!new_state) {
-        return (-1);
-    }
-
-    for (size_t i = 0; i < old_state->size; i++) {
-        struct hash_table_entry entry = old_state->slots[i];
-        if (entry.hash_code) {
-
-            s_emplace_item(new_state, entry, 0);
-        }
-    }
-
-    map->p_impl = new_state;
-    aws_mem_release(new_state->alloc, old_state);
-
-    return (0);
-}
-
-int aws_hash_table_create(
-    struct aws_hash_table *map,
-    const void *key,
-    struct aws_hash_element **p_elem,
-    int *was_created) {
-
-    struct hash_table_state *state = map->p_impl;
-    uint64_t hash_code = s_hash_for(state, key);
-    struct hash_table_entry *entry;
-    size_t probe_idx;
-    int ignored;
-    if (!was_created) {
-        was_created = &ignored;
-    }
-
-    int rv = s_find_entry(state, hash_code, key, &entry, &probe_idx);
-
-    if (rv == AWS_ERROR_SUCCESS) {
-        if (p_elem) {
-            *p_elem = &entry->element;
-        }
-        *was_created = 0;
-        return (0);
-    }
-
-
-    size_t incr_entry_count;
-    if (aws_add_size_checked(state->entry_count, 1, &incr_entry_count)) {
-        return (-1);
-    }
-    if (incr_entry_count > state->max_load) {
-        rv = s_expand_table(map);
-        if (rv != (0)) {
-
-            return rv;
-        }
-        state = map->p_impl;
-
-
-
-
-
-
-
-        probe_idx = 0;
-    }
-
-    state->entry_count++;
-    struct hash_table_entry new_entry;
-    new_entry.element.key = key;
-    new_entry.element.value = 
-                             ((void *)0)
-                                 ;
-    new_entry.hash_code = hash_code;
-
-    entry = s_emplace_item(state, new_entry, probe_idx);
-
-    if (p_elem) {
-        *p_elem = &entry->element;
-    }
-
-    *was_created = 1;
-
-    return (0);
-}
-
-
-int aws_hash_table_put(struct aws_hash_table *map, const void *key, void *value, int *was_created) {
-    struct aws_hash_element *p_elem;
-    int was_created_fallback;
-
-    if (!was_created) {
-        was_created = &was_created_fallback;
-    }
-
-    if (aws_hash_table_create(map, key, &p_elem, was_created)) {
-        return (-1);
-    }
-
-
-
-
-
-    struct hash_table_state *state = map->p_impl;
-
-    if (!*was_created) {
-        if (p_elem->key != key && state->destroy_key_fn) {
-            state->destroy_key_fn((void *)p_elem->key);
-        }
-
-        if (state->destroy_value_fn) {
-            state->destroy_value_fn((void *)p_elem->value);
-        }
-    }
-
-    p_elem->key = key;
-    p_elem->value = value;
-
-    return (0);
-}
-
-
-
-
 
 static size_t s_remove_entry(struct hash_table_state *state, struct hash_table_entry *entry) {
     assume_abort_if_not((hash_table_state_is_valid(state)));
@@ -8660,16 +8408,6 @@ uint64_t aws_hash_string(const void *item) {
     do { __VERIFIER_assert((aws_string_is_valid(str))); return ((uint64_t)b << 32) | c; } while (0);
 }
 
-uint64_t aws_hash_byte_cursor_ptr(const void *item) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
-    const struct aws_byte_cursor *cur = item;
-
-
-    uint32_t b = 0x3243F6A8, c = 0x885A308D;
-    hashlittle2(cur->ptr, cur->len, &c, &b);
-    do { __VERIFIER_assert((aws_byte_cursor_is_valid(cur))); return ((uint64_t)b << 32) | c; } while (0);
-}
-
 uint64_t aws_hash_ptr(const void *item) {
 
 
@@ -8690,22 +8428,6 @@ _Bool
    _Bool 
         rval = !strcmp(a, b);
     do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
-}
-
-
-_Bool 
-    aws_hash_callback_string_eq(const void *a, const void *b) {
-    assume_abort_if_not((aws_string_is_valid(a)));
-    assume_abort_if_not((aws_string_is_valid(b)));
-    
-   _Bool 
-        rval = aws_string_eq(a, b);
-    do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
-}
-
-void aws_hash_callback_string_destroy(void *a) {
-    assume_abort_if_not((aws_string_is_valid(a)));
-    aws_string_destroy(a);
 }
 
 
