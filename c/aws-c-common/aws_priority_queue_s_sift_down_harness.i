@@ -8491,7 +8491,6 @@ size_t aws_priority_queue_size(const struct aws_priority_queue *queue) {
 size_t aws_priority_queue_capacity(const struct aws_priority_queue *queue) {
     return aws_array_list_capacity(&queue->container);
 }
-void __CPROVER_file_local_priority_queue_c_s_sift_down(struct aws_priority_queue *queue, size_t root);
 
 void aws_priority_queue_s_sift_down_harness() {
 
@@ -8518,7 +8517,7 @@ void aws_priority_queue_s_sift_down_harness() {
     }
 
 
-    __CPROVER_file_local_priority_queue_c_s_sift_down(&queue, root);
+    s_sift_down(&queue, root);
 
 
     __VERIFIER_assert(aws_priority_queue_is_valid(&queue));
