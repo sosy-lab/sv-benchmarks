@@ -1931,7 +1931,8 @@ const char *aws_error_debug_str(int err);
 
 
 
-void aws_raise_error_private(int err);
+void aws_raise_error_private(int err) {
+}
 
 
 
