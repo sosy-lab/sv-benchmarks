@@ -7375,7 +7375,9 @@ uint64_t uninterpreted_hasher(const void *a) {
 
 
 _Bool 
-    uninterpreted_predicate_fn(uint8_t value);
+    uninterpreted_predicate_fn(uint8_t value) {
+    return value == 0;
+}
 static __thread int tl_last_error = 0;
 
 
