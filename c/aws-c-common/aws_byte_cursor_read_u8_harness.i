@@ -9098,8 +9098,9 @@ void aws_byte_cursor_read_u8_harness() {
     ensure_byte_cursor_has_allocated_buffer_member(&cur);
     assume_abort_if_not(aws_byte_cursor_is_valid(&cur));
 
-    
+    assume_abort_if_not(cur.len >= 1);
     assume_abort_if_not(dest);
+    assume_abort_if_not(length >= 1);
 
 
     struct aws_byte_cursor old_cur = cur;
