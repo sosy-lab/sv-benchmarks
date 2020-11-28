@@ -3,7 +3,7 @@
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void reach_error() { __assert_fail("0", "dijkstra-u.c", 5, "reach_error"); }
-extern unsigned int __VERIFIER_nondet_unsigned_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 extern void abort(void);
 void assume_abort_if_not(int cond) {
   if(!cond) {abort();}
@@ -19,7 +19,7 @@ void __VERIFIER_assert(int cond) {
 int main() {
     unsigned int n, p, q, r, h;
 
-    n = __VERIFIER_nondet_unsigned_int();
+    n = __VERIFIER_nondet_uint();
     assume_abort_if_not(n < 4294967295 / 4);  // Avoid non-terminating loop
 
     p = 0;
