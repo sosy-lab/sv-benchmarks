@@ -82,6 +82,7 @@ broken_by_unwindbound = [
         "ps4",
         "ps5",
         "ps6",
+        "divbin",      # only with bound >=10
         "dijkstra-u",  # only with bound >=5
         "fermat1-ll",  # CEX e.g. with A=11; R=4;
         "fermat2-ll",  # CEX e.g. with A=11; R=4;
@@ -92,6 +93,7 @@ broken_by_unwindbound = [
 ]
 broken_by_unwindbound_ge = {}
 broken_by_unwindbound_ge[p("dijkstra-u")] = 5
+broken_by_unwindbound_ge[p("divbin")] = 10
 
 REACH = "../properties/unreach-call.prp\n    expected_verdict: "
 skiplist = []
