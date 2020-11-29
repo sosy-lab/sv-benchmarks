@@ -151,7 +151,6 @@ void node3(void)
   return;
 }
 }
-void (*nodes[3])(void)  = {      & node1,      & node2,      & node3};
 int init(void) 
 { 
   int tmp ;

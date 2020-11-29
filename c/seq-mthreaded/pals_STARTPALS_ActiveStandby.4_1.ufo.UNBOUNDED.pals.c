@@ -410,7 +410,6 @@ void Pendulum_prism_task_each_pals_period(void)
   return;
 }
 }
-void (*nodes[4])(void)  = {      & Console_task_each_pals_period,      & Side1_activestandby_task_each_pals_period,      & Side2_activestandby_task_each_pals_period,      & Pendulum_prism_task_each_pals_period};
 int check(void) 
 { 
   int tmp ;

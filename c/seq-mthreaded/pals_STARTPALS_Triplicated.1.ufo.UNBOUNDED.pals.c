@@ -474,7 +474,6 @@ void voter(void)
   return;
 }
 }
-void (*nodes[4])(void)  = {      & gate1_each_pals_period,      & gate2_each_pals_period,      & gate3_each_pals_period,      & voter};
 int main(void) 
 { 
   int c1 ;

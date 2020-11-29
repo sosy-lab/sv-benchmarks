@@ -193,8 +193,6 @@ void node5(void)
   return;
 }
 }
-void (*nodes[5])(void)  = {      & node1,      & node2,      & node3,      & node4, 
-        & node5};
 int init(void) 
 { 
   int tmp ;

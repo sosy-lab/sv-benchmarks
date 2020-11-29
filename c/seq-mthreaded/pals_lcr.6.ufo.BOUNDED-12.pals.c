@@ -220,8 +220,6 @@ void node6(void)
   return;
 }
 }
-void (*nodes[6])(void)  = {      & node1,      & node2,      & node3,      & node4, 
-        & node5,      & node6};
 int init(void) 
 { 
   int tmp ;
