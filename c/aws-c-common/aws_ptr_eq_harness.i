@@ -1936,7 +1936,6 @@ void aws_raise_error_private(int err);
 
 
 
-static inline
 int aws_raise_error(int err);
 
 
@@ -2616,7 +2615,7 @@ static inline size_t aws_mul_size_saturating(size_t a, size_t b);
 
 
 
-static inline int aws_mul_size_checked(size_t a, size_t b, size_t *r);
+int aws_mul_size_checked(size_t a, size_t b, size_t *r);
 
 
 
@@ -2627,7 +2626,7 @@ static inline size_t aws_add_size_saturating(size_t a, size_t b);
 
 
 
-static inline int aws_add_size_checked(size_t a, size_t b, size_t *r);
+int aws_add_size_checked(size_t a, size_t b, size_t *r);
 
 
 
