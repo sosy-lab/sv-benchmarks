@@ -6806,18 +6806,6 @@ void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *cons
     queue->pred = nondet_compare;
 }
 
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -7262,13 +7250,6 @@ void assert_ring_buffer_equivalence(
         __VERIFIER_assert(lhs->tail.value == rhs->tail.value);
         __VERIFIER_assert(lhs->allocation_end == rhs->allocation_end);
     }
-}
-
-void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
-    struct hash_table_state *state = map->p_impl;
-    size_t size_in_bytes;
-    assume_abort_if_not(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0));
-    save_byte_from_array((uint8_t *)state, size_in_bytes, storage);
 }
 
 void check_hash_table_unchanged(const struct aws_hash_table *map, const struct store_byte_from_buffer *storage) {
@@ -7980,28 +7961,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

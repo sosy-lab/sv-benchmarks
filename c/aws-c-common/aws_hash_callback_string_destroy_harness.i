@@ -1931,7 +1931,8 @@ const char *aws_error_debug_str(int err);
 
 
 
-void aws_raise_error_private(int err);
+void aws_raise_error_private(int err) {
+}
 
 
 
@@ -7733,28 +7734,6 @@ static
                                           0
                                                ;
 
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {
         fprintf(
@@ -9957,16 +9936,6 @@ uint64_t aws_hash_string(const void *item) {
     do { __VERIFIER_assert((aws_string_is_valid(str))); return ((uint64_t)b << 32) | c; } while (0);
 }
 
-uint64_t aws_hash_byte_cursor_ptr(const void *item) {
-    assume_abort_if_not((aws_byte_cursor_is_valid(item)));
-    const struct aws_byte_cursor *cur = item;
-
-
-    uint32_t b = 0x3243F6A8, c = 0x885A308D;
-    hashlittle2(cur->ptr, cur->len, &c, &b);
-    do { __VERIFIER_assert((aws_byte_cursor_is_valid(cur))); return ((uint64_t)b << 32) | c; } while (0);
-}
-
 uint64_t aws_hash_ptr(const void *item) {
 
 
@@ -9989,16 +9958,6 @@ _Bool
     do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
 }
 
-
-_Bool 
-    aws_hash_callback_string_eq(const void *a, const void *b) {
-    assume_abort_if_not((aws_string_is_valid(a)));
-    assume_abort_if_not((aws_string_is_valid(b)));
-    
-   _Bool 
-        rval = aws_string_eq(a, b);
-    do { __VERIFIER_assert((aws_c_string_is_valid(a) && aws_c_string_is_valid(b))); return rval; } while (0);
-}
 
 void aws_hash_callback_string_destroy(void *a) {
     assume_abort_if_not((aws_string_is_valid(a)));
@@ -10252,250 +10211,6 @@ int aws_array_list_comparator_string(const void *a, const void *b) {
 
 
 
-
-_Bool 
-    aws_string_eq(const struct aws_string *a, const struct aws_string *b) {
-    assume_abort_if_not((!a || aws_string_is_valid(a)));
-    assume_abort_if_not((!b || aws_string_is_valid(b)));
-    if (a == b) {
-        return 
-              1
-                  ;
-    }
-    if (a == 
-            ((void *)0) 
-                 || b == 
-                         ((void *)0)
-                             ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq(a->bytes, a->len, b->bytes, b->len);
-}
-
-
-
-
-
-_Bool 
-    aws_string_eq_ignore_case(const struct aws_string *a, const struct aws_string *b) {
-    assume_abort_if_not((!a || aws_string_is_valid(a)));
-    assume_abort_if_not((!b || aws_string_is_valid(b)));
-    if (a == b) {
-        return 
-              1
-                  ;
-    }
-    if (a == 
-            ((void *)0) 
-                 || b == 
-                         ((void *)0)
-                             ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq_ignore_case(a->bytes, a->len, b->bytes, b->len);
-}
-
-
-
-
-
-_Bool 
-    aws_string_eq_byte_cursor(const struct aws_string *str, const struct aws_byte_cursor *cur) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    assume_abort_if_not((!cur || aws_byte_cursor_is_valid(cur)));
-    if (str == 
-              ((void *)0) 
-                   && cur == 
-                             ((void *)0)
-                                 ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || cur == 
-                             ((void *)0)
-                                 ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq(str->bytes, str->len, cur->ptr, cur->len);
-}
-
-
-
-
-
-
-_Bool 
-    aws_string_eq_byte_cursor_ignore_case(const struct aws_string *str, const struct aws_byte_cursor *cur) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    assume_abort_if_not((!cur || aws_byte_cursor_is_valid(cur)));
-    if (str == 
-              ((void *)0) 
-                   && cur == 
-                             ((void *)0)
-                                 ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || cur == 
-                             ((void *)0)
-                                 ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq_ignore_case(str->bytes, str->len, cur->ptr, cur->len);
-}
-
-
-
-
-
-_Bool 
-    aws_string_eq_byte_buf(const struct aws_string *str, const struct aws_byte_buf *buf) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    assume_abort_if_not((!buf || aws_byte_buf_is_valid(buf)));
-    if (str == 
-              ((void *)0) 
-                   && buf == 
-                             ((void *)0)
-                                 ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || buf == 
-                             ((void *)0)
-                                 ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq(str->bytes, str->len, buf->buffer, buf->len);
-}
-
-
-
-
-
-
-_Bool 
-    aws_string_eq_byte_buf_ignore_case(const struct aws_string *str, const struct aws_byte_buf *buf) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    assume_abort_if_not((!buf || aws_byte_buf_is_valid(buf)));
-    if (str == 
-              ((void *)0) 
-                   && buf == 
-                             ((void *)0)
-                                 ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || buf == 
-                             ((void *)0)
-                                 ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq_ignore_case(str->bytes, str->len, buf->buffer, buf->len);
-}
-
-
-_Bool 
-    aws_string_eq_c_str(const struct aws_string *str, const char *c_str) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    if (str == 
-              ((void *)0) 
-                   && c_str == 
-                               ((void *)0)
-                                   ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || c_str == 
-                               ((void *)0)
-                                   ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq_c_str(str->bytes, str->len, c_str);
-}
-
-
-
-
-
-_Bool 
-    aws_string_eq_c_str_ignore_case(const struct aws_string *str, const char *c_str) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    if (str == 
-              ((void *)0) 
-                   && c_str == 
-                               ((void *)0)
-                                   ) {
-        return 
-              1
-                  ;
-    }
-    if (str == 
-              ((void *)0) 
-                   || c_str == 
-                               ((void *)0)
-                                   ) {
-        return 
-              0
-                   ;
-    }
-    return aws_array_eq_c_str_ignore_case(str->bytes, str->len, c_str);
-}
-
-
-_Bool 
-    aws_byte_buf_write_from_whole_string(
-    struct aws_byte_buf *restrict buf,
-    const struct aws_string *restrict src) {
-    assume_abort_if_not((!buf || aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((!src || aws_string_is_valid(src)));
-    if (buf == 
-              ((void *)0) 
-                   || src == 
-                             ((void *)0)
-                                 ) {
-        return 
-              0
-                   ;
-    }
-    return aws_byte_buf_write(buf, aws_string_bytes(src), src->len);
-}
-
-
-
-
-struct aws_byte_cursor aws_byte_cursor_from_string(const struct aws_string *src) {
-    assume_abort_if_not((aws_string_is_valid(src)));
-    return aws_byte_cursor_from_array(aws_string_bytes(src), src->len);
-}
 
 struct aws_string *aws_string_clone_or_reuse(struct aws_allocator *allocator, const struct aws_string *str) {
     assume_abort_if_not((allocator));

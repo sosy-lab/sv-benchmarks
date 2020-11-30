@@ -6647,33 +6647,6 @@ _Bool
 }
 
 
-_Bool 
-    aws_byte_buf_has_allocator(const struct aws_byte_buf *const buf) {
-    return (buf->allocator == can_fail_allocator());
-}
-
-void ensure_byte_buf_has_allocated_buffer_member(struct aws_byte_buf *const buf) {
-    buf->allocator = (nondet_bool()) ? 
-                                      ((void *)0) 
-                                           : can_fail_allocator();
-    buf->buffer = bounded_malloc(sizeof(*(buf->buffer)) * buf->capacity);
-}
-
-void ensure_ring_buffer_has_allocated_members(struct aws_ring_buffer *ring_buf, const size_t size) {
-    ring_buf->allocator = can_fail_allocator();
-    ring_buf->allocation = bounded_malloc(sizeof(*(ring_buf->allocation)) * size);
-    size_t position_head = nondet_uint64_t();
-    size_t position_tail = nondet_uint64_t();
-    assume_abort_if_not(position_head <= size);
-    assume_abort_if_not(position_tail <= size);
-    aws_atomic_store_ptr(&ring_buf->head, (ring_buf->allocation + position_head));
-    aws_atomic_store_ptr(&ring_buf->tail, (ring_buf->allocation + position_tail));
-    ring_buf->allocation_end = ring_buf->allocation + size;
-}
-
-
-
-
 void ensure_byte_buf_has_allocated_buffer_member_in_range(struct aws_byte_buf *buf, uint8_t *lo, uint8_t *hi) {
     __VERIFIER_assert(lo < hi);
     size_t space = hi - lo;
@@ -6688,39 +6661,10 @@ void ensure_byte_buf_has_allocated_buffer_member_in_range(struct aws_byte_buf *b
 
 
 
-void ensure_byte_buf_has_allocated_buffer_member_in_ring_buf(
-    struct aws_byte_buf *buf,
-    struct aws_ring_buffer *ring_buf) {
-    buf->allocator = (nondet_bool()) ? 
-                                      ((void *)0) 
-                                           : can_fail_allocator();
-    uint8_t *head = aws_atomic_load_ptr(&ring_buf->head);
-    uint8_t *tail = aws_atomic_load_ptr(&ring_buf->tail);
-    if (head < tail) {
-        if (nondet_bool()) {
-            assume_abort_if_not(tail < ring_buf->allocation_end);
-            ensure_byte_buf_has_allocated_buffer_member_in_range(buf, tail, ring_buf->allocation_end);
-        } else {
-            assume_abort_if_not(ring_buf->allocation < head);
-            ensure_byte_buf_has_allocated_buffer_member_in_range(buf, ring_buf->allocation, head);
-        }
-    } else {
-        ensure_byte_buf_has_allocated_buffer_member_in_range(buf, tail, head);
-    }
-}
-
-
 _Bool 
     aws_byte_cursor_is_bounded(const struct aws_byte_cursor *const cursor, const size_t max_size) {
     return cursor->len <= max_size;
 }
-
-void ensure_byte_cursor_has_allocated_buffer_member(struct aws_byte_cursor *const cursor) {
-    cursor->ptr = (nondet_bool()) ? 
-                                   ((void *)0) 
-                                        : bounded_malloc(cursor->len);
-}
-
 
 _Bool 
     aws_array_list_is_bounded(
@@ -6734,20 +6678,6 @@ _Bool
    _Bool 
         length_is_bounded = list->length <= max_initial_item_allocation;
     return item_size_is_bounded && length_is_bounded;
-}
-
-void ensure_array_list_has_allocated_data_member(struct aws_array_list *const list) {
-    if (list->current_size == 0 && list->length == 0) {
-        assume_abort_if_not(list->data == 
-       ((void *)0)
-       );
-        list->alloc = can_fail_allocator();
-    } else {
-        list->data = bounded_malloc(list->current_size);
-        list->alloc = nondet_bool() ? 
-                                     ((void *)0) 
-                                          : can_fail_allocator();
-    }
 }
 
 void ensure_linked_list_is_allocated(struct aws_linked_list *const list, size_t max_length) {
@@ -6797,24 +6727,6 @@ _Bool
     return container_is_bounded && backpointers_list_is_bounded;
 }
 
-void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *const queue) {
-    ensure_array_list_has_allocated_data_member(&queue->container);
-    ensure_array_list_has_allocated_data_member(&queue->backpointers);
-    queue->pred = nondet_compare;
-}
-
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -6848,41 +6760,6 @@ _Bool
 
 void hash_proof_destroy_noop(void *p) {}
 
-struct aws_string *ensure_string_is_allocated_nondet_length() {
-
-    return ensure_string_is_allocated_bounded_length(
-                                                    (18446744073709551615UL) 
-                                                             - 1 - sizeof(struct aws_string));
-}
-
-struct aws_string *ensure_string_is_allocated_bounded_length(size_t max_size) {
-    size_t len = nondet_uint64_t();
-    assume_abort_if_not(len < max_size);
-    return ensure_string_is_allocated(len);
-}
-
-struct aws_string *ensure_string_is_allocated(size_t len) {
-    struct aws_string *str = bounded_malloc(sizeof(struct aws_string) + len + 1);
-
-
-    *(struct aws_allocator **)(&str->allocator) = nondet_bool() ? can_fail_allocator() : 
-                                                                                        ((void *)0)
-                                                                                            ;
-    *(size_t *)(&str->len) = len;
-    *(uint8_t *)&str->bytes[len] = '\0';
-    return str;
-}
-
-const char *ensure_c_str_is_allocated(size_t max_size) {
-    size_t cap = nondet_uint64_t();
-    assume_abort_if_not(cap > 0 && cap <= max_size);
-    const char *str = bounded_malloc(cap);
-
-
-
-    assume_abort_if_not(str[cap - 1] == 0);
-    return str;
-}
 static __thread int tl_last_error = 0;
 
 
@@ -7257,28 +7134,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

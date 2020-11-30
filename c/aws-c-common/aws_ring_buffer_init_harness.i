@@ -6806,18 +6806,6 @@ void ensure_priority_queue_has_allocated_members(struct aws_priority_queue *cons
     queue->pred = nondet_compare;
 }
 
-void ensure_allocated_hash_table(struct aws_hash_table *map, size_t max_table_entries) {
-    size_t num_entries = nondet_uint64_t();
-    assume_abort_if_not(num_entries <= max_table_entries);
-    assume_abort_if_not(aws_is_power_of_two(num_entries));
-
-    size_t required_bytes;
-    assume_abort_if_not(!hash_table_state_required_bytes(num_entries, &required_bytes));
-    struct hash_table_state *impl = bounded_malloc(required_bytes);
-    impl->size = num_entries;
-    map->p_impl = impl;
-}
-
 void ensure_hash_table_has_valid_destroy_functions(struct aws_hash_table *map) {
     map->p_impl->destroy_key_fn = nondet_bool() ? 
                                                  ((void *)0) 
@@ -7264,13 +7252,6 @@ void assert_ring_buffer_equivalence(
     }
 }
 
-void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
-    struct hash_table_state *state = map->p_impl;
-    size_t size_in_bytes;
-    assume_abort_if_not(hash_table_state_required_bytes(state->size, &size_in_bytes) == (0));
-    save_byte_from_array((uint8_t *)state, size_in_bytes, storage);
-}
-
 void check_hash_table_unchanged(const struct aws_hash_table *map, const struct store_byte_from_buffer *storage) {
     struct hash_table_state *state = map->p_impl;
     uint8_t *byte_array = (uint8_t *)state;
@@ -7427,173 +7408,6 @@ void aws_ring_buffer_clean_up(struct aws_ring_buffer *ring_buf) {
     do { memset(&(*ring_buf), 0, sizeof(*ring_buf)); } while (0);
 }
 
-int aws_ring_buffer_acquire(struct aws_ring_buffer *ring_buf, size_t requested_size, struct aws_byte_buf *dest) {
-    assume_abort_if_not((aws_ring_buffer_is_valid(ring_buf)));
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-    do { if (!(requested_size != 0)) { return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT); } } while (0);
-
-    uint8_t *tail_cpy;
-    uint8_t *head_cpy;
-    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire);  __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
-    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed);  __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
-
-
-    if (head_cpy == tail_cpy) {
-        size_t ring_space = ring_buf->allocation_end - ring_buf->allocation;
-
-        if (requested_size > ring_space) {
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return aws_raise_error(AWS_ERROR_OOM);
-        }
-        __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, ring_buf->allocation + requested_size, aws_memory_order_relaxed);;;
-        __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation)); aws_atomic_store_ptr_explicit(&(ring_buf)->tail, ring_buf->allocation, aws_memory_order_release);;;
-        *dest = aws_byte_buf_from_empty_array(ring_buf->allocation, requested_size);
-        __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return (0);
-    }
-
-
-
-    if (tail_cpy > head_cpy) {
-        size_t space = tail_cpy - head_cpy - 1;
-
-        if (space >= requested_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, head_cpy + requested_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(head_cpy, requested_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-    } else if (tail_cpy < head_cpy) {
-
-        if ((size_t)(ring_buf->allocation_end - head_cpy) >= requested_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, head_cpy + requested_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(head_cpy, requested_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-        if ((size_t)(tail_cpy - ring_buf->allocation) > requested_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, ring_buf->allocation + requested_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(ring_buf->allocation, requested_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-    }
-
-    __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return aws_raise_error(AWS_ERROR_OOM);
-}
-
-int aws_ring_buffer_acquire_up_to(
-    struct aws_ring_buffer *ring_buf,
-    size_t minimum_size,
-    size_t requested_size,
-    struct aws_byte_buf *dest) {
-    assume_abort_if_not((requested_size >= minimum_size));
-    assume_abort_if_not((aws_ring_buffer_is_valid(ring_buf)));
-    assume_abort_if_not((aws_byte_buf_is_valid(dest)));
-
-    if (requested_size == 0 || minimum_size == 0 || !ring_buf || !dest) {
-        __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return aws_raise_error(AWS_ERROR_INVALID_ARGUMENT);
-    }
-
-    uint8_t *tail_cpy;
-    uint8_t *head_cpy;
-    tail_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->tail, aws_memory_order_acquire);  __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, tail_cpy));;;
-    head_cpy = aws_atomic_load_ptr_explicit(&(ring_buf)->head, aws_memory_order_relaxed);  __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy));;;
-
-
-    if (head_cpy == tail_cpy) {
-        size_t ring_space = ring_buf->allocation_end - ring_buf->allocation;
-
-        size_t allocation_size = ring_space > requested_size ? requested_size : ring_space;
-
-        if (allocation_size < minimum_size) {
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return aws_raise_error(AWS_ERROR_OOM);
-        }
-
-
-
-        __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation + allocation_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, ring_buf->allocation + allocation_size, aws_memory_order_relaxed);;;
-        __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation)); aws_atomic_store_ptr_explicit(&(ring_buf)->tail, ring_buf->allocation, aws_memory_order_release);;;
-        *dest = aws_byte_buf_from_empty_array(ring_buf->allocation, allocation_size);
-        __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-        __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-        return (0);
-    }
-
-
-    if (tail_cpy > head_cpy) {
-        size_t space = tail_cpy - head_cpy;
-
-        __VERIFIER_assert(space);
-        space -= 1;
-
-        size_t returnable_size = space > requested_size ? requested_size : space;
-
-        if (returnable_size >= minimum_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy + returnable_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, head_cpy + returnable_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(head_cpy, returnable_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-    } else if (tail_cpy < head_cpy) {
-        size_t head_space = ring_buf->allocation_end - head_cpy;
-        size_t tail_space = tail_cpy - ring_buf->allocation;
-
-
-        if (head_space >= requested_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, head_cpy + requested_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(head_cpy, requested_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-        if (tail_space > requested_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation + requested_size)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, ring_buf->allocation + requested_size, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(ring_buf->allocation, requested_size);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-
-        if (head_space >= minimum_size && head_space >= tail_space) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, head_cpy + head_space)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, head_cpy + head_space, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(head_cpy, head_space);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-
-        if (tail_space > minimum_size) {
-            __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buf, ring_buf->allocation + tail_space - 1)); aws_atomic_store_ptr_explicit(&(ring_buf)->head, ring_buf->allocation + tail_space - 1, aws_memory_order_relaxed);;;
-            *dest = aws_byte_buf_from_empty_array(ring_buf->allocation, tail_space - 1);
-            __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-            __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-            return (0);
-        }
-    }
-
-    __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buf)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(dest)));
-    return aws_raise_error(AWS_ERROR_OOM);
-}
-
 static inline 
              _Bool 
                   s_buf_belongs_to_pool(const struct aws_ring_buffer *ring_buffer, const struct aws_byte_buf *buf) {
@@ -7611,27 +7425,6 @@ static inline
            buf->buffer >= ring_buffer->allocation && buf->buffer + buf->capacity <= ring_buffer->allocation_end;
 }
 
-void aws_ring_buffer_release(struct aws_ring_buffer *ring_buffer, struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_ring_buffer_is_valid(ring_buffer)));
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    assume_abort_if_not((s_buf_belongs_to_pool(ring_buffer, buf)));
-    __VERIFIER_assert(aws_ring_buffer_check_atomic_ptr(ring_buffer, buf->buffer + buf->capacity)); aws_atomic_store_ptr_explicit(&(ring_buffer)->tail, buf->buffer + buf->capacity, aws_memory_order_release);;;
-    do { memset(&(*buf), 0, sizeof(*buf)); } while (0);
-    __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buffer)));
-}
-
-
-_Bool 
-    aws_ring_buffer_buf_belongs_to_pool(const struct aws_ring_buffer *ring_buffer, const struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_ring_buffer_is_valid(ring_buffer)));
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    
-   _Bool 
-        rval = s_buf_belongs_to_pool(ring_buffer, buf);
-    __VERIFIER_assert((aws_ring_buffer_is_valid(ring_buffer)));
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-    return rval;
-}
 enum aws_log_level {
     AWS_LL_NONE = 0,
     AWS_LL_FATAL = 1,
@@ -7988,28 +7781,6 @@ static
            s_common_library_initialized = 
                                           0
                                                ;
-
-void aws_common_library_init(struct aws_allocator *allocator) {
-    (void)allocator;
-
-    if (!s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      1
-                                          ;
-        aws_register_error_info(&s_list);
-        aws_register_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
-
-void aws_common_library_clean_up(void) {
-    if (s_common_library_initialized) {
-        s_common_library_initialized = 
-                                      0
-                                           ;
-        aws_unregister_error_info(&s_list);
-        aws_unregister_log_subject_info_list(&s_common_log_subject_list);
-    }
-}
 
 void aws_common_fatal_assert_library_initialized(void) {
     if (!s_common_library_initialized) {

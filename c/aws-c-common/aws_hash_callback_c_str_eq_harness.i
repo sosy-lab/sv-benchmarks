@@ -1931,7 +1931,8 @@ const char *aws_error_debug_str(int err);
 
 
 
-void aws_raise_error_private(int err);
+void aws_raise_error_private(int err) {
+}
 
 
 
@@ -2984,24 +2985,6 @@ void aws_array_list_clean_up(struct aws_array_list *restrict list) {
 }
 
 static inline
-int aws_array_list_push_back(struct aws_array_list *restrict list, const void *val) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    int err_code = aws_array_list_set_at(list, val, aws_array_list_length(list));
-
-    if (err_code && aws_last_error() == AWS_ERROR_INVALID_INDEX && !list->alloc) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return aws_raise_error(AWS_ERROR_LIST_EXCEEDS_MAX_SIZE);
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return err_code;
-}
-
-static inline
 int aws_array_list_front(const struct aws_array_list *restrict list, void *val) {
     assume_abort_if_not((aws_array_list_is_valid(list)));
     assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
@@ -3201,37 +3184,6 @@ int aws_array_list_get_at_ptr(const struct aws_array_list *restrict list, void *
     }
     __VERIFIER_assert((aws_array_list_is_valid(list)));
     return aws_raise_error(AWS_ERROR_INVALID_INDEX);
-}
-
-static inline
-int aws_array_list_set_at(struct aws_array_list *restrict list, const void *val, size_t index) {
-    assume_abort_if_not((aws_array_list_is_valid(list)));
-    assume_abort_if_not((val && ((((list->item_size)) == 0) || ((val)))))
-
-                                                                                     ;
-
-    if (aws_array_list_ensure_capacity(list, index)) {
-        __VERIFIER_assert((aws_array_list_is_valid(list)));
-        return (-1);
-    }
-
-    assume_abort_if_not((list->data));
-
-    memcpy((void *)((uint8_t *)list->data + (list->item_size * index)), val, list->item_size);
-
-
-
-
-
-    if (index >= aws_array_list_length(list)) {
-        if (aws_add_size_checked(index, 1, &list->length)) {
-            __VERIFIER_assert((aws_array_list_is_valid(list)));
-            return (-1);
-        }
-    }
-
-    __VERIFIER_assert((aws_array_list_is_valid(list)));
-    return (0);
 }
 
 static inline
@@ -7447,15 +7399,6 @@ _Bool
            ((cursor->len == 0) || (cursor->len > 0 && cursor->ptr && ((((cursor->len)) == 0) || ((cursor->ptr)))));
 }
 
-void aws_byte_buf_reset(struct aws_byte_buf *buf, 
-                                                 _Bool 
-                                                      zero_contents) {
-    if (zero_contents) {
-        aws_byte_buf_secure_zero(buf);
-    }
-    buf->len = 0;
-}
-
 void aws_byte_buf_clean_up(struct aws_byte_buf *buf) {
     assume_abort_if_not((aws_byte_buf_is_valid(buf)));
     if (buf->allocator && buf->buffer) {
@@ -7470,23 +7413,6 @@ void aws_byte_buf_clean_up(struct aws_byte_buf *buf) {
     buf->len = 0;
     buf->capacity = 0;
 }
-
-void aws_byte_buf_secure_zero(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    if (buf->buffer) {
-        aws_secure_zero(buf->buffer, buf->capacity);
-    }
-    buf->len = 0;
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
-
-void aws_byte_buf_clean_up_secure(struct aws_byte_buf *buf) {
-    assume_abort_if_not((aws_byte_buf_is_valid(buf)));
-    aws_byte_buf_secure_zero(buf);
-    aws_byte_buf_clean_up(buf);
-    __VERIFIER_assert((aws_byte_buf_is_valid(buf)));
-}
-
 
 _Bool 
     aws_byte_buf_eq(const struct aws_byte_buf *const a, const struct aws_byte_buf *const b) {
@@ -7634,48 +7560,6 @@ _Bool
     return 
           1
               ;
-}
-
-int aws_byte_cursor_split_on_char_n(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    size_t n,
-    struct aws_array_list *restrict output) {
-    __VERIFIER_assert(input_str && input_str->ptr);
-    __VERIFIER_assert(output);
-    __VERIFIER_assert(output->item_size >= sizeof(struct aws_byte_cursor));
-
-    size_t max_splits = n > 0 ? n : 
-                                   (18446744073709551615UL)
-                                           ;
-    size_t split_count = 0;
-
-    struct aws_byte_cursor substr;
-    do { memset(&(substr), 0, sizeof(substr)); } while (0);
-
-
-    while (split_count <= max_splits && aws_byte_cursor_next_split(input_str, split_on, &substr)) {
-
-        if (split_count == max_splits) {
-
-            substr.len = input_str->len - (substr.ptr - input_str->ptr);
-        }
-
-        if (__builtin_expect(!!(aws_array_list_push_back(output, (const void *)&substr)), 0)) {
-            return (-1);
-        }
-        ++split_count;
-    }
-
-    return (0);
-}
-
-int aws_byte_cursor_split_on_char(
-    const struct aws_byte_cursor *restrict input_str,
-    char split_on,
-    struct aws_array_list *restrict output) {
-
-    return aws_byte_cursor_split_on_char_n(input_str, split_on, 0, output);
 }
 
 int aws_byte_buf_cat(struct aws_byte_buf *dest, size_t number_of_args, ...) {
@@ -11107,16 +10991,6 @@ void aws_string_destroy(struct aws_string *str) {
     assume_abort_if_not((!str || aws_string_is_valid(str)));
     if (str && str->allocator) {
         aws_mem_release(str->allocator, str);
-    }
-}
-
-void aws_string_destroy_secure(struct aws_string *str) {
-    assume_abort_if_not((!str || aws_string_is_valid(str)));
-    if (str) {
-        aws_secure_zero((void *)aws_string_bytes(str), str->len);
-        if (str->allocator) {
-            aws_mem_release(str->allocator, str);
-        }
     }
 }
 
