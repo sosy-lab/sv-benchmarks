@@ -5931,7 +5931,7 @@ void memcpy_using_uint64_harness() {
     char s[160];
     char d1[160];
     char d2[160];
-    for (int i; i < 160; i++) {
+    for (int i = 0; i < 160; i++) {
         s[i] = __VERIFIER_nondet_char();
     }
 
