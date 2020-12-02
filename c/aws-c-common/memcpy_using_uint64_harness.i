@@ -5931,7 +5931,7 @@ void memcpy_using_uint64_harness() {
     char d1[160];
     char d2[160];
 
-    unsigned size;
+    unsigned size = __VERIFIER_nondet_uint();
     assume_abort_if_not(size < 160);
     memcpy_impl(d1, s, size);
     memcpy_using_uint64_impl(d2, s, size);
