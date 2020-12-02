@@ -218,6 +218,7 @@ extern short __VERIFIER_nondet_short();
 extern unsigned int __VERIFIER_nondet_uint();
 extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
+extern char __VERIFIER_nondet_char();
 
 void __VERIFIER_assert(_Bool cond) {
     if(!cond) {reach_error();abort();}
@@ -5930,6 +5931,9 @@ void memcpy_using_uint64_harness() {
     char s[160];
     char d1[160];
     char d2[160];
+    for (int i; i < 160; i++) {
+        s[i] = __VERIFIER_nondet_char();
+    }
 
     unsigned size = __VERIFIER_nondet_uint();
     assume_abort_if_not(size < 160);
