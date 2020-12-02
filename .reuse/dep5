@@ -30,7 +30,6 @@ Files:
  c/pthread-ext
  c/seq-pthread
  c/systemc
- java/rtems-lock-model
  _
 Copyright: unknown
 License: LicenseRef-unknown
