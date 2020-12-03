@@ -5936,8 +5936,8 @@ void memset_using_uint64_harness() {
 
     short d1[160];
     short d2[160];
-    int c;
-    unsigned size;
+    int c = __VERIFIER_nondet_int();
+    unsigned size = __VERIFIER_nondet_uint();
     assume_abort_if_not(size < 160);
     memset_impl(d1, c, size);
     memset_using_uint64_impl(d2, c, size);
