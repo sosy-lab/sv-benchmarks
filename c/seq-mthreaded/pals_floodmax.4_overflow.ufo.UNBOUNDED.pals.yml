@@ -7,7 +7,7 @@ properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
   - property_file: ../properties/termination.prp
-    expected_verdict: false
+    expected_verdict: true
   - property_file: ../properties/coverage-error-call.prp
 
 options:
