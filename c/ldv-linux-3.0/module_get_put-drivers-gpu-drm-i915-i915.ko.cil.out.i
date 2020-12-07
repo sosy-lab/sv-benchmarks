@@ -55676,7 +55676,7 @@ int main(void)
   struct drm_display_mode *var_group2 ;
   struct drm_display_mode *var_intel_hdmi_mode_fixup_7_p2 ;
   struct drm_display_mode *var_intel_hdmi_mode_set_4_p2 ;
-  struct drm_connector *var_group3 ;
+  struct drm_connector *var_group3 = ldv_malloc(sizeof(struct drm_connector));
   bool var_intel_hdmi_detect_8_p1 ;
   struct drm_property *var_group4 ;
   uint64_t var_intel_hdmi_set_property_11_p2 ;
