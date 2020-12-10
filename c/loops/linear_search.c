@@ -22,10 +22,13 @@ int linear_search(int *a, int n, int q) {
   else return 0;
 }
 int main() { 
+  unsigned int j;
   SIZE=(__VERIFIER_nondet_uint()/2)+1;
 
   if (SIZE > 1 && SIZE < MAX) {
     int *a = malloc(sizeof(int)*SIZE);
+    for (j=0; j<SIZE; j++)
+      a[j]=0;
     a[SIZE/2]=3;
     __VERIFIER_assert(linear_search(a,SIZE,3));
   }
