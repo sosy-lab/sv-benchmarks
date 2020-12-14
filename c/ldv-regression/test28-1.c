@@ -16,6 +16,7 @@ int main()
   struct dummy *pd = n ? &d1 : &d2;
   if (pd == &d2) {
     pd->a = 0;
+    pd->b = __VERIFIER_nondet_int();
   } else {
     pd->b = 0;
   }
