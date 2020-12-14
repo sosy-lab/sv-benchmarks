@@ -1073,6 +1073,26 @@ int main(void)
   s->s3 = malloc(sizeof(struct ssl3_state_st));
   s->ctx = malloc(sizeof(SSL_CTX));
   s->session = malloc(sizeof(SSL_SESSION));
+
+  s->info_callback = (void (*) ()) __VERIFIER_nondet_ulong();
+  s->options = __VERIFIER_nondet_ulong();
+  s->verify_mode = __VERIFIER_nondet_int();
+  (s->session)->peer = (struct x509_st*) __VERIFIER_nondet_ulong();
+  (s->s3)->tmp.cert_request = __VERIFIER_nondet_int();
+  (s->s3)->tmp.new_cipher = malloc(sizeof(struct ssl_cipher_st));
+  ((s->s3)->tmp.new_cipher)->algorithms = __VERIFIER_nondet_ulong();
+  ((s->s3)->tmp.new_cipher)->algo_strength = __VERIFIER_nondet_ulong();
+  if(__VERIFIER_nondet_int())
+  {
+    s->cert = (struct cert_st *) 0;
+  }
+  else
+  {
+    s->cert = malloc(sizeof(struct cert_st));
+    (s->cert)->pkeys[0].privatekey = (struct evp_pkey_st*) __VERIFIER_nondet_ulong(); 
+  }
+
+
   tmp = ssl3_accept(s);
   }
   return (tmp);
