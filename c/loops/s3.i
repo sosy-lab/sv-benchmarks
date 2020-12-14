@@ -8,6 +8,7 @@ extern void *malloc(unsigned int sz);
 
 extern int __VERIFIER_nondet_int(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
+extern  long __VERIFIER_nondet_long(void);
 
 typedef unsigned int size_t;
 typedef long __time_t;
@@ -1067,9 +1068,19 @@ int main(void)
   {
   s = malloc (sizeof (SSL));
   s->s3 = malloc(sizeof(struct ssl3_state_st));
+  s->s3->flags = __VERIFIER_nondet_long();
+  (s->s3)->tmp.cert_req = __VERIFIER_nondet_int();
+  (s->s3)->tmp.new_cipher = malloc(sizeof(struct ssl_cipher_st));
+  ((s->s3)->tmp.new_cipher)->algorithms = __VERIFIER_nondet_ulong();
+  s->s3->tmp.next_state = __VERIFIER_nondet_int();
+  s->bbio = (BIO *) __VERIFIER_nondet_ulong();
+  s->wbio = (BIO *) __VERIFIER_nondet_ulong();
   s->ctx = malloc(sizeof(SSL_CTX));
+  (s->ctx)->info_callback = (void (*)()) __VERIFIER_nondet_ulong();
   s->state = 12292;
   s->version = __VERIFIER_nondet_int();
+  s->init_buf = (BUF_MEM *)__VERIFIER_nondet_ulong();
+  s->info_callback = (void (*)()) __VERIFIER_nondet_ulong();
   ssl3_connect(s);
   }
   return (0);

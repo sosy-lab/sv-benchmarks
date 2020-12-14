@@ -1073,6 +1073,18 @@ int main(void)
   s->session = malloc(sizeof(SSL_SESSION));
   s->state = 12292;
   s->version = __VERIFIER_nondet_int();
+	
+	s->info_callback = (void (*)()) __VERIFIER_nondet_ulong(); 
+  (s->ctx)->info_callback = (void (*)()) __VERIFIER_nondet_ulong(); 
+  s->init_buf = (BUF_MEM *)__VERIFIER_nondet_ulong();
+  s->bbio = (BIO *) __VERIFIER_nondet_ulong();
+  s->wbio = (BIO *) __VERIFIER_nondet_ulong();
+  (s->s3)->flags = __VERIFIER_nondet_long();
+  (s->s3)->tmp.cert_req = __VERIFIER_nondet_int();
+  (s->s3)->tmp.new_cipher = malloc(sizeof(struct ssl_cipher_st));
+  ((s->s3)->tmp.new_cipher)->algorithms = __VERIFIER_nondet_ulong();
+  (s->s3)->tmp.next_state = __VERIFIER_nondet_int();
+	
   ssl3_connect(s);
   }
   return (0);
