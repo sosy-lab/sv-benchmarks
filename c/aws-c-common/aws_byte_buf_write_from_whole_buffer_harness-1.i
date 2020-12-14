@@ -8980,8 +8980,10 @@ void aws_common_fatal_assert_library_initialized(void) {
 }
 void aws_byte_buf_write_from_whole_buffer_harness() {
 
-    struct aws_byte_buf buf;
-    struct aws_byte_buf src;
+    struct aws_byte_buf buf = {.len = nondet_size_t(),
+                               .capacity = nondet_size_t()};
+    struct aws_byte_buf src = {.len = nondet_size_t(),
+                               .capacity = nondet_size_t()};
 
 
     assume_abort_if_not(aws_byte_buf_is_bounded(&buf, 10));
