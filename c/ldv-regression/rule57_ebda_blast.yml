@@ -12,7 +12,6 @@ properties:
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
-  - property_file: ../properties/coverage-error-call.prp
 
 options:
   language: C
