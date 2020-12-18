@@ -60,9 +60,7 @@ int main() {
 	
 	
 	int *p1_new = (int*) data[1];
-	int *p2_new = (int*) data[2];
 	
 	free(p1_new);
-	free(p2_new);
 	
 }
