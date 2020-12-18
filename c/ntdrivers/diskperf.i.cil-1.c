@@ -3366,6 +3366,8 @@ int main(void)
   devobj.Characteristics = __VERIFIER_nondet_long();
   devobj.Vpb = (PVPB)0;
   devobj.DeviceExtension = malloc(sizeof(struct _DEVICE_EXTENSION));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->TargetDeviceObject =
+    malloc(sizeof(struct _DEVICE_OBJECT));
   devobj.DeviceType = __VERIFIER_nondet_long();
   devobj.StackSize = __VERIFIER_nondet_char();
   union __anonunion_Queue_43 aqueue_1;
