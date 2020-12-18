@@ -7911,8 +7911,8 @@ void aws_priority_queue_init_dynamic_harness() {
 
 
     struct aws_allocator *allocator = can_fail_allocator();
-    size_t item_size;
-    size_t initial_item_allocation;
+    size_t item_size = nondet_size_t();
+    size_t initial_item_allocation = nondet_size_t();
     size_t len;
 
 
