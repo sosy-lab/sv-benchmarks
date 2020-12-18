@@ -2903,6 +2903,8 @@ NTSTATUS DiskPerfRegisterDevice(PDEVICE_OBJECT DeviceObject )
 
     }
     {
+    if(output->NameLength > 1)
+      abort();
     deviceExtension->DiskNumber = -1;
     deviceExtension->PhysicalDeviceName.Length = output->NameLength;
     deviceExtension->PhysicalDeviceName.MaximumLength = (unsigned int )output->NameLength + sizeof(WCHAR );
@@ -3368,6 +3370,8 @@ int main(void)
   devobj.DeviceExtension = malloc(sizeof(struct _DEVICE_EXTENSION));
   ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->TargetDeviceObject =
     malloc(sizeof(struct _DEVICE_OBJECT));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->PhysicalDeviceName.Buffer =
+    malloc(sizeof(wchar_t));
   devobj.DeviceType = __VERIFIER_nondet_long();
   devobj.StackSize = __VERIFIER_nondet_char();
   union __anonunion_Queue_43 aqueue_1;
