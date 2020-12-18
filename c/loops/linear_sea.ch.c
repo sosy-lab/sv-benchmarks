@@ -21,7 +21,6 @@ int linear_search(int *a, int n, int q) {
   else return 0;
 }
 int main() { 
-  unsigned int j;
   SIZE=(__VERIFIER_nondet_uint()/8)+1;
 
   if (SIZE > 1 && SIZE < MAX) {
