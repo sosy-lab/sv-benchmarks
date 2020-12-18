@@ -3491,6 +3491,8 @@ int main(void)
                 goto switch_4_break;
                 switch_4_2: /* CIL Label */ 
                 {
+                struct _DISK_PERFORMANCE cmd;
+                pirp->AssociatedIrp.SystemBuffer = &cmd;
                 status = DiskPerfDeviceControl(& devobj, pirp);
                 }
                 goto switch_4_break;
