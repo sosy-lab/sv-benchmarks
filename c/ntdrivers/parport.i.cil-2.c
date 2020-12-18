@@ -2165,7 +2165,7 @@ PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
 NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject, BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt, PVOID ServiceContext), PVOID ServiceContext,
 PKSPIN_LOCK SpinLock, ULONG Vector, KIRQL Irql, KIRQL SynchronizeIrql, KINTERRUPT_MODE InterruptMode, BOOLEAN ShareVector, KAFFINITY ProcessorEnableMask, BOOLEAN FloatingSave){
     if(__VERIFIER_nondet_int()){
-        (*ServiceRoutine)(InterruptObject, ServiceContext);
+        (*ServiceRoutine)(*InterruptObject, ServiceContext);
         return 0L;
     } else if (__VERIFIER_nondet_int()){
         return (long)0x00000127;
