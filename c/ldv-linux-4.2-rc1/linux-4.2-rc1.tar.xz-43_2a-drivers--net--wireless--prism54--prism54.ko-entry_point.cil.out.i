@@ -13,7 +13,7 @@ void reach_error() { ((void) sizeof ((0) ? 1 : 0), __extension__ ({ if (0) ; els
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned long int n)
 {
-    if ((char*)p1 + n <= (char*)p2 || (char*)p2 + n <= (char*)p1)
+    if ((unsigned long)p1 + n <= (unsigned long)p2 || (unsigned long)p2 + n <= (unsigned long)p1)
         return;
     abort();
 }
