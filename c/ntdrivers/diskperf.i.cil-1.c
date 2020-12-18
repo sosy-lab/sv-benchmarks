@@ -3372,6 +3372,9 @@ int main(void)
     malloc(sizeof(struct _DEVICE_OBJECT));
   ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->PhysicalDeviceName.Buffer =
     malloc(sizeof(wchar_t));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->Processors = 2;
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->DiskCounters =
+    malloc(2 * sizeof(struct _DISK_PERFORMANCE));
   devobj.DeviceType = __VERIFIER_nondet_long();
   devobj.StackSize = __VERIFIER_nondet_char();
   union __anonunion_Queue_43 aqueue_1;
