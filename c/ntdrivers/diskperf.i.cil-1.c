@@ -2990,8 +2990,8 @@ void DiskPerfLogError(PDEVICE_OBJECT DeviceObject , ULONG UniqueId , NTSTATUS Er
     errorLogEntry->ErrorCode = ErrorCode;
     errorLogEntry->UniqueErrorValue = UniqueId;
     errorLogEntry->FinalStatus = Status;
-    memcpy_guard(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
-    memmove(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
+    memcpy_guard(& errorLogEntry->DumpData[0], DeviceObject, sizeof(DEVICE_OBJECT ));
+    memmove(& errorLogEntry->DumpData[0], DeviceObject, sizeof(DEVICE_OBJECT ));
     errorLogEntry->DumpDataSize = sizeof(DEVICE_OBJECT );
     IoWriteErrorLogEntry(errorLogEntry);
     }
