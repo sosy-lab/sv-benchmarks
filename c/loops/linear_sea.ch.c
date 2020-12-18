@@ -1,7 +1,7 @@
 extern void abort(void);
 extern void __assert_fail(const char *, const char *, unsigned int, const char *) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void reach_error() { __assert_fail("0", "linear_sea.ch.c", 3, "reach_error"); }
-void *malloc(unsigned int size);
+extern void *calloc(unsigned int num, unsigned int size);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -24,7 +24,7 @@ int main() {
   SIZE=(__VERIFIER_nondet_uint()/8)+1;
 
   if (SIZE > 1 && SIZE < MAX) {
-    int *a = malloc(sizeof(int)*SIZE);
+    int *a = calloc(SIZE,sizeof(int));
     a[SIZE/2]=3;
     __VERIFIER_assert(linear_search(a,SIZE,3));
   }
