@@ -2903,6 +2903,8 @@ NTSTATUS DiskPerfRegisterDevice(PDEVICE_OBJECT DeviceObject )
 
     }
     {
+    if(output->NameLength > 1)
+      abort();
     deviceExtension->DiskNumber = -1;
     deviceExtension->PhysicalDeviceName.Length = output->NameLength;
     deviceExtension->PhysicalDeviceName.MaximumLength = (unsigned int )output->NameLength + sizeof(WCHAR );
@@ -2990,8 +2992,8 @@ void DiskPerfLogError(PDEVICE_OBJECT DeviceObject , ULONG UniqueId , NTSTATUS Er
     errorLogEntry->ErrorCode = ErrorCode;
     errorLogEntry->UniqueErrorValue = UniqueId;
     errorLogEntry->FinalStatus = Status;
-    memcpy_guard(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
-    memmove(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
+    memcpy_guard(& errorLogEntry->DumpData[0], DeviceObject, sizeof(DEVICE_OBJECT ));
+    memmove(& errorLogEntry->DumpData[0], DeviceObject, sizeof(DEVICE_OBJECT ));
     errorLogEntry->DumpDataSize = sizeof(DEVICE_OBJECT );
     IoWriteErrorLogEntry(errorLogEntry);
     }
@@ -3366,6 +3368,13 @@ int main(void)
   devobj.Characteristics = __VERIFIER_nondet_long();
   devobj.Vpb = (PVPB)0;
   devobj.DeviceExtension = malloc(sizeof(struct _DEVICE_EXTENSION));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->TargetDeviceObject =
+    malloc(sizeof(struct _DEVICE_OBJECT));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->PhysicalDeviceName.Buffer =
+    malloc(sizeof(wchar_t));
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->Processors = 2;
+  ((struct _DEVICE_EXTENSION *)devobj.DeviceExtension)->DiskCounters =
+    malloc(2 * sizeof(struct _DISK_PERFORMANCE));
   devobj.DeviceType = __VERIFIER_nondet_long();
   devobj.StackSize = __VERIFIER_nondet_char();
   union __anonunion_Queue_43 aqueue_1;
@@ -3491,6 +3500,8 @@ int main(void)
                 goto switch_4_break;
                 switch_4_2: /* CIL Label */ 
                 {
+                struct _DISK_PERFORMANCE cmd;
+                pirp->AssociatedIrp.SystemBuffer = &cmd;
                 status = DiskPerfDeviceControl(& devobj, pirp);
                 }
                 goto switch_4_break;
