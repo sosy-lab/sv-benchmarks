@@ -4334,6 +4334,7 @@ NTSTATUS PptDeselectDevice(PVOID Context , PVOID DeselectCommand )
 }
 ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension ) 
 { UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4486,6 +4487,7 @@ ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension )
 BOOLEAN PptCheckIfNon1284_3Present(PDEVICE_EXTENSION Extension ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4553,6 +4555,7 @@ BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyInd
                             BOOLEAN bNoStrobe ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4664,6 +4667,7 @@ BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyInd
 BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyIndex ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4777,6 +4781,7 @@ BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisy
 }
 BOOLEAN PptSend1284_3Command(PDEVICE_EXTENSION DeviceExtension , UCHAR Command ) 
 { UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR test ;
@@ -8180,6 +8185,7 @@ void PptLegacyZipClockPrtModeByte(PUCHAR Controller , UCHAR ModeByte )
 }
 void PptLegacyZipSetDiskMode(PUCHAR Controller , UCHAR Mode ) 
 { ULONG i = __VERIFIER_nondet_long() ;
+  assume_abort_if_not(i < 3);
 
   {
   {
@@ -8310,6 +8316,7 @@ NTSTATUS PptTrySelectLegacyZip(PVOID Context , PVOID TrySelectCommand )
 }
 NTSTATUS PptDeselectLegacyZip(PVOID Context , PVOID DeselectCommand ) 
 { ULONG i = __VERIFIER_nondet_long() ;
+  assume_abort_if_not(i < 3);
   PDEVICE_EXTENSION Extension ;
   PUCHAR Controller ;
   PPARALLEL_1284_COMMAND Command ;
