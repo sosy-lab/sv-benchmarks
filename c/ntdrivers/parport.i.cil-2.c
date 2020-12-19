@@ -9712,6 +9712,17 @@ int main(void)
   e->WorkQueue.Blink = &e->WorkQueue;
   s = __VERIFIER_nondet_int();
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  for(int i = 0; i < 4; ++i)
+  {
+    irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation[i].
+      Parameters.FilterResourceRequirements.IoResourceRequirementList =
+      malloc(sizeof(struct _IO_RESOURCE_REQUIREMENTS_LIST));
+    struct _CM_RESOURCE_LIST *l = malloc(sizeof(struct _CM_RESOURCE_LIST));
+    l->Count = 1;
+    l->List[0].PartialResourceList.Count = 1;
+    irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation[i].
+      Parameters.StartDevice.AllocatedResourcesTranslated = l;
+  }
   /* ensure a bounded number of subsequent decrements do not result in stack underflow */
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
 
@@ -9783,6 +9794,10 @@ int main(void)
                       goto switch_328_break;
                       switch_328_3: /* CIL Label */ 
                       {
+                      struct _IO_RESOURCE_REQUIREMENTS_LIST rl;
+                      rl.List[0].Count = 1;
+                      rl.AlternativeLists = 1;
+                      pirp->IoStatus.Information = &rl;
                       status = PptDispatchPnp(& devobj, pirp);
                       }
                       goto switch_328_break;
