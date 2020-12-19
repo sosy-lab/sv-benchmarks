@@ -9701,6 +9701,15 @@ int main(void)
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  d.DeviceObject = &devobj;
+  struct _DEVICE_EXTENSION *e = malloc(sizeof(struct _DEVICE_EXTENSION));
+  devobj.DeviceExtension = e;
+  e->RemovalRelationsList.Flink = &e->RemovalRelationsList;
+  e->RemovalRelationsList.Blink = &e->RemovalRelationsList;
+  e->IsrList.Flink = &e->IsrList;
+  e->IsrList.Blink = &e->IsrList;
+  e->WorkQueue.Flink = &e->WorkQueue;
+  e->WorkQueue.Blink = &e->WorkQueue;
   s = __VERIFIER_nondet_int();
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
   /* ensure a bounded number of subsequent decrements do not result in stack underflow */
