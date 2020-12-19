@@ -15,7 +15,7 @@ extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned int n)
 {
-    if ((char*)p1 + n <= (char*)p2 || (char*)p2 + n <= (char*)p1)
+    if ((unsigned long)p1 + n <= (unsigned long)p2 || (unsigned long)p2 + n <= (unsigned long)p1)
         return;
     abort();
 }
@@ -2165,7 +2165,7 @@ PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
 NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject, BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt, PVOID ServiceContext), PVOID ServiceContext,
 PKSPIN_LOCK SpinLock, ULONG Vector, KIRQL Irql, KIRQL SynchronizeIrql, KINTERRUPT_MODE InterruptMode, BOOLEAN ShareVector, KAFFINITY ProcessorEnableMask, BOOLEAN FloatingSave){
     if(__VERIFIER_nondet_int()){
-        (*ServiceRoutine)(InterruptObject, ServiceContext);
+        (*ServiceRoutine)(*InterruptObject, ServiceContext);
         return 0L;
     } else if (__VERIFIER_nondet_int()){
         return (long)0x00000127;
@@ -3351,6 +3351,10 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     Status = -1073741789L;
                                   } else {
                                     {
+                                    UNICODE_STRING s;
+                                    PARPORT_REMOVAL_RELATIONS cmd;
+                                    cmd.DeviceName = &s;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     removalRelations = Irp->AssociatedIrp.SystemBuffer;
 /*                                     PptDumpPptRemovalRelationsStruct(removalRelations); */ /* INLINED */
                                     PptDumpRemovalRelationsList(Extension);
@@ -3377,6 +3381,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     Status = -1073741789L;
                                   } else {
                                     {
+                                    PARPORT_REMOVAL_RELATIONS cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     removalRelations___0 = Irp->AssociatedIrp.SystemBuffer;
 /*                                     PptDumpPptRemovalRelationsStruct(Irp->AssociatedIrp.SystemBuffer); */ /* INLINED */
                                     PptDumpRemovalRelationsList(Extension);
@@ -3456,6 +3462,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   if (IrpSp->Parameters.DeviceIoControl.OutputBufferLength < (ULONG )sizeof(PARALLEL_PORT_INFORMATION )) {
                                     Status = -1073741789L;
                                   } else {
+                                    PARALLEL_PORT_INFORMATION cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Irp->IoStatus.Information = sizeof(PARALLEL_PORT_INFORMATION );
                                     PortInfo = Irp->AssociatedIrp.SystemBuffer;
                                     *PortInfo = Extension->PortInfo;
@@ -3473,6 +3481,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   if (IrpSp->Parameters.DeviceIoControl.OutputBufferLength < (ULONG )sizeof(PARALLEL_PNP_INFORMATION )) {
                                     Status = -1073741789L;
                                   } else {
+                                    PARALLEL_PNP_INFORMATION cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Irp->IoStatus.Information = sizeof(PARALLEL_PNP_INFORMATION );
                                     PnpInfo = Irp->AssociatedIrp.SystemBuffer;
                                     *PnpInfo = Extension->PnpInfo;
@@ -3485,6 +3495,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   if (IrpSp->Parameters.DeviceIoControl.OutputBufferLength < (ULONG )sizeof(MORE_PARALLEL_PORT_INFORMATION )) {
                                     Status = -1073741789L;
                                   } else {
+                                    MORE_PARALLEL_PORT_INFORMATION cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Irp->IoStatus.Information = sizeof(MORE_PARALLEL_PORT_INFORMATION );
                                     MorePortInfo = Irp->AssociatedIrp.SystemBuffer;
                                     MorePortInfo->InterfaceType = Extension->InterfaceType;
@@ -3638,6 +3650,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     {
                                     }
                                     {
+                                    struct _PARALLEL_CHIP_MODE cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Status = PptSetChipMode(Extension, ((struct _PARALLEL_CHIP_MODE *)Irp->AssociatedIrp.SystemBuffer)->ModeFlags);
                                     }
                                   }
@@ -3651,6 +3665,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     {
                                     }
                                     {
+                                    struct _PARALLEL_CHIP_MODE cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Status = PptClearChipMode(Extension, ((struct _PARALLEL_CHIP_MODE *)Irp->AssociatedIrp.SystemBuffer)->ModeFlags);
                                     }
                                   }
@@ -3675,6 +3691,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                       Status = -1073741536L;
                                     } else {
                                       {
+                                      PARALLEL_1284_COMMAND cmd;
+                                      Irp->AssociatedIrp.SystemBuffer = &cmd;
                                       Status = PptTrySelectDevice(Extension, Irp->AssociatedIrp.SystemBuffer);
 /*                                      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                       }
@@ -3716,6 +3734,8 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     Status = -1073741789L;
                                   } else {
                                     {
+                                    PARALLEL_1284_COMMAND cmd;
+                                    Irp->AssociatedIrp.SystemBuffer = &cmd;
                                     Status = PptDeselectDevice(Extension, Irp->AssociatedIrp.SystemBuffer);
                                     }
                                   }
@@ -4314,6 +4334,7 @@ NTSTATUS PptDeselectDevice(PVOID Context , PVOID DeselectCommand )
 }
 ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension ) 
 { UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4466,6 +4487,7 @@ ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension )
 BOOLEAN PptCheckIfNon1284_3Present(PDEVICE_EXTENSION Extension ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4533,6 +4555,7 @@ BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyInd
                             BOOLEAN bNoStrobe ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4644,6 +4667,7 @@ BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyInd
 BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyIndex ) 
 { BOOLEAN bReturnValue ;
   UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4757,6 +4781,7 @@ BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisy
 }
 BOOLEAN PptSend1284_3Command(PDEVICE_EXTENSION DeviceExtension , UCHAR Command ) 
 { UCHAR i = __VERIFIER_nondet_char() ;
+  assume_abort_if_not(i < 7);
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR test ;
@@ -8160,6 +8185,7 @@ void PptLegacyZipClockPrtModeByte(PUCHAR Controller , UCHAR ModeByte )
 }
 void PptLegacyZipSetDiskMode(PUCHAR Controller , UCHAR Mode ) 
 { ULONG i = __VERIFIER_nondet_long() ;
+  assume_abort_if_not(i < 3);
 
   {
   {
@@ -8290,6 +8316,7 @@ NTSTATUS PptTrySelectLegacyZip(PVOID Context , PVOID TrySelectCommand )
 }
 NTSTATUS PptDeselectLegacyZip(PVOID Context , PVOID DeselectCommand ) 
 { ULONG i = __VERIFIER_nondet_long() ;
+  assume_abort_if_not(i < 3);
   PDEVICE_EXTENSION Extension ;
   PUCHAR Controller ;
   PPARALLEL_1284_COMMAND Command ;
@@ -9681,8 +9708,28 @@ int main(void)
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  d.DeviceObject = &devobj;
+  struct _DEVICE_EXTENSION *e = malloc(sizeof(struct _DEVICE_EXTENSION));
+  devobj.DeviceExtension = e;
+  e->RemovalRelationsList.Flink = &e->RemovalRelationsList;
+  e->RemovalRelationsList.Blink = &e->RemovalRelationsList;
+  e->IsrList.Flink = &e->IsrList;
+  e->IsrList.Blink = &e->IsrList;
+  e->WorkQueue.Flink = &e->WorkQueue;
+  e->WorkQueue.Blink = &e->WorkQueue;
   s = __VERIFIER_nondet_int();
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  for(int i = 0; i < 4; ++i)
+  {
+    irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation[i].
+      Parameters.FilterResourceRequirements.IoResourceRequirementList =
+      malloc(sizeof(struct _IO_RESOURCE_REQUIREMENTS_LIST));
+    struct _CM_RESOURCE_LIST *l = malloc(sizeof(struct _CM_RESOURCE_LIST));
+    l->Count = 1;
+    l->List[0].PartialResourceList.Count = 1;
+    irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation[i].
+      Parameters.StartDevice.AllocatedResourcesTranslated = l;
+  }
   /* ensure a bounded number of subsequent decrements do not result in stack underflow */
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
 
@@ -9754,6 +9801,10 @@ int main(void)
                       goto switch_328_break;
                       switch_328_3: /* CIL Label */ 
                       {
+                      struct _IO_RESOURCE_REQUIREMENTS_LIST rl;
+                      rl.List[0].Count = 1;
+                      rl.AlternativeLists = 1;
+                      pirp->IoStatus.Information = &rl;
                       status = PptDispatchPnp(& devobj, pirp);
                       }
                       goto switch_328_break;
