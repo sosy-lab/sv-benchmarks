@@ -5,6 +5,7 @@ input_files: 'if_etherip-fixed-double-free-invalid-deref1.i'
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+    subproperty: valid-deref
 
 options:
   language: C
