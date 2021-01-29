@@ -123,7 +123,7 @@ There are several 'default' specifications that many people use:
   - [termination](c/PropertyTermination.prp):
     The program must terminate on all execution paths.
 
-The above specifications are used, e.g., by SV-COMP, and the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php)
+The above specifications are used, e.g., by SV-COMP, and the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php)
 explains those specifications.
 
 ### Parameters
@@ -165,7 +165,7 @@ The dictionary `options` can contain additional data that are not mentioned abov
 The [SV-COMP 2019 report] has documented the first version of the repository's task-definition format 1.0,
 and contains a description of the format with an example in Sect. 4 and Fig. 3.
 Format 2.0 adds the `options` dictionary.
-Here as example an extract of the task-definition file [c/list-properties/list-1.yml]:
+Here as example an extract of the task-definition file [c/list-properties/list-1.yml](c/list-properties/list-1.yml):
 
 ```
 format_version: '2.0'
