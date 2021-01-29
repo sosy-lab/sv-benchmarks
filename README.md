@@ -154,7 +154,7 @@ For each program, the repository contains a .yml file that specifies the followi
   - `options`: parameters that are relevant for verification or give extra information:
     - `language`: programming language that the program is written in (`C` or `Java`)
     - `data_model` data model of the computer architecture
-      (`ILP32`, `LP64`, see http://www.unix.org/whitepapers/64bit.html, only for `C` programs)
+      (`ILP32`, `LP64`, see https://www.unix.org/whitepapers/64bit.html, only for `C` programs)
 
 Optional items are explicitly marked as optional, all other items are mandatory.
 The dictionary `options` can contain additional data that are not mentioned above.
