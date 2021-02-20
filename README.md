@@ -123,8 +123,19 @@ There are several 'default' specifications that many people use:
   - [termination](c/termination.prp):
     The program must terminate on all execution paths.
 
-The above specifications are used, e.g., by SV-COMP, and the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php)
+The above specifications are used, e.g., by SV-COMP, and the [competition reports](https://doi.org/10.1007/978-3-030-45237-7_21)
 explains those specifications.
+
+### Test Specifications
+
+The following are some 'default' specifications that many people use for test-case generation:
+  - [coverage-branches](c/coverage-branches.prp):
+    The generated test suite should cover all branches of the program.
+  - [coverage-error-call](c/coverage-error-call.prp):
+    The generated test suite should contain (at least) one test case that covers the call of a certain function.
+
+The above test specifications are used, e.g., by Test-Comp, and the [competition reports](https://doi.org/10.1007/978-3-030-45234-6_25)
+define those specifications.
 
 ### Parameters
 
