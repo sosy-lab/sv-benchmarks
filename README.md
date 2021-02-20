@@ -108,19 +108,19 @@ is expected to satisfy property `unreach-call` and to violate property `terminat
 
 There are some old programs that have ending `.c` although they are preprocessed.
 
-### Specifications
+### Behavioral Specifications
 
 There are several 'default' specifications that many people use:
-  - [unreach-call](c/PropertyUnreachCall.prp):
+  - [unreach-call](c/unreach-call.prp):
     A certain function call must not be reachable in the program.
-  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/PropertyMemSafety.prp):
+  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/valid-memsafety.prp):
     A certain memory safety property must hold in the program.
     "memsafety" is the conjunction the other three properties.
-  - [valid-memcleanup](c/PropertyMemCleanup.prp):
+  - [valid-memcleanup](c/valid-memcleanup.prp):
     All allocated memory must be deallocated before the program terminates (note that this is stronger then avoiding memory leaks).
-  - [no-overflow](c/PropertyNoOverflow.prp):
+  - [no-overflow](c/no-overflow.prp):
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
-  - [termination](c/PropertyTermination.prp):
+  - [termination](c/termination.prp):
     The program must terminate on all execution paths.
 
 The above specifications are used, e.g., by SV-COMP, and the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php)
