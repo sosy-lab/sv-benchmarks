@@ -19,7 +19,5 @@ Run `make tasks` to recreate the tasks.
   * OS: Ubuntu 18.04
   * g++: version 7.4.0
 
-[License](License)
-
 [1]: https://github.com/vsahil/XCSP3_to_C/tree/master/benchmarks
 [2]: https://github.com/vsahil/XCSP3_to_C
