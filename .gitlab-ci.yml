@@ -124,6 +124,13 @@ java-format:
     paths:
       - "java/*.jar"
 
+check-links:
+    stage: checks
+    image:
+        name: ghcr.io/tcort/markdown-link-check:stable
+        entrypoint: [""]
+    script: "find . -name '*.md' | xargs -n 1 /src/markdown-link-check"
+
 .build-docker:
   image:
     name: gcr.io/kaniko-project/executor:debug
