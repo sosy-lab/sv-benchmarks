@@ -6,7 +6,6 @@ input_files: 'Collatz.c'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
-  - property_file: ../properties/termination.prp
 
 options:
   language: C
