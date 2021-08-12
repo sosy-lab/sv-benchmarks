@@ -1,0 +1,8 @@
+format_version: '2.0'
+input_files: 'display-bit.c'
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+options:
+  language: C
+  data_model: LP64
