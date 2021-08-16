@@ -43,11 +43,11 @@ do
     # if propertyfile is empty then skip the directory otherwise analyse/preprocess the directory
     if [ -z "$property_file" ]
     then
-        echo "SKIPPING directory ${folder} because of missing propertyfile"
+        echo "SKIPPING directory '${folder}' because of missing propertyfile"
         continue
     fi
 
-    echo "PROCESSING directory ${folder} with property file ${property_file}"
+    echo "PROCESSING directory '${folder}' with property file '${property_file}'"
 
     output_folder="${folder}/preprocessed"
     mkdir -p "${output_folder}"
