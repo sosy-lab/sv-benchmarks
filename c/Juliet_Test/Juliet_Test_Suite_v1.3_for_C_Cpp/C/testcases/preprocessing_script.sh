@@ -12,7 +12,7 @@
 
 
 # options for preprocessing
-OPTIONS="-E -D INCLUDEMAIN=1 -m64 -I "../../testcasesupport""
+OPTIONS="-E -P -D INCLUDEMAIN=1 -m64 -I "../testcasesupport""
 
 # property_file
 property_file=" "
@@ -20,17 +20,12 @@ property_file=" "
 #for loop runs over all folders in testcases
 for folder in */
 do
-    # current folder
-    echo "$folder"
-
-    cd "$folder"
-        
     # get the matching property_file for the CWE-Id
     cwe_folder="$(basename $folder)" # get the plain directory name
     cwe="${cwe_folder%${cwe_folder#??????}}" # extract the first 6 chars from the string
 
     case "$cwe" in
-    
+
         "CWE191")
             property_file="../../properties/no-overflow.prp"
             ;;
@@ -48,67 +43,50 @@ do
     # if propertyfile is empty then skip the directory otherwise analyse/preprocess the directory
     if [ -z "$property_file" ]
     then
-        echo "skipping directory because of missing propertyfile"
-        cd -
+        echo "SKIPPING directory ${folder} because of missing propertyfile"
         continue
-    else
-        echo "analysing directory"
     fi
-    
-    #creates a new folder for the preprocessed/yml files
-    mkdir -p "${folder%/}_preprocessed"
-    
+
+    echo "PROCESSING directory ${folder} with property file ${property_file}"
+
+    output_folder="${folder}/preprocessed"
+    mkdir -p "${output_folder}"
+
     #while loop through all c files in the current folder
-    find . -iname "*.c" | while read f
+    find "${folder}" -iname "*.c" | while read f
     do
+        echo -ne "." # one dot per file to see progress
+
         # get the plain file name
         file="$(basename $f)"
-         
-        # get the preprocessed file with OMITGOOD=1 and saved into the new folder
-        gcc -D OMITGOOD=1  $OPTIONS "$f" > "${folder%/}_preprocessed"/"${file%.c}_bad.i"
+        badfile="${file%.c}_bad"
+        goodfile="${file%.c}_good"
 
+        # get the preprocessed file with OMITGOOD=1/OMITBAD=1
+        gcc -D OMITGOOD=1 $OPTIONS "$f" -o "${output_folder}/${badfile}.i"
+        gcc -D OMITBAD=1 $OPTIONS "$f" -o "${output_folder}/${goodfile}.i"
 
-        #content_bad for the .yml file
-        content_bad="format_version: '2.0'\n
-        \ninput_files: "${f%.c}_bad.i"\n
-        \nproperties:\n
-        -property_file: "$property_file"\n
-        expected_verdict: false\n
-        \noptions:\n
-        language: C\n
-        data_model: LP64"
-             
-         
-        #created .yml file matching the new preprocessed _bad file
-        touch "${folder%/}_preprocessed"/"${file%.c}_bad.yml"
-         
-        #writing content_bad into the .yml file
-        echo -e $content_bad >> "${folder%/}_preprocessed"/"${file%.c}_bad.yml"
-      
-        
-         
-        # get the preprocessed file with OMITBAD=1 and saved into the new folder
-        gcc -D OMITBAD=1 $OPTIONS "$f" > "${folder%/}_preprocessed"/"${file%.c}_good.i"
-         
-        #content_good for the yml file
-        content_good="format_version: '2.0'\n
-        \ninput_files: "${f%.c}_good.i"\n
-        \nproperties:\n
-        -property_file: "$property_file"\n
-        expected_verdict: true\n
-        \noptions:\n
-        language: C\n
-        data_model: LP64"
+        #write the .yml files
+        echo "format_version: '2.0'
+input_files: '${badfile}.i'
+properties:
+  - property_file: '$property_file'
+    expected_verdict: false
+options:
+  language: C
+  data_model: LP64
+" > "${output_folder}/${badfile}.yml"
 
-        # created .yml file matching the new preprocessed _good file
-        touch "${folder%/}_preprocessed"/"${file%.c}_good.yml"
-         
-        # writing content_good into the .yml file
-        echo -e $content_good >> "${folder%/}_preprocessed"/"${file%.c}_good.yml"
+        echo "format_version: '2.0'
+input_files: '${goodfile}.i'
+properties:
+  - property_file: '$property_file'
+    expected_verdict: true
+options:
+  language: C
+  data_model: LP64
+" > "${output_folder}/${goodfile}.yml"
 
     done
-    cd -
+    echo "" # newline after the dots above
 done
-
-
-
