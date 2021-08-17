@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Y. Cyrus Liu <yliu195@stevens.edu>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 C programs with bitvector operations for termination analysis with bitwise braching, bithacks adopted from 
 [bithacks optimization](https://graphics.stanford.edu/~seander/bithacks.html)
 
