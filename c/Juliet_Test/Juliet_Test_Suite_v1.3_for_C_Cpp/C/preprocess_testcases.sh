@@ -40,7 +40,7 @@ do
             property_file="no-overflow.prp"
             ;;
 
-        "CWE119" | "CWE125" | "CWE415"  | "CWE401" | "CWE416"  | "CWE762"  | "CWE787"  | "CWE843")
+        "CWE119" | "CWE125" | "CWE415" | "CWE401" | "CWE416" | "CWE787" | "CWE843")
             property_file="valid-memsafety.prp"
             ;;
 
