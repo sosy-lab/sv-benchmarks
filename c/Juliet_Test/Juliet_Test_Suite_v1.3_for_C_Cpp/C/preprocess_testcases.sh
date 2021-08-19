@@ -1,15 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This file is part of the SV-Benchmarks collection of verification tasks:
 # https://github.com/sosy-lab/sv-benchmarks
 # SPDX-FileCopyrightText: 2020 The SV-Benchmarks Community
 # SPDX-License-Identifier: CC0-1.0
 
-# This script can only be called from sv-benchmarks/c/Juliet_Test/Juliet_Test_Suite_v1.3_for_C_Cpp/C/testcases
-# Running this script the .c files in each CWE directory are preprocessed and a _bad.i , _good.i and .yml file are created for each .c file.
-# The preprocessed/yml files are saved in the preprocessed folder in each CWE directory in testcases.
+# Running this script the .c files in each CWE directory are preprocessed
+# and a _bad.i , _good.i and .yml file are created for each .c file.
+# The preprocessed/yml files are saved in the preprocessed folder
+# in each CWE directory in testcases.
 # Files with a windows.h header can only be preprocessed on a windows system.
 
+set -euo pipefail
+
+# change into the directory of this script
+cd "$( dirname "${BASH_SOURCE[0]}")"
+
+# use environment variable CC if available or fallback to plain gcc
+CC="${CC:-gcc}"
 
 # options for preprocessing
 OPTIONS="-E -P -D INCLUDEMAIN=1 -m64 -I "../testcasesupport""
@@ -18,7 +26,7 @@ OPTIONS="-E -P -D INCLUDEMAIN=1 -m64 -I "../testcasesupport""
 property_file=" "
 
 #for loop runs over all folders in testcases
-for folder in */
+for folder in testcases/*/
 do
     # get the matching property_file for the CWE-Id
     cwe_folder="$(basename $folder)" # get the plain directory name
@@ -63,8 +71,8 @@ do
         goodfile="${file%.c}_good"
 
         # get the preprocessed file with OMITGOOD=1/OMITBAD=1
-        gcc -D OMITGOOD=1 $OPTIONS "$f" -o "${output_folder}/${badfile}.i"
-        gcc -D OMITBAD=1 $OPTIONS "$f" -o "${output_folder}/${goodfile}.i"
+        $CC -D OMITGOOD=1 $OPTIONS "$f" -o "${output_folder}/${badfile}.i"
+        $CC -D OMITBAD=1 $OPTIONS "$f" -o "${output_folder}/${goodfile}.i"
 
         #write the .yml files
         echo "format_version: '2.0'
