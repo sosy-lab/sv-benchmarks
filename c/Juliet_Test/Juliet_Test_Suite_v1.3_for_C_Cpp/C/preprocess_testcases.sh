@@ -36,7 +36,7 @@ do
 
     case "$cwe" in
 
-        "CWE191")
+        "CWE190" | "CWE191")
             property_file="no-overflow.prp"
             ;;
 
