@@ -60,7 +60,7 @@ do
 
     echo "PROCESSING directory '${folder}' with property file '${property_file}'"
 
-    output_folder="${folder}/preprocessed"
+    output_folder="${folder}preprocessed"
     mkdir -p "${output_folder}"
 
     #while loop through all c files in the current folder
