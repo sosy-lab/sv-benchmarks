@@ -20,10 +20,12 @@ cd "$( dirname "${BASH_SOURCE[0]}")"
 CC="${CC:-gcc}"
 
 # options for preprocessing
-OPTIONS="-E -P -D INCLUDEMAIN=1 -m64 -I "../testcasesupport""
+OPTIONS="-E -P -D INCLUDEMAIN=1 -m64 -I testcasesupport"
 
 # property_file
-property_file=" "
+property_dir="../../../properties/"
+property_dir_relative_to_output_folder="../../../"${property_dir}
+property_file=""
 
 #for loop runs over all folders in testcases
 for folder in testcases/*/
@@ -35,17 +37,16 @@ do
     case "$cwe" in
 
         "CWE191")
-            property_file="../../properties/no-overflow.prp"
+            property_file="no-overflow.prp"
             ;;
 
         "CWE119" | "CWE125" | "CWE415"  | "CWE401" | "CWE416"  | "CWE762"  | "CWE787"  | "CWE843")
-            property_file="../../properties/valid-memorysafety.prp"
+            property_file="valid-memsafety.prp"
             ;;
 
         *)
             property_file=""
             ;;
-
     esac
 
     # if propertyfile is empty then skip the directory otherwise analyse/preprocess the directory
@@ -53,6 +54,8 @@ do
     then
         echo "SKIPPING directory '${folder}' because of missing propertyfile"
         continue
+    elif [ ! -f "${property_dir}${property_file}" ]; then
+        echo "WARNING directory '${property_dir}${property_file}' is referenced, but does not exist"
     fi
 
     echo "PROCESSING directory '${folder}' with property file '${property_file}'"
@@ -78,7 +81,7 @@ do
         echo "format_version: '2.0'
 input_files: '${badfile}.i'
 properties:
-  - property_file: '$property_file'
+  - property_file: '${property_dir_relative_to_output_folder}${property_file}'
     expected_verdict: false
 options:
   language: C
@@ -88,7 +91,7 @@ options:
         echo "format_version: '2.0'
 input_files: '${goodfile}.i'
 properties:
-  - property_file: '$property_file'
+  - property_file: '${property_dir_relative_to_output_folder}${property_file}'
     expected_verdict: true
 options:
   language: C
@@ -98,3 +101,4 @@ options:
     done
     echo "" # newline after the dots above
 done
+
