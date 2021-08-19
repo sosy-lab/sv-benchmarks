@@ -100,5 +100,10 @@ options:
 
     done
     echo "" # newline after the dots above
+
+    # write out a set file for further processing with BenchExec
+    set_folder="set-files"
+    mkdir -p ${set_folder}
+    echo "${output_folder}/*.yml" > ${set_folder}/${cwe_folder}.set
 done
 
