@@ -40,8 +40,12 @@ do
             property_file="no-overflow.prp"
             ;;
 
-        "CWE119" | "CWE125" | "CWE415" | "CWE401" | "CWE416" | "CWE787" | "CWE843")
+        "CWE119" | "CWE121" | "CWE122" | "CWE124" | "CWE125" | "CWE126" | "CWE127" | "CWE401" | "CWE415" | "CWE416" | "CWE476" | "CWE590" | "CWE761"| "CWE787" | "CWE789"| "CWE843" )
             property_file="valid-memsafety.prp"
+            ;;
+
+        "CWE835")
+            property_file="termination.prp"
             ;;
 
         *)
@@ -106,4 +110,3 @@ options:
     mkdir -p ${set_folder}
     echo "../${output_folder}/*.yml" > ${set_folder}/${cwe_folder}.set
 done
-
